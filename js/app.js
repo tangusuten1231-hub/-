@@ -7,6 +7,7 @@ import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
 import { loadImages, imageOf } from './images.js';
 import { TYPE_JA, USES, FAMILY } from './meta.js';
 import { ideasFor, RECIPES, plantsForNeed } from './enjoy.js';
+import { icon, tsupi, tsupiSays, TASK_ICON, PEST_ICON, MONTHLY_WORDS } from './mascot.js';
 import { art, ART_BY_ICON, ART_BY_RECIPE, MONTH_OLD, SEASON_EN, sekkiOf } from './art.js';
 import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
 import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile } from './db.js';
@@ -52,6 +53,7 @@ const state = {
   view: 'site',
   shop: store.get('shopName', ''),
   shopSite: store.get('shopSite', 'rakuten'),
+  theme: store.get('theme', 'auto'),
   openCards: new Set(),
   guideDone: store.get('guideDone', {}),
   cvSel: {},
@@ -140,6 +142,7 @@ async function loadClimate() {
     state.climate = cached.data;
     if (state.plan) computePlan();
     setStatus('');
+    $('#locCard').open = false;
     render();
     return;
   }
@@ -150,6 +153,7 @@ async function loadClimate() {
     store.set(key, { v: 1, data: state.climate });
     if (state.plan) computePlan();
     setStatus('');
+    $('#locCard').open = false;
   } catch (err) {
     setStatus(esc(err.message) + '　通信環境を確認してもう一度お試しください。', true);
   }
@@ -159,7 +163,8 @@ async function loadClimate() {
 // ---------- 描画 ----------
 function render() {
   const chip = $('#locChip');
-  chip.textContent = state.loc ? `📍 ${state.loc.name}${state.climate ? `・ゾーン${state.climate.zone.label}` : ''}` : '📍 場所を設定';
+  chip.innerHTML = icon('pin', 15) + esc(state.loc ? `${state.loc.name}${state.climate ? `・ゾーン${state.climate.zone.label}` : ''}` : '場所を設定');
+  $('#locSummary').textContent = state.loc ? `${state.loc.name}（タップで変更）` : '';
   const badge = $('#gardenBadge');
   badge.hidden = !state.garden.length;
   badge.textContent = state.garden.length;
@@ -192,6 +197,7 @@ function siteAdvice(c) {
 }
 
 function renderSite() {
+  renderHome();
   const box = $('#climateBox');
   const c = state.climate;
   if (!state.loc) { box.innerHTML = ''; return; }
@@ -418,12 +424,12 @@ function plantCard(rs) {
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p">${esc(p.note)}</p>
     ${p.uses?.length ? `<div class="uses">${p.uses.map((u) => `<span class="use" data-use="${u}">${USES[u].icon} ${USES[u].ja}</span>`).join('')}</div>` : ''}
-    ${p.tips?.length ? `<div class="tipbox">💡 ${p.tips.map(esc).join('<br>💡 ')}</div>` : ''}
+    ${p.tips?.length ? `<div class="tipbox">${p.tips.map((t) => `<p>${icon('bulb', 15)}${esc(t)}</p>`).join('')}</div>` : ''}
     ${pestBox(p)}
     ${p.custom ? `<p class="note-p" style="color:var(--muted)">マイ品種${p.shop ? `・購入店：${esc(p.shop)}` : ''}${p.url ? `・<a href="${esc(p.url)}" target="_blank" rel="noopener">商品ページ</a>` : ''}</p>` : ''}
     <div class="actions">
       ${p.custom ? `<button type="button" class="btn small" data-delcustom="${p.id}">削除</button>` : ''}
-      <a class="btn small" href="${shopUrl(p)}" target="_blank" rel="noopener">🛒 ${esc(shopLabel())}で探す</a>
+      <a class="btn small" href="${shopUrl(p)}" target="_blank" rel="noopener">${icon('cart', 16)}${esc(shopLabel())}で探す</a>
       ${state.filters.view === 'list' ? `<button type="button" class="btn small" data-close="${group}">閉じる</button>` : ''}
       <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイ庭に追加済み' : '＋ マイ庭に追加'}</button>
     </div>
@@ -516,7 +522,7 @@ function renderGarden() {
   const box = $('#gardenBox');
   const plants = state.garden.map((id) => byId.get(id));
   if (!plants.length) {
-    box.innerHTML = `<div class="card empty"><p>まだ植物がありません。</p><div class="row" style="justify-content:center"><button class="btn primary" type="button" data-go="plan">🎨 プランをつくる</button><button class="btn" type="button" data-go="plants">植物を探す</button></div></div>`;
+    box.innerHTML = `${tsupiSays('まだ植物がないみたい。プランを作るか、図鑑から気になる植物を集めてみよう！', 'sprout')}<div class="card empty"><div class="row" style="justify-content:center"><button class="btn primary" type="button" data-go="plan">🎨 プランをつくる</button><button class="btn" type="button" data-go="plants">植物を探す</button></div></div>`;
     return;
   }
   const c = state.climate;
@@ -589,7 +595,7 @@ function renderTasks() {
   const box = $('#tasksBox');
   const c = state.climate;
   if (!c) {
-    box.innerHTML = guideCard() + `<div class="card empty"><p>場所を設定すると、その地域の霜や暑さに合わせた作業カレンダーを作ります。</p><button class="btn primary" type="button" data-go="site">場所を設定</button></div>`;
+    box.innerHTML = tsupiSays('庭の場所を教えてくれたら、その土地の霜や暑さに合わせた作業カレンダーを作るよ。', 'think') + guideCard() + `<div class="card empty"><p>場所を設定すると、作業カレンダーが表示されます。</p><button class="btn primary" type="button" data-go="site">場所を設定</button></div>`;
     return;
   }
   const plants = state.garden.map((id) => byId.get(id));
@@ -607,7 +613,7 @@ function renderTasks() {
       return `<div class="card month-block${cur ? ' current' : ''}">
         <h2>${m}月${cur ? '<span class="pill">今月</span>' : ''}</h2>
         ${cur && blooming.length ? `<div class="blooming" style="margin-bottom:6px">${blooming.map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.ja)} が見頃</span>`).join('')}</div>` : ''}
-        ${list.map((t) => `<div class="task"><div class="ic" aria-hidden="true">${TASK_KIND[t.kind].icon}</div><div>
+        ${list.map((t) => `<div class="task"><div class="ic" aria-hidden="true">${icon(TASK_ICON[t.kind] || 'leaf', 18)}</div><div>
           <div class="t">${esc(t.title)}${t.risk ? ` <span class="risk r${t.risk}">${RISK_JA[t.risk]}</span>` : ''}</div><div class="d">${esc(t.detail)}</div>
           ${t.plants && !(t.plants.length === 1 && t.title.startsWith(t.plants[0].ja)) ? `<div class="p">対象：${t.plants.map((p) => esc(p.ja)).join('、')}</div>` : ''}
         </div></div>`).join('') || '<p class="hint">特別な作業はありません。庭を観察して楽しみましょう。</p>'}
@@ -748,7 +754,9 @@ function renderPlan() {
   const plan = state.plan;
   $('#btnPlanAlt').hidden = !plan;
   if (!plan) {
-    box.innerHTML = state.climate ? '' : '<p class="note">※ 先に「気候」タブで場所を設定すると、地域で育ちやすい植物だけでプランをつくります。</p>';
+    box.innerHTML = tsupiSays(state.climate
+      ? 'どんな庭にしたい？ 色や雰囲気を言葉で教えてね。「白と青」「蝶が来る」みたいな感じで大丈夫だよ。'
+      : '先に「ホーム」で庭の場所を教えてくれると、その土地で育ちやすい植物だけでプランを作れるよ。', 'think');
     return;
   }
   if (!plan.species.length) {
@@ -882,7 +890,7 @@ function regionPestCard(c) {
     <h2>この地域で注意したい病害虫</h2>
     <p class="hint">過去10年の気温・雨・雪から、起きやすいトラブルを推定しています。タップで対策を表示。</p>
     ${risks.map(({ pest, risk }) => `<details class="pest">
-      <summary>${KIND_ICON[pest.kind]} <b>${esc(pest.ja)}</b> <span class="risk r${risk}">${RISK_JA[risk]}</span></summary>
+      <summary>${icon(PEST_ICON[pest.kind], 17)} <b>${esc(pest.ja)}</b> <span class="risk r${risk}">${RISK_JA[risk]}</span></summary>
       <p class="d">${esc(pest.sign)}</p>
       <div class="pl"><b>予防</b><ul>${pest.prevent.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
       <div class="pl"><b>出てしまったら</b><ul>${pest.treat.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
@@ -893,7 +901,7 @@ function pestBox(p) {
   const list = pestsForPlant(p, state.climate).slice(0, 4);
   if (!list.length) return '';
   return `<details class="pest small"><summary>注意したい病害虫：${list.map(({ pest, risk }) => `${esc(pest.ja)}${risk >= 2 ? '⚠︎' : ''}`).join('・')}</summary>
-    ${list.map(({ pest }) => `<div class="pl"><b>${KIND_ICON[pest.kind]} ${esc(pest.ja)}</b>：${esc(pest.prevent[0])}。</div>`).join('')}
+    ${list.map(({ pest }) => `<div class="pl"><b>${esc(pest.ja)}</b>：${esc(pest.prevent[0])}。</div>`).join('')}
   </details>`;
 }
 
@@ -903,7 +911,7 @@ function guideCard() {
   const isDone = (st) => st.done === true || (st.done === null && state.guideDone[st.id]);
   const n = steps.filter(isDone).length;
   return `<details class="card guide" ${n < steps.length ? 'open' : ''}>
-    <summary><h2 style="display:inline">🔰 はじめての宿根草ガーデン <small>${n}/${steps.length}</small></h2></summary>
+    <summary><h2 style="display:inline">${icon('guide', 19)} はじめての宿根草ガーデン <small>${n}/${steps.length}</small></h2></summary>
     <div class="progress"><span style="width:${(n / steps.length) * 100}%"></span></div>
     <ol class="steps">${steps.map((st) => `<li class="${isDone(st) ? 'done' : ''}">
       <label class="st">${st.done === null ? `<input type="checkbox" data-guide="${st.id}" ${isDone(st) ? 'checked' : ''}>` : `<span class="auto">${st.done ? '✓' : '・'}</span>`}<b>${esc(st.title)}</b></label>
@@ -1147,7 +1155,8 @@ function renderEnjoy() {
     </section>
 
     ${tip ? `<section class="mag quote">
-      <span class="en">Garden Notes</span>
+      <div class="quote-bird">${tsupi('happy', 68)}</div>
+      <span class="en">Tsupi's Garden Notes</span>
       <blockquote>${esc(tip.t)}</blockquote>
       <p class="who">— ${esc(tip.p.groupJa)}</p>
       <button type="button" class="btn small ghost" id="nextTip">次の豆知識 →</button>
@@ -1178,7 +1187,7 @@ async function renderJournal() {
   const today = new Date().toISOString().slice(0, 10);
   const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
   box.innerHTML = `<div class="card">
-    <h2>📔 庭ノート</h2>
+    <h2>${icon('note', 19)} 庭ノート</h2>
     <p class="hint">開花・植え付け・気づいたことを写真と一緒に記録。この端末に保存され、バックアップにも含まれます。</p>
     <details class="note-form"><summary>＋ 記録を書く</summary>
       <div class="grid2">
@@ -1221,13 +1230,15 @@ async function renderBackup() {
   const last = store.get('lastBackup', null);
   const days = last ? Math.floor((Date.now() - new Date(last)) / 86400000) : null;
   box.innerHTML = `<div class="card">
-    <h2>💾 データの保存</h2>
+    <h2>${icon('save', 19)} データと表示</h2>
     <p class="hint">場所・マイ庭・プラン・登録した品種・庭ノートは、この端末のアプリ内に保存されています。機種変更や万一に備えて、ときどきファイルにバックアップしましょう。</p>
     <ul class="advice">
-      <li>端末への永続保存：${info.persisted === true ? '✅ 有効（ブラウザが自動で消さない設定）' : info.persisted === false ? '⚠️ 未許可（ホーム画面に追加して使うと消えにくくなります）' : '—'}</li>
+      <li>端末への永続保存：${info.persisted === true ? '有効（ブラウザが自動で消さない設定）' : info.persisted === false ? '未許可（ホーム画面に追加して使うと消えにくくなります）' : '—'}</li>
       <li>最後のバックアップ：${last ? `${esc(new Date(last).toLocaleDateString('ja-JP'))}（${days}日前）` : 'まだありません'}</li>
       ${info.usage != null ? `<li>使用容量：約${(info.usage / 1024 / 1024).toFixed(1)}MB</li>` : ''}
     </ul>
+    <div class="field"><span class="label">表示テーマ</span>
+      <div class="seg" id="themeSeg">${[['auto', '自動'], ['light', 'ライト'], ['dark', 'ダーク']].map(([k, v]) => `<button type="button" data-v="${k}" class="${state.theme === k ? 'on' : ''}">${v}</button>`).join('')}</div></div>
     ${days == null || days > 30 ? '<div class="alert warn">しばらくバックアップしていません。下のボタンで保存しておくと安心です。</div>' : ''}
     <div class="row" style="margin-top:10px">
       <button type="button" class="btn primary" id="bExport">バックアップを保存</button>
@@ -1236,6 +1247,14 @@ async function renderBackup() {
     </div>
     <p class="note">iPhoneでは共有メニューから「ファイルに保存」→ iCloud Drive を選ぶと、機種変更後も復元できます。</p>
   </div>`;
+  $('#themeSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    state.theme = b.dataset.v;
+    store.set('theme', state.theme);
+    applyTheme();
+    renderBackup();
+  });
   $('#bExport').addEventListener('click', async () => {
     const data = await exportAll();
     const name = `garden-backup-${new Date().toISOString().slice(0, 10)}.json`;
@@ -1255,24 +1274,94 @@ async function renderBackup() {
 }
 
 // ---------- 今週の天気と庭仕事 ----------
-async function weatherCard() {
-  if (!state.loc) return '';
+async function getForecast() {
+  if (!state.loc) return null;
   const key = `pg:wx:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`;
-  let days = null;
-  try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3 * 3600e3) days = c.d; } catch { /* なし */ }
-  if (!days) {
-    try { days = await fetchForecast(state.loc.lat, state.loc.lon); sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: days })); } catch { return ''; }
-  }
+  try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3 * 3600e3) return c.d; } catch { /* なし */ }
+  try {
+    const days = await fetchForecast(state.loc.lat, state.loc.lon);
+    try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: days })); } catch { /* 保存不可 */ }
+    return days;
+  } catch { return null; }
+}
+async function weatherCard() {
+  const days = await getForecast();
+  if (!days) return '';
   const month = new Date().getMonth() + 1;
   const adv = weatherAdvice(days, state.climate ? localMonth(month, state.climate.south) : month);
   return `<div class="card wx">
-    <h2>☁️ 今週の天気と庭仕事</h2>
+    <h2>${icon('cloud', 19)} 今週の天気と庭仕事</h2>
     <div class="wxrow">${days.map((d) => `<div class="wd"><span>${md(d.date).replace(/\(.\)/, '')}</span><span class="wi">${weatherIcon(d.code)}</span><b>${Math.round(d.tmax)}°</b><small>${Math.round(d.tmin)}°</small>${d.rain >= 1 ? `<small class="rn">${Math.round(d.rain)}mm</small>` : '<small>&nbsp;</small>'}</div>`).join('')}</div>
     ${adv.map((a) => `<div class="task"><div class="ic">${a.icon}</div><div><div class="t">${esc(a.title)}</div><div class="d">${esc(a.text)}</div></div></div>`).join('') || '<p class="hint">特に注意が必要な天気はありません。</p>'}
   </div>`;
 }
 
+
+// ---------- ホーム（今日の庭） ----------
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+function fillIcons(root = document) {
+  root.querySelectorAll('[data-ico]').forEach((el) => { el.innerHTML = icon(el.dataset.ico, el.closest('.tabbar') ? 23 : 17); });
+}
+async function renderHome() {
+  const box = $('#homeBox');
+  const c = state.climate;
+  if (!state.loc) {
+    box.innerHTML = tsupiSays('はじめまして、案内役のツピです。まずは庭の場所を教えてね。その土地の気候に合う植物を、いっしょに探そう！', 'hello');
+    return;
+  }
+  if (!c) { box.innerHTML = tsupiSays('気象データを調べているよ。少し待っててね。', 'think'); return; }
+  const now = new Date().getMonth() + 1;
+  const north = localMonth(now, c.south);
+  const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
+  const blooming = mine.filter((p) => p.bloom.includes(north));
+  const tasks = [...buildTasks(c, mine), ...pestTasks(c, mine)].filter((t) => t.month === now).slice(0, 3);
+  const ideas = ideasFor(north);
+  const idea = ideas[new Date().getDate() % Math.max(1, ideas.length)];
+  const word = MONTHLY_WORDS[north - 1] + (mine.length ? '' : ' まずは「プラン」で、庭のイメージを作ってみない？');
+  const pose = !mine.length ? 'sprout' : north === 12 || north <= 2 ? 'idle' : 'happy';
+  box.innerHTML = `
+    ${tsupiSays(esc(word), pose)}
+    <section class="card today">
+      <header class="sec"><span class="en">Today in the Garden</span><h2>今日の庭</h2></header>
+      <div id="homeWx"></div>
+      <div class="today-block">
+        <h3>${icon('calendar', 17)}今月の作業</h3>
+        ${tasks.length ? tasks.map((t) => `<div class="mini-task"><span class="ic">${icon(TASK_ICON[t.kind] || 'leaf', 16)}</span><span>${esc(t.title)}</span></div>`).join('') : '<p class="hint">急ぎの作業はありません。庭を眺めて楽しみましょう。</p>'}
+        <button type="button" class="link" data-go="tasks">作業暦を見る ${icon('arrow', 14)}</button>
+      </div>
+      ${blooming.length ? `<div class="today-block">
+        <h3>${icon('leaf', 17)}いま見頃</h3>
+        <div class="blooming">${blooming.slice(0, 8).map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.cv || p.groupJa)}</span>`).join('')}</div>
+      </div>` : ''}
+      ${idea ? `<button type="button" class="today-idea" data-go="enjoy">
+        <span class="art-box">${art(ART_BY_ICON[idea.icon])}</span>
+        <span class="ti"><span class="en">This Month</span><b>${esc(idea.title)}</b><small>${esc(idea.text)}</small></span>
+      </button>` : ''}
+    </section>
+    <div class="quick">
+      <button type="button" data-go="plan">${icon('plan', 22)}<span>プラン作成</span></button>
+      <button type="button" data-go="plants">${icon('book', 22)}<span>図鑑</span></button>
+      <button type="button" data-go="garden">${icon('note', 22)}<span>庭ノート</span></button>
+      <button type="button" data-go="enjoy">${icon('cup', 22)}<span>楽しむ</span></button>
+    </div>
+    <header class="sec" style="margin-top:22px"><span class="en">Climate</span><h2>庭の気候</h2></header>`;
+  const days = await getForecast();
+  const slot = $('#homeWx');
+  if (!days || !slot) return;
+  const adv = weatherAdvice(days, north).sort((a, b) => b.level - a.level).slice(0, 2);
+  const d0 = days[0];
+  slot.innerHTML = `<div class="wx-today"><span class="wi">${weatherIcon(d0.code)}</span><span><b>今日 ${Math.round(d0.tmax)}°</b> / ${Math.round(d0.tmin)}°${d0.rain >= 1 ? `・雨 ${Math.round(d0.rain)}mm` : ''}</span></div>
+    ${adv.map((a) => `<div class="wx-adv lv${a.level}"><b>${esc(a.title)}</b>${esc(a.text)}</div>`).join('')}`;
+}
+
 // ---------- 起動 ----------
+applyTheme();
+fillIcons();
+$('#brandBird').innerHTML = tsupi('idle', 34);
+if (state.loc) $('#locCard').open = false;
 initFilters();
 initPlanForm();
 initCustomForm();
