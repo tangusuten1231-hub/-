@@ -68,11 +68,12 @@ test('スタイルの特徴が反映される', () => {
 
 test('品種の登録と削除', () => {
   const before = PLANTS.length;
+  const n0 = PLANTS.filter((x) => x.group === 'echinacea').length;
   const p = addCustom({ uid: 't1', group: 'echinacea', cv: 'テスト', color: ['orange'], bloom: [7, 8], h: [50, 70], price: 1500 });
   assert.equal(PLANTS.length, before + 1);
   assert.deepEqual(p.color, ['orange']);
   assert.deepEqual(p.zone, [3, 9]);
-  assert.ok(PLANTS.filter((x) => x.group === 'echinacea').every((x) => x.cvCount === 11));
+  assert.ok(PLANTS.filter((x) => x.group === 'echinacea').every((x) => x.cvCount === n0 + 1));
   removeCustom(p.id);
   assert.equal(PLANTS.length, before);
 });

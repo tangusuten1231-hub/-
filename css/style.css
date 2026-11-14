@@ -214,7 +214,7 @@ details > summary { cursor: pointer; color: var(--accent); font-size: .88rem; ma
 /* タブバー */
 .tabbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
-  display: grid; grid-template-columns: repeat(5, 1fr);
+  display: grid; grid-template-columns: repeat(6, 1fr);
   background: var(--surface); border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -323,3 +323,64 @@ details.guide h2 small { font-weight: 400; color: var(--muted); font-size: .8rem
 .months-pick .chip { padding: 2px 8px; }
 details.principles summary { margin: 0 0 6px; }
 #customForm select, #customForm input[type=text], #customForm input[type=url], #customForm input[type=number] { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 8px 10px; min-height: 40px; }
+
+/* 図鑑 */
+.listbar { display: flex; gap: 8px; align-items: center; margin: 0 0 8px; }
+.listbar select { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 6px 8px; min-height: 36px; }
+.seg.small { flex: none; }
+.seg.small button { padding: 4px 12px; min-height: 30px; font-size: .8rem; }
+.plant-list.as-list { display: flex; flex-direction: column; gap: 6px; }
+.prow { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; cursor: pointer; }
+.prow .mini-photo { width: 52px; height: 52px; }
+.prow .pbody { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.prow .pname { font-weight: 700; font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prow .psub { font-size: .72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prow .months span { height: 5px; }
+.prow .ing { color: var(--accent); }
+.fam-head { margin: 14px 2px 4px; font-size: .9rem; }
+.fam-head small { color: var(--muted); font-weight: 400; font-style: italic; }
+.famline { font-size: .78rem; color: var(--ink-2); }
+.uses { display: flex; flex-wrap: wrap; gap: 4px; }
+.use { font-size: .72rem; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; cursor: pointer; background: var(--surface); }
+.tipbox { font-size: .8rem; background: color-mix(in srgb, var(--warn) 9%, var(--surface)); border-radius: 10px; padding: 8px 10px; color: var(--ink-2); line-height: 1.55; }
+
+/* 楽しむ */
+.idea { display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line); }
+.idea:first-of-type { border-top: 0; }
+.idea .ic { font-size: 1.3rem; width: 30px; text-align: center; flex: none; }
+.idea .t { font-weight: 700; font-size: .92rem; }
+.idea .d { font-size: .84rem; color: var(--ink-2); }
+.mine { font-size: .78rem; color: var(--accent); margin-top: 3px; }
+.mine.muted { color: var(--muted); }
+details.recipe { border-top: 1px solid var(--line); padding: 8px 0; }
+details.recipe:first-of-type { border-top: 0; }
+details.recipe summary { color: var(--ink); margin: 0; font-size: .92rem; list-style: none; }
+details.recipe summary::-webkit-details-marker { display: none; }
+details.recipe ol { margin: 6px 0; padding-left: 1.4em; font-size: .85rem; }
+details.recipe ol li { margin: 3px 0; }
+.rtips { margin: 4px 0; padding-left: 1.2em; font-size: .8rem; color: var(--ink-2); }
+.tip-card p { margin: 0 0 8px; font-size: .9rem; }
+.yr { display: flex; gap: 10px; font-size: .82rem; padding: 5px 0; border-top: 1px solid var(--line); }
+.yr:first-of-type { border-top: 0; }
+.yr b { width: 3em; flex: none; }
+.yr.cur b { color: var(--accent); }
+
+/* 庭ノート */
+.note-form { margin-bottom: 10px; }
+.note-form input[type=date], .note-form select { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 8px 10px; min-height: 40px; }
+.notes { display: flex; flex-direction: column; gap: 8px; }
+.note { display: flex; gap: 10px; align-items: flex-start; border-top: 1px solid var(--line); padding-top: 8px; }
+.note img { width: 84px; height: 84px; object-fit: cover; border-radius: 10px; flex: none; }
+.note .nb { flex: 1; min-width: 0; }
+.note .nd { font-size: .75rem; color: var(--muted); }
+.note .nt { font-size: .88rem; white-space: pre-wrap; word-break: break-word; }
+
+/* 天気 */
+.wxrow { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 8px; text-align: center; }
+.wd { display: flex; flex-direction: column; font-size: .68rem; color: var(--muted); gap: 1px; }
+.wd .wi { font-size: 1.2rem; }
+.wd b { color: var(--tmax); font-size: .82rem; }
+.wd small { color: var(--tmin); }
+.wd .rn { color: var(--prcp); }
+.seg.small button { white-space: nowrap; }
+.tabbar button { font-size: .66rem; letter-spacing: -.02em; }

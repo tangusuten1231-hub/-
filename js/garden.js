@@ -67,7 +67,10 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.month || p.bloom.includes(Number(f.month)))
     .filter((p) => !f.height || heightClass(p) === f.height)
     .filter((p) => !f.tag || p.tags.includes(f.tag))
-    .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '')).toLowerCase().includes(f.q.toLowerCase()))
+    .filter((p) => !f.family || p.family?.ja === f.family)
+    .filter((p) => !f.type || p.type === f.type)
+    .filter((p) => !f.use || p.uses?.includes(f.use))
+    .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '') + (p.family?.ja || '') + (p.family?.latin || '')).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
     .filter((r) => !f.minLevel || r.level == null || r.level >= f.minLevel)
     .sort((a, b) => (b.level ?? 0) - (a.level ?? 0) || a.plant.ja.localeCompare(b.plant.ja, 'ja'));

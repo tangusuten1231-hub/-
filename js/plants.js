@@ -11,7 +11,15 @@
 // cut: after / chelsea / spring / leaves / none, div: spring / autumn / both / none
 // type: herb / grass / subshrub / bulb, wiki: 画像取得用の Wikipedia（英語版）記事名
 
-import { CULTIVARS, EXTRA_BASE } from './cultivars.js';
+import { CULTIVARS as CV1, EXTRA_BASE } from './cultivars.js';
+import { MORE_BASE, MORE_CULTIVARS } from './more.js';
+import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, TIPS } from './meta.js';
+
+// 品種リストを統合（既存の種には追加、新しい種はそのまま）
+const CULTIVARS = { ...CV1 };
+for (const [k, v] of Object.entries(MORE_CULTIVARS)) {
+  CULTIVARS[k] = CULTIVARS[k] ? { ...CULTIVARS[k], list: [...CULTIVARS[k].list, ...v.list] } : v;
+}
 
 const BASE = [
   // ---- 日向の主役・夏〜秋 ----
@@ -189,7 +197,15 @@ function expand(bases) {
 }
 
 /** 全植物（品種ごとに1件） */
-export const PLANTS = expand([...BASE, ...EXTRA_BASE]);
+export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE]).map(decorate);
+
+/** 科・用途・ハーブ/在来種タグ・豆知識を付与 */
+function decorate(p) {
+  const tags = new Set(p.tags);
+  if (HERB_GROUPS.has(p.group)) tags.add('herb');
+  if (NATIVE_GROUPS.has(p.group)) tags.add('native');
+  return { ...p, tags: [...tags], family: familyOf(p.latin), uses: [...(USE_INDEX[p.group] || [])], tips: TIPS[p.group] || [] };
+}
 /** 自分で登録した品種を追加（種のデータを引き継ぐ） */
 export function addCustom(c) {
   const members = PLANTS.filter((p) => p.group === c.group);
@@ -205,6 +221,7 @@ export function addCustom(c) {
     price: c.price > 0 ? c.price : base.price,
     note: c.memo || '自分で登録した品種です。育て方は同じ種の他の品種を参考にしてください。', shop: c.shop || '', url: /^https?:\/\//.test(c.url || '') ? c.url : '',
   };
+  p.family = base.family; p.uses = base.uses; p.tips = base.tips;
   const lastIdx = PLANTS.lastIndexOf(members[members.length - 1]);
   PLANTS.splice(lastIdx + 1, 0, p);
   const n = members.length + 1;
@@ -252,6 +269,7 @@ export const FORMS = {
   airy: { ja: '霞・透け感' },
   mound: { ja: 'こんもり・葉物' },
   grass: { ja: 'グラス' },
+  fern: { ja: 'シダの葉' },
 };
 
 export const TAGS = {
@@ -265,6 +283,8 @@ export const TAGS = {
   fragrant: '香り',
   evergreen: '冬も緑',
   easy: '手間いらず',
+  herb: 'ハーブ',
+  native: '日本の在来種',
 };
 
 export const SUN = { full: '日向', part: '半日陰', shade: '日陰' };

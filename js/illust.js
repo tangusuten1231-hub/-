@@ -41,6 +41,24 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
   const fc = flowerHex(color);
   const out = [];
 
+  // シダ：弓なりの葉（羽状の小葉付き）
+  if (p.form === 'fern') {
+    const col = dormant ? STRAW : leaf;
+    const n = 9;
+    for (let i = 0; i < n; i++) {
+      const t = i / (n - 1) - 0.5;
+      const tx = cx + t * W * 1.15, ty = baseY - H * (0.55 + 0.4 * (1 - Math.abs(t) * 1.4)) * (0.85 + R() * 0.15);
+      const qx = cx + t * W * 0.3, qy = baseY - H * 1.05;
+      out.push(`<path d="M${r1(cx)},${baseY} Q${r1(qx)},${r1(qy)} ${r1(tx)},${r1(ty)}" stroke="${col}" stroke-width="1.4" fill="none"/>`);
+      for (let k = 2; k < 9; k++) {
+        const u = k / 9, x = (1 - u) ** 2 * cx + 2 * (1 - u) * u * qx + u * u * tx, y = (1 - u) ** 2 * baseY + 2 * (1 - u) * u * qy + u * u * ty;
+        const len = 7 * (1 - u * 0.6);
+        out.push(`<path d="M${r1(x)},${r1(y)} l${r1(-len * 0.7)},${r1(len * 0.5)} M${r1(x)},${r1(y)} l${r1(len * 0.7)},${r1(len * 0.5)}" stroke="${col}" stroke-width="1.6" stroke-linecap="round"/>`);
+      }
+    }
+    return out.join('');
+  }
+
   // グラス
   if (p.form === 'grass') {
     const n = 16;
@@ -221,7 +239,7 @@ export function planSVG(plan) {
 }
 
 /** 植物1種のイラスト（写真がないときのサムネイル） */
-export function plantThumbSVG(p, color = p.color[0], month = p.bloom[Math.floor(p.bloom.length / 2)]) {
+export function plantThumbSVG(p, color = p.color[0], month = p.bloom.length ? p.bloom[Math.floor(p.bloom.length / 2)] : 6) {
   const VW = 160, VH = 120, base = VH - 14;
   const sc = Math.min((VH - 30) / (p.h[1] / 100), (VW - 40) / (p.spread / 100));
   return `<svg viewBox="0 0 ${VW} ${VH}" preserveAspectRatio="xMidYMid slice" class="thumb-svg" role="img" aria-label="${p.ja}のイラスト">

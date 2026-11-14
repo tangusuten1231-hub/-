@@ -42,7 +42,10 @@
     <!-- 植物を探す -->
     <section class="view" id="view-plants" data-view="plants" hidden>
       <div class="card filters" id="filters">
-        <h2>植える場所の条件</h2>
+        <h2>植物図鑑</h2>
+        <div class="field">
+          <input id="fQ" type="search" data-filter="q" placeholder="名前・学名・科で検索（例：サルビア、キク科）" aria-label="植物を検索">
+        </div>
         <div class="field">
           <span class="label">日当たり</span>
           <div class="seg" data-filter="sun">
@@ -84,12 +87,28 @@
             <label class="label" for="fTag">雰囲気・用途</label>
             <select id="fTag" data-filter="tag"></select>
           </div>
-          <div class="field">
-            <label class="label" for="fQ">名前</label>
-            <input id="fQ" type="search" data-filter="q" placeholder="例：サルビア">
+          <div class="grid2">
+            <label class="field"><span class="label">科</span><select id="fFamily"></select></label>
+            <label class="field"><span class="label">種類</span><select id="fType"></select></label>
           </div>
+          <label class="field"><span class="label">楽しみ方・用途</span><select id="fUse"></select></label>
+          <button type="button" class="btn small" id="fReset">条件をリセット</button>
         </details>
         <label class="toggle"><input type="checkbox" id="fShowHard"> 育てにくい植物（△）も表示</label>
+      </div>
+      <div class="listbar">
+        <select id="fSort" aria-label="並び順">
+          <option value="fit">おすすめ順</option>
+          <option value="name">名前順（あいうえお）</option>
+          <option value="bloom">花の早い順</option>
+          <option value="height">背の高い順</option>
+          <option value="price">価格の安い順</option>
+          <option value="family">科ごと</option>
+        </select>
+        <div class="seg small" id="fView">
+          <button type="button" data-v="list">一覧</button>
+          <button type="button" data-v="card">カード</button>
+        </div>
       </div>
       <div class="row" style="margin:0 0 8px">
         <button class="btn small" id="btnCustom" type="button">＋ 品種を登録（お店で見つけた品種など）</button>
@@ -116,7 +135,12 @@
           <button class="btn" id="cCancel" type="button">閉じる</button>
         </div>
         <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
-        <label class="field"><span class="label">「お店で探す」に使う園芸店の名前</span><input id="shopName" type="text" maxlength="40"></label>
+        <div class="grid2">
+          <label class="field"><span class="label">「お店で探す」の検索先</span><select id="shopSite">
+            <option value="rakuten">楽天市場</option><option value="yahoo">Yahoo!ショッピング</option><option value="amazon">Amazon</option><option value="google">Google（店名を指定）</option>
+          </select></label>
+          <label class="field"><span class="label">店名（Google検索時）</span><input id="shopName" type="text" maxlength="40" placeholder="例：園芸店の名前"></label>
+        </div>
       </div>
       <p class="count" id="plantCount"></p>
       <div class="plant-list" id="plantList"></div>
@@ -173,6 +197,13 @@
     <!-- マイガーデン -->
     <section class="view" id="view-garden" data-view="garden" hidden>
       <div id="gardenBox"></div>
+      <div id="journalBox"></div>
+      <div id="backupBox"></div>
+    </section>
+
+    <!-- 楽しむ -->
+    <section class="view" id="view-enjoy" data-view="enjoy" hidden>
+      <div id="enjoyBox"></div>
     </section>
 
     <!-- 作業カレンダー -->
@@ -183,10 +214,11 @@
 
   <nav class="tabbar" aria-label="メニュー">
     <button type="button" data-go="site" class="active"><span aria-hidden="true">🌍</span>気候</button>
-    <button type="button" data-go="plants"><span aria-hidden="true">🌼</span>植物</button>
+    <button type="button" data-go="plants"><span aria-hidden="true">🌼</span>図鑑</button>
     <button type="button" data-go="plan"><span aria-hidden="true">🎨</span>プラン</button>
     <button type="button" data-go="garden"><span aria-hidden="true">🪴</span>マイ庭<b class="badge" id="gardenBadge" hidden></b></button>
     <button type="button" data-go="tasks"><span aria-hidden="true">📅</span>作業暦</button>
+    <button type="button" data-go="enjoy"><span aria-hidden="true">🍂</span>楽しむ</button>
   </nav>
 
   <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
