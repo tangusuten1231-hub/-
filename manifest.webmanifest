@@ -1,0 +1,14 @@
+{
+  "name": "宿根草ガーデンナビ",
+  "short_name": "ガーデンナビ",
+  "description": "位置情報から庭の気候を調べ、育つ宿根草と作業カレンダーを提案します。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f2eb",
+  "theme_color": "#3f7d4e",
+  "lang": "ja",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

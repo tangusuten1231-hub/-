@@ -1,0 +1,490 @@
+import { PLANTS, COLORS, SUN, MOIST } from './plants.js';
+import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
+import { sunSeasons } from './sun.js';
+import {
+  LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
+  buildTasks, TASK_KIND, localMonth,
+} from './garden.js';
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const byId = new Map(PLANTS.map((p) => [p.id, p]));
+const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
+
+// ---------- 保存（ブラウザ内） ----------
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('pg:' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('pg:' + k, JSON.stringify(v)); } catch { /* 保存不可でも動作は継続 */ } },
+};
+
+const state = {
+  loc: store.get('loc', null),
+  climate: null,
+  garden: store.get('garden', []).filter((id) => byId.has(id)),
+  filters: store.get('filters', { sun: '', moist: '', height: '', month: '', color: '', q: '' }),
+  showHard: false,
+  area: store.get('area', 3),
+  view: 'site',
+};
+
+// ---------- ナビゲーション ----------
+function go(view) {
+  state.view = view;
+  document.querySelectorAll('.view').forEach((v) => { v.hidden = v.dataset.view !== view; });
+  document.querySelectorAll('.tabbar button').forEach((b) => b.classList.toggle('active', b.dataset.go === view));
+  render();
+  window.scrollTo({ top: 0 });
+}
+document.addEventListener('click', (e) => {
+  const g = e.target.closest('[data-go]');
+  if (g) go(g.dataset.go);
+});
+
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.hidden = false;
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => { t.hidden = true; }, 2200);
+}
+
+// ---------- 場所の設定 ----------
+const statusEl = $('#siteStatus');
+function setStatus(html, isError = false) {
+  statusEl.innerHTML = html;
+  statusEl.classList.toggle('error', isError);
+}
+
+$('#btnGeo').addEventListener('click', () => {
+  if (!('geolocation' in navigator)) return setStatus('この端末では位置情報が使えません。地名で検索してください。', true);
+  setStatus('<span class="spinner"></span>現在地を取得しています…');
+  navigator.geolocation.getCurrentPosition(
+    async (pos) => {
+      const { latitude: lat, longitude: lon } = pos.coords;
+      const name = await reverseGeocode(lat, lon);
+      setLocation({ lat, lon, name: name || '現在地' });
+    },
+    (err) => {
+      const msg = err.code === 1 ? '位置情報の利用が許可されませんでした。' : '現在地を取得できませんでした。';
+      setStatus(msg + '地名で検索してください。', true);
+    },
+    { enableHighAccuracy: false, timeout: 15000, maximumAge: 600000 },
+  );
+});
+
+$('#searchForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const q = $('#searchInput').value.trim();
+  if (!q) return;
+  const ul = $('#searchResults');
+  ul.innerHTML = '';
+  setStatus('<span class="spinner"></span>検索中…');
+  try {
+    const list = await searchPlace(q);
+    setStatus(list.length ? '' : '見つかりませんでした。別の表記で試してください。', !list.length);
+    ul.innerHTML = list.map((r, i) => `<li><button type="button" data-i="${i}">${esc(r.name)}</button></li>`).join('');
+    ul.onclick = (ev) => {
+      const b = ev.target.closest('button[data-i]');
+      if (!b) return;
+      ul.innerHTML = '';
+      setLocation(list[Number(b.dataset.i)]);
+    };
+  } catch (err) {
+    setStatus(esc(err.message), true);
+  }
+});
+
+async function setLocation(loc) {
+  state.loc = loc;
+  store.set('loc', loc);
+  await loadClimate();
+}
+
+async function loadClimate() {
+  const { lat, lon } = state.loc;
+  const key = `climate:${lat.toFixed(2)},${lon.toFixed(2)}`;
+  const cached = store.get(key, null);
+  if (cached && cached.v === 1) {
+    state.climate = cached.data;
+    setStatus('');
+    render();
+    return;
+  }
+  setStatus('<span class="spinner"></span>過去10年の気象データを解析しています…');
+  try {
+    const json = await fetchDaily(lat, lon);
+    state.climate = { ...analyzeClimate(json.daily, lat), elevation: json.elevation };
+    store.set(key, { v: 1, data: state.climate });
+    setStatus('');
+  } catch (err) {
+    setStatus(esc(err.message) + '　通信環境を確認してもう一度お試しください。', true);
+  }
+  render();
+}
+
+// ---------- 描画 ----------
+function render() {
+  const chip = $('#locChip');
+  chip.textContent = state.loc ? `📍 ${state.loc.name}${state.climate ? `・ゾーン${state.climate.zone.label}` : ''}` : '📍 場所を設定';
+  const badge = $('#gardenBadge');
+  badge.hidden = !state.garden.length;
+  badge.textContent = state.garden.length;
+
+  if (state.view === 'site') renderSite();
+  if (state.view === 'plants') renderPlants();
+  if (state.view === 'garden') renderGarden();
+  if (state.view === 'tasks') renderTasks();
+}
+
+function siteAdvice(c) {
+  const out = [];
+  const z = c.zone.value;
+  if (z <= 5) out.push('冬の寒さが厳しい地域。耐寒性の高い北米・ヨーロッパ原産の宿根草がよく育ちます。');
+  else if (z <= 7.5) out.push('冬はしっかり冷え込み、多くの宿根草が休眠できる恵まれた気候です。');
+  else out.push('冬が温暖な地域。寒さに弱い暖地向きの宿根草も楽しめますが、冷涼地向きの植物は休眠不足に注意。');
+  if (c.annualSnow >= 100) out.push(`年間降雪は約${c.annualSnow}cm。積雪が断熱材になり、雪の下の宿根草は数値より寒さに耐えられます。`);
+  const stress = humidityStress(c);
+  if (stress === 3) out.push(`熱帯夜が年${Math.round(c.tropicalNights)}日。日本の宿根草づくりの最大の敵は「夏の蒸れ」。水はけのよい土・株間を広く・梅雨前の切り戻しを。`);
+  else if (stress === 2) out.push('夏はやや蒸し暑くなります。蒸れに弱い植物は風通しのよい場所へ。');
+  if (c.heatZone >= 8) out.push(`30℃以上の日が年${Math.round(c.hotDays)}日。西日を避けられる場所が宿根草の夏越しに有利です。`);
+  if (c.frostFree) out.push('霜がほとんど降りない地域。秋植えでも冬の間に根を張れます。');
+  else if (c.lastFrostSafe) out.push(`寒さに弱い苗の植え付けは、遅霜の心配が少ない${formatDoy(c.lastFrostSafe)}以降が安心です。`);
+  if (c.annualPrecip >= 1800) out.push(`年間降水量は約${c.annualPrecip}mm と多め。花壇は周囲より高く盛り土して水はけを確保しましょう。`);
+  else if (c.annualPrecip < 900) out.push(`年間降水量は約${c.annualPrecip}mm と少なめ。乾燥に強い植物が向いています。`);
+  return out;
+}
+
+function renderSite() {
+  const box = $('#climateBox');
+  const c = state.climate;
+  if (!state.loc) { box.innerHTML = ''; return; }
+  if (!c) { box.innerHTML = ''; return; }
+  const { lat, lon } = state.loc;
+  const frost = c.frostFree
+    ? '<div class="v">ほぼなし</div><div class="s">霜が降りる年は半分未満</div>'
+    : `<div class="v">${formatDoy(c.lastFrost)}</div><div class="s">初霜 ${formatDoy(c.firstFrost)}・無霜期間 約${Math.round(c.growingDays)}日</div>`;
+  const seasons = sunSeasons(lat);
+
+  box.innerHTML = `
+    <div class="card">
+      <h2>${esc(state.loc.name)} の庭の気候</h2>
+      <p class="hint">${lat >= 0 ? '北緯' : '南緯'} ${Math.abs(lat).toFixed(2)}° / ${lon >= 0 ? '東経' : '西経'} ${Math.abs(lon).toFixed(2)}°${c.elevation != null ? `・標高 約${Math.round(c.elevation)}m` : ''}・過去${c.years}年の平均</p>
+      <div class="tiles">
+        <div class="tile"><div class="k">耐寒性ゾーン（USDA）</div><div class="v">${c.zone.label}</div><div class="s">年最低気温の平均 ${c.avgMinTemp}℃</div></div>
+        <div class="tile"><div class="k">暑さゾーン（AHS）</div><div class="v">${c.heatZone}</div><div class="s">30℃以上 年${Math.round(c.hotDays)}日</div></div>
+        <div class="tile"><div class="k">終霜（0℃以下の最終日）</div>${frost}</div>
+        <div class="tile"><div class="k">熱帯夜（最低25℃以上）</div><div class="v">${Math.round(c.tropicalNights)}<small>日</small></div><div class="s">猛暑日 年${Math.round(c.veryHotDays)}日</div></div>
+        <div class="tile"><div class="k">年間降水量</div><div class="v">${c.annualPrecip.toLocaleString()}<small>mm</small></div><div class="s">梅雨〜夏の過湿に注意</div></div>
+        <div class="tile"><div class="k">年間降雪量</div><div class="v">${c.annualSnow}<small>cm</small></div><div class="s">過去最低 ${c.coldestTemp}℃</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>この地域の宿根草づくりのポイント</h2>
+      <ul class="advice">${siteAdvice(c).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+      <div class="row" style="margin-top:10px"><button class="btn primary" type="button" data-go="plants">この気候に合う植物を見る →</button></div>
+    </div>
+    <div class="card">
+      <h2>月別の平均気温</h2>
+      <div class="legend"><span><i style="background:var(--tmax)"></i>最高気温</span><span><i style="background:var(--tmin)"></i>最低気温</span></div>
+      <div class="chart-wrap">${tempChart(c.monthly)}</div>
+      <h2 style="margin-top:14px">月別の降水量</h2>
+      <div class="chart-wrap">${precipChart(c.monthly)}</div>
+      <details><summary>表で見る</summary>
+        <div class="scroll-x"><table class="data">
+          <tr><th>月</th><th>最高℃</th><th>最低℃</th><th>降水mm</th></tr>
+          ${c.monthly.map((m, i) => `<tr><td>${i + 1}月</td><td>${m.tmax}</td><td>${m.tmin}</td><td>${m.prcp}</td></tr>`).join('')}
+        </table></div>
+      </details>
+    </div>
+    <div class="card">
+      <h2>日当たりと影の目安</h2>
+      <p class="hint">建物や塀の北側がどれだけ日陰になるかの参考に。影の長さは南中時（正午ごろ）のものです。</p>
+      <div class="scroll-x"><table class="data">
+        <tr><th></th><th>南中高度</th><th>日の長さ</th><th>高さ2mの塀の影</th><th>日の出／入り</th></tr>
+        ${seasons.map((s) => `<tr><td>${s.label}</td><td>${s.altitude.toFixed(0)}°</td><td>${s.dayLength.toFixed(1)}時間</td><td>${Number.isFinite(s.shadow) ? (s.shadow * 2).toFixed(1) + 'm' : '—'}</td><td>${s.sunrise}／${s.sunset}</td></tr>`).join('')}
+      </table></div>
+      <p class="note">冬至に影になる場所は「日陰〜半日陰」向き、夏至だけ日が当たる場所は「半日陰」向きの植物を選びましょう。</p>
+    </div>
+    <p class="note">気象データ：Open-Meteo（ERA5 再解析）。約10km格子の値のため、市街地・谷・斜面など庭の微気候とは差が出ることがあります。</p>
+  `;
+  bindChartHover(box);
+}
+
+// --- グラフ（SVG） ---
+const CW = 340, CH = 150, PL = 30, PR = 8, PT = 8, PB = 22;
+const xAt = (i) => PL + ((CW - PL - PR) / 12) * (i + 0.5);
+
+function scale(min, max, step) {
+  const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let v = lo; v <= hi + 1e-9; v += step) ticks.push(v);
+  return { lo, hi, ticks, y: (v) => PT + (CH - PT - PB) * (1 - (v - lo) / (hi - lo || 1)) };
+}
+
+function axes(s, unit) {
+  const grid = s.ticks.map((t) => `<line class="grid" x1="${PL}" x2="${CW - PR}" y1="${s.y(t)}" y2="${s.y(t)}"/><text x="${PL - 4}" y="${s.y(t) + 3}" text-anchor="end">${t}${unit}</text>`).join('');
+  const xl = MONTHS.map((m, i) => (m % 2 ? `<text x="${xAt(i)}" y="${CH - 6}" text-anchor="middle">${m}月</text>` : '')).join('');
+  return grid + xl;
+}
+
+function hits(rows) {
+  const w = (CW - PL - PR) / 12;
+  return rows.map((tip, i) => `<rect class="hit" x="${PL + w * i}" y="${PT}" width="${w}" height="${CH - PT - PB}" data-x="${xAt(i)}" data-tip="${esc(tip)}"/>`).join('');
+}
+
+function tempChart(monthly) {
+  const vals = monthly.flatMap((m) => [m.tmax, m.tmin]);
+  const s = scale(Math.min(...vals, 0), Math.max(...vals), 10);
+  const path = (k) => monthly.map((m, i) => `${i ? 'L' : 'M'}${xAt(i).toFixed(1)},${s.y(m[k]).toFixed(1)}`).join('');
+  const zero = s.lo < 0 ? `<line x1="${PL}" x2="${CW - PR}" y1="${s.y(0)}" y2="${s.y(0)}" stroke="var(--muted)" stroke-width="1"/>` : '';
+  const pts = (k, col) => monthly.map((m, i) => `<circle cx="${xAt(i)}" cy="${s.y(m[k])}" r="3" fill="${col}" stroke="var(--surface)" stroke-width="1.5"/>`).join('');
+  return `<svg class="chart" viewBox="0 0 ${CW} ${CH}" role="img" aria-label="月別の平均最高・最低気温">
+    ${axes(s, '°')}${zero}
+    <line class="cross" x1="0" x2="0" y1="${PT}" y2="${CH - PB}" visibility="hidden"/>
+    <path class="line" d="${path('tmax')}" stroke="var(--tmax)"/>
+    <path class="line" d="${path('tmin')}" stroke="var(--tmin)"/>
+    ${pts('tmax', 'var(--tmax)')}${pts('tmin', 'var(--tmin)')}
+    ${hits(monthly.map((m, i) => `${i + 1}月｜最高 ${m.tmax}℃・最低 ${m.tmin}℃`))}
+  </svg>`;
+}
+
+function precipChart(monthly) {
+  const max = Math.max(...monthly.map((m) => m.prcp), 50);
+  const step = max > 300 ? 100 : 50;
+  const s = scale(0, max, step);
+  const w = (CW - PL - PR) / 12 - 6;
+  const bars = monthly.map((m, i) => {
+    const y = s.y(m.prcp), h = s.y(0) - y;
+    const r = Math.min(4, w / 2, h);
+    const x = xAt(i) - w / 2;
+    return `<path d="M${x},${s.y(0)}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${s.y(0)}Z" fill="var(--prcp)"/>`;
+  }).join('');
+  return `<svg class="chart" viewBox="0 0 ${CW} ${CH}" role="img" aria-label="月別の平均降水量">
+    ${axes(s, '')}${bars}
+    <line class="cross" x1="0" x2="0" y1="${PT}" y2="${CH - PB}" visibility="hidden"/>
+    ${hits(monthly.map((m, i) => `${i + 1}月｜降水量 ${m.prcp}mm`))}
+  </svg>`;
+}
+
+function bindChartHover(root) {
+  const tip = $('#tooltip');
+  root.querySelectorAll('svg.chart').forEach((svg) => {
+    const cross = svg.querySelector('.cross');
+    svg.addEventListener('pointermove', (e) => {
+      const r = e.target.closest('.hit');
+      if (!r) return;
+      tip.textContent = r.dataset.tip;
+      tip.hidden = false;
+      const tw = tip.offsetWidth;
+      tip.style.left = Math.max(8, Math.min(window.innerWidth - tw - 8, e.clientX - tw / 2)) + 'px';
+      tip.style.top = (e.clientY - 44) + 'px';
+      cross.setAttribute('x1', r.dataset.x); cross.setAttribute('x2', r.dataset.x);
+      cross.setAttribute('visibility', 'visible');
+    });
+    svg.addEventListener('pointerleave', () => { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); });
+  });
+}
+
+// ---------- 植物を探す ----------
+function initFilters() {
+  const fMonth = $('#fMonth');
+  fMonth.innerHTML = '<option value="">すべて</option>' + MONTHS.map((m) => `<option value="${m}">${m}月</option>`).join('');
+  $('#fColor').innerHTML = Object.entries(COLORS).map(([k, c]) => `<button type="button" class="chip" data-v="${k}"><span class="dot" style="background:${c.hex}"></span>${c.ja}</button>`).join('');
+
+  const f = state.filters;
+  document.querySelectorAll('#filters .seg').forEach((seg) => {
+    const key = seg.dataset.filter;
+    seg.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      f[key] = b.dataset.v;
+      saveFilters();
+    });
+  });
+  $('#fColor').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    f.color = f.color === b.dataset.v ? '' : b.dataset.v;
+    saveFilters();
+  });
+  fMonth.addEventListener('change', () => { f.month = fMonth.value; saveFilters(); });
+  $('#fQ').addEventListener('input', (e) => { f.q = e.target.value; saveFilters(); });
+  $('#fShowHard').addEventListener('change', (e) => { state.showHard = e.target.checked; renderPlants(); });
+}
+function saveFilters() { store.set('filters', state.filters); renderPlants(); }
+
+function monthBar(p, south) {
+  const on = new Set(p.bloom.map((m) => localMonth(m, south)));
+  const col = COLORS[p.color[0]].hex;
+  return `<div class="months" aria-label="開花 ${[...on].sort((a, b) => a - b).join('・')}月">${MONTHS.map((m) => `<span${on.has(m) ? ` style="background:${col}"` : ''}></span>`).join('')}</div>
+    <div class="months-label" aria-hidden="true">${MONTHS.map((m) => `<span>${m % 3 === 1 ? m : ''}</span>`).join('')}</div>`;
+}
+
+function plantCard(r) {
+  const p = r.plant;
+  const south = state.climate?.south;
+  const inGarden = state.garden.includes(p.id);
+  const lv = r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark} ${LEVEL[r.level].label}</span>` : '';
+  return `<article class="plant">
+    <div class="top">
+      <div>
+        <div class="name">${esc(p.ja)}</div>
+        <div class="latin">${esc(p.latin)}</div>
+        <div class="dots">${p.color.map((c) => `<span class="dot" title="${COLORS[c].ja}" style="background:${COLORS[c].hex}"></span>`).join('')}</div>
+      </div>
+      ${lv}
+    </div>
+    ${r.level ? `<ul class="reasons">${r.reasons.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    ${monthBar(p, south)}
+    <div class="meta">
+      <span>草丈 ${p.h[0]}〜${p.h[1]}cm</span>
+      <span>${p.sun.map((s) => SUN[s]).join('・')}</span>
+      <span>土：${p.moist.map((m) => MOIST[m]).join('・')}</span>
+      <span>耐寒 ${p.zone[0]}〜${p.zone[1]}</span>
+    </div>
+    <p class="note-p">${esc(p.note)}</p>
+    <div class="actions">
+      <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイガーデンに追加済み' : '＋ マイガーデンに追加'}</button>
+    </div>
+  </article>`;
+}
+
+function renderPlants() {
+  const f = state.filters;
+  document.querySelectorAll('#filters .seg').forEach((seg) => {
+    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (f[seg.dataset.filter] || '')));
+  });
+  document.querySelectorAll('#fColor .chip').forEach((b) => b.classList.toggle('on', b.dataset.v === f.color));
+  $('#fMonth').value = f.month || '';
+  if ($('#fQ').value !== (f.q || '')) $('#fQ').value = f.q || '';
+
+  const all = findPlants(state.climate, f);
+  const list = state.showHard ? all : all.filter((r) => r.level !== 1);
+  const hidden = all.length - list.length;
+  $('#plantCount').textContent = (state.climate ? '' : '※ 場所を設定すると、地域に合うかどうかを判定します。 ')
+    + `${list.length}種類${hidden ? `（育てにくい${hidden}種類を非表示）` : ''}`;
+  $('#plantList').innerHTML = list.map(plantCard).join('') || '<p class="empty">条件に合う植物がありません。条件をゆるめてみてください。</p>';
+}
+
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-toggle]');
+  if (!b) return;
+  const id = b.dataset.toggle;
+  const i = state.garden.indexOf(id);
+  if (i >= 0) state.garden.splice(i, 1); else state.garden.push(id);
+  store.set('garden', state.garden);
+  toast(i >= 0 ? `${byId.get(id).ja} を外しました` : `${byId.get(id).ja} をマイガーデンに追加しました`);
+  render();
+});
+
+// ---------- マイガーデン ----------
+function renderGarden() {
+  const box = $('#gardenBox');
+  const plants = state.garden.map((id) => byId.get(id));
+  if (!plants.length) {
+    box.innerHTML = `<div class="card empty"><p>まだ植物がありません。</p><button class="btn primary" type="button" data-go="plants">植物を探す</button></div>`;
+    return;
+  }
+  const c = state.climate;
+  const south = c?.south;
+  const now = new Date().getMonth() + 1;
+  const { counts, gaps } = bloomGaps(plants, c, south);
+  const sorted = [...plants].sort((a, b) => Math.min(...a.bloom.map((m) => localMonth(m, south))) - Math.min(...b.bloom.map((m) => localMonth(m, south))));
+
+  const cal = `<div class="cal" role="table" aria-label="開花カレンダー">
+    <div></div>${MONTHS.map((m) => `<div class="h">${m}</div>`).join('')}
+    ${sorted.map((p) => {
+      const on = new Set(p.bloom.map((m) => localMonth(m, south)));
+      const col = COLORS[p.color[0]].hex;
+      return `<div class="n" title="${esc(p.ja)}">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
+    }).join('')}
+    <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
+  </div>`;
+
+  const gapHtml = gaps.length
+    ? gaps.map((g) => `<div class="gap"><strong>${g.month}月</strong> は咲いている花がありません。${g.suggestions.length ? 'おすすめ：' : ''}
+        <div class="sugg">${g.suggestions.map((s) => `<button type="button" class="chip" data-toggle="${s.plant.id}"><span class="dot" style="background:${COLORS[s.plant.color[0]].hex}"></span>＋ ${esc(s.plant.ja)}${s.level ? ` ${LEVEL[s.level].mark}` : ''}</button>`).join('')}</div></div>`).join('')
+    : '<p class="hint">春から晩秋まで、途切れずに花が咲くリレーになっています。</p>';
+
+  const layers = ['back', 'middle', 'front'].map((k) => {
+    const list = plants.filter((p) => heightClass(p) === k);
+    if (!list.length) return '';
+    return `<div class="layer"><h3>${HEIGHT_LABEL[k]}<small>${k === 'back' ? '花壇の奥・北側' : k === 'front' ? '手前・縁取り' : '中ほど'}</small></h3>
+      ${list.map((p) => {
+        const r = evaluate(p, c);
+        const per = plantsPerSqm(p);
+        const share = state.area / plants.length;
+        const qty = Math.max(1, Math.round(per * share));
+        return `<div class="gplant">
+          <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>
+          <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
+          <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm</div></div>
+          <span class="qty">約${qty}株</span>
+          <button type="button" class="icon-btn" data-toggle="${p.id}" aria-label="${esc(p.ja)}を外す">✕</button>
+        </div>`;
+      }).join('')}</div>`;
+  }).join('');
+
+  box.innerHTML = `
+    <div class="card">
+      <h2>開花リレー</h2>
+      <p class="hint">植物ごとの開花月。枠線は今月です。</p>
+      <div class="scroll-x">${cal}</div>
+    </div>
+    <div class="card">
+      <h2>花の途切れる月</h2>
+      ${c ? '' : '<p class="hint">場所を設定すると、地域に合う植物だけを提案します。</p>'}
+      ${gapHtml}
+    </div>
+    <div class="card">
+      <h2>配置と株数の目安</h2>
+      <label class="area">花壇の面積 <input type="number" id="area" min="0.5" step="0.5" value="${state.area}" inputmode="decimal"> ㎡</label>
+      <p class="hint" style="margin-top:6px">面積を植物の種類数で等分した場合の株数です。同じ植物を3〜5株まとめて植えると自然で見栄えがよくなります。</p>
+      ${layers}
+    </div>`;
+
+  $('#area').addEventListener('change', (e) => {
+    const v = parseFloat(e.target.value);
+    if (v > 0) { state.area = v; store.set('area', v); renderGarden(); }
+  });
+}
+
+// ---------- 作業暦 ----------
+function renderTasks() {
+  const box = $('#tasksBox');
+  const c = state.climate;
+  if (!c) {
+    box.innerHTML = `<div class="card empty"><p>場所を設定すると、その地域の霜や暑さに合わせた作業カレンダーを作ります。</p><button class="btn primary" type="button" data-go="site">場所を設定</button></div>`;
+    return;
+  }
+  const plants = state.garden.map((id) => byId.get(id));
+  const tasks = buildTasks(c, plants);
+  const now = new Date().getMonth() + 1;
+  const order = MONTHS.map((_, i) => ((now - 1 + i) % 12) + 1);
+  const blooming = plants.filter((p) => p.bloom.map((m) => localMonth(m, c.south)).includes(now));
+
+  box.innerHTML = (plants.length ? '' : `<div class="card"><p class="hint" style="margin:0">マイガーデンに植物を追加すると、植物ごとの切り戻しや株分けの時期も表示されます。</p></div>`)
+    + order.map((m) => {
+      const list = tasks.filter((t) => t.month === m);
+      const cur = m === now;
+      if (!list.length && !cur) return '';
+      return `<div class="card month-block${cur ? ' current' : ''}">
+        <h2>${m}月${cur ? '<span class="pill">今月</span>' : ''}</h2>
+        ${cur && blooming.length ? `<div class="blooming" style="margin-bottom:6px">${blooming.map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.ja)} が見頃</span>`).join('')}</div>` : ''}
+        ${list.map((t) => `<div class="task"><div class="ic" aria-hidden="true">${TASK_KIND[t.kind].icon}</div><div>
+          <div class="t">${esc(t.title)}</div><div class="d">${esc(t.detail)}</div>
+          ${t.plants && !(t.plants.length === 1 && t.title.startsWith(t.plants[0].ja)) ? `<div class="p">対象：${t.plants.map((p) => esc(p.ja)).join('、')}</div>` : ''}
+        </div></div>`).join('') || '<p class="hint">特別な作業はありません。庭を観察して楽しみましょう。</p>'}
+      </div>`;
+    }).join('')
+    + `<p class="note">時期は${esc(state.loc.name)}の過去10年の終霜・初霜・暑さから計算した目安です。その年の天候に合わせて調整してください。</p>`;
+}
+
+// ---------- 起動 ----------
+initFilters();
+if (state.loc) loadClimate(); else render();
+go('site');
+
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}

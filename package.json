@@ -1,0 +1,11 @@
+{
+  "name": "perennial-garden-navi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "位置情報を使った宿根草ガーデンづくり支援アプリ",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test tests/*.test.js"
+  }
+}
