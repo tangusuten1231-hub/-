@@ -1,4 +1,7 @@
-import { PLANTS, COLORS, SUN, MOIST, TAGS, LEAF, FORMS } from './plants.js';
+import { PLANTS, COLORS, SUN, MOIST, TAGS, LEAF, FORMS, addCustom, removeCustom } from './plants.js';
+import { STYLES } from './styles.js';
+import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pests.js';
+import { guideSteps } from './guide.js';
 import { generatePlan, PRESETS, LAYER_JA } from './plan.js';
 import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
 import { loadImages, imageOf } from './images.js';
@@ -11,8 +14,12 @@ import {
 
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const byId = new Map(PLANTS.map((p) => [p.id, p]));
-const ORDER = new Map(PLANTS.map((p, i) => [p.id, i]));
+const byId = new Map();
+const ORDER = new Map();
+function reindex() {
+  byId.clear(); ORDER.clear();
+  PLANTS.forEach((p, i) => { byId.set(p.id, p); ORDER.set(p.id, i); });
+}
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 
 // ---------- 保存（ブラウザ内） ----------
@@ -21,17 +28,25 @@ const store = {
   set(k, v) { try { localStorage.setItem('pg:' + k, JSON.stringify(v)); } catch { /* 保存不可でも動作は継続 */ } },
 };
 
+// 自分で登録した品種を読み込む
+let customList = [];
+try { customList = JSON.parse(localStorage.getItem('pg:custom') || '[]'); } catch { customList = []; }
+customList.forEach(addCustom);
+reindex();
+
 const state = {
   loc: store.get('loc', null),
   climate: null,
   garden: store.get('garden', []).filter((id) => byId.has(id)),
   filters: store.get('filters', { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '' }),
-  planInput: store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }),
+  planInput: { style: 'border', ...store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }) },
   plan: null,
   planMonth: null,
   showHard: false,
   area: store.get('area', 3),
   view: 'site',
+  shop: store.get('shop', 'おぎはら植物園'),
+  guideDone: store.get('guideDone', {}),
   cvSel: {},
   shown: 24,
   groupResults: null,
@@ -196,6 +211,7 @@ function renderSite() {
       <ul class="advice">${siteAdvice(c).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
       <div class="row" style="margin-top:10px"><button class="btn primary" type="button" data-go="plants">この気候に合う植物を見る →</button></div>
     </div>
+    ${regionPestCard(c)}
     <div class="card">
       <h2>月別の平均気温</h2>
       <div class="legend"><span><i style="background:var(--tmax)"></i>最高気温</span><span><i style="background:var(--tmin)"></i>最低気温</span></div>
@@ -374,7 +390,11 @@ function plantCard(rs) {
     </div>
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p">${esc(p.note)}</p>
+    ${pestBox(p)}
+    ${p.custom ? `<p class="note-p" style="color:var(--muted)">マイ品種${p.shop ? `・購入店：${esc(p.shop)}` : ''}${p.url ? `・<a href="${esc(p.url)}" target="_blank" rel="noopener">商品ページ</a>` : ''}</p>` : ''}
     <div class="actions">
+      ${p.custom ? `<button type="button" class="btn small" data-delcustom="${p.id}">削除</button>` : ''}
+      <a class="btn small" href="${shopUrl(p)}" target="_blank" rel="noopener">🔎 ${esc(state.shop || '園芸店')}で探す</a>
       <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイ庭に追加済み' : '＋ マイ庭に追加'}</button>
     </div>
   </article>`;
@@ -528,16 +548,17 @@ function renderTasks() {
   const box = $('#tasksBox');
   const c = state.climate;
   if (!c) {
-    box.innerHTML = `<div class="card empty"><p>場所を設定すると、その地域の霜や暑さに合わせた作業カレンダーを作ります。</p><button class="btn primary" type="button" data-go="site">場所を設定</button></div>`;
+    box.innerHTML = guideCard() + `<div class="card empty"><p>場所を設定すると、その地域の霜や暑さに合わせた作業カレンダーを作ります。</p><button class="btn primary" type="button" data-go="site">場所を設定</button></div>`;
     return;
   }
   const plants = state.garden.map((id) => byId.get(id));
-  const tasks = buildTasks(c, plants);
+  const tasks = [...buildTasks(c, plants), ...pestTasks(c, plants)];
   const now = new Date().getMonth() + 1;
   const order = MONTHS.map((_, i) => ((now - 1 + i) % 12) + 1);
   const blooming = plants.filter((p) => p.bloom.map((m) => localMonth(m, c.south)).includes(now));
 
-  box.innerHTML = (plants.length ? '' : `<div class="card"><p class="hint" style="margin:0">マイガーデンに植物を追加すると、植物ごとの切り戻しや株分けの時期も表示されます。</p></div>`)
+  box.innerHTML = guideCard()
+    + (plants.length ? '' : `<div class="card"><p class="hint" style="margin:0">マイ庭に植物を追加すると、植物ごとの切り戻し・株分け・病害虫の見回り時期も表示されます。</p></div>`)
     + order.map((m) => {
       const list = tasks.filter((t) => t.month === m);
       const cur = m === now;
@@ -546,7 +567,7 @@ function renderTasks() {
         <h2>${m}月${cur ? '<span class="pill">今月</span>' : ''}</h2>
         ${cur && blooming.length ? `<div class="blooming" style="margin-bottom:6px">${blooming.map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.ja)} が見頃</span>`).join('')}</div>` : ''}
         ${list.map((t) => `<div class="task"><div class="ic" aria-hidden="true">${TASK_KIND[t.kind].icon}</div><div>
-          <div class="t">${esc(t.title)}</div><div class="d">${esc(t.detail)}</div>
+          <div class="t">${esc(t.title)}${t.risk ? ` <span class="risk r${t.risk}">${RISK_JA[t.risk]}</span>` : ''}</div><div class="d">${esc(t.detail)}</div>
           ${t.plants && !(t.plants.length === 1 && t.title.startsWith(t.plants[0].ja)) ? `<div class="p">対象：${t.plants.map((p) => esc(p.ja)).join('、')}</div>` : ''}
         </div></div>`).join('') || '<p class="hint">特別な作業はありません。庭を観察して楽しみましょう。</p>'}
       </div>`;
@@ -623,6 +644,11 @@ function initPlanForm() {
   $('#planW').value = pi.width;
   $('#planD').value = pi.depth;
   $('#planBudget').value = pi.budget || '';
+  $('#planStyle').innerHTML = Object.entries(STYLES).map(([k, v]) => `<option value="${k}">${v.ja}</option>`).join('');
+  $('#planStyle').value = pi.style || 'border';
+  const syncStyle = () => { $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary; };
+  $('#planStyle').addEventListener('change', () => { state.planInput.style = $('#planStyle').value; syncStyle(); });
+  syncStyle();
   $('#planPresets').innerHTML = PRESETS.map((w) => `<button type="button" class="chip" data-w="${w}">${w}</button>`).join('');
   $('#planPresets').addEventListener('click', (e) => {
     const b = e.target.closest('[data-w]');
@@ -703,6 +729,8 @@ function renderPlan() {
   box.innerHTML = `
     <div class="card">
       <h2>あなたの植栽プラン</h2>
+      <p class="hint" style="margin-bottom:6px">スタイル：<b>${esc(STYLES[plan.style].ja)}</b></p>
+      <details class="principles"><summary>このスタイルのポイント</summary><p class="hint">${esc(STYLES[plan.style].summary)}</p><ul class="advice">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details>
       <div class="tagrow" style="margin-bottom:8px"><span class="label" style="margin:0 4px 0 0">読み取ったイメージ</span>${read}</div>
       <div class="tiles">
         <div class="tile"><div class="k">植物</div><div class="v">${plan.species.length}<small>種類</small></div><div class="s">合計 ${plan.totalPlants}株</div></div>
@@ -732,7 +760,7 @@ function renderPlan() {
         ${photoHtml(s.plant, 'mini-photo', s.color)}
         <div class="body">
           <div class="title"><span class="no">${s.no}</span>${esc(s.plant.ja)}${s.level ? `<span class="lv lv-${s.level}">${LEVEL[s.level].mark}</span>` : ''}</div>
-          <div class="calc">${LAYER_JA[s.layer]}・<span class="dot" style="background:${COLORS[s.color].hex};width:9px;height:9px"></span> ${COLORS[s.color].ja}・${s.plant.h[0]}〜${s.plant.h[1]}cm・株間${s.plant.spread}cm</div>
+          <div class="calc">${esc(s.roleJa)}・<span class="dot" style="background:${COLORS[s.color].hex};width:9px;height:9px"></span> ${COLORS[s.color].ja}・${s.plant.h[0]}〜${s.plant.h[1]}cm・株間${s.plant.spread}cm</div>
           <div class="calc">${s.qty}株 × ${yen(s.plant.price)} = <b>${yen(s.subtotal)}</b></div>
           ${monthBar({ ...s.plant, color: [s.color] }, south)}
           <div class="why">${s.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
@@ -784,9 +812,118 @@ function renderPlan() {
   hydratePhotos(box, plan.species.map((s) => s.plant));
 }
 
+
+// ---------- 病害虫 ----------
+function regionPestCard(c) {
+  const risks = regionRisks(c);
+  if (!risks.length) return '';
+  return `<div class="card">
+    <h2>この地域で注意したい病害虫</h2>
+    <p class="hint">過去10年の気温・雨・雪から、起きやすいトラブルを推定しています。タップで対策を表示。</p>
+    ${risks.map(({ pest, risk }) => `<details class="pest">
+      <summary>${KIND_ICON[pest.kind]} <b>${esc(pest.ja)}</b> <span class="risk r${risk}">${RISK_JA[risk]}</span></summary>
+      <p class="d">${esc(pest.sign)}</p>
+      <div class="pl"><b>予防</b><ul>${pest.prevent.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
+      <div class="pl"><b>出てしまったら</b><ul>${pest.treat.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
+    </details>`).join('')}
+  </div>`;
+}
+function pestBox(p) {
+  const list = pestsForPlant(p, state.climate).slice(0, 4);
+  if (!list.length) return '';
+  return `<details class="pest small"><summary>注意したい病害虫：${list.map(({ pest, risk }) => `${esc(pest.ja)}${risk >= 2 ? '⚠︎' : ''}`).join('・')}</summary>
+    ${list.map(({ pest }) => `<div class="pl"><b>${KIND_ICON[pest.kind]} ${esc(pest.ja)}</b>：${esc(pest.prevent[0])}。</div>`).join('')}
+  </details>`;
+}
+
+// ---------- はじめてガイド ----------
+function guideCard() {
+  const steps = guideSteps({ climate: state.climate, loc: state.loc, garden: state.garden });
+  const isDone = (st) => st.done === true || (st.done === null && state.guideDone[st.id]);
+  const n = steps.filter(isDone).length;
+  return `<details class="card guide" ${n < steps.length ? 'open' : ''}>
+    <summary><h2 style="display:inline">🔰 はじめての宿根草ガーデン <small>${n}/${steps.length}</small></h2></summary>
+    <div class="progress"><span style="width:${(n / steps.length) * 100}%"></span></div>
+    <ol class="steps">${steps.map((st) => `<li class="${isDone(st) ? 'done' : ''}">
+      <label class="st">${st.done === null ? `<input type="checkbox" data-guide="${st.id}" ${isDone(st) ? 'checked' : ''}>` : `<span class="auto">${st.done ? '✓' : '・'}</span>`}<b>${esc(st.title)}</b></label>
+      <ul>${st.body.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+      ${st.go && !isDone(st) ? `<button type="button" class="btn small" data-go="${st.go}">開く →</button>` : ''}
+    </li>`).join('')}</ol>
+  </details>`;
+}
+document.addEventListener('change', (e) => {
+  const cb = e.target.closest('[data-guide]');
+  if (!cb) return;
+  state.guideDone[cb.dataset.guide] = cb.checked;
+  store.set('guideDone', state.guideDone);
+  const open = cb.closest('details')?.open;
+  renderTasks();
+  if (open) document.querySelector('.guide').open = true;
+});
+
+// ---------- お店で探す・品種登録 ----------
+function shopUrl(p) {
+  const name = p.cv && !p.custom ? `${p.groupJa.replace(/（.*?）/g, '')} ${p.cv.replace(/（.*?）/g, '')}` : p.ja.replace(/[‘’（）()]/g, ' ');
+  return `https://www.google.com/search?q=${encodeURIComponent(`${state.shop || ''} ${name}`.trim())}`;
+}
+
+function initCustomForm() {
+  const groups = [...new Map(PLANTS.map((p) => [p.group, p.groupJa])).entries()].sort((a, b) => a[1].localeCompare(b[1], 'ja'));
+  $('#cGroup').innerHTML = groups.map(([g, ja]) => `<option value="${g}">${esc(ja)}</option>`).join('');
+  $('#cColor').innerHTML = Object.entries(COLORS).map(([k, c]) => `<button type="button" class="chip" data-v="${k}"><span class="dot" style="background:${c.hex}"></span>${c.ja}</button>`).join('');
+  $('#cBloom').innerHTML = MONTHS.map((m) => `<button type="button" class="chip" data-v="${m}">${m}月</button>`).join('');
+  for (const id of ['#cColor', '#cBloom']) {
+    $(id).addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (b) b.classList.toggle('on'); });
+  }
+  $('#shopName').value = state.shop;
+  $('#shopName').addEventListener('change', (e) => { state.shop = e.target.value.trim(); store.set('shop', state.shop); renderPlants(true); });
+  $('#btnCustom').addEventListener('click', () => { $('#customForm').hidden = !$('#customForm').hidden; });
+  $('#cCancel').addEventListener('click', () => { $('#customForm').hidden = true; });
+  $('#cSave').addEventListener('click', () => {
+    const cv = $('#cName').value.trim();
+    if (!cv) { toast('品種名を入力してください'); return; }
+    const c = {
+      uid: Date.now().toString(36), group: $('#cGroup').value, cv,
+      color: [...document.querySelectorAll('#cColor .chip.on')].map((b) => b.dataset.v),
+      bloom: [...document.querySelectorAll('#cBloom .chip.on')].map((b) => Number(b.dataset.v)),
+      h: [Number($('#cHmin').value) || 0, Number($('#cHmax').value) || 0],
+      price: Number($('#cPrice').value) || 0, shop: $('#cShop').value.trim(), url: $('#cUrl').value.trim(), memo: $('#cMemo').value.trim(),
+    };
+    const p = addCustom(c);
+    if (!p) return;
+    customList.push(c);
+    try { localStorage.setItem('pg:custom', JSON.stringify(customList)); } catch { /* 保存できない環境 */ }
+    reindex();
+    state.cvSel[p.group] = p.id;
+    ['#cName', '#cHmin', '#cHmax', '#cPrice', '#cUrl', '#cMemo'].forEach((s) => { $(s).value = ''; });
+    document.querySelectorAll('#cColor .chip.on, #cBloom .chip.on').forEach((b) => b.classList.remove('on'));
+    $('#customForm').hidden = true;
+    state.filters.q = p.groupJa.replace(/（.*?）/g, '');
+    store.set('filters', state.filters);
+    renderPlants();
+    toast(`${p.ja} を登録しました`);
+  });
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-delcustom]');
+  if (!b) return;
+  const id = b.dataset.delcustom;
+  const p = byId.get(id);
+  if (!confirm(`${p.ja} を削除しますか？`)) return;
+  removeCustom(id);
+  customList = customList.filter((c) => `my-${c.uid}` !== id);
+  try { localStorage.setItem('pg:custom', JSON.stringify(customList)); } catch { /* 保存できない環境 */ }
+  state.garden = state.garden.filter((g) => g !== id);
+  store.set('garden', state.garden);
+  delete state.cvSel[p.group];
+  reindex();
+  renderPlants(true);
+});
+
 // ---------- 起動 ----------
 initFilters();
 initPlanForm();
+initCustomForm();
 if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMonth = state.plan.peak; }
 if (state.loc) loadClimate(); else render();
 go('site');

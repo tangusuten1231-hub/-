@@ -204,4 +204,5 @@ export const TASK_KIND = {
   protect: { ja: '冬支度', icon: '🧣' },
   feed: { ja: '施肥', icon: '🧪' },
   water: { ja: '水やり', icon: '💧' },
+  pest: { ja: '病害虫', icon: '🔍' },
 };

@@ -286,3 +286,40 @@ textarea { width: 100%; border: 1px solid var(--line); background: var(--bg); bo
 .chip.cv small { color: var(--warn); }
 .btn.more { width: 100%; margin-top: 10px; }
 @media (min-width: 640px) { .btn.more { grid-column: 1 / -1; } }
+
+/* 病害虫 */
+details.pest { border-top: 1px solid var(--line); padding: 8px 0; }
+details.pest:first-of-type { border-top: 0; }
+details.pest summary { color: var(--ink); font-size: .92rem; margin: 0; list-style: none; cursor: pointer; }
+details.pest summary::-webkit-details-marker { display: none; }
+details.pest .d { font-size: .84rem; color: var(--ink-2); margin: 6px 0; }
+details.pest .pl { font-size: .82rem; color: var(--ink-2); }
+details.pest .pl ul { margin: 2px 0 6px; padding-left: 1.2em; }
+details.pest.small { border: 0; padding: 0; }
+details.pest.small summary { font-size: .8rem; color: var(--warn); }
+details.pest.small .pl { margin-top: 4px; }
+.risk { font-size: .68rem; border-radius: 999px; padding: 1px 7px; font-weight: 700; vertical-align: 1px; }
+.risk.r1 { background: var(--surface-2); color: var(--ink-2); }
+.risk.r2 { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+.risk.r3 { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.actions { gap: 6px; flex-wrap: wrap; }
+a.btn { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+
+/* ガイド */
+details.guide > summary { list-style: none; cursor: pointer; color: var(--ink); margin: 0; }
+details.guide > summary::-webkit-details-marker { display: none; }
+details.guide h2 small { font-weight: 400; color: var(--muted); font-size: .8rem; margin-left: 6px; }
+.progress { height: 6px; background: var(--surface-2); border-radius: 3px; margin: 10px 0; overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.steps { margin: 0; padding-left: 0; list-style: none; counter-reset: st; }
+.steps > li { border-top: 1px solid var(--line); padding: 8px 0; }
+.steps > li:first-child { border-top: 0; }
+.steps .st { display: flex; align-items: center; gap: 8px; font-size: .92rem; cursor: pointer; }
+.steps .st input { width: 20px; height: 20px; accent-color: var(--accent); flex: none; }
+.steps .auto { width: 20px; text-align: center; color: var(--accent); font-weight: 700; flex: none; }
+.steps ul { margin: 4px 0 6px 28px; padding-left: 1em; font-size: .82rem; color: var(--ink-2); }
+.steps li.done b { color: var(--muted); text-decoration: line-through; }
+.steps .btn { margin-left: 28px; }
+.months-pick .chip { padding: 2px 8px; }
+details.principles summary { margin: 0 0 6px; }
+#customForm select, #customForm input[type=text], #customForm input[type=url], #customForm input[type=number] { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 8px 10px; min-height: 40px; }

@@ -190,6 +190,37 @@ function expand(bases) {
 
 /** 全植物（品種ごとに1件） */
 export const PLANTS = expand([...BASE, ...EXTRA_BASE]);
+/** 自分で登録した品種を追加（種のデータを引き継ぐ） */
+export function addCustom(c) {
+  const members = PLANTS.filter((p) => p.group === c.group);
+  const base = members[0];
+  if (!base || !c.cv) return null;
+  const p = {
+    ...base,
+    id: `my-${c.uid}`, cv: c.cv, en: '', custom: true,
+    ja: `${base.groupJa}‘${c.cv}’`, latin: `${speciesPart(base.latin)} (${c.cv})`,
+    color: c.color?.length ? c.color : base.color,
+    h: c.h?.[0] && c.h?.[1] ? [Math.min(c.h[0], c.h[1]), Math.max(c.h[0], c.h[1])] : base.h,
+    bloom: c.bloom?.length ? [...c.bloom].sort((a, b) => a - b) : base.bloom,
+    price: c.price > 0 ? c.price : base.price,
+    note: c.memo || '自分で登録した品種です。育て方は同じ種の他の品種を参考にしてください。', shop: c.shop || '', url: /^https?:\/\//.test(c.url || '') ? c.url : '',
+  };
+  const lastIdx = PLANTS.lastIndexOf(members[members.length - 1]);
+  PLANTS.splice(lastIdx + 1, 0, p);
+  const n = members.length + 1;
+  for (const m of [...members, p]) m.cvCount = n;
+  if (n === 2 && !base.cv) { base.cv = '標準'; }
+  return p;
+}
+export function removeCustom(id) {
+  const i = PLANTS.findIndex((p) => p.id === id && p.custom);
+  if (i < 0) return;
+  const g = PLANTS[i].group;
+  PLANTS.splice(i, 1);
+  const members = PLANTS.filter((p) => p.group === g);
+  for (const m of members) m.cvCount = members.length;
+}
+
 /** 種（グループ）の数 */
 export const GROUP_COUNT = new Set(PLANTS.map((p) => p.group)).size;
 

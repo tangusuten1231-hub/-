@@ -91,6 +91,33 @@
         </details>
         <label class="toggle"><input type="checkbox" id="fShowHard"> 育てにくい植物（△）も表示</label>
       </div>
+      <div class="row" style="margin:0 0 8px">
+        <button class="btn small" id="btnCustom" type="button">＋ 品種を登録（お店で見つけた品種など）</button>
+      </div>
+      <div class="card" id="customForm" hidden>
+        <h2>品種を登録</h2>
+        <p class="hint">園芸店のカタログやラベルを見ながら、データベースにない品種を追加できます。登録した品種はこの端末に保存され、判定・プラン・作業暦にも使われます。空欄は種の標準的な値を使います。</p>
+        <label class="field"><span class="label">種類</span><select id="cGroup"></select></label>
+        <label class="field"><span class="label">品種名</span><input id="cName" type="text" placeholder="例：マグナススーペリア" maxlength="40"></label>
+        <div class="field"><span class="label">花色</span><div class="chips" id="cColor"></div></div>
+        <div class="grid2">
+          <label class="field"><span class="label">草丈（最小 cm）</span><input id="cHmin" type="number" min="1" max="400" inputmode="numeric"></label>
+          <label class="field"><span class="label">草丈（最大 cm）</span><input id="cHmax" type="number" min="1" max="400" inputmode="numeric"></label>
+        </div>
+        <div class="field"><span class="label">開花月</span><div class="chips months-pick" id="cBloom"></div></div>
+        <div class="grid2">
+          <label class="field"><span class="label">価格（円）</span><input id="cPrice" type="number" min="0" step="10" inputmode="numeric"></label>
+          <label class="field"><span class="label">購入店</span><input id="cShop" type="text" maxlength="40" placeholder="例：おぎはら植物園"></label>
+        </div>
+        <label class="field"><span class="label">商品ページのURL（任意）</span><input id="cUrl" type="url" placeholder="https://"></label>
+        <label class="field"><span class="label">メモ（特徴・育て方など）</span><textarea id="cMemo" rows="2" maxlength="300"></textarea></label>
+        <div class="row">
+          <button class="btn primary" id="cSave" type="button">登録する</button>
+          <button class="btn" id="cCancel" type="button">閉じる</button>
+        </div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+        <label class="field"><span class="label">「お店で探す」に使う園芸店の名前</span><input id="shopName" type="text" maxlength="40"></label>
+      </div>
       <p class="count" id="plantCount"></p>
       <div class="plant-list" id="plantList"></div>
     </section>
@@ -100,6 +127,11 @@
       <div class="card" id="planForm">
         <h2>植栽プランをつくる</h2>
         <p class="hint">どんな庭にしたいか、言葉で書いてください。地域の気候・花の色・高さ・開花リレーを考えてプランとイメージ図をつくります。</p>
+        <div class="field">
+          <label class="label" for="planStyle">植栽スタイル</label>
+          <select id="planStyle"></select>
+          <p class="hint" id="styleDesc" style="margin:6px 0 0"></p>
+        </div>
         <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
         <div class="chips presets" id="planPresets"></div>
         <div class="grid2">
