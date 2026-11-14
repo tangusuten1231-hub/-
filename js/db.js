@@ -3,25 +3,30 @@
 
 const DB = 'pg-garden';
 const STORE = 'notes';
+const PHOTOS = 'photos'; // 植物ごとの自分の写真
 let dbp = null;
 
 function open() {
   if (dbp) return dbp;
   dbp = new Promise((resolve, reject) => {
     if (!('indexedDB' in window)) { reject(new Error('IndexedDB なし')); return; }
-    const req = indexedDB.open(DB, 1);
-    req.onupgradeneeded = () => { req.result.createObjectStore(STORE, { keyPath: 'id' }); };
+    const req = indexedDB.open(DB, 2);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE, { keyPath: 'id' });
+      if (!db.objectStoreNames.contains(PHOTOS)) db.createObjectStore(PHOTOS, { keyPath: 'id' });
+    };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
   });
   return dbp;
 }
 
-async function tx(mode, fn) {
+async function tx(mode, fn, store = STORE) {
   const db = await open();
   return new Promise((resolve, reject) => {
-    const t = db.transaction(STORE, mode);
-    const st = t.objectStore(STORE);
+    const t = db.transaction(store, mode);
+    const st = t.objectStore(store);
     const r = fn(st);
     t.oncomplete = () => resolve(r?.result ?? r);
     t.onerror = () => reject(t.error);
@@ -37,6 +42,14 @@ export async function listNotes() {
 export const saveNote = (n) => tx('readwrite', (st) => st.put(n));
 export const deleteNote = (id) => tx('readwrite', (st) => st.delete(id));
 export const clearNotes = () => tx('readwrite', (st) => st.clear());
+
+// 植物ごとの自分の写真（id = 植物ID）
+export async function listPhotos() {
+  try { return (await tx('readonly', (st) => st.getAll(), PHOTOS)) || []; } catch { return []; }
+}
+export const savePhoto = (id, photo) => tx('readwrite', (st) => st.put({ id, photo }), PHOTOS);
+export const deletePhoto = (id) => tx('readwrite', (st) => st.delete(id), PHOTOS);
+const clearPhotos = () => tx('readwrite', (st) => st.clear(), PHOTOS);
 
 /** 写真を縮小して JPEG の data URL にする（容量節約） */
 export function shrinkImage(file, max = 1280, quality = 0.8) {
@@ -80,22 +93,26 @@ export async function exportAll() {
     if (k && k.startsWith('pg:') && !k.startsWith('pg:img:') && !k.startsWith('pg:climate:')) local[k] = localStorage.getItem(k);
   }
   const notes = await listNotes();
-  return { app: '宿根草ガーデンナビ', version: 1, exportedAt: new Date().toISOString(), local, notes };
+  return { app: '庭づくりアプリ', version: 2, exportedAt: new Date().toISOString(), local, notes, photos: await listPhotos() };
 }
 
 /** バックアップから復元（既存データは上書き） */
 export async function importAll(data) {
-  if (!data || data.app !== '宿根草ガーデンナビ' || typeof data.local !== 'object') throw new Error('このアプリのバックアップファイルではありません');
+  if (!data || !['宿根草ガーデンナビ', '庭づくりアプリ'].includes(data.app) || typeof data.local !== 'object') throw new Error('このアプリのバックアップファイルではありません');
   for (const [k, v] of Object.entries(data.local)) if (k.startsWith('pg:') && typeof v === 'string') localStorage.setItem(k, v);
   if (Array.isArray(data.notes)) {
     await clearNotes();
     for (const n of data.notes) if (n && n.id) await saveNote(n);
   }
+  if (Array.isArray(data.photos)) {
+    await clearPhotos();
+    for (const ph of data.photos) if (ph && ph.id && typeof ph.photo === 'string') await savePhoto(ph.id, ph.photo);
+  }
 }
 
 /** ファイルとして保存（iPhone は共有シート→「ファイルに保存」） */
-export async function saveFile(name, text) {
-  const file = new File([text], name, { type: 'application/json' });
+export async function saveFile(name, content, type = 'application/json') {
+  const file = new File([content], name, { type });
   if (navigator.canShare?.({ files: [file] })) {
     try { await navigator.share({ files: [file], title: name }); return 'shared'; } catch (e) { if (e.name === 'AbortError') return 'cancel'; }
   }
@@ -106,4 +123,28 @@ export async function saveFile(name, text) {
   a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
   return 'downloaded';
+}
+
+/** 画面上のSVGをPNG画像にする（プランの絵の保存用） */
+export function svgToPngBlob(svgEl, width = 1600) {
+  return new Promise((resolve, reject) => {
+    const vb = svgEl.viewBox.baseVal;
+    const clone = svgEl.cloneNode(true);
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    clone.setAttribute('width', vb.width);
+    clone.setAttribute('height', vb.height);
+    const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml;charset=utf-8' }));
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = width; c.height = Math.round((width * vb.height) / vb.width);
+      const g = c.getContext('2d');
+      g.fillStyle = '#f1ebdd'; g.fillRect(0, 0, c.width, c.height);
+      g.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob((b) => (b ? resolve(b) : reject(new Error('画像を作れませんでした'))), 'image/png');
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('画像を作れませんでした')); };
+    img.src = url;
+  });
 }

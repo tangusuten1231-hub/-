@@ -10,7 +10,8 @@ import { ideasFor, RECIPES, plantsForNeed } from './enjoy.js';
 import { icon, tsupi, tsupiSays, TASK_ICON, PEST_ICON, MONTHLY_WORDS } from './mascot.js';
 import { art, ART_BY_ICON, ART_BY_RECIPE, MONTH_OLD, SEASON_EN, sekkiOf } from './art.js';
 import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
-import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile } from './db.js';
+import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile, listPhotos, savePhoto, deletePhoto, svgToPngBlob } from './db.js';
+import { describe, companions } from './describe.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
 import {
@@ -40,16 +41,24 @@ try { customList = JSON.parse(localStorage.getItem('pg:custom') || '[]'); } catc
 customList.forEach(addCustom);
 reindex();
 
+// 庭は複数持てる。旧データ（1つの庭）からは自動で引き継ぐ
+function loadGardens() {
+  let gs = store.get('gardens', null);
+  if (!Array.isArray(gs) || !gs.length) gs = [{ id: 'g1', name: 'わたしの庭', plants: store.get('garden', []), area: store.get('area', 3), sun: '', moist: '', have: {} }];
+  for (const g of gs) { g.plants = (g.plants || []).filter((id) => byId.has(id)); g.have = g.have || {}; g.area = g.area || 3; }
+  return gs;
+}
+
 const state = {
+  gardens: loadGardens(),
+  gardenId: store.get('gardenId', null),
   loc: store.get('loc', null),
   climate: null,
-  garden: store.get('garden', []).filter((id) => byId.has(id)),
   filters: { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', sort: 'fit', view: 'list', ...store.get('filters', {}) },
   planInput: { style: 'border', ...store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }) },
   plan: null,
   planMonth: null,
   showHard: false,
-  area: store.get('area', 3),
   view: 'site',
   shop: store.get('shopName', ''),
   shopSite: store.get('shopSite', 'rakuten'),
@@ -60,6 +69,13 @@ const state = {
   shown: 24,
   groupResults: null,
 };
+
+const activeGarden = () => state.gardens.find((g) => g.id === state.gardenId) || state.gardens[0];
+function saveGardens() { store.set('gardens', state.gardens); store.set('gardenId', activeGarden().id); }
+// 既存のコードが使う state.garden / state.area は「いま選んでいる庭」を指す
+Object.defineProperty(state, 'garden', { get: () => activeGarden().plants, set: (v) => { activeGarden().plants = v; saveGardens(); } });
+Object.defineProperty(state, 'area', { get: () => activeGarden().area, set: (v) => { activeGarden().area = v; saveGardens(); } });
+const userPhotos = new Map(); // 植物ID → 自分で設定した写真
 
 // ---------- ナビゲーション ----------
 function go(view) {
@@ -422,7 +438,10 @@ function plantCard(rs) {
       <span class="price">${yen(p.price)}／${p.type === 'bulb' && p.price <= 300 ? '球' : '株'}</span>
     </div>
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
-    <p class="note-p">${esc(p.note)}</p>
+    <p class="note-p lead-note">${esc(p.note)}</p>
+    <div class="desc">${describe(p).map((d) => `<h4>${d.h}</h4><p>${esc(d.t)}</p>`).join('')}
+      <h4>相性のよい植物</h4><div class="comp">${companions(p).map((q) => `<button type="button" class="chip" data-find="${esc(q.groupJa)}"><span class="dot" style="background:${COLORS[q.color[0]].hex}"></span>${esc(q.groupJa)}</button>`).join('')}</div>
+    </div>
     ${p.uses?.length ? `<div class="uses">${p.uses.map((u) => `<span class="use" data-use="${u}">${USES[u].icon} ${USES[u].ja}</span>`).join('')}</div>` : ''}
     ${p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
     ${p.tags.includes('medicinal') ? `<p class="note-p med-note">${icon('guide', 15)}薬用として知られる植物です。体質や服薬によっては害になることがあります。利用する前に医師・薬剤師に相談し、自己判断で病気の治療に使わないでください。</p>` : ''}
@@ -431,6 +450,8 @@ function plantCard(rs) {
     ${p.custom ? `<p class="note-p" style="color:var(--muted)">マイ品種${p.shop ? `・購入店：${esc(p.shop)}` : ''}${p.url ? `・<a href="${esc(p.url)}" target="_blank" rel="noopener">商品ページ</a>` : ''}</p>` : ''}
     <div class="actions">
       ${p.custom ? `<button type="button" class="btn small" data-delcustom="${p.id}">削除</button>` : ''}
+      <label class="btn small">${icon('plus', 15)}${userPhotos.has(p.id) ? '写真を変更' : '自分の写真'}<input type="file" accept="image/*" data-myphoto="${p.id}" hidden></label>
+      ${userPhotos.has(p.id) ? `<button type="button" class="btn small" data-delphoto="${p.id}">写真を外す</button>` : ''}
       <a class="btn small" href="${shopUrl(p)}" target="_blank" rel="noopener">${icon('cart', 16)}${esc(shopLabel())}で探す</a>
       ${state.filters.view === 'list' ? `<button type="button" class="btn small" data-close="${group}">閉じる</button>` : ''}
       <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイ庭に追加済み' : '＋ マイ庭に追加'}</button>
@@ -507,8 +528,8 @@ document.addEventListener('click', (e) => {
   const id = b.dataset.toggle;
   const i = state.garden.indexOf(id);
   if (i >= 0) state.garden.splice(i, 1); else state.garden.push(id);
-  store.set('garden', state.garden);
-  toast(i >= 0 ? `${byId.get(id).ja} を外しました` : `${byId.get(id).ja} をマイ庭に追加しました`);
+  saveGardens();
+  toast(i >= 0 ? `${byId.get(id).ja} を外しました` : `${byId.get(id).ja} を「${activeGarden().name}」に追加しました`);
   if (state.view === 'plants') {
     const y = window.scrollY;
     renderPlants(true);
@@ -524,7 +545,7 @@ function renderGarden() {
   const box = $('#gardenBox');
   const plants = state.garden.map((id) => byId.get(id));
   if (!plants.length) {
-    box.innerHTML = `${tsupiSays('まだ植物がないみたい。プランを作るか、図鑑から気になる植物を集めてみよう！', 'sprout')}<div class="card empty"><div class="row" style="justify-content:center"><button class="btn primary" type="button" data-go="plan">🎨 プランをつくる</button><button class="btn" type="button" data-go="plants">植物を探す</button></div></div>`;
+    box.innerHTML = `${gardenBar()}${tsupiSays('まだ植物がないみたい。プランを作るか、図鑑から気になる植物を集めてみよう！', 'sprout')}<div class="card empty"><div class="row" style="justify-content:center"><button class="btn primary" type="button" data-go="plan">${icon('plan', 17)}プランをつくる</button><button class="btn" type="button" data-go="plants">植物を探す</button></div></div>`;
     return;
   }
   const c = state.climate;
@@ -562,12 +583,15 @@ function renderGarden() {
           <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
           <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm</div></div>
           <span class="qty">約${qty}株</span>
+          <button type="button" class="have ${activeGarden().have[p.id] ? 'on' : ''}" data-have="${p.id}">${activeGarden().have[p.id] ? '植えた' : 'ほしい'}</button>
           <button type="button" class="icon-btn" data-toggle="${p.id}" aria-label="${esc(p.ja)}を外す">✕</button>
         </div>`;
       }).join('')}</div>`;
   }).join('');
 
   box.innerHTML = `
+    ${gardenBar()}
+    ${shoppingCard(plants)}
     <div class="card">
       <h2>開花リレー</h2>
       <p class="hint">植物ごとの開花月。枠線は今月です。</p>
@@ -588,7 +612,7 @@ function renderGarden() {
 
   $('#area').addEventListener('change', (e) => {
     const v = parseFloat(e.target.value);
-    if (v > 0) { state.area = v; store.set('area', v); renderGarden(); }
+    if (v > 0) { state.area = v; renderGarden(); }
   });
 }
 
@@ -606,7 +630,7 @@ function renderTasks() {
   const order = MONTHS.map((_, i) => ((now - 1 + i) % 12) + 1);
   const blooming = plants.filter((p) => p.bloom.map((m) => localMonth(m, c.south)).includes(now));
 
-  box.innerHTML = '<div id="wxSlot"></div>' + guideCard()
+  box.innerHTML = gardenPicker() + '<div id="wxSlot"></div>' + guideCard()
     + (plants.length ? '' : `<div class="card"><p class="hint" style="margin:0">マイ庭に植物を追加すると、植物ごとの切り戻し・株分け・病害虫の見回り時期も表示されます。</p></div>`)
     + order.map((m) => {
       const list = tasks.filter((t) => t.month === m);
@@ -630,8 +654,11 @@ function renderTasks() {
 const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
 
 function photoHtml(p, cls = 'photo', color) {
-  const im = imageOf(p.id);
-  const inner = im
+  const mine = userPhotos.get(p.id);
+  const im = mine ? null : imageOf(p.id);
+  const inner = mine
+    ? `<img src="${mine}" alt="${esc(p.ja)}の写真（自分で撮影）" loading="lazy"><span class="credit">マイ写真</span>`
+    : im
     ? `<img src="${esc(im.src)}" alt="${esc(p.ja)}の写真" loading="lazy"><a class="credit" href="${esc(im.url || '#')}" target="_blank" rel="noopener">${esc(im.site || 'Wikipedia')}</a>${im.speciesOnly && cls === 'photo' ? '<span class="fallback-note">写真は同じ種の代表的な姿</span>' : ''}`
     : plantThumbSVG(p, color);
   return `<div class="${cls}" data-photo="${p.id}" data-color="${color || ''}">${inner}</div>`;
@@ -858,7 +885,9 @@ function renderPlan() {
     </section>
 
     <div class="big-row">
-      <button class="btn primary" type="button" id="btnApply">このプランをマイ庭に反映</button>
+      <button class="btn primary" type="button" id="btnApply">「${esc(activeGarden().name)}」に反映</button>
+      <button class="btn" type="button" id="btnApplyNew">新しい庭として保存</button>
+      <button class="btn" type="button" id="btnPlanImg">${icon('save', 16)}絵を保存</button>
       <button class="btn" type="button" id="btnAlt2">別の案をつくる</button>
     </div>`;
 
@@ -874,13 +903,34 @@ function renderPlan() {
     if (b) { setMonth(Number(b.dataset.month)); $('.plan-hero').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('#btnAlt2').addEventListener('click', () => makePlan(state.planInput.seed + 1));
-  $('#btnApply').addEventListener('click', () => {
-    state.garden = plan.species.map((s) => s.plant.id);
-    state.area = Math.round(plan.area * 10) / 10;
-    store.set('garden', state.garden);
-    store.set('area', state.area);
-    toast('プランの植物をマイ庭に反映しました');
+  const applyTo = (g) => {
+    g.plants = plan.species.map((sp) => sp.plant.id);
+    g.area = Math.round(plan.area * 10) / 10;
+    g.sun = plan.sun;
+    g.moist = plan.moist || g.moist || '';
+    state.gardenId = g.id;
+    saveGardens();
+    toast(`「${g.name}」にプランを反映しました`);
     go('garden');
+  };
+  $('#btnApply').addEventListener('click', () => {
+    const g = activeGarden();
+    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) return;
+    applyTo(g);
+  });
+  $('#btnApplyNew').addEventListener('click', () => {
+    const name = prompt('新しい庭の名前', title);
+    if (!name) return;
+    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {} };
+    state.gardens.push(g);
+    applyTo(g);
+  });
+  $('#btnPlanImg').addEventListener('click', async () => {
+    try {
+      const blob = await svgToPngBlob($('#elev svg'));
+      const r = await saveFile(`garden-plan-${m}gatsu.png`, blob, 'image/png');
+      if (r !== 'cancel') toast('絵を保存しました');
+    } catch (err) { toast(err.message); }
   });
   hydratePhotos(box, plan.species.map((s) => s.plant));
 }
@@ -997,8 +1047,8 @@ document.addEventListener('click', (e) => {
   removeCustom(id);
   customList = customList.filter((c) => `my-${c.uid}` !== id);
   try { localStorage.setItem('pg:custom', JSON.stringify(customList)); } catch { /* 保存できない環境 */ }
-  state.garden = state.garden.filter((g) => g !== id);
-  store.set('garden', state.garden);
+  for (const g of state.gardens) g.plants = g.plants.filter((x) => x !== id);
+  saveGardens();
   delete state.cvSel[p.group];
   reindex();
   renderPlants(true);
@@ -1205,7 +1255,7 @@ async function renderJournal() {
     </details>
     <div class="notes">${notes.length ? notes.map((n) => `<div class="note">
       ${n.photo ? `<img src="${n.photo}" alt="" loading="lazy">` : ''}
-      <div class="nb"><div class="nd">${esc(n.date)}${n.plant && byId.get(n.plant) ? `・${esc(byId.get(n.plant).ja)}` : ''}</div><div class="nt">${esc(n.text || '')}</div></div>
+      <div class="nb"><div class="nd">${esc(n.date)}${n.garden && state.gardens.length > 1 ? `・${esc(n.garden)}` : ''}${n.plant && byId.get(n.plant) ? `・${esc(byId.get(n.plant).ja)}` : ''}</div><div class="nt">${esc(n.text || '')}</div></div>
       <button type="button" class="icon-btn" data-delnote="${n.id}" aria-label="削除">✕</button>
     </div>`).join('') : '<p class="hint">まだ記録がありません。</p>'}</div>
   </div>`;
@@ -1215,7 +1265,7 @@ async function renderJournal() {
     if (!text && !file) { toast('メモか写真を入れてください'); return; }
     let photo = null;
     try { if (file) photo = await shrinkImage(file); } catch (err) { toast(err.message); return; }
-    await saveNote({ id: Date.now().toString(36), date: $('#nDate').value || today, plant: $('#nPlant').value || null, text, photo });
+    await saveNote({ id: Date.now().toString(36), date: $('#nDate').value || today, plant: $('#nPlant').value || null, garden: activeGarden().name, text, photo });
     toast('記録しました');
     renderJournal();
     renderBackup();
@@ -1236,7 +1286,7 @@ async function renderBackup() {
   const days = last ? Math.floor((Date.now() - new Date(last)) / 86400000) : null;
   box.innerHTML = `<div class="card">
     <h2>${icon('save', 19)} データと表示</h2>
-    <p class="hint">場所・マイ庭・プラン・登録した品種・庭ノートは、この端末のアプリ内に保存されています。機種変更や万一に備えて、ときどきファイルにバックアップしましょう。</p>
+    <p class="hint">場所・すべての庭・プラン・登録した品種・自分の写真・庭ノートは、この端末のアプリ内に保存されています。機種変更や万一に備えて、ときどきファイルにバックアップしましょう。</p>
     <ul class="advice">
       <li>端末への永続保存：${info.persisted === true ? '有効（ブラウザが自動で消さない設定）' : info.persisted === false ? '未許可（ホーム画面に追加して使うと消えにくくなります）' : '—'}</li>
       <li>最後のバックアップ：${last ? `${esc(new Date(last).toLocaleDateString('ja-JP'))}（${days}日前）` : 'まだありません'}</li>
@@ -1331,6 +1381,7 @@ async function renderHome() {
     ${tsupiSays(esc(word), pose)}
     <section class="card today">
       <header class="sec"><span class="en">Today in the Garden</span><h2>今日の庭</h2></header>
+      ${gardenPicker()}
       <div id="homeWx"></div>
       <div class="today-block">
         <h3>${icon('calendar', 17)}今月の作業</h3>
@@ -1362,6 +1413,127 @@ async function renderHome() {
     ${adv.map((a) => `<div class="wx-adv lv${a.level}"><b>${esc(a.title)}</b>${esc(a.text)}</div>`).join('')}`;
 }
 
+
+// ---------- 複数の庭 ----------
+function gardenPicker() {
+  if (state.gardens.length < 2) return '';
+  return `<label class="gpick">${icon('pot', 16)}<select data-gpick aria-label="庭を選ぶ">${state.gardens.map((g) => `<option value="${g.id}" ${g.id === activeGarden().id ? 'selected' : ''}>${esc(g.name)}（${g.plants.length}）</option>`).join('')}</select></label>`;
+}
+function gardenBar() {
+  const g = activeGarden();
+  const seg = (key, opts) => `<div class="seg" data-gset="${key}">${opts.map(([v, l]) => `<button type="button" data-v="${v}" class="${(g[key] || '') === v ? 'on' : ''}">${l}</button>`).join('')}</div>`;
+  return `<div class="garden-bar">
+    <div class="gtabs">${state.gardens.map((x) => `<button type="button" class="gtab ${x.id === g.id ? 'on' : ''}" data-garden="${x.id}">${esc(x.name)}<small>${x.plants.length}</small></button>`).join('')}
+      <button type="button" class="gtab add" id="gardenAdd">${icon('plus', 15)}庭を追加</button></div>
+    <details class="card gset">
+      <summary>${icon('pot', 17)}「${esc(g.name)}」の設定<span class="sum-hint">${g.sun ? SUN[g.sun] : '日当たり未設定'}・${g.area}㎡</span></summary>
+      <label class="field"><span class="label">庭の名前</span><input type="text" id="gName" value="${esc(g.name)}" maxlength="30"></label>
+      <div class="field"><span class="label">日当たり</span>${seg('sun', [['', '未設定'], ['full', '日向'], ['part', '半日陰'], ['shade', '日陰']])}</div>
+      <div class="field"><span class="label">土の湿り気</span>${seg('moist', [['', '未設定'], ['dry', '乾きぎみ'], ['mid', '普通'], ['wet', '湿りぎみ']])}</div>
+      <label class="field"><span class="label">メモ（場所・土の様子など）</span><textarea id="gMemo" rows="2" maxlength="300">${esc(g.memo || '')}</textarea></label>
+      <div class="row">
+        ${g.sun || g.moist ? `<button type="button" class="btn small" id="gFind">${icon('search', 15)}この庭に合う植物を図鑑で探す</button>` : ''}
+        ${state.gardens.length > 1 ? `<button type="button" class="btn small" id="gDelete">この庭を削除</button>` : ''}
+      </div>
+    </details>
+  </div>`;
+}
+function switchGarden(id) {
+  state.gardenId = id;
+  saveGardens();
+  render();
+}
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-garden]');
+  if (t) return switchGarden(t.dataset.garden);
+  if (e.target.closest('#gardenAdd')) {
+    const name = prompt('新しい庭の名前（例：玄関前、裏庭、ベランダ）');
+    if (!name || !name.trim()) return;
+    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {} };
+    state.gardens.push(g);
+    return switchGarden(g.id);
+  }
+  if (e.target.closest('#gDelete')) {
+    const g = activeGarden();
+    if (!confirm(`「${g.name}」を削除しますか？（植物のリストが消えます）`)) return;
+    state.gardens = state.gardens.filter((x) => x.id !== g.id);
+    return switchGarden(state.gardens[0].id);
+  }
+  if (e.target.closest('#gFind')) {
+    const g = activeGarden();
+    Object.assign(state.filters, { sun: g.sun || '', moist: g.moist || '', q: '' });
+    store.set('filters', state.filters);
+    return go('plants');
+  }
+  const gs = e.target.closest('[data-gset] button');
+  if (gs) {
+    activeGarden()[gs.parentElement.dataset.gset] = gs.dataset.v;
+    saveGardens();
+    const open = gs.closest('details').open;
+    renderGarden();
+    if (open) $('.gset').open = true;
+    return;
+  }
+  const h = e.target.closest('[data-have]');
+  if (h) {
+    const g = activeGarden();
+    if (g.have[h.dataset.have]) delete g.have[h.dataset.have]; else g.have[h.dataset.have] = true;
+    saveGardens();
+    const y = window.scrollY;
+    renderGarden();
+    window.scrollTo({ top: y });
+    return;
+  }
+  const f = e.target.closest('[data-find]');
+  if (f) {
+    Object.assign(state.filters, { q: f.dataset.find.replace(/（.*?）/g, ''), sun: '', moist: '', height: '', month: '', color: '', tag: '', family: '', type: '', use: '' });
+    store.set('filters', state.filters);
+    state.openCards.clear();
+    if (state.view === 'plants') { renderPlants(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else go('plants');
+  }
+});
+document.addEventListener('change', (e) => {
+  if (e.target.matches('[data-gpick]')) return switchGarden(e.target.value);
+  if (e.target.id === 'gName') {
+    const v = e.target.value.trim();
+    if (v) { activeGarden().name = v.slice(0, 30); saveGardens(); renderGarden(); $('.gset').open = true; }
+    return;
+  }
+  if (e.target.id === 'gMemo') { activeGarden().memo = e.target.value; saveGardens(); }
+});
+
+/** 買い物リスト：まだ植えていない植物 */
+function shoppingCard(plants) {
+  const g = activeGarden();
+  const want = plants.filter((p) => !g.have[p.id]);
+  if (!want.length) return `<div class="card"><h2>${icon('cart', 19)}買い物リスト</h2><p class="hint" style="margin:0">すべて「植えた」になっています。</p></div>`;
+  const total = want.reduce((t, p) => t + qtyFor(p, plants) * p.price, 0);
+  return `<details class="card shop"><summary><h2>${icon('cart', 19)}買い物リスト</h2><span class="sum-hint">${want.length}種・約${yen(total)}</span></summary>
+    <p class="hint">まだ植えていない植物です。下の一覧で「植えた」にするとここから消えます。</p>
+    ${want.map((p) => `<div class="shop-row"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span><span class="sn">${esc(p.ja)}</span><span class="sq">${qtyFor(p, plants)}株・${yen(qtyFor(p, plants) * p.price)}</span><a class="btn small" href="${shopUrl(p)}" target="_blank" rel="noopener" aria-label="${esc(p.ja)}を${esc(shopLabel())}で探す">${icon('cart', 15)}</a></div>`).join('')}
+  </details>`;
+}
+
+// ---------- 自分の写真 ----------
+document.addEventListener('change', async (e) => {
+  const inp = e.target.closest('[data-myphoto]');
+  if (!inp || !inp.files[0]) return;
+  try {
+    const photo = await shrinkImage(inp.files[0], 1000, 0.8);
+    await savePhoto(inp.dataset.myphoto, photo);
+    userPhotos.set(inp.dataset.myphoto, photo);
+    toast('写真を設定しました');
+    render();
+  } catch (err) { toast(err.message); }
+});
+document.addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-delphoto]');
+  if (!b) return;
+  await deletePhoto(b.dataset.delphoto);
+  userPhotos.delete(b.dataset.delphoto);
+  render();
+});
+
 // ---------- 起動 ----------
 applyTheme();
 fillIcons();
@@ -1374,6 +1546,7 @@ if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMon
 if (state.loc) loadClimate(); else render();
 go('site');
 requestPersist();
+listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('sw.js').catch(() => {});

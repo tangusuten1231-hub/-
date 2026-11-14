@@ -601,3 +601,31 @@ details > summary { color: var(--accent); }
 .annual-note .ico, .med-note .ico { color: var(--accent); margin-top: 3px; }
 .med-note { background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-radius: 12px; padding: 8px 10px; }
 .med-note .ico { color: var(--warn); }
+
+/* 複数の庭 */
+.gtabs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 16px 10px; margin: 0 -16px; scrollbar-width: none; }
+.gtabs::-webkit-scrollbar { display: none; }
+.gtab { flex: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-family: var(--serif); font-size: .9rem; cursor: pointer; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
+.gtab small { font-family: var(--display); color: var(--muted); font-size: .9rem; }
+.gtab.on { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 700; }
+.gtab.on small { color: var(--accent-ink); opacity: .8; }
+.gtab.add { border-style: dashed; color: var(--accent); }
+.gset > summary, .shop > summary { list-style: none; display: flex; align-items: center; gap: 6px; margin: 0; color: var(--ink); font-family: var(--serif); }
+.gset > summary::-webkit-details-marker, .shop > summary::-webkit-details-marker { display: none; }
+.gset > summary .sum-hint, .shop > summary .sum-hint { margin-left: auto; font-family: inherit; }
+.gset > summary .ico { color: var(--accent); }
+.gset[open] > summary, .shop[open] > summary { margin-bottom: 10px; }
+.shop > summary h2 { margin: 0; }
+.gset input[type=text] { width: 100%; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 8px 10px; min-height: 40px; }
+.gpick { display: inline-flex; align-items: center; gap: 6px; margin: 0 0 10px; color: var(--accent); }
+.gpick select { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-family: var(--serif); min-height: 34px; max-width: 70vw; }
+.have { border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 999px; font-size: .72rem; padding: 3px 10px; cursor: pointer; white-space: nowrap; }
+.have.on { background: var(--accent-soft); color: var(--accent); border-color: transparent; font-weight: 700; }
+.shop-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .86rem; }
+.shop-row .sn { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.shop-row .sq { color: var(--ink-2); font-size: .78rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* 解説文 */
+.lead-note { font-family: var(--serif); font-size: .95rem !important; line-height: 1.8; }
+.desc h4 { font-family: var(--display); font-style: normal; font-size: .82rem; letter-spacing: .12em; color: var(--accent); margin: 12px 0 2px; font-weight: 500; font-family: var(--serif); }
+.desc p { margin: 0; font-size: .86rem; line-height: 1.85; color: var(--ink-2); }
+.comp { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
