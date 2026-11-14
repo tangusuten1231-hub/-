@@ -1,8 +1,9 @@
 // オフラインでもアプリ本体を開けるようにするサービスワーカー
-const CACHE = 'garden-nav-v1';
+const CACHE = 'garden-nav-v2';
 const SHELL = [
   './', 'index.html', 'css/style.css', 'icon.svg', 'manifest.webmanifest',
   'js/app.js', 'js/plants.js', 'js/climate.js', 'js/garden.js', 'js/sun.js',
+  'js/plan.js', 'js/illust.js', 'js/images.js',
 ];
 
 self.addEventListener('install', (e) => {

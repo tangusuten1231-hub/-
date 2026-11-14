@@ -214,7 +214,7 @@ details > summary { cursor: pointer; color: var(--accent); font-size: .88rem; ma
 /* タブバー */
 .tabbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   background: var(--surface); border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -237,3 +237,44 @@ details > summary { cursor: pointer; color: var(--accent); font-size: .88rem; ma
 .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+
+/* 写真・イラスト */
+.photo { position: relative; margin: -12px -14px 4px; border-radius: 14px 14px 0 0; overflow: hidden; aspect-ratio: 16 / 9; background: var(--surface-2); }
+.photo img, .photo svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo .credit { position: absolute; right: 6px; bottom: 4px; font-size: .62rem; color: #fff; background: rgba(0,0,0,.45); padding: 0 5px; border-radius: 4px; text-decoration: none; }
+.photo .fallback-note { position: absolute; left: 6px; bottom: 4px; font-size: .62rem; color: #4b5a43; background: rgba(255,255,255,.7); padding: 0 5px; border-radius: 4px; }
+.mini-photo { width: 56px; height: 56px; border-radius: 10px; overflow: hidden; flex: none; background: var(--surface-2); }
+.mini-photo img, .mini-photo svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.price { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: .7rem; background: var(--surface-2); color: var(--ink-2); border-radius: 999px; padding: 1px 8px; }
+
+/* プラン */
+textarea { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 10px; font: inherit; color: inherit; resize: vertical; }
+.presets { margin: 8px 0 4px; }
+.presets .chip { padding: 3px 10px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid2 .field input { width: 100%; }
+.field > input[type=number] { width: 100%; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 8px 10px; min-height: 40px; }
+.illust { width: 100%; height: auto; display: block; border-radius: 12px; color: var(--ink); }
+.month-slider { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.month-slider input { flex: 1; accent-color: var(--accent); }
+.month-slider b { min-width: 3.5em; text-align: right; font-variant-numeric: tabular-nums; }
+.season-btns { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.sp { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+.sp:first-of-type { border-top: 0; }
+.sp .body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.sp .title { display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; font-weight: 700; font-size: .92rem; }
+.sp .no { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: .7rem; flex: none; }
+.sp .calc { font-size: .8rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.why { display: flex; flex-wrap: wrap; gap: 4px; }
+.why span { font-size: .68rem; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 0 7px; }
+.cost-table { width: 100%; border-collapse: collapse; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.cost-table td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.cost-table td:last-child { text-align: right; }
+.cost-table tr.total td { font-weight: 700; font-size: 1.05rem; border-bottom: 0; }
+.alert { border-radius: 10px; padding: 8px 10px; font-size: .85rem; margin-top: 8px; }
+.alert.warn { background: color-mix(in srgb, var(--warn) 14%, transparent); color: var(--warn); }
+.alert.ok { background: color-mix(in srgb, var(--good) 14%, transparent); color: var(--good); }
+.big-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.big-row .btn { flex: 1; }

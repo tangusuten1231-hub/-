@@ -66,6 +66,7 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.color || p.color.includes(f.color))
     .filter((p) => !f.month || p.bloom.includes(Number(f.month)))
     .filter((p) => !f.height || heightClass(p) === f.height)
+    .filter((p) => !f.tag || p.tags.includes(f.tag))
     .filter((p) => !f.q || (p.ja + p.latin).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
     .filter((r) => !f.minLevel || r.level == null || r.level >= f.minLevel)
@@ -75,7 +76,7 @@ export function findPlants(climate, f = {}) {
 export function heightClass(p) {
   const avg = (p.h[0] + p.h[1]) / 2;
   if (avg >= 90) return 'back';
-  if (avg >= 45) return 'middle';
+  if (avg >= 50) return 'middle';
   return 'front';
 }
 export const HEIGHT_LABEL = { back: '後景（高い）', middle: '中景', front: '前景（低い）' };

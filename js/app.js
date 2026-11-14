@@ -1,4 +1,7 @@
-import { PLANTS, COLORS, SUN, MOIST } from './plants.js';
+import { PLANTS, COLORS, SUN, MOIST, TAGS, LEAF, FORMS } from './plants.js';
+import { generatePlan, PRESETS, LAYER_JA } from './plan.js';
+import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
+import { loadImages, imageOf } from './images.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
 import {
@@ -21,7 +24,10 @@ const state = {
   loc: store.get('loc', null),
   climate: null,
   garden: store.get('garden', []).filter((id) => byId.has(id)),
-  filters: store.get('filters', { sun: '', moist: '', height: '', month: '', color: '', q: '' }),
+  filters: store.get('filters', { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '' }),
+  planInput: store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }),
+  plan: null,
+  planMonth: null,
   showHard: false,
   area: store.get('area', 3),
   view: 'site',
@@ -106,6 +112,7 @@ async function loadClimate() {
   const cached = store.get(key, null);
   if (cached && cached.v === 1) {
     state.climate = cached.data;
+    if (state.plan) computePlan();
     setStatus('');
     render();
     return;
@@ -115,6 +122,7 @@ async function loadClimate() {
     const json = await fetchDaily(lat, lon);
     state.climate = { ...analyzeClimate(json.daily, lat), elevation: json.elevation };
     store.set(key, { v: 1, data: state.climate });
+    if (state.plan) computePlan();
     setStatus('');
   } catch (err) {
     setStatus(esc(err.message) + '　通信環境を確認してもう一度お試しください。', true);
@@ -134,6 +142,7 @@ function render() {
   if (state.view === 'plants') renderPlants();
   if (state.view === 'garden') renderGarden();
   if (state.view === 'tasks') renderTasks();
+  if (state.view === 'plan') renderPlan();
 }
 
 function siteAdvice(c) {
@@ -289,6 +298,8 @@ function bindChartHover(root) {
 function initFilters() {
   const fMonth = $('#fMonth');
   fMonth.innerHTML = '<option value="">すべて</option>' + MONTHS.map((m) => `<option value="${m}">${m}月</option>`).join('');
+  $('#fTag').innerHTML = '<option value="">すべて</option>' + Object.entries(TAGS).map(([k, v]) => `<option value="${k}">${v}</option>`).join('');
+  $('#fTag').addEventListener('change', (e) => { state.filters.tag = e.target.value; saveFilters(); });
   $('#fColor').innerHTML = Object.entries(COLORS).map(([k, c]) => `<button type="button" class="chip" data-v="${k}"><span class="dot" style="background:${c.hex}"></span>${c.ja}</button>`).join('');
 
   const f = state.filters;
@@ -326,6 +337,7 @@ function plantCard(r) {
   const inGarden = state.garden.includes(p.id);
   const lv = r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark} ${LEVEL[r.level].label}</span>` : '';
   return `<article class="plant">
+    ${photoHtml(p)}
     <div class="top">
       <div>
         <div class="name">${esc(p.ja)}</div>
@@ -341,7 +353,12 @@ function plantCard(r) {
       <span>${p.sun.map((s) => SUN[s]).join('・')}</span>
       <span>土：${p.moist.map((m) => MOIST[m]).join('・')}</span>
       <span>耐寒 ${p.zone[0]}〜${p.zone[1]}</span>
+      <span>${FORMS[p.form].ja}</span>
+      <span>${LEAF[p.leaf].ja}</span>
+      <span>株間 ${p.spread}cm</span>
+      <span class="price">${yen(p.price)}／${p.type === 'bulb' && p.price <= 300 ? '球' : '株'}</span>
     </div>
+    <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p">${esc(p.note)}</p>
     <div class="actions">
       <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイガーデンに追加済み' : '＋ マイガーデンに追加'}</button>
@@ -356,6 +373,7 @@ function renderPlants() {
   });
   document.querySelectorAll('#fColor .chip').forEach((b) => b.classList.toggle('on', b.dataset.v === f.color));
   $('#fMonth').value = f.month || '';
+  $('#fTag').value = f.tag || '';
   if ($('#fQ').value !== (f.q || '')) $('#fQ').value = f.q || '';
 
   const all = findPlants(state.climate, f);
@@ -364,6 +382,7 @@ function renderPlants() {
   $('#plantCount').textContent = (state.climate ? '' : '※ 場所を設定すると、地域に合うかどうかを判定します。 ')
     + `${list.length}種類${hidden ? `（育てにくい${hidden}種類を非表示）` : ''}`;
   $('#plantList').innerHTML = list.map(plantCard).join('') || '<p class="empty">条件に合う植物がありません。条件をゆるめてみてください。</p>';
+  hydratePhotos($('#plantList'), list.map((r) => r.plant));
 }
 
 document.addEventListener('click', (e) => {
@@ -382,7 +401,7 @@ function renderGarden() {
   const box = $('#gardenBox');
   const plants = state.garden.map((id) => byId.get(id));
   if (!plants.length) {
-    box.innerHTML = `<div class="card empty"><p>まだ植物がありません。</p><button class="btn primary" type="button" data-go="plants">植物を探す</button></div>`;
+    box.innerHTML = `<div class="card empty"><p>まだ植物がありません。</p><div class="row" style="justify-content:center"><button class="btn primary" type="button" data-go="plan">🎨 プランをつくる</button><button class="btn" type="button" data-go="plants">植物を探す</button></div></div>`;
     return;
   }
   const c = state.climate;
@@ -414,7 +433,7 @@ function renderGarden() {
         const r = evaluate(p, c);
         const per = plantsPerSqm(p);
         const share = state.area / plants.length;
-        const qty = Math.max(1, Math.round(per * share));
+        const qty = qtyFor(p, plants);
         return `<div class="gplant">
           <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>
           <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
@@ -441,6 +460,7 @@ function renderGarden() {
       <label class="area">花壇の面積 <input type="number" id="area" min="0.5" step="0.5" value="${state.area}" inputmode="decimal"> ㎡</label>
       <p class="hint" style="margin-top:6px">面積を植物の種類数で等分した場合の株数です。同じ植物を3〜5株まとめて植えると自然で見栄えがよくなります。</p>
       ${layers}
+      ${gardenCost(plants)}
     </div>`;
 
   $('#area').addEventListener('change', (e) => {
@@ -480,8 +500,240 @@ function renderTasks() {
     + `<p class="note">時期は${esc(state.loc.name)}の過去10年の終霜・初霜・暑さから計算した目安です。その年の天候に合わせて調整してください。</p>`;
 }
 
+
+// ---------- 写真 ----------
+const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
+
+function photoHtml(p, cls = 'photo', color) {
+  const im = imageOf(p.id);
+  const inner = im
+    ? `<img src="${esc(im.src)}" alt="${esc(p.ja)}の写真" loading="lazy"><a class="credit" href="https://en.wikipedia.org/wiki/${encodeURIComponent(im.page)}" target="_blank" rel="noopener">Wikipedia</a>`
+    : plantThumbSVG(p, color);
+  return `<div class="${cls}" data-photo="${p.id}" data-color="${color || ''}">${inner}</div>`;
+}
+
+/** 写真を非同期で取得し、表示中の要素を差し替える */
+async function hydratePhotos(root, plants) {
+  const missing = plants.filter((p) => !imageOf(p.id));
+  if (!missing.length) return;
+  await loadImages(missing);
+  for (const p of missing) {
+    if (!imageOf(p.id)) continue;
+    root.querySelectorAll(`[data-photo="${p.id}"]`).forEach((el) => {
+      el.outerHTML = photoHtml(p, el.className, el.dataset.color || undefined);
+    });
+  }
+}
+// 読み込みに失敗した写真はイラストに戻す
+document.addEventListener('error', (e) => {
+  const img = e.target;
+  if (img.tagName !== 'IMG') return;
+  const box = img.closest('[data-photo]');
+  const p = box && byId.get(box.dataset.photo);
+  if (p) box.innerHTML = plantThumbSVG(p, box.dataset.color || undefined);
+}, true);
+
+// ---------- 費用（マイガーデン） ----------
+function qtyFor(p, plants) {
+  const share = state.area / plants.length;
+  return Math.max(1, Math.round(plantsPerSqm(p) * share));
+}
+function gardenCost(plants) {
+  const plantsCost = plants.reduce((t, p) => t + qtyFor(p, plants) * p.price, 0);
+  const extras = state.area * (1500 + 800 + 200);
+  return `<table class="cost-table" style="margin-top:10px">
+    <tr><td>苗代（上の株数 × 平均価格）</td><td>${yen(plantsCost)}</td></tr>
+    <tr><td>土づくり・マルチ・元肥（${state.area}㎡）</td><td>${yen(extras)}</td></tr>
+    <tr class="total"><td>概算合計</td><td>${yen(plantsCost + extras)}</td></tr>
+  </table>`;
+}
+
+// ---------- 開花リレー表 ----------
+function calHtml(rows, south, counts) {
+  const now = new Date().getMonth() + 1;
+  return `<div class="cal" role="table" aria-label="開花カレンダー">
+    <div></div>${MONTHS.map((m) => `<div class="h">${m}</div>`).join('')}
+    ${rows.map(({ p, color, label }) => {
+      const on = new Set(p.bloom.map((m) => localMonth(m, south)));
+      const col = COLORS[color || p.color[0]].hex;
+      return `<div class="n" title="${esc(p.ja)}">${label ? label + ' ' : ''}${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
+    }).join('')}
+    <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
+  </div>`;
+}
+
+// ---------- 植栽プラン ----------
+function initPlanForm() {
+  const pi = state.planInput;
+  $('#planText').value = pi.text;
+  $('#planW').value = pi.width;
+  $('#planD').value = pi.depth;
+  $('#planBudget').value = pi.budget || '';
+  $('#planPresets').innerHTML = PRESETS.map((w) => `<button type="button" class="chip" data-w="${w}">${w}</button>`).join('');
+  $('#planPresets').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-w]');
+    if (!b) return;
+    const t = $('#planText');
+    const w = b.dataset.w;
+    t.value = t.value.includes(w) ? t.value.replace(w, '').replace(/、{2,}/g, '、').replace(/^、|、$/g, '') : (t.value ? t.value.replace(/[、。\s]*$/, '') + '、' : '') + w;
+    syncPresetChips();
+  });
+  $('#planText').addEventListener('input', syncPresetChips);
+  document.querySelectorAll('[data-plan]').forEach((seg) => {
+    seg.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      state.planInput[seg.dataset.plan] = b.dataset.v;
+      syncPlanSegs();
+    });
+  });
+  $('#btnPlan').addEventListener('click', () => makePlan(0));
+  $('#btnPlanAlt').addEventListener('click', () => makePlan(state.planInput.seed + 1));
+  syncPlanSegs();
+  syncPresetChips();
+}
+function syncPlanSegs() {
+  document.querySelectorAll('[data-plan]').forEach((seg) => {
+    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (state.planInput[seg.dataset.plan] || '')));
+  });
+}
+function syncPresetChips() {
+  const t = $('#planText').value;
+  document.querySelectorAll('#planPresets .chip').forEach((c) => c.classList.toggle('on', t.includes(c.dataset.w)));
+}
+function readPlanForm() {
+  const pi = state.planInput;
+  pi.text = $('#planText').value.trim();
+  pi.width = Math.min(30, Math.max(0.5, parseFloat($('#planW').value) || 3));
+  pi.depth = Math.min(10, Math.max(0.4, parseFloat($('#planD').value) || 1.2));
+  pi.budget = $('#planBudget').value;
+}
+function makePlan(seed) {
+  readPlanForm();
+  state.planInput.seed = seed;
+  store.set('planInput', state.planInput);
+  computePlan();
+  state.planMonth = state.plan?.peak ?? 6;
+  renderPlan();
+  $('#planBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function computePlan() {
+  state.plan = generatePlan({ ...state.planInput, climate: state.climate });
+}
+
+function renderPlan() {
+  const box = $('#planBox');
+  const plan = state.plan;
+  $('#btnPlanAlt').hidden = !plan;
+  if (!plan) {
+    box.innerHTML = state.climate ? '' : '<p class="note">※ 先に「気候」タブで場所を設定すると、地域で育ちやすい植物だけでプランをつくります。</p>';
+    return;
+  }
+  if (!plan.species.length) {
+    box.innerHTML = '<div class="card empty">条件に合う植物が見つかりませんでした。日当たりや土の条件、キーワードを変えてみてください。</div>';
+    return;
+  }
+  const south = !!state.climate?.south;
+  const m = state.planMonth || plan.peak;
+  const c = plan.cost;
+  const budgetMsg = c.budget
+    ? (c.total <= c.budget
+      ? `<div class="alert ok">予算 ${yen(c.budget)} 内に収まっています（残り ${yen(c.budget - c.total)}）。</div>`
+      : `<div class="alert warn">予算 ${yen(c.budget)} を ${yen(c.total - c.budget)} 超えています。キーワードに「低予算」を加えるか、花壇を小さくする、苗を少なめに植えて株が広がるのを待つ、などで調整できます。</div>`)
+    : '';
+  const read = plan.pref.matched.length
+    ? plan.pref.matched.map((w) => `<span class="tag">${esc(w)}</span>`).join('')
+    : '<span class="tag">指定なし（気候とバランス重視）</span>';
+  const seasons = [['春', 4], ['初夏', 6], ['夏', 8], ['秋', 10], ['冬', 1]].map(([n, mm]) => [n, localMonth(mm, south)]);
+
+  box.innerHTML = `
+    <div class="card">
+      <h2>あなたの植栽プラン</h2>
+      <div class="tagrow" style="margin-bottom:8px"><span class="label" style="margin:0 4px 0 0">読み取ったイメージ</span>${read}</div>
+      <div class="tiles">
+        <div class="tile"><div class="k">植物</div><div class="v">${plan.species.length}<small>種類</small></div><div class="s">合計 ${plan.totalPlants}株</div></div>
+        <div class="tile"><div class="k">花壇</div><div class="v">${Math.round(plan.area * 10) / 10}<small>㎡</small></div><div class="s">${plan.width}m × ${plan.depth}m・${SUN[plan.sun]}</div></div>
+        <div class="tile"><div class="k">概算費用</div><div class="v">${yen(c.total)}</div><div class="s">1㎡あたり ${yen(c.perSqm)}</div></div>
+      </div>
+      ${plan.gaps.length ? `<div class="alert warn">${plan.gaps.map((g) => g + '月').join('・')}は花が少なめです。カラーリーフやグラスの葉姿で楽しむ時期になります。</div>` : '<div class="alert ok">春から晩秋まで、どの月も何かが咲く開花リレーになっています。</div>'}
+    </div>
+
+    <div class="card">
+      <h2>イメージ図</h2>
+      <p class="hint">月を動かすと、季節ごとの花壇の移り変わりを見られます。植物の形と花色をもとに描いた絵なので、実際の見た目とは異なります。</p>
+      <div id="elev">${elevationSVG(plan, m, south)}</div>
+      <div class="month-slider"><input type="range" id="planMonth" min="1" max="12" step="1" value="${m}" aria-label="表示する月"><b id="planMonthLabel">${m}月</b></div>
+      <div class="season-btns">${seasons.map(([n, mm]) => `<button type="button" class="chip" data-month="${mm}">${n}</button>`).join('')}</div>
+    </div>
+
+    <div class="card">
+      <h2>配置図</h2>
+      <p class="hint">○ 1つが苗1株、番号は下のリストと対応しています。円の大きさは数年後に株が広がったときの目安です。</p>
+      ${planSVG(plan)}
+    </div>
+
+    <div class="card">
+      <h2>植物リスト</h2>
+      ${plan.species.map((s) => `<div class="sp">
+        ${photoHtml(s.plant, 'mini-photo', s.color)}
+        <div class="body">
+          <div class="title"><span class="no">${s.no}</span>${esc(s.plant.ja)}${s.level ? `<span class="lv lv-${s.level}">${LEVEL[s.level].mark}</span>` : ''}</div>
+          <div class="calc">${LAYER_JA[s.layer]}・<span class="dot" style="background:${COLORS[s.color].hex};width:9px;height:9px"></span> ${COLORS[s.color].ja}・${s.plant.h[0]}〜${s.plant.h[1]}cm・株間${s.plant.spread}cm</div>
+          <div class="calc">${s.qty}株 × ${yen(s.plant.price)} = <b>${yen(s.subtotal)}</b></div>
+          ${monthBar({ ...s.plant, color: [s.color] }, south)}
+          <div class="why">${s.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+
+    <div class="card">
+      <h2>開花リレー</h2>
+      <div class="scroll-x">${calHtml(plan.species.map((s) => ({ p: s.plant, color: s.color, label: s.no })), south, plan.counts)}</div>
+    </div>
+
+    <div class="card">
+      <h2>概算費用</h2>
+      <table class="cost-table">
+        <tr><td>苗代（${plan.totalPlants}株）</td><td>${yen(c.plants)}</td></tr>
+        ${c.extras.map((e) => `<tr><td>${e.ja}</td><td>${yen(e.cost)}</td></tr>`).join('')}
+        <tr class="total"><td>合計の目安</td><td>${yen(c.total)}</td></tr>
+      </table>
+      ${budgetMsg}
+      <p class="note">苗は9〜10.5cmポット苗（球根は1球）の一般的な販売価格の目安です。品種・季節・お店によって変わります。株を少なめに植えて数年かけて広げると費用を抑えられます。</p>
+    </div>
+
+    <div class="big-row">
+      <button class="btn primary" type="button" id="btnApply">🪴 このプランをマイ庭に反映</button>
+      <button class="btn" type="button" id="btnAlt2">🔄 別の案をつくる</button>
+    </div>`;
+
+  const setMonth = (mm) => {
+    state.planMonth = mm;
+    $('#elev').innerHTML = elevationSVG(plan, mm, south);
+    $('#planMonth').value = mm;
+    $('#planMonthLabel').textContent = `${mm}月`;
+  };
+  $('#planMonth').addEventListener('input', (e) => setMonth(Number(e.target.value)));
+  box.querySelector('.season-btns').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-month]');
+    if (b) setMonth(Number(b.dataset.month));
+  });
+  $('#btnAlt2').addEventListener('click', () => makePlan(state.planInput.seed + 1));
+  $('#btnApply').addEventListener('click', () => {
+    state.garden = plan.species.map((s) => s.plant.id);
+    state.area = Math.round(plan.area * 10) / 10;
+    store.set('garden', state.garden);
+    store.set('area', state.area);
+    toast('プランの植物をマイ庭に反映しました');
+    go('garden');
+  });
+  hydratePhotos(box, plan.species.map((s) => s.plant));
+}
+
 // ---------- 起動 ----------
 initFilters();
+initPlanForm();
+if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMonth = state.plan.peak; }
 if (state.loc) loadClimate(); else render();
 go('site');
 
