@@ -172,8 +172,8 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
 }
 
 /** 立面図（正面から見たイメージ）。month はその土地の月 */
-export function elevationSVG(plan, month, south = false) {
-  const VW = 640, VH = 320, ground = VH - 34, depthPx = 46;
+export function elevationSVG(plan, month, south = false, opts = {}) {
+  const VW = 640, VH = opts.height || 320, ground = VH - 34, depthPx = 46;
   const maxH = Math.max(1.2, ...plan.species.map((s) => s.plant.h[1] / 100));
   const sx = (VW - 40) / plan.width;
   const sh = Math.min(sx, (ground - depthPx - 20) / maxH);
@@ -198,7 +198,8 @@ export function elevationSVG(plan, month, south = false) {
     <path d="M14,${ground + 4} L${VW - 14},${ground + 4} L${VW - 14 - 18},${ground - depthPx - 4} L${14 + 18},${ground - depthPx - 4}Z" fill="#6d5640"/>
     ${body}
     <rect x="0" y="${ground + 4}" width="${VW}" height="${VH - ground - 4}" fill="${nm === 12 || nm <= 2 ? '#c9c2a8' : '#a9c286'}"/>
-    <text x="${VW - 12}" y="${VH - 12}" text-anchor="end" font-size="14" fill="#3b4a33" opacity=".8">${month}月のイメージ</text>
+    ${opts.label === false ? '' : `<text x="${VW - 12}" y="${VH - 12}" text-anchor="end" font-size="14" fill="#3b4a33" opacity=".8">${month}月のイメージ</text>`}
+    ${opts.extra || ''}
   </svg>`;
 }
 

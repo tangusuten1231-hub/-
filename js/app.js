@@ -7,6 +7,7 @@ import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
 import { loadImages, imageOf } from './images.js';
 import { TYPE_JA, USES, FAMILY } from './meta.js';
 import { ideasFor, RECIPES, plantsForNeed } from './enjoy.js';
+import { art, ART_BY_ICON, ART_BY_RECIPE, MONTH_OLD, SEASON_EN, sekkiOf } from './art.js';
 import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
 import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile } from './db.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
@@ -767,79 +768,98 @@ function renderPlan() {
     : '<span class="tag">指定なし（気候とバランス重視）</span>';
   const seasons = [['春', 4], ['初夏', 6], ['夏', 8], ['秋', 10], ['冬', 1]].map(([n, mm]) => [n, localMonth(mm, south)]);
 
+  const title = planTitle(plan.pref.matched);
+  const share = {};
+  plan.species.forEach((sp) => { share[sp.color] = (share[sp.color] || 0) + sp.qty; });
+  const palette = Object.entries(share).sort((a, b) => b[1] - a[1]);
+  const gallery = [['春', 4], ['初夏', 6], ['盛夏', 8], ['秋', 10], ['冬', 1]].map(([n, mm]) => [n, localMonth(mm, south)]);
+
   box.innerHTML = `
-    <div class="card">
-      <h2>あなたの植栽プラン</h2>
-      <p class="hint" style="margin-bottom:6px">スタイル：<b>${esc(STYLES[plan.style].ja)}</b></p>
-      <details class="principles"><summary>このスタイルのポイント</summary><p class="hint">${esc(STYLES[plan.style].summary)}</p><ul class="advice">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details>
-      <div class="tagrow" style="margin-bottom:8px"><span class="label" style="margin:0 4px 0 0">読み取ったイメージ</span>${read}</div>
-      <div class="tiles">
-        <div class="tile"><div class="k">植物</div><div class="v">${plan.species.length}<small>種類</small></div><div class="s">合計 ${plan.totalPlants}株</div></div>
-        <div class="tile"><div class="k">花壇</div><div class="v">${Math.round(plan.area * 10) / 10}<small>㎡</small></div><div class="s">${plan.width}m × ${plan.depth}m・${SUN[plan.sun]}</div></div>
-        <div class="tile"><div class="k">概算費用</div><div class="v">${yen(c.total)}</div><div class="s">1㎡あたり ${yen(c.perSqm)}</div></div>
+    <section class="hero plan-hero">
+      <div class="hero-art" id="elev">${elevationSVG(plan, m, south, { label: false })}</div>
+      <div class="hero-text">
+        <span class="kicker">Garden Plan · ${esc(STYLES[plan.style].by || 'Layered Border')}</span>
+        <h1>${esc(title)}</h1>
+        <p class="sekki">${esc(STYLES[plan.style].ja)}</p>
+        <div class="month-slider"><input type="range" id="planMonth" min="1" max="12" step="1" value="${m}" aria-label="表示する月"><b id="planMonthLabel">${m}月</b></div>
       </div>
-      ${plan.gaps.length ? `<div class="alert warn">${plan.gaps.map((g) => g + '月').join('・')}は花が少なめです。カラーリーフやグラスの葉姿で楽しむ時期になります。</div>` : '<div class="alert ok">春から晩秋まで、どの月も何かが咲く開花リレーになっています。</div>'}
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>イメージ図</h2>
-      <p class="hint">月を動かすと、季節ごとの花壇の移り変わりを見られます。植物の形と花色をもとに描いた絵なので、実際の見た目とは異なります。</p>
-      <div id="elev">${elevationSVG(plan, m, south)}</div>
-      <div class="month-slider"><input type="range" id="planMonth" min="1" max="12" step="1" value="${m}" aria-label="表示する月"><b id="planMonthLabel">${m}月</b></div>
-      <div class="season-btns">${seasons.map(([n, mm]) => `<button type="button" class="chip" data-month="${mm}">${n}</button>`).join('')}</div>
+    <div class="figures">
+      <div><span class="fig">${plan.species.length}</span><span class="cap">種類・${plan.totalPlants}株</span></div>
+      <div><span class="fig">${Math.round(plan.area * 10) / 10}<small>㎡</small></span><span class="cap">${plan.width}×${plan.depth}m・${SUN[plan.sun]}</span></div>
+      <div><span class="fig">${yen(c.total)}</span><span class="cap">概算・1㎡ ${yen(c.perSqm)}</span></div>
     </div>
+    ${plan.gaps.length ? `<p class="pnote warn">${plan.gaps.map((g) => g + '月').join('・')}は花が少なめ。グラスや葉の美しさを楽しむ時期です。</p>` : '<p class="pnote ok">春から晩秋まで、どの月も何かが咲く開花リレーです。</p>'}
 
-    <div class="card">
-      <h2>配置図</h2>
-      <p class="hint">○ 1つが苗1株、番号は下のリストと対応しています。円の大きさは数年後に株が広がったときの目安です。</p>
-      ${planSVG(plan)}
-    </div>
+    <section class="mag">
+      ${secHead('Season Gallery', '季節の移ろい', '同じ花壇の一年。タップすると上の絵が切り替わります。')}
+      <div class="carousel gallery season-btns">${gallery.map(([n, mm]) => `<button type="button" class="gal" data-month="${mm}">${elevationSVG(plan, mm, south, { label: false })}<span>${n}<small>${mm}月</small></span></button>`).join('')}</div>
+    </section>
 
-    <div class="card">
-      <h2>植物リスト</h2>
-      ${plan.species.map((s) => `<div class="sp">
-        ${photoHtml(s.plant, 'mini-photo', s.color)}
-        <div class="body">
-          <div class="title"><span class="no">${s.no}</span>${esc(s.plant.ja)}${s.level ? `<span class="lv lv-${s.level}">${LEVEL[s.level].mark}</span>` : ''}</div>
-          <div class="calc">${esc(s.roleJa)}・<span class="dot" style="background:${COLORS[s.color].hex};width:9px;height:9px"></span> ${COLORS[s.color].ja}・${s.plant.h[0]}〜${s.plant.h[1]}cm・株間${s.plant.spread}cm</div>
-          <div class="calc">${s.qty}株 × ${yen(s.plant.price)} = <b>${yen(s.subtotal)}</b></div>
-          ${monthBar({ ...s.plant, color: [s.color] }, south)}
-          <div class="why">${s.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+    <section class="mag">
+      ${secHead('Palette', '色の構成')}
+      <div class="palette">${palette.map(([col, n]) => `<div style="flex:${n}"><span class="sw" style="background:${COLORS[col].hex}"></span><span class="pl">${COLORS[col].ja}<small>${Math.round((n / plan.totalPlants) * 100)}%</small></span></div>`).join('')}</div>
+      <p class="lead">読み取ったイメージ：${plan.pref.matched.length ? plan.pref.matched.map(esc).join('、') : '指定なし（気候とバランスを重視）'}</p>
+    </section>
+
+    <section class="mag">
+      ${secHead('Design Notes', 'このスタイルの考え方', esc(STYLES[plan.style].summary))}
+      <ol class="steps-num">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
+    </section>
+
+    <section class="mag">
+      ${secHead('Planting List', '植える植物')}
+      <div class="cast">${plan.species.map((sp) => `<article class="cast-card">
+        <div class="cast-art">${photoHtml(sp.plant, 'cast-photo', sp.color)}<span class="no">${sp.no}</span></div>
+        <div class="cbody">
+          <span class="role">${esc(sp.roleJa)}</span>
+          <h3>${esc(sp.plant.ja)}</h3>
+          <p class="latin">${esc(sp.plant.latin)}</p>
+          <p class="calc"><span class="dot" style="background:${COLORS[sp.color].hex};width:9px;height:9px"></span> ${COLORS[sp.color].ja}・${sp.plant.h[0]}〜${sp.plant.h[1]}cm${sp.level ? `・${LEVEL[sp.level].mark}` : ''}</p>
+          ${monthBar({ ...sp.plant, color: [sp.color] }, south)}
+          <p class="calc">${sp.qty}株 × ${yen(sp.plant.price)} = <b>${yen(sp.subtotal)}</b></p>
+          <div class="why">${sp.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
         </div>
-      </div>`).join('')}
-    </div>
+      </article>`).join('')}</div>
+    </section>
 
-    <div class="card">
-      <h2>開花リレー</h2>
-      <div class="scroll-x">${calHtml(plan.species.map((s) => ({ p: s.plant, color: s.color, label: s.no })), south, plan.counts)}</div>
-    </div>
+    <section class="mag paper">
+      ${secHead('Planting Plan', '配置図', '○ ひとつが苗1株。番号は上のリストと対応しています。円は数年後の株の広がりの目安です。')}
+      ${planSVG(plan)}
+    </section>
 
-    <div class="card">
-      <h2>概算費用</h2>
-      <table class="cost-table">
-        <tr><td>苗代（${plan.totalPlants}株）</td><td>${yen(c.plants)}</td></tr>
-        ${c.extras.map((e) => `<tr><td>${e.ja}</td><td>${yen(e.cost)}</td></tr>`).join('')}
-        <tr class="total"><td>合計の目安</td><td>${yen(c.total)}</td></tr>
-      </table>
+    <section class="mag">
+      ${secHead('Bloom Relay', '開花リレー')}
+      <div class="scroll-x">${calHtml(plan.species.map((sp) => ({ p: sp.plant, color: sp.color, label: sp.no })), south, plan.counts)}</div>
+    </section>
+
+    <section class="mag receipt">
+      ${secHead('Estimate', '概算費用')}
+      <ul>
+        <li><span>苗代（${plan.totalPlants}株）</span><i></i><b>${yen(c.plants)}</b></li>
+        ${c.extras.map((e) => `<li><span>${esc(e.ja)}</span><i></i><b>${yen(e.cost)}</b></li>`).join('')}
+        <li class="total"><span>合計の目安</span><i></i><b>${yen(c.total)}</b></li>
+      </ul>
       ${budgetMsg}
-      <p class="note">苗は9〜10.5cmポット苗（球根は1球）の一般的な販売価格の目安です。品種・季節・お店によって変わります。株を少なめに植えて数年かけて広げると費用を抑えられます。</p>
-    </div>
+      <p class="note">苗は9〜10.5cmポット苗（球根は1球）の一般的な価格の目安です。株を少なめに植えて数年かけて広げると費用を抑えられます。</p>
+    </section>
 
     <div class="big-row">
-      <button class="btn primary" type="button" id="btnApply">🪴 このプランをマイ庭に反映</button>
-      <button class="btn" type="button" id="btnAlt2">🔄 別の案をつくる</button>
+      <button class="btn primary" type="button" id="btnApply">このプランをマイ庭に反映</button>
+      <button class="btn" type="button" id="btnAlt2">別の案をつくる</button>
     </div>`;
 
   const setMonth = (mm) => {
     state.planMonth = mm;
-    $('#elev').innerHTML = elevationSVG(plan, mm, south);
+    $('#elev').innerHTML = elevationSVG(plan, mm, south, { label: false });
     $('#planMonth').value = mm;
     $('#planMonthLabel').textContent = `${mm}月`;
   };
   $('#planMonth').addEventListener('input', (e) => setMonth(Number(e.target.value)));
   box.querySelector('.season-btns').addEventListener('click', (e) => {
     const b = e.target.closest('[data-month]');
-    if (b) setMonth(Number(b.dataset.month));
+    if (b) { setMonth(Number(b.dataset.month)); $('.plan-hero').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('#btnAlt2').addEventListener('click', () => makePlan(state.planInput.seed + 1));
   $('#btnApply').addEventListener('click', () => {
@@ -1034,53 +1054,121 @@ function allTips() {
   for (const p of src) for (const t of p.tips) if (!seen.has(t)) { seen.add(t); out.push({ t, p }); }
   return out;
 }
+function heroScene(plants, month, south) {
+  // 庭の植物（なければ代表的な宿根草）で季節の情景を描く
+  const base = plants.length ? plants : ['miscanthus', 'echinacea', 'salvia-nemorosa', 'sedum', 'hakonechloa', 'aster', 'rudbeckia', 'panicum', 'gaura']
+    .map((id) => byId.get(id)).filter(Boolean);
+  const list = [...base].sort((a, b) => b.h[1] - a.h[1]).slice(0, 10);
+  const W = 5;
+  const yOf = (p) => ({ back: 0.82, middle: 0.5, front: 0.18 }[heightClass(p)]);
+  const species = list.map((p, i) => ({
+    plant: p, color: p.color[0],
+    positions: [0, 1].map((k) => ({ x: ((i * 0.618 + k * 0.5) % 1) * W * 0.92 + W * 0.04, y: Math.min(0.95, Math.max(0.05, yOf(p) + (k ? 0.08 : -0.06))) })),
+  }));
+  const nm = localMonth(month, south);
+  const winter = nm === 12 || nm <= 2;
+  const extra = `<circle cx="560" cy="62" r="30" fill="${winter ? '#f4efe0' : '#f6d27a'}" opacity=".75" filter="url(#wc)"/>
+    <path d="M90,60 q8,-7 16,0 q8,-7 16,0 M140,40 q6,-5 12,0 q6,-5 12,0" fill="none" stroke="#3b4a33" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>`;
+  return elevationSVG({ width: W, depth: 1, view: 'border', species }, month, south, { label: false, height: 300, extra });
+}
+
+/** 読み取ったキーワードから、プランの題名を自然な言葉で */
+function planTitle(words) {
+  if (words.includes('ホワイトガーデン')) return 'ホワイトガーデン';
+  const COLOR = ['白', '青', '紫', 'ピンク', '赤', '黄', 'オレンジ'];
+  const DESC = {
+    '蝶・蜂': '蝶が舞う', 香り: '香りに包まれる', 長く咲く: '長く咲き続ける', 手間いらず: '手間いらずの', 冬も緑: '冬も緑の',
+    パステル: 'パステルカラーの', カラフル: 'カラフルな', シック: 'シックな', 涼しげ: '涼しげな', 暖色: 'あたたかな色の',
+    銀葉: '銀葉の', 銅葉: '銅葉の', カラーリーフ: '葉色を楽しむ', ボリューム: 'ボリュームのある', コンパクト: '小さな',
+    春: '春の', 初夏: '初夏の', 夏: '夏の', 秋: '秋の', 冬: '冬の',
+    ナチュラル: 'ナチュラルな', イングリッシュ: 'イングリッシュ風の', 和風: '和の', プレーリー: '草原のような',
+    ドライガーデン: '乾いた砂利の', シェード: '木陰の', 低予算: '',
+  };
+  const colors = words.filter((w) => COLOR.includes(w));
+  const STYLE = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライガーデン', 'シェード'];
+  const descs = [...words.filter((w) => DESC[w] && !STYLE.includes(w)), ...words.filter((w) => STYLE.includes(w))].map((w) => DESC[w]).slice(0, 2);
+  if (!colors.length && !descs.length) return 'あなたの庭のプラン';
+  return `${colors.length ? colors.join('と') + 'の' : ''}${descs.join('')}庭`;
+}
+
+function secHead(en, ja, lead = '') {
+  return `<header class="sec"><span class="en">${en}</span><h2>${ja}</h2>${lead ? `<p class="lead">${lead}</p>` : ''}</header>`;
+}
+
 function renderEnjoy() {
   const box = $('#enjoyBox');
   const c = state.climate;
+  const south = !!c?.south;
   const now = new Date().getMonth() + 1;
-  const north = c ? localMonth(now, c.south) : now;
+  const north = localMonth(now, south);
   const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
   const blooming = mine.filter((p) => p.bloom.includes(north));
   const ideas = ideasFor(north);
   const tips = allTips();
   const tip = tips.length ? tips[tipIndex % tips.length] : null;
   const recipeIds = [...new Set(ideas.map((i) => i.recipe).filter(Boolean))];
+  const sekki = sekkiOf();
   const examples = (need) => {
     const m = plantsForNeed(need, mine);
-    if (m.length) return `<div class="mine">あなたの庭では：${[...new Set(m.map((p) => p.groupJa))].slice(0, 6).map(esc).join('、')}</div>`;
-    const any = [...new Map(plantsForNeed(need, PLANTS).map((p) => [p.group, p.groupJa])).values()].slice(0, 6);
-    return any.length ? `<div class="mine muted">向いている植物：${any.map(esc).join('、')}</div>` : '';
+    if (m.length) return `<p class="mine">あなたの庭では — ${[...new Set(m.map((p) => p.groupJa))].slice(0, 5).map(esc).join('、')}</p>`;
+    const any = [...new Map(plantsForNeed(need, PLANTS).map((p) => [p.group, p.groupJa])).values()].slice(0, 5);
+    return any.length ? `<p class="mine muted">向いている植物 — ${any.map(esc).join('、')}</p>` : '';
   };
-  const recipeHtml = (id, open = false) => {
+  const recipeCard = (id, open = false) => {
     const r = RECIPES[id];
-    return `<details class="recipe" ${open ? 'open' : ''}><summary>${r.icon} <b>${esc(r.title)}</b></summary>
-      ${examples(r.need)}
-      <ol>${r.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
-      <ul class="rtips">${r.tips.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    return `<details class="rcard" ${open ? 'open' : ''}>
+      <summary><div class="art-box">${art(ART_BY_RECIPE[id])}</div><div class="rhead"><span class="en">Recipe</span><h3>${esc(r.title)}</h3>${examples(r.need)}</div></summary>
+      <ol class="steps-num">${r.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+      <div class="rnote">${r.tips.map((x) => `<p>${esc(x)}</p>`).join('')}</div>
     </details>`;
   };
+
   box.innerHTML = `
-    <div class="card season-card">
-      <h2>${now}月の庭の楽しみ</h2>
-      ${blooming.length ? `<div class="blooming" style="margin-bottom:8px">${blooming.map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.ja)}</span>`).join('')}</div>` : ''}
-      ${ideas.map((i) => `<div class="idea"><div class="ic">${i.icon}</div><div>
-        <div class="t">${esc(i.title)}</div><div class="d">${esc(i.text)}</div>${i.need ? examples(i.need) : ''}
-      </div></div>`).join('')}
-    </div>
-    ${tip ? `<div class="card tip-card"><h2>💡 今日の豆知識</h2><p><b>${esc(tip.p.groupJa)}</b>：${esc(tip.t)}</p><button type="button" class="btn small" id="nextTip">次の豆知識</button></div>` : ''}
-    ${recipeIds.length ? `<div class="card"><h2>今月の暮らしのレシピ</h2>${recipeIds.map((id) => recipeHtml(id, true)).join('')}</div>` : ''}
-    <div class="card"><h2>暮らしのレシピ集</h2>
-      <p class="hint">宿根草の庭から広がる、自然と季節を味わう暮らしのアイデア。</p>
-      ${Object.keys(RECIPES).filter((id) => !recipeIds.includes(id)).map((id) => recipeHtml(id)).join('')}
-    </div>
-    <div class="card"><h2>1年の楽しみカレンダー</h2>
-      ${MONTHS.map((m) => {
-        const nm = c ? localMonth(m, c.south) : m;
-        const list = ideasFor(nm);
-        return list.length ? `<div class="yr${m === now ? ' cur' : ''}"><b>${m}月</b><span>${list.map((i) => `${i.icon} ${esc(i.title)}`).join('　')}</span></div>` : '';
-      }).join('')}
-    </div>`;
+    <section class="hero">
+      <div class="hero-art">${heroScene(mine, now, south)}</div>
+      <div class="hero-text">
+        <span class="kicker">${SEASON_EN[north - 1]} · ${MONTH_OLD[now - 1]}</span>
+        <h1>${now}月の庭を楽しむ</h1>
+        ${south ? '' : `<p class="sekki"><b>${sekki.name}</b>　${esc(sekki.text)}</p>`}
+      </div>
+    </section>
+
+    ${blooming.length ? `<section class="mag">
+      ${secHead('In Bloom', 'いま見頃の花')}
+      <div class="bloom-row">${blooming.map((p) => `<figure class="bloom-item">${photoHtml(p, 'round-photo')}<figcaption>${esc(p.cv || p.groupJa)}</figcaption></figure>`).join('')}</div>
+    </section>` : ''}
+
+    <section class="mag">
+      ${secHead('This Month', '今月の楽しみ', '季節の移ろいとともに、庭からはじまる小さな楽しみを。')}
+      <div class="carousel">${ideas.map((i, k) => `<article class="idea-card">
+        <div class="art-box">${art(ART_BY_ICON[i.icon])}</div>
+        <div class="ibody"><span class="num">No.${String(k + 1).padStart(2, '0')}</span><h3>${esc(i.title)}</h3><p>${esc(i.text)}</p>${i.need ? examples(i.need) : ''}</div>
+      </article>`).join('')}</div>
+    </section>
+
+    ${tip ? `<section class="mag quote">
+      <span class="en">Garden Notes</span>
+      <blockquote>${esc(tip.t)}</blockquote>
+      <p class="who">— ${esc(tip.p.groupJa)}</p>
+      <button type="button" class="btn small ghost" id="nextTip">次の豆知識 →</button>
+    </section>` : ''}
+
+    ${recipeIds.length ? `<section class="mag">${secHead('Recipes for Living', '今月の暮らしのレシピ')}${recipeIds.map((id) => recipeCard(id, true)).join('')}</section>` : ''}
+
+    <section class="mag">
+      ${secHead('Library', '暮らしのレシピ集', '宿根草の庭から広がる、自然と季節を味わう暮らしのアイデア。')}
+      ${Object.keys(RECIPES).filter((id) => !recipeIds.includes(id)).map((id) => recipeCard(id)).join('')}
+    </section>
+
+    <section class="mag">
+      ${secHead('Calendar', '一年の楽しみ')}
+      <ol class="year">${MONTHS.map((m) => {
+        const list = ideasFor(localMonth(m, south));
+        return `<li class="${m === now ? 'cur' : ''}"><span class="m">${m}</span><span class="old">${MONTH_OLD[m - 1]}</span><span class="what">${list.map((i) => esc(i.title)).join(' ／ ') || '—'}</span></li>`;
+      }).join('')}</ol>
+    </section>`;
   $('#nextTip')?.addEventListener('click', () => { tipIndex++; renderEnjoy(); });
+  hydratePhotos(box, blooming);
 }
 
 // ---------- 庭ノート（写真付きの記録） ----------
