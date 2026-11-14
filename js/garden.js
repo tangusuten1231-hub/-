@@ -17,8 +17,12 @@ export function evaluate(plant, climate) {
   const deepSnow = climate.annualSnow >= 100 && plant.type !== 'subshrub';
   const coldSite = deepSnow ? site + 1 : site;
   const [zMin, zMax] = plant.zone;
+  const annual = plant.type === 'annual';
 
-  if (coldSite < zMin) {
+  // 一年草は毎年種から育てるので、冬の寒さの判定はしない
+  if (annual) {
+    // 何もしない
+  } else if (coldSite < zMin) {
     if (coldSite >= zMin - 0.5) {
       level = Math.min(level, 2);
       reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護');
@@ -30,7 +34,7 @@ export function evaluate(plant, climate) {
     level = Math.min(level, 2);
     reasons.push('積雪の保温効果で越冬できる見込み。雪の少ない年は防寒を');
   }
-  if (site > zMax + 1) {
+  if (!annual && site > zMax + 1) {
     level = Math.min(level, 2);
     reasons.push('冬の寒さが足りず、休眠不足で弱ることがある');
   }
@@ -54,9 +58,22 @@ export function evaluate(plant, climate) {
     reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保');
   }
 
-  if (!reasons.length) reasons.push('この地域の寒さ・暑さに合っています');
+  if (!reasons.length) reasons.push(annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに合っています');
+  if (annual) reasons.push(sowAdvice(plant, climate));
   return { level, reasons };
 }
+
+/** 一年草の種まき時期（地域の気候から） */
+export function sowAdvice(plant, climate) {
+  const warmWinter = climate.zone.value >= 8;
+  if (plant.sow === 'cool') {
+    return warmWinter
+      ? '種まきは秋（9〜10月）がおすすめ。冬を越して春に大きく育つ'
+      : `種まきは春、${formatMonthOf(climate.lastFrost)}頃から。寒冷地では秋まきだと冬越しが難しい`;
+  }
+  return climate.frostFree ? '種まきは4〜5月、暖かくなってから' : `種まきは遅霜が終わる${formatMonthOf(climate.lastFrostSafe ?? climate.lastFrost)}以降に`;
+}
+const formatMonthOf = (doy) => (doy == null ? '春' : `${doyToDate(doy).month}月`);
 
 /** 条件で絞り込み、適性順に並べる */
 export function findPlants(climate, f = {}) {
@@ -153,6 +170,19 @@ export function buildTasks(climate, gardenPlants = []) {
     add(L(10), 'plant', '秋の植え付け適期', '暑さが和らぎ根がよく張る時期。宿根草の植え付けに最適です。');
   }
 
+  // 一年草の種まきと種取り
+  const cool = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'cool');
+  const warm = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'warm');
+  if (cool.length) {
+    if (climate.zone.value >= 8) add(L(10), 'sow', '秋まき一年草の種まき', '涼しくなったら種まき。小さな苗で冬を越し、春に一気に育ちます。', cool);
+    else add(springStart, 'sow', '一年草の種まき（春まき）', '寒冷地では春にまきます。室内で早めに育苗しても。', cool);
+    add(L(6), 'sow', '一年草の種を採る', '花がらを残して種を採ります。こぼれ種で来年も咲かせるなら、そのまま枯れるまで待ちましょう。', cool);
+  }
+  if (warm.length) {
+    add(wrap(safeM + (climate.frostFree ? 1 : 0)), 'sow', '春まき一年草の種まき', '遅霜の心配がなくなってから。直まきか、ポットで育苗して植え付けます。', warm);
+    add(L(10), 'sow', '一年草の種を採る', '枯れる前に種を採って、来年用に保存しましょう。', warm);
+  }
+
   // 株分け
   const springDiv = gardenPlants.filter((p) => p.div === 'spring' || p.div === 'both');
   const autumnDiv = gardenPlants.filter((p) => p.div === 'autumn' || p.div === 'both');
@@ -208,4 +238,5 @@ export const TASK_KIND = {
   feed: { ja: '施肥', icon: '🧪' },
   water: { ja: '水やり', icon: '💧' },
   pest: { ja: '病害虫', icon: '🔍' },
+  sow: { ja: '種まき', icon: '🌰' },
 };

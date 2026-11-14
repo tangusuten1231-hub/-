@@ -596,3 +596,8 @@ details > summary { color: var(--accent); }
 .field select, .field input, .field textarea { width: 100%; max-width: 100%; }
 .area input { width: 90px !important; }
 .quick button span { white-space: nowrap; }
+
+.annual-note, .med-note { font-size: .78rem !important; color: var(--ink-2); display: flex; gap: 6px; line-height: 1.6; }
+.annual-note .ico, .med-note .ico { color: var(--accent); margin-top: 3px; }
+.med-note { background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-radius: 12px; padding: 8px 10px; }
+.med-note .ico { color: var(--warn); }

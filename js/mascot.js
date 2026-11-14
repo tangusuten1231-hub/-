@@ -35,7 +35,7 @@ const P = {
 export function icon(name, size = 20) {
   return `<svg class="ico" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${P[name] || P.leaf}"/></svg>`;
 }
-export const TASK_ICON = { plant: 'trowel', divide: 'divide', cut: 'scissors', protect: 'scarf', feed: 'feed', water: 'drop', pest: 'eye' };
+export const TASK_ICON = { plant: 'trowel', divide: 'divide', cut: 'scissors', protect: 'scarf', feed: 'feed', water: 'drop', pest: 'eye', sow: 'sprout' };
 export const PEST_ICON = { '病気': 'spore', '害虫': 'bug', '生理障害': 'thermo' };
 
 // ---------- 小鳥のツピ ----------

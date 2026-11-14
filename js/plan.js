@@ -44,7 +44,11 @@ const DICT = [
   { label: 'ドライガーデン', words: ['ドライ', '乾燥', 'ロック', '砂利', '地中海', '南欧', '石'], tags: ['dry'] },
   { label: 'シェード', words: ['日陰', 'シェード', '北側', '木陰', '日当たりが悪'], tags: ['shade'], sun: 'part' },
   { label: '蝶・蜂', words: ['蝶', 'ちょう', '蜂', 'ミツバチ', '虫', '生き物', '野鳥', 'ビオトープ'], tags: ['pollinator'] },
-  { label: '香り', words: ['香り', 'ハーブ', '匂い', 'アロマ'], tags: ['fragrant'] },
+  { label: '香り', words: ['香り', '匂い', 'アロマ'], tags: ['fragrant'] },
+  { label: 'ハーブ', words: ['ハーブ', 'キッチン', '料理', 'お茶', 'ティー'], tags: ['herb'] },
+  { label: '薬草', words: ['薬草', '薬用', 'メディカル', '生薬', '漢方'], tags: ['medicinal'] },
+  { label: '在来種', words: ['在来', '自生', '日本の野草', '野の花'], tags: ['native'] },
+  { label: '一年草も', words: ['一年草', '種まき', 'こぼれ種', '切り花畑'], annual: true },
   { label: '冬も緑', words: ['常緑', '一年中', '冬も', '冬でも'], tags: ['evergreen'] },
   { label: '手間いらず', words: ['手間', 'ずぼら', '簡単', '初心者', '丈夫', '放任', 'ローメンテ', '楽'], tags: ['easy'] },
   // 条件
@@ -59,11 +63,11 @@ const DICT = [
   { label: '冬', words: ['冬'], season: [12, 1, 2], tags: ['evergreen'] },
 ];
 
-export const PRESETS = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライ', '日陰', 'ホワイトガーデン', 'パステル', 'カラフル', 'シック', '涼しげ', '蝶・蜂', '香り', '長く咲く', '手間いらず', '低予算'];
+export const PRESETS = ['ハーブ', '薬草', 'ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライ', '日陰', 'ホワイトガーデン', 'パステル', 'カラフル', 'シック', '涼しげ', '蝶・蜂', '香り', '長く咲く', '手間いらず', '低予算'];
 
 /** 自由入力のイメージ文から好みを読み取る */
 export function parseKeywords(text = '') {
-  const pref = { colors: new Set(), tags: new Set(), leaf: new Set(), season: new Set(), matched: [], strictWhite: false, longbloom: false, budget: false, tall: false, short: false, sun: null };
+  const pref = { colors: new Set(), tags: new Set(), leaf: new Set(), season: new Set(), matched: [], annual: false, strictWhite: false, longbloom: false, budget: false, tall: false, short: false, sun: null };
   const t = text.replace(/\s+/g, '');
   for (const d of DICT) {
     if (!d.words.some((w) => t.includes(w))) continue;
@@ -81,6 +85,7 @@ export function parseKeywords(text = '') {
     if (d.tall) pref.tall = true;
     if (d.short) pref.short = true;
     if (d.sun) pref.sun = d.sun;
+    if (d.annual) pref.annual = true;
   }
   if (pref.strictWhite) { pref.colors = new Set(['white']); pref.matched = pref.matched.filter((m) => m !== '白'); }
   return pref;
@@ -119,6 +124,10 @@ export function generatePlan(o) {
 
   // 候補
   let cands = PLANTS.filter((p) => p.sun.includes(sun) && (!moist || p.moist.includes(moist)));
+  // 一年草は、指定があるときだけ使う（毎年の種まきが必要なため）
+  if (!o.annuals && !pref.annual) cands = cands.filter((p) => p.type !== 'annual');
+  // 大きくなる低木は狭い花壇には入れない
+  cands = cands.filter((p) => p.type !== 'shrub' || p.h[1] <= 200 || area >= 8);
   if (style.filter) cands = cands.filter(style.filter);
   if (pref.strictWhite) cands = cands.filter((p) => p.color.includes('white') || p.form === 'grass' || p.leaf === 'silver' || p.leaf === 'variegated');
   const evals = new Map(cands.map((p) => [p.id, evaluate(p, o.climate)]));
@@ -245,7 +254,7 @@ export function generatePlan(o) {
 
 const TAG_REASON = {
   natural: 'ナチュラル', english: 'イングリッシュ', wa: '和の雰囲気', prairie: 'プレーリー', dry: '乾燥に強い',
-  shade: '日陰向き', pollinator: '蝶・蜂が来る', fragrant: '香り', evergreen: '冬も緑', easy: '手間いらず',
+  shade: '日陰向き', pollinator: '蝶・蜂が来る', fragrant: '香り', evergreen: '冬も緑', easy: '手間いらず', herb: 'ハーブ', medicinal: '薬用植物', native: '在来種',
 };
 
 /**

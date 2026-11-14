@@ -55,6 +55,38 @@ export const FAMILY = Object.fromEntries([
   ...F('コウヤワラビ科', 'Onocleaceae', 'Matteuccia'),
   ...F('イノモトソウ科', 'Pteridaceae', 'Adiantum'),
   ...F('トクサ科', 'Equisetaceae', 'Equisetum'),
+  // 一年草・ハーブ・薬用植物で追加
+  ...F('セリ科', 'Apiaceae', 'Orlaya Ammi Daucus Coriandrum Anethum Petroselinum Levisticum Cryptotaenia Bupleurum'),
+  ...F('キンポウゲ科', 'Ranunculaceae', 'Nigella Consolida Coptis'),
+  ...F('ケシ科', 'Papaveraceae', 'Eschscholzia'),
+  ...F('ナデシコ科', 'Caryophyllaceae', 'Agrostemma'),
+  ...F('ムラサキ科', 'Boraginaceae', 'Cerinthe Myosotis Borago Nemophila Phacelia'),
+  ...F('スミレ科', 'Violaceae', 'Viola'),
+  ...F('アマ科', 'Linaceae', 'Linum'),
+  ...F('キク科', 'Asteraceae', 'Calendula Matricaria Tagetes Zinnia Xerochrysum Tithonia Carthamus Inula Atractylodes Stevia'),
+  ...F('シソ科', 'Lamiaceae', 'Ocimum Perilla Satureja Prunella'),
+  ...F('ノウゼンハレン科', 'Tropaeolaceae', 'Tropaeolum'),
+  ...F('ヒユ科', 'Amaranthaceae', 'Gomphrena Celosia Amaranthus'),
+  ...F('アブラナ科', 'Brassicaceae', 'Lunaria Lobularia'),
+  ...F('イネ科', 'Poaceae', 'Lagurus'),
+  ...F('フウチョウソウ科', 'Cleomaceae', 'Cleome'),
+  ...F('ナス科', 'Solanaceae', 'Nicotiana Lycium'),
+  ...F('オオバコ科', 'Plantaginaceae', 'Antirrhinum'),
+  ...F('アオイ科', 'Malvaceae', 'Alcea Malva Althaea'),
+  ...F('ゴマノハグサ科', 'Scrophulariaceae', 'Verbascum'),
+  ...F('ツリフネソウ科', 'Balsaminaceae', 'Impatiens'),
+  ...F('クマツヅラ科', 'Verbenaceae', 'Aloysia'),
+  ...F('クスノキ科', 'Lauraceae', 'Lindera Laurus'),
+  ...F('ツバキ科', 'Theaceae', 'Camellia'),
+  ...F('バラ科', 'Rosaceae', 'Rosa'),
+  ...F('ガマズミ科', 'Viburnaceae', 'Sambucus'),
+  ...F('アカネ科', 'Rubiaceae', 'Gardenia'),
+  ...F('ミカン科', 'Rutaceae', 'Zanthoxylum'),
+  ...F('スイカズラ科', 'Caprifoliaceae', 'Valeriana'),
+  ...F('マメ科', 'Fabaceae', 'Glycyrrhiza'),
+  ...F('ススキノキ科', 'Asphodelaceae', 'Aloe'),
+  ...F('タデ科', 'Polygonaceae', 'Rumex'),
+  ...F('ウコギ科', 'Araliaceae', 'Aralia'),
 ]);
 
 export function familyOf(latin) {
@@ -62,7 +94,7 @@ export function familyOf(latin) {
   return FAMILY[genus] ?? { ja: 'その他', latin: '' };
 }
 
-export const TYPE_JA = { herb: '宿根草', grass: 'グラス', subshrub: '亜低木', shrub: '小低木', bulb: '球根', fern: 'シダ' };
+export const TYPE_JA = { herb: '宿根草', annual: '一年草・二年草', grass: 'グラス', subshrub: '亜低木', shrub: '低木', bulb: '球根', fern: 'シダ' };
 
 export const USES = {
   dry: { ja: 'ドライフラワー', icon: '💐' },
@@ -90,15 +122,75 @@ const USE_GROUPS = {
   winter: U('echinacea rudbeckia phlomis sedum panicum miscanthus calamagrostis molinia schizachyrium sporobolus pennisetum eryngium echinops monarda veronicastrum eutrochium hydrangea-paniculata hydrangea-arb hydrangea-quercifolia achillea liatris baptisia sanguisorba astilbe perovskia agastache helenium stipa-gigantea muhlenbergia deschampsia briza vernonia pycnanthemum ratibida asclepias'),
   bird: U('echinacea rudbeckia helianthus heliopsis agastache panicum schizachyrium callicarpa rohdea liatris ratibida aster solidago fennel asclepias buddleja eupatorium pycnanthemum'),
 };
+// 一年草・ハーブ・薬用植物の用途
+const USE_GROUPS2 = {
+  dry: U('nigella centaurea-cyanus consolida limonium-sinuatum lunaria lagurus gomphrena celosia xerochrysum amaranthus salvia-viridis salvia-farinacea carthamus panicum-frosted scabiosa-atro verbascum rosa-gallica'),
+  seed: U('orlaya ammi daucus nigella centaurea-cyanus papaver-rhoeas eschscholzia consolida agrostemma cerinthe myosotis cosmos zinnia helianthus-annuus tagetes gomphrena celosia cleome salvia-coccinea borago calendula matricaria coriandrum anethum perilla ocimum alcea lunaria impatiens-balsamina tithonia malva'),
+  cut: U('orlaya ammi daucus nigella centaurea-cyanus consolida agrostemma antirrhinum gypsophila-elegans scabiosa-atro cosmos zinnia helianthus-annuus celosia amaranthus panicum-frosted limonium-sinuatum carthamus salvia-viridis xerochrysum sambucus rosa-gallica valeriana'),
+  tea: U('matricaria calendula centaurea-cyanus ocimum perilla malva stevia aloysia lindera camellia-sinensis rosa-rugosa sambucus valeriana angelica artemisia prunella borago'),
+  cook: U('ocimum perilla coriandrum anethum petroselinum borago calendula tropaeolum viola satureja levisticum rumex cryptotaenia aralia zanthoxylum laurus lycium angelica artemisia sambucus rosa-rugosa gardenia'),
+  potpourri: U('aloysia lindera rosa-rugosa rosa-gallica matricaria centaurea-cyanus calendula gardenia artemisia laurus'),
+  press: U('viola nemophila myosotis orlaya nigella cosmos papaver-rhoeas'),
+  dye: U('tagetes carthamus persicaria-tinctoria cosmos calendula alcea gardenia artemisia perilla'),
+  bird: U('helianthus-annuus cosmos amaranthus centaurea-cyanus rosa-rugosa sambucus lycium aralia zinnia'),
+  winter: U('verbascum inula'),
+};
+for (const [u, gs] of Object.entries(USE_GROUPS2)) USE_GROUPS[u].push(...gs);
 export const USE_INDEX = {};
 for (const [u, gs] of Object.entries(USE_GROUPS)) for (const g of gs) (USE_INDEX[g] ||= new Set()).add(u);
 
-export const HERB_GROUPS = new Set(U('lavender rosemary salvia-officinalis thymus origanum mentha melissa chamaemelum hyssopus fennel chives allium-tuberosum tanacetum saponaria symphytum ruta helichrysum cymbopogon houttuynia fragaria monarda echinacea agastache achillea nepeta calamintha santolina artemisia galium pycnanthemum'));
-export const NATIVE_GROUPS = new Set(U('hakonechloa platycodon patrinia eupatorium sanguisorba aster-ageratoides aster-tataricus miyakowasure gentiana lespedeza lysimachia tsuwabuki tricyrtis kirengeshoma iris-sanguinea iris-ensata bletilla persicaria-filiformis dianthus-superbus polygonatum saxifraga ophiopogon liriope hosta actaea aruncus primula-japonica lythrum-anceps adenophora asarum rohdea pachysandra petasites houttuynia anemone-flaccida filipendula athyrium dryopteris matteuccia adiantum equisetum spiraea deutzia callicarpa hydrangea-serrata hydrangea-paniculata imperata miscanthus'));
+export const HERB_GROUPS = new Set(U('ocimum perilla coriandrum anethum petroselinum borago calendula matricaria tropaeolum stevia aloysia laurus satureja levisticum rumex cryptotaenia malva valeriana zanthoxylum sambucus lindera camellia-sinensis hypericum-perforatum rosemary lavender rosemary salvia-officinalis thymus origanum mentha melissa chamaemelum hyssopus fennel chives allium-tuberosum tanacetum saponaria symphytum ruta helichrysum cymbopogon houttuynia fragaria monarda echinacea agastache achillea nepeta calamintha santolina artemisia galium pycnanthemum'));
+export const MEDICINAL_GROUPS = new Set(U('calendula matricaria perilla carthamus persicaria-tinctoria valeriana hypericum-perforatum malva inula bupleurum atractylodes coptis glycyrrhiza prunella aloe gardenia zanthoxylum lycium rosa-rugosa rosa-gallica sambucus lindera verbascum angelica paeonia platycodon gentiana epimedium polygonatum houttuynia echinacea digitalis sanguisorba mentha salvia-officinalis thymus fennel melissa chamaemelum tanacetum symphytum achillea vitex adenophora artemisia filipendula saxifraga tsuwabuki eupatorium patrinia'));
+export const NATIVE_GROUPS = new Set(U('lindera zanthoxylum bupleurum atractylodes coptis prunella cryptotaenia aralia rosa-rugosa gardenia hakonechloa platycodon patrinia eupatorium sanguisorba aster-ageratoides aster-tataricus miyakowasure gentiana lespedeza lysimachia tsuwabuki tricyrtis kirengeshoma iris-sanguinea iris-ensata bletilla persicaria-filiformis dianthus-superbus polygonatum saxifraga ophiopogon liriope hosta actaea aruncus primula-japonica lythrum-anceps adenophora asarum rohdea pachysandra petasites houttuynia anemone-flaccida filipendula athyrium dryopteris matteuccia adiantum equisetum spiraea deutzia callicarpa hydrangea-serrata hydrangea-paniculata imperata miscanthus'));
 
 const PPOY = (y) => `米国宿根草協会の「パレニアル・プラント・オブ・ザ・イヤー」${y}年受賞。`;
 
 export const TIPS = {
+  calendula: ['属名はラテン語の「カレンダエ（月の最初の日）」から。どの月にも咲いているほど花期が長いことにちなむ。', '花びらは「貧乏人のサフラン」と呼ばれ、料理の色づけに使われてきた。'],
+  matricaria: ['ヨーロッパで最も親しまれてきた薬草茶の一つ。『ピーターラビット』にも、お腹をこわしたピーターが飲むお茶として登場する。'],
+  carthamus: ['花から採れる紅は、古くから口紅や染料に使われた。山形県の県花。', '生薬名は「紅花（こうか）」。'],
+  'persicaria-tinctoria': ['藍染めの青は「ジャパン・ブルー」と呼ばれ、明治時代に来日した外国人を驚かせた。', '徳島の「阿波藍」が有名。'],
+  perilla: ['中国の伝説では、食中毒で死にかけた若者を紫の葉が蘇らせたことから「紫蘇」と名付けられたという。', '生薬名は「蘇葉（そよう）」。'],
+  ocimum: ['名はギリシャ語の「王（バシレウス）」に由来するといわれ、「ハーブの王様」とも呼ばれる。'],
+  coriandrum: ['古代エジプトの墓からも種が見つかっている、最も古いスパイスの一つ。'],
+  borago: ['古くから「勇気を与える草」とされ、騎士が出陣前に花を浮かべた酒を飲んだという。', '青い花にレモン汁をかけるとピンクに変わる。'],
+  'centaurea-cyanus': ['ツタンカーメン王の棺に、この花の花輪が添えられていた。', 'ドイツの国花として親しまれている。'],
+  'papaver-rhoeas': ['ヨーロッパの麦畑に咲く花。第一次世界大戦の戦場跡に咲いたことから、追悼の象徴になった。', 'ケシの仲間には法律で栽培が禁止されている種類がある。観賞用として売られている種だけを育てること。'],
+  cosmos: ['メキシコ原産。名はギリシャ語の「秩序・調和」から。整った花びらの並びにちなむ。', '日本には明治時代に渡来し、「秋桜」の字が当てられた。'],
+  'helianthus-annuus': ['花が太陽を追うのは若いつぼみの時期だけ。咲いた花はほぼ東を向いて止まる。'],
+  tagetes: ['根から出る成分が土の中のセンチュウを抑えるといわれ、野菜の「コンパニオンプランツ」として知られる。'],
+  gomphrena: ['「千日紅」の名の通り、花色が長く色あせない。'],
+  'impatiens-balsamina': ['昔の子どもは花びらで爪を染めて遊び、「爪紅（つまべに）」とも呼ばれた。'],
+  lunaria: ['銀色の円い実を月に見立てて「ルナリア」。英名は「オネスティ（正直）」。'],
+  alcea: ['梅雨入りの頃に下から咲き始め、てっぺんの花が咲くと梅雨が明けるといわれる。'],
+  verbascum: ['マレインの乾いた花茎は、昔ヨーロッパで獣脂に浸してたいまつにされた。'],
+  malva: ['花のお茶は青色で、レモンを入れるとピンクに変わる。「夜明けのハーブティー」と呼ばれる。', 'お菓子のマシュマロは、もともとマーシュマロウの根の粘りを使って作られていた。'],
+  valeriana: ['根には独特の強いにおいがあり、猫が好むことでも知られる。', 'ヨーロッパでは古くから眠りを助ける薬草とされてきた。'],
+  'hypericum-perforatum': ['聖ヨハネの日（6月24日）の頃に咲くことが名の由来。', '多くの薬と相互作用があるため、服薬中の人は摂取に注意が必要。'],
+  bupleurum: ['根は生薬「柴胡（さいこ）」。静岡県の三島が集散地だったことから名が付いた。'],
+  atractylodes: ['京都・八坂神社の大晦日の「をけら詣り」は、この根を焚いた火を持ち帰る行事。', '「山でうまいはオケラにトトキ」と歌われ、若芽は山菜にもなる。'],
+  coptis: ['黄色い根茎は生薬「黄連（おうれん）」。非常に苦い。'],
+  glycyrrhiza: ['根は生薬「甘草」。砂糖の何十倍もの甘みがあり、多くの漢方薬や醤油などの甘味料に使われる。'],
+  prunella: ['花穂は生薬「夏枯草（かごそう）」。英名は「セルフヒール（自分で治す）」。'],
+  aloe: ['「医者いらず」と呼ばれ、やけどや傷の民間薬として庭先に植えられてきた。'],
+  lindera: ['枝は高級な楊枝の材料。和菓子に添えられる楊枝を「黒文字」と呼ぶのはこのため。', '枝葉を煮出した「クロモジ茶」が各地で飲まれている。'],
+  'camellia-sinensis': ['緑茶も紅茶もウーロン茶も、同じチャノキの葉から作られる。違いは加工方法。'],
+  'rosa-rugosa': ['北海道の道花。実（ローズヒップ）はビタミンCが豊富。', 'バラの品種改良で、耐寒性と耐病性の親として重要な役割を果たした。'],
+  'rosa-gallica': ['中世ヨーロッパで薬剤師（アポテカリー）が薬用に栽培したことからの名。', 'イングランドのランカスター家の紋章「赤バラ」はこのバラとされる。'],
+  sambucus: ['花で作るシロップ「エルダーフラワー・コーディアル」は、英国の初夏の風物詩。', '葉・茎・未熟な実には有毒成分があるので、花と熟した実（加熱したもの）だけを使う。'],
+  gardenia: ['実が熟しても口を開かないことから「口無し」。', '実の黄色い色素は、栗きんとんやたくあんの着色に使われる。生薬名は「山梔子（さんしし）」。'],
+  zanthoxylum: ['雄株と雌株があり、実がなるのは雌株だけ。', '英名は「ジャパニーズ・ペッパー」。'],
+  laurus: ['古代ギリシャでは勝者に月桂樹の冠が贈られた。「桂冠詩人」の語源。'],
+  lycium: ['赤い実は生薬「枸杞子（くこし）」。薬膳料理や杏仁豆腐の飾りでおなじみ。'],
+  angelica: ['アシタバは伊豆諸島などの海岸に自生する日本固有種。', 'トウキの根は生薬「当帰」。婦人薬によく使われる。'],
+  artemisia: ['ヨモギの葉の裏の綿毛を集めたものが、お灸に使う「もぐさ」。', '属名は月と狩りの女神アルテミスにちなむ。'],
+  aralia: ['「ウドの大木」は、大きく育つが柔らかくて材木にならないことから。', `‘サンキング’は米国宿根草協会の「パレニアル・プラント・オブ・ザ・イヤー」2020年受賞。`],
+  viola: ['パンジーの名はフランス語の「パンセ（物思い）」から。うつむいた花が考え込む人の顔に見えるため。'],
+  nigella: ['英名は「ラブ・イン・ア・ミスト（霧の中の恋）」。'],
+  tropaeolum: ['花を戦勝記念の盾と兜に見立てたのが属名の由来。'],
+  cryptotaenia: ['数少ない日本原産の野菜の一つ。'],
+  stevia: ['南米パラグアイの先住民が、マテ茶の甘味づけに使ってきた。'],
+  'trifolium-incarnatum': ['マメ科の植物は根に共生する菌が空気中の窒素を取り込むので、土を肥やす緑肥になる。'],
   echinacea: ['属名はギリシャ語で「ハリネズミ」を意味する echinos から。とげとげした花芯にちなむ。', '北米の先住民が薬草として使ってきた歴史がある。', `‘マグナス’は${PPOY(1998)}`],
   rudbeckia: ['リンネが恩師であるスウェーデンの植物学者ルドベック父子にちなんで名付けた。', `‘ゴールドストルム’は${PPOY(1999)}`],
   'salvia-nemorosa': ['サルビアの名はラテン語の salvare（救う・癒やす）に由来するとされる。', `‘マイナハト’（ドイツ語で「5月の夜」）は${PPOY(1997)}`],

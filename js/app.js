@@ -414,7 +414,7 @@ function plantCard(rs) {
       <span>草丈 ${p.h[0]}〜${p.h[1]}cm</span>
       <span>${p.sun.map((s) => SUN[s]).join('・')}</span>
       <span>土：${p.moist.map((m) => MOIST[m]).join('・')}</span>
-      <span>耐寒 ${p.zone[0]}〜${p.zone[1]}・耐暑 ${p.heat}</span>
+      <span>${p.type === 'annual' ? (p.sow === 'cool' ? '涼しい季節に育つ' : '暖かい季節に育つ') : `耐寒 ${p.zone[0]}〜${p.zone[1]}・耐暑 ${p.heat}`}</span>
       <span>蒸れ ${['', '弱い', '普通', '強い'][p.humid]}</span>
       <span>${FORMS[p.form].ja}</span>
       <span>${LEAF[p.leaf].ja}</span>
@@ -424,6 +424,8 @@ function plantCard(rs) {
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p">${esc(p.note)}</p>
     ${p.uses?.length ? `<div class="uses">${p.uses.map((u) => `<span class="use" data-use="${u}">${USES[u].icon} ${USES[u].ja}</span>`).join('')}</div>` : ''}
+    ${p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
+    ${p.tags.includes('medicinal') ? `<p class="note-p med-note">${icon('guide', 15)}薬用として知られる植物です。体質や服薬によっては害になることがあります。利用する前に医師・薬剤師に相談し、自己判断で病気の治療に使わないでください。</p>` : ''}
     ${p.tips?.length ? `<div class="tipbox">${p.tips.map((t) => `<p>${icon('bulb', 15)}${esc(t)}</p>`).join('')}</div>` : ''}
     ${pestBox(p)}
     ${p.custom ? `<p class="note-p" style="color:var(--muted)">マイ品種${p.shop ? `・購入店：${esc(p.shop)}` : ''}${p.url ? `・<a href="${esc(p.url)}" target="_blank" rel="noopener">商品ページ</a>` : ''}</p>` : ''}
@@ -692,6 +694,7 @@ function initPlanForm() {
   $('#planW').value = pi.width;
   $('#planD').value = pi.depth;
   $('#planBudget').value = pi.budget || '';
+  $('#planAnnuals').checked = !!pi.annuals;
   $('#planStyle').innerHTML = Object.entries(STYLES).map(([k, v]) => `<option value="${k}">${v.ja}</option>`).join('');
   $('#planStyle').value = pi.style || 'border';
   const syncStyle = () => { $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary; };
@@ -735,6 +738,7 @@ function readPlanForm() {
   pi.width = Math.min(30, Math.max(0.5, parseFloat($('#planW').value) || 3));
   pi.depth = Math.min(10, Math.max(0.4, parseFloat($('#planD').value) || 1.2));
   pi.budget = $('#planBudget').value;
+  pi.annuals = $('#planAnnuals').checked;
 }
 function makePlan(seed) {
   readPlanForm();
@@ -1091,6 +1095,7 @@ function planTitle(words) {
     春: '春の', 初夏: '初夏の', 夏: '夏の', 秋: '秋の', 冬: '冬の',
     ナチュラル: 'ナチュラルな', イングリッシュ: 'イングリッシュ風の', 和風: '和の', プレーリー: '草原のような',
     ドライガーデン: '乾いた砂利の', シェード: '木陰の', 低予算: '',
+    ハーブ: 'ハーブの', 薬草: '薬草の', 在来種: '野の花の',
   };
   const colors = words.filter((w) => COLOR.includes(w));
   const STYLE = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライガーデン', 'シェード'];

@@ -13,12 +13,13 @@
 
 import { CULTIVARS as CV1, EXTRA_BASE } from './cultivars.js';
 import { MORE_BASE, MORE_CULTIVARS } from './more.js';
-import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, TIPS } from './meta.js';
+import { ANNUAL_BASE, ANNUAL_CULTIVARS } from './annuals.js';
+import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
 const CULTIVARS = { ...CV1 };
-for (const [k, v] of Object.entries(MORE_CULTIVARS)) {
-  CULTIVARS[k] = CULTIVARS[k] ? { ...CULTIVARS[k], list: [...CULTIVARS[k].list, ...v.list] } : v;
+for (const [k, v] of [...Object.entries(MORE_CULTIVARS), ...Object.entries(ANNUAL_CULTIVARS)]) {
+  CULTIVARS[k] = CULTIVARS[k] ? { ...CULTIVARS[k], ...(v.group ? { group: v.group } : {}), list: mergeLists(CULTIVARS[k].list, v.list) } : v;
 }
 
 const BASE = [
@@ -170,6 +171,12 @@ const BASE = [
   { id: 'thalictrum', ja: 'タリクトラム（カラマツソウ）', latin: 'Thalictrum rochebruneanum', wiki: 'Thalictrum rochebruneanum', type: 'herb', zone: [4, 8], heat: 7, humid: 2, sun: ['part'], moist: ['mid'], h: [120, 200], spread: 45, bloom: [7, 8], color: ['purple'], leaf: 'green', form: 'airy', tags: ['english', 'natural', 'wa'], price: 900, cut: 'spring', div: 'spring', note: '霞のような花。背景に。' },
 ];
 
+// 同じ品種名（先頭の基本種など）は重複させない
+function mergeLists(a, b) {
+  const seen = new Set(a.map((x) => x.en));
+  return [...a, ...b.filter((x) => !seen.has(x.en))];
+}
+
 // ---- 種と品種を1つのリストに展開 ----
 const speciesPart = (latin) => latin.replace(/\s*'[^']*'.*$/, '').trim();
 const slug = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -197,13 +204,14 @@ function expand(bases) {
 }
 
 /** 全植物（品種ごとに1件） */
-export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE]).map(decorate);
+export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE]).map(decorate);
 
 /** 科・用途・ハーブ/在来種タグ・豆知識を付与 */
 function decorate(p) {
   const tags = new Set(p.tags);
   if (HERB_GROUPS.has(p.group)) tags.add('herb');
   if (NATIVE_GROUPS.has(p.group)) tags.add('native');
+  if (MEDICINAL_GROUPS.has(p.group)) tags.add('medicinal');
   return { ...p, tags: [...tags], family: familyOf(p.latin), uses: [...(USE_INDEX[p.group] || [])], tips: TIPS[p.group] || [] };
 }
 /** 自分で登録した品種を追加（種のデータを引き継ぐ） */
@@ -285,6 +293,7 @@ export const TAGS = {
   easy: '手間いらず',
   herb: 'ハーブ',
   native: '日本の在来種',
+  medicinal: '薬用植物（生薬・民間薬）',
 };
 
 export const SUN = { full: '日向', part: '半日陰', shade: '日陰' };
