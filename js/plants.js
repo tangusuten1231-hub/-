@@ -11,7 +11,9 @@
 // cut: after / chelsea / spring / leaves / none, div: spring / autumn / both / none
 // type: herb / grass / subshrub / bulb, wiki: 画像取得用の Wikipedia（英語版）記事名
 
-export const PLANTS = [
+import { CULTIVARS, EXTRA_BASE } from './cultivars.js';
+
+const BASE = [
   // ---- 日向の主役・夏〜秋 ----
   { id: 'echinacea', ja: 'エキナセア', latin: 'Echinacea purpurea', wiki: 'Echinacea purpurea', type: 'herb', zone: [3, 9], heat: 9, humid: 2, sun: ['full'], moist: ['dry', 'mid'], h: [60, 100], spread: 45, bloom: [6, 7, 8, 9], color: ['pink', 'white'], leaf: 'green', form: 'daisy', tags: ['natural', 'prairie', 'pollinator', 'easy'], price: 700, cut: 'after', div: 'spring', note: '花がら摘みで長く咲く。冬は種を残すと野鳥が来る。' },
   { id: 'rudbeckia', ja: 'ルドベキア・フルギダ', latin: "Rudbeckia fulgida 'Goldsturm'", wiki: 'Rudbeckia fulgida', type: 'herb', zone: [3, 9], heat: 9, humid: 3, sun: ['full', 'part'], moist: ['dry', 'mid'], h: [50, 75], spread: 45, bloom: [7, 8, 9, 10], color: ['yellow'], leaf: 'green', form: 'daisy', tags: ['natural', 'prairie', 'pollinator', 'easy'], price: 500, cut: 'after', div: 'both', note: '丈夫で暑さにも強い。夏〜秋の主役。' },
@@ -159,6 +161,37 @@ export const PLANTS = [
   { id: 'verbena', ja: 'バーベナ・ボナリエンシス', latin: 'Verbena bonariensis', wiki: 'Verbena bonariensis', type: 'herb', zone: [7, 11], heat: 11, humid: 3, sun: ['full'], moist: ['dry', 'mid'], h: [90, 150], spread: 45, bloom: [6, 7, 8, 9, 10], color: ['purple'], leaf: 'green', form: 'airy', tags: ['natural', 'prairie', 'pollinator', 'easy'], price: 400, cut: 'spring', div: 'none', note: '透け感のある草姿。こぼれ種でふえる。' },
   { id: 'thalictrum', ja: 'タリクトラム（カラマツソウ）', latin: 'Thalictrum rochebruneanum', wiki: 'Thalictrum rochebruneanum', type: 'herb', zone: [4, 8], heat: 7, humid: 2, sun: ['part'], moist: ['mid'], h: [120, 200], spread: 45, bloom: [7, 8], color: ['purple'], leaf: 'green', form: 'airy', tags: ['english', 'natural', 'wa'], price: 900, cut: 'spring', div: 'spring', note: '霞のような花。背景に。' },
 ];
+
+// ---- 種と品種を1つのリストに展開 ----
+const speciesPart = (latin) => latin.replace(/\s*'[^']*'.*$/, '').trim();
+const slug = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+function expand(bases) {
+  const out = [];
+  for (const b of bases) {
+    const c = CULTIVARS[b.id];
+    if (!c) { out.push({ ...b, group: b.id, groupJa: b.ja, cv: null, cvCount: 1 }); continue; }
+    c.list.forEach((v, i) => {
+      const { cv, en, ...ov } = v;
+      const isSpecies = /^[a-z]/.test(en); // 小文字始まり＝種名（品種名ではない）
+      out.push({
+        ...b, ...ov,
+        id: v.id ?? (i === 0 ? b.id : `${b.id}-${slug(en)}`),
+        group: b.id, groupJa: c.group, cv, en, cvCount: c.list.length,
+        ja: v.ja ?? `${c.group}‘${cv}’`,
+        latin: v.latin ?? (isSpecies ? b.latin : `${speciesPart(b.latin)} '${en}'`),
+        note: v.note ?? b.note,
+        wiki: v.wiki ?? (v.latin ? speciesPart(v.latin).replace(/ (var|subsp)\..*$/, '') : b.wiki),
+      });
+    });
+  }
+  return out;
+}
+
+/** 全植物（品種ごとに1件） */
+export const PLANTS = expand([...BASE, ...EXTRA_BASE]);
+/** 種（グループ）の数 */
+export const GROUP_COUNT = new Set(PLANTS.map((p) => p.group)).size;
 
 export const COLORS = {
   white: { ja: '白', hex: '#ebe7da' },

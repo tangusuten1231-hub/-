@@ -67,7 +67,7 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.month || p.bloom.includes(Number(f.month)))
     .filter((p) => !f.height || heightClass(p) === f.height)
     .filter((p) => !f.tag || p.tags.includes(f.tag))
-    .filter((p) => !f.q || (p.ja + p.latin).toLowerCase().includes(f.q.toLowerCase()))
+    .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '')).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
     .filter((r) => !f.minLevel || r.level == null || r.level >= f.minLevel)
     .sort((a, b) => (b.level ?? 0) - (a.level ?? 0) || a.plant.ja.localeCompare(b.plant.ja, 'ja'));
@@ -100,6 +100,7 @@ export function bloomGaps(gardenPlants, climate, south = false) {
         .map((p) => ({ plant: p, ...evaluate(p, climate) }))
         .filter((r) => r.level == null || r.level >= 2)
         .sort((a, b) => (b.level ?? 0) - (a.level ?? 0))
+        .filter((r, i, arr) => arr.findIndex((x) => x.plant.group === r.plant.group) === i)
         .slice(0, 4);
       return { month: m, suggestions };
     });

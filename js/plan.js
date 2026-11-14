@@ -183,6 +183,7 @@ export function generatePlan(o) {
       let v = c.s + gain * 1.6;
       v += count[L] < target[L] ? 3 : -4;
       v += forms[c.p.form] ? -0.9 * forms[c.p.form] : 1;
+      if (picked.some((x) => x.plant.group === c.p.group)) v -= 6; // 同じ種の品種は重ねない
       if (needGrass && c.p.form === 'grass' && !forms.grass) v += 1.5;
       if (pref.colors.size > 1) {
         const col = pickColor(c.p);

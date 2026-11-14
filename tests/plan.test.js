@@ -80,3 +80,29 @@ test('植物データの追加項目', () => {
     assert.ok(p.price > 0 && p.wiki, p.id);
   }
 });
+
+test('品種データ：種のデータを継承し、違いだけ上書き', async () => {
+  const { GROUP_COUNT } = await import('../js/plants.js');
+  assert.ok(PLANTS.length >= 400, `品種数 ${PLANTS.length}`);
+  assert.ok(GROUP_COUNT >= 140);
+  const ws = PLANTS.find((p) => p.id === 'echinacea-white-swan');
+  assert.deepEqual(ws.color, ['white']);
+  assert.equal(ws.group, 'echinacea');
+  assert.deepEqual(ws.zone, [3, 9]); // 継承
+  assert.equal(ws.latin, "Echinacea purpurea 'White Swan'");
+  // 先頭の品種は旧IDを引き継ぐ（保存データ互換）
+  assert.ok(PLANTS.find((p) => p.id === 'echinacea').cv);
+  // 冷涼地向き品種と暑さに強い品種で判定が変わる
+  const hidcote = PLANTS.find((p) => p.id === 'lavender-hidcote');
+  const phenomenal = PLANTS.find((p) => p.id === 'lavender-phenomenal');
+  const { evaluate } = await import('../js/garden.js');
+  assert.ok(evaluate(phenomenal, tokyo).level > evaluate(hidcote, tokyo).level);
+});
+
+test('プランで同じ種の品種を重複させない', () => {
+  for (const text of ['ナチュラル', '白と青', 'プレーリー', '和風']) {
+    const plan = generatePlan({ climate: tokyo, text, width: 5, depth: 2, sun: 'full' });
+    const groups = plan.species.map((s) => s.plant.group);
+    assert.equal(new Set(groups).size, groups.length, text);
+  }
+});

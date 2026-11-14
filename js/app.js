@@ -12,6 +12,7 @@ import {
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const byId = new Map(PLANTS.map((p) => [p.id, p]));
+const ORDER = new Map(PLANTS.map((p, i) => [p.id, i]));
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 
 // ---------- 保存（ブラウザ内） ----------
@@ -31,6 +32,9 @@ const state = {
   showHard: false,
   area: store.get('area', 3),
   view: 'site',
+  cvSel: {},
+  shown: 24,
+  groupResults: null,
 };
 
 // ---------- ナビゲーション ----------
@@ -331,28 +335,38 @@ function monthBar(p, south) {
     <div class="months-label" aria-hidden="true">${MONTHS.map((m) => `<span>${m % 3 === 1 ? m : ''}</span>`).join('')}</div>`;
 }
 
-function plantCard(r) {
+function plantCard(rs) {
+  const group = rs[0].plant.group;
+  const r = rs.find((x) => x.plant.id === state.cvSel[group]) || rs[0];
   const p = r.plant;
   const south = state.climate?.south;
   const inGarden = state.garden.includes(p.id);
+  const multi = p.cvCount > 1;
   const lv = r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark} ${LEVEL[r.level].label}</span>` : '';
-  return `<article class="plant">
+  const chips = multi ? `<div class="cv-row">
+      <span class="label" style="margin:0">品種 ${rs.length < p.cvCount ? `（条件に合う ${rs.length}/${p.cvCount}）` : `（${p.cvCount}）`}</span>
+      <div class="chips">${rs.map((x) => `<button type="button" class="chip cv${x.plant.id === p.id ? ' on' : ''}" data-cv="${x.plant.id}" data-group="${group}"><span class="dot" style="background:${COLORS[x.plant.color[0]].hex}"></span>${esc(x.plant.cv)}${x.level && x.level < 3 ? ` <small>${LEVEL[x.level].mark}</small>` : ''}${state.garden.includes(x.plant.id) ? ' ✓' : ''}</button>`).join('')}</div>
+    </div>` : '';
+  return `<article class="plant" data-card="${group}">
     ${photoHtml(p)}
     <div class="top">
       <div>
-        <div class="name">${esc(p.ja)}</div>
+        <div class="name">${esc(multi ? p.groupJa : p.ja)}</div>
+        ${multi ? `<div class="cvname">${esc(p.ja)}</div>` : ''}
         <div class="latin">${esc(p.latin)}</div>
         <div class="dots">${p.color.map((c) => `<span class="dot" title="${COLORS[c].ja}" style="background:${COLORS[c].hex}"></span>`).join('')}</div>
       </div>
       ${lv}
     </div>
+    ${chips}
     ${r.level ? `<ul class="reasons">${r.reasons.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
     ${monthBar(p, south)}
     <div class="meta">
       <span>草丈 ${p.h[0]}〜${p.h[1]}cm</span>
       <span>${p.sun.map((s) => SUN[s]).join('・')}</span>
       <span>土：${p.moist.map((m) => MOIST[m]).join('・')}</span>
-      <span>耐寒 ${p.zone[0]}〜${p.zone[1]}</span>
+      <span>耐寒 ${p.zone[0]}〜${p.zone[1]}・耐暑 ${p.heat}</span>
+      <span>蒸れ ${['', '弱い', '普通', '強い'][p.humid]}</span>
       <span>${FORMS[p.form].ja}</span>
       <span>${LEAF[p.leaf].ja}</span>
       <span>株間 ${p.spread}cm</span>
@@ -361,12 +375,13 @@ function plantCard(r) {
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p">${esc(p.note)}</p>
     <div class="actions">
-      <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイガーデンに追加済み' : '＋ マイガーデンに追加'}</button>
+      <button type="button" class="btn small ${inGarden ? 'added' : ''}" data-toggle="${p.id}">${inGarden ? '✓ マイ庭に追加済み' : '＋ マイ庭に追加'}</button>
     </div>
   </article>`;
 }
 
-function renderPlants() {
+const PAGE = 24;
+function renderPlants(keepPage = false) {
   const f = state.filters;
   document.querySelectorAll('#filters .seg').forEach((seg) => {
     seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (f[seg.dataset.filter] || '')));
@@ -375,15 +390,47 @@ function renderPlants() {
   $('#fMonth').value = f.month || '';
   $('#fTag').value = f.tag || '';
   if ($('#fQ').value !== (f.q || '')) $('#fQ').value = f.q || '';
+  if (!keepPage) state.shown = PAGE;
 
   const all = findPlants(state.climate, f);
   const list = state.showHard ? all : all.filter((r) => r.level !== 1);
-  const hidden = all.length - list.length;
+  const groups = new Map();
+  for (const r of list) {
+    if (!groups.has(r.plant.group)) groups.set(r.plant.group, []);
+    groups.get(r.plant.group).push(r);
+  }
+  for (const rs of groups.values()) rs.sort((a, b) => ORDER.get(a.plant.id) - ORDER.get(b.plant.id));
+  state.groupResults = groups;
+  const arr = [...groups.values()];
+  const hiddenGroups = new Set(all.map((r) => r.plant.group)).size - arr.length;
   $('#plantCount').textContent = (state.climate ? '' : '※ 場所を設定すると、地域に合うかどうかを判定します。 ')
-    + `${list.length}種類${hidden ? `（育てにくい${hidden}種類を非表示）` : ''}`;
-  $('#plantList').innerHTML = list.map(plantCard).join('') || '<p class="empty">条件に合う植物がありません。条件をゆるめてみてください。</p>';
-  hydratePhotos($('#plantList'), list.map((r) => r.plant));
+    + `${arr.length}種・${list.length}品種${hiddenGroups > 0 ? `（育てにくい${hiddenGroups}種を非表示）` : ''}`;
+  const shown = arr.slice(0, state.shown);
+  $('#plantList').innerHTML = (shown.map(plantCard).join('') || '<p class="empty">条件に合う植物がありません。条件をゆるめてみてください。</p>')
+    + (arr.length > shown.length ? `<button type="button" class="btn more" id="btnMore">さらに表示（残り${arr.length - shown.length}種）</button>` : '');
+  hydratePhotos($('#plantList'), shown.map((rs) => (rs.find((x) => x.plant.id === state.cvSel[rs[0].plant.group]) || rs[0]).plant));
 }
+
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#btnMore')) {
+    state.shown += PAGE;
+    const y = window.scrollY;
+    renderPlants(true);
+    window.scrollTo({ top: y });
+    return;
+  }
+  const c = e.target.closest('[data-cv]');
+  if (!c) return;
+  const group = c.dataset.group;
+  state.cvSel[group] = c.dataset.cv;
+  const rs = state.groupResults?.get(group);
+  const card = document.querySelector(`[data-card="${group}"]`);
+  if (rs && card) {
+    card.outerHTML = plantCard(rs);
+    const el = document.querySelector(`[data-card="${group}"]`);
+    hydratePhotos(el, [byId.get(c.dataset.cv)]);
+  }
+});
 
 document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-toggle]');
@@ -392,8 +439,15 @@ document.addEventListener('click', (e) => {
   const i = state.garden.indexOf(id);
   if (i >= 0) state.garden.splice(i, 1); else state.garden.push(id);
   store.set('garden', state.garden);
-  toast(i >= 0 ? `${byId.get(id).ja} を外しました` : `${byId.get(id).ja} をマイガーデンに追加しました`);
-  render();
+  toast(i >= 0 ? `${byId.get(id).ja} を外しました` : `${byId.get(id).ja} をマイ庭に追加しました`);
+  if (state.view === 'plants') {
+    const y = window.scrollY;
+    renderPlants(true);
+    window.scrollTo({ top: y });
+    const badge = $('#gardenBadge');
+    badge.hidden = !state.garden.length;
+    badge.textContent = state.garden.length;
+  } else render();
 });
 
 // ---------- マイガーデン ----------
@@ -507,7 +561,7 @@ const yen = (n) => '¥' + Math.round(n).toLocaleString('ja-JP');
 function photoHtml(p, cls = 'photo', color) {
   const im = imageOf(p.id);
   const inner = im
-    ? `<img src="${esc(im.src)}" alt="${esc(p.ja)}の写真" loading="lazy"><a class="credit" href="https://en.wikipedia.org/wiki/${encodeURIComponent(im.page)}" target="_blank" rel="noopener">Wikipedia</a>`
+    ? `<img src="${esc(im.src)}" alt="${esc(p.ja)}の写真" loading="lazy"><a class="credit" href="${esc(im.url || '#')}" target="_blank" rel="noopener">${esc(im.site || 'Wikipedia')}</a>${im.speciesOnly && cls === 'photo' ? '<span class="fallback-note">写真は同じ種の代表的な姿</span>' : ''}`
     : plantThumbSVG(p, color);
   return `<div class="${cls}" data-photo="${p.id}" data-color="${color || ''}">${inner}</div>`;
 }

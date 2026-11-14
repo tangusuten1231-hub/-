@@ -278,3 +278,11 @@ textarea { width: 100%; border: 1px solid var(--line); background: var(--bg); bo
 .alert.ok { background: color-mix(in srgb, var(--good) 14%, transparent); color: var(--good); }
 .big-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 .big-row .btn { flex: 1; }
+
+.cvname { font-size: .82rem; color: var(--ink-2); font-weight: 600; }
+.cv-row { display: flex; flex-direction: column; gap: 4px; }
+.cv-row .chips { gap: 5px; }
+.chip.cv { font-size: .78rem; padding: 2px 9px 2px 5px; }
+.chip.cv small { color: var(--warn); }
+.btn.more { width: 100%; margin-top: 10px; }
+@media (min-width: 640px) { .btn.more { grid-column: 1 / -1; } }
