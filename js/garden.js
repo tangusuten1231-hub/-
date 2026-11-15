@@ -85,7 +85,7 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.height || heightClass(p) === f.height)
     .filter((p) => !f.tag || p.tags.includes(f.tag))
     .filter((p) => !f.family || p.family?.ja === f.family)
-    .filter((p) => !f.type || p.type === f.type)
+    .filter((p) => !f.type || (f.type === 'veg' ? p.tags.includes('veg') : p.type === f.type))
     .filter((p) => !f.use || p.uses?.includes(f.use))
     .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '') + (p.family?.ja || '') + (p.family?.latin || '')).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
@@ -171,8 +171,24 @@ export function buildTasks(climate, gardenPlants = []) {
   }
 
   // 一年草の種まきと種取り
-  const cool = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'cool');
-  const warm = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'warm');
+  const isVeg = (p) => p.tags.includes('veg');
+  const cool = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'cool' && !isVeg(p));
+  const warm = gardenPlants.filter((p) => p.type === 'annual' && p.sow === 'warm' && !isVeg(p));
+  // 野菜：植え付け・種まきと収穫
+  const vWarm = gardenPlants.filter((p) => isVeg(p) && p.type === 'annual' && p.sow === 'warm');
+  const vCool = gardenPlants.filter((p) => isVeg(p) && p.type === 'annual' && p.sow === 'cool');
+  if (vWarm.length) add(wrap(safeM + (climate.frostFree ? 0 : 1)), 'plant', '夏野菜の植え付け', '遅霜の心配がなくなり、地温が上がってから。支柱やネットも一緒に準備します。', vWarm);
+  if (vCool.length) {
+    add(L(3), 'sow', '春の野菜の種まき・植え付け', '葉物や根菜は、とう立ちする前に収穫できるよう早めにまきます。', vCool);
+    add(cold ? L(8) : L(9), 'sow', '秋冬野菜の種まき・植え付け', '暑さが和らいだら。寒さに当たった葉物は甘みが増します。', vCool);
+  }
+  const byHarvest = new Map();
+  for (const p of gardenPlants.filter((x) => isVeg(x) && x.harvest?.length)) {
+    const m = p.harvest[0];
+    if (!byHarvest.has(m)) byHarvest.set(m, []);
+    byHarvest.get(m).push(p);
+  }
+  for (const [m, list] of byHarvest) add(L(m), 'harvest', `収穫がはじまる：${list.map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}`, 'とりどきを逃さず、こまめに収穫すると株が長持ちします。', list);
   if (cool.length) {
     if (climate.zone.value >= 8) add(L(10), 'sow', '秋まき一年草の種まき', '涼しくなったら種まき。小さな苗で冬を越し、春に一気に育ちます。', cool);
     else add(springStart, 'sow', '一年草の種まき（春まき）', '寒冷地では春にまきます。室内で早めに育苗しても。', cool);
@@ -239,4 +255,5 @@ export const TASK_KIND = {
   water: { ja: '水やり', icon: '💧' },
   pest: { ja: '病害虫', icon: '🔍' },
   sow: { ja: '種まき', icon: '🌰' },
+  harvest: { ja: '収穫', icon: '🧺' },
 };

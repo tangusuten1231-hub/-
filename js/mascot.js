@@ -30,6 +30,7 @@ const P = {
   leaf: 'M5 19C5 10 10 5 19 5c0 9-5 14-14 14Z M5 19 14 10',
   arrow: 'M5 12h14 M13 6l6 6-6 6',
   bulb: 'M9 17.500h6 M10 20.500h4 M12 3.500a6 6 0 0 0-3.500 10.900c.6.5 1 1.200 1 2.100h5c0-.9.4-1.600 1-2.100A6 6 0 0 0 12 3.500Z',
+  basket: 'M4 10h16l-1.6 9.5H5.6L4 10Z M8 10l3-5.5 M16 10l-3-5.5 M9 13v4 M12 13v4 M15 13v4',
   camera: 'M4 8h3.5l1.5-2.5h6L16.5 8H20v11H4V8Z M12 10.5a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Z',
   sun: 'M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z M12 3v2 M12 19v2 M3 12h2 M19 12h2 M5.6 5.6 7 7 M17 17l1.4 1.4 M5.6 18.4 7 17 M17 7l1.4-1.4',
   butterfly: 'M12 8v11 M12 9c-2-4-8-5-8-1.5 0 3 3.5 4.5 8 4.5 M12 9c2-4 8-5 8-1.5 0 3-3.5 4.5-8 4.5 M12 12c-3 0-6 1.5-5 4s3.5 1 5-2 M12 12c3 0 6 1.5 5 4s-3.5 1-5-2 M11 7.5 9.5 5 M13 7.5 14.5 5',
@@ -38,7 +39,7 @@ const P = {
 export function icon(name, size = 20) {
   return `<svg class="ico" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${P[name] || P.leaf}"/></svg>`;
 }
-export const TASK_ICON = { plant: 'trowel', divide: 'divide', cut: 'scissors', protect: 'scarf', feed: 'feed', water: 'drop', pest: 'eye', sow: 'sprout' };
+export const TASK_ICON = { plant: 'trowel', divide: 'divide', cut: 'scissors', protect: 'scarf', feed: 'feed', water: 'drop', pest: 'eye', sow: 'sprout', harvest: 'basket' };
 export const PEST_ICON = { '病気': 'spore', '害虫': 'bug', '生理障害': 'thermo' };
 
 // ---------- 小鳥のツピ ----------

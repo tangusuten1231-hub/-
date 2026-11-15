@@ -49,6 +49,7 @@ const DICT = [
   { label: 'ハーブ', words: ['ハーブ', 'キッチン', '料理', 'お茶', 'ティー'], tags: ['herb'] },
   { label: '薬草', words: ['薬草', '薬用', 'メディカル', '生薬', '漢方'], tags: ['medicinal'] },
   { label: '在来種', words: ['在来', '自生', '日本の野草', '野の花'], tags: ['native'] },
+  { label: '野菜', words: ['野菜', '菜園', 'ポタジェ', 'キッチンガーデン', '収穫', '家庭菜園', '食べられる'], tags: ['veg'], veg: true },
   { label: '一年草も', words: ['一年草', '種まき', 'こぼれ種', '切り花畑'], annual: true },
   { label: '冬も緑', words: ['常緑', '一年中', '冬も', '冬でも'], tags: ['evergreen'] },
   { label: '手間いらず', words: ['手間', 'ずぼら', '簡単', '初心者', '丈夫', '放任', 'ローメンテ', '楽'], tags: ['easy'] },
@@ -64,7 +65,7 @@ const DICT = [
   { label: '冬', words: ['冬'], season: [12, 1, 2], tags: ['evergreen'] },
 ];
 
-export const PRESETS = ['ハーブ', '薬草', 'ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライ', '日陰', 'ホワイトガーデン', 'パステル', 'カラフル', 'シック', '涼しげ', '蝶・蜂', '香り', '長く咲く', '手間いらず', '低予算'];
+export const PRESETS = ['野菜', 'ハーブ', '薬草', 'ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライ', '日陰', 'ホワイトガーデン', 'パステル', 'カラフル', 'シック', '涼しげ', '蝶・蜂', '香り', '長く咲く', '手間いらず', '低予算'];
 
 /** 自由入力のイメージ文から好みを読み取る */
 export function parseKeywords(text = '') {
@@ -87,6 +88,7 @@ export function parseKeywords(text = '') {
     if (d.short) pref.short = true;
     if (d.sun) pref.sun = d.sun;
     if (d.annual) pref.annual = true;
+    if (d.veg) pref.veg = true;
   }
   if (pref.strictWhite) { pref.colors = new Set(['white']); pref.matched = pref.matched.filter((m) => m !== '白'); }
   return pref;
@@ -127,7 +129,11 @@ export function generatePlan(o) {
   // 候補
   let cands = PLANTS.filter((p) => p.sun.includes(sun) && (!moist || p.moist.includes(moist)));
   // 一年草は、指定があるときだけ使う（毎年の種まきが必要なため）
-  if (!o.annuals && !pref.annual) cands = cands.filter((p) => p.type !== 'annual');
+  const vegOK = style.potager || pref.veg;
+  if (!o.annuals && !pref.annual && !vegOK) cands = cands.filter((p) => p.type !== 'annual');
+  // 野菜は、ポタジェか「野菜」の指定があるときだけ
+  if (!vegOK) cands = cands.filter((p) => !p.tags.includes('veg') || ['zingiber', 'petasites', 'cryptotaenia', 'fragaria', 'rumex', 'chives', 'allium-tuberosum', 'perilla', 'ocimum', 'coriandrum', 'petroselinum'].includes(p.group));
+  else if (!style.potager && pref.veg) cands = cands.filter((p) => p.type !== 'annual' || p.tags.includes('veg') || p.tags.includes('herb') || o.annuals || pref.annual);
   // 大きくなる低木は狭い花壇には入れない
   cands = cands.filter((p) => p.type !== 'shrub' || p.h[1] <= 200 || area >= 8);
   if (style.filter) cands = cands.filter(style.filter);
@@ -159,6 +165,7 @@ export function generatePlan(o) {
     if (tagHits.length) why.push(...tagHits.map((t) => TAG_REASON[t]));
     if (p.bloom.length >= 5) why.push('長く咲く');
     if (style.bonus) { s += style.bonus(p); why.push(...style.why(p)); }
+    if (pref.veg && p.harvest?.length) { s += 1.5; if (!style.potager) why.push('食べられる'); }
     // 呼びたい生き物（蝶・蜂・野鳥・水辺）
     const ws = wildScore(p, wild, o.climate);
     if (ws) { s += ws * 0.9; if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`); }
@@ -231,10 +238,11 @@ export function generatePlan(o) {
   const island = o.view === 'island';
   const layout = style.layout === 'bands' || style.layout === 'gradient'
     ? layoutBed(picked, width, depth, island, rand, style.layout === 'gradient')
-    : layoutNatural(picked, width, depth, island, rand, style);
+    : style.layout === 'potager' ? layoutPotager(picked, width, depth, island, rand)
+      : layoutNatural(picked, width, depth, island, rand, style);
   const species = picked.map((s, i) => ({ ...s, role: s.layer, roleJa: ROLE_JA[s.layer], no: i + 1, positions: layout.positions[i], qty: layout.positions[i].length }));
   // 番号は役割の順（後景→前景、骨格→地模様など）に振り直す
-  const ORDER = ['back', 'scatter', 'structure', 'middle', 'block', 'theme', 'front', 'matrix', 'ground'];
+  const ORDER = ['back', 'scatter', 'structure', 'accent', 'crop', 'middle', 'block', 'theme', 'front', 'edge', 'matrix', 'ground'];
   species.sort((a, b) => ORDER.indexOf(a.role) - ORDER.indexOf(b.role));
   species.forEach((s, i) => { s.no = i + 1; s.subtotal = s.qty * s.plant.price; });
 
@@ -248,7 +256,11 @@ export function generatePlan(o) {
   species.forEach((s) => s.plant.bloom.forEach((m) => counts[localMonth(m, south) - 1]++));
   const peak = counts.indexOf(Math.max(...counts)) + 1;
 
+  const harvest = Array(12).fill(0);
+  species.forEach((s) => (s.plant.harvest || []).forEach((m) => harvest[localMonth(m, south) - 1]++));
+
   return {
+    harvest, plots: layout.plots,
     width, depth, area, sun, moist, view: o.view === 'island' ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),
@@ -257,9 +269,62 @@ export function generatePlan(o) {
   };
 }
 
+/**
+ * ポタジェの配置：花壇を手の届く大きさの区画に分け、区画の中に野菜、縁にハーブや花、中心にアクセント。
+ * 区画の間は細い通路（植えない）。
+ */
+export function layoutPotager(picked, W, D, island, rand) {
+  const idxOf = (role) => picked.map((p, i) => (p.layer === role ? i : -1)).filter((i) => i >= 0);
+  const crops = idxOf('crop'), edges = idxOf('edge'), accents = idxOf('accent');
+  const all = picked.map((_, i) => i);
+  const gap = W >= 2.4 || D >= 2.4 ? 0.35 : 0.2;
+  const nx = Math.max(1, Math.round(W / 1.8)), ny = Math.max(1, Math.round(D / 1.4));
+  const pw = (W - gap * (nx - 1)) / nx, ph = (D - gap * (ny - 1)) / ny;
+  const plots = [];
+  for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) plots.push({ x0: i * (pw + gap), y0: j * (ph + gap), x1: i * (pw + gap) + pw, y1: j * (ph + gap) + ph });
+  const positions = picked.map(() => []);
+  const cropList = crops.length ? crops : all;
+  const edgeList = edges.length ? edges : all;
+  // 背の高い野菜から順に、奥（北側）の区画へ。野菜の種類が区画より多ければ区画を左右に分ける
+  const sorted = [...cropList].sort((a, b) => picked[b].plant.h[1] - picked[a].plant.h[1]);
+  const order = plots.map((_, k) => k).sort((a, b) => (island ? 0 : plots[b].y0 - plots[a].y0) || a - b);
+  const split = sorted.length > plots.length;
+  let ci = 0;
+  order.forEach((k, n) => {
+    const pl = plots[k];
+    const edge = edgeList[n % edgeList.length];
+    pl.edge = edge;
+    const es = Math.min(0.25, Math.max(0.18, picked[edge].plant.spread / 100));
+    // 縁取り（通路に面した手前と奥の縁）
+    const back = island || ny > 1;
+    const ring = [];
+    for (let x = pl.x0 + es / 2; x < pl.x1; x += es) { ring.push({ x, y: pl.y0 + es / 2 }); if (back) ring.push({ x, y: pl.y1 - es / 2 }); }
+    positions[edge].push(...ring);
+    const inner = { x0: pl.x0 + 0.05, x1: pl.x1 - 0.05, y0: pl.y0 + es, y1: pl.y1 - (back ? es : 0) };
+    if (inner.x1 - inner.x0 <= 0.15 || inner.y1 - inner.y0 <= 0.15) return;
+    const parts = split ? [{ ...inner, x1: (inner.x0 + inner.x1) / 2 }, { ...inner, x0: (inner.x0 + inner.x1) / 2 }] : [inner];
+    pl.crops = [];
+    parts.forEach((part, pi) => {
+      const crop = sorted[ci++ % sorted.length];
+      pl.crops.push(crop);
+      const pts = hexFill(part, Math.min(picked[crop].plant.spread / 100, Math.max(0.2, (part.x1 - part.x0) * 0.9)), rand);
+      // アクセントを区画の中心に1株
+      if (accents.length && pi === 0 && n % 2 === 0 && pts.length > 2) {
+        const cx = (inner.x0 + inner.x1) / 2, cy = (inner.y0 + inner.y1) / 2;
+        const c = pts.reduce((bb, p) => (Math.hypot(p.x - cx, p.y - cy) < Math.hypot(bb.x - cx, bb.y - cy) ? p : bb));
+        pts.splice(pts.indexOf(c), 1);
+        positions[accents[(n / 2) % accents.length]].push(c);
+      }
+      positions[crop].push(...pts);
+    });
+  });
+  positions.forEach((arr, i) => { if (!arr.length) { const pl = plots[Math.floor(rand() * plots.length)]; arr.push({ x: (pl.x0 + pl.x1) / 2 + (rand() - 0.5) * 0.2, y: (pl.y0 + pl.y1) / 2 }); } });
+  return { bands: [], positions, plots };
+}
+
 const TAG_REASON = {
   natural: 'ナチュラル', english: 'イングリッシュ', wa: '和の雰囲気', prairie: 'プレーリー', dry: '乾燥に強い',
-  shade: '日陰向き', pollinator: '蝶・蜂が来る', fragrant: '香り', evergreen: '冬も緑', easy: '手間いらず', herb: 'ハーブ', medicinal: '薬用植物', native: '在来種',
+  veg: '食べられる', shade: '日陰向き', pollinator: '蝶・蜂が来る', fragrant: '香り', evergreen: '冬も緑', easy: '手間いらず', herb: 'ハーブ', medicinal: '薬用植物', native: '在来種',
 };
 
 /**

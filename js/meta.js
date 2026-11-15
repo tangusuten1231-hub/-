@@ -87,6 +87,18 @@ export const FAMILY = Object.fromEntries([
   ...F('ススキノキ科', 'Asphodelaceae', 'Aloe'),
   ...F('タデ科', 'Polygonaceae', 'Rumex'),
   ...F('ウコギ科', 'Araliaceae', 'Aralia'),
+  // 野菜
+  ...F('ナス科', 'Solanaceae', 'Solanum Capsicum Nicotiana'),
+  ...F('ウリ科', 'Cucurbitaceae', 'Cucumis Cucurbita'),
+  ...F('アオイ科', 'Malvaceae', 'Abelmoschus Alcea Malva Althaea'),
+  ...F('マメ科', 'Fabaceae', 'Phaseolus Glycine Pisum Vicia Baptisia Lespedeza Lupinus Trifolium'),
+  ...F('イネ科', 'Poaceae', 'Zea'),
+  ...F('ヒルガオ科', 'Convolvulaceae', 'Ipomoea'),
+  ...F('キク科', 'Asteraceae', 'Lactuca Cynara'),
+  ...F('アブラナ科', 'Brassicaceae', 'Eruca Brassica Raphanus Erysimum Iberis Lunaria Lobularia'),
+  ...F('ヒユ科', 'Amaranthaceae', 'Spinacia Beta Gomphrena Celosia Amaranthus'),
+  ...F('キジカクシ科', 'Asparagaceae', 'Asparagus'),
+  ...F('タデ科', 'Polygonaceae', 'Rheum Rumex'),
 ]);
 
 export function familyOf(latin) {

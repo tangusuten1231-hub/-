@@ -845,3 +845,86 @@ label.inline select { padding: 4px 8px; border-radius: 8px; border: 1px solid va
 .site-hero .hero-text { margin-top: 6px; }
 .crit-card .ch { flex-wrap: wrap; row-gap: 2px; }
 .kind, .crit-card .clv { white-space: nowrap; }
+
+/* ===== 別の案 ===== */
+.alt-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; font-size: .82rem; color: var(--muted); }
+.alt-box { background: var(--surface); border: 1px dashed var(--line); border-radius: 16px; padding: 12px 14px; margin: 14px 0; }
+.alt-box p { margin: 4px 0 8px; }
+
+/* ===== 生き物図鑑 ===== */
+button.critter { border: 0; font: inherit; color: inherit; cursor: pointer; }
+.crit-top h2 { font-family: var(--serif); margin: 0; }
+.crit-top .en { font-family: var(--display); font-style: italic; color: var(--accent); }
+.crit-progress { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+.found { text-align: right; min-width: 90px; }
+.found b { font-family: var(--display); font-size: 2rem; line-height: 1; color: var(--accent); }
+.found small { color: var(--muted); font-size: .78rem; margin-left: 2px; }
+.found .bar { display: block; height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-top: 4px; }
+.found .bar i { display: block; height: 100%; background: var(--accent); }
+.kind-tabs { margin-bottom: 8px; }
+.kind-tabs .chip { font-size: .8rem; }
+.crit-show { margin-bottom: 8px; overflow-x: auto; }
+#critQ { width: 100%; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+.crit-list { display: grid; gap: 10px; }
+@media (min-width: 760px) { .crit-list { grid-template-columns: 1fr 1fr; } }
+.crit-entry { display: grid; grid-template-columns: 92px 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; scroll-margin-top: 70px; }
+.crit-entry.is-seen { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.ce-art { background: #f4efe2; border-radius: 12px; display: grid; place-items: center; height: 92px; }
+.ce-head { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.ce-lv { font-size: .7rem; color: var(--accent); font-weight: 700; }
+.ce-seen { font-size: .7rem; font-weight: 700; color: #fff; background: var(--accent); border-radius: 99px; padding: 0 8px; }
+.crit-entry h3 { font-family: var(--serif); margin: 4px 0 0; font-size: 1.08rem; }
+.crit-entry h3 small { font-size: .7rem; color: var(--warn); margin-left: 6px; font-family: inherit; }
+.ce-size { margin: 0; font-size: .76rem; color: var(--muted); }
+.mbar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; margin: 6px 0; }
+.mbar span { font-size: .6rem; text-align: center; color: var(--muted); background: var(--surface-2); border-radius: 4px; line-height: 1.6; }
+.mbar span.on { background: color-mix(in srgb, var(--accent) 70%, var(--surface)); color: #fff; }
+.mbar span.now { outline: 1.5px solid var(--terra); }
+.ce-look, .crit-entry details p { font-size: .84rem; line-height: 1.7; margin: 4px 0; color: var(--ink-2); }
+.ce-look b, .crit-entry details p b { display: block; font-size: .74rem; color: var(--ink); }
+.crit-entry details summary { cursor: pointer; color: var(--accent); font-size: .84rem; font-weight: 600; padding: 2px 0; }
+.crit-entry details .chips .chip { font-size: .76rem; }
+.ce-acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; }
+.ce-acts .hint { margin: 0; font-size: .74rem; }
+.rec-list { list-style: none; padding: 0; margin: 2px 0; font-size: .8rem; }
+.rec-list li { display: flex; align-items: center; justify-content: space-between; gap: 6px; border-bottom: 1px dotted var(--line); padding: 3px 0; }
+.saw-form .btn.primary { width: 100%; margin-top: 6px; }
+.crit-card { cursor: pointer; }
+.crit-card.seen { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.crit-card .cart { float: right; margin: 2px -4px 0 4px; }
+.crit-card .cart svg { display: block; }
+.seen-box { background: var(--surface-2); border-radius: 12px; padding: 10px 12px; margin: 10px 0; font-size: .86rem; }
+.seen-box .critters { margin-top: 6px; }
+
+/* ===== 生態系図 ===== */
+.web-details { margin: 12px 0 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px 12px; }
+.web-details summary { cursor: pointer; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+.web-scroll { margin: 8px -12px 0; padding: 0 12px; }
+.foodweb { display: block; min-width: 560px; width: 100%; height: auto; border-radius: 10px; }
+.web-notes { margin: 8px 0 4px; padding-left: 1.2em; font-size: .84rem; color: var(--ink-2); line-height: 1.7; }
+.lg { display: inline-block; width: 16px; height: 0; border-top: 2px solid; vertical-align: middle; margin: 0 2px 0 6px; }
+.lg.g { border-color: #6f8f4e; } .lg.r { border-color: #b5532f; } .lg.o { border-color: #c4831f; border-top-style: dashed; }
+
+/* ===== 庭のお客さん ===== */
+.visitors { margin: 10px 0 14px; }
+.visitors header .en { font-family: var(--display); font-style: italic; color: var(--accent); }
+.visitors h3 { margin: 0 0 6px; font-family: var(--serif); font-size: 1rem; }
+.vis-row { display: grid; gap: 8px; }
+.visitor { display: grid; grid-template-columns: 60px 1fr; gap: 8px; align-items: center; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 6px 12px 6px 6px; cursor: pointer; font: inherit; color: inherit; }
+.v-art { animation: bob 3.2s ease-in-out infinite; display: block; }
+.visitor:nth-child(2) .v-art { animation-delay: -1.1s; }
+.visitor:nth-child(3) .v-art { animation-delay: -2.2s; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-4px) rotate(-3deg); } }
+@media (prefers-reduced-motion: reduce) { .v-art { animation: none; } }
+.v-say { position: relative; background: var(--surface-2); border-radius: 12px; padding: 6px 10px; font-size: .84rem; line-height: 1.6; }
+.v-say::before { content: ""; position: absolute; left: -6px; top: 50%; margin-top: -6px; border: 6px solid transparent; border-right-color: var(--surface-2); border-left: 0; }
+.v-say b { display: block; font-size: .72rem; color: var(--accent); }
+
+/* ===== 生き物さがし ===== */
+.mission { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; margin: 6px 0 12px; }
+.mission-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; text-align: center; }
+.m-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: .8rem; }
+.m-item.done { opacity: .75; }
+.m-item small { color: var(--accent); font-weight: 700; }
+.m-art { background: #f4efe2; border: 0; border-radius: 12px; padding: 4px; cursor: pointer; }
+.veg-note { background: color-mix(in srgb, #c9a24a 14%, var(--surface)); }

@@ -1,7 +1,7 @@
 // 庭まるごとプラン：敷地の形（長方形・L字・自由な多角形）から、小道・テラス・パーゴラ・水場などの構造と
 // 花壇を配置し、花壇ごとの植栽、見どころ・園内の案内・フォトスポット・生き物をまとめる。
 // 敷地は「家が上（y=0側）」の向きで計算し、方角は house（家がある側）から決める。
-import { generatePlan } from './plan.js';
+import { generatePlan, rng } from './plan.js';
 import { COLORS } from './plants.js';
 import { localMonth } from './garden.js';
 import { biodiversity, creaturesForGarden } from './wildlife.js';
@@ -16,7 +16,7 @@ export const ITEMS = {
   pond: { ja: '小さな池', cost: 30000, note: '防水シート・成形池' },
   tree: { ja: 'シンボルツリー', cost: 20000, note: '樹高2m前後の苗木' },
   lawn: { ja: '芝生・草はら', perSqm: 900, note: '芝の張り付け' },
-  kitchen: { ja: 'ハーブ・菜園', note: '花壇として植栽費に含む' },
+  kitchen: { ja: 'キッチンガーデン（野菜・ハーブ）', note: '花壇として植栽費に含む' },
   compost: { ja: '堆肥・落ち葉置き場', cost: 5000 },
   habitat: { ja: '石積み・枯れ枝の山', cost: 2000 },
   winter: { ja: '冬も枯れ茎を残す', note: '管理方法' },
@@ -99,11 +99,13 @@ export function siteShape(o) {
 }
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const farYOf = (cells) => Math.max(...cells.map((q) => q.y));
 const down = { full: 'part', part: 'shade', shade: 'shade' };
 
 /**
  * 庭まるごとプランを生成
- * @param o { shape, width, depth, points, area, house:'n'|'e'|'s'|'w', items:[], text, style, sun, moist, wild:[], climate, seed, annuals, budget }
+ * @param o { shape, width, depth, points, area, house:'n'|'e'|'s'|'w', items:[], text, style, sun, moist, wild:[], climate, seed, layoutSeed, annuals, budget }
+ * seed は植栽の案、layoutSeed は構造物の配置の案（0 なら基本の配置）
  */
 export function generateSite(o) {
   const pts = siteShape(o);
@@ -134,12 +136,22 @@ export function generateSite(o) {
     cells.push(cell);
   }
   const at = (x, y) => grid[Math.floor(y / c)]?.[Math.floor(x / c)] || null;
+  // 配置の案（layoutSeed）：左右の反転・テラスの位置・小道の形・花壇の奥行き・パーゴラの位置・島花壇の形
+  const R = o.layoutSeed ? rng(o.layoutSeed * 7919 + 13) : null;
+  const pick = (arr, d) => (R ? arr[Math.floor(R() * arr.length)] : d);
+  const mirror = pick([1, -1], 1);
+  const MX = (x) => (mirror === 1 ? x : W - x);
   const minDim = Math.min(W, H, Math.sqrt(area));
-  const bD = clamp(minDim * 0.16, 0.9, 2.2); // 花壇の奥行き
+  const bD = clamp(minDim * 0.16 * (R ? 0.8 + R() * 0.45 : 1), 0.9, 2.4); // 花壇の奥行き
   const pW = minDim < 5 ? 0.6 : 0.9; // 小道の幅
-  const ringPath = items.has('path') && minDim >= 6;
+  const pathStyle = items.has('path') ? (minDim >= 6 ? pick(['ring', 'meander', 'cross'], 'ring') : pick(['meander', 'cross'], 'meander')) : 'none';
+  const ringPath = pathStyle === 'ring';
+  const pergolaAt = pick(['far', 'far', 'side'], 'far');
+  const islandK = pick([[1.35, 0.8], [0.9, 1.25], [1.1, 1.1]], [1.35, 0.8]);
   const topRow = cells.filter((q) => q.y < Math.min(H * 0.25, 3));
-  const cx = topRow.length ? topRow.reduce((t, q) => t + q.x, 0) / topRow.length : W / 2;
+  const cx0 = topRow.length ? topRow.reduce((t, q) => t + q.x, 0) / topRow.length : W / 2;
+  const tW0 = clamp(W * 0.42, 2.4, 6);
+  const cx = clamp(cx0 + pick([0, -0.22, 0.22], 0) * W, Math.min(tW0 / 2, W / 2), Math.max(W - tW0 / 2, W / 2));
 
   // 辺の外向きの向き（画面上 → 方角）
   const sideOf = (k) => {
@@ -153,7 +165,7 @@ export function generateSite(o) {
   const edgeSide = edges.map((_, k) => sideOf(k));
 
   // 1) テラス
-  const tD = clamp(H * 0.18, 1.6, 3.5), tW = clamp(W * 0.42, 2.4, 6);
+  const tD = clamp(H * 0.18, 1.6, 3.5), tW = tW0;
   const terraceOn = items.has('terrace');
   // 2) ゾーン分け
   for (const q of cells) {
@@ -164,9 +176,17 @@ export function generateSite(o) {
   }
   // 小さな庭・芝生なし：テラスから奥への小道（ゆるく曲げる）
   const farY = Math.max(...cells.map((q) => q.y));
-  const wave = (y) => cx + Math.sin((y / Math.max(H, 1)) * Math.PI * 1.2) * Math.min(W * 0.12, 1.5);
-  if (items.has('path') && (!ringPath || !items.has('lawn'))) {
-    for (const q of cells) if (q.zone !== 'terrace' && Math.abs(q.x - wave(q.y)) < pW / 2 && q.y > (terraceOn ? tD - c : 0)) q.zone = 'path';
+  const phase = R ? R() * Math.PI : 0;
+  const amp = pathStyle === 'meander' && R ? Math.min(W * 0.2, 2.5) : Math.min(W * 0.12, 1.5);
+  const wave = (y) => cx + mirror * Math.sin((y / Math.max(H, 1)) * Math.PI * 1.2 + phase) * amp;
+  const startY = terraceOn ? tD - c : 0;
+  if (pathStyle === 'meander' || (ringPath && !items.has('lawn'))) {
+    for (const q of cells) if (q.zone !== 'terrace' && Math.abs(q.x - wave(q.y)) < pW / 2 && q.y > startY) q.zone = 'path';
+  }
+  if (pathStyle === 'cross') {
+    // テラスから奥へまっすぐの軸と、それに交わる横の小道（整形式・ポタジェ向き）
+    const crossY = startY + (farYOf(cells) - startY) * 0.55;
+    for (const q of cells) if (q.zone !== 'terrace' && q.y > startY && (Math.abs(q.x - cx) < pW / 2 || Math.abs(q.y - crossY) < pW / 2)) q.zone = 'path';
   }
   const structs = [];
   const near = (x, y, pred) => {
@@ -178,11 +198,12 @@ export function generateSite(o) {
     for (const q of cells) if (((q.x - x) / rx) ** 2 + ((q.y - y) / ry) ** 2 <= 1 && pred(q)) q.zone = zone;
   };
 
-  // 3) パーゴラ（奥の小道の上、またはいちばん奥）とベンチ
-  const farCell = near(cx, farY, (q) => q.zone === 'path') || near(cx, farY, (q) => q.zone === 'bed');
+  // 3) パーゴラ（奥の小道の上・横の小道の上、またはいちばん奥）とベンチ
+  const farCell = (pergolaAt === 'side' && items.has('pergola') ? near(MX(W * 0.85), H * 0.55, (q) => q.zone === 'path') : null)
+    || near(cx, farY, (q) => q.zone === 'path') || near(cx, farY, (q) => q.zone === 'bed');
   if (items.has('pergola') && farCell) {
     const s = clamp(minDim * 0.22, 1.8, 3);
-    const py = Math.min(farCell.y, farY - s / 2 + c);
+    const py = clamp(Math.min(farCell.y, farY - s / 2 + c), (terraceOn ? tD : 0) + s / 2, farY);
     carve(farCell.x, py, s, s, 'paving', (q) => Math.abs(q.x - farCell.x) <= s / 2 && Math.abs(q.y - py) <= s / 2 && q.zone !== 'terrace');
     structs.push({ type: 'pergola', x: farCell.x, y: py, w: s, h: s });
     if (items.has('bench')) structs.push({ type: 'bench', x: farCell.x, y: py + s * 0.25, w: Math.min(1.5, s * 0.6), h: 0.45 });
@@ -194,34 +215,34 @@ export function generateSite(o) {
   // 4) 池（日の当たる芝生の端）
   if (items.has('pond')) {
     const r = clamp(Math.sqrt(area) * 0.08, 0.6, 1.4);
-    const q = near(cx - W * 0.22, H * 0.55, (z) => openZone(z) && z.d > bD + r * 0.6) || near(cx - W * 0.22, H * 0.55, (z) => z.zone === 'bed');
+    const q = near(cx - mirror * W * 0.22, H * 0.55, (z) => openZone(z) && z.d > bD + r * 0.6) || near(cx - mirror * W * 0.22, H * 0.55, (z) => z.zone === 'bed');
     if (q) { carve(q.x, q.y, r * 1.25, r, 'pond', (z) => z.zone !== 'terrace' && z.zone !== 'path'); structs.push({ type: 'pond', x: q.x, y: q.y, rx: r * 1.25, ry: r }); }
   }
   // 5) バードバス（テラスから見える芝生の中ほど、花壇の近く）
   if (items.has('water')) {
-    const q = near(cx + W * 0.2, H * 0.45, (z) => openZone(z) && z.d > bD + 0.4) || near(cx + W * 0.2, H * 0.5, (z) => z.zone === 'bed');
+    const q = near(cx + mirror * W * 0.2, H * 0.45, (z) => openZone(z) && z.d > bD + 0.4 && z.zone !== 'path') || near(cx + mirror * W * 0.2, H * 0.5, (z) => z.zone === 'bed');
     if (q) structs.push({ type: 'water', x: q.x, y: q.y });
   }
   // 6) シンボルツリー（奥の角の花壇）
   if (items.has('tree')) {
-    const q = near(bD * 0.8, farY - bD * 0.8, (z) => z.zone === 'bed' && z.d > bD * 0.45);
+    const q = near(MX(bD * 0.8), pick([farY - bD * 0.8, H * 0.5], farY - bD * 0.8), (z) => z.zone === 'bed' && z.d > bD * 0.45);
     if (q) structs.push({ type: 'tree', x: q.x, y: q.y, r: clamp(minDim * 0.18, 1.2, 2.5) });
   }
   // 7) 堆肥置き場（奥の反対の角・目立たない所）
   if (items.has('compost')) {
-    const q = near(W, farY, (z) => z.zone === 'bed');
+    const q = near(MX(W), farY, (z) => z.zone === 'bed');
     if (q) { carve(q.x, q.y, 0.7, 0.7, 'compost', (z) => z.zone === 'bed'); structs.push({ type: 'compost', x: q.x, y: q.y }); }
   }
   // 8) 石積み（池か奥の花壇の近く）
   if (items.has('habitat')) {
     const pond = structs.find((s) => s.type === 'pond');
-    const q = pond ? near(pond.x + pond.rx + 0.4, pond.y, (z) => openZone(z) || z.zone === 'bed') : near(W * 0.3, farY, (z) => z.zone === 'bed');
+    const q = pond ? near(pond.x + pond.rx + 0.4, pond.y, (z) => openZone(z) || z.zone === 'bed') : near(MX(W * 0.3), farY, (z) => z.zone === 'bed');
     if (q) structs.push({ type: 'habitat', x: q.x, y: q.y });
   }
   // 9) ハーブ・菜園（テラスの横、台所に近い所）
   if (items.has('kitchen')) {
-    for (const q of cells) if (q.zone === 'bed' && q.y < (terraceOn ? tD + 1 : H * 0.3) && q.x > cx) q.zone = 'kitchen';
-    if (!cells.some((q) => q.zone === 'kitchen')) carve(W * 0.8, H * 0.25, 1.2, 0.8, 'kitchen', openZone);
+    for (const q of cells) if (q.zone === 'bed' && q.y < (terraceOn ? tD + 1.5 : H * 0.35) && (q.x - cx) * mirror > 0) q.zone = 'kitchen';
+    if (!cells.some((q) => q.zone === 'kitchen')) carve(MX(W * 0.8), H * 0.25, 1.2, 0.8, 'kitchen', openZone);
   }
   // 10) 芝生なしで中央が広い → 草はらの花壇（メドウ）。芝生が広い → 島花壇
   const open = cells.filter(openZone);
@@ -236,7 +257,7 @@ export function generateSite(o) {
       if (cl > bc) { bc = cl; best = q; }
     }
     const r = Math.min(r0, bc * 0.85);
-    if (best && r >= 0.7) carve(best.x, best.y, r * 1.35, r * 0.8, 'island', (z) => z.zone === 'lawn');
+    if (best && r >= 0.7) carve(best.x, best.y, r * islandK[0], r * islandK[1], 'island', (z) => z.zone === 'lawn');
   }
 
   // ---------- 花壇を分ける ----------
@@ -288,7 +309,7 @@ export function generateSite(o) {
       const island = r.zone === 'island' || r.zone === 'meadow';
       const depth = island ? Math.max(1.2, Math.sqrt(r.area) * 0.8) : r.zone === 'kitchen' ? Math.min(bD, 1.2) : bD;
       const width = clamp(r.area / depth, 0.6, 30);
-      const name = r.zone === 'kitchen' ? 'キッチンハーブの花壇'
+      const name = r.zone === 'kitchen' ? 'キッチンガーデン'
         : r.zone === 'island' ? '芝生の島花壇'
           : r.zone === 'meadow' ? '草はらの花壇'
             : r.side === 'up' ? '家ぞいの花壇'
@@ -313,10 +334,10 @@ export function generateSite(o) {
 
   // ---------- 花壇ごとの植栽 ----------
   for (const [k, b] of beds.entries()) {
-    const text = b.zone === 'kitchen' ? `ハーブ、香り、${o.text || ''}` : o.text || '';
+    const text = o.text || '';
     b.plan = generatePlan({
       climate: o.climate, sun: b.sun, moist: b.moist, width: b.width, depth: b.depth, text,
-      view: b.view, style: b.zone === 'kitchen' ? 'border' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild,
+      view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild,
     });
   }
 
@@ -345,7 +366,7 @@ export function generateSite(o) {
   const site = {
     pts, area: Math.round(area * 10) / 10, W, H, c, cells, house, screen, items: [...items], structs, beds, areas,
     cost: { items: costs, total: Math.round(total), budget: Number(o.budget) || null }, skipped,
-    plants: allPlants, features, bio, critters, cx, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
+    plants: allPlants, features, bio, critters, cx, layout: { pathStyle, mirror, pergolaAt }, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
   };
   site.tour = tourOf(site, o.climate);
   site.photos = photoSpots(site, o.climate);
@@ -415,6 +436,8 @@ export function highlightsOf(site, climate) {
     } else if (s.key === 'winter') {
       lines.push(site.items.includes('winter') || grasses.length ? '枯れた茎や穂を残した庭に霜がおりると、銀色の彫刻のような景色に。' : '静かに休む季節。株元の芽を見つけるのが楽しみです。');
     }
+    const crops = [...new Set(site.beds.flatMap((b) => b.plan.species).filter((sp) => sp.plant.harvest?.some((m) => months.includes(localMonth(m, south)))).map((sp) => nameOf(sp.plant)))].slice(0, 4);
+    if (crops.length) lines.push(`${site.beds.some((b) => b.zone === 'kitchen') ? 'キッチンガーデンでは' : ''}${crops.join('・')}が収穫どき。`);
     if (s.key === 'winter' && (has(site, 'water') || has(site, 'tree'))) lines.push(`${has(site, 'water') ? 'バードバス' : 'シンボルツリー'}に小鳥が集まる季節です。`);
     if (crit.length) lines.push(`${crit.map((x) => x.creature.ja).join('・')}に会えるかもしれません。`);
     out.push({ ...s, stars: st, text: lines.join('') });
@@ -453,6 +476,8 @@ export function tourOf(site) {
       const peak = b.plan.peak;
       const top = [...b.plan.species].sort((x, y) => y.qty - x.qty).slice(0, 3).map((sp) => nameOf(sp.plant));
       title = `${b.id}　${b.name}`;
+      const crops = b.plan.species.filter((sp) => sp.plant.harvest?.length).map((sp) => nameOf(sp.plant)).slice(0, 4);
+      if (b.zone === 'kitchen' || crops.length >= 3) { text = `野菜とハーブを区画に分け、花で縁取ったポタジェ。${crops.join('、')}を育てます。台所から近く、料理の途中でも摘みに来られます。`; return { no: i + 1, x: st.x, y: st.y, kind: st.kind, title, text }; }
       text = b.plan.species.length
         ? `${peak}月ごろが見頃。${top.join('、')}が主役です。${b.sunWhy.length ? `（${b.sunWhy[0]}のため${b.sun === 'full' ? '日向' : b.sun === 'part' ? '半日陰' : '日陰'}向けの植物）` : ''}`
         : '条件に合う植物が少ない場所です。グラウンドカバーや鉢で楽しみましょう。';

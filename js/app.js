@@ -19,7 +19,12 @@ import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, hum
 import { sunSeasons } from './sun.js';
 import { generateSite, siteSVG, polyEditorSVG, polygonArea, isSimple, ITEMS, BED_ITEMS, DEFAULT_ITEMS, DIR_JA } from './site.js';
 import { creaturesForPlant, creaturesForGarden, biodiversity, WILD_GOALS, FEATURES } from './wildlife.js';
-import { plantCritters, bioHtml, crittersHtml, featureChips, regionHtml } from './wildview.js';
+import { plantCritters, bioHtml, crittersHtml, featureChips, regionHtml, kindTag, monthsText } from './wildview.js';
+import { CREATURES, KINDS, relation, creaturesForRegion, LEVEL_JA } from './wildlife.js';
+import { INFO } from './critterinfo.js';
+import { critterSVG } from './critterart.js';
+import { foodWeb, foodWebSVG, foodWebSummary } from './ecoweb.js';
+import { visitors, friendSVG } from './friends.js';
 import {
   LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
   buildTasks, TASK_KIND, localMonth,
@@ -67,6 +72,9 @@ const state = {
   site: null, // 庭まるごとプラン
   siteBed: null, // 庭まるごとプランの中で詳しく見ている花壇
   siteLayer: 'tour',
+  zukan: 'plants', // 図鑑：植物 / 生き物
+  critF: { kind: '', show: 'all', q: '' },
+  sightings: store.get('sightings', []), // 生き物の観察記録 [{ id, c: 生き物ID, date, g: 庭ID, n: 数, memo }]
   showHard: false,
   view: 'site',
   shop: store.get('shopName', ''),
@@ -89,6 +97,7 @@ const state = {
   pi.site = { shape: 'rect', width: 10, depth: 8, cut: 'right', points: [], size: 15, area: '', house: 'n', ...(pi.site || {}) };
   pi.items = Array.isArray(pi.items) ? pi.items.filter((k) => ITEMS[k]) : [...DEFAULT_ITEMS];
   pi.wild = Array.isArray(pi.wild) ? pi.wild.filter((k) => WILD_GOALS[k]) : [];
+  pi.layoutSeed = Number(pi.layoutSeed) || 0;
 }
 
 const activeGarden = () => state.gardens.find((g) => g.id === state.gardenId) || state.gardens[0];
@@ -208,7 +217,7 @@ function render() {
   badge.textContent = state.garden.length;
 
   if (state.view === 'site') renderSite();
-  if (state.view === 'plants') renderPlants();
+  if (state.view === 'plants') renderZukan();
   if (state.view === 'garden') renderGarden();
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'plan') renderPlan();
@@ -385,7 +394,7 @@ function initFilters() {
   for (const p of PLANTS) famCount[p.family.ja] = (famCount[p.family.ja] || new Set()).add(p.group);
   const fams = Object.entries(famCount).sort((a, b) => b[1].size - a[1].size);
   $('#fFamily').innerHTML = '<option value="">すべての科</option>' + fams.map(([k, v]) => `<option value="${k}">${k}（${v.size}種）</option>`).join('');
-  $('#fType').innerHTML = '<option value="">すべて</option>' + Object.entries(TYPE_JA).map(([k, v]) => `<option value="${k}">${v}</option>`).join('');
+  $('#fType').innerHTML = '<option value="">すべて</option>' + Object.entries(TYPE_JA).map(([k, v]) => `<option value="${k}">${v}</option>`).join('') + '<option value="veg">野菜・食べられる植物</option>';
   $('#fUse').innerHTML = '<option value="">すべて</option>' + Object.entries(USES).map(([k, v]) => `<option value="${k}">${v.icon} ${v.ja}</option>`).join('');
   for (const [id, key] of [['#fFamily', 'family'], ['#fType', 'type'], ['#fUse', 'use'], ['#fSort', 'sort']]) {
     $(id).addEventListener('change', (e) => { state.filters[key] = e.target.value; saveFilters(); });
@@ -453,7 +462,7 @@ function plantCard(rs) {
       ${lv}
     </div>
     ${chips}
-    <div class="famline">${esc(p.family.ja)}・${esc(TYPE_JA[p.type] || '')}${p.tags.includes('native') ? '・日本の在来種' : ''}${p.tags.includes('herb') ? '・ハーブ' : ''}</div>
+    <div class="famline">${esc(p.family.ja)}・${esc(p.tags.includes('veg') && p.harvest ? (p.type === 'annual' ? '野菜' : '野菜（多年草）') : TYPE_JA[p.type] || '')}${p.tags.includes('native') ? '・日本の在来種' : ''}${p.tags.includes('herb') ? '・ハーブ' : ''}</div>
     ${r.level ? `<ul class="reasons">${r.reasons.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
     ${monthBar(p, south)}
     <div class="meta">
@@ -474,7 +483,8 @@ function plantCard(rs) {
       ${plantCritters(creaturesForPlant(p, state.climate))}
     </div>
     ${p.uses?.length ? `<div class="uses">${p.uses.map((u) => `<span class="use" data-use="${u}">${USES[u].icon} ${USES[u].ja}</span>`).join('')}</div>` : ''}
-    ${p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
+    ${p.tags.includes('veg') && p.harvest?.length ? `<p class="note-p annual-note veg-note">${icon('basket', 15)}野菜：収穫は${monthsText(p.harvest, south)}ごろ。${p.type === 'annual' ? '種まき・植え付けの時期は作業暦に表示されます。' : '植えたら何年も収穫できます。'}</p>`
+      : p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
     ${p.tags.includes('medicinal') ? `<p class="note-p med-note">${icon('guide', 15)}薬用として知られる植物です。体質や服薬によっては害になることがあります。利用する前に医師・薬剤師に相談し、自己判断で病気の治療に使わないでください。</p>` : ''}
     ${p.tips?.length ? `<div class="tipbox">${p.tips.map((t) => `<p>${icon('bulb', 15)}${esc(t)}</p>`).join('')}</div>` : ''}
     ${pestBox(p)}
@@ -641,7 +651,9 @@ function renderGarden() {
       <p class="hint">庭にあるものを選ぶと、来そうな生き物と生物多様性度に反映されます。</p>
       ${featureChips(activeGarden().features)}
       ${bioHtml(biodiversity(plants, activeGarden().features, c))}
-      <details class="crit-details"${state.critOpen ? ' open' : ''}><summary>来そうな生き物を見る（${creaturesForGarden(plants, activeGarden().features, c).filter((x) => x.level >= 2).length}種）</summary>${crittersHtml(creaturesForGarden(plants, activeGarden().features, c), south, 12)}</details>
+      ${gardenSeenHtml()}
+      <details class="crit-details"${state.critOpen ? ' open' : ''}><summary>来そうな生き物を見る（${creaturesForGarden(plants, activeGarden().features, c).filter((x) => x.level >= 2).length}種）</summary>${crittersHtml(creaturesForGarden(plants, activeGarden().features, c), south, 12, seenSet())}</details>
+      ${webHtml(creaturesForGarden(plants, activeGarden().features, c), plants, activeGarden().features)}
     </div>
     <div class="card">
       <h2>配置と株数の目安</h2>
@@ -930,9 +942,10 @@ function planFeatures() {
   if (f.pond) f.water = true;
   return f;
 }
-function makePlan(seed) {
+function makePlan(seed, layoutSeed = 0) {
   readPlanForm();
   const pi = state.planInput;
+  pi.layoutSeed = layoutSeed;
   if (pi.mode === 'site' && pi.site.shape === 'poly' && (pi.site.points.length < 3 || !isSimple(pi.site.points))) {
     toast('敷地の形を3点以上で、辺が交差しないように描いてください');
     $('#polyEd').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -948,7 +961,7 @@ function makePlan(seed) {
 function computePlan() {
   const pi = state.planInput;
   if (pi.mode === 'site') {
-    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
+    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget });
     state.siteBed = null;
     state.plan = null;
     return;
@@ -985,7 +998,7 @@ function renderPlan() {
     : '<span class="tag">指定なし（気候とバランス重視）</span>';
   const seasons = [['春', 4], ['初夏', 6], ['夏', 8], ['秋', 10], ['冬', 1]].map(([n, mm]) => [n, localMonth(mm, south)]);
 
-  const title = planTitle(plan.pref.matched);
+  const title = planTitle(plan.pref.matched, plan.style);
   const share = {};
   plan.species.forEach((sp) => { share[sp.color] = (share[sp.color] || 0) + sp.qty; });
   const palette = Object.entries(share).sort((a, b) => b[1] - a[1]);
@@ -1057,8 +1070,13 @@ function renderPlan() {
     <section class="mag">
       ${secHead('Wildlife', '来てくれる生き物', plan.wild?.length ? `「${plan.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう、食草や蜜源になる植物を優先しました。` : 'この花壇の植物に集まりそうな生き物と、生物多様性度の目安です。')}
       ${bioHtml(bio)}
-      ${crittersHtml(crit, south, 8)}
+      ${crittersHtml(crit, south, 8, seenSet())}
+      ${webHtml(crit, plan.species.map((sp) => sp.plant), planFeatures())}
     </section>
+    ${plan.harvest?.some(Boolean) ? `<section class="mag">
+      ${secHead('Harvest', '収穫カレンダー', '野菜やハーブを収穫できる月の目安です。')}
+      <div class="scroll-x">${harvestCal(plan.species.filter((sp) => sp.plant.harvest?.length).map((sp) => sp.plant), south)}</div>
+    </section>` : ''}
 
     <section class="mag receipt">
       ${secHead('Estimate', '概算費用')}
@@ -1131,7 +1149,7 @@ const SHAPE_JA = { rect: '長方形', L: 'L字', poly: '自由な形' };
 function renderSitePlan() {
   const box = $('#planBox');
   const s = state.site;
-  $('#btnPlanAlt').hidden = !s;
+  $('#btnPlanAlt').hidden = true;
   if (!s) {
     box.innerHTML = tsupiSays('敷地の形と大きさ、入れたいものを選んでね。小道や花壇の配置から、見どころ・フォトスポット・来てくれる生き物まで、庭まるごと提案するよ。', 'think');
     return;
@@ -1139,7 +1157,7 @@ function renderSitePlan() {
   const pi = state.planInput;
   const south = !!state.climate?.south;
   const words = s.beds[0]?.plan.pref.matched || [];
-  const title = planTitle(words);
+  const title = planTitle(words, pi.style);
   const nPlants = s.plants.length;
   const totalQty = s.beds.reduce((t, b) => t + b.plan.totalPlants, 0);
   const layer = state.siteLayer;
@@ -1160,6 +1178,7 @@ function renderSitePlan() {
         <h1>${esc(title)}</h1>
         <p class="sekki">${esc(SHAPE_JA[pi.site.shape])}の敷地・家は${DIR_JA[s.house]}側・${esc(STYLES[pi.style]?.ja || '')}</p>
         <div class="seg small" id="siteLayer">${Object.entries(SITE_LAYERS).map(([k, v]) => `<button type="button" data-v="${k}" class="${k === layer ? 'on' : ''}">${v}</button>`).join('')}</div>
+        <div class="alt-row"><span>別の案：</span><button type="button" class="btn small" data-sitealt="plants">${icon('leaf', 15)}植栽だけ変える</button><button type="button" class="btn small" data-sitealt="layout">${icon('refresh', 15)}配置も変える</button></div>
       </div>
     </section>
     <div class="legend">${[['#cfdcae', '芝生'], ['#b9a079', '花壇'], ['#e8dcc0', '小道'], ['#d6c29c', 'テラス'], ['#9cc4cf', '水辺']].map(([col, t]) => `<span><i style="background:${col}"></i>${t}</span>`).join('')}${layer === 'tour' ? '<span><i class="ln"></i>案内ルート</span>' : ''}${layer === 'photo' ? '<span><i class="cam"></i>撮影位置と向き</span>' : ''}</div>
@@ -1198,7 +1217,8 @@ function renderSitePlan() {
     <section class="mag">
       ${secHead('Wildlife', '生き物と生物多様性', pi.wild.length ? `「${pi.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう植物を選びました。` : '植物と庭の環境（水場・木・堆肥置き場など）から、来てくれそうな生き物を見積もりました。')}
       ${bioHtml(s.bio)}
-      ${crittersHtml(s.critters, south, 12)}
+      ${crittersHtml(s.critters, south, 12, seenSet())}
+      ${webHtml(s.critters, s.plants, s.features, true)}
     </section>
 
     <section class="mag">
@@ -1229,7 +1249,11 @@ function renderSitePlan() {
       <button class="btn" type="button" id="btnSiteApply">「${esc(activeGarden().name)}」に反映</button>
       <button class="btn" type="button" id="btnSiteImg">${icon('save', 16)}平面図を保存</button>
       <button class="btn" type="button" data-consult="${esc(`庭まるごとプラン（敷地 約${s.area}㎡、家は${DIR_JA[s.house]}側、${structNames.join('・')}、花壇${s.beds.length}か所、植物：${s.plants.slice(0, 12).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}）を、もっと魅力的にするアイデアを教えてください。`)}">${icon('search', 16)}AIに相談</button>
-      <button class="btn" type="button" id="btnSiteAlt">別の案をつくる</button>
+    </div>
+    <div class="alt-box">
+      <b>別の案をつくる</b>
+      <p class="hint">構造物の配置はそのままで植物だけ選び直すか、小道の形やテラス・池・木の位置も含めて配置から考え直すかを選べます。</p>
+      <div class="row"><button type="button" class="btn" data-sitealt="plants">${icon('leaf', 16)}植栽だけ変える</button><button type="button" class="btn" data-sitealt="layout">${icon('refresh', 16)}配置も変える</button></div>
     </div>`;
 
   $('#siteLayer').addEventListener('click', (e) => {
@@ -1247,7 +1271,12 @@ function renderSitePlan() {
     renderPlan();
     $('#planBox').scrollIntoView({ block: 'start' });
   }));
-  $('#btnSiteAlt').addEventListener('click', () => makePlan(state.planInput.seed + 1));
+  box.querySelectorAll('[data-sitealt]').forEach((b) => b.addEventListener('click', () => {
+    const pi2 = state.planInput;
+    if (b.dataset.sitealt === 'layout') makePlan(pi2.seed + 1, pi2.layoutSeed + 1);
+    else makePlan(pi2.seed + 1, pi2.layoutSeed);
+    toast(b.dataset.sitealt === 'layout' ? '配置と植栽を考え直しました' : '配置はそのままで、植栽を選び直しました');
+  }));
   const applyTo = (g) => {
     g.plants = s.plants.map((p) => p.id);
     g.area = s.areas.bed;
@@ -1278,6 +1307,242 @@ function renderSitePlan() {
       if (r !== 'cancel') toast('平面図を保存しました');
     } catch (err) { toast(err.message); }
   });
+}
+
+
+// ---------- 生き物図鑑・観察記録 ----------
+const seenSet = (gid = null) => new Set(state.sightings.filter((x) => !gid || x.g === gid).map((x) => x.c));
+function saveSightings() { store.set('sightings', state.sightings); }
+const crById = new Map(CREATURES.map((c) => [c.id, c]));
+const dShort = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getFullYear() === new Date().getFullYear() ? '' : `${d.getFullYear()}年`}${d.getMonth() + 1}月${d.getDate()}日`; };
+
+function renderZukan() {
+  document.querySelectorAll('#zukanTabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === state.zukan));
+  $('#plantPane').hidden = state.zukan !== 'plants';
+  $('#critterPane').hidden = state.zukan !== 'critters';
+  if (state.zukan === 'critters') renderCritters(); else renderPlants();
+}
+$('#zukanTabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  state.zukan = b.dataset.v;
+  renderZukan();
+  window.scrollTo({ top: 0 });
+});
+
+/** 生き物を呼ぶ植物（図鑑から） */
+function plantsForCritter(cr) {
+  const host = new Map(), other = new Map();
+  for (const p of PLANTS) {
+    const w = relation(cr, p);
+    if (!w) continue;
+    (w === 'host' ? host : other).set(p.group, p.groupJa.replace(/（.*?）/g, ''));
+  }
+  return { host: [...host.values()].slice(0, 8), other: [...other.values()].slice(0, 10) };
+}
+const EAT_JA = { nectar: '花の蜜・花粉', leaf: '葉', fruit: '木の実', seed: '種', sap: '樹液', litter: '落ち葉', aphid: 'アブラムシ', caterpillar: 'イモムシ', smallbug: '小さな虫' };
+function eatsText(id) {
+  return (INFO[id]?.eats || []).map((e) => (e.startsWith('k:') ? KINDS[e.slice(2)] : EAT_JA[e] || crById.get(e)?.ja || e)).join('・');
+}
+function monthCells(months, south) {
+  const on = new Set(months.map((m) => localMonth(m, south)));
+  const now = new Date().getMonth() + 1;
+  return `<div class="mbar" aria-label="見られる月">${MONTHS.map((m) => `<span class="${on.has(m) ? 'on' : ''}${m === now ? ' now' : ''}">${m}</span>`).join('')}</div>`;
+}
+
+function critterEntry(cr, ctx) {
+  const inf = INFO[cr.id] || {};
+  const recs = state.sightings.filter((x) => x.c === cr.id).sort((a, b) => b.date.localeCompare(a.date));
+  const lv = ctx.garden.get(cr.id);
+  const pl = plantsForCritter(cr);
+  const open = state.critF.q && cr.ja.includes(state.critF.q);
+  return `<article class="crit-entry${recs.length ? ' is-seen' : ''}" id="cr-${cr.id}">
+    <div class="ce-art">${critterSVG(cr.id, 92)}</div>
+    <div class="ce-body">
+      <div class="ce-head">${kindTag(cr.kind)}${lv ? `<span class="ce-lv">この庭に${LEVEL_JA[lv]}</span>` : ''}${recs.length ? `<span class="ce-seen">✓ 見つけた${recs.length > 1 ? `（${recs.length}回）` : ''}</span>` : ''}</div>
+      <h3>${esc(cr.ja)}${cr.base === 1 ? '<small>まれ</small>' : ''}</h3>
+      <p class="ce-size">${esc(inf.size || '')}</p>
+      ${monthCells(cr.months, ctx.south)}
+      <p class="ce-look"><b>見分け方</b>${esc(inf.look || '')}</p>
+      <details${open ? ' open' : ''}><summary>くわしく見る</summary>
+        ${inf.similar ? `<p><b>似ている生き物</b>${esc(inf.similar)}</p>` : ''}
+        ${inf.tip ? `<p><b>観察のコツ</b>${esc(inf.tip)}</p>` : ''}
+        <p><b>庭での暮らし</b>${esc(cr.note || '')}</p>
+        <p><b>食べもの</b>${esc(eatsText(cr.id))}</p>
+        ${pl.host.length ? `<p><b>幼虫が育つ植物</b></p><div class="chips">${pl.host.map((n) => `<button type="button" class="chip" data-find="${esc(n)}">${esc(n)}</button>`).join('')}</div>` : ''}
+        ${pl.other.length ? `<p><b>呼びよせる植物</b></p><div class="chips">${pl.other.map((n) => `<button type="button" class="chip" data-find="${esc(n)}">${esc(n)}</button>`).join('')}</div>` : ''}
+        ${Object.keys(cr.feature).length ? `<p><b>あるとうれしい環境</b>${Object.keys(cr.feature).map((k) => esc(FEATURES[k].replace(/（.*?）/g, ''))).join('・')}</p>` : ''}
+        ${recs.length ? `<p><b>観察の記録</b></p><ul class="rec-list">${recs.slice(0, 8).map((r) => `<li>${dShort(r.date)}・${esc(state.gardens.find((g) => g.id === r.g)?.name || '')}${r.n > 1 ? `・${r.n}匹` : ''}${r.memo ? `「${esc(r.memo)}」` : ''}<button type="button" class="icon-btn" data-delsaw="${r.id}" aria-label="この記録を消す">✕</button></li>`).join('')}</ul>` : ''}
+      </details>
+      <div class="ce-acts"><button type="button" class="btn small primary" data-saw="${cr.id}">${icon('eye', 15)}見た！記録する</button>${recs.length ? `<span class="hint">最後に見たのは ${dShort(recs[0].date)}</span>` : ''}</div>
+    </div>
+  </article>`;
+}
+
+function renderCritters() {
+  const box = $('#critterPane');
+  const c = state.climate;
+  const south = !!c?.south;
+  const now = new Date().getMonth() + 1;
+  const nm = localMonth(now, south);
+  const plants = state.garden.map((id) => byId.get(id)).filter(Boolean);
+  const garden = new Map(creaturesForGarden(plants, activeGarden().features, c).filter((x) => x.level >= 2).map((x) => [x.creature.id, x.level]));
+  const region = creaturesForRegion(c);
+  const seen = seenSet();
+  const f = state.critF;
+  let list = region.filter((cr) => (!f.kind || cr.kind === f.kind || (f.kind === 'butterfly' && cr.kind === 'moth')));
+  if (f.show === 'now') list = list.filter((cr) => cr.months.includes(nm));
+  if (f.show === 'garden') list = list.filter((cr) => garden.has(cr.id));
+  if (f.show === 'seen') list = list.filter((cr) => seen.has(cr.id));
+  if (f.show === 'unseen') list = list.filter((cr) => !seen.has(cr.id));
+  if (f.q) list = list.filter((cr) => cr.ja.includes(f.q) || KINDS[cr.kind].includes(f.q));
+  list.sort((a, b) => (garden.get(b.id) || 0) - (garden.get(a.id) || 0) || b.base - a.base);
+  const found = region.filter((cr) => seen.has(cr.id)).length;
+  const pct = region.length ? Math.round((found / region.length) * 100) : 0;
+  const KIND_TABS = { '': 'すべて', butterfly: '蝶・蛾', bee: '蜂・アブ', beetle: '甲虫', dragonfly: 'トンボ', hopper: 'バッタなど', bird: '野鳥', other: 'カエルほか' };
+  box.innerHTML = `
+    <section class="card crit-top">
+      <div class="crit-progress">
+        <div><span class="en">Field Guide</span><h2>庭の生き物図鑑</h2>
+        <p class="hint" style="margin:2px 0 0">${state.loc ? `${esc(state.loc.name)}で` : ''}庭に来る可能性のある ${region.length}種。見つけたら「見た！」で記録しよう。</p></div>
+        <div class="found"><b>${found}</b><small>/ ${region.length}種</small><span class="bar"><i style="width:${pct}%"></i></span></div>
+      </div>
+      <div class="chips kind-tabs">${Object.entries(KIND_TABS).map(([k, v]) => `<button type="button" class="chip${f.kind === k ? ' on' : ''}" data-ckind="${k}">${v}</button>`).join('')}</div>
+      <div class="seg small crit-show">${[['all', 'すべて'], ['now', '今月'], ['garden', 'この庭に来そう'], ['seen', '見つけた'], ['unseen', 'まだ']].map(([k, v]) => `<button type="button" data-cshow="${k}" class="${f.show === k ? 'on' : ''}">${v}</button>`).join('')}</div>
+      <input type="search" id="critQ" placeholder="名前で探す（例：アゲハ、トンボ）" value="${esc(f.q)}" aria-label="生き物を名前で探す">
+    </section>
+    <p class="count">${list.length}種</p>
+    <div class="crit-list">${list.map((cr) => critterEntry(cr, { garden, south })).join('') || '<p class="empty">条件に合う生き物がいません。</p>'}</div>
+    <p class="note">見られる月や地域は一般的な目安です。生き物はそっと観察し、捕まえたら元の場所に返しましょう。</p>`;
+  box.querySelector('.kind-tabs').addEventListener('click', (e) => { const b = e.target.closest('[data-ckind]'); if (b) { f.kind = b.dataset.ckind; renderCritters(); } });
+  box.querySelector('.crit-show').addEventListener('click', (e) => { const b = e.target.closest('[data-cshow]'); if (b) { f.show = b.dataset.cshow; renderCritters(); } });
+  $('#critQ').addEventListener('change', (e) => { f.q = e.target.value.trim(); renderCritters(); });
+}
+
+/** 観察を記録するシート */
+function openSaw(cid) {
+  const cr = crById.get(cid);
+  if (!cr) return;
+  const recs = state.sightings.filter((x) => x.c === cid);
+  openSheet(`${critterSVG(cid, 34)} ${esc(cr.ja)}を見た！`, `
+    <div class="saw-form">
+      <div class="grid2">
+        <label class="field"><span class="label">日付</span><input type="date" id="sawDate" value="${todayStr()}"></label>
+        <label class="field"><span class="label">数</span><select id="sawN"><option value="1">1匹（羽）</option><option value="2">2〜5</option><option value="6">6以上</option></select></label>
+      </div>
+      <label class="field"><span class="label">場所</span><select id="sawG">${state.gardens.map((g) => `<option value="${g.id}"${g.id === activeGarden().id ? ' selected' : ''}>${esc(g.name)}</option>`).join('')}</select></label>
+      <label class="field"><span class="label">メモ（任意）</span><input type="text" id="sawMemo" maxlength="80" placeholder="例：ラベンダーで吸蜜していた"></label>
+      <button type="button" class="btn primary" id="sawSave">記録する</button>
+      <p class="hint">${recs.length ? `これまでに${recs.length}回記録しています。` : 'はじめての記録です。'}</p>
+    </div>`);
+  $('#sawSave').addEventListener('click', () => {
+    const date = $('#sawDate').value || todayStr();
+    state.sightings.push({ id: 's' + Date.now().toString(36), c: cid, date, g: $('#sawG').value, n: Number($('#sawN').value), memo: $('#sawMemo').value.trim().slice(0, 80) });
+    saveSightings();
+    closeSheet();
+    toast(recs.length ? `${cr.ja}を記録しました` : `はじめて ${cr.ja} を見つけました！ 図鑑に登録しました`);
+    rerenderForSightings();
+  });
+}
+function rerenderForSightings() {
+  const y = window.scrollY;
+  if (state.view === 'plants') renderZukan();
+  else if (state.view === 'garden') renderGarden();
+  else if (state.view === 'enjoy') renderEnjoy();
+  window.scrollTo({ top: y });
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-saw]');
+  if (a) { openSaw(a.dataset.saw); return; }
+  const d = e.target.closest('[data-delsaw]');
+  if (d) {
+    if (!confirm('この観察記録を消しますか？')) return;
+    state.sightings = state.sightings.filter((x) => x.id !== d.dataset.delsaw);
+    saveSightings();
+    rerenderForSightings();
+    return;
+  }
+  const cc = e.target.closest('[data-critter]');
+  if (cc) {
+    const cr = crById.get(cc.dataset.critter);
+    if (!cr) return;
+    state.critF = { kind: '', show: 'all', q: cr.ja };
+    state.zukan = 'critters';
+    if (state.view === 'plants') renderZukan(); else go('plants');
+    setTimeout(() => document.getElementById(`cr-${cr.id}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 60);
+  }
+});
+
+/** マイ庭：この庭で記録した生き物 */
+function gardenSeenHtml() {
+  const g = activeGarden();
+  const recs = state.sightings.filter((x) => x.g === g.id);
+  const ids = [...new Set(recs.map((x) => x.c))];
+  return `<div class="seen-box">
+    <b>${icon('eye', 16)} この庭で見つけた生き物 ${ids.length}種</b>
+    ${ids.length ? `<div class="critters">${ids.map((id) => `<button type="button" class="critter host" data-critter="${id}">${esc(crById.get(id)?.ja || id)}<small>${recs.filter((x) => x.c === id).length}回</small></button>`).join('')}</div>` : '<p class="hint" style="margin:4px 0 0">生き物図鑑の「見た！」で記録すると、ここに集まります。</p>'}
+    <button type="button" class="link" data-zukan-critters>生き物図鑑を開く ${icon('arrow', 14)}</button>
+  </div>`;
+}
+document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-zukan-critters]')) { state.zukan = 'critters'; state.critF = { kind: '', show: 'garden', q: '' }; go('plants'); }
+});
+
+/** 生態系図（折りたたみ） */
+function webHtml(critters, plants, features, open = false) {
+  const web = foodWeb(critters, plants, features);
+  if (!web.nodes.length) return '';
+  return `<details class="web-details"${open ? ' open' : ''}><summary>${icon('leaf', 16)}生態系図（食べる・食べられるのつながり）</summary>
+    <div class="scroll-x web-scroll">${foodWebSVG(web)}</div>
+    <ul class="web-notes">${foodWebSummary(web).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+    <p class="hint"><span class="lg g"></span>植物を食べる　<span class="lg r"></span>虫や動物を食べる　<span class="lg o"></span>幼虫になる</p>
+  </details>`;
+}
+
+/** 収穫カレンダー */
+function harvestCal(plants, south) {
+  const now = new Date().getMonth() + 1;
+  return `<div class="cal harvest-cal"><div></div>${MONTHS.map((m) => `<div class="h">${m}</div>`).join('')}
+    ${plants.map((p) => { const on = new Set(p.harvest.map((m) => localMonth(m, south))); return `<div class="n">${esc(p.groupJa.replace(/（.*?）/g, ''))}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ' style="background:#c9a24a"' : ''}></div>`).join('')}`; }).join('')}
+  </div>`;
+}
+
+/** ホーム：今日の庭のお客さん */
+function visitorsHtml(mine, north, c) {
+  const groups = new Set(mine.map((p) => p.group));
+  const ctx = {
+    month: north,
+    blooming: [...new Set(mine.filter((p) => p.bloom.includes(north)).map((p) => p.groupJa.replace(/（.*?）/g, '')))],
+    plants: mine, features: activeGarden().features || {}, rain: false,
+    has: (id) => (id === 'grass' ? mine.some((p) => p.form === 'grass') : groups.has(id)),
+  };
+  const vs = visitors(ctx);
+  if (!vs.length) return '';
+  return `<section class="visitors">
+    <header><span class="en">Garden Friends</span><h3>今日の庭のお客さん</h3></header>
+    <div class="vis-row">${vs.map((v) => `<button type="button" class="visitor" data-critter="${v.friend.critter}" aria-label="${esc(v.friend.who)}を生き物図鑑で見る">
+      <span class="v-art">${friendSVG(v.friend, 60)}</span>
+      <span class="v-say"><b>${esc(v.friend.who)}の${esc(v.friend.name)}</b>${esc(v.line)}</span>
+    </button>`).join('')}</div>
+  </section>`;
+}
+
+/** 楽しむ：今月の生き物さがし */
+function missionHtml(north) {
+  const c = state.climate;
+  const seen = seenSet();
+  const plants = state.garden.map((id) => byId.get(id)).filter(Boolean);
+  const likely = new Map(creaturesForGarden(plants, activeGarden().features, c).map((x) => [x.creature.id, x.score]));
+  const now = creaturesForRegion(c, north).sort((a, b) => (seen.has(a.id) - seen.has(b.id)) || (likely.get(b.id) || 0) - (likely.get(a.id) || 0) || b.base - a.base).slice(0, 3);
+  if (!now.length) return '';
+  return `<div class="mission">
+    <b>${icon('search', 16)} 今月の生き物さがし</b>
+    <div class="mission-row">${now.map((cr) => `<div class="m-item${seen.has(cr.id) ? ' done' : ''}">
+      <button type="button" class="m-art" data-critter="${cr.id}">${critterSVG(cr.id, 64)}</button>
+      <span>${esc(cr.ja)}</span>
+      ${seen.has(cr.id) ? '<small>✓ 見つけた</small>' : `<button type="button" class="btn small" data-saw="${cr.id}">見た！</button>`}
+    </div>`).join('')}</div>
+  </div>`;
 }
 
 
@@ -1421,7 +1686,7 @@ function plantRow(rs) {
     ${photoHtml(p, 'mini-photo')}
     <span class="pbody">
       <span class="pname">${esc(multi ? p.groupJa : p.ja)}${inG ? ' <span class="ing">✓</span>' : ''}</span>
-      <span class="psub">${esc(p.family.ja)}・${esc(TYPE_JA[p.type] || '')}${multi ? `・${rs.length < p.cvCount ? `${rs.length}/` : ''}${p.cvCount}品種` : ''}・${p.h[0]}〜${p.h[1]}cm</span>
+      <span class="psub">${esc(p.family.ja)}・${esc(p.tags.includes('veg') && p.harvest ? '野菜' : TYPE_JA[p.type] || '')}${multi ? `・${rs.length < p.cvCount ? `${rs.length}/` : ''}${p.cvCount}品種` : ''}・${p.h[0]}〜${p.h[1]}cm</span>
       ${monthBar(p, state.climate?.south)}
     </span>
     ${r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark}</span>` : ''}
@@ -1480,8 +1745,9 @@ function heroScene(plants, month, south) {
 }
 
 /** 読み取ったキーワードから、プランの題名を自然な言葉で */
-function planTitle(words) {
+function planTitle(words, style = '') {
   if (words.includes('ホワイトガーデン')) return 'ホワイトガーデン';
+  if (style === 'potager') return words.includes('ハーブ') ? 'ハーブと野菜のポタジェ' : words.some((w) => ['白', '青', '紫', 'ピンク', '赤', '黄', 'オレンジ', 'カラフル', 'パステル'].includes(w)) ? '花で彩るポタジェ' : '摘んで味わうポタジェ';
   const COLOR = ['白', '青', '紫', 'ピンク', '赤', '黄', 'オレンジ'];
   const DESC = {
     '蝶・蜂': '蝶が舞う', 香り: '香りに包まれる', 長く咲く: '長く咲き続ける', 手間いらず: '手間いらずの', 冬も緑: '冬も緑の',
@@ -1490,7 +1756,7 @@ function planTitle(words) {
     春: '春の', 初夏: '初夏の', 夏: '夏の', 秋: '秋の', 冬: '冬の',
     ナチュラル: 'ナチュラルな', イングリッシュ: 'イングリッシュ風の', 和風: '和の', プレーリー: '草原のような',
     ドライガーデン: '乾いた砂利の', シェード: '木陰の', 低予算: '',
-    ハーブ: 'ハーブの', 薬草: '薬草の', 在来種: '野の花の',
+    ハーブ: 'ハーブの', 薬草: '薬草の', 在来種: '野の花の', 野菜: '野菜も育つ',
   };
   const colors = words.filter((w) => COLOR.includes(w));
   const STYLE = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライガーデン', 'シェード'];
@@ -1557,6 +1823,7 @@ function renderEnjoy() {
     <section class="mag">
       ${secHead('Wildlife', '季節の生き物', `${state.loc ? esc(state.loc.name) + 'で' : ''}庭に来る可能性のある生き物。植物図鑑で、どの植物に来るかも確かめられます。`)}
       <div class="row region-row"><label class="inline">月 <select id="regionMonth">${MONTHS.map((m) => `<option value="${m}"${m === now ? ' selected' : ''}>${m}月</option>`).join('')}</select></label></div>
+      ${missionHtml(north)}
       <div id="regionList">${regionHtml(c, now, south)}</div>
     </section>
 
@@ -2011,6 +2278,7 @@ async function renderHome() {
   const pose = !mine.length ? 'sprout' : north === 12 || north <= 2 ? 'idle' : 'happy';
   box.innerHTML = `
     ${tsupiSays(esc(word), pose, `<div class="bubble-acts"><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-consult="">AIに相談</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
+    ${visitorsHtml(mine, north, c)}
     ${insightsCard()}
     <section class="card today">
       <header class="sec"><span class="en">Today in the Garden</span><h2>今日の庭</h2></header>
@@ -2125,7 +2393,8 @@ document.addEventListener('click', (e) => {
     Object.assign(state.filters, { q: f.dataset.find.replace(/（.*?）/g, ''), sun: '', moist: '', height: '', month: '', color: '', tag: '', family: '', type: '', use: '' });
     store.set('filters', state.filters);
     state.openCards.clear();
-    if (state.view === 'plants') { renderPlants(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else go('plants');
+    state.zukan = 'plants';
+    if (state.view === 'plants') { renderZukan(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else go('plants');
   }
 });
 document.addEventListener('change', (e) => {

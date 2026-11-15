@@ -1,3 +1,5 @@
+import { POTAGER_FLOWERS } from './veg.js';
+
 // 植栽デザインのスタイル（著名なガーデンデザイナーの手法を参考にしたもの）
 // 各スタイルは「どんな植物を選ぶか」「植物の役割の割合」「配置のしかた」「マルチ等の費用」を持つ。
 
@@ -5,6 +7,7 @@ export const ROLE_JA = {
   back: '後景', middle: '中景', front: '前景',
   matrix: '地模様（マトリクス）', block: '群植ブロック', scatter: '散らし（点景）',
   structure: '骨格（ストラクチャー）', theme: '季節のテーマ', ground: 'グラウンドカバー',
+  crop: '野菜の区画', edge: '縁取り（ハーブ・花）', accent: 'アクセント',
 };
 
 const tall = (p) => p.h[1] >= 100;
@@ -106,6 +109,34 @@ export const STYLES = {
     spacing: 1.1, speciesFactor: 0.7,
     cost: { soil: { ja: '水はけ改良（砂利・軽石・川砂）', perSqm: 1800 }, mulch: { ja: '砂利マルチ（厚さ5cm）', perSqm: 2500 } },
   },
+};
+
+// ポタジェ（フランス式の菜園花壇）：野菜・ハーブ・花を区画ごとに美しく混植する
+const isVeg = (p) => p.tags.includes('veg');
+STYLES.potager = {
+  ja: 'ポタジェ（野菜・ハーブ・花の菜園花壇）',
+  by: 'Potager',
+  summary: '小さな区画に野菜を植え、ハーブや花で縁取るフランス式の菜園花壇。眺めて美しく、摘んで食べられ、花が受粉や害虫の天敵を呼び込む。',
+  principles: [
+    '花壇を小さな区画に分け、通路から手が届く幅（1.2m以内）にする',
+    '区画ごとに野菜を1〜2種類、縁取りに低いハーブや花をぐるりと植える',
+    'マリーゴールド・ナスタチウム・ボリジなどの花を混ぜて、虫を呼び、彩りを添える',
+    'トウモロコシやつるのインゲンなど背の高いものは北側か区画の中心に',
+    '同じ科の野菜を同じ場所に続けて植えない（連作を避けて区画を回す）',
+  ],
+  layout: 'potager',
+  potager: true,
+  filter: (p) => isVeg(p) || p.tags.includes('herb') || POTAGER_FLOWERS.includes(p.group),
+  roleOf: (p) => (isVeg(p) && p.h[1] > 25 ? 'crop' : p.h[1] <= 45 ? 'edge' : 'accent'),
+  targets: (n) => {
+    const edge = Math.max(2, Math.round(n * 0.3));
+    const accent = Math.max(1, Math.round(n * 0.15));
+    return { edge, accent, crop: Math.max(2, n - edge - accent) };
+  },
+  bonus: (p) => (isVeg(p) ? 2.5 + (p.harvest?.length ? 2 + p.harvest.length * 0.25 : 0) : 0) + (p.tags.includes('herb') ? 1.2 : 0) + (POTAGER_FLOWERS.includes(p.group) ? 1.5 : 0) + (p.tags.includes('easy') ? 0.5 : 0),
+  why: (p) => (isVeg(p) ? [p.harvest?.length ? `収穫 ${p.harvest[0]}月〜` : '食べられる'] : POTAGER_FLOWERS.includes(p.group) ? ['野菜の仲間（コンパニオン）'] : p.tags.includes('herb') ? ['摘んで使えるハーブ'] : []),
+  spacing: 1.0, speciesFactor: 1.15,
+  cost: { soil: { ja: '土づくり（堆肥たっぷり・菜園用）', perSqm: 2200 }, mulch: { ja: '区画の縁取り材・通路のウッドチップ', perSqm: 1400 } },
 };
 
 STYLES.matrix.cost = { mulch: { ja: '初年度の薄いマルチ（2年目以降は不要）', perSqm: 400 } };

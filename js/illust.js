@@ -233,9 +233,10 @@ export function planSVG(plan) {
   const ticks = [];
   for (let m = 0; m <= plan.width + 1e-6; m += plan.width > 6 ? 2 : 1) ticks.push(`<text x="${r1(X(m))}" y="${r1(oy - 8)}" text-anchor="middle" font-size="10" fill="currentColor" opacity=".55">${m}m</text>`);
   return `<svg class="illust plan" viewBox="0 0 ${VW} ${r1(VH)}" role="img" aria-label="花壇の平面図">
-    <rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="#6d5640"/>
+    <rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : '#6d5640'}"/>
+    ${(plan.plots || []).map((p) => `<rect x="${r1(X(p.x0))}" y="${r1(Y(p.y1))}" width="${r1((p.x1 - p.x0) * sc)}" height="${r1((p.y1 - p.y0) * sc)}" rx="4" fill="#6d5640" stroke="#a07a4f" stroke-width="3"/>`).join('')}
     ${bandLines}${circles.join('')}${labels.join('')}${ticks.join('')}${bandLabels}
-    <text x="${VW / 2}" y="${r1(VH - 8)}" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7">${plan.view === 'island' ? '四方から眺める花壇' : '▼ こちらから眺める（手前）'}　幅${plan.width}m × 奥行き${plan.depth}m</text>
+    <text x="${VW / 2}" y="${r1(VH - 8)}" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7">${plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ こちらから眺める（手前）'}　幅${plan.width}m × 奥行き${plan.depth}m</text>
   </svg>`;
 }
 

@@ -1,5 +1,6 @@
 // 生き物・生物多様性の表示（図鑑・マイ庭・プラン・楽しむ で共通）
 import { KINDS, LEVEL_JA, FEATURES, creaturesForRegion } from './wildlife.js';
+import { critterSVG } from './critterart.js';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const KIND_COLOR = { butterfly: '#d08a2e', moth: '#9a7a5a', bee: '#c9a227', beetle: '#b5532f', dragonfly: '#4f8aa0', hopper: '#6f8f4e', bird: '#7a6a9a', other: '#7d8c6a' };
@@ -8,7 +9,7 @@ const shiftMonth = (m, south) => (south ? ((m + 5) % 12) + 1 : m);
 export function kindTag(kind) {
   return `<span class="kind" style="--k:${KIND_COLOR[kind]}">${esc(KINDS[kind])}</span>`;
 }
-function monthsText(months, south) {
+export function monthsText(months, south) {
   if (months.length === 12) return '一年中';
   const ms = months.map((m) => shiftMonth(m, south)).sort((a, b) => a - b);
   // 連続した月をまとめる（年をまたぐ場合も）
@@ -24,7 +25,7 @@ export function plantCritters(list) {
   const host = list.filter((x) => x.way === 'host');
   const rest = list.filter((x) => x.way !== 'host');
   return `<h4>この植物に来る生き物</h4>
-    <div class="critters">${[...host, ...rest].slice(0, 10).map((x) => `<span class="critter${x.way === 'host' ? ' host' : ''}" title="${esc(x.creature.note || '')}">${esc(x.creature.ja)}<small>${esc(x.wayJa)}</small></span>`).join('')}</div>
+    <div class="critters">${[...host, ...rest].slice(0, 10).map((x) => `<button type="button" class="critter${x.way === 'host' ? ' host' : ''}" data-critter="${x.creature.id}" title="${esc(x.creature.note || '')}">${esc(x.creature.ja)}<small>${esc(x.wayJa)}</small></button>`).join('')}</div>
     ${host.length ? `<p class="hint" style="margin:4px 0 0">「幼虫の食草」は、葉が少し食べられる代わりに、庭で蝶が育ちます。</p>` : ''}`;
 }
 
@@ -44,10 +45,11 @@ export function bioHtml(bio) {
 }
 
 /** 庭に来そうな生き物の一覧 */
-export function crittersHtml(critters, south, max = 12) {
+export function crittersHtml(critters, south, max = 12, seen = new Set()) {
   if (!critters.length) return '<p class="hint">植物を加えると、来そうな生き物が表示されます。</p>';
-  const card = (x) => `<article class="crit-card lv${x.level}">
-    <div class="ch">${kindTag(x.creature.kind)}<span class="clv">${LEVEL_JA[x.level]}</span></div>
+  const card = (x) => `<article class="crit-card lv${x.level}${seen.has(x.creature.id) ? ' seen' : ''}" data-critter="${x.creature.id}" role="button" tabindex="0" aria-label="${esc(x.creature.ja)}を生き物図鑑で見る">
+    <div class="ch">${kindTag(x.creature.kind)}<span class="clv">${seen.has(x.creature.id) ? '✓ 見た' : LEVEL_JA[x.level]}</span></div>
+    <div class="cart">${critterSVG(x.creature.id, 54)}</div>
     <h3>${esc(x.creature.ja)}</h3>
     <p class="cm">${monthsText(x.creature.months, south)}</p>
     ${x.why.length ? `<p class="cw">${x.why.map(esc).join(' ／ ')}</p>` : ''}
@@ -71,6 +73,6 @@ export function regionHtml(climate, month, south) {
   const list = creaturesForRegion(climate, nm).sort((a, b) => b.base - a.base);
   const by = {};
   for (const c of list) (by[c.kind] = by[c.kind] || []).push(c);
-  return Object.keys(KINDS).filter((k) => by[k]).map((k) => `<div class="reg-kind"><h3>${kindTag(k)}</h3><div class="critters">${by[k].map((c) => `<span class="critter" title="${esc(c.note || '')}">${esc(c.ja)}${c.base === 1 ? '<small>まれ</small>' : ''}</span>`).join('')}</div></div>`).join('')
+  return Object.keys(KINDS).filter((k) => by[k]).map((k) => `<div class="reg-kind"><h3>${kindTag(k)}</h3><div class="critters">${by[k].map((c) => `<button type="button" class="critter" data-critter="${c.id}" title="${esc(c.note || '')}">${esc(c.ja)}${c.base === 1 ? '<small>まれ</small>' : ''}</button>`).join('')}</div></div>`).join('')
     || '<p class="hint">この月に見られる生き物のデータがありません。</p>';
 }

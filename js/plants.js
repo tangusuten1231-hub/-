@@ -14,6 +14,7 @@
 import { CULTIVARS as CV1, EXTRA_BASE } from './cultivars.js';
 import { MORE_BASE, MORE_CULTIVARS } from './more.js';
 import { ANNUAL_BASE, ANNUAL_CULTIVARS } from './annuals.js';
+import { VEG_BASE, VEG_GROUPS_EXTRA } from './veg.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
@@ -204,7 +205,7 @@ function expand(bases) {
 }
 
 /** 全植物（品種ごとに1件） */
-export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE]).map(decorate);
+export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE, ...VEG_BASE]).map(decorate);
 
 /** 科・用途・ハーブ/在来種タグ・豆知識を付与 */
 function decorate(p) {
@@ -212,6 +213,7 @@ function decorate(p) {
   if (HERB_GROUPS.has(p.group)) tags.add('herb');
   if (NATIVE_GROUPS.has(p.group)) tags.add('native');
   if (MEDICINAL_GROUPS.has(p.group)) tags.add('medicinal');
+  if (VEG_GROUPS_EXTRA.includes(p.group)) tags.add('veg');
   return { ...p, tags: [...tags], family: familyOf(p.latin), uses: [...(USE_INDEX[p.group] || [])], tips: TIPS[p.group] || [] };
 }
 /** 自分で登録した品種を追加（種のデータを引き継ぐ） */
@@ -294,6 +296,7 @@ export const TAGS = {
   herb: 'ハーブ',
   native: '日本の在来種',
   medicinal: '薬用植物（生薬・民間薬）',
+  veg: '野菜・食べられる',
 };
 
 export const SUN = { full: '日向', part: '半日陰', shade: '日陰' };

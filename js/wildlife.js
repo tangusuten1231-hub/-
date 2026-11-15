@@ -80,6 +80,9 @@ export const CREATURES = [
   C('koumori', 'アブラコウモリ', 'other', [4, 5, 6, 7, 8, 9, 10], [5, 11], 2, { feature: { water: 1, lawn: 1 }, note: '夕暮れに庭の上を飛び、蚊などを食べる。' }),
   C('mimizu', 'ミミズ', 'other', ALL, [3, 11], 3, { feature: { compost: 3, lawn: 1 }, note: '落ち葉を食べて土を耕す。豊かな土のしるし。' }),
   C('jorougumo', 'ジョロウグモ', 'other', [9, 10, 11], [5, 11], 2, { feature: { shrub: 2, tree: 1, structure: 1 }, note: '秋に大きな金色の網を張る。害虫を捕ってくれる。' }),
+  C('dangomushi', 'ダンゴムシ', 'other', [3, 4, 5, 6, 7, 8, 9, 10, 11], [3, 11], 3, { feature: { compost: 3, habitat: 1 }, note: '落ち葉を食べて細かくし、土に還す分解者。' }),
+  C('ashinaga', 'アシナガバチ', 'bee', [4, 5, 6, 7, 8, 9, 10], [4, 11], 2, { nectar: { groups: ['fennel', 'anethum', 'achillea', 'ammi'] }, feature: { structure: 1, shrub: 1 }, note: 'イモムシを狩って幼虫に与える庭の用心棒。巣には近づかないこと。' }),
+  C('tsubame', 'ツバメ', 'bird', [3, 4, 5, 6, 7, 8, 9], [5, 11], 2, { feature: { structure: 2, lawn: 1, pond: 1 }, note: '春に南から渡ってきて、軒下に泥の巣を作る。飛びながら虫を捕る。' }),
   C('katatsumuri', 'カタツムリ', 'other', [5, 6, 7, 8, 9, 10], [4, 11], 2, { nectar: { groups: ['hydrangea-serrata', 'hydrangea-arb', 'hydrangea-quercifolia', 'hydrangea-paniculata'] }, feature: { shrub: 1, habitat: 1 }, note: '梅雨のアジサイの葉の上に。' }),
 ];
 

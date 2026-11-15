@@ -59,6 +59,11 @@
 
     <!-- 植物を探す -->
     <section class="view" id="view-plants" data-view="plants" hidden>
+      <div class="seg subnav" id="zukanTabs" role="tablist" aria-label="図鑑の種類">
+        <button type="button" data-v="plants">植物</button>
+        <button type="button" data-v="critters">生き物</button>
+      </div>
+      <div id="plantPane">
       <div class="card filters" id="filters">
         <h2>植物図鑑</h2>
         <div class="field">
@@ -162,6 +167,8 @@
       </div>
       <p class="count" id="plantCount"></p>
       <div class="plant-list" id="plantList"></div>
+      </div>
+      <div id="critterPane" hidden></div>
     </section>
 
     <!-- 植栽プラン -->

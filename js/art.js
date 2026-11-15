@@ -181,12 +181,52 @@ export const ART = {
   ),
 };
 
+// 追加のイラスト（菜園・巣箱・虫の宿・夜の庭・スケッチ）
+Object.assign(ART, {
+  veg: () => svg(
+    W(100, 100, 74, 30, '#a8c98a', 0.3) +
+    ink('M40,92 L160,92 L148,130 L52,130 Z', 1.5) + ink('M46,104 L154,104 M50,116 L150,116', 0.7) + ink('M60,92 Q100,52 140,92', 1.3) +
+    [[66, 84, 11, '#d6463a'], [88, 80, 12, '#e0573a'], [112, 84, 10, '#efc93a'], [132, 86, 9, '#d6463a']].map(([x, y, r, c]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" opacity=".8" filter="url(#wc)"/>` + ink(`M${x - r * 0.9},${y} a${r * 0.9},${r * 0.9} 0 1,0 ${r * 1.8},0 a${r * 0.9},${r * 0.9} 0 1,0 -${r * 1.8},0`, 1) + ink(`M${x - 4},${y - r + 1} l4,-4 l4,4`, 0.9)).join('') +
+    `<path d="M100,92 q-8,-26 -2,-40" stroke="#7aa95c" stroke-width="6" fill="none" opacity=".5"/>` + leaf(98, 54, -60, 16) + leaf(98, 60, 220, 14),
+  ),
+  nestbox: () => svg(
+    W(100, 70, 60, 50, '#c9a87a', 0.28) +
+    ink('M100,18 L100,138', 2.2) + `<rect x="74" y="52" width="52" height="58" fill="#c9a06a" opacity=".55"/>` +
+    ink('M74,52 L126,52 L126,110 L74,110 Z', 1.5) + ink('M66,56 L100,30 L134,56', 1.8) + `<circle cx="100" cy="74" r="7" fill="#3a2e24" opacity=".85"/>` +
+    ink('M90,90 L110,90', 1) + `<path d="M124,36 q10,-10 22,-6 q-4,8 -14,10 l6,6 q-10,2 -14,-4z" fill="#8d9c8a" opacity=".7"/>` + dot(140, 32, 1.4, 'var(--ink)'),
+  ),
+  bughotel: () => svg(
+    W(100, 76, 66, 48, '#d9c49a', 0.3) +
+    ink('M58,48 L100,22 L142,48 L142,124 L58,124 Z', 1.6) + ink('M58,72 L142,72 M58,98 L142,98 M100,48 L100,124', 1) +
+    [[70, 60], [80, 62], [90, 58], [112, 60], [124, 62], [134, 58]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4" fill="#8a6a44" opacity=".75"/>` + ink(`M${x - 3.5},${y} a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0`, 0.7)).join('') +
+    Array.from({ length: 6 }, (_, i) => ink(`M${62 + i * 6},76 L${62 + i * 6},94`, 0.8)).join('') + `<rect x="104" y="76" width="34" height="18" fill="#b5a079" opacity=".5"/>` +
+    [[70, 110], [82, 112], [94, 108], [116, 110], [130, 112]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="5" ry="4" fill="#a08a6a" opacity=".7"/>`).join('') +
+    `<ellipse cx="154" cy="40" rx="5" ry="3" fill="#e8f2f6" stroke="var(--ink)" stroke-width=".8"/><ellipse cx="152" cy="46" rx="4" ry="6" fill="#efc93a" opacity=".85"/>`,
+  ),
+  night: () => svg(
+    `<rect width="200" height="140" fill="#2f3b52" opacity=".16"/>` + `<circle cx="150" cy="34" r="16" fill="#f3e3a6" opacity=".85" filter="url(#wc)"/>` +
+    [[30, 24], [60, 14], [92, 30], [118, 16], [176, 60]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.4" fill="#f3e3a6"/>`).join('') +
+    ink('M40,138 Q44,100 40,78', 1.1) + ink('M70,138 Q72,110 76,92', 1.1) + daisy(40, 76, 9, '#f6f3ea', '#e0c060') + daisy(76, 90, 8, '#f6f3ea', '#e0c060') +
+    ink('M120,120 l10,-6 l10,6', 1.2) + `<path d="M118,122 q12,-12 24,0" fill="#e2a33a" opacity=".35"/>`,
+  ),
+  sketch: () => svg(
+    W(100, 74, 70, 46, '#e4d6ae', 0.3) +
+    ink('M40,34 L150,34 L150,124 L40,124 Z', 1.3) + ink('M95,34 L95,124', 0.8) +
+    ink('M62,110 Q60,80 66,56', 1) + daisy(66, 54, 9, '#e78fb3') + leaf(64, 86, 200, 12) + leaf(63, 96, -20, 12) +
+    ink('M106,56 h30 M106,66 h26 M106,76 h30 M106,86 h20', 0.7) +
+    ink('M150,120 L176,72', 2) + `<path d="M176,72 l4,-8 l-1,10z" fill="var(--ink)"/>`,
+  ),
+});
+
 export const ART_BY_ICON = {
   '❄️': 'frost', '🐦': 'bird', '📖': 'notebook', '🌱': 'snowdrop', '🔥': 'bonfire', '🌿': 'sprout', '🍃': 'tea', '🥢': 'forage',
   '💐': 'bouquet', '💜': 'lavender', '✂️': 'shears', '🦋': 'butterfly', '🌙': 'moon', '🪔': 'spikes', '🌰': 'seed', '🎑': 'moon',
   '🌾': 'grass', '🎨': 'dye', '🍂': 'compost', '🎄': 'wreath', '📷': 'camera',
+  '🏠': 'nestbox', '🍅': 'veg', '🐝': 'bughotel', '🔦': 'night', '🔎': 'butterfly', '✏️': 'sketch', '🌼': 'seed', '🫙': 'tea',
+  '🍊': 'bird', '🌌': 'night', '🐌': 'sprout', '🥕': 'veg', '🍓': 'veg',
 };
-export const ART_BY_RECIPE = { dry: 'dry', seed: 'seed', tea: 'tea', potpourri: 'lavender', press: 'press', dye: 'dye', cutflower: 'bouquet', wreath: 'wreath', compost: 'compost', bonfire: 'bonfire', forage: 'forage' };
+export const ART_BY_RECIPE = { dry: 'dry', seed: 'seed', tea: 'tea', potpourri: 'lavender', press: 'press', dye: 'dye', cutflower: 'bouquet', wreath: 'wreath', compost: 'compost', bonfire: 'bonfire', forage: 'forage',
+  nestbox: 'nestbox', bughotel: 'bughotel', harvest: 'veg', herbsalt: 'tea', seedball: 'seed', birdfeed: 'bird', survey: 'butterfly', sketch: 'sketch', potager: 'veg' };
 
 export function art(key) { return (ART[key] || ART.sprout)(); }
 
