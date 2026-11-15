@@ -1376,9 +1376,40 @@ document.addEventListener('click', (e) => {
   }
 });
 
+/** 庭まるごとプラン：つくる順番（下準備→構造物→木・低木→宿根草→球根→一年草・野菜→仕上げ） */
+function siteSteps(s, sitePlants) {
+  const no = new Map(sitePlants.map((x, i) => [x.plant.id, i + 1]));
+  const when = (list) => {
+    const cnt = Array(13).fill(0);
+    list.forEach((x) => plantingTime(x.plant, state.climate).plant.best.forEach((m) => cnt[m]++));
+    const top = Math.max(...cnt);
+    return top ? monthsJa(cnt.map((v, m) => (m && v >= top * 0.5 ? m : 0)).filter(Boolean)) : '';
+  };
+  const chip1 = (x) => `<button type="button" class="chip" data-jump="scast-${no.get(x.plant.id)}"><span class="dot" style="background:${COLORS[x.color].hex}"></span>${esc(x.plant.ja)}</button>`;
+  const chips = (list) => list.length > 8 ? `<div class="hl-stars">${list.slice(0, 6).map(chip1).join('')}</div><details class="more-chips"><summary>ほか${list.length - 6}種を見る</summary><div class="hl-stars">${list.slice(6).map(chip1).join('')}</div></details>` : `<div class="hl-stars">${list.map((x) => `<button type="button" class="chip" data-jump="scast-${no.get(x.plant.id)}"><span class="dot" style="background:${COLORS[x.color].hex}"></span>${esc(x.plant.ja)}</button>`).join('')}</div>`;
+  const shrubs = sitePlants.filter((x) => ['shrub', 'tree'].includes(x.plant.type));
+  const bulbs = sitePlants.filter((x) => x.plant.type === 'bulb');
+  const annual = sitePlants.filter((x) => x.plant.type === 'annual' || (x.plant.tags || []).includes('veg'));
+  const pere = sitePlants.filter((x) => !shrubs.includes(x) && !bulbs.includes(x) && !annual.includes(x));
+  const built = [...new Set(s.structs.map((x) => ITEMS[x.type]?.ja).filter(Boolean))];
+  if (s.areas.path) built.unshift('小道');
+  if (s.areas.terrace) built.unshift('テラス');
+  const first = when(sitePlants);
+  const steps = [
+    { t: '下準備', w: first ? `植え付けの2〜4週間前（${first}の前）` : '植え付けの2〜4週間前', x: '雑草を根から抜き、花壇になる場所を深さ30cmほど耕して、堆肥を混ぜておきます。水はけの悪い場所は、土を盛って少し高くします。' },
+    built.length && { t: '構造物をつくる', w: '植物より先に', x: `${[...new Set(built)].join('・')}を先に作ると、作業で苗を踏まずにすみます。小道とテラスの位置が決まると、花壇の形もはっきりします。` },
+    (shrubs.length || s.structs.some((x) => x.type === 'tree')) && { t: '木と低木を植える', w: when(shrubs) || '落葉している時期', x: '庭の骨格になるものから。育ったときの大きさを考えて、まわりの草花との間をあけておきます。', l: shrubs },
+    pere.length && { t: '宿根草とグラスを植える', w: when(pere), x: '背の高いものから順に、植栽図のとおり苗をポットのまま並べて、見え方を確かめてから植えます。', l: pere },
+    bulbs.length && { t: '球根を植え込む', w: when(bulbs), x: '宿根草の株の間に、5〜9球ずつまとめて植えます。植えた場所に目印をさしておくと、あとで掘り返さずにすみます。', l: bulbs },
+    annual.length && { t: '一年草・野菜', w: when(annual), x: '空いた場所や手前を、季節ごとに入れ替えて楽しみます。', l: annual },
+    { t: '仕上げと最初の1年', w: '植え付けの直後から', x: '腐葉土やウッドチップで地面を覆い（マルチング）、乾燥と雑草を防ぎます。根づくまでの最初の夏は、土が乾いたらたっぷり水やりを。' },
+  ].filter(Boolean);
+  return `<ol class="build-steps">${steps.map((st, i) => `<li><span class="bs-no">${i + 1}</span><div><h3>${st.t}<small>${esc(st.w)}</small></h3><p>${st.x}</p>${st.l?.length ? chips(st.l) : ''}</div></li>`).join('')}</ol>`;
+}
+
 /** ページ内の目次（タップで該当の場所へ） */
 function tocHtml(items) {
-  return `<nav class="toc" aria-label="このページの目次">${items.map(([id, t]) => `<button type="button" class="chip" data-jump="${id}">${esc(t)}</button>`).join('')}</nav>`;
+  return `<details class="toc"><summary>${icon('list', 15)}このページの目次<small>${items.length}項目・タップで移動</small></summary><nav aria-label="このページの目次"><ol>${items.map(([id, t], i) => `<li><button type="button" data-jump="${id}"><span class="tn">${i + 1}</span>${esc(t)}</button></li>`).join('')}</ol></nav></details>`;
 }
 
 // ---------- 庭まるごとプラン（プレゼンテーション） ----------
@@ -1421,17 +1452,19 @@ function renderSitePlan() {
 
   box.innerHTML = `
     <section class="hero plan-hero site-hero">
-      <div class="hero-art site-art" id="siteArt">${siteSVG(s, { tour: layer === 'tour', photos: layer === 'photo' })}</div>
+      <div class="hero-art site-art" id="siteArt">${siteSVG(s, { tour: layer === 'tour', photos: layer === 'photo', nums: new Map(sitePlants.map((x, i) => [x.plant.id, i + 1])) })}</div>
       <div class="hero-text">
         <span class="kicker">Garden Design · ${esc(STYLES[pi.style]?.by || 'Whole Garden')}</span>
         <h1>${esc(title)}</h1>
         <p class="sekki">${esc(SHAPE_JA[pi.site.shape])}の敷地・家は${DIR_JA[s.house]}側・${esc(STYLES[pi.style]?.ja || '')}</p>
         <div class="seg small" id="siteLayer">${Object.entries(SITE_LAYERS).map(([k, v]) => `<button type="button" data-v="${k}" class="${k === layer ? 'on' : ''}">${v}</button>`).join('')}</div>
-        ${tocHtml([['sec-hl', '見どころ'], ['sec-tour', '園内の案内'], ['sec-photo', 'フォトスポット'], ['sec-splants', '植物の一覧'], ['sec-srelay', '開花'], ['sec-swild', '生き物'], ['sec-beds', '花壇'], ['sec-scost', '費用']])}
+        ${tocHtml([['sec-hl', '見どころ'], ['sec-tour', '園内の案内'], ['sec-photo', 'フォトスポット'], ['sec-splants', '植物の一覧'], ['sec-ssteps', 'つくる順番'], ['sec-srelay', '開花'], ['sec-swild', '生き物'], ['sec-beds', '花壇'], ['sec-scost', '費用']])}
         <div class="alt-row"><span>別の案：</span><button type="button" class="btn small" data-sitealt="plants">${icon('leaf', 15)}植栽だけ変える</button><button type="button" class="btn small" data-sitealt="layout">${icon('refresh', 15)}配置も変える</button></div>
       </div>
     </section>
     <div class="legend">${[['#cfdcae', '芝生'], ['#b9a079', '花壇'], ['#e8dcc0', '小道'], ['#d6c29c', 'テラス'], ['#9cc4cf', '水辺']].map(([col, t]) => `<span><i style="background:${col}"></i>${t}</span>`).join('')}${layer === 'tour' ? '<span><i class="ln"></i>案内ルート</span>' : ''}${layer === 'photo' ? '<span><i class="cam"></i>撮影位置と向き</span>' : ''}</div>
+    <p class="hint site-key">${layer === 'plain' ? '色のまとまりは同じ植物の群れ（ドリフト）、太い線が花壇の範囲です。<b>A・B…</b>は花壇、<b>黒丸の番号</b>は下の「植える植物」の番号で、タップすると説明へ移動します。株の正確な位置は、花壇ごとの「この花壇を詳しく」の植栽図で確認できます。' : '平面図の植物の番号は「平面図」の表示で確認できます。'}</p>
+    <div class="bed-key">${s.beds.map((b) => `<button type="button" data-jump="bed-${b.id}"><span class="bid">${b.id}</span><span class="bk-name">${esc(b.name)}</span><span class="bk-dots">${b.plan.species.filter((x) => x.role !== 'under').slice(0, 6).map((x) => `<i style="background:${COLORS[x.color].hex}"></i>`).join('')}</span><small>${b.area}㎡・${b.plan.species.length}種</small></button>`).join('')}</div>
 
     <div class="figures four">
       <div><span class="fig">${s.area}<small>㎡</small></span><span class="cap">敷地・約${Math.round(s.W * 10) / 10}×${Math.round(s.H * 10) / 10}m</span></div>
@@ -1473,6 +1506,7 @@ function renderSitePlan() {
 
     <section class="mag" id="sec-splants">
       ${secHead('Planting List', '植える植物（庭全体）', `${sitePlants.length}種・${sitePlants.reduce((t, x) => t + x.qty, 0)}株。どの花壇に植えるかは、花壇の記号をタップすると移動します。`)}
+      <div class="row"><button type="button" class="btn small" id="btnSiteMemo">${icon('cart', 15)}買い物メモをコピー</button></div>
       <div class="cast">${sitePlants.map((x, i) => `<article class="cast-card" id="scast-${i + 1}">
         <div class="cast-art">${photoHtml(x.plant, 'cast-photo', x.color)}<span class="no">${i + 1}</span></div>
         <div class="cbody">
@@ -1486,6 +1520,11 @@ function renderSitePlan() {
           <div class="why"><span>植え時 ${esc(monthsJa(plantingTime(x.plant, state.climate).plant.best))}</span>${(x.plant.roles || []).slice(0, 2).map((k) => `<span>${esc(ROLES[k].ja)}</span>`).join('')}</div>
         </div>
       </article>`).join('')}</div>
+    </section>
+
+    <section class="mag" id="sec-ssteps">
+      ${secHead('Build Order', 'つくる順番', 'どこから手をつけるかの目安です。月はこの地域の気候に合わせています。植物名をタップすると説明へ移動します。')}
+      ${siteSteps(s, sitePlants)}
     </section>
 
     <section class="mag" id="sec-srelay">
@@ -1529,6 +1568,11 @@ function renderSitePlan() {
     </div>`;
 
   hydratePhotos(box, sitePlants.map((x) => x.plant));
+  $('#btnSiteMemo').addEventListener('click', async () => {
+    const lines = sitePlants.map((x, i) => `${i + 1}. ${x.plant.ja} × ${x.qty}${x.plant.type === 'bulb' ? '球' : '株'}（花壇${x.beds.join('・')}）約${yen(x.qty * x.plant.price)}`);
+    const text = `【${title}】苗の買い物メモ\n${lines.join('\n')}\n――\n合計 ${sitePlants.length}種・${sitePlants.reduce((t, x) => t + x.qty, 0)}株・約${yen(sitePlants.reduce((t, x) => t + x.qty * x.plant.price, 0))}`;
+    toast((await copyText(text)) ? '買い物メモをコピーしました。メモアプリなどに貼り付けて使えます' : 'コピーできませんでした');
+  });
   $('#siteLayer').addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) return;

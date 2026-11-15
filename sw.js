@@ -1,5 +1,5 @@
 // オフラインでもアプリ本体を開けるようにするサービスワーカー
-const CACHE = 'garden-nav-v17';
+const CACHE = 'garden-nav-v18';
 const SHELL = [
   './', 'index.html', 'css/style.css', 'icon.svg', 'manifest.webmanifest',
   'js/app.js', 'js/plants.js', 'js/cultivars.js', 'js/more.js', 'js/annuals.js', 'js/meta.js', 'js/enjoy.js', 'js/weather.js', 'js/db.js', 'js/art.js', 'js/describe.js', 'js/diary.js', 'js/chat.js', 'js/handoff.js', 'js/mascot.js', 'js/climate.js', 'js/garden.js', 'js/sun.js',

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { polygonArea, inside, isSimple, siteShape, generateSite, siteSVG } from '../js/site.js';
+import { polygonArea, inside, isSimple, siteShape, generateSite, siteSVG, bedDrifts } from '../js/site.js';
 
 const climate = { zone: { value: 8.5, label: '8b' }, south: false, heatZone: 7, hotDays: 50, tropicalNights: 20, avgMinTemp: -3 };
 
@@ -44,4 +44,18 @@ test('自由な形・家が南でも動き、小さな庭でも壊れない', ()
   assert.ok(s.beds.length > 0);
   const tiny = generateSite({ shape: 'rect', width: 3, depth: 2, climate });
   assert.ok(tiny.beds.length >= 1);
+});
+
+test('平面図の花壇：すべてのマスを群れで塗り分け、植物ごとに番号札は1つ', () => {
+  const s = generateSite({ shape: 'rect', width: 10, depth: 8, house: 'n', items: ['path', 'terrace', 'lawn', 'water'], text: 'ナチュラル', climate, style: 'matrix' });
+  const ids = [...new Set(s.beds.flatMap((b) => b.plan.species.filter((x) => x.role !== 'under').map((x) => x.plant.id)))];
+  const nums = new Map(ids.map((id, i) => [id, i + 1]));
+  const r = bedDrifts(s, (x) => x, (y) => y, 40, nums);
+  for (const b of s.beds) {
+    const got = r.drifts.filter((d) => d.b === b).flatMap((d) => d.cells);
+    assert.equal(got.length, b.cells.length, `花壇${b.id}のマスがすべて塗られる`);
+    assert.equal(new Set(got).size, got.length, '同じマスを二重に塗らない');
+  }
+  assert.equal((r.tags.match(/data-jump="scast-/g) || []).length, new Set(r.drifts.map((d) => d.s.plant.id)).size);
+  assert.match(siteSVG(s, { nums }), /clipPath id="bd/);
 });
