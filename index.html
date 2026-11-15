@@ -207,16 +207,16 @@
           </div>
           <div class="field">
             <span class="label">上の階のバルコニー（屋根）</span>
-            <div class="seg" data-bal="roof"><button type="button" data-v="yes">ある</button><button type="button" data-v="no">ない（最上階・戸建てなど）</button></div>
+            <div class="seg" data-bal="roof"><button type="button" data-v="yes">ある</button><button type="button" data-v="no">ない（最上階など）</button></div>
           </div>
           <label class="field bal-roof"><span class="label">床から上の階の床（天井）までの高さ（cm）</span><input type="number" id="balCeil" min="200" max="400" step="10" inputmode="numeric"></label>
           <div class="field">
             <span class="label">正面の建物や木</span>
-            <div class="seg" data-bal="obstacle"><button type="button" data-v="none">なし</button><button type="button" data-v="far">少し離れてある</button><button type="button" data-v="near">近くにある</button></div>
+            <div class="seg" data-bal="obstacle"><button type="button" data-v="none">なし</button><button type="button" data-v="far">離れてある</button><button type="button" data-v="near">近くにある</button></div>
           </div>
           <div class="grid2">
             <label class="field"><span class="label">棚の段数</span><select id="balShelf"><option value="0">棚なし</option><option value="1">1段</option><option value="2">2段</option><option value="3">3段</option><option value="4">4段</option><option value="5">5段</option></select></label>
-            <div class="field"><span class="label">棚の置き場所</span><div class="seg" data-bal="shelfAt"><button type="button" data-v="wall">壁ぎわ</button><button type="button" data-v="rail">手すりぎわ</button></div></div>
+            <div class="field"><span class="label">棚の置き場所</span><div class="seg" data-bal="shelfAt"><button type="button" data-v="wall">壁ぎわ</button><button type="button" data-v="rail">手すり側</button></div></div>
           </div>
           <label class="toggle"><input type="checkbox" id="balHang"> 手すりの内側にプランターを掛ける（管理規約で認められている場合）</label>
           <label class="toggle"><input type="checkbox" id="balWater"> 小鳥や蜂のための水飲み皿を置く</label>
@@ -265,7 +265,8 @@
         </div>
         <div class="field">
           <label class="label" for="planStyle">植栽スタイル</label>
-          <select id="planStyle"></select>
+          <div class="carousel style-cards" id="styleCards" role="list"></div>
+          <select id="planStyle" aria-label="植栽スタイルを選ぶ"></select>
           <p class="hint" id="styleDesc" style="margin:6px 0 0"></p>
         </div>
         <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
@@ -277,8 +278,8 @@
         <div class="field bed-only">
           <span class="label">眺め方</span>
           <div class="seg" data-plan="view">
-            <button type="button" data-v="border">片側から（ボーダー）</button>
-            <button type="button" data-v="island">四方から（アイランド）</button>
+            <button type="button" data-v="border">片側から眺める</button>
+            <button type="button" data-v="island">四方から眺める</button>
           </div>
         </div>
         <div class="field not-balcony">
@@ -292,7 +293,7 @@
         <div class="field not-balcony">
           <span class="label">土の湿り気</span>
           <div class="seg" data-plan="moist">
-            <button type="button" data-v="">ふつう〜指定なし</button>
+            <button type="button" data-v="">ふつう</button>
             <button type="button" data-v="dry">乾きぎみ</button>
             <button type="button" data-v="wet">湿りぎみ</button>
           </div>

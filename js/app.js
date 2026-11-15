@@ -30,10 +30,10 @@ import { critterSVG } from './critterart.js';
 import { foodWeb, foodWebSVG, foodWebSummary } from './ecoweb.js';
 import { visitors, friendSVG } from './friends.js';
 import { tsupiLine } from './tsupiwords.js';
-import { INGREDIENTS, MOODS, TEA_RECIPES, teaStatus, teaIngredientsFor, teaCupSVG } from './tea.js';
+import { INGREDIENTS, MOODS, TEA_RECIPES, teaStatus, teaIngredientsFor, teaCupSVG, ingOwned } from './tea.js';
 import {
   LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
-  buildTasks, TASK_KIND, localMonth,
+  buildTasks, TASK_KIND, localMonth, plantingTime, monthsJa,
 } from './garden.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -496,6 +496,7 @@ function plantCard(rs) {
       <span>株間 ${p.spread}cm</span>
       <span class="price">${yen(p.price)}／${p.type === 'bulb' && p.price <= 300 ? '球' : '株'}</span>
     </div>
+    ${timingHtml(p)}
     <div class="tagrow">${p.tags.map((t) => `<span class="tag">${TAGS[t]}</span>`).join('')}</div>
     <p class="note-p lead-note">${esc(p.note)}</p>
     <div class="desc">${describe(p).map((d) => `<h4>${d.h}</h4><p>${esc(d.t)}</p>`).join('')}
@@ -647,7 +648,7 @@ function renderGarden() {
         return `<div class="gplant" id="gp-${p.id}">
           <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>
           <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
-          <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm</div></div>
+          <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm・植え時 ${monthsJa(plantingTime(p, c).plant.best)}</div></div>
           <span class="qty">約${qty}株</span>
           <button type="button" class="icon-btn rec-btn" data-record="${p.id}" aria-label="${esc(p.ja)}の記録を書く">${icon('note', 17)}</button>
           <button type="button" class="have ${activeGarden().have[p.id] ? 'on' : ''}" data-have="${p.id}">${activeGarden().have[p.id] ? '植えた' : 'ほしい'}</button>
@@ -826,7 +827,18 @@ function initPlanForm() {
   $('#polySize').value = String(pi.site.size || 15);
   $('#planStyle').innerHTML = Object.entries(STYLES).map(([k, v]) => `<option value="${k}">${v.ja}</option>`).join('');
   $('#planStyle').value = pi.style || 'border';
-  const syncStyle = () => { $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary; };
+  const syncStyle = () => {
+    $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary;
+    document.querySelectorAll('#styleCards .style-card').forEach((c) => c.classList.toggle('on', c.dataset.style === $('#planStyle').value));
+  };
+  $('#styleCards').innerHTML = Object.entries(STYLES).map(([k, v]) => `<button type="button" class="style-card" data-style="${k}" role="listitem"><span class="sc-art">${styleArt(k)}</span><b>${esc(v.ja.replace(/（.*?）/g, ''))}</b>${v.by ? `<small>${esc(v.by)}</small>` : ''}</button>`).join('');
+  $('#styleCards').addEventListener('click', (e) => {
+    const c = e.target.closest('[data-style]');
+    if (!c) return;
+    $('#planStyle').value = c.dataset.style;
+    state.planInput.style = c.dataset.style;
+    syncStyle();
+  });
   $('#planStyle').addEventListener('change', () => { state.planInput.style = $('#planStyle').value; syncStyle(); });
   syncStyle();
   $('#planPresets').innerHTML = PRESETS.map((w) => `<button type="button" class="chip" data-w="${w}">${w}</button>`).join('');
@@ -1094,6 +1106,7 @@ function renderPlan() {
 
     <section class="mag">
       ${secHead('Design Notes', 'このスタイルの考え方', esc(STYLES[plan.style].summary))}
+      ${imageSlot('style', plan.style, styleArt(plan.style), stylePrompt(plan.style, plan))}
       <ol class="steps-num">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
     </section>
 
@@ -1228,7 +1241,7 @@ function renderBalconyPlan() {
         <span class="kicker">Balcony Garden · ${esc(STYLES[pi.style]?.by || 'Container Planting')}</span>
         <h1>${esc(title)}</h1>
         <p class="sekki">${bp.width}×${bp.depth}m・${FACING[bp.facing][0]}向き・${bp.floor}階・手すり${Math.round(bp.railH * 100)}cm（${bp.railType === 'solid' ? '壁' : '格子'}）${bp.roof ? '・屋根あり' : ''}</p>
-        ${tocHtml([['sec-sun', '日当たり'], ['sec-pots', '鉢のリスト'], ['sec-bloom', '開花'], ['sec-wild', '生き物'], ['sec-care', '水やり'], ['sec-cost', '費用'], ['sec-notes', '注意']])}
+        ${tocHtml([['sec-cast', '植物'], ['sec-sun', '日当たり'], ['sec-pots', '鉢のリスト'], ['sec-bloom', '開花'], ['sec-wild', '生き物'], ['sec-care', '水やり'], ['sec-cost', '費用'], ['sec-notes', '注意']])}
       </div>
     </section>
     <div class="figures four">
@@ -1245,6 +1258,23 @@ function renderBalconyPlan() {
       <p class="hint">5時間以上を「日向」、2.5時間以上を「半日陰」としています。断面図の円の数字は、春〜秋（夏至と春分・秋分の平均）の日照時間です。</p>
     </section>
 
+    <section class="mag" id="sec-cast">
+      ${secHead('Plant Cast', '植物の紹介', 'このベランダの主役たち。番号は正面図の鉢の番号です。')}
+      <div class="cast">${bp.plants.map((p) => { const ss = bp.slots.filter((x) => x.plant.id === p.id); const s0 = ss[0]; const lv = state.climate ? evaluate(p, state.climate).level : null; return `<article class="cast-card">
+        <div class="cast-art">${photoHtml(p, 'cast-photo', s0.color)}<span class="no">${ss.map((x) => x.no).join('・')}</span></div>
+        <div class="cbody">
+          <span class="role">${esc(ZJ[s0.zone])}・${esc(BSUN[s0.spot.sun])}${p.roles?.includes('hanging') ? '・垂れて広がる' : ''}</span>
+          <h3>${esc(p.ja)}</h3>
+          <p class="latin">${esc(p.latin)}</p>
+          <p class="calc"><span class="dot" style="background:${COLORS[s0.color].hex};width:9px;height:9px"></span> ${COLORS[s0.color].ja}・${p.h[0]}〜${p.h[1]}cm${lv ? `・${LEVEL[lv].mark}` : ''}</p>
+          ${monthBar({ ...p, color: [s0.color] }, south)}
+          <p class="cnote">${esc(p.note)}</p>
+          <div class="why">${[p.tags.includes('balcony') ? '鉢向き' : '', p.tender ? '冬は取り込み' : '', p.harvest?.length ? `収穫 ${monthsJa(p.harvest.map((m) => localMonth(m, south)))}` : '', p.tags.includes('fragrant') ? '香り' : '', p.tags.includes('herb') ? 'ハーブ' : '', `植え時 ${monthsJa(plantingTime(p, state.climate).plant.best)}`].filter(Boolean).map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+          <button type="button" class="btn small" data-jump="pot-${s0.no}">鉢と土を見る</button>
+        </div>
+      </article>`; }).join('')}</div>
+    </section>
+
     <section class="mag" id="sec-pots">
       ${secHead('Pots & Plants', '鉢のリスト', '上の正面図の番号と対応しています。タップすると植物図鑑を開きます。')}
       <div class="pot-list">${bp.slots.map((s) => `<article class="pot-card" id="pot-${s.no}">
@@ -1255,6 +1285,7 @@ function renderBalconyPlan() {
           <p class="calc">${s.planter ? '65cmプランター' : `${s.go}号鉢（直径${s.go * 3}cm）`}・${s.qty}株・土 ${s.liters}L・${esc(s.guide.depth)}</p>
           <div class="mixbar" title="${esc(s.guide.mix.ja)}">${s.guide.mix.parts.map((x) => `<i style="flex:${x.part};background:${x.color}" title="${esc(x.ja)} ${x.part}"></i>`).join('')}</div>
           <p class="hint" style="margin:2px 0 0">${esc(s.guide.mix.ja)}：${s.guide.mix.parts.map((x) => `${esc(x.ja)}${x.part}`).join('・')}</p>
+          <p class="pc-time">${icon('calendar', 13)}植え時 ${esc(monthsJa(plantingTime(s.plant, state.climate).plant.best))}</p>
           ${s.plant.tender ? '<p class="pc-warn">冬は室内か軒下へ取り込み</p>' : ''}
           <p class="calc">${yen(s.cost.plant)}（苗）＋${yen(s.cost.pot)}（鉢）＋${yen(s.cost.soil)}（土）</p>
         </div>
@@ -1302,6 +1333,7 @@ function renderBalconyPlan() {
       <button class="btn" type="button" id="btnBalAlt">${icon('refresh', 16)}別の植物で考える</button>
       <button class="btn" type="button" data-consult="${esc(`${FACING[bp.facing][0]}向き・${bp.floor}階・${bp.width}×${bp.depth}mのベランダで、${bp.plants.slice(0, 10).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}を鉢で育てる計画です。よりよくするアイデアと注意点を教えてください。`)}">${icon('search', 16)}AIに相談</button>
     </div>`;
+  hydratePhotos(box, bp.plants);
   $('#btnBalAlt').addEventListener('click', () => { makePlan(state.planInput.seed + 1); toast('植物を選び直しました'); });
   $('#btnBalImg').addEventListener('click', async () => {
     try { const blob = await svgToPngBlob($('#balArt svg')); const r = await saveFile('balcony-plan.png', blob, 'image/png'); if (r !== 'cancel') toast('配置図を保存しました'); } catch (err) { toast(err.message); }
@@ -1785,7 +1817,7 @@ $('#enjoyTabs').addEventListener('click', (e) => {
   window.scrollTo({ top: 0 });
 });
 function teaLinks(p) {
-  const ings = teaIngredientsFor(p.group);
+  const ings = teaIngredientsFor(p);
   if (!ings.length) return '';
   const recs = [...new Map(ings.flatMap((i) => i.recipes).map((r) => [r.id, r])).values()];
   return `<div class="tealinks"><b>${icon('cup', 15)}ハーブティーに（${esc(ings.map((i) => i.part).join('・'))}）</b>
@@ -1806,17 +1838,17 @@ function renderTea() {
   const south = !!state.climate?.south;
   const north = localMonth(new Date().getMonth() + 1, south);
   const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
-  const groups = new Set(mine.map((p) => p.group));
+  const groups = new Set([...mine.map((p) => p.group), ...mine.map((p) => p.id)]);
   const f = state.teaF;
   const statusOf = new Map(TEA_RECIPES.map((r) => [r.id, teaStatus(r, groups)]));
   let list = TEA_RECIPES.filter((r) => !f.mood || r.moods.includes(f.mood));
   if (f.show === 'garden') list = list.filter((r) => statusOf.get(r.id).canMake);
   list.sort((a, b) => statusOf.get(b.id).have.length - statusOf.get(a.id).have.length);
-  const myIngs = Object.entries(INGREDIENTS).filter(([, v]) => v.group && groups.has(v.group));
+  const myIngs = Object.entries(INGREDIENTS).filter(([, v]) => v.group && ingOwned(v, groups));
   const canCount = TEA_RECIPES.filter((r) => statusOf.get(r.id).canMake).length;
   const ingLine = (x) => {
     const ing = INGREDIENTS[x.k];
-    const have = ing.store ? 'store' : groups.has(ing.group) ? 'have' : 'need';
+    const have = ing.store ? 'store' : ingOwned(ing, groups) ? 'have' : 'need';
     const mark = have === 'have' ? '<span class="ing-ok">✓ 庭</span>' : have === 'store' ? '<span class="ing-store">買う</span>' : `<button type="button" class="ing-need" data-find="${esc(byGroupJa(ing.group))}">＋ 育てる</button>`;
     return `<li>${mark}<b>${esc(ing.ja)}</b>${ing.part ? `<small>（${esc(ing.part)}）</small>` : ''}<span>${esc(x.amt)}</span></li>`;
   };
@@ -1879,14 +1911,15 @@ function renderOrigin() {
       <div class="chips region-chips">${Object.entries(REGIONS).sort((a, b) => (counts[b[0]] || 0) - (counts[a[0]] || 0)).map(([k, v]) => `<button type="button" class="chip${k === id ? ' on' : ''}" data-region-pick="${k}">${esc(v.ja)}<small>${counts[k] || 0}</small></button>`).join('')}</div>
     </section>
     <section class="card region-card">
-      <div class="scene">${sceneSVG(id)}<figure class="scene-photo" id="scenePhoto" hidden></figure></div>
+      <div class="scene">${userPhotos.has(`img:region:${id}`) ? `<img class="user-img" src="${userPhotos.get(`img:region:${id}`)}" alt="${esc(R.ja)}の風景（登録した画像）">` : sceneSVG(id)}<figure class="scene-photo" id="scenePhoto" hidden></figure></div>
+      ${imageSlot('region', id, '', regionPrompt(id), true)}
       <span class="en">Native Landscape</span><h2>${esc(R.ja)}</h2>
       <p class="region-text">${esc(R.text)}</p>
       ${c ? `<p class="hint">あなたの庭では、${here.filter((p) => evaluate(p, c).level === 3).length}種が◎よく育つ見込みです。${mine.size ? `マイ庭にはこの地域の植物が${here.filter((p) => mine.has(p.group)).length}種あります。` : ''}</p>` : ''}
     </section>
     ${Object.entries(byType).map(([t, list]) => `<section class="mag"><header class="sec"><h2>${esc(t)}<small>（${list.length}種）</small></h2></header>
       <div class="origin-list">${list.map((p) => { const lv = c ? evaluate(p, c).level : null; return `<button type="button" class="origin-item" data-find="${esc(p.groupJa)}">
-        <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span><span class="oi-name">${esc(p.groupJa)}${mine.has(p.group) ? ' <small>✓マイ庭</small>' : ''}</span>
+        <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span><span class="oi-name" title="${esc(p.groupJa)}">${esc(p.groupJa)}${mine.has(p.group) ? ' <small>✓マイ庭</small>' : ''}</span>
         <span class="oi-sub">${esc(p.latin.split(/ '/)[0])}${lv ? `・${LEVEL[lv].mark}` : ''}</span></button>`; }).join('')}</div></section>`).join('')}
     <p class="note">原産地は、種（園芸品種は交配のもとになった種）が自生するおおまかな地域です。風景はイメージのイラストです。</p>`;
   box.querySelector('.map-wrap').addEventListener('click', (e) => { const g = e.target.closest('[data-region]'); if (g) { state.region = g.dataset.region; renderOrigin(); } });
@@ -1898,6 +1931,108 @@ function renderOrigin() {
     fig.innerHTML = `<img src="${esc(img.src)}" alt="${esc(R.ja)}の風景" loading="lazy"><figcaption><a href="${esc(img.url)}" target="_blank" rel="noopener">写真：${esc(img.site)}</a></figcaption>`;
     fig.hidden = false;
   });
+}
+
+// ---------- イメージ画像（スタイル・風景）：自動のイラスト＋画像生成AIへの依頼文＋自分の画像の登録 ----------
+const styleSample = new Map();
+function styleArt(k) {
+  const mine = userPhotos.get(`img:style:${k}`);
+  if (mine) return `<img class="user-img" src="${mine}" alt="${esc(STYLES[k].ja)}のイメージ（登録した画像）">`;
+  if (!styleSample.has(k)) {
+    const pl = generatePlan({ climate: state.climate, sun: 'full', moist: '', width: 4, depth: 1.6, text: '', style: k, annuals: true, seed: 3 });
+    styleSample.set(k, pl.species.length ? elevationSVG(pl, pl.peak, !!state.climate?.south, { label: false }) : '');
+  }
+  return styleSample.get(k);
+}
+function stylePrompt(k, plan) {
+  const st = STYLES[k];
+  const names = (plan?.species || []).slice(0, 8).map((sp) => sp.plant.groupJa.replace(/（.*?）/g, '')).join('、');
+  const m = plan?.peak || 6;
+  return `「${st.ja}」の植栽スタイルでつくった、家庭の庭の花壇の画像を作ってください。
+スタイルの特徴：${st.summary}
+${names ? `植える植物：${names}\n` : ''}季節：${m}月ごろ
+人物・文字・ロゴは入れず、やわらかな自然光の写真風で、横長（16:9）にしてください。`;
+}
+function regionPrompt(id) {
+  const R = REGIONS[id];
+  return `「${R.ja}」で、野生の植物が育っている典型的な自然の風景の画像を作ってください。
+特徴：${R.text}
+人物・建物・文字は入れず、自然な写真風で、横長（16:9）にしてください。`;
+}
+/** 画像の枠：登録した画像の表示と、画像生成AIへの依頼・登録ボタン */
+function imageSlot(kind, id, fallback, prompt, compact = false) {
+  const key = `img:${kind}:${id}`;
+  const mine = userPhotos.get(key);
+  aiTexts[`gen-${kind}-${id}`] = () => prompt;
+  return `<div class="img-slot${compact ? ' compact' : ''}">
+    ${compact ? '' : `<div class="is-art">${mine ? `<img class="user-img" src="${mine}" alt="イメージ画像（登録した画像）">` : fallback}</div>`}
+    <div class="is-acts">
+      <button type="button" class="btn small" data-genimg="${kind}|${id}">${icon('camera', 15)}画像生成AIでイメージを作る</button>
+      <label class="btn small">${icon('plus', 15)}${mine ? '画像を変更' : '画像を登録'}<input type="file" accept="image/*" data-imgreg="${key}" hidden></label>
+      ${mine ? `<button type="button" class="btn small" data-imgdel="${key}">登録した画像を外す</button>` : ''}
+    </div>
+  </div>`;
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-genimg]');
+  if (b) {
+    const [kind, id] = b.dataset.genimg.split('|');
+    const key = `gen-${kind}-${id}`;
+    const prompt = aiTexts[key]?.() || '';
+    openSheet(`${icon('camera', 19)} 画像生成AIでイメージを作る`, `
+      <div class="consult">
+        <p class="hint">無料で使えるAIアプリ（ChatGPT・Gemini など）の画像生成で、イメージ画像を作れます。できた画像を保存して「画像を登録」から選ぶと、このアプリに表示されます。このアプリからAIに送信はせず、料金もかかりません（各アプリの無料の範囲には回数の上限があります）。</p>
+        <ol class="howto steps3">
+          <li><b>AIアプリを選ぶ</b><div class="row ai-apps">${aiAppButtons(key)}</div><p class="hint" style="margin:6px 0 0">ボタンを押すと依頼文がコピーされます。文が入っていなければ貼り付けてください。</p></li>
+          <li><b>できた画像を長押しして保存</b></li>
+          <li><b>このアプリに登録</b><label class="btn small primary">${icon('plus', 15)}画像を登録<input type="file" accept="image/*" data-imgreg="img:${kind}:${id}" hidden></label></li>
+        </ol>
+        <details><summary>依頼文の中身を見る</summary><pre class="prompt-view">${esc(prompt)}</pre></details>
+        <p class="note">AIが作る画像は想像図です。実在の場所や植物の正確な姿とは異なることがあります。</p>
+      </div>`, 'sheet-consult');
+    return;
+  }
+  const d = e.target.closest('[data-imgdel]');
+  if (d) {
+    deletePhoto(d.dataset.imgdel).then(() => { userPhotos.delete(d.dataset.imgdel); styleSample.clear(); toast('登録した画像を外しました'); refreshImgViews(); });
+  }
+});
+document.addEventListener('change', async (e) => {
+  const inp = e.target.closest('[data-imgreg]');
+  if (!inp || !inp.files?.[0]) return;
+  try {
+    const photo = await shrinkImage(inp.files[0], 1400, 0.82);
+    await savePhoto(inp.dataset.imgreg, photo);
+    userPhotos.set(inp.dataset.imgreg, photo);
+    if (!$('#sheet').hidden) closeSheet();
+    toast('画像を登録しました');
+    refreshImgViews();
+  } catch (err) { toast(err.message); }
+});
+function refreshImgViews() {
+  const y = window.scrollY;
+  if (state.view === 'plan') { initStyleCards(); renderPlan(); }
+  else if (state.view === 'plants') renderZukan();
+  window.scrollTo({ top: y });
+}
+function initStyleCards() {
+  document.querySelectorAll('#styleCards .style-card').forEach((c) => { c.querySelector('.sc-art').innerHTML = styleArt(c.dataset.style); });
+}
+
+// ---------- 植え時（図鑑） ----------
+function timingHtml(p) {
+  const t = plantingTime(p, state.climate);
+  const now = new Date().getMonth() + 1;
+  const cells = MONTHS.map((m) => {
+    const cls = t.plant.best.includes(m) ? 'b' : t.plant.ok.includes(m) ? 'o' : t.avoid.includes(m) ? 'x' : '';
+    return `<span class="${cls}${m === now ? ' now' : ''}">${m}${t.sow?.best.includes(m) ? '<i>種</i>' : ''}</span>`;
+  }).join('');
+  return `<div class="timing">
+    <b>${icon('calendar', 15)}植え時${state.loc ? `<small>（${esc(state.loc.name)}の気候から）</small>` : ''}</b>
+    <div class="tbar" aria-label="植え時のカレンダー">${cells}</div>
+    <p>${esc(t.text)}。${esc(t.why)}。</p>
+    <p class="tlegend"><i class="b"></i>適期 <i class="o"></i>植えられる <i class="x"></i>避けたい ${t.sow ? '<em>種</em>種まき' : ''}　鉢植えなら：${esc(t.pot)}</p>
+  </div>`;
 }
 
 // ---------- 鉢植えガイド（図鑑） ----------
@@ -2849,7 +2984,7 @@ go('site');
 requestPersist();
 try { localStorage.removeItem('pg:aikey'); } catch { /* 以前の版で保存したAPIキーがあれば消す */ }
 loadDiary().then((list) => { if (list.length) render(); });
-listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); render(); });
+listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); initStyleCards(); render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('sw.js').catch(() => {});

@@ -33,7 +33,21 @@ export const INGREDIENTS = {
   strawleaf: { ja: 'ワイルドストロベリーの葉', group: 'fragaria', part: '葉', harvest: '5〜9月', dry: '完全に乾かしてから使う（半乾きは避ける）' },
   ginger: { ja: 'ショウガ', group: 'ginger', part: '根', harvest: '9〜10月', dry: '薄切りにして乾かすと保存できる' },
   lemon: { ja: 'レモン', group: 'lemon', part: '果汁・皮', harvest: '10〜12月', dry: '皮は白い部分を除いて乾かす' },
+  peppermint: { ja: 'ペパーミント', group: 'mentha', ids: ['mentha-piperita'], part: '葉', harvest: '5〜10月、花の前', dry: '茎ごと吊るして' },
+  applemint: { ja: 'アップルミント', group: 'mentha', ids: ['mentha-suaveolens'], part: '葉', harvest: '5〜10月', dry: '茎ごと吊るして' },
+  roselle: { ja: 'ローゼルの萼（がく）', group: 'roselle', part: '萼', harvest: '10〜11月、花が終わって赤くふくらんだ萼', dry: '中の実を除き、ざるで天日干し' },
+  catnip: { ja: 'キャットニップ', group: 'nepeta', ids: ['nepeta-cataria'], part: '葉・花', harvest: '6〜8月', dry: '日陰で（猫に見つからない場所で）' },
+  lemonthyme: { ja: 'レモンタイム', group: 'thymus', ids: ['thymus-citriodorus'], part: '葉', harvest: '4〜10月', dry: '枝ごと乾かす' },
+  pinesage: { ja: 'パイナップルセージ', group: 'salvia-indigo', ids: ['salvia-indigo-elegans'], part: '葉・花', harvest: '7〜11月', dry: '生がおすすめ' },
+  rosegeranium: { ja: 'ローズゼラニウム', group: 'rose-geranium', part: '葉', harvest: '一年中', dry: '1枚ずつ広げて日陰で' },
+  yomogi: { ja: 'ヨモギ', group: 'artemisia', ids: ['artemisia-princeps'], part: '若葉', harvest: '3〜5月の若い芽先', dry: 'さっと洗って日陰で、パリパリになるまで' },
+  hakka: { ja: 'ニホンハッカ', group: 'mentha', ids: ['mentha-canadensis'], part: '葉', harvest: '6〜9月', dry: '茎ごと吊るして' },
+  kakidooshi: { ja: 'カキドオシ', group: 'kakidooshi', part: '葉・茎', harvest: '4〜5月、花の咲く頃', dry: '刻んで日陰で' },
+  tulsi: { ja: 'ホーリーバジル', group: 'ocimum', ids: ['ocimum-tenuiflorum'], part: '葉・花穂', harvest: '7〜10月', dry: '日陰で' },
+  violet: { ja: 'ニオイスミレの花', group: 'sweet-violet', part: '花', harvest: '2〜4月', dry: '生のまま浮かべて' },
+  jasmine: { ja: 'マツリカの花', group: 'jasmine', part: '花', harvest: '6〜9月、夕方に開く花', dry: '花を摘んで日陰で' },
   orangepeel: { ja: 'オレンジピール', store: true },
+  greentea: { ja: '緑茶', store: true },
   rooibos: { ja: 'ルイボス', store: true },
   hibiscus: { ja: 'ハイビスカス（ローゼル）', store: true },
   rosehip: { ja: 'ローズヒップ', store: true },
@@ -93,22 +107,37 @@ export const TEA_RECIPES = [
   R('garden-welcome', '庭のおもてなしブレンド', ['guest', 'relax', 'color'], [['verbena', '生の葉 4枚'], ['mint', '生の葉 4枚'], ['calendula', '花びら 少し']], { temp: '95℃', time: '4分', color: '#e4dca0', taste: 'さわやかで甘い香り。花びらが浮かんで華やか。', steps: ['透明なポットに材料を入れ、熱湯を注ぐ。', '4分蒸らし、テーブルで注ぐ。'], tip: 'その日の庭で摘めるものを少しずつ加えて、自分だけのブレンドに。' }),
   R('mountain-mint', 'マウンテンミントティー', ['refresh', 'meal'], [['mountainmint', '生の葉 10枚']], { temp: '95℃', time: '4分', color: '#cad88c', taste: 'ミントより力強く、ほのかに甘い香り。', steps: ['葉をもんでポットへ。熱湯を注ぎ4分。'], tip: '花の時期は蜂がたくさん来るので、摘むときはそっと。' }),
   R('stevia-sweet', 'ステビアで甘いハーブティー', ['kids'], [['stevia', '乾燥葉 1〜2枚'], ['mint', '生の葉 8枚']], { temp: '95℃', time: '4分', color: '#cddc90', taste: '砂糖なしで甘い、ミントティー。', steps: ['ステビアの葉はごく少量で十分甘くなる。', 'ミントと一緒に熱湯を注ぎ4分。'], tip: '入れすぎると後味に苦みが出るので少しずつ。' }),
+  R('peppermint', 'ペパーミントティー', ['refresh', 'meal', 'focus', 'iced'], [['peppermint', '生の葉 8〜10枚（乾燥なら小さじ1）']], { temp: '95℃', time: '3分', color: '#c4d488', taste: 'メントールのきいた、すっと鼻に抜ける香り。', steps: ['葉を軽くもんでポットへ。', '熱湯を注いで3分。'], tip: 'スペアミントより清涼感が強いので、少なめから。' }),
+  R('applemint-apple', 'アップルミントとりんご', ['kids', 'relax', 'guest'], [['applemint', '生の葉 10枚'], ['honey', 'お好みで']], { temp: '95℃', time: '5分', color: '#d6dc9a', taste: 'りんごのような甘い香りの、やさしいミント。', steps: ['葉をポットに入れ熱湯を注ぐ。', '5分蒸らす。薄切りのりんごを加えても。'], tip: 'ミントの中でも刺激がやわらかく、子どもにも人気。' }),
+  R('garden-roselle', '庭のローゼルティー', ['color', 'iced', 'morning'], [['roselle', '乾燥した萼 4〜5個'], ['honey', 'お好みで']], { temp: '95℃', time: '5分', color: '#b8203a', taste: 'ルビーのような赤色と、甘酸っぱい味。', steps: ['乾かした萼に熱湯を注ぐ。', '5分おいて、はちみつで甘みを。'], tip: '生の萼は砂糖で煮るとジャムにもなる。' }),
+  R('yomogi-tea', 'ヨモギ茶', ['season', 'meal', 'warm'], [['yomogi', '乾燥葉 大さじ1']], { temp: '煮出す', time: '5分', color: '#a8a860', taste: '春の野原のような、ほろ苦く香ばしいお茶。', steps: ['乾かした葉をフライパンで軽く炒る。', 'やかんで5分煮出す。'], tip: '春の若い芽を摘むのがいちばん香りがよい。', caution: 'キク科アレルギーのある人、妊娠中の人は避けて。' }),
+  R('hakka-tea', '和ハッカ茶', ['refresh', 'meal', 'iced'], [['hakka', '生の葉 8枚'], ['greentea', 'お好みで少し']], { temp: '90℃', time: '3分', color: '#c8d690', taste: 'すっきりした和のミント。緑茶に少し加えても。', steps: ['葉をもんで急須へ。', '少し冷ましたお湯で3分。'], tip: '昔は暑気払いの飲みものとして親しまれた。' }),
+  R('kakidooshi-tea', 'カキドオシ茶', ['season', 'meal'], [['kakidooshi', '乾燥した葉と茎 大さじ1']], { temp: '煮出す', time: '5分', color: '#b8b070', taste: 'ミントに似たさわやかさと、ほのかな苦み。', steps: ['乾かしたカキドオシをやかんで5分煮出す。'], tip: '春の花の時期に刈り取って乾かすのが昔ながらのやり方。', caution: '持病のある人や服薬中の人は医師に相談を。' }),
+  R('pinesage', 'パイナップルセージティー', ['relax', 'guest', 'kids'], [['pinesage', '生の葉 6〜8枚と花少し']], { temp: '95℃', time: '4分', color: '#e4d8a0', taste: 'パイナップルのような甘い香り。赤い花を浮かべて。', steps: ['葉と花をポットに入れ、熱湯を注いで4分。'], tip: '花は甘い蜜があり、そのまま食べられる。' }),
+  R('rosegeranium-black', 'ローズゼラニウム香る紅茶', ['guest', 'relax'], [['blacktea', 'ティースプーン 1杯'], ['rosegeranium', '生の葉 1〜2枚']], { temp: '95℃', time: '3分', color: '#b8603a', taste: 'いつもの紅茶が、バラの香りの紅茶に。', steps: ['紅茶の葉とローズゼラニウムの葉をポットへ。', '熱湯を注いで3分。'], tip: '砂糖壺に葉を1枚入れておくと、香りの砂糖になる。' }),
+  R('tulsi', 'トゥルシーティー', ['relax', 'warm'], [['tulsi', '生の葉 10枚（乾燥なら小さじ1）'], ['ginger', '薄切り 1枚']], { temp: '95℃', time: '5分', color: '#c8b878', taste: 'クローブのようなスパイシーな香り。', steps: ['葉とショウガに熱湯を注いで5分。'], tip: 'インドでは毎日のお茶として親しまれている。', caution: '妊娠中は避けて。' }),
+  R('lemonthyme-honey', 'レモンタイムのはちみつティー', ['warm', 'refresh'], [['lemonthyme', '生の枝 4〜5本'], ['honey', '小さじ1']], { temp: '95℃', time: '4分', color: '#e6dc9a', taste: 'レモンの香りのタイム。やさしい酸味の香り。', steps: ['枝ごと熱湯を注ぎ4分。', 'はちみつを溶かす。'], tip: 'はちみつは1歳未満の子どもには与えないで。' }),
+  R('catnip-balm', 'キャットニップとレモンバーム', ['sleep', 'relax'], [['catnip', '乾燥葉 小さじ1'], ['lemonbalm', '生の葉 5枚']], { temp: '95℃', time: '5分', color: '#d0d494', taste: 'ミントに似た穏やかな香り。夜の一杯に。', steps: ['材料に熱湯を注ぎ5分。'], tip: '乾燥中や保存中は、猫が寄ってこない場所で。', caution: '妊娠中は避けて。' }),
+  R('jasmine-green', '庭のジャスミン茶', ['guest', 'relax'], [['greentea', 'ティースプーン 1杯'], ['jasmine', '花 5〜6輪']], { temp: '80℃', time: '2分', color: '#d8d890', taste: '緑茶に、甘く華やかな花の香り。', steps: ['夕方に開いた花を摘む。', '緑茶の葉と一緒に、80℃のお湯で2分。'], tip: '密閉容器で茶葉と花を一晩いっしょにしておくと、香りが移る。' }),
+  R('violet-honey', 'スミレの花のはちみつ湯', ['season', 'kids', 'color'], [['violet', '花 10輪'], ['honey', '小さじ1']], { temp: '90℃', time: '3分', color: '#c8b0d8', taste: 'かすかな甘い香り。浮かぶ紫の花が春らしい。', steps: ['カップに花とはちみつを入れ、お湯を注ぐ。'], tip: '早春だけの楽しみ。農薬を使っていない花で。' }),
 ];
 
 /** レシピの材料のうち、庭にあるもの・ないもの */
+/** その材料が庭にあるか（品種の指定があれば品種で、なければ種で判定）。owned は植物IDと種IDの集合 */
+export const ingOwned = (ing, owned) => (ing.ids ? ing.ids.some((i) => owned.has(i)) : owned.has(ing.group));
 export function teaStatus(recipe, gardenGroups) {
   const garden = recipe.ings.filter((x) => INGREDIENTS[x.k] && !INGREDIENTS[x.k].store);
-  const have = garden.filter((x) => gardenGroups.has(INGREDIENTS[x.k].group));
+  const have = garden.filter((x) => ingOwned(INGREDIENTS[x.k], gardenGroups));
   const store = recipe.ings.filter((x) => INGREDIENTS[x.k]?.store);
   // 主な材料（最初の材料）が庭にあれば「作れる」
   const main = recipe.ings[0];
-  const mainOk = INGREDIENTS[main.k]?.store || gardenGroups.has(INGREDIENTS[main.k]?.group);
+  const mainOk = INGREDIENTS[main.k]?.store || ingOwned(INGREDIENTS[main.k], gardenGroups);
   return { garden, have, store, missing: garden.filter((x) => !have.includes(x)), canMake: mainOk && have.length >= Math.max(1, garden.length - 1) && garden.length > 0, all: have.length === garden.length && garden.length > 0 };
 }
 
 /** 庭の植物で使えるハーブティーの材料 */
-export function teaIngredientsFor(group) {
-  return Object.entries(INGREDIENTS).filter(([, v]) => v.group === group).map(([k, v]) => ({ k, ...v, recipes: TEA_RECIPES.filter((r) => r.ings.some((x) => x.k === k)) }));
+export function teaIngredientsFor(p) {
+  return Object.entries(INGREDIENTS).filter(([, v]) => (v.ids ? v.ids.includes(p.id) : v.group === p.group)).map(([k, v]) => ({ k, ...v, recipes: TEA_RECIPES.filter((r) => r.ings.some((x) => x.k === k)) }));
 }
 
 /** カップのイラスト（お茶の色） */

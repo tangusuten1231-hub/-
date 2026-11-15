@@ -11,9 +11,9 @@ export const ROLES = {
   hanging: { ja: '垂れ下がる（ハンギング向き）', text: '鉢の縁やハンギングから枝垂れて広がる植物' },
 };
 
-const GC = ['thymus', 'ajuga', 'vinca', 'lamium', 'pachysandra', 'ophiopogon', 'phlox-subulata', 'cerastium', 'lysimachia-aurea', 'galium', 'dichondra', 'hedera', 'hatsuyuki', 'fragaria', 'strawberry', 'saxifraga', 'tiarella', 'epimedium', 'liriope', 'sedum-acre', 'muehlenbeckia', 'erigeron', 'geranium-sanguineum', 'chamaemelum', 'portulaca', 'veronica-umbrosa', 'houttuynia', 'asarum'];
-const HANG = ['bacopa', 'dichondra', 'lobelia-erinus', 'calibrachoa', 'petunia', 'hedera', 'muehlenbeckia', 'hatsuyuki', 'lysimachia-aurea', 'tropaeolum', 'scaevola', 'vinca', 'erigeron', 'thymus', 'lobularia', 'portulaca'];
-const ACCENT_G = ['paeonia', 'allium', 'echinops', 'eryngium', 'kniphofia', 'agapanthus', 'iris-germanica', 'lilium', 'artichoke', 'papaver', 'helianthus-annuus', 'alcea', 'digitalis', 'delphinium', 'angelica', 'lupinus', 'crocosmia', 'hydrangea-quercifolia', 'olive', 'lemon'];
+const GC = ['thymus', 'ajuga', 'vinca', 'lamium', 'pachysandra', 'ophiopogon', 'phlox-subulata', 'cerastium', 'lysimachia-aurea', 'galium', 'dichondra', 'hedera', 'hatsuyuki', 'fragaria', 'strawberry', 'saxifraga', 'tiarella', 'epimedium', 'liriope', 'sedum-acre', 'muehlenbeckia', 'erigeron', 'geranium-sanguineum', 'chamaemelum', 'portulaca', 'veronica-umbrosa', 'houttuynia', 'asarum', 'kakidooshi', 'bistorta-affinis', 'gazania', 'gotu-kola'];
+const HANG = ['bacopa', 'dichondra', 'lobelia-erinus', 'calibrachoa', 'petunia', 'hedera', 'muehlenbeckia', 'hatsuyuki', 'lysimachia-aurea', 'tropaeolum', 'scaevola', 'vinca', 'erigeron', 'thymus', 'lobularia', 'portulaca', 'brachyscome', 'kakidooshi', 'plumbago'];
+const ACCENT_G = ['paeonia', 'allium', 'echinops', 'eryngium', 'kniphofia', 'agapanthus', 'iris-germanica', 'lilium', 'artichoke', 'papaver', 'helianthus-annuus', 'alcea', 'digitalis', 'delphinium', 'angelica', 'lupinus', 'crocosmia', 'hydrangea-quercifolia', 'olive', 'lemon', 'phormium', 'anigozanthos', 'gloriosa', 'eucomis', 'kniphofia'];
 
 /** 植物の役割（配列） */
 export function rolesOf(p) {

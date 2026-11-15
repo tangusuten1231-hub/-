@@ -1053,3 +1053,64 @@ button.mini-task { width: 100%; border: 0; background: none; font: inherit; colo
 .tea-card details summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: .86rem; }
 .tc-tip { font-size: .82rem; color: var(--ink-2); display: flex; gap: 4px; }
 .tc-caution { font-size: .78rem; color: var(--warn); background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-radius: 8px; padding: 4px 8px; }
+
+/* ===== 植え時 ===== */
+.timing { margin: 8px 0; background: var(--surface-2); border-radius: 12px; padding: 8px 10px; font-size: .84rem; }
+.timing b { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.timing b small { font-weight: 400; color: var(--muted); font-size: .72rem; }
+.tbar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; margin: 6px 0 4px; }
+.tbar span { position: relative; text-align: center; font-size: .62rem; line-height: 1.9; border-radius: 4px; background: var(--surface); color: var(--muted); }
+.tbar span.b { background: #4f7a3a; color: #fff; font-weight: 700; }
+.tbar span.o { background: #b9cf98; color: #2b3a24; }
+.tbar span.x { background: repeating-linear-gradient(45deg, var(--surface), var(--surface) 3px, #e6d6c6 3px, #e6d6c6 6px); }
+.tbar span.now { outline: 1.5px solid var(--terra); }
+.tbar span i { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); font-style: normal; font-size: .58rem; background: #c4831f; color: #fff; border-radius: 3px; padding: 0 2px; line-height: 1.3; }
+.timing p { margin: 4px 0 0; line-height: 1.6; }
+.tlegend { font-size: .7rem; color: var(--muted); }
+.tlegend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 2px 0 4px; }
+.tlegend i.b { background: #4f7a3a; } .tlegend i.o { background: #b9cf98; } .tlegend i.x { background: #e6d6c6; }
+.tlegend em { font-style: normal; font-size: .6rem; background: #c4831f; color: #fff; border-radius: 3px; padding: 0 2px; margin: 0 2px 0 6px; }
+.pc-time { margin: 3px 0 0; font-size: .76rem; color: var(--accent); display: flex; align-items: center; gap: 3px; }
+.cast-card .cnote { font-size: .8rem; color: var(--ink-2); line-height: 1.65; margin: 4px 0; }
+
+/* ===== スタイルのカード・イメージ画像 ===== */
+.style-cards { grid-auto-columns: 46%; margin-bottom: 8px; }
+@media (min-width: 640px) { .style-cards { grid-auto-columns: 30%; } }
+.style-card { scroll-snap-align: start; display: flex; flex-direction: column; text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; overflow: hidden; padding: 0; cursor: pointer; }
+.style-card.on { border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }
+.style-card .sc-art { display: block; background: var(--paper); aspect-ratio: 16 / 9; overflow: hidden; }
+.style-card .sc-art svg, .style-card .sc-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.style-card b { font-size: .8rem; padding: 6px 8px 0; line-height: 1.35; }
+.style-card small { font-family: var(--display); font-style: italic; color: var(--muted); padding: 0 8px 8px; font-size: .78rem; }
+.user-img { display: block; width: 100%; height: auto; border-radius: 12px; object-fit: cover; }
+.img-slot { margin: 10px 0; }
+.img-slot .is-art { border-radius: 14px; overflow: hidden; background: var(--paper); }
+.img-slot .is-art svg { display: block; width: 100%; height: auto; }
+.is-acts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.img-slot.compact .is-acts { margin-top: 0; }
+
+/* ===== 縦画面での不自然な改行を防ぐ ===== */
+/* 段落は最後の行に1〜2文字だけ残らないように、見出しやボタンは行の長さをそろえ、日本語は文節で折り返す */
+p, li, dd, small, .lead, .hint, .note, .sekki, figcaption, .v-say, .cn, .cw, .tc-taste { text-wrap: pretty; }
+h1, h2, h3, h4, summary, .btn, .label, .cap, .role, .kicker, .lead, .sekki, .hint, .tag, .ps-when { text-wrap: balance; word-break: auto-phrase; }
+h1, h2, h3, h4 { line-break: strict; }
+.fig, .seg button, .tag, .kind, .clv, .ce-lv, .ce-seen, h3 small, .crit-entry h3 small, .suit, .tc-ok, .tc-part, .tc-season, .ing-ok, .ing-store, .mbar span, .tbar span { white-space: nowrap; }
+.chip { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.seg button { font-size: clamp(.7rem, 3.4vw, .86rem); padding-left: 3px; padding-right: 3px; overflow: hidden; text-overflow: ellipsis; }
+.seg.small button { font-size: clamp(.68rem, 3.1vw, .8rem); }
+.figures .fig { font-size: clamp(1.25rem, 6vw, 1.7rem); }
+.figures .cap { font-size: .68rem; line-height: 1.45; }
+.hero-text h1 { font-size: clamp(1.3rem, 6.2vw, 1.65rem); }
+.sec h2 { font-size: clamp(1.1rem, 5.2vw, 1.3rem); }
+.origin-item .oi-name { font-size: .8rem; line-height: 1.35; }
+.origin-item .oi-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.origin-item { min-width: 0; }
+.crit-entry h3 small { display: inline-block; }
+.style-card b { text-wrap: balance; word-break: auto-phrase; }
+.v-say b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.crit-card h3 { clear: both; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(.84rem, 3.9vw, .98rem); }
+.crit-card .cart { margin-bottom: -6px; }
+.origin-item .oi-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.big-row .btn { white-space: nowrap; font-size: clamp(.76rem, 3.6vw, .9rem); }
+.risk, .pill, .lv { white-space: nowrap; }
+.cast-card h3, .bed-card h3, .pot-card h3 { word-break: auto-phrase; text-wrap: balance; }

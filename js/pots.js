@@ -55,11 +55,11 @@ const MIX = {
   grass: { ja: 'グラスの土', parts: [['akadama', 5], ['fuyodo', 3], ['karuishi', 2]] },
   tree: { ja: '鉢植えの木の土', parts: [['akadama', 6], ['fuyodo', 3], ['karuishi', 1]] },
 };
-const DRYLOVERS = ['lavender', 'rosemary', 'thymus', 'santolina', 'salvia-officinalis', 'origanum', 'helichrysum', 'olive', 'perovskia', 'stachys', 'artemisia', 'satureja', 'cerastium', 'dianthus', 'armeria', 'scaevola', 'dichondra', 'pelargonium'];
-const SUCCULENT = ['sedum', 'aloe', 'portulaca'];
+const DRYLOVERS = ['gazania', 'westringia', 'grevillea', 'anigozanthos', 'lavender', 'rosemary', 'thymus', 'santolina', 'salvia-officinalis', 'origanum', 'helichrysum', 'olive', 'perovskia', 'stachys', 'artemisia', 'satureja', 'cerastium', 'dianthus', 'armeria', 'scaevola', 'dichondra', 'pelargonium'];
+const SUCCULENT = ['sedum', 'aloe', 'portulaca', 'kalanchoe'];
 const ACID = ['blueberry', 'gardenia', 'camellia-sinensis', 'hydrangea-serrata', 'lindera'];
 const DEEP = ['carrot', 'daucus', 'platycodon', 'lupinus', 'baptisia', 'asclepias', 'eryngium', 'papaver', 'alcea', 'tomato', 'mini-tomato', 'eggplant', 'asparagus', 'rhubarb', 'potato', 'sweet-potato', 'okra', 'corn', 'artichoke', 'paeonia', 'agapanthus', 'kniphofia', 'hemerocallis', 'glycyrrhiza', 'lilium'];
-const SPREADERS = ['mentha', 'lysimachia-aurea', 'houttuynia', 'hedera', 'physostegia', 'monarda', 'tanacetum', 'equisetum', 'petasites'];
+const SPREADERS = ['kakidooshi', 'mentha', 'lysimachia-aurea', 'houttuynia', 'hedera', 'physostegia', 'monarda', 'tanacetum', 'equisetum', 'petasites'];
 
 /** 号 → 容量（L）の目安（一般的な丸鉢） */
 export const potLiters = (go) => Math.round(1.3 * (go / 5) ** 2.95 * 10) / 10;

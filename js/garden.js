@@ -262,3 +262,80 @@ export const TASK_KIND = {
   sow: { ja: '種まき', icon: '🌰' },
   harvest: { ja: '収穫', icon: '🧺' },
 };
+
+// ---------- 植え時（植え付け・種まきの適期） ----------
+const wrapM = (m) => ((m - 1 + 120) % 12) + 1;
+const run = (a, n) => Array.from({ length: n }, (_, i) => wrapM(a + i));
+const SPRING_BULB_SUMMER = ['lilium', 'galtonia', 'eucomis', 'gladiolus', 'gloriosa', 'curcuma', 'crocosmia', 'zephyranthes', 'lycoris'];
+/** 月の配列を「3〜4月・9〜10月」のような文字に */
+export function monthsJa(ms) {
+  if (!ms.length) return '';
+  const set = [...new Set(ms)].sort((a, b) => a - b);
+  const runs = [];
+  for (const m of set) { const r = runs[runs.length - 1]; if (r && m === r[1] + 1) r[1] = m; else runs.push([m, m]); }
+  if (runs.length > 1 && runs[0][0] === 1 && runs[runs.length - 1][1] === 12) { const last = runs.pop(); runs[0][0] = last[0]; }
+  return runs.map(([a, b]) => (a === b ? `${a}月` : `${a}〜${b}月`)).join('・');
+}
+
+/**
+ * 植物ごとの植え時（地域の霜と暑さから）
+ * 戻り値：{ plant:{best,ok}, sow:{best}|null, avoid:[月], text, pot }
+ */
+export function plantingTime(p, climate) {
+  const south = !!climate?.south;
+  const L = (m) => localMonth(m, south);
+  const zone = climate?.zone?.value ?? 8;
+  const cold = zone <= 6.5;
+  const warmWinter = zone >= 8;
+  const hot = (climate?.heatZone ?? 7) >= 7;
+  const safe = !climate ? L(4) : climate.frostFree ? L(3) : (monthOf(climate.lastFrostSafe ?? climate.lastFrost) ?? L(4));
+  const autumn = cold ? [L(9)] : hot && warmWinter ? [L(10), L(11)] : [L(9), L(10)];
+  // 早すぎないように：宿根草は3月から、夏野菜・寒さに弱い植物は4月から（北半球の月で）
+  const sN = localMonth(safe, south);
+  const S3 = L(Math.max(3, sN)), S4 = L(Math.max(4, sN));
+  const g = p.group || p.id;
+  const isVeg = p.tags?.includes('veg') && p.harvest;
+  let best = [], ok = [], sow = null, why = '';
+
+  if (isVeg && p.type === 'annual') {
+    if (['garlic'].includes(g)) { best = [L(9), L(10)]; why = '秋に植えて冬を越し、初夏に収穫'; }
+    else if (g === 'onion') { best = [L(11)]; ok = [L(10)]; why = '秋に苗を植えて冬を越す'; }
+    else if (g === 'potato') { best = cold ? [wrapM(safe - 1), safe] : [L(2), L(3)]; ok = warmWinter ? [L(8), L(9)] : []; why = warmWinter ? '春植えのほか、暖地では晩夏植え（秋じゃが）も' : '芽が出るころに遅霜に当てないように'; }
+    else if (['snap-pea', 'broad-bean'].includes(g)) { sow = { best: zone >= 7 ? [L(10), L(11)] : [wrapM(safe - 1), safe] }; best = sow.best; why = zone >= 7 ? '秋にまいて小さな苗で冬を越す' : '寒冷地では春まき'; }
+    else if (p.sow === 'warm') { best = [S4, wrapM(S4 + 1)]; ok = [wrapM(S4 + 2)]; sow = { best: [S4, wrapM(S4 + 1)] }; why = '遅霜の心配がなくなり、地温が上がってから'; }
+    else { sow = { best: cold ? [wrapM(safe - 1), safe, L(8)] : [L(3), L(9)] }; best = cold ? [safe, L(8)] : [L(3), L(4), L(9), L(10)]; ok = cold ? [] : [L(2), L(11)]; why = '涼しい春と秋が育てやすい'; }
+  } else if (p.type === 'annual') {
+    if (p.sow === 'cool') {
+      if (warmWinter) { sow = { best: [L(9), L(10)] }; best = [L(10), L(11)]; ok = [L(3)]; why = '秋まきで冬を越すと、春に大株になる'; }
+      else { sow = { best: [wrapM(safe - 1), safe] }; best = [safe, wrapM(safe + 1)]; why = '寒冷地では春まき・春植え'; }
+    } else { sow = { best: [S4, wrapM(S4 + 1)] }; best = [wrapM(S4 + 1), wrapM(S4 + 2)]; ok = [S4]; why = '暖かくなってから。真夏前に根を張らせる'; }
+  } else if (p.type === 'bulb') {
+    const summer = SPRING_BULB_SUMMER.includes(g) || p.tender || Math.min(...p.bloom) >= 6;
+    if (g === 'lilium') { best = [L(10), L(11)]; ok = [L(3)]; why = '秋植えが基本。春植えもできる'; }
+    else if (g === 'lycoris') { best = [L(7), L(8)]; why = '夏の休眠中に植える'; }
+    else if (summer) { best = [S4, wrapM(S4 + 1)]; why = '春植え球根。霜の心配がなくなってから'; }
+    else { best = warmWinter ? [L(10), L(11)] : [L(9), L(10)]; ok = warmWinter ? [L(12)] : []; why = '秋植え球根。寒さに当てることで春に咲く'; }
+  } else if (p.type === 'shrub') {
+    if (p.tender) { best = [S4, wrapM(S4 + 1)]; why = '寒さに弱いので、暖かくなってから'; }
+    else if (p.tags?.includes('evergreen')) { best = cold ? [safe, wrapM(safe + 1)] : [L(3), L(4), L(9), L(10)]; ok = [L(6)]; why = '常緑樹は芽が動く前の春か、暑さが和らいだ秋'; }
+    else { best = cold ? [safe, L(10)] : [L(11), L(2), L(3)]; ok = cold ? [] : [L(12), L(1)]; why = '落葉樹は葉を落として休んでいる時期に'; }
+  } else {
+    // 宿根草・グラス・亜低木・シダ
+    if (p.tender) { best = [S4, wrapM(S4 + 1)]; ok = [wrapM(S4 + 2)]; why = '寒さに弱いので、遅霜のあとに'; }
+    else {
+      const spring = cold ? [safe, wrapM(safe + 1)] : [S3, wrapM(S3 + 1)];
+      if (p.form === 'grass') { best = spring; ok = autumn; why = 'グラスは春植えが根付きやすい'; }
+      else if (p.humid === 1 && hot) { best = autumn; ok = spring; why = '暑さに弱いので、夏までに時間のある秋植えがおすすめ'; }
+      else if (cold) { best = spring; ok = autumn; why = '寒冷地は春植え。秋植えは早めに'; }
+      else { best = [...spring, ...autumn]; why = '春と秋の2回。夏越しの体力がつく秋植えも◎'; }
+    }
+  }
+  const avoid = [];
+  if (hot) avoid.push(L(7), L(8));
+  if (!climate?.frostFree && !warmWinter) avoid.push(L(1), L(2));
+  best = [...new Set(best)];
+  ok = [...new Set(ok)].filter((m) => !best.includes(m));
+  const text = `${p.type === 'annual' && sow ? '苗の植え付け' : '植え付け'} ${monthsJa(best)}${ok.length ? `（${monthsJa(ok)}も可）` : ''}${sow && p.type === 'annual' ? `・種まき ${monthsJa(sow.best)}` : ''}`;
+  const pot = '鉢植えは、真夏と真冬を避ければほぼいつでも植え付けられます。根鉢をくずさずに植えると失敗しにくい。';
+  return { plant: { best, ok }, sow, avoid: avoid.filter((m) => !best.includes(m)), text, why, pot };
+}

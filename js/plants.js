@@ -18,6 +18,7 @@ import { VEG_BASE, VEG_GROUPS_EXTRA } from './veg.js';
 import { BALCONY_BASE, BALCONY_EXTRA } from './pots.js';
 import { ALIASES, ORIGIN } from './origin.js';
 import { rolesOf } from './roles.js';
+import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
@@ -208,7 +209,7 @@ function expand(bases) {
 }
 
 /** 全植物（品種ごとに1件） */
-export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE, ...VEG_BASE, ...BALCONY_BASE]).map(decorate);
+export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE, ...VEG_BASE, ...BALCONY_BASE, ...HERB_BASE, ...WORLD_BASE]).map(decorate);
 
 /** 科・用途・ハーブ/在来種タグ・豆知識を付与 */
 function decorate(p) {
@@ -218,7 +219,7 @@ function decorate(p) {
   if (MEDICINAL_GROUPS.has(p.group)) tags.add('medicinal');
   if (VEG_GROUPS_EXTRA.includes(p.group)) tags.add('veg');
   if (BALCONY_EXTRA.includes(p.group)) tags.add('balcony');
-  const q = { ...p, tags: [...tags], family: familyOf(p.latin), uses: [...(USE_INDEX[p.group] || [])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || [], origin: ORIGIN[p.group] || [] };
+  const q = { ...p, tags: [...tags], family: familyOf(p.latin), uses: [...(USE_INDEX[p.group] || [])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || [] };
   q.roles = rolesOf(q);
   return q;
 }
