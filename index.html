@@ -31,7 +31,7 @@
   </svg>
   <header class="app-header">
     <div class="brand">
-      <span id="brandBird" class="brand-bird"></span>
+      <button type="button" id="brandBird" class="brand-bird" aria-label="ツピに聞く"></button>
       <span class="brand-name">庭づくりアプリ</span>
     </div>
     <button class="loc-chip" id="locChip" type="button" data-go="site">場所を設定</button>
@@ -215,6 +215,11 @@
 
     <!-- マイガーデン -->
     <section class="view" id="view-garden" data-view="garden" hidden>
+      <div class="seg subnav" id="gardenTabs">
+        <button type="button" data-v="plants">庭の植物</button>
+        <button type="button" data-v="diary">園芸ノート</button>
+        <button type="button" data-v="data">データ</button>
+      </div>
       <div id="gardenBox"></div>
       <div id="journalBox"></div>
       <div id="backupBox"></div>
@@ -241,6 +246,12 @@
   </nav>
 
   <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  <button type="button" class="fab" id="fabRecord" aria-label="今日の記録を書く"><span data-ico="plus"></span>記録</button>
+  <div class="sheet-back" id="sheetBack" hidden></div>
+  <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <header class="sheet-head"><h2 id="sheetTitle"></h2><button type="button" class="icon-btn" id="sheetClose" aria-label="閉じる">✕</button></header>
+    <div class="sheet-body" id="sheetBody"></div>
+  </section>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script type="module" src="js/app.js"></script>

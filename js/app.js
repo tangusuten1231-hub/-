@@ -12,6 +12,8 @@ import { art, ART_BY_ICON, ART_BY_RECIPE, MONTH_OLD, SEASON_EN, sekkiOf } from '
 import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
 import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile, listPhotos, savePhoto, deletePhoto, svgToPngBlob } from './db.js';
 import { describe, companions } from './describe.js';
+import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
+import { reply as tsupiReply, STARTERS } from './chat.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
 import {
@@ -63,6 +65,9 @@ const state = {
   shop: store.get('shopName', ''),
   shopSite: store.get('shopSite', 'rakuten'),
   theme: store.get('theme', 'auto'),
+  gardenTab: 'plants',
+  diaryFilter: { plant: '', photo: false },
+  diaryShown: 30,
   openCards: new Set(),
   guideDone: store.get('guideDone', {}),
   cvSel: {},
@@ -82,6 +87,7 @@ function go(view) {
   state.view = view;
   document.querySelectorAll('.view').forEach((v) => { v.hidden = v.dataset.view !== view; });
   document.querySelectorAll('.tabbar button').forEach((b) => b.classList.toggle('active', b.dataset.go === view));
+  $('#fabRecord').hidden = view === 'plan' || view === 'plants';
   render();
   window.scrollTo({ top: 0 });
 }
@@ -191,7 +197,15 @@ function render() {
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'plan') renderPlan();
   if (state.view === 'enjoy') renderEnjoy();
-  if (state.view === 'garden') { renderJournal(); renderBackup(); }
+  if (state.view === 'garden') {
+    const t = state.gardenTab;
+    document.querySelectorAll('#gardenTabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === t));
+    $('#gardenBox').hidden = t !== 'plants';
+    $('#journalBox').hidden = t !== 'diary';
+    $('#backupBox').hidden = t !== 'data';
+    if (t === 'diary') renderJournal();
+    if (t === 'data') renderBackup();
+  }
 }
 
 function siteAdvice(c) {
@@ -554,12 +568,14 @@ function renderGarden() {
   const { counts, gaps } = bloomGaps(plants, c, south);
   const sorted = [...plants].sort((a, b) => Math.min(...a.bloom.map((m) => localMonth(m, south))) - Math.min(...b.bloom.map((m) => localMonth(m, south))));
 
+  const actual = actualBloom(diaryCache);
   const cal = `<div class="cal" role="table" aria-label="開花カレンダー">
     <div></div>${MONTHS.map((m) => `<div class="h">${m}</div>`).join('')}
     ${sorted.map((p) => {
       const on = new Set(p.bloom.map((m) => localMonth(m, south)));
       const col = COLORS[p.color[0]].hex;
-      return `<div class="n" title="${esc(p.ja)}">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
+      const act = actual.get(p.id);
+      return `<div class="n" title="${esc(p.ja)}">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}${act?.has(m) ? '（ノートに開花の記録あり）' : ''}">${act?.has(m) ? '<i class="act"></i>' : ''}</div>`).join('')}`;
     }).join('')}
     <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
   </div>`;
@@ -583,6 +599,7 @@ function renderGarden() {
           <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
           <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm</div></div>
           <span class="qty">約${qty}株</span>
+          <button type="button" class="icon-btn rec-btn" data-record="${p.id}" aria-label="${esc(p.ja)}の記録を書く">${icon('note', 17)}</button>
           <button type="button" class="have ${activeGarden().have[p.id] ? 'on' : ''}" data-have="${p.id}">${activeGarden().have[p.id] ? '植えた' : 'ほしい'}</button>
           <button type="button" class="icon-btn" data-toggle="${p.id}" aria-label="${esc(p.ja)}を外す">✕</button>
         </div>`;
@@ -594,7 +611,7 @@ function renderGarden() {
     ${shoppingCard(plants)}
     <div class="card">
       <h2>開花リレー</h2>
-      <p class="hint">植物ごとの開花月。枠線は今月です。</p>
+      <p class="hint">植物ごとの開花月。枠線は今月です。${actual.size ? '●はノートに開花を記録した月です。' : ''}</p>
       <div class="scroll-x">${cal}</div>
     </div>
     <div class="card">
@@ -1236,47 +1253,216 @@ function renderEnjoy() {
 }
 
 // ---------- 庭ノート（写真付きの記録） ----------
+let diaryCache = [];
+/** 記録を読み込む（古い形式のノートも同じ形に揃える） */
+async function loadDiary() {
+  const list = await listNotes();
+  diaryCache = list.map((n) => ({ ...n, plants: n.plants || (n.plant ? [n.plant] : []), events: n.events || [] }));
+  return diaryCache;
+}
+const nameOfPlant = (id) => byId.get(id)?.ja || '（図鑑にない植物）';
+const dateJa = (s) => { const d = new Date(s + 'T00:00:00'); return `${d.getFullYear() === new Date().getFullYear() ? '' : `${d.getFullYear()}年`}${d.getMonth() + 1}月${d.getDate()}日（${'日月火水木金土'[d.getDay()]}）`; };
+const todayStr = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+
+function entryHtml(n) {
+  return `<div class="entry">
+    ${n.photo ? `<img src="${n.photo}" alt="" loading="lazy">` : ''}
+    <div class="eb">
+      <div class="ewho">${n.plants.length ? n.plants.map((id) => esc(nameOfPlant(id))).join('、') : '庭全体'}${n.garden && state.gardens.length > 1 ? `<small>${esc(n.garden)}</small>` : ''}</div>
+      ${n.events.length ? `<div class="echips">${n.events.map((ev) => (EVENTS[ev] ? `<span class="ev ev-${EVENTS[ev].group}">${EVENTS[ev].ja}</span>` : '')).join('')}</div>` : ''}
+      ${n.text ? `<div class="nt">${esc(n.text)}</div>` : ''}
+    </div>
+    <button type="button" class="icon-btn" data-delnote="${n.id}" aria-label="この記録を削除">✕</button>
+  </div>`;
+}
+
 async function renderJournal() {
   const box = $('#journalBox');
-  const notes = await listNotes();
-  const today = new Date().toISOString().slice(0, 10);
-  const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
-  box.innerHTML = `<div class="card">
-    <h2>${icon('note', 19)} 庭ノート</h2>
-    <p class="hint">開花・植え付け・気づいたことを写真と一緒に記録。この端末に保存され、バックアップにも含まれます。</p>
-    <details class="note-form"><summary>＋ 記録を書く</summary>
-      <div class="grid2">
-        <label class="field"><span class="label">日付</span><input type="date" id="nDate" value="${today}"></label>
-        <label class="field"><span class="label">植物（任意）</span><select id="nPlant"><option value="">—</option>${mine.map((p) => `<option value="${p.id}">${esc(p.ja)}</option>`).join('')}</select></label>
-      </div>
-      <label class="field"><span class="label">メモ</span><textarea id="nText" rows="3" maxlength="2000" placeholder="例：エキナセアが咲き始めた。蝶が3匹。"></textarea></label>
-      <label class="field"><span class="label">写真（任意）</span><input type="file" id="nPhoto" accept="image/*"></label>
-      <button type="button" class="btn primary" id="nSave">保存</button>
-    </details>
-    <div class="notes">${notes.length ? notes.map((n) => `<div class="note">
-      ${n.photo ? `<img src="${n.photo}" alt="" loading="lazy">` : ''}
-      <div class="nb"><div class="nd">${esc(n.date)}${n.garden && state.gardens.length > 1 ? `・${esc(n.garden)}` : ''}${n.plant && byId.get(n.plant) ? `・${esc(byId.get(n.plant).ja)}` : ''}</div><div class="nt">${esc(n.text || '')}</div></div>
-      <button type="button" class="icon-btn" data-delnote="${n.id}" aria-label="削除">✕</button>
-    </div>`).join('') : '<p class="hint">まだ記録がありません。</p>'}</div>
+  const notes = await loadDiary();
+  const f = state.diaryFilter;
+  const list = notes.filter((n) => (!f.plant || n.plants.includes(f.plant)) && (!f.photo || n.photo));
+  const plantsInNotes = [...new Set(notes.flatMap((n) => n.plants))].filter((id) => byId.has(id));
+  const st = yearStats(notes, new Date().getFullYear());
+  const shown = list.slice(0, state.diaryShown);
+  let last = '';
+  box.innerHTML = `<div class="card diary">
+    <h2>${icon('note', 19)} 園芸ノート</h2>
+    <p class="hint">その日の庭や植物の様子を記録しておくと、来年の同じ時期に「そろそろ咲く頃」「去年はこの頃に切り戻した」とお知らせします。</p>
+    <button type="button" class="btn primary wide" data-record="">${icon('plus', 17)}今日の記録を書く</button>
+    ${st.entries ? `<div class="dstats"><div><b>${st.days}</b><span>日記録</span></div><div><b>${st.bloomed}</b><span>種が開花</span></div><div><b>${st.photos}</b><span>枚の写真</span></div></div>` : ''}
+    ${notes.length ? `<div class="dfilter">
+      <select id="dPlant" aria-label="植物で絞り込み"><option value="">すべての記録</option>${plantsInNotes.map((id) => `<option value="${id}" ${f.plant === id ? 'selected' : ''}>${esc(nameOfPlant(id))}</option>`).join('')}</select>
+      <label class="toggle"><input type="checkbox" id="dPhoto" ${f.photo ? 'checked' : ''}> 写真のみ</label>
+    </div>` : ''}
+    <div class="timeline">${shown.map((n) => {
+      const head = n.date !== last ? `<h3 class="dday">${dateJa(n.date)}${n.weather ? `<small>${weatherIcon(n.weather.code)} ${Math.round(n.weather.tmax)}° / ${Math.round(n.weather.tmin)}°</small>` : ''}</h3>` : '';
+      last = n.date;
+      return head + entryHtml(n);
+    }).join('') || (notes.length ? '<p class="hint">条件に合う記録がありません。</p>' : '')}</div>
+    ${list.length > shown.length ? `<button type="button" class="btn more" id="dMore">さらに表示（残り${list.length - shown.length}件）</button>` : ''}
   </div>`;
-  $('#nSave').addEventListener('click', async () => {
-    const text = $('#nText').value.trim();
-    const file = $('#nPhoto').files[0];
-    if (!text && !file) { toast('メモか写真を入れてください'); return; }
-    let photo = null;
-    try { if (file) photo = await shrinkImage(file); } catch (err) { toast(err.message); return; }
-    await saveNote({ id: Date.now().toString(36), date: $('#nDate').value || today, plant: $('#nPlant').value || null, garden: activeGarden().name, text, photo });
-    toast('記録しました');
-    renderJournal();
-    renderBackup();
-  });
+  $('#dPlant')?.addEventListener('change', (e) => { f.plant = e.target.value; renderJournal(); });
+  $('#dPhoto')?.addEventListener('change', (e) => { f.photo = e.target.checked; renderJournal(); });
+  $('#dMore')?.addEventListener('click', () => { state.diaryShown += 30; renderJournal(); });
 }
 document.addEventListener('click', async (e) => {
   const b = e.target.closest('[data-delnote]');
   if (!b || !confirm('この記録を削除しますか？')) return;
   await deleteNote(b.dataset.delnote);
-  renderJournal();
+  await loadDiary();
+  render();
 });
+
+// ---------- 下から出るシート（記録・チャット共通） ----------
+function openSheet(title, html, cls = '') {
+  $('#sheetTitle').innerHTML = title;
+  $('#sheetBody').innerHTML = html;
+  $('#sheet').className = `sheet ${cls}`;
+  $('#sheet').hidden = false;
+  $('#sheetBack').hidden = false;
+  document.body.classList.add('sheet-open');
+}
+function closeSheet() {
+  $('#sheet').hidden = true;
+  $('#sheetBack').hidden = true;
+  document.body.classList.remove('sheet-open');
+}
+$('#sheetClose').addEventListener('click', closeSheet);
+$('#sheetBack').addEventListener('click', closeSheet);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#sheet').hidden) closeSheet(); });
+
+// ---------- 記録を書く ----------
+function openRecord(plantId = '') {
+  const g = activeGarden();
+  const mine = g.plants.map((id) => byId.get(id)).filter(Boolean);
+  const groups = Object.entries(EVENT_GROUPS).map(([gk, gja]) => `<div class="evgroup"><span class="label">${gja}</span><div class="chips">${Object.entries(EVENTS).filter(([, v]) => v.group === gk).map(([k, v]) => `<button type="button" class="chip ev-pick" data-ev="${k}">${v.ja}</button>`).join('')}</div></div>`).join('');
+  openSheet(`${icon('note', 19)} 記録を書く`, `
+    <div class="rec">
+      <div class="rec-top"><input type="date" id="rDate" value="${todayStr()}" max="${todayStr()}" aria-label="日付">${state.gardens.length > 1 ? `<span class="rec-garden">${icon('pot', 15)}${esc(g.name)}</span>` : ''}</div>
+      <span class="label">どこの記録？（複数選べます）</span>
+      <div class="chips who">
+        <button type="button" class="chip who-pick ${plantId ? '' : 'on'}" data-who="">庭全体</button>
+        ${mine.map((p) => `<button type="button" class="chip who-pick ${p.id === plantId ? 'on' : ''}" data-who="${p.id}"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.cv && !p.custom ? `${p.groupJa.replace(/（.*?）/g, '')}・${p.cv}` : p.ja)}</button>`).join('')}
+      </div>
+      ${mine.length ? '' : '<p class="hint">マイ庭に植物を追加すると、植物ごとの記録ができます。</p>'}
+      <span class="label" style="margin-top:12px">できごと（タップで選ぶ）</span>
+      ${groups}
+      <label class="field" style="margin-top:12px"><span class="label">メモ</span><textarea id="rText" rows="2" maxlength="2000" placeholder="気づいたこと、様子など"></textarea></label>
+      <label class="btn photo-btn">${icon('plus', 16)}<span id="rPhotoLabel">写真を添える</span><input type="file" id="rPhoto" accept="image/*" hidden></label>
+      <button type="button" class="btn primary wide" id="rSave">保存する</button>
+    </div>`, 'sheet-record');
+  const body = $('#sheetBody');
+  body.onclick = (e) => {
+    const w = e.target.closest('.who-pick');
+    if (w) {
+      if (w.dataset.who === '') { body.querySelectorAll('.who-pick').forEach((x) => x.classList.toggle('on', x === w)); }
+      else { w.classList.toggle('on'); body.querySelector('.who-pick[data-who=""]').classList.toggle('on', !body.querySelector('.who-pick.on:not([data-who=""])')); }
+      return;
+    }
+    const ev = e.target.closest('.ev-pick');
+    if (ev) ev.classList.toggle('on');
+  };
+  $('#rPhoto').addEventListener('change', (e) => { $('#rPhotoLabel').textContent = e.target.files[0] ? '写真を選びました' : '写真を添える'; });
+  $('#rSave').addEventListener('click', async () => {
+    const plants = [...body.querySelectorAll('.who-pick.on')].map((x) => x.dataset.who).filter(Boolean);
+    const events = [...body.querySelectorAll('.ev-pick.on')].map((x) => x.dataset.ev);
+    const text = $('#rText').value.trim();
+    const file = $('#rPhoto').files[0];
+    if (!events.length && !text && !file) { toast('できごと・メモ・写真のどれかを入れてください'); return; }
+    let photo = null;
+    try { if (file) photo = await shrinkImage(file); } catch (err) { toast(err.message); return; }
+    const date = $('#rDate').value || todayStr();
+    // 今日の記録には、その日の天気を添える
+    let weather = null;
+    const days = date === todayStr() ? await getForecast() : null;
+    const d0 = days?.find((d) => d.date === date);
+    if (d0) weather = { code: d0.code, tmax: d0.tmax, tmin: d0.tmin, rain: d0.rain };
+    await saveNote({ id: Date.now().toString(36), date, plants, events, text, photo, weather, garden: g.name, gardenId: g.id });
+    // 「植え付け」を記録した植物は「植えた」にする
+    if (events.includes('plant')) { plants.forEach((id) => { g.have[id] = true; }); saveGardens(); }
+    await loadDiary();
+    closeSheet();
+    toast('記録しました');
+    render();
+  });
+}
+document.addEventListener('click', (e) => {
+  const r = e.target.closest('[data-record]');
+  if (r) openRecord(r.dataset.record || '');
+});
+$('#fabRecord').addEventListener('click', () => openRecord(''));
+$('#gardenTabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (b) { state.gardenTab = b.dataset.v; render(); }
+});
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-gotab]');
+  if (b) { state.gardenTab = b.dataset.gotab; go('garden'); }
+});
+
+// ---------- ツピに聞く ----------
+const chatLog = [];
+function chatContext() {
+  const g = activeGarden();
+  let forecast = null;
+  try { const k = state.loc && `pg:wx:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`; forecast = k ? JSON.parse(sessionStorage.getItem(k) || 'null')?.d ?? null : null; } catch { forecast = null; }
+  return { climate: state.climate, garden: g, plants: g.plants.map((id) => byId.get(id)).filter(Boolean), entries: diaryCache, forecast, now: new Date() };
+}
+function chatHtml() {
+  return `<div class="chat-log" id="chatLog">${chatLog.map((m) => (m.me
+    ? `<div class="msg me"><p>${esc(m.text)}</p></div>`
+    : `<div class="msg bird"><span class="av">${tsupi(m.pose || 'idle', 40)}</span><div class="mb">${m.html}${m.actions?.length ? `<div class="macts">${m.actions.map((a) => `<button type="button" class="btn small" ${a.go ? `data-chatgo="${a.go}"` : a.find ? `data-chatfind="${esc(a.find)}"` : 'data-chatrecord'}>${esc(a.label)}</button>`).join('')}</div>` : ''}</div></div>`)).join('')}</div>
+    <div class="chat-chips" id="chatChips">${(chatLog[chatLog.length - 1]?.chips?.length ? chatLog[chatLog.length - 1].chips : STARTERS).map((c) => `<button type="button" class="chip" data-ask="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="例：エキナセアの切り戻しは？" autocomplete="off" aria-label="ツピへの質問"><button class="btn primary" type="submit">聞く</button></form>
+    <p class="chat-note">ツピはAIではありません。お住まいの気候・庭の植物・ノート・天気予報をもとに、決まった話題に答えます。</p>`;
+}
+function ask(text) {
+  if (!text.trim()) return;
+  chatLog.push({ me: true, text: text.trim() });
+  const r = tsupiReply(text, chatContext());
+  chatLog.push({ html: r.html, chips: r.chips || [], actions: r.actions || [], pose: /ごめんね/.test(r.html) ? 'think' : /かもしれないね/.test(r.html) ? 'alert' : 'happy' });
+  drawChat();
+}
+function drawChat() {
+  $('#sheetBody').innerHTML = chatHtml();
+  const log = $('#chatLog');
+  const lastMe = log.querySelectorAll('.msg.me');
+  if (lastMe.length) lastMe[lastMe.length - 1].scrollIntoView({ block: 'start' }); else log.scrollTop = 0;
+  $('#chatForm').addEventListener('submit', (e) => { e.preventDefault(); ask($('#chatInput').value); });
+}
+async function openChat(first = '') {
+  if (!diaryCache.length) await loadDiary();
+  if (!chatLog.length) chatLog.push({ html: '<p>ツピだよ。庭のこと、何でも聞いてね。植物の名前を入れて聞くと、その植物のことを答えるよ。</p>', chips: STARTERS, pose: 'hello' });
+  openSheet(`${tsupi('idle', 30)} ツピに聞く`, '', 'sheet-chat');
+  drawChat();
+  if (first) ask(first);
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-ask]');
+  if (a) { if ($('#sheet').hidden || !$('#sheet').classList.contains('sheet-chat')) openChat(a.dataset.ask); else ask(a.dataset.ask); return; }
+  const g = e.target.closest('[data-chatgo]');
+  if (g) { closeSheet(); go(g.dataset.chatgo); return; }
+  const f = e.target.closest('[data-chatfind]');
+  if (f) {
+    closeSheet();
+    Object.assign(state.filters, { q: f.dataset.chatfind.replace(/（.*?）/g, ''), sun: '', moist: '', height: '', month: '', color: '', tag: '', family: '', type: '', use: '' });
+    store.set('filters', state.filters);
+    go('plants');
+    return;
+  }
+  if (e.target.closest('[data-chatrecord]')) { closeSheet(); openRecord(''); return; }
+  if (e.target.closest('#brandBird') || e.target.closest('[data-openchat]')) openChat();
+});
+
+/** ホーム：記録からのお知らせ */
+function insightsCard() {
+  const ins = insights(diaryCache, new Date(), nameOfPlant).slice(0, 5);
+  if (!ins.length) return '';
+  const ICON = { trouble: 'eye', frost: 'thermo', work: 'scissors', bloom: 'leaf', memory: 'note', lesson: 'bulb' };
+  return `<section class="card ins"><header class="sec"><span class="en">From Your Notes</span><h2>ノートからのお知らせ</h2></header>
+    ${ins.map((i) => `<div class="ins-row t-${i.type}">${i.photo ? `<img src="${i.photo}" alt="" loading="lazy">` : `<span class="ic">${icon(ICON[i.type], 17)}</span>`}<div><b>${esc(i.title)}</b><p>${esc(i.text)}</p></div></div>`).join('')}
+  </section>`;
+}
 
 // ---------- バックアップ ----------
 async function renderBackup() {
@@ -1378,7 +1564,8 @@ async function renderHome() {
   const word = MONTHLY_WORDS[north - 1] + (mine.length ? '' : ' まずは「プラン」で、庭のイメージを作ってみない？');
   const pose = !mine.length ? 'sprout' : north === 12 || north <= 2 ? 'idle' : 'happy';
   box.innerHTML = `
-    ${tsupiSays(esc(word), pose)}
+    ${tsupiSays(esc(word), pose, `<div class="bubble-acts"><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
+    ${insightsCard()}
     <section class="card today">
       <header class="sec"><span class="en">Today in the Garden</span><h2>今日の庭</h2></header>
       ${gardenPicker()}
@@ -1400,7 +1587,7 @@ async function renderHome() {
     <div class="quick">
       <button type="button" data-go="plan">${icon('plan', 22)}<span>プラン作成</span></button>
       <button type="button" data-go="plants">${icon('book', 22)}<span>図鑑</span></button>
-      <button type="button" data-go="garden">${icon('note', 22)}<span>庭ノート</span></button>
+      <button type="button" data-gotab="diary">${icon('note', 22)}<span>園芸ノート</span></button>
       <button type="button" data-go="enjoy">${icon('cup', 22)}<span>楽しむ</span></button>
     </div>
     <header class="sec" style="margin-top:22px"><span class="en">Climate</span><h2>庭の気候</h2></header>`;
@@ -1546,6 +1733,7 @@ if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMon
 if (state.loc) loadClimate(); else render();
 go('site');
 requestPersist();
+loadDiary().then((list) => { if (list.length) render(); });
 listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
