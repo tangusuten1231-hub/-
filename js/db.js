@@ -90,7 +90,8 @@ export async function exportAll() {
   const local = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k && k.startsWith('pg:') && !k.startsWith('pg:img:') && !k.startsWith('pg:climate:')) local[k] = localStorage.getItem(k);
+    // APIキーはバックアップに含めない
+    if (k && k.startsWith('pg:') && !k.startsWith('pg:img:') && !k.startsWith('pg:climate:') && k !== 'pg:aikey') local[k] = localStorage.getItem(k);
   }
   const notes = await listNotes();
   return { app: '庭づくりアプリ', version: 2, exportedAt: new Date().toISOString(), local, notes, photos: await listPhotos() };
@@ -99,7 +100,7 @@ export async function exportAll() {
 /** バックアップから復元（既存データは上書き） */
 export async function importAll(data) {
   if (!data || !['宿根草ガーデンナビ', '庭づくりアプリ'].includes(data.app) || typeof data.local !== 'object') throw new Error('このアプリのバックアップファイルではありません');
-  for (const [k, v] of Object.entries(data.local)) if (k.startsWith('pg:') && typeof v === 'string') localStorage.setItem(k, v);
+  for (const [k, v] of Object.entries(data.local)) if (k.startsWith('pg:') && k !== 'pg:aikey' && typeof v === 'string') localStorage.setItem(k, v);
   if (Array.isArray(data.notes)) {
     await clearNotes();
     for (const n of data.notes) if (n && n.id) await saveNote(n);

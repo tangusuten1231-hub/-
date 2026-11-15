@@ -710,3 +710,31 @@ body.sheet-open { overflow: hidden; }
 
 .subnav { margin: 0 0 14px; }
 .subnav button { font-family: var(--serif); min-height: 38px; }
+
+/* AI */
+.chat-mode { display: flex; justify-content: space-between; align-items: center; font-size: .74rem; color: var(--muted); padding: 0 2px 4px; flex: none; }
+.chat-mode .link { padding: 0; font-size: .78rem; }
+.ai-on { color: var(--accent); font-weight: 700; }
+.ai-on::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 5px; }
+.ai-err { color: var(--bad); font-size: .82rem; }
+.typing { display: flex; gap: 4px; padding: 6px 2px; }
+.typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.2s infinite both; }
+.typing i:nth-child(2) { animation-delay: .2s; } .typing i:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .typing i { animation: none; } }
+#aiCard h2 .tsupi-svg { margin: -6px 0; }
+.ai-state { font-family: var(--serif); font-weight: 700; margin: 0 0 8px; color: var(--muted); }
+.ai-state.on { color: var(--accent); }
+.howto { padding-left: 1.3em; font-size: .86rem; line-height: 1.8; margin: 6px 0 10px; }
+#aiKey { width: 100%; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 9px 12px; min-height: 42px; font-size: 16px; }
+.ai-notes { font-size: .78rem; color: var(--ink-2); margin-top: 12px; }
+.link.danger { color: var(--bad); margin: -4px 0 14px; font-size: .8rem; }
+.imgplan > summary { list-style: none; margin: 0; color: var(--ink); }
+.imgplan > summary::-webkit-details-marker { display: none; }
+.imgplan > summary h2 { margin: 0; }
+.imgplan[open] > summary { margin-bottom: 8px; }
+.img-res p { font-size: .88rem; line-height: 1.75; margin: 0 0 6px; }
+.bed { border-top: 1px solid var(--line); padding: 12px 0; }
+.bed h3 { margin: 0 0 4px; font-size: 1rem; }
+.bed .calc { font-size: .8rem; color: var(--accent); }
+.img-res .alert ul { margin: 4px 0 0; padding-left: 1.2em; }

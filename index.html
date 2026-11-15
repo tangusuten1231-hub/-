@@ -210,6 +210,15 @@
           <button class="btn" id="btnPlanAlt" type="button" hidden><span data-ico="refresh"></span>別の案</button>
         </div>
       </div>
+      <details class="card imgplan" id="imgPlan">
+        <summary><h2><span data-ico="search"></span>画像から庭を読み取る（AI）</h2></summary>
+        <p class="hint">地図アプリの航空写真のスクリーンショット、家と庭の図面、手描きの見取り図、庭の写真などから、植えられそうな場所・広さ・日当たりをAIが読み取ります。読み取った場所ごとにプランを作れます。</p>
+        <label class="btn photo-btn"><span data-ico="plus"></span><span id="imgLabel">画像を選ぶ</span><input type="file" id="imgFile" accept="image/*" hidden></label>
+        <label class="field" style="margin-top:10px"><span class="label">補足（わかる範囲で）</span><textarea id="imgNote" rows="2" maxlength="400" placeholder="例：画像の上が北。敷地は約10m×15m。南側の芝生の縁に花壇を作りたい"></textarea></label>
+        <button class="btn primary" id="imgGo" type="button">読み取る</button>
+        <p class="status" id="imgStatus" role="status" aria-live="polite"></p>
+        <div id="imgResult"></div>
+      </details>
       <div id="planBox"></div>
     </section>
 
