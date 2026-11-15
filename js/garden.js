@@ -339,3 +339,21 @@ export function plantingTime(p, climate) {
   const pot = '鉢植えは、真夏と真冬を避ければほぼいつでも植え付けられます。根鉢をくずさずに植えると失敗しにくい。';
   return { plant: { best, ok }, sow, avoid: avoid.filter((m) => !best.includes(m)), text, why, pot };
 }
+
+/**
+ * つくる順番の予定月。下準備・構造物は今月から順に。植え付けの手順（free）は、それぞれ準備が終わった後の
+ * 適した月のうち最も早い月へ（球根を待って一年草が1年遅れる、といったことがないように）。仕上げ（first）は最初の植え付けの月。
+ */
+export function scheduleSteps(steps, now = new Date()) {
+  const fmt = (t) => `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
+  const next = (t, ms) => { const ok = (ms || []).filter(Boolean); if (!ok.length) return t; for (let k = 0; k < 24; k++) if (ok.includes(((t + k) % 12) + 1)) return t + k; return t; };
+  let t = now.getFullYear() * 12 + now.getMonth();
+  const out = steps.map((st) => ({ ...st }));
+  out.filter((st) => !st.free && !st.first).forEach((st) => { t = next(t, st.ms); st.t0 = t; });
+  const base = t;
+  const free = out.filter((st) => st.free);
+  free.forEach((st) => { st.t0 = next(base, st.ms); });
+  const firstT = free.length ? Math.min(...free.map((st) => st.t0)) : base;
+  out.filter((st) => st.first).forEach((st) => { st.t0 = firstT; });
+  return out.map(({ t0, ...st }) => ({ ...st, ym: fmt(t0) }));
+}

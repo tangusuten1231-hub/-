@@ -1,6 +1,6 @@
 // 植栽プランのイメージ図（SVG）を描く：季節ごとの立面図・平面図・植物のイラスト
 import { COLORS, LEAF } from './plants.js';
-import { rng, LAYER_JA } from './plan.js';
+import { rng, LAYER_JA, bedShape, BED_SHAPES } from './plan.js';
 import { localMonth } from './garden.js';
 
 const GROWTH = [0.12, 0.15, 0.35, 0.6, 0.85, 1, 1, 1, 1, 0.95, 0.75, 0.3]; // 北半球の月ごとの生育度
@@ -333,7 +333,9 @@ export function planSVG(plan) {
   const VH = bd + oy + 66;
   const X = (x) => ox + x * sc, Y = (y) => oy + bd - y * sc; // 手前（y=0）が下
   const col = mapColors(plan);
-  const uid = 'pl' + Math.round(plan.width * 100) + Math.round(plan.depth * 100) + plan.species.length;
+  const mask = bedShape(plan.shape, plan.width, plan.depth);
+  const shapeD = mask ? 'M' + mask.outline.map(([x, y]) => `${r1(X(x))} ${r1(Y(y))}`).join('L') + 'Z' : '';
+  const uid = (mask ? plan.shape : '') + 'pl' + Math.round(plan.width * 100) + Math.round(plan.depth * 100) + plan.species.length;
   // 方眼（50cmごと）と目盛り
   let grid = '';
   for (let x = 0; x <= plan.width + 1e-6; x += 0.5) grid += `<line x1="${r1(X(x))}" y1="${oy}" x2="${r1(X(x))}" y2="${r1(oy + bd)}" stroke="#fff" stroke-opacity="${Math.abs(x - Math.round(x)) < 1e-6 ? 0.22 : 0.1}"/>`;
@@ -380,17 +382,18 @@ export function planSVG(plan) {
     return `<g class="tap" data-jump="cast-${l.no}"><circle cx="${r1(x)}" cy="${r1(y)}" r="${r}" fill="#22291f" fill-opacity=".86" stroke="${l.c}" stroke-width="2.5"/><text x="${r1(x)}" y="${r1(y + (l.small ? 5 : 6))}" text-anchor="middle" font-size="${l.small ? 14 : 17}" font-weight="700" fill="#fff">${l.no}</text></g>`;
   }).join('');
   const sbar = [0.5, 1, 2].find((v) => v * sc >= 50) || 2;
-  const front = plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ 手前（通路・眺める側）';
+  const front = mask && plan.view === 'island' ? `${BED_SHAPES[plan.shape].ja}・四方から眺める花壇${plan.plots ? '（区画の間は通路）' : ''}` : plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ 手前（通路・眺める側）';
   return `<svg class="illust plan" viewBox="0 0 ${VW} ${r1(VH)}" role="img" aria-label="花壇の平面図">
-    <defs><clipPath id="${uid}"><rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10"/></clipPath>
+    <defs><clipPath id="${uid}">${mask ? `<path d="${shapeD}"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10"/>`}</clipPath>
       <pattern id="${uid}m" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#6d5640"/><circle cx="2" cy="3" r=".9" fill="#7f6650"/><circle cx="6.5" cy="7" r=".7" fill="#5f4a37"/></pattern></defs>
     ${plan.view === 'border' && !plan.plots ? `<text x="${r1(ox + bw / 2)}" y="18" text-anchor="middle" font-size="15" fill="currentColor" opacity=".7">奥（塀・フェンス側）</text>` : ''}
-    <rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>
+    ${mask ? `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="#cfdcae" opacity=".55"/><path d="${shapeD}" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>`}
     <g clip-path="url(#${uid})">${plots}${grid}${bandLines}${spreads.join('')}${bulbs.join('')}${dots.join('')}</g>
+    ${mask ? `<path d="${shapeD}" fill="none" stroke="#7d6a48" stroke-width="3" stroke-linejoin="round"/>` : ''}
     ${tags}${ticks}${bandLabels}
     <g transform="translate(${ox} ${r1(VH - 38)})"><path d="M0 0h${r1(sbar * sc)}M0 -4v4M${r1(sbar * sc)} -4v4" stroke="currentColor" stroke-width="1.4" opacity=".7"/><text x="${r1(sbar * sc + 6)}" y="5" font-size="15" fill="currentColor" opacity=".7">${sbar >= 1 ? sbar + 'm' : sbar * 100 + 'cm'}</text></g>
     <text x="${r1(ox + bw)}" y="${r1(VH - 32)}" text-anchor="end" font-size="15" fill="currentColor" opacity=".75">${front}</text>
-    <text x="${r1(ox + bw)}" y="${r1(VH - 10)}" text-anchor="end" font-size="13" fill="currentColor" opacity=".6">幅${plan.width}m × 奥行き${plan.depth}m・方眼は50cm</text>
+    <text x="${r1(ox + bw)}" y="${r1(VH - 10)}" text-anchor="end" font-size="13" fill="currentColor" opacity=".6">${mask ? `${BED_SHAPES[plan.shape].ja} 約${plan.area}㎡（外枠 ` : ''}幅${plan.width}m × 奥行き${plan.depth}m${mask ? '）' : ''}・方眼は50cm</text>
   </svg>`;
 }
 

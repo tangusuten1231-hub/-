@@ -43,3 +43,9 @@ test('図鑑に重複がなく、追加した地域・ハーブの植物があ�
   const ids = new Set(PLANTS.map((p) => p.id));
   for (const v of Object.values(INGREDIENTS)) for (const i of v.ids || []) assert.ok(ids.has(i), i);
 });
+
+test('つくる順番の予定月：今月から、前の手順より後で、適した月を選ぶ', async () => {
+  const { scheduleSteps } = await import('../js/garden.js');
+  const r = scheduleSteps([{ ms: [10, 11] }, { ms: [] }, { ms: [3, 4, 10], free: true }, { ms: [10, 11], free: true }, { ms: [3, 4], free: true }, { ms: [], first: true }], new Date(2026, 10, 15));
+  assert.deepEqual(r.map((x) => x.ym), ['2026-11', '2026-11', '2027-03', '2026-11', '2027-03', '2026-11']);
+});

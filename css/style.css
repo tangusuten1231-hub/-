@@ -1155,3 +1155,74 @@ h1, h2, h3, h4 { line-break: strict; }
 .site-hero .seg button { font-size: .8rem; padding-inline: 4px; white-space: nowrap; }
 .bed-key .bk-name { text-wrap: balance; }
 .more-chips summary { font-size: .78rem; color: var(--accent); cursor: pointer; margin: 4px 0; }
+
+/* ===== 花壇の形 ===== */
+.shape-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.shape-pick button { display: flex; flex-direction: column; align-items: center; gap: 3px; font: inherit; font-size: .76rem; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 7px 4px 6px; cursor: pointer; white-space: nowrap; }
+.shape-pick svg { width: 40px; height: 26px; fill: #c9b48c; stroke: #7d6a48; stroke-width: 1.4; }
+.shape-pick button.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)); color: var(--accent); font-weight: 600; }
+.shape-pick button.on svg { fill: #b9cf98; stroke: var(--accent); }
+
+/* ===== 保存した案と比較 ===== */
+.saved-plans summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
+.saved-plans summary::-webkit-details-marker { display: none; }
+.saved-plans summary h2 { margin: 0; }
+.sp-list { list-style: none; margin: 10px 0; padding: 0; display: grid; gap: 6px; }
+.sp-item { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.sp-item.on { border-color: var(--accent); }
+.sp-pick input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.sp-pick span { display: block; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); cursor: pointer; }
+.sp-pick input:checked + span { background: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 3px var(--surface); }
+.sp-pick input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sp-body { min-width: 0; display: grid; }
+.sp-body b { font-size: .88rem; }
+.sp-body small { font-size: .72rem; color: var(--muted); line-height: 1.5; }
+.sp-acts { display: flex; align-items: center; gap: 2px; }
+.sp-acts .icon-btn { border: 0; background: none; color: var(--muted); padding: 6px; cursor: pointer; }
+.cmp { display: grid; gap: 0; font-size: .82rem; margin-top: 6px; }
+.cmp-row { display: grid; grid-template-columns: 5.2em repeat(var(--n), minmax(0, 1fr)); gap: 6px; padding: 6px 0; border-bottom: 1px dotted var(--line); align-items: center; }
+.cmp-row > span { font-size: .72rem; color: var(--muted); }
+.cmp-row .win { color: var(--accent); font-weight: 700; }
+.cmp-row .small { font-size: .72rem; line-height: 1.5; }
+.cmp-head { align-items: start; }
+.cmp-head b { display: block; font-size: .8rem; margin-top: 4px; }
+.cmp-head small { display: block; font-size: .66rem; color: var(--muted); line-height: 1.4; }
+.cmp-art { background: var(--surface); border-radius: 8px; overflow: hidden; }
+.cmp-art svg { display: block; width: 100%; height: auto; }
+
+/* ===== 育ち具合の写真くらべ ===== */
+.grow summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
+.grow summary::-webkit-details-marker { display: none; }
+.grow summary h2 { margin: 0; }
+.grow-tabs { margin: 10px 0 6px; }
+.grow-strip { display: flex; gap: 6px; overflow-x: auto; padding: 4px 0; scrollbar-width: none; }
+.gs-item { flex: none; width: 74px; padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; background: var(--surface); cursor: pointer; font: inherit; color: inherit; }
+.gs-item img { display: block; width: 100%; height: 60px; object-fit: cover; }
+.gs-item span { display: flex; justify-content: center; gap: 3px; font-size: .7rem; padding: 2px 0; }
+.gs-item i { font-style: normal; font-weight: 700; color: #fff; background: var(--accent); border-radius: 4px; padding: 0 3px; }
+.gs-item.a { border-color: var(--terra, #b5653f); }
+.gs-item.a i { background: var(--terra, #b5653f); }
+.gs-item.b { border-color: var(--accent); }
+.ba { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: #222; }
+.ba > img, .ba-front img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba-front { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--p)) 0 0); }
+.ba::after { content: ''; position: absolute; top: 0; bottom: 0; left: var(--p); width: 2px; background: #fff; box-shadow: 0 0 4px rgba(0,0,0,.5); pointer-events: none; }
+.ba-lab { position: absolute; top: 8px; font-size: .7rem; color: #fff; background: rgba(0,0,0,.5); padding: 2px 7px; border-radius: 8px; }
+.ba-lab.l { left: 8px; } .ba-lab.r { right: 8px; }
+.ba input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.grow-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.grow-plan .label { font-size: .7rem; }
+.grow-plan img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block; }
+.gp-art { border-radius: 10px; overflow: hidden; background: var(--surface); }
+.gp-art svg { display: block; width: 100%; height: auto; }
+.rec-spot { margin-top: 10px; }
+.bs-when { display: flex; align-items: center; gap: 4px; font-size: .74rem; color: var(--accent); margin: 2px 0 0; }
+.build-due { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border-radius: 12px; padding: 8px 10px; margin-bottom: 10px; display: grid; gap: 6px; }
+.build-due .label { display: flex; align-items: center; gap: 4px; font-size: .74rem; color: var(--accent); font-weight: 600; }
+.bd-item { display: grid; grid-template-columns: auto 1fr; gap: 8px; align-items: start; cursor: pointer; }
+.bd-item input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); }
+.bd-item b { display: block; font-size: .88rem; }
+.bd-item em { font-style: normal; font-size: .68rem; color: var(--terra, #b5653f); margin-left: 6px; }
+.bd-item small { display: block; font-size: .74rem; color: var(--muted); line-height: 1.6; }
+.bd-item.done b { text-decoration: line-through; color: var(--muted); }
+.mini-task.build .ic { color: var(--terra, #b5653f); }

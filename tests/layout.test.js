@@ -43,3 +43,24 @@ test('植栽図とイメージ図：番号は植物リストと一致し、季�
   assert.equal(drawPlant(zinnia, zinnia.color[0], 100, 200, 100, 1, 1), '');
   assert.ok(drawPlant(zinnia, zinnia.color[0], 100, 200, 100, 8, 1).length > 100);
 });
+
+test('曲線の花壇（円・楕円・半円・そら豆・曲線ボーダー）：株は形の内側、どの植物も1株以上、面積は形に合わせる', async () => {
+  const { bedShape } = await import('../js/plan.js');
+  const climate = { zone: { value: 8.5 }, south: false, heatZone: 7 };
+  for (const shape of ['circle', 'oval', 'half', 'kidney', 'wave']) {
+    for (const style of ['border', 'matrix', 'oudolf', 'cottage', 'potager', 'jekyll']) {
+      const p = generatePlan({ climate, width: 4, depth: 2.4, text: 'ナチュラル', style, shape });
+      const m = bedShape(shape, p.width, p.depth);
+      assert.equal(p.shape, shape);
+      for (const sp of p.species) {
+        assert.ok(sp.positions.length > 0, `${shape}/${style}: ${sp.plant.ja}が植わっていない`);
+        for (const q of sp.positions) assert.ok(m.inside(q.x, q.y), `${shape}/${style}: 形の外に株`);
+      }
+      assert.ok(p.area < p.width * p.depth, '曲線の花壇は外枠より狭い');
+    }
+  }
+  const c = generatePlan({ climate, width: 3, depth: 1, style: 'border', shape: 'circle' });
+  assert.equal(c.depth, 3, '円は奥行き＝直径');
+  assert.ok(Math.abs(c.area - Math.PI * 1.5 * 1.5) < 0.1);
+  assert.match(planSVG(c), /<path d="M[^"]+Z"\/>/);
+});

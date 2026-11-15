@@ -559,7 +559,7 @@ export function siteSVG(site, opts = {}) {
   const VW = site.W * S + pad * 2, VH = site.H * S + top + pad + 8;
   const X = (x) => pad + x * S, Y = (y) => top + y * S;
   const c = site.c;
-  const uid = 's' + Math.round(site.area * 10) + site.beds.length;
+  const uid = 's' + Math.round(site.area * 10) + site.beds.length + (opts.uid || '');
   // 行ごとに同じゾーンのマスをまとめて描く
   const rows = new Map();
   for (const q of site.cells) { if (!rows.has(q.j)) rows.set(q.j, []); rows.get(q.j).push(q); }
@@ -577,7 +577,7 @@ export function siteSVG(site, opts = {}) {
     flush();
   }
   // 植栽：花壇ごとに、背の高いものを奥（島花壇は中央）へ。同じ植物は「群れ（ドリフト）」にまとめて塗り分ける
-  const { plants, outlines, tags, clips } = bedDrifts(site, X, Y, S, opts.nums);
+  const { plants, outlines, tags, clips } = bedDrifts(site, X, Y, S, opts.nums, opts.uid);
   // 構造物
   let st = '', under = '';
   for (const s of site.structs) {
@@ -650,7 +650,7 @@ function hexShade(hex, k) {
  * 奥行き（境界花壇は塀側から、島花壇は中央から）を背丈の段に分け、各段の中で植物を横方向に群れとしてくり返す。
  * 球根（株間に植え込むもの）は手前の段に小さな点で散らす。
  */
-export function bedDrifts(site, X, Y, S, nums) {
+export function bedDrifts(site, X, Y, S, nums, uidx = '') {
   const c = site.c;
   const pts = site.pts;
   // 境界ぞいの位置（周長上の距離）
@@ -663,7 +663,7 @@ export function bedDrifts(site, X, Y, S, nums) {
     return perim[q.edge] + Math.max(0, Math.min(L, t));
   };
   let plants = '', outlines = '', tags = '', clips = '', bulbDots = '';
-  const uid = 'bd' + Math.round(site.area * 10);
+  const uid = 'bd' + Math.round(site.area * 10) + uidx;
   const best = new Map(); // 植物ごとに一番大きな群れ（番号札を付ける）
   const drawn = [];
   for (const b of site.beds) {
