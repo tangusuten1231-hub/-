@@ -738,3 +738,12 @@ body.sheet-open { overflow: hidden; }
 .bed h3 { margin: 0 0 4px; font-size: 1rem; }
 .bed .calc { font-size: .8rem; color: var(--accent); }
 .img-res .alert ul { margin: 4px 0 0; padding-left: 1.2em; }
+
+/* 無料のAIチャットへの相談 */
+.steps3 { padding-left: 1.4em; }
+.steps3 > li { margin-bottom: 14px; }
+.steps3 > li > b { display: block; margin-bottom: 6px; font-family: var(--serif); }
+.steps3 textarea { margin-bottom: 8px; }
+.ai-apps { gap: 6px; }
+.prompt-view { white-space: pre-wrap; word-break: break-word; font-size: .74rem; line-height: 1.6; background: var(--paper); border-radius: 12px; padding: 10px; max-height: 240px; overflow-y: auto; font-family: inherit; user-select: text; -webkit-user-select: text; }
+.sheet-consult .sheet-body { padding-bottom: 20px; }

@@ -90,7 +90,6 @@ export async function exportAll() {
   const local = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    // APIキーはバックアップに含めない
     if (k && k.startsWith('pg:') && !k.startsWith('pg:img:') && !k.startsWith('pg:climate:') && k !== 'pg:aikey') local[k] = localStorage.getItem(k);
   }
   const notes = await listNotes();

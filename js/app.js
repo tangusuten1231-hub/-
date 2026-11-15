@@ -14,7 +14,7 @@ import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageIn
 import { describe, companions } from './describe.js';
 import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
 import { reply as tsupiReply, STARTERS } from './chat.js';
-import { hasKey, getKey, setKey, askAI, analyzeGardenImage, mdToHtml, MODEL } from './ai.js';
+import { consultPrompt, imagePrompt, parseBedsReply, AI_APPS } from './handoff.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
 import {
@@ -1403,60 +1403,31 @@ document.addEventListener('click', (e) => {
 
 // ---------- ツピに聞く ----------
 const chatLog = [];
-const aiMessages = []; // AIとの会話履歴（APIに送る形）
-let aiBusy = false;
 function chatContext() {
   const g = activeGarden();
   let forecast = null;
   try { const k = state.loc && `pg:wx:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`; forecast = k ? JSON.parse(sessionStorage.getItem(k) || 'null')?.d ?? null : null; } catch { forecast = null; }
-  return {
-    climate: state.climate, locName: state.loc?.name, garden: g, plants: g.plants.map((id) => byId.get(id)).filter(Boolean),
-    otherGardens: state.gardens.filter((x) => x.id !== g.id).map((x) => `${x.name}（${x.plants.length}種）`),
-    entries: diaryCache, forecast, now: new Date(),
-  };
+  return { climate: state.climate, locName: state.loc?.name, garden: g, plants: g.plants.map((id) => byId.get(id)).filter(Boolean), entries: diaryCache, forecast, now: new Date() };
 }
 function chatHtml() {
-  const ai = hasKey();
-  return `<div class="chat-mode">${ai ? `<span class="ai-on">AIで回答中</span>` : `<span>かんたん回答モード</span><button type="button" class="link" data-aisetup>本物のAIにする ${icon('arrow', 13)}</button>`}</div>
-    <div class="chat-log" id="chatLog">${chatLog.map((m, i) => (m.me
+  return `<div class="chat-log" id="chatLog">${chatLog.map((m) => (m.me
     ? `<div class="msg me"><p>${esc(m.text)}</p></div>`
-    : `<div class="msg bird"><span class="av">${tsupi(m.pose || 'idle', 40)}</span><div class="mb" ${i === chatLog.length - 1 ? 'id="lastBird"' : ''}>${m.html}${m.actions?.length ? `<div class="macts">${m.actions.map((a) => `<button type="button" class="btn small" ${a.go ? `data-chatgo="${a.go}"` : a.find ? `data-chatfind="${esc(a.find)}"` : a.setup ? 'data-aisetup' : 'data-chatrecord'}>${esc(a.label)}</button>`).join('')}</div>` : ''}</div></div>`)).join('')}</div>
+    : `<div class="msg bird"><span class="av">${tsupi(m.pose || 'idle', 40)}</span><div class="mb">${m.html}${m.actions?.length ? `<div class="macts">${m.actions.map((a) => `<button type="button" class="btn small" ${a.go ? `data-chatgo="${a.go}"` : a.find ? `data-chatfind="${esc(a.find)}"` : a.consult != null ? `data-consult="${esc(a.consult)}"` : 'data-chatrecord'}>${esc(a.label)}</button>`).join('')}</div>` : ''}</div></div>`)).join('')}</div>
     <div class="chat-chips" id="chatChips">${(chatLog[chatLog.length - 1]?.chips?.length ? chatLog[chatLog.length - 1].chips : STARTERS).map((c) => `<button type="button" class="chip" data-ask="${esc(c)}">${esc(c)}</button>`).join('')}</div>
-    <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="${ai ? '庭のことを自由に聞いてね' : '例：エキナセアの切り戻しは？'}" autocomplete="off" aria-label="ツピへの質問" ${aiBusy ? 'disabled' : ''}><button class="btn primary" type="submit" ${aiBusy ? 'disabled' : ''}>聞く</button></form>
-    <p class="chat-note">${ai ? 'AI（Claude）が、お住まいの気候・庭の植物・ノート・天気予報・図鑑をもとに答えます。内容は必ずしも正確とは限りません。' : 'いまは、決まった話題に答えるかんたん回答モードです。'}</p>`;
+    <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="例：エキナセアの切り戻しは？" autocomplete="off" aria-label="ツピへの質問"><button class="btn primary" type="submit">聞く</button></form>
+    <p class="chat-note">ツピは、気候・庭の植物・ノート・天気予報をもとに、決まった話題に答えます。もっと自由に相談したいときは、答えの下の「AIに相談」から、無料のAIチャットに庭の情報ごと相談文を渡せます。</p>`;
 }
-function ruleAnswer(text) {
-  const r = tsupiReply(text, chatContext());
-  return { html: r.html, chips: r.chips || [], actions: r.actions || [], pose: /ごめんね/.test(r.html) ? 'think' : /かもしれないね/.test(r.html) ? 'alert' : 'happy' };
-}
-async function ask(text) {
-  if (!text.trim() || aiBusy) return;
-  chatLog.push({ me: true, text: text.trim() });
-  if (!hasKey()) { chatLog.push(ruleAnswer(text)); drawChat(); return; }
-  // 本物のAIに聞く（文章は届いた順に表示）
-  aiBusy = true;
-  const msg = { html: '<p class="typing"><i></i><i></i><i></i></p>', pose: 'think', chips: [] };
-  chatLog.push(msg);
-  drawChat();
-  let pending = false;
-  const res = await askAI(aiMessages, text.trim(), chatContext(), (t) => {
-    msg.html = mdToHtml(t);
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(() => { pending = false; const el = $('#lastBird'); if (el) el.innerHTML = msg.html; });
+function ask(text) {
+  if (!text.trim()) return;
+  const q = text.trim();
+  chatLog.push({ me: true, text: q });
+  const r = tsupiReply(q, chatContext());
+  const miss = /ごめんね/.test(r.html);
+  chatLog.push({
+    html: r.html + (miss ? '<p>この質問は、庭の情報をつけてAIチャットに相談するのがおすすめだよ。</p>' : ''),
+    chips: r.chips || [], pose: miss ? 'think' : /かもしれないね/.test(r.html) ? 'alert' : 'happy',
+    actions: [...(r.actions || []), { label: miss ? 'AIに相談する（無料）' : 'AIにくわしく相談', consult: q }],
   });
-  aiBusy = false;
-  if (res.error && !res.text) {
-    // AIが使えないときは、かんたん回答で代わりに答える
-    const alt = ruleAnswer(text);
-    msg.html = `<p class="ai-err">${esc(res.error)}</p><p>代わりに、かんたん回答モードで答えるね。</p>${alt.html}`;
-    msg.pose = 'alert'; msg.chips = alt.chips; msg.actions = [{ label: 'AIの設定を開く', setup: true }, ...(alt.actions || [])];
-  } else {
-    msg.html = mdToHtml(res.text || '') + (res.error ? `<p class="ai-err">${esc(res.error)}</p>` : '');
-    msg.pose = 'happy';
-    msg.chips = ['今週なにをすればいい？', 'おすすめの植物は？', 'この庭をもっと良くするには？'];
-    msg.actions = [{ label: 'ノートに記録する', record: true }];
-  }
   drawChat();
 }
 function drawChat() {
@@ -1468,10 +1439,48 @@ function drawChat() {
 }
 async function openChat(first = '') {
   if (!diaryCache.length) await loadDiary();
-  if (!chatLog.length) chatLog.push({ html: `<p>ツピだよ。庭のこと、何でも聞いてね。${hasKey() ? '' : '植物の名前を入れて聞くと、その植物のことを答えるよ。'}</p>`, chips: STARTERS, pose: 'hello' });
+  if (!chatLog.length) chatLog.push({ html: '<p>ツピだよ。庭のこと、何でも聞いてね。植物の名前を入れて聞くと、その植物のことを答えるよ。</p>', chips: STARTERS, pose: 'hello' });
   openSheet(`${tsupi('idle', 30)} ツピに聞く`, '', 'sheet-chat');
   drawChat();
   if (first) ask(first);
+}
+
+// ---------- 無料のAIチャットに相談（相談文を作って渡す。このアプリからは送信しない） ----------
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch { /* 古いブラウザ向けの方法へ */ }
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch { ok = false; }
+  ta.remove();
+  return ok;
+}
+const aiAppButtons = () => AI_APPS.map((a) => `<a class="btn small" href="${a.url}" target="_blank" rel="noopener">${esc(a.name)} を開く</a>`).join('');
+function openConsult(question = '') {
+  openSheet(`${icon('search', 19)} AIに相談する`, `
+    <div class="consult">
+      <p class="hint">あなたの庭の情報（気候・植物・ノート・天気）を含めた相談文を作ります。無料のAIチャットに貼り付けて相談してください。このアプリからAIに送信はせず、料金もかかりません。</p>
+      <ol class="howto steps3">
+        <li><b>聞きたいことを書く</b>
+          <textarea id="cqText" rows="3" maxlength="600" placeholder="例：夏に枯れやすいラベンダーを、うちの庭で長持ちさせるには？">${esc(question)}</textarea>
+        </li>
+        <li><b>相談文をコピーする</b>
+          <div class="row"><button type="button" class="btn primary small" id="cqCopy">相談文をコピー</button>${navigator.share ? '<button type="button" class="btn small" id="cqShare">共有する</button>' : ''}</div>
+        </li>
+        <li><b>AIアプリを開いて、貼り付けて送る</b>
+          <div class="row ai-apps">${aiAppButtons()}</div>
+        </li>
+      </ol>
+      <details><summary>相談文の中身を見る</summary><pre class="prompt-view" id="cqView"></pre></details>
+      <p class="note">各AIアプリは無料で使える範囲があります。有料プランに申し込む必要はありません。</p>
+    </div>`, 'sheet-consult');
+  const build = () => consultPrompt($('#cqText').value || 'いまの庭で、気をつけることやおすすめの作業を教えてください。', chatContext());
+  const sync = () => { $('#cqView').textContent = build(); };
+  sync();
+  $('#cqText').addEventListener('input', sync);
+  $('#cqCopy').addEventListener('click', async () => { toast((await copyText(build())) ? 'コピーしました。AIアプリに貼り付けてください' : 'コピーできませんでした。「相談文の中身を見る」から選んでコピーしてください'); });
+  $('#cqShare')?.addEventListener('click', () => { navigator.share({ text: build() }).catch(() => {}); });
 }
 document.addEventListener('click', (e) => {
   const a = e.target.closest('[data-ask]');
@@ -1487,81 +1496,31 @@ document.addEventListener('click', (e) => {
     return;
   }
   if (e.target.closest('[data-chatrecord]')) { closeSheet(); openRecord(''); return; }
-  if (e.target.closest('[data-aisetup]')) { closeSheet(); state.gardenTab = 'data'; go('garden'); setTimeout(() => $('#aiCard')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 350); return; }
+  const c = e.target.closest('[data-consult]');
+  if (c) { openConsult(c.dataset.consult); return; }
   if (e.target.closest('#brandBird') || e.target.closest('[data-openchat]')) openChat();
 });
 
-// ---------- AIの設定 ----------
-function aiSettingsCard() {
-  const on = hasKey();
-  return `<div class="card" id="aiCard">
-    <h2>${tsupi('idle', 30)} ツピのAI設定</h2>
-    <p class="hint">ツピに本物のAI（Anthropic 社の Claude）で答えてもらうには、あなた専用の「APIキー」が必要です。${on ? '' : '登録すると、自由な質問への回答と、画像から庭を読み取る機能が使えます。'}</p>
-    <p class="ai-state ${on ? 'on' : ''}">${on ? `AI：有効（キー末尾 …${esc(getKey().slice(-4))}）` : 'AI：未設定（かんたん回答モード）'}</p>
-    <details ${on ? '' : 'open'}><summary>APIキーの取り方</summary>
-      <ol class="howto">
-        <li><a href="https://console.anthropic.com/" target="_blank" rel="noopener">Anthropic Console</a> を開き、アカウントを作ります。</li>
-        <li>「Billing（支払い）」でクレジットを購入します（少額から）。</li>
-        <li>「API Keys」で新しいキーを作り、<b>sk-ant-</b> で始まる文字列をコピーします。</li>
-        <li>下の欄に貼り付けて「保存」を押します。</li>
-      </ol>
-    </details>
-    <label class="field"><span class="label">APIキー</span><input type="password" id="aiKey" placeholder="sk-ant-..." autocomplete="off" autocapitalize="off" spellcheck="false"></label>
-    <div class="row">
-      <button type="button" class="btn primary" id="aiSave">保存</button>
-      ${on ? '<button type="button" class="btn" id="aiRemove">キーを削除</button>' : ''}
-    </div>
-    <ul class="advice ai-notes">
-      <li>利用料金は、使った分だけ Anthropic からあなたに請求されます（従量制）。使用モデルは ${MODEL} です。Console で上限額を設定しておくと安心です。</li>
-      <li>キーはこの端末のブラウザ内にだけ保存され、バックアップファイルには含まれません。他人に知られないようにしてください。</li>
-      <li>質問すると、庭の場所・気候・植物・ノートの記録が Anthropic に送信されます。</li>
-    </ul>
-  </div>`;
-}
-document.addEventListener('click', (e) => {
-  if (e.target.closest('#aiSave')) {
-    const k = $('#aiKey').value.trim();
-    if (!/^sk-ant-/.test(k)) { toast('sk-ant- で始まるキーを入力してください'); return; }
-    setKey(k);
-    aiMessages.length = 0;
-    toast('AIを有効にしました');
-    renderBackup();
-    return;
-  }
-  if (e.target.closest('#aiRemove')) {
-    if (!confirm('APIキーをこの端末から削除しますか？')) return;
-    setKey('');
-    aiMessages.length = 0;
-    renderBackup();
-  }
-});
-
-// ---------- 画像から庭を読み取る ----------
+// ---------- 画像から庭を読み取る（無料のAIチャットを使う） ----------
 function initImagePlan() {
-  $('#imgFile').addEventListener('change', (e) => { $('#imgLabel').textContent = e.target.files[0] ? '画像を選びました' : '画像を選ぶ'; });
-  $('#imgGo').addEventListener('click', async () => {
+  $('#imgApps').innerHTML = aiAppButtons();
+  $('#imgCopy').addEventListener('click', async () => {
+    toast((await copyText(imagePrompt($('#imgNote').value, chatContext()))) ? '依頼文をコピーしました。AIアプリで画像と一緒に送ってください' : 'コピーできませんでした');
+  });
+  $('#imgGo').addEventListener('click', () => {
     const st = $('#imgStatus');
-    const file = $('#imgFile').files[0];
-    st.classList.remove('error');
-    if (!hasKey()) { st.innerHTML = 'この機能にはAIの設定が必要です。<button type="button" class="link" data-aisetup>AIの設定を開く</button>'; return; }
-    if (!file) { st.textContent = '画像を選んでください。'; st.classList.add('error'); return; }
-    $('#imgGo').disabled = true;
-    st.innerHTML = '<span class="spinner"></span>画像を読み取っています…（30秒ほどかかることがあります）';
-    try {
-      const url = await shrinkImage(file, 1568, 0.85);
-      const res = await analyzeGardenImage({ mediaType: 'image/jpeg', data: url.split(',')[1] }, $('#imgNote').value.trim(), chatContext());
-      if (res.error) { st.textContent = res.error; st.classList.add('error'); } else { st.textContent = ''; state.imgResult = res.result; renderImageResult(); }
-    } catch (err) { st.textContent = err.message; st.classList.add('error'); }
-    $('#imgGo').disabled = false;
+    const res = parseBedsReply($('#imgReply').value);
+    st.classList.toggle('error', !!res.error);
+    st.textContent = res.error || '';
+    if (res.result) { state.imgResult = res.result; renderImageResult(); $('#imgResult').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('#imgResult').addEventListener('click', (e) => {
     const b = e.target.closest('[data-bed]');
     if (!b) return;
     const bed = state.imgResult.beds[Number(b.dataset.bed)];
-    const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, Math.round(v * 10) / 10));
-    Object.assign(state.planInput, { text: bed.keywords, width: clamp(bed.width_m, 0.5, 30), depth: clamp(bed.depth_m, 0.4, 10), sun: bed.sun, moist: bed.moist === 'mid' ? '' : bed.moist, view: bed.view });
+    Object.assign(state.planInput, { text: bed.keywords, width: bed.width_m, depth: bed.depth_m, sun: bed.sun, moist: bed.moist === 'mid' ? '' : bed.moist, view: bed.view });
     state.planBedName = bed.name;
-    $('#planText').value = bed.keywords; $('#planW').value = state.planInput.width; $('#planD').value = state.planInput.depth;
+    $('#planText').value = bed.keywords; $('#planW').value = bed.width_m; $('#planD').value = bed.depth_m;
     syncPlanSegs(); syncPresetChips();
     makePlan(0);
   });
@@ -1602,7 +1561,7 @@ async function renderBackup() {
   const info = await storageInfo();
   const last = store.get('lastBackup', null);
   const days = last ? Math.floor((Date.now() - new Date(last)) / 86400000) : null;
-  box.innerHTML = `${aiSettingsCard()}<div class="card">
+  box.innerHTML = `<div class="card">
     <h2>${icon('save', 19)} データと表示</h2>
     <p class="hint">場所・すべての庭・プラン・登録した品種・自分の写真・庭ノートは、この端末のアプリ内に保存されています。機種変更や万一に備えて、ときどきファイルにバックアップしましょう。</p>
     <ul class="advice">
@@ -1696,7 +1655,7 @@ async function renderHome() {
   const word = MONTHLY_WORDS[north - 1] + (mine.length ? '' : ' まずは「プラン」で、庭のイメージを作ってみない？');
   const pose = !mine.length ? 'sprout' : north === 12 || north <= 2 ? 'idle' : 'happy';
   box.innerHTML = `
-    ${tsupiSays(esc(word), pose, `<div class="bubble-acts"><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
+    ${tsupiSays(esc(word), pose, `<div class="bubble-acts"><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-consult="">AIに相談</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
     ${insightsCard()}
     <section class="card today">
       <header class="sec"><span class="en">Today in the Garden</span><h2>今日の庭</h2></header>
@@ -1869,6 +1828,7 @@ if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMon
 if (state.loc) loadClimate(); else render();
 go('site');
 requestPersist();
+try { localStorage.removeItem('pg:aikey'); } catch { /* 以前の版で保存したAPIキーがあれば消す */ }
 loadDiary().then((list) => { if (list.length) render(); });
 listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); render(); });
 
