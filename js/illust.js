@@ -18,28 +18,63 @@ function seasonOf(nm) {
   return 'autumn';
 }
 
+// 実のなる野菜の、実の色
+const FRUIT = { tomato: '#d6402f', 'mini-tomato': '#e0503a', eggplant: '#4a2a5a', pepper: '#3f7a2f', cucumber: '#4f7a2f', zucchini: '#3f6a2f', okra: '#6f9a3f', 'green-bean': '#6f9a3f', strawberry: '#d63a3a', blueberry: '#3a4a8a', lemon: '#f0d040', olive: '#4a5a2a', goya: '#5f9a3f', luffa: '#6f9a4f', watermelon: '#3f6a2f', sasage: '#6f9a3f', roselle: '#b8203a', corn: '#e8c84a' };
+const AUTUMN = ['#b88a3a', '#c07a3a', '#a86a3a', '#b8963f'];
+
+/** その月に、その株が地上に見えているか（北半球の月） */
+function presence(p, nm) {
+  const first = Math.min(...(p.bloom.length ? p.bloom : [6]));
+  const last = Math.max(...(p.bloom.length ? p.bloom : [6]));
+  if (p.type === 'annual') {
+    if (p.sow === 'cool') return !(nm >= 7 && nm <= 9); // 秋〜初夏。夏には枯れて片付ける
+    return nm >= 5 && nm <= 10; // 春に植えて秋まで
+  }
+  if (p.type === 'bulb' && last <= 6 && !p.tender) {
+    // 春咲き球根：冬に芽を出し、花後1〜2か月で葉が消える
+    if (nm > last + 1 && nm <= 10) return false;
+    if (nm >= 11 || nm < first - 2) return 'shoot';
+  }
+  if (p.tender && p.type !== 'annual' && (nm === 12 || nm <= 2)) return 'shoot';
+  return true;
+}
+
 /**
  * 1株を描く
  * @param p 植物, color 選んだ花色, cx/baseY 根元の位置(px), sc 1mあたりのpx, nm 北半球換算の月, seed 乱数
  */
 export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
   const R = rng(seed);
+  const here = presence(p, nm);
+  if (!here) return '';
   const blooming = p.bloom.includes(nm);
   const ever = p.tags.includes('evergreen') || p.type === 'subshrub';
   let g = GROWTH[nm - 1];
   if (ever) g = Math.max(g, 0.7);
   if (blooming) g = Math.max(g, 0.9);
-  const dormant = !ever && !blooming && (nm === 12 || nm <= 2);
+  if (here === 'shoot') g = 0.18;
+  const winter = nm === 12 || nm <= 2;
+  const dormant = !ever && !blooming && (winter || here === 'shoot');
   const lastBloom = p.bloom[p.bloom.length - 1];
-  const afterBloom = !blooming && (nm > lastBloom || nm <= 2) && nm >= 8 - (lastBloom > 8 ? 0 : 0);
-  const seedheads = !blooming && p.tags.includes('prairie') && (nm >= 10 || nm <= 2) && ['daisy', 'globe', 'plate', 'spike'].includes(p.form);
+  const afterBloom = !blooming && (nm > lastBloom || nm <= 2) && nm >= 8;
+  const keeps = p.tags.includes('prairie') || p.uses?.includes('winter') || p.uses?.includes('seed') || p.cut === 'spring';
+  const seedheads = !blooming && keeps && (nm >= 10 || nm <= 2) && ['daisy', 'globe', 'plate', 'spike'].includes(p.form);
 
   const H = Math.max(4, (p.h[1] / 100) * sc * g);
   const W = Math.max(8, (p.spread / 100) * sc * 0.95);
   let leaf = LEAF[p.leaf]?.hex ?? '#5f8f4a';
-  if (!ever && nm === 11) leaf = '#a08a4f';
+  const turning = !ever && p.form !== 'grass' && (nm === 10 || nm === 11);
+  if (turning) leaf = AUTUMN[Math.floor(R() * AUTUMN.length)];
+  const dark = shadeHex(leaf, -0.22), light = shadeHex(leaf, 0.18);
   const fc = flowerHex(color);
-  const out = [];
+  const fr = Math.max(3.6, Math.min(8.5, sc * 0.034 * (p.h[1] >= 100 ? 1.2 : 1))); // 花の大きさ（図の縮尺に合わせる）
+  const out = [`<ellipse cx="${r1(cx)}" cy="${r1(baseY + 1)}" rx="${r1(W * 0.5)}" ry="${r1(Math.max(2, W * 0.07))}" fill="#000" opacity=".12"/>`];
+
+  // 球根の芽・寒さよけ中の株
+  if (here === 'shoot' && p.form !== 'grass') {
+    for (let i = 0; i < 4; i++) out.push(`<path d="M${r1(cx + (i - 1.5) * 3)},${baseY} q${r1((i - 1.5) * 2)},-6 ${r1((i - 1.5) * 3)},-${r1(6 + R() * 5)}" stroke="${p.type === 'bulb' ? '#6f9a4f' : dark}" stroke-width="2" fill="none" stroke-linecap="round"/>`);
+    return out.join('');
+  }
 
   // シダ：弓なりの葉（羽状の小葉付き）
   if (p.form === 'fern') {
@@ -53,49 +88,77 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
       for (let k = 2; k < 9; k++) {
         const u = k / 9, x = (1 - u) ** 2 * cx + 2 * (1 - u) * u * qx + u * u * tx, y = (1 - u) ** 2 * baseY + 2 * (1 - u) * u * qy + u * u * ty;
         const len = 7 * (1 - u * 0.6);
-        out.push(`<path d="M${r1(x)},${r1(y)} l${r1(-len * 0.7)},${r1(len * 0.5)} M${r1(x)},${r1(y)} l${r1(len * 0.7)},${r1(len * 0.5)}" stroke="${col}" stroke-width="1.6" stroke-linecap="round"/>`);
+        out.push(`<path d="M${r1(x)},${r1(y)} l${r1(-len * 0.7)},${r1(len * 0.5)} M${r1(x)},${r1(y)} l${r1(len * 0.7)},${r1(len * 0.5)}" stroke="${i % 2 ? dark : col}" stroke-width="1.6" stroke-linecap="round"/>`);
       }
     }
     return out.join('');
   }
 
-  // グラス
+  // グラス：細い葉の束と、季節の穂
   if (p.form === 'grass') {
-    const n = 16;
+    const n = 18;
     const col = dormant ? STRAW : leaf;
     for (let i = 0; i < n; i++) {
       const t = i / (n - 1) - 0.5;
       const tx = cx + t * W * 1.2 + (R() - 0.5) * 4;
       const ty = baseY - H * (0.65 + 0.35 * R()) * (1 - Math.abs(t) * 0.5);
-      out.push(`<path d="M${r1(cx + t * 6)},${baseY} Q${r1(cx + t * W * 0.25)},${r1(baseY - H * 0.95)} ${r1(tx)},${r1(ty)}" stroke="${col}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`);
+      out.push(`<path d="M${r1(cx + t * 6)},${baseY} Q${r1(cx + t * W * 0.25)},${r1(baseY - H * 0.95)} ${r1(tx)},${r1(ty)}" stroke="${i % 3 === 0 ? (dormant ? '#b39a62' : dark) : col}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`);
       const plume = blooming || (afterBloom && nm >= p.bloom[0]) || (dormant && p.bloom[0] >= 7);
       if (plume && i % 2 === 0) {
         const pc = dormant || color === 'green' ? '#e4d6ae' : color === 'white' ? '#efe7d2' : fc;
-        out.push(`<ellipse cx="${r1(tx)}" cy="${r1(ty - 4)}" rx="3" ry="7" fill="${pc}" opacity=".9" transform="rotate(${r1(t * 50)} ${r1(tx)} ${r1(ty)})"/>`);
+        out.push(`<ellipse cx="${r1(tx)}" cy="${r1(ty - 4)}" rx="${r1(fr * 0.6)}" ry="${r1(fr * 1.5)}" fill="${pc}" opacity=".9" transform="rotate(${r1(t * 50)} ${r1(tx)} ${r1(ty)})"/>`);
       }
     }
     return out.join('');
   }
 
-  // 休眠中
+  // 低木：幹と枝、葉の茂み。落葉樹は冬に枝だけ
+  if (p.type === 'shrub') {
+    const trunks = 3 + Math.floor(R() * 2);
+    const branch = [];
+    for (let i = 0; i < trunks; i++) {
+      const t = i / (trunks - 1) - 0.5;
+      const tx = cx + t * W * 0.7, ty = baseY - (p.h[1] / 100) * sc * (0.75 + R() * 0.2);
+      branch.push(`<path d="M${r1(cx + t * 6)},${baseY} Q${r1(cx + t * W * 0.2)},${r1(baseY - (baseY - ty) * 0.5)} ${r1(tx)},${r1(ty)}" stroke="#6b4c2e" stroke-width="${dormant ? 1.6 : 2.2}" fill="none"/>`);
+      if (dormant) branch.push(`<path d="M${r1(tx)},${r1(ty)} l${r1(-6 - R() * 6)},-8 M${r1(tx)},${r1(ty + 10)} l${r1(6 + R() * 6)},-7" stroke="#6b4c2e" stroke-width="1"/>`);
+    }
+    out.push(branch.join(''));
+    if (!dormant) {
+      const topY = baseY - (p.h[1] / 100) * sc * Math.max(g, 0.85);
+      for (let i = 0; i < 9; i++) {
+        const x = cx + (R() - 0.5) * W * 0.95, y = topY + (baseY - topY) * (0.12 + R() * 0.55);
+        out.push(`<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(W * (0.18 + R() * 0.1))}" ry="${r1((baseY - topY) * (0.16 + R() * 0.08))}" fill="${[leaf, dark, light][i % 3]}"/>`);
+      }
+      if (blooming) for (let i = 0; i < 16; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.9)}" cy="${r1(topY + (baseY - topY) * (0.1 + R() * 0.5))}" r="${r1(fr * 0.7)}" fill="${fc}"/>`);
+      if (p.harvest?.includes(nm) && FRUIT[p.group]) for (let i = 0; i < 8; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.8)}" cy="${r1(topY + (baseY - topY) * (0.2 + R() * 0.5))}" r="${r1(fr * 0.7)}" fill="${FRUIT[p.group]}"/>`);
+    }
+    return out.join('');
+  }
+
+  // 休眠中（冬）
   if (dormant) {
     if (seedheads) {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 5; i++) {
         const x = cx + (R() - 0.5) * W * 0.6;
         const top = baseY - (p.h[1] / 100) * sc * (0.7 + 0.25 * R());
-        out.push(`<line x1="${r1(x)}" y1="${baseY}" x2="${r1(x)}" y2="${r1(top)}" stroke="${STRAW}" stroke-width="1.3"/><circle cx="${r1(x)}" cy="${r1(top)}" r="3.2" fill="${SEED}"/>`);
+        out.push(`<line x1="${r1(x)}" y1="${baseY}" x2="${r1(x)}" y2="${r1(top)}" stroke="${STRAW}" stroke-width="1.3"/><circle cx="${r1(x)}" cy="${r1(top)}" r="${r1(fr * 0.6)}" fill="${SEED}"/>`);
       }
     } else {
-      out.push(`<path d="M${r1(cx - W * 0.25)},${baseY} q${r1(W * 0.25)},-6 ${r1(W * 0.5)},0Z" fill="#8a7458"/>`);
+      out.push(`<path d="M${r1(cx - W * 0.22)},${baseY} q${r1(W * 0.22)},-5 ${r1(W * 0.44)},0Z" fill="#8a7458"/>`);
     }
     return out.join('');
   }
 
-  // 葉の茂み
+  // 葉の茂み（重なった葉の房で質感を出す）
   const mound = p.form === 'mound';
-  const fh = mound ? H : Math.min(H * 0.45, W * 0.45);
+  const fh = mound ? H : Math.min(H * 0.42, W * 0.42);
   out.push(`<path d="M${r1(cx - W / 2)},${baseY} C${r1(cx - W / 2)},${r1(baseY - fh * 1.25)} ${r1(cx + W / 2)},${r1(baseY - fh * 1.25)} ${r1(cx + W / 2)},${baseY}Z" fill="${leaf}"/>`);
-  out.push(`<path d="M${r1(cx - W * 0.3)},${baseY} C${r1(cx - W * 0.28)},${r1(baseY - fh * 0.9)} ${r1(cx + W * 0.1)},${r1(baseY - fh * 1.05)} ${r1(cx + W * 0.2)},${baseY}Z" fill="#000" opacity=".08"/>`);
+  for (let i = 0; i < 6; i++) {
+    const a = Math.PI * (0.15 + 0.7 * (i / 5));
+    const x = cx - Math.cos(a) * W * 0.32, y = baseY - Math.sin(a) * fh * 0.7;
+    out.push(`<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(W * 0.16)}" ry="${r1(Math.max(2, fh * 0.28))}" fill="${i % 2 ? dark : light}" opacity=".55"/>`);
+  }
+  if (p.leaf === 'variegated') for (let i = 0; i < 8; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.8)}" cy="${r1(baseY - R() * fh * 0.9)}" r="1.6" fill="#f4f1e0" opacity=".8"/>`);
 
   const stems = (n, spread, hMin = 0.75) => Array.from({ length: n }, (_, i) => {
     const t = n === 1 ? 0 : i / (n - 1) - 0.5;
@@ -103,54 +166,66 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
     const y = baseY - H * (hMin + (1 - hMin) * R());
     return { x, y, bx: cx + t * W * 0.25 };
   });
-  const stemLine = (s) => `<line x1="${r1(s.bx)}" y1="${r1(baseY - fh * 0.5)}" x2="${r1(s.x)}" y2="${r1(s.y)}" stroke="${leaf}" stroke-width="1.4"/>`;
+  const stemLine = (st) => `<path d="M${r1(st.bx)},${r1(baseY - fh * 0.5)} Q${r1((st.bx + st.x) / 2 + (R() - 0.5) * 4)},${r1((baseY - fh * 0.5 + st.y) / 2)} ${r1(st.x)},${r1(st.y)}" stroke="${dark}" stroke-width="1.3" fill="none"/>`
+    + `<path d="M${r1((st.bx + st.x) / 2)},${r1((baseY - fh * 0.5 + st.y) / 2)} l-4,-2 M${r1((st.bx + st.x) / 2)},${r1((baseY - fh * 0.5 + st.y) / 2 + 6)} l4,-2" stroke="${leaf}" stroke-width="2" stroke-linecap="round"/>`;
   const show = blooming || seedheads;
   const head = seedheads ? SEED : fc;
   const stroke = color === 'white' ? ' stroke="#c9c3b2" stroke-width=".6"' : '';
+  const tint = (i) => (seedheads ? SEED : i % 3 === 1 ? shadeHex(fc, 0.15) : i % 3 === 2 ? shadeHex(fc, -0.1) : fc);
 
   switch (p.form) {
     case 'spike': {
-      for (const s of stems(5, 0.7)) {
-        out.push(stemLine(s));
+      for (const [k, st] of stems(5, 0.7).entries()) {
+        out.push(stemLine(st));
         if (show) {
-          const len = Math.max(8, (s.y < baseY ? (baseY - s.y) : 10) * 0.35);
-          out.push(`<line x1="${r1(s.x)}" y1="${r1(s.y + len)}" x2="${r1(s.x)}" y2="${r1(s.y)}" stroke="${head}" stroke-width="${seedheads ? 2.5 : 5}" stroke-linecap="round"/>`);
+          // 小花が下から上へ細くなりながら並ぶ穂
+          const len = Math.max(10, (baseY - st.y) * 0.4);
+          const n = Math.max(4, Math.round(len / (fr * 0.9)));
+          for (let j = 0; j < n; j++) {
+            const u = j / (n - 1);
+            out.push(`<circle cx="${r1(st.x + (j % 2 ? 1 : -1) * fr * 0.35 * (1 - u))}" cy="${r1(st.y + len * (1 - u))}" r="${r1((seedheads ? 0.45 : 0.75) * fr * (1 - u * 0.55))}" fill="${tint(k + j)}"/>`);
+          }
         }
       }
       break;
     }
     case 'daisy': {
-      for (const s of stems(7, 0.85)) {
-        out.push(stemLine(s));
-        if (show) {
-          out.push(seedheads
-            ? `<circle cx="${r1(s.x)}" cy="${r1(s.y)}" r="2.6" fill="${SEED}"/>`
-            : `<circle cx="${r1(s.x)}" cy="${r1(s.y)}" r="4.6" fill="${fc}"${stroke}/><circle cx="${r1(s.x)}" cy="${r1(s.y)}" r="1.6" fill="#6b4a2a"/>`);
+      for (const [k, st] of stems(7, 0.85).entries()) {
+        out.push(stemLine(st));
+        if (!show) continue;
+        if (seedheads) { out.push(`<circle cx="${r1(st.x)}" cy="${r1(st.y)}" r="${r1(fr * 0.55)}" fill="${SEED}"/>`); continue; }
+        // 花びらの輪と中心
+        for (let j = 0; j < 8; j++) {
+          const a = (j / 8) * Math.PI * 2;
+          out.push(`<ellipse cx="${r1(st.x + Math.cos(a) * fr * 0.62)}" cy="${r1(st.y + Math.sin(a) * fr * 0.4)}" rx="${r1(fr * 0.45)}" ry="${r1(fr * 0.22)}" transform="rotate(${r1((a * 180) / Math.PI)} ${r1(st.x + Math.cos(a) * fr * 0.62)} ${r1(st.y + Math.sin(a) * fr * 0.4)})" fill="${tint(k)}"${stroke}/>`);
         }
+        out.push(`<circle cx="${r1(st.x)}" cy="${r1(st.y)}" r="${r1(fr * 0.32)}" fill="#6b4a2a"/>`);
       }
       break;
     }
     case 'globe': {
-      for (const s of stems(4, 0.6)) {
-        out.push(stemLine(s));
-        if (show) out.push(`<circle cx="${r1(s.x)}" cy="${r1(s.y)}" r="${seedheads ? 3.5 : 7}" fill="${head}"${seedheads ? '' : stroke}/>`);
+      for (const [k, st] of stems(4, 0.6).entries()) {
+        out.push(stemLine(st));
+        if (show) out.push(`<circle cx="${r1(st.x)}" cy="${r1(st.y)}" r="${r1(seedheads ? fr * 0.6 : fr * 1.25)}" fill="${tint(k)}"${seedheads ? '' : stroke}/>${seedheads ? '' : `<circle cx="${r1(st.x - fr * 0.35)}" cy="${r1(st.y - fr * 0.35)}" r="${r1(fr * 0.4)}" fill="#fff" opacity=".25"/>`}`);
       }
       break;
     }
     case 'plate': {
-      for (const s of stems(5, 0.75)) {
-        out.push(stemLine(s));
-        if (show) out.push(`<ellipse cx="${r1(s.x)}" cy="${r1(s.y)}" rx="${seedheads ? 4 : 8}" ry="${seedheads ? 2 : 3.6}" fill="${head}"${seedheads ? '' : stroke}/>`);
+      for (const [k, st] of stems(5, 0.75).entries()) {
+        out.push(stemLine(st));
+        if (!show) continue;
+        // 小花が集まった平たい花房
+        for (let j = 0; j < 9; j++) out.push(`<circle cx="${r1(st.x + (j - 4) * fr * 0.32)}" cy="${r1(st.y - Math.cos(((j - 4) / 4) * 1.2) * fr * 0.45)}" r="${r1(fr * (seedheads ? 0.28 : 0.38))}" fill="${tint(k + j)}"${seedheads ? '' : stroke}/>`);
       }
       break;
     }
     case 'airy': {
-      for (const s of stems(5, 0.8, 0.85)) out.push(stemLine(s));
+      for (const st of stems(6, 0.8, 0.85)) out.push(stemLine(st));
       if (show) {
-        for (let i = 0; i < 34; i++) {
+        for (let i = 0; i < 40; i++) {
           const x = cx + (R() - 0.5) * W * 1.05;
           const y = baseY - H * (0.55 + 0.45 * R());
-          out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(1.4 + R() * 1.3)}" fill="${head}"/>`);
+          out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * (0.22 + R() * 0.2))}" fill="${tint(i)}"/>`);
         }
       }
       break;
@@ -158,17 +233,27 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
     case 'mound':
     default: {
       if (show) {
-        for (let i = 0; i < 18; i++) {
+        for (let i = 0; i < 20; i++) {
           const a = Math.PI * (0.1 + 0.8 * R());
-          const rr = 0.75 + 0.25 * R();
+          const rr = 0.72 + 0.28 * R();
           const x = cx - Math.cos(a) * (W / 2) * rr * 0.95;
           const y = baseY - Math.sin(a) * fh * rr * 0.95;
-          out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(2.2 + R() * 1.6)}" fill="${head}"${stroke}/>`);
+          out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * (0.45 + R() * 0.3))}" fill="${tint(i)}"${stroke}/>`);
         }
       }
     }
   }
+  // 野菜の実（収穫の時期）
+  if (p.harvest?.includes(nm) && FRUIT[p.group]) {
+    for (let i = 0; i < 6; i++) out.push(`<ellipse cx="${r1(cx + (R() - 0.5) * W * 0.7)}" cy="${r1(baseY - H * (0.25 + R() * 0.5))}" rx="${r1(fr * 0.7)}" ry="${r1(fr * (['cucumber', 'okra', 'green-bean', 'sasage', 'luffa', 'goya', 'zucchini', 'eggplant'].includes(p.group) ? 1.4 : 0.8))}" fill="${FRUIT[p.group]}"/>`);
+  }
   return out.join('');
+}
+function shadeHex(hex, f) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) return hex;
+  const n = parseInt(hex.slice(1), 16);
+  const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((c) => Math.round(f >= 0 ? c + (255 - c) * f : c * (1 + f)));
+  return '#' + ch.map((c) => c.toString(16).padStart(2, '0')).join('');
 }
 
 /** 立面図（正面から見たイメージ）。month はその土地の月 */
@@ -195,6 +280,7 @@ export function elevationSVG(plan, month, south = false, opts = {}) {
     <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky1}"/><stop offset="1" stop-color="${sky2}"/></linearGradient></defs>
     <rect width="${VW}" height="${VH}" fill="url(#sky)"/>
     <path d="M0,${ground - depthPx - 6} L${VW},${ground - depthPx - 6} L${VW},${VH} L0,${VH}Z" fill="${nm === 12 || nm <= 2 ? '#b9b39c' : '#9fb779'}"/>
+    ${plan.view === 'border' ? `<g opacity=".28">${Array.from({ length: Math.ceil(VW / 18) }, (_, i) => `<rect x="${i * 18 + 2}" y="${ground - depthPx - 6 - Math.min(150, sh * 1.1)}" width="14" height="${Math.min(150, sh * 1.1)}" fill="#c9b79a" rx="2"/>`).join('')}<rect x="0" y="${ground - depthPx - 6 - Math.min(150, sh * 1.1) + 10}" width="${VW}" height="5" fill="#b5a080"/></g>` : ''}
     <path d="M14,${ground + 4} L${VW - 14},${ground + 4} L${VW - 14 - 18},${ground - depthPx - 4} L${14 + 18},${ground - depthPx - 4}Z" fill="#6d5640"/>
     ${body}
     <rect x="0" y="${ground + 4}" width="${VW}" height="${VH - ground - 4}" fill="${nm === 12 || nm <= 2 ? '#c9c2a8' : '#a9c286'}"/>
@@ -203,40 +289,108 @@ export function elevationSVG(plan, month, south = false, opts = {}) {
   </svg>`;
 }
 
-/** 平面図（上から見た配置） */
+/** 平面図用の色：同じ花色の植物どうしも見分けられるよう、明るさを少しずつ変える */
+function shade(hex, f) {
+  const n = parseInt(hex.slice(1), 16);
+  const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((c) => Math.round(f >= 0 ? c + (255 - c) * f : c * (1 + f)));
+  return '#' + ch.map((c) => c.toString(16).padStart(2, '0')).join('');
+}
+export function mapColors(plan) {
+  const seen = {};
+  const steps = [0, -0.22, 0.28, -0.4, 0.45, 0.14];
+  const out = new Map();
+  for (const sp of plan.species) {
+    const base = sp.color === 'green' ? LEAF[sp.plant.leaf]?.hex || '#7aa95c' : flowerHex(sp.color);
+    const k = (seen[base] = (seen[base] ?? -1) + 1);
+    out.set(sp.no, shade(base === '#f7f5ee' ? '#e8e2d0' : base, steps[k % steps.length]));
+  }
+  return out;
+}
+/** 同じ植物の株を、近いものどうしで群れ（ドリフト）に分ける */
+function clustersOf(positions, link) {
+  const left = positions.map((p, i) => i);
+  const out = [];
+  while (left.length) {
+    const group = [left.shift()];
+    for (let k = 0; k < group.length; k++) {
+      const a = positions[group[k]];
+      for (let j = left.length - 1; j >= 0; j--) {
+        const b = positions[left[j]];
+        if (Math.hypot(a.x - b.x, a.y - b.y) <= link) group.push(left.splice(j, 1)[0]);
+      }
+    }
+    out.push(group.map((i) => positions[i]));
+  }
+  return out;
+}
+
+/** 平面図（上から見た配置）。○が植える位置、うすい色の範囲が育ったときの広がり、番号は植物リストと対応 */
 export function planSVG(plan) {
   const VW = 640;
-  const sc = Math.min((VW - 40) / plan.width, 420 / plan.depth);
+  const sc = Math.min((VW - 110) / plan.width, 430 / plan.depth);
   const bw = plan.width * sc, bd = plan.depth * sc;
-  const ox = (VW - bw) / 2, oy = 22;
-  const VH = bd + oy + 34;
-  // y=0（手前）を図の下側に
-  const X = (x) => ox + x * sc, Y = (y) => oy + bd - y * sc;
-  const circles = [];
-  const labels = [];
-  for (const s of plan.species) {
-    const r = Math.max(3, (s.plant.spread / 200) * sc * 0.92);
-    const fc = s.color === 'green' ? LEAF[s.plant.leaf].hex : flowerHex(s.color);
-    for (const pt of s.positions) {
-      circles.push(`<circle cx="${r1(X(pt.x))}" cy="${r1(Y(pt.y))}" r="${r1(r)}" fill="${fc}" fill-opacity=".88" stroke="${LEAF[s.plant.leaf].hex}" stroke-width="2"/>`);
+  const ox = 46 + (VW - 110 - bw) / 2, oy = 46;
+  const VH = bd + oy + 66;
+  const X = (x) => ox + x * sc, Y = (y) => oy + bd - y * sc; // 手前（y=0）が下
+  const col = mapColors(plan);
+  const uid = 'pl' + Math.round(plan.width * 100) + Math.round(plan.depth * 100) + plan.species.length;
+  // 方眼（50cmごと）と目盛り
+  let grid = '';
+  for (let x = 0; x <= plan.width + 1e-6; x += 0.5) grid += `<line x1="${r1(X(x))}" y1="${oy}" x2="${r1(X(x))}" y2="${r1(oy + bd)}" stroke="#fff" stroke-opacity="${Math.abs(x - Math.round(x)) < 1e-6 ? 0.22 : 0.1}"/>`;
+  for (let y = 0; y <= plan.depth + 1e-6; y += 0.5) grid += `<line x1="${ox}" y1="${r1(Y(y))}" x2="${r1(ox + bw)}" y2="${r1(Y(y))}" stroke="#fff" stroke-opacity="${Math.abs(y - Math.round(y)) < 1e-6 ? 0.22 : 0.1}"/>`;
+  const stepX = plan.width > 8 ? 2 : plan.width > 3 ? 1 : 0.5;
+  let ticks = '';
+  for (let x = 0; x <= plan.width + 1e-6; x += stepX) ticks += `<text x="${r1(X(x))}" y="${oy - 8}" text-anchor="middle" font-size="14" fill="currentColor" opacity=".6">${+x.toFixed(1)}m</text>`;
+  for (let y = 0; y <= plan.depth + 1e-6; y += plan.depth > 3 ? 1 : 0.5) ticks += `<text x="${ox - 6}" y="${r1(Y(y) + 4)}" text-anchor="end" font-size="15" fill="currentColor" opacity=".6">${+y.toFixed(1)}</text>`;
+  // 層の境目（ボーダー）
+  const bandLines = plan.view === 'border' ? plan.bands.slice(1).map((b) => `<line x1="${ox}" x2="${r1(ox + bw)}" y1="${r1(Y(b.y0))}" y2="${r1(Y(b.y0))}" stroke="#fff" stroke-opacity=".45" stroke-dasharray="6 5"/>`).join('') : '';
+  const bandLabels = plan.view === 'border' ? plan.bands.map((b) => `<text x="${r1(ox + bw + 6)}" y="${r1(Y((b.y0 + b.y1) / 2) + 4)}" font-size="15" fill="currentColor" opacity=".65">${LAYER_JA[b.layer] || ''}</text>`).join('') : '';
+  // 区画（ポタジェ）
+  const plots = (plan.plots || []).map((p) => `<rect x="${r1(X(p.x0))}" y="${r1(Y(p.y1))}" width="${r1((p.x1 - p.x0) * sc)}" height="${r1((p.y1 - p.y0) * sc)}" rx="4" fill="#6d5640" stroke="#a07a4f" stroke-width="3"/>`).join('');
+  // 育ったときの広がり（群れごとにひとまとまりの形に見える）
+  const spreads = [], dots = [], labels = [], bulbs = [];
+  for (const sp of plan.species) {
+    const c = col.get(sp.no);
+    const R = (sp.plant.spread / 200) * sc;
+    if (sp.role === 'under') {
+      for (const pt of sp.positions) bulbs.push(`<circle cx="${r1(X(pt.x))}" cy="${r1(Y(pt.y))}" r="2.6" fill="${c}" stroke="#2b2a22" stroke-width=".8"/>`);
+      for (const g of clustersOf(sp.positions, 0.35)) {
+        const m = g.reduce((a, p) => ({ x: a.x + p.x / g.length, y: a.y + p.y / g.length }), { x: 0, y: 0 });
+        labels.push({ x: X(m.x), y: Y(m.y), no: sp.no, c, small: true });
+      }
+      continue;
     }
-    // ラベルは株のまとまりの中心付近に
-    const mx = s.positions.reduce((t, p) => t + p.x, 0) / s.positions.length;
-    const my = s.positions.reduce((t, p) => t + p.y, 0) / s.positions.length;
-    const near = s.positions.reduce((b, p) => ((p.x - mx) ** 2 + (p.y - my) ** 2 < (b.x - mx) ** 2 + (b.y - my) ** 2 ? p : b), s.positions[0]);
-    labels.push(`<g><circle cx="${r1(X(near.x))}" cy="${r1(Y(near.y))}" r="10" fill="#22291f" fill-opacity=".85"/><text x="${r1(X(near.x))}" y="${r1(Y(near.y) + 4)}" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">${s.no}</text></g>`);
+    spreads.push(`<g fill="${c}" opacity=".42">${sp.positions.map((pt) => `<circle cx="${r1(X(pt.x))}" cy="${r1(Y(pt.y))}" r="${r1(R)}"/>`).join('')}</g>`);
+    for (const pt of sp.positions) dots.push(`<circle cx="${r1(X(pt.x))}" cy="${r1(Y(pt.y))}" r="${r1(Math.max(3, R * 0.32))}" fill="${c}" stroke="#fff" stroke-width="1.3"/>`);
+    const groups = clustersOf(sp.positions, (sp.plant.spread / 100) * 1.6).sort((a, b) => b.length - a.length);
+    // 番号は大きな群れと、2株以上の群れにだけ付ける（1株だけの群れは凡例の色で見分ける）
+    for (const g of groups.filter((g, k) => k === 0 || g.length >= 2).slice(0, 4)) {
+      const m = g.reduce((a, p) => ({ x: a.x + p.x / g.length, y: a.y + p.y / g.length }), { x: 0, y: 0 });
+      const near = g.reduce((b, p) => (Math.hypot(p.x - m.x, p.y - m.y) < Math.hypot(b.x - m.x, b.y - m.y) ? p : b), g[0]);
+      labels.push({ x: X(near.x), y: Y(near.y), no: sp.no, c });
+    }
   }
-  const bandLines = plan.bands.slice(1).map((b) => `<line x1="${ox}" x2="${ox + bw}" y1="${r1(Y(b.y0))}" y2="${r1(Y(b.y0))}" stroke="#fff" stroke-opacity=".25" stroke-dasharray="4 4"/>`).join('');
-  const bandLabels = plan.view === 'border'
-    ? plan.bands.map((b) => `<text x="${ox + bw + 4}" y="${r1(Y((b.y0 + b.y1) / 2) + 4)}" font-size="11" fill="currentColor" opacity=".6">${LAYER_JA[b.layer]}</text>`).join('')
-    : '';
-  const ticks = [];
-  for (let m = 0; m <= plan.width + 1e-6; m += plan.width > 6 ? 2 : 1) ticks.push(`<text x="${r1(X(m))}" y="${r1(oy - 8)}" text-anchor="middle" font-size="10" fill="currentColor" opacity=".55">${m}m</text>`);
+  // 番号札（重ならないように少しずらす）
+  const placed = [];
+  const tags = labels.map((l) => {
+    let { x, y } = l;
+    for (let t = 0; t < 8 && placed.some((q) => Math.hypot(q.x - x, q.y - y) < 26); t++) { x += 9 * Math.cos(t * 2.1); y += 9 * Math.sin(t * 2.1); }
+    placed.push({ x, y });
+    const r = l.small ? 11 : 14;
+    return `<g class="tap" data-jump="cast-${l.no}"><circle cx="${r1(x)}" cy="${r1(y)}" r="${r}" fill="#22291f" fill-opacity=".86" stroke="${l.c}" stroke-width="2.5"/><text x="${r1(x)}" y="${r1(y + (l.small ? 5 : 6))}" text-anchor="middle" font-size="${l.small ? 14 : 17}" font-weight="700" fill="#fff">${l.no}</text></g>`;
+  }).join('');
+  const sbar = [0.5, 1, 2].find((v) => v * sc >= 50) || 2;
+  const front = plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ 手前（通路・眺める側）';
   return `<svg class="illust plan" viewBox="0 0 ${VW} ${r1(VH)}" role="img" aria-label="花壇の平面図">
-    <rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : '#6d5640'}"/>
-    ${(plan.plots || []).map((p) => `<rect x="${r1(X(p.x0))}" y="${r1(Y(p.y1))}" width="${r1((p.x1 - p.x0) * sc)}" height="${r1((p.y1 - p.y0) * sc)}" rx="4" fill="#6d5640" stroke="#a07a4f" stroke-width="3"/>`).join('')}
-    ${bandLines}${circles.join('')}${labels.join('')}${ticks.join('')}${bandLabels}
-    <text x="${VW / 2}" y="${r1(VH - 8)}" text-anchor="middle" font-size="12" fill="currentColor" opacity=".7">${plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ こちらから眺める（手前）'}　幅${plan.width}m × 奥行き${plan.depth}m</text>
+    <defs><clipPath id="${uid}"><rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10"/></clipPath>
+      <pattern id="${uid}m" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#6d5640"/><circle cx="2" cy="3" r=".9" fill="#7f6650"/><circle cx="6.5" cy="7" r=".7" fill="#5f4a37"/></pattern></defs>
+    ${plan.view === 'border' && !plan.plots ? `<text x="${r1(ox + bw / 2)}" y="18" text-anchor="middle" font-size="15" fill="currentColor" opacity=".7">奥（塀・フェンス側）</text>` : ''}
+    <rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>
+    <g clip-path="url(#${uid})">${plots}${grid}${bandLines}${spreads.join('')}${bulbs.join('')}${dots.join('')}</g>
+    ${tags}${ticks}${bandLabels}
+    <g transform="translate(${ox} ${r1(VH - 38)})"><path d="M0 0h${r1(sbar * sc)}M0 -4v4M${r1(sbar * sc)} -4v4" stroke="currentColor" stroke-width="1.4" opacity=".7"/><text x="${r1(sbar * sc + 6)}" y="5" font-size="15" fill="currentColor" opacity=".7">${sbar >= 1 ? sbar + 'm' : sbar * 100 + 'cm'}</text></g>
+    <text x="${r1(ox + bw)}" y="${r1(VH - 32)}" text-anchor="end" font-size="15" fill="currentColor" opacity=".75">${front}</text>
+    <text x="${r1(ox + bw)}" y="${r1(VH - 10)}" text-anchor="end" font-size="13" fill="currentColor" opacity=".6">幅${plan.width}m × 奥行き${plan.depth}m・方眼は50cm</text>
   </svg>`;
 }
 

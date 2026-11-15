@@ -253,13 +253,19 @@ export function generatePlan(o) {
 
   // 配置
   const island = o.view === 'island';
-  const layout = style.layout === 'bands' || style.layout === 'gradient'
-    ? layoutBed(picked, width, depth, island, rand, style.layout === 'gradient')
-    : style.layout === 'potager' ? layoutPotager(picked, width, depth, island, rand)
-      : layoutNatural(picked, width, depth, island, rand, style);
-  const species = picked.map((s, i) => ({ ...s, role: s.layer, roleJa: ROLE_JA[s.layer], no: i + 1, positions: layout.positions[i], qty: layout.positions[i].length }));
+  // 春咲きの球根は、花後に葉が消えるので専用の場所をとらず、宿根草の株間に群れで植え込む
+  const under = (p) => p.type === 'bulb' && Math.min(...p.bloom) <= 5 && !style.potager;
+  const main = picked.filter((x) => !under(x.plant));
+  const bulbs = picked.filter((x) => under(x.plant));
+  const lay = main.length ? (style.layout === 'bands' || style.layout === 'gradient'
+    ? layoutBed(main, width, depth, island, rand, style.layout === 'gradient')
+    : style.layout === 'potager' ? layoutPotager(main, width, depth, island, rand)
+      : layoutNatural(main, width, depth, island, rand, style)) : { bands: [], positions: [] };
+  const bulbPos = interplantBulbs(bulbs, width, depth, island, rand);
+  const layout = { bands: lay.bands, plots: lay.plots, positions: picked.map((x) => (under(x.plant) ? bulbPos[bulbs.indexOf(x)] : lay.positions[main.indexOf(x)])) };
+  const species = picked.map((s, i) => ({ ...s, role: under(s.plant) ? 'under' : s.layer, roleJa: under(s.plant) ? '株間に植え込む球根' : ROLE_JA[s.layer], no: i + 1, positions: layout.positions[i], qty: layout.positions[i].length }));
   // 番号は役割の順（後景→前景、骨格→地模様など）に振り直す
-  const ORDER = ['back', 'scatter', 'structure', 'accent', 'crop', 'middle', 'block', 'theme', 'front', 'edge', 'matrix', 'ground'];
+  const ORDER = ['back', 'scatter', 'structure', 'accent', 'crop', 'middle', 'block', 'theme', 'front', 'edge', 'matrix', 'ground', 'under'];
   species.sort((a, b) => ORDER.indexOf(a.role) - ORDER.indexOf(b.role));
   species.forEach((s, i) => { s.no = i + 1; s.subtotal = s.qty * s.plant.price; });
 
@@ -287,6 +293,32 @@ export function generatePlan(o) {
     cost: { plants: plantsCost, extras, total, perSqm: Math.round(total / area), budget: Number(o.budget) || null },
     totalPlants: species.reduce((t, s) => t + s.qty, 0),
   };
+}
+
+/** 春咲き球根を、宿根草の株間に群れ（5〜9球）で植え込む。手前〜中ほど（アイランドは周囲）に */
+export function interplantBulbs(bulbs, W, D, island, rand) {
+  const out = bulbs.map(() => []);
+  if (!bulbs.length) return out;
+  const clusters = Math.max(1, Math.round((W * D) / (1.6 * bulbs.length)));
+  const centers = [];
+  bulbs.forEach((b, i) => {
+    const n = b.plant.h[1] <= 30 ? 9 : b.plant.h[1] <= 60 ? 7 : 5;
+    const gap = Math.max(0.08, b.plant.spread / 100);
+    for (let c = 0; c < clusters; c++) {
+      let cx = 0, cy = 0;
+      for (let t = 0; t < 12; t++) {
+        cx = W * (0.08 + 0.84 * ((c + 0.5) / clusters + (rand() - 0.5) * 0.3)) % W;
+        cy = island ? (rand() < 0.5 ? D * (0.15 + rand() * 0.2) : D * (0.65 + rand() * 0.2)) : D * (0.12 + rand() * (b.plant.h[1] > 60 ? 0.55 : 0.4));
+        if (centers.every((q) => Math.hypot(q.x - cx, q.y - cy) > 0.45)) break;
+      }
+      centers.push({ x: cx, y: cy });
+      for (let k = 0; k < n; k++) {
+        const a = k * 2.4, r = gap * Math.sqrt(k) * 0.9;
+        out[i].push({ x: clamp(cx + Math.cos(a) * r, 0.03, W - 0.03), y: clamp(cy + Math.sin(a) * r, 0.03, D - 0.03), under: true });
+      }
+    }
+  });
+  return out;
 }
 
 /**
@@ -449,16 +481,22 @@ export function layoutNatural(picked, W, D, island, rand, style) {
   const pickFrom = (arr) => arr[Math.floor(rand() * arr.length)];
 
   if (style.layout === 'intermingle') {
-    // 3層を比率に従ってランダムに混ぜ植え
+    // 3層を比率に従って混ぜ植え。同じ植物は2〜3株の小さな群れにする（1株ずつ散らすと景色がまとまらない）
     const roles = Object.entries(style.roleShare).filter(([r]) => idxOf(r).length);
     const total = roles.reduce((t, [, w]) => t + w, 0);
-    for (const pt of pts) {
+    const order = pts.map((_, k) => k).sort(() => rand() - 0.5);
+    for (const k of order) {
+      const pt = pts[k];
+      if (pt.owner >= 0) continue;
       let u = rand() * total, role = roles[0][0];
       for (const [r, w] of roles) { if ((u -= w) <= 0) { role = r; break; } }
       // 骨格は手前の縁に置かない
       if (role === 'structure' && !island && pt.y < D * 0.25 && idxOf('theme').length) role = 'theme';
       if (role === 'structure' && island && Math.abs(pt.y - D / 2) > D * 0.3 && idxOf('theme').length) role = 'theme';
-      pt.owner = pickFrom(idxOf(role));
+      const sp = pickFrom(idxOf(role));
+      const clump = role === 'structure' ? 1 : 3;
+      const near = pts.map((q, j) => ({ q, j, d: Math.hypot(q.x - pt.x, q.y - pt.y) })).filter((o) => o.q.owner < 0).sort((a, b) => a.d - b.d).slice(0, clump);
+      for (const o of near) if (o.d < s * 2.2) o.q.owner = sp;
     }
   } else {
     // ブロック（群れ）の中心を配置し、各点を最寄りの中心に割り当てる（ボロノイ分割）
@@ -499,6 +537,20 @@ export function layoutNatural(picked, W, D, island, rand, style) {
     }
   }
 
+  // 株の大きさに合わせて間隔をあける：近すぎる株は、小さな植物（地模様・グラウンドカバー）に替えるか、植えずにあけておく
+  const spr = picked.map((p) => (p.plant.spread / 100) * (style.spacing || 1));
+  const small = picked.map((p, i) => i).filter((i) => ['matrix', 'ground', 'edge'].includes(picked[i].layer)).sort((a, b) => spr[a] - spr[b]);
+  const placed = [];
+  const fits = (pt, i) => placed.every((q) => Math.hypot(q.x - pt.x, q.y - pt.y) >= ((spr[i] + spr[q.owner]) / 2) * 0.82);
+  const byBig = pts.filter((pt) => pt.owner >= 0).sort((a, b) => spr[b.owner] - spr[a.owner] || rand() - 0.5);
+  for (const pt of byBig) {
+    if (!fits(pt, pt.owner)) {
+      const alt = small.find((i) => fits(pt, i));
+      if (alt == null) { pt.owner = -1; continue; }
+      pt.owner = alt;
+    }
+    placed.push(pt);
+  }
   const positions = picked.map(() => []);
   for (const pt of pts) if (pt.owner >= 0) positions[pt.owner].push({ x: pt.x, y: pt.y });
   // どの植物も最低1株は植わるように

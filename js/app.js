@@ -3,7 +3,7 @@ import { STYLES } from './styles.js';
 import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pests.js';
 import { guideSteps } from './guide.js';
 import { generatePlan, PRESETS, LAYER_JA } from './plan.js';
-import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
+import { elevationSVG, planSVG, plantThumbSVG, mapColors } from './illust.js';
 import { loadImages, imageOf, placeImage } from './images.js';
 import { ROLES } from './roles.js';
 import { potGuide, potGuideSVG } from './pots.js';
@@ -1133,8 +1133,10 @@ function renderPlan() {
     </section>
 
     <section class="mag paper" id="sec-planview">
-      ${secHead('Planting Plan', '配置図', '○ ひとつが苗1株。番号は上のリストと対応しています。円は数年後の株の広がりの目安です。')}
-      ${planSVG(plan)}
+      ${secHead('Planting Plan', '配置図（植栽図）', '濃い点が苗を植える位置（1点＝1株）、まわりのうすい色が育ったときの広がり。同じ色のまとまりが1つの群れです。番号をタップすると植物の説明へ移動します。')}
+      <div class="scroll-x plan-scroll">${planSVG(plan)}</div>
+      ${planLegend(plan)}
+      ${plantingSteps(plan)}
     </section>
 
     <section class="mag" id="sec-relay">
@@ -1403,6 +1405,17 @@ function renderSitePlan() {
     ? (c.total <= c.budget ? `<div class="alert ok">予算 ${yen(c.budget)} 内に収まっています。</div>`
       : `<div class="alert warn">予算 ${yen(c.budget)} を ${yen(c.total - c.budget)} 超えています。構造物を後から少しずつ加える、テラスを小さくする、苗を少なめに植えて広げる、などで調整できます。</div>`)
     : '';
+  // 庭全体の植物の一覧（花壇をまたいで集計）
+  const agg = new Map();
+  for (const b of s.beds) for (const sp of b.plan.species) {
+    const x = agg.get(sp.plant.id) || { plant: sp.plant, color: sp.color, qty: 0, beds: [], roleJa: sp.roleJa };
+    x.qty += sp.qty;
+    if (!x.beds.includes(b.id)) x.beds.push(b.id);
+    agg.set(sp.plant.id, x);
+  }
+  const sitePlants = [...agg.values()].sort((a, b) => b.plant.h[1] - a.plant.h[1]);
+  const siteCounts = Array(12).fill(0);
+  sitePlants.forEach((x) => x.plant.bloom.forEach((m) => siteCounts[localMonth(m, south) - 1]++));
   const midMonth = (h) => localMonth(h.months[Math.floor(h.months.length / 2)], south);
   const bedFor = (h) => s.beds.find((b) => h.stars[0] && b.plan.species.some((sp) => sp.plant.id === h.stars[0].p.id)) || s.beds[0];
 
@@ -1414,7 +1427,7 @@ function renderSitePlan() {
         <h1>${esc(title)}</h1>
         <p class="sekki">${esc(SHAPE_JA[pi.site.shape])}の敷地・家は${DIR_JA[s.house]}側・${esc(STYLES[pi.style]?.ja || '')}</p>
         <div class="seg small" id="siteLayer">${Object.entries(SITE_LAYERS).map(([k, v]) => `<button type="button" data-v="${k}" class="${k === layer ? 'on' : ''}">${v}</button>`).join('')}</div>
-        ${tocHtml([['sec-hl', '見どころ'], ['sec-tour', '園内の案内'], ['sec-photo', 'フォトスポット'], ['sec-swild', '生き物'], ['sec-beds', '花壇'], ['sec-scost', '費用']])}
+        ${tocHtml([['sec-hl', '見どころ'], ['sec-tour', '園内の案内'], ['sec-photo', 'フォトスポット'], ['sec-splants', '植物の一覧'], ['sec-srelay', '開花'], ['sec-swild', '生き物'], ['sec-beds', '花壇'], ['sec-scost', '費用']])}
         <div class="alt-row"><span>別の案：</span><button type="button" class="btn small" data-sitealt="plants">${icon('leaf', 15)}植栽だけ変える</button><button type="button" class="btn small" data-sitealt="layout">${icon('refresh', 15)}配置も変える</button></div>
       </div>
     </section>
@@ -1458,6 +1471,28 @@ function renderSitePlan() {
       ${webHtml(s.critters, s.plants, s.features, true)}
     </section>
 
+    <section class="mag" id="sec-splants">
+      ${secHead('Planting List', '植える植物（庭全体）', `${sitePlants.length}種・${sitePlants.reduce((t, x) => t + x.qty, 0)}株。どの花壇に植えるかは、花壇の記号をタップすると移動します。`)}
+      <div class="cast">${sitePlants.map((x, i) => `<article class="cast-card" id="scast-${i + 1}">
+        <div class="cast-art">${photoHtml(x.plant, 'cast-photo', x.color)}<span class="no">${i + 1}</span></div>
+        <div class="cbody">
+          <span class="role">${esc(x.roleJa)}</span>
+          <h3>${esc(x.plant.ja)}</h3>
+          <p class="latin">${esc(x.plant.latin)}</p>
+          <p class="calc"><span class="dot" style="background:${COLORS[x.color].hex};width:9px;height:9px"></span> ${COLORS[x.color].ja}・${x.plant.h[0]}〜${x.plant.h[1]}cm・株間${x.plant.spread}cm</p>
+          ${monthBar({ ...x.plant, color: [x.color] }, south)}
+          <p class="calc">${x.qty}${x.plant.type === 'bulb' ? '球' : '株'} × ${yen(x.plant.price)} = <b>${yen(x.qty * x.plant.price)}</b></p>
+          <div class="bed-tags">${x.beds.map((id) => `<button type="button" class="chip" data-jump="bed-${id}"><span class="bid">${id}</span>${esc(s.beds.find((b) => b.id === id)?.name.replace(/（.*?）/g, '') || '')}</button>`).join('')}</div>
+          <div class="why"><span>植え時 ${esc(monthsJa(plantingTime(x.plant, state.climate).plant.best))}</span>${(x.plant.roles || []).slice(0, 2).map((k) => `<span>${esc(ROLES[k].ja)}</span>`).join('')}</div>
+        </div>
+      </article>`).join('')}</div>
+    </section>
+
+    <section class="mag" id="sec-srelay">
+      ${secHead('Bloom Relay', '庭全体の開花リレー', '植物名をタップすると説明へ移動します。')}
+      <div class="scroll-x">${calHtml(sitePlants.map((x, i) => ({ p: x.plant, color: x.color, label: i + 1, jump: `scast-${i + 1}` })), south, siteCounts)}</div>
+    </section>
+
     <section class="mag" id="sec-beds">
       ${secHead('Beds', '花壇ごとの植栽', '塀や家・木の影を考えて、花壇ごとに日当たりを判断しています。')}
       <div class="bed-cards">${s.beds.map((b) => `<article class="bed-card" data-bedcard="${b.id}" id="bed-${b.id}">
@@ -1493,6 +1528,7 @@ function renderSitePlan() {
       <div class="row"><button type="button" class="btn" data-sitealt="plants">${icon('leaf', 16)}植栽だけ変える</button><button type="button" class="btn" data-sitealt="layout">${icon('refresh', 16)}配置も変える</button></div>
     </div>`;
 
+  hydratePhotos(box, sitePlants.map((x) => x.plant));
   $('#siteLayer').addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) return;
@@ -1794,6 +1830,26 @@ document.addEventListener('click', (e) => {
   for (let i = 0; i < 6 && w === el.textContent; i++) w = tsupiLine(state.tsupiCtx);
   el.textContent = w;
 });
+
+/** 平面図の凡例（色・番号・名前・株数） */
+function planLegend(plan) {
+  const col = mapColors(plan);
+  return `<ol class="plan-legend">${plan.species.map((sp) => `<li><button type="button" data-jump="cast-${sp.no}"><span class="lg-sw${sp.role === 'under' ? ' bulb' : ''}" style="background:${col.get(sp.no)}"></span><b>${sp.no}</b><span class="lg-name">${esc(sp.plant.ja)}</span><small>${sp.qty}${sp.plant.type === 'bulb' ? '球' : '株'}・${sp.plant.h[1]}cm・株間${sp.plant.spread}cm</small></button></li>`).join('')}</ol>`;
+}
+/** 植え付けの手順（この花壇の場合） */
+function plantingSteps(plan) {
+  const under = plan.species.filter((sp) => sp.role === 'under');
+  const big = [...plan.species].filter((sp) => sp.role !== 'under').sort((a, b) => b.plant.h[1] - a.plant.h[1]).slice(0, 2);
+  const steps = [
+    `植える場所の土を30cmほど掘り返し、堆肥と腐葉土を混ぜておく（${plan.area.toFixed(1)}㎡で堆肥 約${Math.ceil(plan.area * 10)}L）。`,
+    `配置図の方眼（50cm）を目安に、苗をポットのまま地面に並べてみる。背の高い${big.map((sp) => sp.plant.groupJa.replace(/（.*?）/g, '')).join('・')}から置くと位置が決めやすい。`,
+    '同じ植物はまとめて置き、群れの形が三角形や不等辺になるようにすると自然に見える。株間は植物の「株間」の数字を守る（苗が小さくても、育つと広がる）。',
+    under.length ? `${under.map((sp) => sp.plant.groupJa.replace(/（.*?）/g, '')).join('・')}の球根は、秋に宿根草の株の間へ5〜9球ずつまとめて植える（深さは球根の高さの2〜3倍）。花後に葉が消えたあとは、まわりの宿根草が場所を埋めてくれる。` : '',
+    '植えたらたっぷり水をやり、株元をバークチップや腐葉土で覆う（マルチング）。最初の1か月は乾かさないように。',
+    '1年目は株がまばらに見えても大丈夫。2〜3年で配置図の「広がり」くらいまで育ち、すき間が埋まる。',
+  ].filter(Boolean);
+  return `<details class="plant-steps"><summary>${icon('trowel', 16)}この花壇の植え付け手順</summary><ol class="steps-num">${steps.map((t) => `<li>${esc(t)}</li>`).join('')}</ol></details>`;
+}
 
 /** 植栽の役割のバランスとアドバイス */
 function roleBalanceHtml(plan) {
@@ -2281,6 +2337,10 @@ function planTitle(words, style = '') {
     ドライガーデン: '乾いた砂利の', シェード: '木陰の', 低予算: '',
     ハーブ: 'ハーブの', 薬草: '薬草の', 在来種: '野の花の', 野菜: '野菜も育つ',
   };
+  // 季節の言葉が2つ以上なら「春から秋まで」とまとめる
+  const SEASONS = ['春', '初夏', '夏', '秋', '冬'];
+  const ss = words.filter((w) => SEASONS.includes(w)).sort((a, b) => SEASONS.indexOf(a) - SEASONS.indexOf(b));
+  if (ss.length >= 2) { words = [...words.filter((w) => !SEASONS.includes(w)), '__season']; DESC.__season = `${ss[0]}から${ss[ss.length - 1]}まで咲き継ぐ`; }
   const colors = words.filter((w) => COLOR.includes(w));
   const STYLE = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライガーデン', 'シェード'];
   const descs = [...words.filter((w) => DESC[w] && !STYLE.includes(w)), ...words.filter((w) => STYLE.includes(w))].map((w) => DESC[w]).slice(0, 2);

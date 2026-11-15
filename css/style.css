@@ -1114,3 +1114,17 @@ h1, h2, h3, h4 { line-break: strict; }
 .big-row .btn { white-space: nowrap; font-size: clamp(.76rem, 3.6vw, .9rem); }
 .risk, .pill, .lv { white-space: nowrap; }
 .cast-card h3, .bed-card h3, .pot-card h3 { word-break: auto-phrase; text-wrap: balance; }
+
+/* ===== 平面図（植栽図）の凡例 ===== */
+.plan-scroll .illust.plan { min-width: 0; }
+.plan-legend { list-style: none; padding: 0; margin: 10px 0 6px; display: grid; grid-template-columns: 1fr; gap: 4px; }
+@media (min-width: 560px) { .plan-legend { grid-template-columns: 1fr 1fr; } }
+.plan-legend button { display: grid; grid-template-columns: 16px 22px 1fr; grid-template-rows: auto auto; column-gap: 6px; align-items: center; width: 100%; text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 5px 8px; cursor: pointer; }
+.lg-sw { grid-row: 1 / 3; width: 16px; height: 16px; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--line); }
+.lg-sw.bulb { width: 9px; height: 9px; margin-left: 3px; box-shadow: 0 0 0 1px #2b2a22; }
+.plan-legend b { grid-row: 1 / 3; font-size: .82rem; text-align: center; background: #22291f; color: #fff; border-radius: 99px; line-height: 1.6; }
+.lg-name { font-size: .84rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.plan-legend small { font-size: .7rem; color: var(--muted); }
+.plant-steps { margin: 8px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.plant-steps summary { cursor: pointer; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+.bed-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; } .bed-tags .chip { font-size: .74rem; display: inline-flex; gap: 4px; align-items: center; } .bed-tags .bid { width: 18px; height: 18px; font-size: .68rem; }
