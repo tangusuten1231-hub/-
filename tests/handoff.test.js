@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { consultPrompt, imagePrompt, parseBedsReply, gardenContext, AI_APPS } from '../js/handoff.js';
+import { consultPrompt, imagePrompt, parseBedsReply, gardenContext, AI_APPS, aiLink, fitForUrl, PREFILL_MAX } from '../js/handoff.js';
 import { PLANTS } from '../js/plants.js';
 import { hardinessZone } from '../js/climate.js';
 
@@ -41,4 +41,15 @@ test('画像の依頼文と、AIの答えの読み込み', () => {
   assert.ok(parseBedsReply('').error);
   assert.ok(parseBedsReply('日当たりの良い庭ですね。').error);
   assert.ok(parseBedsReply('```json\n{"beds":[]}\n```').error);
+});
+
+test('AIアプリは相談文入りのリンクで開く（長い文はURLに収まるよう短くする）', () => {
+  const claude = AI_APPS.find((a) => a.name === 'Claude');
+  const gem = AI_APPS.find((a) => a.name === 'Gemini');
+  assert.match(aiLink(claude, 'こんにちは'), /^https:\/\/claude\.ai\/new\?q=/);
+  assert.equal(aiLink(gem, 'こんにちは'), gem.url);
+  const long = Array.from({ length: 400 }, (_, i) => `行${i}：ラベンダーの育て方について`).join('\n');
+  const fit = fitForUrl(long);
+  assert.ok(encodeURIComponent(fit).length <= PREFILL_MAX);
+  assert.ok(fit.startsWith('行0'));
 });

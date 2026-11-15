@@ -2,6 +2,7 @@
 import { PLANTS, COLORS } from './plants.js';
 import { evaluate, heightClass, localMonth } from './garden.js';
 import { STYLES, ROLE_JA, WARMTH } from './styles.js';
+import { wildScore, WILD_GOALS } from './wildlife.js';
 
 // ---------- 乱数（同じ条件なら同じプランになるようシード付き） ----------
 export function rng(seed) {
@@ -119,8 +120,9 @@ export function generatePlan(o) {
   const moist = o.moist || '';
   const south = !!o.climate?.south;
   const styleId = STYLES[o.style] ? o.style : 'border';
+  const wild = Array.isArray(o.wild) ? o.wild.filter((g) => WILD_GOALS[g]) : [];
   const style = STYLES[styleId];
-  const rand = rng(hash(`${o.text}|${sun}|${moist}|${width}|${depth}|${o.view}|${styleId}`) + (o.seed || 0) * 7919);
+  const rand = rng(hash(`${o.text}|${sun}|${moist}|${width}|${depth}|${o.view}|${styleId}|${wild.join()}`) + (o.seed || 0) * 7919);
 
   // 候補
   let cands = PLANTS.filter((p) => p.sun.includes(sun) && (!moist || p.moist.includes(moist)));
@@ -157,6 +159,9 @@ export function generatePlan(o) {
     if (tagHits.length) why.push(...tagHits.map((t) => TAG_REASON[t]));
     if (p.bloom.length >= 5) why.push('長く咲く');
     if (style.bonus) { s += style.bonus(p); why.push(...style.why(p)); }
+    // 呼びたい生き物（蝶・蜂・野鳥・水辺）
+    const ws = wildScore(p, wild, o.climate);
+    if (ws) { s += ws * 0.9; if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`); }
     return { s: s + rand() * 1.5, why };
   };
   const scored = cands.map((p) => ({ p, ...score(p) }));
@@ -244,7 +249,7 @@ export function generatePlan(o) {
   const peak = counts.indexOf(Math.max(...counts)) + 1;
 
   return {
-    width, depth, area, sun, moist, view: o.view === 'island' ? 'island' : 'border', pref, style: styleId,
+    width, depth, area, sun, moist, view: o.view === 'island' ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),
     cost: { plants: plantsCost, extras, total, perSqm: Math.round(total / area), budget: Number(o.budget) || null },

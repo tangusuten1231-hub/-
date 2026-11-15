@@ -167,8 +167,54 @@
     <!-- 植栽プラン -->
     <section class="view" id="view-plan" data-view="plan" hidden>
       <div class="card" id="planForm">
-        <h2>植栽プランをつくる</h2>
-        <p class="hint">どんな庭にしたいか、言葉で書いてください。地域の気候・花の色・高さ・開花リレーを考えてプランとイメージ図をつくります。</p>
+        <div class="seg mode-seg" id="planMode" role="tablist" aria-label="プランの種類">
+          <button type="button" data-v="bed">花壇をひとつ</button>
+          <button type="button" data-v="site">庭まるごと</button>
+        </div>
+        <h2 id="planFormTitle">植栽プランをつくる</h2>
+        <p class="hint bed-only">どんな庭にしたいか、言葉で書いてください。地域の気候・花の色・高さ・開花リレーを考えてプランとイメージ図をつくります。</p>
+        <p class="hint site-only">敷地の形と大きさから、小道・テラス・パーゴラ・水場などの配置と、花壇ごとの植栽をまとめて考えます。見どころ・園内の案内・フォトスポット・来そうな生き物も紹介します。</p>
+        <div class="site-only" id="siteFields">
+          <div class="field">
+            <span class="label">敷地の形</span>
+            <div class="seg" data-site="shape">
+              <button type="button" data-v="rect">長方形</button>
+              <button type="button" data-v="L">L字</button>
+              <button type="button" data-v="poly">自由な形</button>
+            </div>
+          </div>
+          <div class="grid2 shape-wd">
+            <label class="field"><span class="label">横幅（m）</span><input type="number" id="siteW" min="2" max="60" step="0.5" inputmode="decimal"></label>
+            <label class="field"><span class="label">奥行き（m）</span><input type="number" id="siteD" min="2" max="60" step="0.5" inputmode="decimal"></label>
+          </div>
+          <div class="field shape-L">
+            <span class="label">欠けている角（家から見て）</span>
+            <div class="seg" data-site="cut">
+              <button type="button" data-v="right">右奥</button>
+              <button type="button" data-v="left">左奥</button>
+            </div>
+          </div>
+          <div class="shape-poly">
+            <p class="hint">方眼をタップして、敷地の角を順番に打ってください（上が家の側）。3点以上で形になります。</p>
+            <div class="row poly-tools">
+              <label class="inline">方眼の広さ <select id="polySize"><option value="10">10m</option><option value="15">15m</option><option value="20">20m</option><option value="30">30m</option><option value="40">40m</option></select></label>
+              <button type="button" class="btn small" id="polyUndo">1つ戻す</button>
+              <button type="button" class="btn small" id="polyClear">やり直す</button>
+            </div>
+            <div id="polyEd" class="poly-ed"></div>
+            <p class="hint" id="polyInfo" role="status" aria-live="polite"></p>
+          </div>
+          <label class="field"><span class="label">敷地面積（任意・㎡）</span><input type="number" id="siteArea" min="4" max="3000" step="1" inputmode="decimal" placeholder="例：60（形はそのままで大きさを合わせます）"></label>
+          <div class="field">
+            <span class="label">家がある方角（庭から見て）</span>
+            <div class="seg" data-site="house">
+              <button type="button" data-v="n">北</button>
+              <button type="button" data-v="e">東</button>
+              <button type="button" data-v="s">南</button>
+              <button type="button" data-v="w">西</button>
+            </div>
+          </div>
+        </div>
         <div class="field">
           <label class="label" for="planStyle">植栽スタイル</label>
           <select id="planStyle"></select>
@@ -176,11 +222,11 @@
         </div>
         <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
         <div class="chips presets" id="planPresets"></div>
-        <div class="grid2">
+        <div class="grid2 bed-only">
           <label class="field"><span class="label">花壇の幅（m）</span><input type="number" id="planW" min="0.5" max="30" step="0.1" inputmode="decimal"></label>
           <label class="field"><span class="label">奥行き（m）</span><input type="number" id="planD" min="0.4" max="10" step="0.1" inputmode="decimal"></label>
         </div>
-        <div class="field">
+        <div class="field bed-only">
           <span class="label">眺め方</span>
           <div class="seg" data-plan="view">
             <button type="button" data-v="border">片側から（ボーダー）</button>
@@ -188,7 +234,7 @@
           </div>
         </div>
         <div class="field">
-          <span class="label">日当たり</span>
+          <span class="label">日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small></span>
           <div class="seg" data-plan="sun">
             <button type="button" data-v="full">日向</button>
             <button type="button" data-v="part">半日陰</button>
@@ -203,14 +249,23 @@
             <button type="button" data-v="wet">湿りぎみ</button>
           </div>
         </div>
+        <div class="field">
+          <span class="label"><span class="site-only">庭に入れたいもの</span><span class="bed-only">庭にあるもの・作りたいもの</span></span>
+          <div class="chips" id="planItems"></div>
+        </div>
+        <div class="field">
+          <span class="label">呼びたい生き物</span>
+          <div class="chips" id="planWild"></div>
+          <p class="hint" style="margin:4px 0 0">選ぶと、その生き物の食草や蜜源になる植物を優先します。</p>
+        </div>
         <label class="toggle" style="margin:4px 0 10px"><input type="checkbox" id="planAnnuals"> 一年草も使う（毎年の種まきが必要）</label>
         <label class="field"><span class="label">予算（任意・円）</span><input type="number" id="planBudget" min="0" step="1000" inputmode="numeric" placeholder="例：30000"></label>
         <div class="row">
-          <button class="btn primary" id="btnPlan" type="button"><span data-ico="plan"></span>プランをつくる</button>
+          <button class="btn primary" id="btnPlan" type="button"><span data-ico="plan"></span><span id="btnPlanLabel">プランをつくる</span></button>
           <button class="btn" id="btnPlanAlt" type="button" hidden><span data-ico="refresh"></span>別の案</button>
         </div>
       </div>
-      <details class="card imgplan" id="imgPlan">
+      <details class="card imgplan bed-only" id="imgPlan">
         <summary><h2><span data-ico="search"></span>画像から庭を読み取る</h2></summary>
         <p class="hint">航空写真のスクリーンショット、家と庭の図面、手描きの見取り図、庭の写真などを、無料のAIチャットに読み取ってもらい、その答えからプランを作ります。このアプリからAIに接続することはなく、料金はかかりません。</p>
         <ol class="howto steps3">
@@ -218,7 +273,7 @@
             <label class="field"><span class="label">補足（わかる範囲で）</span><textarea id="imgNote" rows="2" maxlength="400" placeholder="例：画像の上が北。敷地は約10m×15m。南側の芝生の縁に花壇を作りたい"></textarea></label>
             <button class="btn primary small" id="imgCopy" type="button">依頼文をコピー</button>
           </li>
-          <li><b>AIアプリを開き、画像を添付して、依頼文を貼り付けて送る</b>
+          <li><b>AIアプリを開き、画像を添付して送る</b><p class="hint" style="margin:2px 0 6px">アプリが入っていればアプリが開きます（Claude・ChatGPTは依頼文入り。入っていなければ貼り付け）。</p>
             <div class="row ai-apps" id="imgApps"></div>
           </li>
           <li><b>AIの答えを全部コピーして、ここに貼り付ける</b>

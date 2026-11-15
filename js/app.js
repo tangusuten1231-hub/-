@@ -14,9 +14,12 @@ import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageIn
 import { describe, companions } from './describe.js';
 import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
 import { reply as tsupiReply, STARTERS } from './chat.js';
-import { consultPrompt, imagePrompt, parseBedsReply, AI_APPS } from './handoff.js';
+import { consultPrompt, consultPromptShort, imagePrompt, parseBedsReply, AI_APPS, aiLink } from './handoff.js';
 import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
+import { generateSite, siteSVG, polyEditorSVG, polygonArea, isSimple, ITEMS, BED_ITEMS, DEFAULT_ITEMS, DIR_JA } from './site.js';
+import { creaturesForPlant, creaturesForGarden, biodiversity, WILD_GOALS, FEATURES } from './wildlife.js';
+import { plantCritters, bioHtml, crittersHtml, featureChips, regionHtml } from './wildview.js';
 import {
   LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
   buildTasks, TASK_KIND, localMonth,
@@ -48,7 +51,7 @@ reindex();
 function loadGardens() {
   let gs = store.get('gardens', null);
   if (!Array.isArray(gs) || !gs.length) gs = [{ id: 'g1', name: 'わたしの庭', plants: store.get('garden', []), area: store.get('area', 3), sun: '', moist: '', have: {} }];
-  for (const g of gs) { g.plants = (g.plants || []).filter((id) => byId.has(id)); g.have = g.have || {}; g.area = g.area || 3; }
+  for (const g of gs) { g.plants = (g.plants || []).filter((id) => byId.has(id)); g.have = g.have || {}; g.area = g.area || 3; g.features = g.features || {}; }
   return gs;
 }
 
@@ -61,6 +64,9 @@ const state = {
   planInput: { style: 'border', ...store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }) },
   plan: null,
   planMonth: null,
+  site: null, // 庭まるごとプラン
+  siteBed: null, // 庭まるごとプランの中で詳しく見ている花壇
+  siteLayer: 'tour',
   showHard: false,
   view: 'site',
   shop: store.get('shopName', ''),
@@ -75,6 +81,15 @@ const state = {
   shown: 24,
   groupResults: null,
 };
+
+// プラン入力の既定値（古い保存データにない項目を補う）
+{
+  const pi = state.planInput;
+  pi.mode = pi.mode === 'site' ? 'site' : 'bed';
+  pi.site = { shape: 'rect', width: 10, depth: 8, cut: 'right', points: [], size: 15, area: '', house: 'n', ...(pi.site || {}) };
+  pi.items = Array.isArray(pi.items) ? pi.items.filter((k) => ITEMS[k]) : [...DEFAULT_ITEMS];
+  pi.wild = Array.isArray(pi.wild) ? pi.wild.filter((k) => WILD_GOALS[k]) : [];
+}
 
 const activeGarden = () => state.gardens.find((g) => g.id === state.gardenId) || state.gardens[0];
 function saveGardens() { store.set('gardens', state.gardens); store.set('gardenId', activeGarden().id); }
@@ -456,6 +471,7 @@ function plantCard(rs) {
     <p class="note-p lead-note">${esc(p.note)}</p>
     <div class="desc">${describe(p).map((d) => `<h4>${d.h}</h4><p>${esc(d.t)}</p>`).join('')}
       <h4>相性のよい植物</h4><div class="comp">${companions(p).map((q) => `<button type="button" class="chip" data-find="${esc(q.groupJa)}"><span class="dot" style="background:${COLORS[q.color[0]].hex}"></span>${esc(q.groupJa)}</button>`).join('')}</div>
+      ${plantCritters(creaturesForPlant(p, state.climate))}
     </div>
     ${p.uses?.length ? `<div class="uses">${p.uses.map((u) => `<span class="use" data-use="${u}">${USES[u].icon} ${USES[u].ja}</span>`).join('')}</div>` : ''}
     ${p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
@@ -620,6 +636,13 @@ function renderGarden() {
       ${c ? '' : '<p class="hint">場所を設定すると、地域に合う植物だけを提案します。</p>'}
       ${gapHtml}
     </div>
+    <div class="card bio-card">
+      <h2>${icon('butterfly', 19)} 生き物と生物多様性</h2>
+      <p class="hint">庭にあるものを選ぶと、来そうな生き物と生物多様性度に反映されます。</p>
+      ${featureChips(activeGarden().features)}
+      ${bioHtml(biodiversity(plants, activeGarden().features, c))}
+      <details class="crit-details"${state.critOpen ? ' open' : ''}><summary>来そうな生き物を見る（${creaturesForGarden(plants, activeGarden().features, c).filter((x) => x.level >= 2).length}種）</summary>${crittersHtml(creaturesForGarden(plants, activeGarden().features, c), south, 12)}</details>
+    </div>
     <div class="card">
       <h2>配置と株数の目安</h2>
       <label class="area">花壇の面積 <input type="number" id="area" min="0.5" step="0.5" value="${state.area}" inputmode="decimal"> ㎡</label>
@@ -628,6 +651,18 @@ function renderGarden() {
       ${gardenCost(plants)}
     </div>`;
 
+  box.querySelector('.feat-chips')?.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-feat]');
+    if (!b) return;
+    const g = activeGarden();
+    g.features[b.dataset.feat] = !g.features[b.dataset.feat];
+    if (!g.features[b.dataset.feat]) delete g.features[b.dataset.feat];
+    saveGardens();
+    const y = window.scrollY;
+    state.critOpen = box.querySelector('.crit-details')?.open;
+    renderGarden();
+    window.scrollTo({ top: y });
+  });
   $('#area').addEventListener('change', (e) => {
     const v = parseFloat(e.target.value);
     if (v > 0) { state.area = v; renderGarden(); }
@@ -740,6 +775,10 @@ function initPlanForm() {
   $('#planD').value = pi.depth;
   $('#planBudget').value = pi.budget || '';
   $('#planAnnuals').checked = !!pi.annuals;
+  $('#siteW').value = pi.site.width;
+  $('#siteD').value = pi.site.depth;
+  $('#siteArea').value = pi.site.area || '';
+  $('#polySize').value = String(pi.site.size || 15);
   $('#planStyle').innerHTML = Object.entries(STYLES).map(([k, v]) => `<option value="${k}">${v.ja}</option>`).join('');
   $('#planStyle').value = pi.style || 'border';
   const syncStyle = () => { $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary; };
@@ -763,15 +802,110 @@ function initPlanForm() {
       syncPlanSegs();
     });
   });
+  document.querySelectorAll('[data-site]').forEach((seg) => {
+    seg.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      state.planInput.site[seg.dataset.site] = b.dataset.v;
+      syncPlanSegs();
+    });
+  });
+  $('#planMode').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b || b.dataset.v === state.planInput.mode) return;
+    state.planInput.mode = b.dataset.v;
+    store.set('planInput', state.planInput);
+    syncPlanSegs();
+    renderPlan();
+  });
+  // 入れたいもの・呼びたい生き物（複数選択）
+  $('#planItems').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-item]');
+    if (!b) return;
+    const arr = state.planInput.items;
+    const i = arr.indexOf(b.dataset.item);
+    if (i >= 0) arr.splice(i, 1); else arr.push(b.dataset.item);
+    syncPlanSegs();
+  });
+  $('#planWild').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-wild]');
+    if (!b) return;
+    const arr = state.planInput.wild;
+    const i = arr.indexOf(b.dataset.wild);
+    if (i >= 0) arr.splice(i, 1); else arr.push(b.dataset.wild);
+    syncPlanSegs();
+  });
+  // 自由な形：方眼をタップして角を打つ
+  $('#polyEd').addEventListener('click', (e) => {
+    const svg = e.target.closest('svg');
+    if (!svg) return;
+    const r = svg.getBoundingClientRect();
+    const V = svg.viewBox.baseVal.width;
+    const k = V / r.width;
+    const pad = Number(svg.dataset.pad), S = Number(svg.dataset.s), size = Number(svg.dataset.size);
+    const snap = size > 20 ? 1 : 0.5;
+    const x = Math.round(((e.clientX - r.left) * k - pad) / S / snap) * snap;
+    const y = Math.round(((e.clientY - r.top) * k - pad) / S / snap) * snap;
+    if (x < 0 || y < 0 || x > size || y > size) return;
+    const pts = state.planInput.site.points;
+    const last = pts[pts.length - 1];
+    if (last && last[0] === x && last[1] === y) return;
+    pts.push([x, y]);
+    drawPoly();
+  });
+  $('#polyUndo').addEventListener('click', () => { state.planInput.site.points.pop(); drawPoly(); });
+  $('#polyClear').addEventListener('click', () => { state.planInput.site.points = []; drawPoly(); });
+  $('#polySize').addEventListener('change', (e) => {
+    const size = Number(e.target.value);
+    const old = state.planInput.site.size || 15;
+    state.planInput.site.points = state.planInput.site.points.map(([x, y]) => [Math.min(size, Math.round((x * size) / old * 2) / 2), Math.min(size, Math.round((y * size) / old * 2) / 2)]);
+    state.planInput.site.size = size;
+    drawPoly();
+  });
   $('#btnPlan').addEventListener('click', () => makePlan(0));
   $('#btnPlanAlt').addEventListener('click', () => makePlan(state.planInput.seed + 1));
   syncPlanSegs();
   syncPresetChips();
 }
+function drawPoly() {
+  const s = state.planInput.site;
+  const size = s.size || 15;
+  $('#polyEd').innerHTML = polyEditorSVG(s.points, size);
+  const info = $('#polyInfo');
+  if (s.points.length < 3) info.textContent = s.points.length ? `あと${3 - s.points.length}点以上打ってください。` : '最初の角をタップしてください。';
+  else if (!isSimple(s.points)) info.textContent = '辺が交差しています。「1つ戻す」で直してください。';
+  else info.textContent = `${s.points.length}角形・約${Math.round(polygonArea(s.points))}㎡${s.area ? `（面積の指定 ${s.area}㎡ に合わせて拡大縮小します）` : ''}`;
+}
 function syncPlanSegs() {
+  const pi = state.planInput;
   document.querySelectorAll('[data-plan]').forEach((seg) => {
-    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (state.planInput[seg.dataset.plan] || '')));
+    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (pi[seg.dataset.plan] || '')));
   });
+  document.querySelectorAll('[data-site]').forEach((seg) => {
+    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (pi.site[seg.dataset.site] || '')));
+  });
+  const site = pi.mode === 'site';
+  $('#planMode').querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === pi.mode));
+  $('#planForm').classList.toggle('is-site', site);
+  document.querySelectorAll('#view-plan .site-only').forEach((el) => { el.hidden = !site; });
+  document.querySelectorAll('#view-plan .bed-only').forEach((el) => { el.hidden = site; });
+  $('#planFormTitle').textContent = site ? '庭まるごとプランをつくる' : '植栽プランをつくる';
+  $('#btnPlanLabel').textContent = site ? '庭のプランをつくる' : 'プランをつくる';
+  const shape = pi.site.shape;
+  $('#siteFields .shape-wd').hidden = shape === 'poly';
+  $('#siteFields .shape-L').hidden = shape !== 'L';
+  $('#siteFields .shape-poly').hidden = shape !== 'poly';
+  if (site && shape === 'poly') drawPoly();
+  const keys = site ? Object.keys(ITEMS) : BED_ITEMS;
+  $('#planItems').innerHTML = keys.map((k) => {
+    const on = pi.items.includes(k);
+    const label = site ? ITEMS[k].ja : FEATURES[k] ? FEATURES[k].replace(/（.*?）/g, '') : ITEMS[k].ja;
+    return `<button type="button" class="chip${on ? ' on' : ''}" data-item="${k}" aria-pressed="${on}">${on ? '✓ ' : ''}${esc(label)}</button>`;
+  }).join('');
+  $('#planWild').innerHTML = Object.entries(WILD_GOALS).map(([k, v]) => {
+    const on = pi.wild.includes(k);
+    return `<button type="button" class="chip${on ? ' on' : ''}" data-wild="${k}" aria-pressed="${on}">${on ? '✓ ' : ''}${esc(v)}</button>`;
+  }).join('');
 }
 function syncPresetChips() {
   const t = $('#planText').value;
@@ -784,23 +918,49 @@ function readPlanForm() {
   pi.depth = Math.min(10, Math.max(0.4, parseFloat($('#planD').value) || 1.2));
   pi.budget = $('#planBudget').value;
   pi.annuals = $('#planAnnuals').checked;
+  pi.site.width = Math.min(60, Math.max(2, parseFloat($('#siteW').value) || 10));
+  pi.site.depth = Math.min(60, Math.max(2, parseFloat($('#siteD').value) || 8));
+  const a = parseFloat($('#siteArea').value);
+  pi.site.area = a > 0 ? Math.min(3000, Math.max(4, a)) : '';
+}
+/** 花壇プランのときの「庭にあるもの」→ 生き物用の環境 */
+function planFeatures() {
+  const f = {};
+  for (const k of state.planInput.items) if (FEATURES[k]) f[k] = true;
+  if (f.pond) f.water = true;
+  return f;
 }
 function makePlan(seed) {
   readPlanForm();
-  state.planInput.seed = seed;
-  store.set('planInput', state.planInput);
+  const pi = state.planInput;
+  if (pi.mode === 'site' && pi.site.shape === 'poly' && (pi.site.points.length < 3 || !isSimple(pi.site.points))) {
+    toast('敷地の形を3点以上で、辺が交差しないように描いてください');
+    $('#polyEd').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  pi.seed = seed;
+  store.set('planInput', pi);
   computePlan();
   state.planMonth = state.plan?.peak ?? 6;
   renderPlan();
   $('#planBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 function computePlan() {
-  state.plan = generatePlan({ ...state.planInput, climate: state.climate });
+  const pi = state.planInput;
+  if (pi.mode === 'site') {
+    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
+    state.siteBed = null;
+    state.plan = null;
+    return;
+  }
+  state.plan = generatePlan({ ...pi, climate: state.climate });
 }
 
 function renderPlan() {
   const box = $('#planBox');
+  if (state.planInput.mode === 'site' && !state.siteBed) { renderSitePlan(); return; }
   const plan = state.plan;
+  const bedOfSite = state.planInput.mode === 'site' ? state.site?.beds.find((b) => b.id === state.siteBed) : null;
   $('#btnPlanAlt').hidden = !plan;
   if (!plan) {
     box.innerHTML = tsupiSays(state.climate
@@ -831,7 +991,10 @@ function renderPlan() {
   const palette = Object.entries(share).sort((a, b) => b[1] - a[1]);
   const gallery = [['春', 4], ['初夏', 6], ['盛夏', 8], ['秋', 10], ['冬', 1]].map(([n, mm]) => [n, localMonth(mm, south)]);
 
+  const bio = biodiversity(plan.species.map((sp) => sp.plant), planFeatures(), state.climate);
+  const crit = creaturesForGarden(plan.species.map((sp) => sp.plant), planFeatures(), state.climate);
   box.innerHTML = `
+    ${bedOfSite ? `<div class="site-back"><button type="button" class="btn small" id="btnSiteBack">← 庭全体のプランに戻る</button><span>花壇 <b>${bedOfSite.id}</b>　${esc(bedOfSite.name)}</span></div>` : ''}
     <section class="hero plan-hero">
       <div class="hero-art" id="elev">${elevationSVG(plan, m, south, { label: false })}</div>
       <div class="hero-text">
@@ -891,6 +1054,12 @@ function renderPlan() {
       <div class="scroll-x">${calHtml(plan.species.map((sp) => ({ p: sp.plant, color: sp.color, label: sp.no })), south, plan.counts)}</div>
     </section>
 
+    <section class="mag">
+      ${secHead('Wildlife', '来てくれる生き物', plan.wild?.length ? `「${plan.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう、食草や蜜源になる植物を優先しました。` : 'この花壇の植物に集まりそうな生き物と、生物多様性度の目安です。')}
+      ${bioHtml(bio)}
+      ${crittersHtml(crit, south, 8)}
+    </section>
+
     <section class="mag receipt">
       ${secHead('Estimate', '概算費用')}
       <ul>
@@ -921,11 +1090,13 @@ function renderPlan() {
     if (b) { setMonth(Number(b.dataset.month)); $('.plan-hero').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
   $('#btnAlt2').addEventListener('click', () => makePlan(state.planInput.seed + 1));
+  $('#btnSiteBack')?.addEventListener('click', () => { const id = state.siteBed; state.siteBed = null; renderPlan(); document.querySelector(`[data-bedcard="${id}"]`)?.scrollIntoView({ block: 'center' }); });
   const applyTo = (g) => {
     g.plants = plan.species.map((sp) => sp.plant.id);
     g.area = Math.round(plan.area * 10) / 10;
     g.sun = plan.sun;
     g.moist = plan.moist || g.moist || '';
+    g.features = { ...(g.features || {}), ...planFeatures() };
     state.gardenId = g.id;
     saveGardens();
     toast(`「${g.name}」にプランを反映しました`);
@@ -937,7 +1108,7 @@ function renderPlan() {
     applyTo(g);
   });
   $('#btnApplyNew').addEventListener('click', () => {
-    const name = prompt('新しい庭の名前', state.planBedName || title);
+    const name = prompt('新しい庭の名前', bedOfSite?.name || state.planBedName || title);
     if (!name) return;
     const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {} };
     state.gardens.push(g);
@@ -951,6 +1122,162 @@ function renderPlan() {
     } catch (err) { toast(err.message); }
   });
   hydratePhotos(box, plan.species.map((s) => s.plant));
+}
+
+
+// ---------- 庭まるごとプラン（プレゼンテーション） ----------
+const SITE_LAYERS = { plain: '平面図', tour: '園内の案内', photo: 'フォトスポット' };
+const SHAPE_JA = { rect: '長方形', L: 'L字', poly: '自由な形' };
+function renderSitePlan() {
+  const box = $('#planBox');
+  const s = state.site;
+  $('#btnPlanAlt').hidden = !s;
+  if (!s) {
+    box.innerHTML = tsupiSays('敷地の形と大きさ、入れたいものを選んでね。小道や花壇の配置から、見どころ・フォトスポット・来てくれる生き物まで、庭まるごと提案するよ。', 'think');
+    return;
+  }
+  const pi = state.planInput;
+  const south = !!state.climate?.south;
+  const words = s.beds[0]?.plan.pref.matched || [];
+  const title = planTitle(words);
+  const nPlants = s.plants.length;
+  const totalQty = s.beds.reduce((t, b) => t + b.plan.totalPlants, 0);
+  const layer = state.siteLayer;
+  const structNames = [...new Set(s.structs.map((x) => ITEMS[x.type]?.ja).filter(Boolean))];
+  const c = s.cost;
+  const budgetMsg = c.budget
+    ? (c.total <= c.budget ? `<div class="alert ok">予算 ${yen(c.budget)} 内に収まっています。</div>`
+      : `<div class="alert warn">予算 ${yen(c.budget)} を ${yen(c.total - c.budget)} 超えています。構造物を後から少しずつ加える、テラスを小さくする、苗を少なめに植えて広げる、などで調整できます。</div>`)
+    : '';
+  const midMonth = (h) => localMonth(h.months[Math.floor(h.months.length / 2)], south);
+  const bedFor = (h) => s.beds.find((b) => h.stars[0] && b.plan.species.some((sp) => sp.plant.id === h.stars[0].p.id)) || s.beds[0];
+
+  box.innerHTML = `
+    <section class="hero plan-hero site-hero">
+      <div class="hero-art site-art" id="siteArt">${siteSVG(s, { tour: layer === 'tour', photos: layer === 'photo' })}</div>
+      <div class="hero-text">
+        <span class="kicker">Garden Design · ${esc(STYLES[pi.style]?.by || 'Whole Garden')}</span>
+        <h1>${esc(title)}</h1>
+        <p class="sekki">${esc(SHAPE_JA[pi.site.shape])}の敷地・家は${DIR_JA[s.house]}側・${esc(STYLES[pi.style]?.ja || '')}</p>
+        <div class="seg small" id="siteLayer">${Object.entries(SITE_LAYERS).map(([k, v]) => `<button type="button" data-v="${k}" class="${k === layer ? 'on' : ''}">${v}</button>`).join('')}</div>
+      </div>
+    </section>
+    <div class="legend">${[['#cfdcae', '芝生'], ['#b9a079', '花壇'], ['#e8dcc0', '小道'], ['#d6c29c', 'テラス'], ['#9cc4cf', '水辺']].map(([col, t]) => `<span><i style="background:${col}"></i>${t}</span>`).join('')}${layer === 'tour' ? '<span><i class="ln"></i>案内ルート</span>' : ''}${layer === 'photo' ? '<span><i class="cam"></i>撮影位置と向き</span>' : ''}</div>
+
+    <div class="figures four">
+      <div><span class="fig">${s.area}<small>㎡</small></span><span class="cap">敷地・約${Math.round(s.W * 10) / 10}×${Math.round(s.H * 10) / 10}m</span></div>
+      <div><span class="fig">${s.beds.length}<small>か所</small></span><span class="cap">花壇 ${s.areas.bed}㎡・${nPlants}種${totalQty}株</span></div>
+      <div><span class="fig">${yen(c.total)}</span><span class="cap">概算（材料費・DIY）</span></div>
+      <div><span class="fig">${s.bio.total}<small>点</small></span><span class="cap">生物多様性度・${esc(s.bio.label)}</span></div>
+    </div>
+    ${s.skipped?.length ? `<p class="pnote warn">敷地が小さいため、${s.skipped.map(esc).join('・')}は入れずに、花壇を優先しました。</p>` : ''}
+    ${structNames.length ? `<p class="pnote">庭にあるもの：${structNames.map(esc).join('・')}</p>` : ''}
+
+    <section class="mag">
+      ${secHead('Highlights', '季節の見どころ', '一年を通して、この庭がいちばん輝く瞬間。')}
+      <div class="carousel hl-cards">${s.highlights.map((h) => { const b = bedFor(h); return `<article class="hl-card">
+        <div class="hl-art">${b ? elevationSVG(b.plan, midMonth(h), south, { label: false }) : ''}</div>
+        <div class="hb"><span class="en">${h.en}</span><h3>${h.ja}</h3><p>${esc(h.text)}</p>
+        ${h.stars.length ? `<div class="hl-stars">${h.stars.slice(0, 4).map((x) => `<span class="chip"><span class="dot" style="background:${COLORS[x.color]?.hex}"></span>${esc(x.p.groupJa.replace(/（.*?）/g, ''))}</span>`).join('')}</div>` : ''}</div>
+      </article>`; }).join('')}</div>
+    </section>
+
+    <section class="mag">
+      ${secHead('Garden Tour', '園内の案内', 'テラスから小道をたどって、庭をひとめぐり。番号は平面図の「園内の案内」と対応しています。')}
+      <ol class="tour">${s.tour.map((t) => `<li><span class="tno">${t.no}</span><div><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></div></li>`).join('')}</ol>
+    </section>
+
+    <section class="mag">
+      ${secHead('Photo Spots', 'フォトスポット', '平面図の「フォトスポット」で、撮る位置と向きを確認できます。')}
+      <div class="photo-spots">${s.photos.map((ph) => `<article class="ps-card">
+        <div class="ps-no">${icon('camera', 16)}<b>${ph.no}</b></div>
+        <div><h3>${esc(ph.title)}</h3><p>${esc(ph.shot)}</p><p class="ps-when">${icon('sun', 14)}${esc(ph.when)}</p><p class="ps-tip">${esc(ph.tip)}</p></div>
+      </article>`).join('') || '<p class="hint">パーゴラや水場を入れると、フォトスポットがふえます。</p>'}</div>
+    </section>
+
+    <section class="mag">
+      ${secHead('Wildlife', '生き物と生物多様性', pi.wild.length ? `「${pi.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう植物を選びました。` : '植物と庭の環境（水場・木・堆肥置き場など）から、来てくれそうな生き物を見積もりました。')}
+      ${bioHtml(s.bio)}
+      ${crittersHtml(s.critters, south, 12)}
+    </section>
+
+    <section class="mag">
+      ${secHead('Beds', '花壇ごとの植栽', '塀や家・木の影を考えて、花壇ごとに日当たりを判断しています。')}
+      <div class="bed-cards">${s.beds.map((b) => `<article class="bed-card" data-bedcard="${b.id}">
+        <div class="bc-art">${b.plan.species.length ? elevationSVG(b.plan, b.plan.peak, south, { label: false }) : ''}</div>
+        <div class="bc-body">
+          <h3><span class="bid">${b.id}</span>${esc(b.name)}</h3>
+          <p class="calc">${b.area}㎡（約${b.width}×${b.depth}m）・${SUN[b.sun]}${b.sunWhy.length ? `<small>（${esc(b.sunWhy.join('・'))}）</small>` : ''}・${b.plan.species.length}種${b.plan.totalPlants}株</p>
+          <div class="hl-stars">${b.plan.species.slice(0, 8).map((sp) => `<span class="chip"><span class="dot" style="background:${COLORS[sp.color].hex}"></span>${esc(sp.plant.ja)}</span>`).join('')}</div>
+          <button type="button" class="btn small" data-sitebed="${b.id}">${icon('plan', 15)}この花壇を詳しく</button>
+        </div>
+      </article>`).join('')}</div>
+    </section>
+
+    <section class="mag receipt">
+      ${secHead('Estimate', '概算費用')}
+      <ul>
+        ${c.items.map((e) => `<li><span>${esc(e.ja)}</span><i></i><b>${yen(e.cost)}</b></li>`).join('')}
+        <li class="total"><span>合計の目安</span><i></i><b>${yen(c.total)}</b></li>
+      </ul>
+      ${budgetMsg}
+      <p class="note">構造物は材料を買ってDIYする場合の大まかな目安です。業者に頼む場合は施工費が加わります。一度に作らず、数年かけて少しずつ育てるのもおすすめです。</p>
+    </section>
+
+    <div class="big-row">
+      <button class="btn primary" type="button" id="btnSiteNew">新しい庭として保存</button>
+      <button class="btn" type="button" id="btnSiteApply">「${esc(activeGarden().name)}」に反映</button>
+      <button class="btn" type="button" id="btnSiteImg">${icon('save', 16)}平面図を保存</button>
+      <button class="btn" type="button" data-consult="${esc(`庭まるごとプラン（敷地 約${s.area}㎡、家は${DIR_JA[s.house]}側、${structNames.join('・')}、花壇${s.beds.length}か所、植物：${s.plants.slice(0, 12).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}）を、もっと魅力的にするアイデアを教えてください。`)}">${icon('search', 16)}AIに相談</button>
+      <button class="btn" type="button" id="btnSiteAlt">別の案をつくる</button>
+    </div>`;
+
+  $('#siteLayer').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    state.siteLayer = b.dataset.v;
+    renderSitePlan();
+    $('.site-hero').scrollIntoView({ block: 'start' });
+  });
+  box.querySelectorAll('[data-sitebed]').forEach((b) => b.addEventListener('click', () => {
+    const bed = s.beds.find((x) => x.id === b.dataset.sitebed);
+    state.siteBed = bed.id;
+    state.plan = bed.plan;
+    state.planMonth = bed.plan.peak;
+    renderPlan();
+    $('#planBox').scrollIntoView({ block: 'start' });
+  }));
+  $('#btnSiteAlt').addEventListener('click', () => makePlan(state.planInput.seed + 1));
+  const applyTo = (g) => {
+    g.plants = s.plants.map((p) => p.id);
+    g.area = s.areas.bed;
+    g.sun = pi.sun || '';
+    g.moist = pi.moist || '';
+    g.features = { ...s.features };
+    state.gardenId = g.id;
+    saveGardens();
+    toast(`「${g.name}」に庭のプランを反映しました`);
+    go('garden');
+  };
+  $('#btnSiteApply').addEventListener('click', () => {
+    const g = activeGarden();
+    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) return;
+    applyTo(g);
+  });
+  $('#btnSiteNew').addEventListener('click', () => {
+    const name = prompt('新しい庭の名前', title);
+    if (!name) return;
+    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {}, features: {} };
+    state.gardens.push(g);
+    applyTo(g);
+  });
+  $('#btnSiteImg').addEventListener('click', async () => {
+    try {
+      const blob = await svgToPngBlob($('#siteArt svg'));
+      const r = await saveFile('garden-site-plan.png', blob, 'image/png');
+      if (r !== 'cancel') toast('平面図を保存しました');
+    } catch (err) { toast(err.message); }
+  });
 }
 
 
@@ -1227,6 +1554,12 @@ function renderEnjoy() {
       </article>`).join('')}</div>
     </section>
 
+    <section class="mag">
+      ${secHead('Wildlife', '季節の生き物', `${state.loc ? esc(state.loc.name) + 'で' : ''}庭に来る可能性のある生き物。植物図鑑で、どの植物に来るかも確かめられます。`)}
+      <div class="row region-row"><label class="inline">月 <select id="regionMonth">${MONTHS.map((m) => `<option value="${m}"${m === now ? ' selected' : ''}>${m}月</option>`).join('')}</select></label></div>
+      <div id="regionList">${regionHtml(c, now, south)}</div>
+    </section>
+
     ${tip ? `<section class="mag quote">
       <div class="quote-bird">${tsupi('happy', 68)}</div>
       <span class="en">Tsupi's Garden Notes</span>
@@ -1250,6 +1583,7 @@ function renderEnjoy() {
       }).join('')}</ol>
     </section>`;
   $('#nextTip')?.addEventListener('click', () => { tipIndex++; renderEnjoy(); });
+  $('#regionMonth').addEventListener('change', (e) => { $('#regionList').innerHTML = regionHtml(c, Number(e.target.value), south); });
   hydratePhotos(box, blooming);
 }
 
@@ -1456,31 +1790,51 @@ async function copyText(text) {
   ta.remove();
   return ok;
 }
-const aiAppButtons = () => AI_APPS.map((a) => `<a class="btn small" href="${a.url}" target="_blank" rel="noopener">${esc(a.name)} を開く</a>`).join('');
+// AIアプリのボタン。押すと相談文をコピーし、対応アプリには相談文を入れた状態で開く（アプリが入っていればアプリが開く）
+const aiTexts = {};
+const aiAppButtons = (src) => AI_APPS.map((a, i) => `<a class="btn small ai-app" data-ai="${i}" data-src="${src}" href="${a.url}" target="_blank" rel="noopener">${esc(a.name)}</a>`).join('')
+  + (navigator.share ? `<button type="button" class="btn small" data-aishare="${src}">${icon('arrow', 15)}共有から選ぶ</button>` : '');
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a.ai-app');
+  if (a) {
+    const app = AI_APPS[Number(a.dataset.ai)];
+    const t = aiTexts[a.dataset.src]?.() || '';
+    const full = typeof t === 'string' ? t : t.text;
+    a.href = aiLink(app, typeof t === 'string' ? t : t.url || t.text); // このクリックで開くリンクを、相談文入りに差し替える
+    copyText(full).then((ok) => {
+      const pre = a.href !== app.url;
+      toast(pre ? `${app.name}を開きます。相談文が入っていなければ、貼り付けてください（全文コピー済み）` : ok ? `相談文をコピーしました。${app.name}で貼り付けて送ってください` : `${app.name}を開きます`);
+    });
+    return;
+  }
+  const sh = e.target.closest('[data-aishare]');
+  if (sh) { const t = aiTexts[sh.dataset.aishare]?.() || ''; navigator.share({ text: typeof t === 'string' ? t : t.text }).catch(() => {}); }
+});
 function openConsult(question = '') {
   openSheet(`${icon('search', 19)} AIに相談する`, `
     <div class="consult">
-      <p class="hint">あなたの庭の情報（気候・植物・ノート・天気）を含めた相談文を作ります。無料のAIチャットに貼り付けて相談してください。このアプリからAIに送信はせず、料金もかかりません。</p>
+      <p class="hint">あなたの庭の情報（気候・植物・ノート・天気）を含めた相談文を作り、スマホのAIアプリ（無料で使えるもの）に渡します。このアプリからAIに送信はせず、料金もかかりません。</p>
       <ol class="howto steps3">
         <li><b>聞きたいことを書く</b>
           <textarea id="cqText" rows="3" maxlength="600" placeholder="例：夏に枯れやすいラベンダーを、うちの庭で長持ちさせるには？">${esc(question)}</textarea>
         </li>
-        <li><b>相談文をコピーする</b>
-          <div class="row"><button type="button" class="btn primary small" id="cqCopy">相談文をコピー</button>${navigator.share ? '<button type="button" class="btn small" id="cqShare">共有する</button>' : ''}</div>
+        <li><b>AIアプリを選ぶ</b>
+          <div class="row ai-apps">${aiAppButtons('consult')}</div>
+          <p class="hint" style="margin:6px 0 0">スマホにアプリが入っていれば、アプリが開きます。Claude と ChatGPT は相談文が入った状態で開くので、そのまま送信してください。Gemini や、文が入っていないときは、長押しして「ペースト」してください（ボタンを押すと相談文がコピーされます）。「共有から選ぶ」では、入っているアプリの一覧から送れます。</p>
         </li>
-        <li><b>AIアプリを開いて、貼り付けて送る</b>
-          <div class="row ai-apps">${aiAppButtons()}</div>
+        <li><b>うまく開けないとき</b>
+          <div class="row"><button type="button" class="btn small" id="cqCopy">相談文をコピーだけする</button></div>
         </li>
       </ol>
       <details><summary>相談文の中身を見る</summary><pre class="prompt-view" id="cqView"></pre></details>
       <p class="note">各AIアプリは無料で使える範囲があります。有料プランに申し込む必要はありません。</p>
     </div>`, 'sheet-consult');
   const build = () => consultPrompt($('#cqText').value || 'いまの庭で、気をつけることやおすすめの作業を教えてください。', chatContext());
+  aiTexts.consult = () => ({ text: build(), url: consultPromptShort($('#cqText').value || 'いまの庭で、気をつけることやおすすめの作業を教えてください。', chatContext()) });
   const sync = () => { $('#cqView').textContent = build(); };
   sync();
   $('#cqText').addEventListener('input', sync);
   $('#cqCopy').addEventListener('click', async () => { toast((await copyText(build())) ? 'コピーしました。AIアプリに貼り付けてください' : 'コピーできませんでした。「相談文の中身を見る」から選んでコピーしてください'); });
-  $('#cqShare')?.addEventListener('click', () => { navigator.share({ text: build() }).catch(() => {}); });
 }
 document.addEventListener('click', (e) => {
   const a = e.target.closest('[data-ask]');
@@ -1503,7 +1857,8 @@ document.addEventListener('click', (e) => {
 
 // ---------- 画像から庭を読み取る（無料のAIチャットを使う） ----------
 function initImagePlan() {
-  $('#imgApps').innerHTML = aiAppButtons();
+  aiTexts.img = () => imagePrompt($('#imgNote').value, chatContext());
+  $('#imgApps').innerHTML = aiAppButtons('img');
   $('#imgCopy').addEventListener('click', async () => {
     toast((await copyText(imagePrompt($('#imgNote').value, chatContext()))) ? '依頼文をコピーしました。AIアプリで画像と一緒に送ってください' : 'コピーできませんでした');
   });

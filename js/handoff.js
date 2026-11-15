@@ -10,12 +10,39 @@ import { weatherAdvice } from './weather.js';
 import { EVENTS } from './diary.js';
 import { findPlant } from './chat.js';
 
-/** 無料プランのあるAIチャット（開くだけ。このアプリからは何も送信しない） */
+/**
+ * 無料プランのあるAIチャット（開くだけ。このアプリからは何も送信しない）
+ * q: 相談文を入れた状態で開くためのURLパラメータ。スマホにアプリが入っていれば、リンクからアプリが開く（ユニバーサルリンク）。
+ */
 export const AI_APPS = [
-  { name: 'Claude', url: 'https://claude.ai/new' },
-  { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+  { name: 'Claude', url: 'https://claude.ai/new', q: 'q' },
+  { name: 'ChatGPT', url: 'https://chatgpt.com/', q: 'q' },
   { name: 'Gemini', url: 'https://gemini.google.com/app' },
 ];
+/** URLに入れられる長さの上限（長すぎると開けないことがあるため。超えたら貼り付けてもらう） */
+export const PREFILL_MAX = 12000;
+
+/** URLに入る長さに収める（後ろの行から省き、省いたことを書き添える） */
+export function fitForUrl(text, max = PREFILL_MAX) {
+  if (encodeURIComponent(text).length <= max) return text;
+  const note = '\n（長いため一部を省略しました）';
+  const lines = text.split('\n');
+  while (lines.length > 1 && encodeURIComponent(lines.join('\n') + note).length > max) lines.pop();
+  let out = lines.join('\n');
+  while (out && encodeURIComponent(out + note).length > max) out = out.slice(0, -20);
+  return out + note;
+}
+
+/** URL用に短くした相談文（天気・ノートを減らし、図鑑データは残す） */
+export function consultPromptShort(question, ctx) {
+  return consultPrompt(question, { ...ctx, forecast: (ctx.forecast || []).slice(0, 3), entries: (ctx.entries || []).slice(0, 3) });
+}
+
+/** 相談文を入れた状態で開くリンク（対応していないアプリや長すぎる文は、そのまま開く） */
+export function aiLink(app, text = '') {
+  if (!app.q || !text) return app.url;
+  return `${app.url}?${app.q}=${encodeURIComponent(fitForUrl(text))}`;
+}
 
 const SUN = { full: '日向', part: '半日陰', shade: '日陰' };
 const MOIST = { dry: '乾きぎみ', mid: '普通', wet: '湿りぎみ' };
