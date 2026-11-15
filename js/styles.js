@@ -139,6 +139,33 @@ STYLES.potager = {
   cost: { soil: { ja: '土づくり（堆肥たっぷり・菜園用）', perSqm: 2200 }, mulch: { ja: '区画の縁取り材・通路のウッドチップ', perSqm: 1400 } },
 };
 
+// コテージガーデン（英国の田舎家の庭）：花・ハーブ・野菜をすき間なく混ぜ植えする素朴な庭
+const COTTAGE_SEEDERS = ['orlaya', 'nigella', 'digitalis', 'alcea', 'myosotis', 'aquilegia', 'centaurea-cyanus', 'papaver-rhoeas', 'calendula', 'borago', 'lunaria', 'verbascum', 'consolida', 'lychnis', 'centranthus', 'erigeron', 'viola'];
+STYLES.cottage = {
+  ja: 'コテージガーデン（英国の田舎家の庭）',
+  by: 'Cottage Garden',
+  summary: '花・ハーブ・ときには野菜まで、すき間なく混ぜ植えする素朴でにぎやかな庭。背の高い穂の花、香りのよい花、こぼれ種で毎年少しずつ景色が変わる一年草が主役。',
+  principles: [
+    'すき間なく植えて土を見せない（雑草も生えにくい）',
+    'ジギタリスやタチアオイなど、背の高い穂の花をところどころに立ち上げる',
+    'ラベンダーやバラ、ハーブなど香りのよい植物を小道の近くに',
+    'こぼれ種で増える一年草・二年草を受け入れ、毎年の偶然を楽しむ',
+    '整えすぎない。色は混ざってもよいが、白い花で全体をつなぐ',
+  ],
+  layout: 'intermingle',
+  cottage: true,
+  roleOf: (p) => (p.h[1] >= 100 && ['spike', 'globe', 'daisy'].includes(p.form) ? 'structure' : p.h[1] <= 40 ? 'ground' : 'theme'),
+  targets: (n) => {
+    const structure = Math.max(1, Math.round(n * 0.25));
+    const ground = Math.max(1, Math.round(n * 0.25));
+    return { structure, ground, theme: n - structure - ground };
+  },
+  roleShare: { structure: 0.2, theme: 0.5, ground: 0.3 },
+  bonus: (p) => (p.tags.includes('english') ? 2 : 0) + (p.tags.includes('fragrant') ? 1.5 : 0) + (p.tags.includes('herb') ? 1 : 0) + (COTTAGE_SEEDERS.includes(p.group) ? 1.5 : 0) + (p.form === 'spike' && p.h[1] >= 100 ? 1 : 0) - (p.form === 'grass' ? 1.5 : 0) - (p.tags.includes('veg') && p.type === 'annual' ? 1 : 0),
+  why: (p) => (COTTAGE_SEEDERS.includes(p.group) ? ['こぼれ種で増える'] : p.tags.includes('fragrant') ? ['香りがよい'] : p.tags.includes('english') ? ['英国の庭の定番'] : []),
+  spacing: 0.85, speciesFactor: 1.2,
+};
+
 STYLES.matrix.cost = { mulch: { ja: '初年度の薄いマルチ（2年目以降は不要）', perSqm: 400 } };
 
 /** 色の暖かさ（ジーキル式グラデーション用） */

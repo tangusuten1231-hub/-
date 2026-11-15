@@ -4,7 +4,11 @@ import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pes
 import { guideSteps } from './guide.js';
 import { generatePlan, PRESETS, LAYER_JA } from './plan.js';
 import { elevationSVG, planSVG, plantThumbSVG } from './illust.js';
-import { loadImages, imageOf } from './images.js';
+import { loadImages, imageOf, placeImage } from './images.js';
+import { ROLES } from './roles.js';
+import { potGuide, potGuideSVG } from './pots.js';
+import { REGIONS, worldMapSVG, sceneSVG } from './origin.js';
+import { generateBalcony, sectionSVG, frontSVG, sunChartSVG, FACING, SUN_JA as BSUN } from './balcony.js';
 import { TYPE_JA, USES, FAMILY } from './meta.js';
 import { ideasFor, RECIPES, plantsForNeed } from './enjoy.js';
 import { icon, tsupi, tsupiSays, TASK_ICON, PEST_ICON, MONTHLY_WORDS } from './mascot.js';
@@ -25,6 +29,8 @@ import { INFO } from './critterinfo.js';
 import { critterSVG } from './critterart.js';
 import { foodWeb, foodWebSVG, foodWebSummary } from './ecoweb.js';
 import { visitors, friendSVG } from './friends.js';
+import { tsupiLine } from './tsupiwords.js';
+import { INGREDIENTS, MOODS, TEA_RECIPES, teaStatus, teaIngredientsFor, teaCupSVG } from './tea.js';
 import {
   LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
   buildTasks, TASK_KIND, localMonth,
@@ -74,6 +80,9 @@ const state = {
   siteLayer: 'tour',
   zukan: 'plants', // 図鑑：植物 / 生き物
   critF: { kind: '', show: 'all', q: '' },
+  region: 'japan', // 原産地モードで選んでいる地域
+  enjoyTab: 'season',
+  teaF: { mood: '', show: 'garden' },
   sightings: store.get('sightings', []), // 生き物の観察記録 [{ id, c: 生き物ID, date, g: 庭ID, n: 数, memo }]
   showHard: false,
   view: 'site',
@@ -93,7 +102,8 @@ const state = {
 // プラン入力の既定値（古い保存データにない項目を補う）
 {
   const pi = state.planInput;
-  pi.mode = pi.mode === 'site' ? 'site' : 'bed';
+  pi.mode = ['site', 'balcony'].includes(pi.mode) ? pi.mode : 'bed';
+  pi.balcony = { width: 3.6, depth: 1.2, facing: 's', floor: 3, railType: 'solid', railH: 110, roof: 'yes', ceilH: 250, obstacle: 'none', shelf: 2, shelfAt: 'wall', hang: false, water: false, ...(pi.balcony || {}) };
   pi.site = { shape: 'rect', width: 10, depth: 8, cut: 'right', points: [], size: 15, area: '', house: 'n', ...(pi.site || {}) };
   pi.items = Array.isArray(pi.items) ? pi.items.filter((k) => ITEMS[k]) : [...DEFAULT_ITEMS];
   pi.wild = Array.isArray(pi.wild) ? pi.wild.filter((k) => WILD_GOALS[k]) : [];
@@ -221,7 +231,12 @@ function render() {
   if (state.view === 'garden') renderGarden();
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'plan') renderPlan();
-  if (state.view === 'enjoy') renderEnjoy();
+  if (state.view === 'enjoy') {
+    document.querySelectorAll('#enjoyTabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === state.enjoyTab));
+    $('#enjoyBox').hidden = state.enjoyTab !== 'season';
+    $('#teaBox').hidden = state.enjoyTab !== 'tea';
+    if (state.enjoyTab === 'tea') renderTea(); else renderEnjoy();
+  }
   if (state.view === 'garden') {
     const t = state.gardenTab;
     document.querySelectorAll('#gardenTabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === t));
@@ -396,7 +411,10 @@ function initFilters() {
   $('#fFamily').innerHTML = '<option value="">すべての科</option>' + fams.map(([k, v]) => `<option value="${k}">${k}（${v.size}種）</option>`).join('');
   $('#fType').innerHTML = '<option value="">すべて</option>' + Object.entries(TYPE_JA).map(([k, v]) => `<option value="${k}">${v}</option>`).join('') + '<option value="veg">野菜・食べられる植物</option>';
   $('#fUse').innerHTML = '<option value="">すべて</option>' + Object.entries(USES).map(([k, v]) => `<option value="${k}">${v.icon} ${v.ja}</option>`).join('');
-  for (const [id, key] of [['#fFamily', 'family'], ['#fType', 'type'], ['#fUse', 'use'], ['#fSort', 'sort']]) {
+  const roleCount = {};
+  for (const p of PLANTS) for (const r of p.roles || []) (roleCount[r] = roleCount[r] || new Set()).add(p.group);
+  $('#fRole').innerHTML = '<option value="">すべて</option>' + Object.entries(ROLES).map(([k, v]) => `<option value="${k}">${v.ja}（${roleCount[k]?.size || 0}種）</option>`).join('');
+  for (const [id, key] of [['#fFamily', 'family'], ['#fType', 'type'], ['#fUse', 'use'], ['#fRole', 'role'], ['#fSort', 'sort']]) {
     $(id).addEventListener('change', (e) => { state.filters[key] = e.target.value; saveFilters(); });
   }
   $('#fView').addEventListener('click', (e) => {
@@ -404,7 +422,7 @@ function initFilters() {
     if (b) { state.filters.view = b.dataset.v; saveFilters(); }
   });
   $('#fReset').addEventListener('click', () => {
-    Object.assign(state.filters, { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '' });
+    Object.assign(state.filters, { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', role: '', origin: '' });
     saveFilters();
   });
   $('#fColor').innerHTML = Object.entries(COLORS).map(([k, c]) => `<button type="button" class="chip" data-v="${k}"><span class="dot" style="background:${c.hex}"></span>${c.ja}</button>`).join('');
@@ -457,12 +475,14 @@ function plantCard(rs) {
         <div class="name">${esc(multi ? p.groupJa : p.ja)}</div>
         ${multi ? `<div class="cvname">${esc(p.ja)}</div>` : ''}
         <div class="latin">${esc(p.latin)}</div>
+        ${p.aka?.length ? `<div class="aka">別名・通称：${p.aka.map(esc).join('、')}</div>` : ''}
         <div class="dots">${p.color.map((c) => `<span class="dot" title="${COLORS[c].ja}" style="background:${COLORS[c].hex}"></span>`).join('')}</div>
       </div>
       ${lv}
     </div>
     ${chips}
     <div class="famline">${esc(p.family.ja)}・${esc(p.tags.includes('veg') && p.harvest ? (p.type === 'annual' ? '野菜' : '野菜（多年草）') : TYPE_JA[p.type] || '')}${p.tags.includes('native') ? '・日本の在来種' : ''}${p.tags.includes('herb') ? '・ハーブ' : ''}</div>
+    <div class="rolerow">${(p.roles || []).map((k) => `<button type="button" class="role-chip" data-role="${k}" title="${esc(ROLES[k].text)}">${esc(ROLES[k].ja)}</button>`).join('')}${(p.origin || []).map((o) => `<button type="button" class="origin-chip" data-region="${o}">${icon('pin', 13)}${esc(REGIONS[o].ja)}</button>`).join('')}</div>
     ${r.level ? `<ul class="reasons">${r.reasons.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
     ${monthBar(p, south)}
     <div class="meta">
@@ -487,7 +507,9 @@ function plantCard(rs) {
       : p.type === 'annual' ? `<p class="note-p annual-note">${icon('sprout', 15)}一年草・二年草：毎年の種まき、またはこぼれ種で更新します。</p>` : ''}
     ${p.tags.includes('medicinal') ? `<p class="note-p med-note">${icon('guide', 15)}薬用として知られる植物です。体質や服薬によっては害になることがあります。利用する前に医師・薬剤師に相談し、自己判断で病気の治療に使わないでください。</p>` : ''}
     ${p.tips?.length ? `<div class="tipbox">${p.tips.map((t) => `<p>${icon('bulb', 15)}${esc(t)}</p>`).join('')}</div>` : ''}
+    ${teaLinks(p)}
     ${pestBox(p)}
+    ${potBox(p)}
     ${p.custom ? `<p class="note-p" style="color:var(--muted)">マイ品種${p.shop ? `・購入店：${esc(p.shop)}` : ''}${p.url ? `・<a href="${esc(p.url)}" target="_blank" rel="noopener">商品ページ</a>` : ''}</p>` : ''}
     <div class="actions">
       ${p.custom ? `<button type="button" class="btn small" data-delcustom="${p.id}">削除</button>` : ''}
@@ -512,6 +534,7 @@ function renderPlants(keepPage = false) {
   $('#fFamily').value = f.family || '';
   $('#fType').value = f.type || '';
   $('#fUse').value = f.use || '';
+  $('#fRole').value = f.role || '';
   $('#fSort').value = f.sort || 'fit';
   document.querySelectorAll('#fView button').forEach((b) => b.classList.toggle('on', b.dataset.v === (f.view || 'list')));
   if ($('#fQ').value !== (f.q || '')) $('#fQ').value = f.q || '';
@@ -529,7 +552,7 @@ function renderPlants(keepPage = false) {
   const arr = sortGroups([...groups.values()], f.sort);
   const hiddenGroups = new Set(all.map((r) => r.plant.group)).size - arr.length;
   $('#plantCount').textContent = (state.climate ? '' : '※ 場所を設定すると、地域に合うかどうかを判定します。 ')
-    + `${arr.length}種・${list.length}品種${hiddenGroups > 0 ? `（育てにくい${hiddenGroups}種を非表示）` : ''}`;
+    + `${arr.length}種・${list.length}品種${hiddenGroups > 0 ? `（育てにくい${hiddenGroups}種を非表示）` : ''}${f.role ? `・役割「${ROLES[f.role].ja}」で絞り込み中` : ''}`;
   const shown = arr.slice(0, state.shown);
   const asList = (f.view || 'list') === 'list';
   let lastFam = '';
@@ -602,7 +625,7 @@ function renderGarden() {
       const on = new Set(p.bloom.map((m) => localMonth(m, south)));
       const col = COLORS[p.color[0]].hex;
       const act = actual.get(p.id);
-      return `<div class="n" title="${esc(p.ja)}">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}${act?.has(m) ? '（ノートに開花の記録あり）' : ''}">${act?.has(m) ? '<i class="act"></i>' : ''}</div>`).join('')}`;
+      return `<div class="n jumpable" title="${esc(p.ja)}" data-jump="gp-${p.id}" role="button">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}${act?.has(m) ? '（ノートに開花の記録あり）' : ''}">${act?.has(m) ? '<i class="act"></i>' : ''}</div>`).join('')}`;
     }).join('')}
     <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
   </div>`;
@@ -621,7 +644,7 @@ function renderGarden() {
         const per = plantsPerSqm(p);
         const share = state.area / plants.length;
         const qty = qtyFor(p, plants);
-        return `<div class="gplant">
+        return `<div class="gplant" id="gp-${p.id}">
           <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>
           <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
           <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm</div></div>
@@ -701,7 +724,7 @@ function renderTasks() {
       const list = tasks.filter((t) => t.month === m);
       const cur = m === now;
       if (!list.length && !cur) return '';
-      return `<div class="card month-block${cur ? ' current' : ''}">
+      return `<div class="card month-block${cur ? ' current' : ''}" id="month-${m}">
         <h2>${m}月${cur ? '<span class="pill">今月</span>' : ''}</h2>
         ${cur && blooming.length ? `<div class="blooming" style="margin-bottom:6px">${blooming.map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.ja)} が見頃</span>`).join('')}</div>` : ''}
         ${list.map((t) => `<div class="task"><div class="ic" aria-hidden="true">${icon(TASK_ICON[t.kind] || 'leaf', 18)}</div><div>
@@ -770,10 +793,10 @@ function calHtml(rows, south, counts) {
   const now = new Date().getMonth() + 1;
   return `<div class="cal" role="table" aria-label="開花カレンダー">
     <div></div>${MONTHS.map((m) => `<div class="h">${m}</div>`).join('')}
-    ${rows.map(({ p, color, label }) => {
+    ${rows.map(({ p, color, label, jump }) => {
       const on = new Set(p.bloom.map((m) => localMonth(m, south)));
       const col = COLORS[color || p.color[0]].hex;
-      return `<div class="n" title="${esc(p.ja)}">${label ? label + ' ' : ''}${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
+      return `<div class="n${jump ? ' jumpable' : ''}" title="${esc(p.ja)}"${jump ? ` data-jump="${jump}" role="button"` : ''}>${label ? label + ' ' : ''}${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
     }).join('')}
     <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
   </div>`;
@@ -787,6 +810,16 @@ function initPlanForm() {
   $('#planD').value = pi.depth;
   $('#planBudget').value = pi.budget || '';
   $('#planAnnuals').checked = !!pi.annuals;
+  $('#planGround').checked = !!pi.ground;
+  $('#balW').value = pi.balcony.width; $('#balD').value = pi.balcony.depth; $('#balFloor').value = pi.balcony.floor;
+  $('#balRailH').value = pi.balcony.railH; $('#balCeil').value = pi.balcony.ceilH; $('#balShelf').value = String(pi.balcony.shelf);
+  $('#balHang').checked = !!pi.balcony.hang; $('#balWater').checked = !!pi.balcony.water;
+  document.querySelectorAll('[data-bal]').forEach((seg) => seg.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    state.planInput.balcony[seg.dataset.bal] = b.dataset.v;
+    syncPlanSegs();
+  }));
   $('#siteW').value = pi.site.width;
   $('#siteD').value = pi.site.depth;
   $('#siteArea').value = pi.site.area || '';
@@ -897,12 +930,19 @@ function syncPlanSegs() {
     seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (pi.site[seg.dataset.site] || '')));
   });
   const site = pi.mode === 'site';
+  const bal = pi.mode === 'balcony';
+  document.querySelectorAll('[data-bal]').forEach((seg) => {
+    seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === String(pi.balcony[seg.dataset.bal])));
+  });
   $('#planMode').querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === pi.mode));
   $('#planForm').classList.toggle('is-site', site);
   document.querySelectorAll('#view-plan .site-only').forEach((el) => { el.hidden = !site; });
-  document.querySelectorAll('#view-plan .bed-only').forEach((el) => { el.hidden = site; });
-  $('#planFormTitle').textContent = site ? '庭まるごとプランをつくる' : '植栽プランをつくる';
-  $('#btnPlanLabel').textContent = site ? '庭のプランをつくる' : 'プランをつくる';
+  document.querySelectorAll('#view-plan .bed-only').forEach((el) => { el.hidden = pi.mode !== 'bed'; });
+  document.querySelectorAll('#view-plan .balcony-only').forEach((el) => { el.hidden = !bal; });
+  document.querySelectorAll('#view-plan .not-balcony').forEach((el) => { el.hidden = bal; });
+  $('#balFields .bal-roof').hidden = pi.balcony.roof === 'no';
+  $('#planFormTitle').textContent = site ? '庭まるごとプランをつくる' : bal ? 'ベランダ・鉢植えのプランをつくる' : '植栽プランをつくる';
+  $('#btnPlanLabel').textContent = site ? '庭のプランをつくる' : bal ? 'ベランダのプランをつくる' : 'プランをつくる';
   const shape = pi.site.shape;
   $('#siteFields .shape-wd').hidden = shape === 'poly';
   $('#siteFields .shape-L').hidden = shape !== 'L';
@@ -930,6 +970,15 @@ function readPlanForm() {
   pi.depth = Math.min(10, Math.max(0.4, parseFloat($('#planD').value) || 1.2));
   pi.budget = $('#planBudget').value;
   pi.annuals = $('#planAnnuals').checked;
+  pi.ground = $('#planGround').checked;
+  const B = pi.balcony;
+  B.width = Math.min(20, Math.max(1, parseFloat($('#balW').value) || 3.6));
+  B.depth = Math.min(4, Math.max(0.6, parseFloat($('#balD').value) || 1.2));
+  B.floor = Math.min(60, Math.max(1, parseInt($('#balFloor').value, 10) || 2));
+  B.railH = Math.min(160, Math.max(60, parseInt($('#balRailH').value, 10) || 110));
+  B.ceilH = Math.min(400, Math.max(200, parseInt($('#balCeil').value, 10) || 250));
+  B.shelf = Number($('#balShelf').value) || 0;
+  B.hang = $('#balHang').checked; B.water = $('#balWater').checked;
   pi.site.width = Math.min(60, Math.max(2, parseFloat($('#siteW').value) || 10));
   pi.site.depth = Math.min(60, Math.max(2, parseFloat($('#siteD').value) || 8));
   const a = parseFloat($('#siteArea').value);
@@ -960,18 +1009,24 @@ function makePlan(seed, layoutSeed = 0) {
 }
 function computePlan() {
   const pi = state.planInput;
+  if (pi.mode === 'balcony') {
+    state.balcony = generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: pi.text, style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
+    state.plan = null;
+    return;
+  }
   if (pi.mode === 'site') {
-    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget });
+    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget });
     state.siteBed = null;
     state.plan = null;
     return;
   }
-  state.plan = generatePlan({ ...pi, climate: state.climate });
+  state.plan = generatePlan({ ...pi, roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
 }
 
 function renderPlan() {
   const box = $('#planBox');
   if (state.planInput.mode === 'site' && !state.siteBed) { renderSitePlan(); return; }
+  if (state.planInput.mode === 'balcony') { renderBalconyPlan(); return; }
   const plan = state.plan;
   const bedOfSite = state.planInput.mode === 'site' ? state.site?.beds.find((b) => b.id === state.siteBed) : null;
   $('#btnPlanAlt').hidden = !plan;
@@ -1015,6 +1070,7 @@ function renderPlan() {
         <h1>${esc(title)}</h1>
         <p class="sekki">${esc(STYLES[plan.style].ja)}</p>
         <div class="month-slider"><input type="range" id="planMonth" min="1" max="12" step="1" value="${m}" aria-label="表示する月"><b id="planMonthLabel">${m}月</b></div>
+        ${tocHtml([['sec-cast', '植物'], ['sec-roles', '役割'], ['sec-planview', '配置図'], ['sec-relay', '開花'], ['sec-wildlife', '生き物'], ['sec-estimate', '費用']])}
       </div>
     </section>
 
@@ -1041,9 +1097,9 @@ function renderPlan() {
       <ol class="steps-num">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-cast">
       ${secHead('Planting List', '植える植物')}
-      <div class="cast">${plan.species.map((sp) => `<article class="cast-card">
+      <div class="cast">${plan.species.map((sp) => `<article class="cast-card" id="cast-${sp.no}">
         <div class="cast-art">${photoHtml(sp.plant, 'cast-photo', sp.color)}<span class="no">${sp.no}</span></div>
         <div class="cbody">
           <span class="role">${esc(sp.roleJa)}</span>
@@ -1053,21 +1109,27 @@ function renderPlan() {
           ${monthBar({ ...sp.plant, color: [sp.color] }, south)}
           <p class="calc">${sp.qty}株 × ${yen(sp.plant.price)} = <b>${yen(sp.subtotal)}</b></p>
           <div class="why">${sp.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+          ${sp.plant.roles?.length ? `<div class="rolerow small">${sp.plant.roles.slice(0, 3).map((k) => `<span class="role-chip">${esc(ROLES[k].ja)}</span>`).join('')}</div>` : ''}
         </div>
       </article>`).join('')}</div>
     </section>
 
-    <section class="mag paper">
+    <section class="mag" id="sec-roles">
+      ${secHead('Planting Roles', '植栽の役割', 'それぞれの植物が花壇の中でどんな役目を果たしているか。バランスがよいと、季節を通して形が整います。')}
+      ${roleBalanceHtml(plan)}
+    </section>
+
+    <section class="mag paper" id="sec-planview">
       ${secHead('Planting Plan', '配置図', '○ ひとつが苗1株。番号は上のリストと対応しています。円は数年後の株の広がりの目安です。')}
       ${planSVG(plan)}
     </section>
 
-    <section class="mag">
-      ${secHead('Bloom Relay', '開花リレー')}
-      <div class="scroll-x">${calHtml(plan.species.map((sp) => ({ p: sp.plant, color: sp.color, label: sp.no })), south, plan.counts)}</div>
+    <section class="mag" id="sec-relay">
+      ${secHead('Bloom Relay', '開花リレー', '植物名をタップすると、その植物の説明へ移動します。')}
+      <div class="scroll-x">${calHtml(plan.species.map((sp) => ({ p: sp.plant, color: sp.color, label: sp.no, jump: `cast-${sp.no}` })), south, plan.counts)}</div>
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-wildlife">
       ${secHead('Wildlife', '来てくれる生き物', plan.wild?.length ? `「${plan.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう、食草や蜜源になる植物を優先しました。` : 'この花壇の植物に集まりそうな生き物と、生物多様性度の目安です。')}
       ${bioHtml(bio)}
       ${crittersHtml(crit, south, 8, seenSet())}
@@ -1078,7 +1140,7 @@ function renderPlan() {
       <div class="scroll-x">${harvestCal(plan.species.filter((sp) => sp.plant.harvest?.length).map((sp) => sp.plant), south)}</div>
     </section>` : ''}
 
-    <section class="mag receipt">
+    <section class="mag receipt" id="sec-estimate">
       ${secHead('Estimate', '概算費用')}
       <ul>
         <li><span>苗代（${plan.totalPlants}株）</span><i></i><b>${yen(c.plants)}</b></li>
@@ -1143,6 +1205,148 @@ function renderPlan() {
 }
 
 
+// ---------- ベランダ・鉢植えプラン ----------
+function renderBalconyPlan() {
+  const box = $('#planBox');
+  const bp = state.balcony;
+  $('#btnPlanAlt').hidden = true;
+  if (!bp) {
+    box.innerHTML = tsupiSays('ベランダの向きと手すりの高さを教えてね。場所ごとの日当たりを太陽の動きから計算して、鉢の置き場所と植物を考えるよ。' + (state.loc ? '' : '（先に「ホーム」で場所を設定すると、より正確になるよ）'), 'think');
+    return;
+  }
+  const pi = state.planInput;
+  const south = !!state.climate?.south;
+  const title = bp.pref.matched.length || pi.style === 'cottage' ? (pi.style === 'cottage' ? '鉢で楽しむコテージガーデン' : planTitle(bp.pref.matched, pi.style).replace(/庭$/, 'ベランダ')) : `${FACING[bp.facing][0]}向きベランダの小さな庭`;
+  const c = bp.cost;
+  const budgetMsg = c.budget ? (c.total <= c.budget ? `<div class="alert ok">予算 ${yen(c.budget)} 内に収まっています。</div>` : `<div class="alert warn">予算 ${yen(c.budget)} を ${yen(c.total - c.budget)} 超えています。鉢の数を減らすか、小さな苗から育てて調整を。</div>`) : '';
+  const species = bp.plants.map((p) => ({ p, color: bp.slots.find((s) => s.plant.id === p.id)?.color || p.color[0], label: bp.slots.filter((s) => s.plant.id === p.id).map((s) => s.no).join(',') }));
+  const ZJ = { big: '大鉢', rail: '手すりぎわ', shelf: '棚', hang: '手すり掛け' };
+  box.innerHTML = `
+    <section class="hero plan-hero bal-hero">
+      <div class="hero-art" id="balArt">${frontSVG(bp)}</div>
+      <div class="hero-text">
+        <span class="kicker">Balcony Garden · ${esc(STYLES[pi.style]?.by || 'Container Planting')}</span>
+        <h1>${esc(title)}</h1>
+        <p class="sekki">${bp.width}×${bp.depth}m・${FACING[bp.facing][0]}向き・${bp.floor}階・手すり${Math.round(bp.railH * 100)}cm（${bp.railType === 'solid' ? '壁' : '格子'}）${bp.roof ? '・屋根あり' : ''}</p>
+        ${tocHtml([['sec-sun', '日当たり'], ['sec-pots', '鉢のリスト'], ['sec-bloom', '開花'], ['sec-wild', '生き物'], ['sec-care', '水やり'], ['sec-cost', '費用'], ['sec-notes', '注意']])}
+      </div>
+    </section>
+    <div class="figures four">
+      <div><span class="fig">${bp.slots.length}<small>鉢</small></span><span class="cap">植物 ${bp.plants.length}種</span></div>
+      <div><span class="fig">${bp.soilL}<small>L</small></span><span class="cap">用土の量</span></div>
+      <div><span class="fig">${bp.weight}<small>kg</small></span><span class="cap">水やり後の重さの目安</span></div>
+      <div><span class="fig">${yen(c.total)}</span><span class="cap">概算（苗・鉢・土）</span></div>
+    </div>
+
+    <section class="mag" id="sec-sun">
+      ${secHead('Sunlight', '場所ごとの日当たり', `${esc(state.loc?.name || '北緯35.7°')}の太陽の動きから、季節ごとに直射日光が当たる時間を計算しました。手すり・上の階・両端の仕切り板の影を考えています。`)}
+      <div class="scroll-x">${sectionSVG(bp)}</div>
+      <div class="scroll-x">${sunChartSVG(bp)}</div>
+      <p class="hint">5時間以上を「日向」、2.5時間以上を「半日陰」としています。断面図の円の数字は、春〜秋（夏至と春分・秋分の平均）の日照時間です。</p>
+    </section>
+
+    <section class="mag" id="sec-pots">
+      ${secHead('Pots & Plants', '鉢のリスト', '上の正面図の番号と対応しています。タップすると植物図鑑を開きます。')}
+      <div class="pot-list">${bp.slots.map((s) => `<article class="pot-card" id="pot-${s.no}">
+        <div class="pc-no">${s.no}</div>
+        <div class="pc-body">
+          <span class="role">${esc(ZJ[s.zone])}${s.tier ? ` ${s.tier}段目` : ''}${s.stand ? '・スタンド' : ''}・${esc(BSUN[s.spot.sun])}（${s.spot.grow}時間）</span>
+          <h3><button type="button" class="linkish" data-find="${esc(s.plant.groupJa)}"><span class="dot" style="background:${COLORS[s.color].hex}"></span>${esc(s.plant.ja)}</button></h3>
+          <p class="calc">${s.planter ? '65cmプランター' : `${s.go}号鉢（直径${s.go * 3}cm）`}・${s.qty}株・土 ${s.liters}L・${esc(s.guide.depth)}</p>
+          <div class="mixbar" title="${esc(s.guide.mix.ja)}">${s.guide.mix.parts.map((x) => `<i style="flex:${x.part};background:${x.color}" title="${esc(x.ja)} ${x.part}"></i>`).join('')}</div>
+          <p class="hint" style="margin:2px 0 0">${esc(s.guide.mix.ja)}：${s.guide.mix.parts.map((x) => `${esc(x.ja)}${x.part}`).join('・')}</p>
+          ${s.plant.tender ? '<p class="pc-warn">冬は室内か軒下へ取り込み</p>' : ''}
+          <p class="calc">${yen(s.cost.plant)}（苗）＋${yen(s.cost.pot)}（鉢）＋${yen(s.cost.soil)}（土）</p>
+        </div>
+      </article>`).join('')}</div>
+    </section>
+
+    <section class="mag" id="sec-bloom">
+      ${secHead('Bloom Relay', '開花リレー')}
+      <div class="scroll-x">${calHtml(species, south, bp.counts)}</div>
+      ${bp.harvest.some(Boolean) ? `<h3 style="margin-top:14px">収穫カレンダー</h3><div class="scroll-x">${harvestCal(bp.plants.filter((p) => p.harvest?.length), south)}</div>` : ''}
+    </section>
+
+    <section class="mag" id="sec-wild">
+      ${secHead('Wildlife', 'ベランダに来る生き物', '高い階でも、蜂や蝶、小鳥は花や水を見つけてやってきます。')}
+      ${bioHtml(bp.bio)}
+      ${crittersHtml(bp.critters, south, 8, seenSet())}
+    </section>
+
+    <section class="mag" id="sec-care">
+      ${secHead('Care', '水やりと季節の手入れ')}
+      <dl class="potdl">${bp.watering.map((w) => `<dt>${esc(w.season)}</dt><dd>${esc(w.text)}</dd>`).join('')}</dl>
+      ${bp.tender.length ? `<p class="pnote">冬に取り込む植物：${bp.tender.map((p) => esc(p.groupJa)).join('・')}</p>` : ''}
+    </section>
+
+    <section class="mag receipt" id="sec-cost">
+      ${secHead('Estimate', '概算費用')}
+      <ul>
+        <li><span>苗</span><i></i><b>${yen(c.plants)}</b></li>
+        <li><span>鉢・プランター</span><i></i><b>${yen(c.pots)}</b></li>
+        <li><span>用土（${bp.soilL}L）</span><i></i><b>${yen(c.soil)}</b></li>
+        ${c.extras.map((e) => `<li><span>${esc(e.ja)}</span><i></i><b>${yen(e.cost)}</b></li>`).join('')}
+        <li class="total"><span>合計の目安</span><i></i><b>${yen(c.total)}</b></li>
+      </ul>
+      ${budgetMsg}
+    </section>
+
+    <section class="mag" id="sec-notes">
+      ${secHead('Notes', 'このベランダのポイント')}
+      <ul class="role-advice">${bp.notes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+    </section>
+
+    <div class="big-row">
+      <button class="btn primary" type="button" id="btnBalNew">新しい庭（ベランダ）として保存</button>
+      <button class="btn" type="button" id="btnBalImg">${icon('save', 16)}配置図を保存</button>
+      <button class="btn" type="button" id="btnBalAlt">${icon('refresh', 16)}別の植物で考える</button>
+      <button class="btn" type="button" data-consult="${esc(`${FACING[bp.facing][0]}向き・${bp.floor}階・${bp.width}×${bp.depth}mのベランダで、${bp.plants.slice(0, 10).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}を鉢で育てる計画です。よりよくするアイデアと注意点を教えてください。`)}">${icon('search', 16)}AIに相談</button>
+    </div>`;
+  $('#btnBalAlt').addEventListener('click', () => { makePlan(state.planInput.seed + 1); toast('植物を選び直しました'); });
+  $('#btnBalImg').addEventListener('click', async () => {
+    try { const blob = await svgToPngBlob($('#balArt svg')); const r = await saveFile('balcony-plan.png', blob, 'image/png'); if (r !== 'cancel') toast('配置図を保存しました'); } catch (err) { toast(err.message); }
+  });
+  $('#btnBalNew').addEventListener('click', () => {
+    const name = prompt('新しい庭の名前', `${FACING[bp.facing][0]}向きのベランダ`);
+    if (!name) return;
+    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: bp.plants.map((p) => p.id), area: bp.area, sun: '', moist: '', have: {}, features: { ...bp.features }, kind: 'balcony' };
+    state.gardens.push(g);
+    state.gardenId = g.id;
+    saveGardens();
+    toast(`「${g.name}」を保存しました`);
+    go('garden');
+  });
+}
+
+/** ページ内ジャンプ：data-jump="要素のID"。data-gojump="画面|ID" は別の画面へ移ってから */
+function jumpTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  if (el.tagName === 'DETAILS') el.open = true;
+  el.closest('details')?.setAttribute('open', '');
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.classList.remove('flash');
+  void el.offsetWidth;
+  el.classList.add('flash');
+  setTimeout(() => el.classList.remove('flash'), 1600);
+  return true;
+}
+document.addEventListener('click', (e) => {
+  const j = e.target.closest('[data-jump]');
+  if (j) { e.preventDefault(); jumpTo(j.dataset.jump); return; }
+  const g = e.target.closest('[data-gojump]');
+  if (g) {
+    const [view, id] = g.dataset.gojump.split('|');
+    go(view);
+    setTimeout(() => jumpTo(id), 120);
+  }
+});
+
+/** ページ内の目次（タップで該当の場所へ） */
+function tocHtml(items) {
+  return `<nav class="toc" aria-label="このページの目次">${items.map(([id, t]) => `<button type="button" class="chip" data-jump="${id}">${esc(t)}</button>`).join('')}</nav>`;
+}
+
 // ---------- 庭まるごとプラン（プレゼンテーション） ----------
 const SITE_LAYERS = { plain: '平面図', tour: '園内の案内', photo: 'フォトスポット' };
 const SHAPE_JA = { rect: '長方形', L: 'L字', poly: '自由な形' };
@@ -1178,6 +1382,7 @@ function renderSitePlan() {
         <h1>${esc(title)}</h1>
         <p class="sekki">${esc(SHAPE_JA[pi.site.shape])}の敷地・家は${DIR_JA[s.house]}側・${esc(STYLES[pi.style]?.ja || '')}</p>
         <div class="seg small" id="siteLayer">${Object.entries(SITE_LAYERS).map(([k, v]) => `<button type="button" data-v="${k}" class="${k === layer ? 'on' : ''}">${v}</button>`).join('')}</div>
+        ${tocHtml([['sec-hl', '見どころ'], ['sec-tour', '園内の案内'], ['sec-photo', 'フォトスポット'], ['sec-swild', '生き物'], ['sec-beds', '花壇'], ['sec-scost', '費用']])}
         <div class="alt-row"><span>別の案：</span><button type="button" class="btn small" data-sitealt="plants">${icon('leaf', 15)}植栽だけ変える</button><button type="button" class="btn small" data-sitealt="layout">${icon('refresh', 15)}配置も変える</button></div>
       </div>
     </section>
@@ -1192,7 +1397,7 @@ function renderSitePlan() {
     ${s.skipped?.length ? `<p class="pnote warn">敷地が小さいため、${s.skipped.map(esc).join('・')}は入れずに、花壇を優先しました。</p>` : ''}
     ${structNames.length ? `<p class="pnote">庭にあるもの：${structNames.map(esc).join('・')}</p>` : ''}
 
-    <section class="mag">
+    <section class="mag" id="sec-hl">
       ${secHead('Highlights', '季節の見どころ', '一年を通して、この庭がいちばん輝く瞬間。')}
       <div class="carousel hl-cards">${s.highlights.map((h) => { const b = bedFor(h); return `<article class="hl-card">
         <div class="hl-art">${b ? elevationSVG(b.plan, midMonth(h), south, { label: false }) : ''}</div>
@@ -1201,29 +1406,29 @@ function renderSitePlan() {
       </article>`; }).join('')}</div>
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-tour">
       ${secHead('Garden Tour', '園内の案内', 'テラスから小道をたどって、庭をひとめぐり。番号は平面図の「園内の案内」と対応しています。')}
-      <ol class="tour">${s.tour.map((t) => `<li><span class="tno">${t.no}</span><div><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></div></li>`).join('')}</ol>
+      <ol class="tour">${s.tour.map((t) => `<li id="tour-${t.no}"><span class="tno">${t.no}</span><div><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></div></li>`).join('')}</ol>
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-photo">
       ${secHead('Photo Spots', 'フォトスポット', '平面図の「フォトスポット」で、撮る位置と向きを確認できます。')}
-      <div class="photo-spots">${s.photos.map((ph) => `<article class="ps-card">
+      <div class="photo-spots">${s.photos.map((ph) => `<article class="ps-card" id="photo-${ph.no}">
         <div class="ps-no">${icon('camera', 16)}<b>${ph.no}</b></div>
         <div><h3>${esc(ph.title)}</h3><p>${esc(ph.shot)}</p><p class="ps-when">${icon('sun', 14)}${esc(ph.when)}</p><p class="ps-tip">${esc(ph.tip)}</p></div>
       </article>`).join('') || '<p class="hint">パーゴラや水場を入れると、フォトスポットがふえます。</p>'}</div>
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-swild">
       ${secHead('Wildlife', '生き物と生物多様性', pi.wild.length ? `「${pi.wild.map((g) => WILD_GOALS[g]).join('・')}」を呼べるよう植物を選びました。` : '植物と庭の環境（水場・木・堆肥置き場など）から、来てくれそうな生き物を見積もりました。')}
       ${bioHtml(s.bio)}
       ${crittersHtml(s.critters, south, 12, seenSet())}
       ${webHtml(s.critters, s.plants, s.features, true)}
     </section>
 
-    <section class="mag">
+    <section class="mag" id="sec-beds">
       ${secHead('Beds', '花壇ごとの植栽', '塀や家・木の影を考えて、花壇ごとに日当たりを判断しています。')}
-      <div class="bed-cards">${s.beds.map((b) => `<article class="bed-card" data-bedcard="${b.id}">
+      <div class="bed-cards">${s.beds.map((b) => `<article class="bed-card" data-bedcard="${b.id}" id="bed-${b.id}">
         <div class="bc-art">${b.plan.species.length ? elevationSVG(b.plan, b.plan.peak, south, { label: false }) : ''}</div>
         <div class="bc-body">
           <h3><span class="bid">${b.id}</span>${esc(b.name)}</h3>
@@ -1236,7 +1441,7 @@ function renderSitePlan() {
 
     <section class="mag receipt">
       ${secHead('Estimate', '概算費用')}
-      <ul>
+      <ul id="sec-scost">
         ${c.items.map((e) => `<li><span>${esc(e.ja)}</span><i></i><b>${yen(e.cost)}</b></li>`).join('')}
         <li class="total"><span>合計の目安</span><i></i><b>${yen(c.total)}</b></li>
       </ul>
@@ -1320,7 +1525,10 @@ function renderZukan() {
   document.querySelectorAll('#zukanTabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === state.zukan));
   $('#plantPane').hidden = state.zukan !== 'plants';
   $('#critterPane').hidden = state.zukan !== 'critters';
-  if (state.zukan === 'critters') renderCritters(); else renderPlants();
+  $('#originPane').hidden = state.zukan !== 'origin';
+  if (state.zukan === 'critters') renderCritters();
+  else if (state.zukan === 'origin') renderOrigin();
+  else renderPlants();
 }
 $('#zukanTabs').addEventListener('click', (e) => {
   const b = e.target.closest('button');
@@ -1546,6 +1754,186 @@ function missionHtml(north) {
 }
 
 
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('[data-tsupinext]') || !state.tsupiCtx) return;
+  const el = $('#tsupiWord');
+  if (!el) return;
+  let w = el.textContent;
+  for (let i = 0; i < 6 && w === el.textContent; i++) w = tsupiLine(state.tsupiCtx);
+  el.textContent = w;
+});
+
+/** 植栽の役割のバランスとアドバイス */
+function roleBalanceHtml(plan) {
+  const rc = plan.roleCount || {};
+  const keys = ['structure', 'accent', 'filler', 'matrix', 'edging', 'groundcover', 'shadecover', 'screen', 'hanging'];
+  const advice = [];
+  if (!rc.groundcover && !rc.shadecover && plan.area >= 2) advice.push('グラウンドカバーがありません。足元を覆う植物を加えると、雑草や土の乾燥を防げます（プランの「足元をグラウンドカバーで覆う」で追加できます）。');
+  if (!rc.structure && plan.depth >= 0.8) advice.push('冬も形を保つ「骨格」の植物がないので、冬は寂しく見えるかもしれません。グラスや背の高い穂の植物を足すと締まります。');
+  if (!rc.accent) advice.push('目を引く「主役」がないので、球形の花や銀葉の植物をひとつ入れるとメリハリが出ます。');
+  if (!rc.edging && !rc.groundcover && plan.view === 'border') advice.push('手前の縁に低くまとまる植物を並べると、花壇の輪郭がきれいに見えます。');
+  return `<div class="role-bars">${keys.filter((k) => rc[k]).map((k) => `<button type="button" class="role-bar" data-role="${k}" title="${esc(ROLES[k].text)}"><span>${esc(ROLES[k].ja)}</span><i style="width:${Math.min(100, (rc[k] / plan.species.length) * 100)}%"></i><b>${rc[k]}種</b></button>`).join('')}</div>
+    ${advice.length ? `<ul class="role-advice">${advice.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '<p class="pnote ok">骨格・主役・足元まで、役割のバランスがとれた植栽です。</p>'}`;
+}
+
+// ---------- ハーブティー ----------
+$('#enjoyTabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  state.enjoyTab = b.dataset.v;
+  render();
+  window.scrollTo({ top: 0 });
+});
+function teaLinks(p) {
+  const ings = teaIngredientsFor(p.group);
+  if (!ings.length) return '';
+  const recs = [...new Map(ings.flatMap((i) => i.recipes).map((r) => [r.id, r])).values()];
+  return `<div class="tealinks"><b>${icon('cup', 15)}ハーブティーに（${esc(ings.map((i) => i.part).join('・'))}）</b>
+    <div class="chips">${recs.slice(0, 6).map((r) => `<button type="button" class="chip" data-tea="${r.id}">${esc(r.name)}</button>`).join('')}</div></div>`;
+}
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-tea]');
+  if (!t) return;
+  state.enjoyTab = 'tea';
+  state.teaF = { mood: '', show: 'all' };
+  state.teaOpen = t.dataset.tea;
+  go('enjoy');
+  setTimeout(() => jumpTo(`tea-${t.dataset.tea}`), 120);
+});
+
+function renderTea() {
+  const box = $('#teaBox');
+  const south = !!state.climate?.south;
+  const north = localMonth(new Date().getMonth() + 1, south);
+  const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
+  const groups = new Set(mine.map((p) => p.group));
+  const f = state.teaF;
+  const statusOf = new Map(TEA_RECIPES.map((r) => [r.id, teaStatus(r, groups)]));
+  let list = TEA_RECIPES.filter((r) => !f.mood || r.moods.includes(f.mood));
+  if (f.show === 'garden') list = list.filter((r) => statusOf.get(r.id).canMake);
+  list.sort((a, b) => statusOf.get(b.id).have.length - statusOf.get(a.id).have.length);
+  const myIngs = Object.entries(INGREDIENTS).filter(([, v]) => v.group && groups.has(v.group));
+  const canCount = TEA_RECIPES.filter((r) => statusOf.get(r.id).canMake).length;
+  const ingLine = (x) => {
+    const ing = INGREDIENTS[x.k];
+    const have = ing.store ? 'store' : groups.has(ing.group) ? 'have' : 'need';
+    const mark = have === 'have' ? '<span class="ing-ok">✓ 庭</span>' : have === 'store' ? '<span class="ing-store">買う</span>' : `<button type="button" class="ing-need" data-find="${esc(byGroupJa(ing.group))}">＋ 育てる</button>`;
+    return `<li>${mark}<b>${esc(ing.ja)}</b>${ing.part ? `<small>（${esc(ing.part)}）</small>` : ''}<span>${esc(x.amt)}</span></li>`;
+  };
+  box.innerHTML = `
+    <section class="hero tea-hero">
+      <div class="hero-text" style="margin-top:0">
+        <span class="kicker">Garden Tisanes</span>
+        <h1>庭のハーブティー</h1>
+        <p class="sekki">${groups.size ? `「${esc(activeGarden().name)}」の植物で作れるお茶が <b>${canCount}</b> 種類あります。` : 'マイ庭にハーブを加えると、庭で作れるお茶がわかります。'}</p>
+      </div>
+    </section>
+    ${myIngs.length ? `<section class="mag">
+      ${secHead('From Your Garden', '庭で採れるお茶の材料', '摘みどきと乾かし方の目安です。')}
+      <div class="tea-ings">${myIngs.map(([k, v]) => `<div class="tea-ing"><b>${esc(v.ja)}</b><small>${esc(v.part)}</small><p>${icon('calendar', 13)}${esc(v.harvest)}</p><p>${icon('leaf', 13)}${esc(v.dry)}</p></div>`).join('')}</div>
+    </section>` : ''}
+    <section class="mag">
+      ${secHead('Recipes', 'レシピを探す', '気分や用途で選んでみてください。')}
+      <div class="chips mood-chips"><button type="button" class="chip${!f.mood ? ' on' : ''}" data-mood="">すべて</button>${Object.entries(MOODS).map(([k, v]) => `<button type="button" class="chip${f.mood === k ? ' on' : ''}" data-mood="${k}">${esc(v)}</button>`).join('')}</div>
+      <div class="seg small tea-show"><button type="button" data-show="garden" class="${f.show === 'garden' ? 'on' : ''}">庭の材料で作れる</button><button type="button" data-show="all" class="${f.show === 'all' ? 'on' : ''}">レシピ図鑑（すべて${TEA_RECIPES.length}種）</button></div>
+      <p class="count">${list.length}種類</p>
+      <div class="tea-list">${list.map((r) => { const st = statusOf.get(r.id); const inSeason = r.ings.some((x) => { const g = INGREDIENTS[x.k]?.group; const p = g && mine.find((q) => q.group === g); return p && (p.bloom.includes(north) || p.harvest?.includes(north) || ['葉', '葉・茎', '枝・葉'].includes(INGREDIENTS[x.k].part)); }); return `<article class="tea-card" id="tea-${r.id}">
+        <div class="tc-head">${teaCupSVG(r.color, 60)}<div><h3>${esc(r.name)}</h3><div class="tc-moods">${r.moods.map((m) => `<span>${esc(MOODS[m])}</span>`).join('')}</div>
+          ${st.all ? '<span class="tc-ok">庭の材料だけで作れる</span>' : st.canMake ? '<span class="tc-ok part">庭の材料で作れる</span>' : st.have.length ? `<span class="tc-part">庭の材料 ${st.have.length}/${st.garden.length}</span>` : ''}${inSeason && st.have.length ? '<span class="tc-season">いま摘める</span>' : ''}</div></div>
+        <p class="tc-taste">${esc(r.taste)}</p>
+        <ul class="tc-ings">${r.ings.map(ingLine).join('')}</ul>
+        <details${state.teaOpen === r.id ? ' open' : ''}><summary>淹れ方（${esc(r.temp)}・${esc(r.time)}）</summary>
+          <ol class="steps-num">${r.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+          ${r.tip ? `<p class="tc-tip">${icon('bulb', 14)}${esc(r.tip)}</p>` : ''}
+          ${r.caution ? `<p class="tc-caution">${esc(r.caution)}</p>` : ''}
+        </details>
+      </article>`; }).join('') || '<p class="empty">この条件で作れるお茶はまだありません。「レシピ図鑑」で全部のレシピを見て、育てたいハーブを探してみてください。</p>'}</div>
+    </section>
+    <p class="note">ハーブティーは香りと味を楽しむためのものです。病気の治療を目的にしないでください。妊娠中・授乳中の人、持病のある人、薬を飲んでいる人は医師や薬剤師に相談を。農薬を使った植物や、種類のはっきりしない植物は使わないでください。</p>`;
+  state.teaOpen = null;
+  box.querySelector('.mood-chips').addEventListener('click', (e) => { const b = e.target.closest('[data-mood]'); if (b) { f.mood = b.dataset.mood; renderTea(); } });
+  box.querySelector('.tea-show').addEventListener('click', (e) => { const b = e.target.closest('[data-show]'); if (b) { f.show = b.dataset.show; renderTea(); } });
+}
+const byGroupJa = (g) => PLANTS.find((p) => p.group === g)?.groupJa || g;
+
+// ---------- 原産地モード（図鑑） ----------
+function renderOrigin() {
+  const box = $('#originPane');
+  const id = REGIONS[state.region] ? state.region : 'japan';
+  const R = REGIONS[id];
+  const groups = new Map();
+  for (const p of PLANTS) if (!groups.has(p.group)) groups.set(p.group, p);
+  const all = [...groups.values()];
+  const counts = {};
+  for (const p of all) for (const o of p.origin || []) counts[o] = (counts[o] || 0) + 1;
+  const here = all.filter((p) => p.origin?.includes(id)).sort((a, b) => ORDER.get(a.id) - ORDER.get(b.id));
+  const mine = new Set(state.garden.map((x) => byId.get(x)?.group));
+  const c = state.climate;
+  const byType = {};
+  for (const p of here) { const t = p.tags.includes('veg') && p.harvest ? '野菜' : TYPE_JA[p.type] || 'その他'; (byType[t] = byType[t] || []).push(p); }
+  box.innerHTML = `
+    <section class="card origin-top">
+      <span class="en">Plants of the World</span><h2>原産地から見る図鑑</h2>
+      <p class="hint" style="margin:2px 0 8px">地図の地域をタップすると、その土地生まれの植物と風景を表示します。数字は図鑑に載っている種類の数です。</p>
+      <div class="map-wrap">${worldMapSVG({ selected: id, counts })}</div>
+      <div class="chips region-chips">${Object.entries(REGIONS).sort((a, b) => (counts[b[0]] || 0) - (counts[a[0]] || 0)).map(([k, v]) => `<button type="button" class="chip${k === id ? ' on' : ''}" data-region-pick="${k}">${esc(v.ja)}<small>${counts[k] || 0}</small></button>`).join('')}</div>
+    </section>
+    <section class="card region-card">
+      <div class="scene">${sceneSVG(id)}<figure class="scene-photo" id="scenePhoto" hidden></figure></div>
+      <span class="en">Native Landscape</span><h2>${esc(R.ja)}</h2>
+      <p class="region-text">${esc(R.text)}</p>
+      ${c ? `<p class="hint">あなたの庭では、${here.filter((p) => evaluate(p, c).level === 3).length}種が◎よく育つ見込みです。${mine.size ? `マイ庭にはこの地域の植物が${here.filter((p) => mine.has(p.group)).length}種あります。` : ''}</p>` : ''}
+    </section>
+    ${Object.entries(byType).map(([t, list]) => `<section class="mag"><header class="sec"><h2>${esc(t)}<small>（${list.length}種）</small></h2></header>
+      <div class="origin-list">${list.map((p) => { const lv = c ? evaluate(p, c).level : null; return `<button type="button" class="origin-item" data-find="${esc(p.groupJa)}">
+        <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span><span class="oi-name">${esc(p.groupJa)}${mine.has(p.group) ? ' <small>✓マイ庭</small>' : ''}</span>
+        <span class="oi-sub">${esc(p.latin.split(/ '/)[0])}${lv ? `・${LEVEL[lv].mark}` : ''}</span></button>`; }).join('')}</div></section>`).join('')}
+    <p class="note">原産地は、種（園芸品種は交配のもとになった種）が自生するおおまかな地域です。風景はイメージのイラストです。</p>`;
+  box.querySelector('.map-wrap').addEventListener('click', (e) => { const g = e.target.closest('[data-region]'); if (g) { state.region = g.dataset.region; renderOrigin(); } });
+  box.querySelector('.region-chips').addEventListener('click', (e) => { const b = e.target.closest('[data-region-pick]'); if (b) { state.region = b.dataset.regionPick; renderOrigin(); box.querySelector('.region-card').scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+  // その土地の写真（Wikipedia。取得できなければイラストのみ）
+  placeImage(R.wiki).then((img) => {
+    const fig = $('#scenePhoto');
+    if (!img || !fig || state.region !== id) return;
+    fig.innerHTML = `<img src="${esc(img.src)}" alt="${esc(R.ja)}の風景" loading="lazy"><figcaption><a href="${esc(img.url)}" target="_blank" rel="noopener">写真：${esc(img.site)}</a></figcaption>`;
+    fig.hidden = false;
+  });
+}
+
+// ---------- 鉢植えガイド（図鑑） ----------
+function potBox(p) {
+  const g = potGuide(p);
+  return `<details class="potbox"><summary>${icon('pot', 16)}鉢植えにするなら<span class="suit s${g.suit}">${esc(g.suitText)}</span></summary>
+    <div class="scroll-x">${potGuideSVG(g)}</div>
+    <dl class="potdl">
+      <dt>鉢の大きさ</dt><dd><b>${g.go}号</b>（直径約${g.cm}cm・土 約${g.liters}L）・${esc(g.depth)}<small>${esc(g.count)}</small></dd>
+      <dt>用土</dt><dd>${esc(g.mix.ja)}：${g.mix.parts.map((x) => `${esc(x.ja)} ${x.part}`).join('：')}</dd>
+      <dt>水やり</dt><dd>${esc(g.water)}</dd>
+      <dt>肥料</dt><dd>${esc(g.feed)}</dd>
+      <dt>植え替え</dt><dd>${esc(g.repot)}</dd>
+    </dl>
+    ${g.notes.length ? `<ul class="potnotes">${g.notes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    <p class="note">市販の「草花用培養土」や「野菜用培養土」でも育ちます。配合は、自分で土を作るときの目安です。</p>
+  </details>`;
+}
+document.addEventListener('click', (e) => {
+  const r = e.target.closest('[data-role]');
+  if (r) {
+    Object.assign(state.filters, { q: '', role: r.dataset.role, origin: '', family: '', type: '', use: '', tag: '' });
+    store.set('filters', state.filters);
+    state.zukan = 'plants';
+    if (state.view === 'plants') { renderZukan(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else go('plants');
+    toast(`「${ROLES[r.dataset.role].ja}」の植物を表示しています`);
+    return;
+  }
+  const g = e.target.closest('.origin-chip[data-region], [data-goregion]');
+  if (g) {
+    state.region = g.dataset.region || g.dataset.goregion;
+    state.zukan = 'origin';
+    if (state.view === 'plants') { renderZukan(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else go('plants');
+  }
+});
+
 // ---------- 病害虫 ----------
 function regionPestCard(c) {
   const risks = regionRisks(c);
@@ -1761,7 +2149,8 @@ function planTitle(words, style = '') {
   const colors = words.filter((w) => COLOR.includes(w));
   const STYLE = ['ナチュラル', 'イングリッシュ', '和風', 'プレーリー', 'ドライガーデン', 'シェード'];
   const descs = [...words.filter((w) => DESC[w] && !STYLE.includes(w)), ...words.filter((w) => STYLE.includes(w))].map((w) => DESC[w]).slice(0, 2);
-  if (!colors.length && !descs.length) return 'あなたの庭のプラン';
+  if (!colors.length && !descs.length) return style === 'cottage' ? '花があふれるコテージガーデン' : style === 'oudolf' ? '風に揺れるニューパレニアル' : style === 'chatto' ? '乾いた砂利の庭' : 'あなたの庭のプラン';
+  if (style === 'cottage') return `${colors.length ? colors.join('と') + 'の' : ''}${descs.join('')}コテージガーデン`;
   return `${colors.length ? colors.join('と') + 'の' : ''}${descs.join('')}庭`;
 }
 
@@ -2274,10 +2663,16 @@ async function renderHome() {
   const tasks = [...buildTasks(c, mine), ...pestTasks(c, mine)].filter((t) => t.month === now).slice(0, 3);
   const ideas = ideasFor(north);
   const idea = ideas[new Date().getDate() % Math.max(1, ideas.length)];
-  const word = MONTHLY_WORDS[north - 1] + (mine.length ? '' : ' まずは「プラン」で、庭のイメージを作ってみない？');
+  state.tsupiCtx = {
+    month: north, empty: !mine.length,
+    blooming: [...new Set(blooming.map((p) => p.groupJa.replace(/（.*?）/g, '')))],
+    harvest: [...new Set(mine.filter((p) => p.harvest?.includes(north)).map((p) => p.groupJa.replace(/（.*?）/g, '')))],
+    tasks: tasks.map((t) => t.title), seen: new Set(state.sightings.map((x) => x.c)).size,
+  };
+  const word = tsupiLine(state.tsupiCtx);
   const pose = !mine.length ? 'sprout' : north === 12 || north <= 2 ? 'idle' : 'happy';
   box.innerHTML = `
-    ${tsupiSays(esc(word), pose, `<div class="bubble-acts"><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-consult="">AIに相談</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
+    ${tsupiSays(`<span id="tsupiWord">${esc(word)}</span>`, pose, `<div class="bubble-acts"><button type="button" class="btn small" data-tsupinext>${icon('refresh', 15)}ほかの話</button><button type="button" class="btn small" data-openchat>${icon('search', 15)}ツピに聞く</button><button type="button" class="btn small" data-consult="">AIに相談</button><button type="button" class="btn small" data-record="">${icon('plus', 15)}今日の記録</button></div>`)}
     ${visitorsHtml(mine, north, c)}
     ${insightsCard()}
     <section class="card today">
@@ -2286,12 +2681,12 @@ async function renderHome() {
       <div id="homeWx"></div>
       <div class="today-block">
         <h3>${icon('calendar', 17)}今月の作業</h3>
-        ${tasks.length ? tasks.map((t) => `<div class="mini-task"><span class="ic">${icon(TASK_ICON[t.kind] || 'leaf', 16)}</span><span>${esc(t.title)}</span></div>`).join('') : '<p class="hint">急ぎの作業はありません。庭を眺めて楽しみましょう。</p>'}
+        ${tasks.length ? tasks.map((t) => `<button type="button" class="mini-task" data-gojump="tasks|month-${now}"><span class="ic">${icon(TASK_ICON[t.kind] || 'leaf', 16)}</span><span>${esc(t.title)}</span></button>`).join('') : '<p class="hint">急ぎの作業はありません。庭を眺めて楽しみましょう。</p>'}
         <button type="button" class="link" data-go="tasks">作業暦を見る ${icon('arrow', 14)}</button>
       </div>
       ${blooming.length ? `<div class="today-block">
         <h3>${icon('leaf', 17)}いま見頃</h3>
-        <div class="blooming">${blooming.slice(0, 8).map((p) => `<span class="chip"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.cv || p.groupJa)}</span>`).join('')}</div>
+        <div class="blooming">${blooming.slice(0, 8).map((p) => `<button type="button" class="chip" data-find="${esc(p.groupJa)}"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.cv || p.groupJa)}</button>`).join('')}</div>
       </div>` : ''}
       ${idea ? `<button type="button" class="today-idea" data-go="enjoy">
         <span class="art-box">${art(ART_BY_ICON[idea.icon])}</span>
@@ -2390,7 +2785,7 @@ document.addEventListener('click', (e) => {
   }
   const f = e.target.closest('[data-find]');
   if (f) {
-    Object.assign(state.filters, { q: f.dataset.find.replace(/（.*?）/g, ''), sun: '', moist: '', height: '', month: '', color: '', tag: '', family: '', type: '', use: '' });
+    Object.assign(state.filters, { q: f.dataset.find.replace(/（.*?）/g, ''), sun: '', moist: '', height: '', month: '', color: '', tag: '', family: '', type: '', use: '', role: '', origin: '' });
     store.set('filters', state.filters);
     state.openCards.clear();
     state.zukan = 'plants';

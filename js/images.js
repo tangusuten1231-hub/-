@@ -105,3 +105,15 @@ export async function loadImages(plants) {
 }
 
 export const imageOf = (id) => cache[id] ?? null;
+
+/** 風景など、記事名から写真を1枚取得（原産地の風景用）。戻り値: {src, url, site} | null */
+export async function placeImage(title) {
+  const key = 'place:' + title;
+  if (key in cache) return cache[key];
+  try {
+    const r = await wikiThumbs([title]);
+    cache[key] = r[title] || null;
+    save();
+    return cache[key];
+  } catch { return null; }
+}

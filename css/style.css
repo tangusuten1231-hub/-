@@ -928,3 +928,128 @@ button.critter { border: 0; font: inherit; color: inherit; cursor: pointer; }
 .m-item small { color: var(--accent); font-weight: 700; }
 .m-art { background: #f4efe2; border: 0; border-radius: 12px; padding: 4px; cursor: pointer; }
 .veg-note { background: color-mix(in srgb, #c9a24a 14%, var(--surface)); }
+
+/* ===== iPhoneで入力時などに画面が勝手に拡大されないように ===== */
+/* iOS Safari は 16px 未満の入力欄にフォーカスすると自動で拡大するため、入力欄は 16px 以上に */
+input, select, textarea { font-size: max(16px, 1em); }
+.seg small, .chip input { font-size: inherit; }
+/* ダブルタップでの拡大を防ぐ（ピンチでの拡大はできる） */
+html { touch-action: manipulation; }
+/* 横にはみ出す要素で画面が縮小・拡大しないように */
+html, body { overflow-x: clip; max-width: 100%; }
+
+/* ===== 別名・役割・原産地（図鑑カード） ===== */
+.aka { font-size: .76rem; color: var(--muted); margin-top: 1px; line-height: 1.5; }
+.rolerow { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 2px; }
+.rolerow.small { margin-top: 4px; }
+.role-chip, .origin-chip { font: inherit; font-size: .72rem; border-radius: 999px; padding: 2px 9px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); color: var(--accent); cursor: pointer; display: inline-flex; align-items: center; gap: 3px; }
+span.role-chip { cursor: default; }
+.origin-chip { color: var(--terra); border-color: color-mix(in srgb, var(--terra) 35%, var(--line)); background: color-mix(in srgb, var(--terra) 7%, var(--surface)); }
+/* 鉢植えガイド */
+.potbox, .tealinks { margin: 10px 0; background: var(--surface-2); border-radius: 12px; padding: 8px 12px; }
+.potbox summary { cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.suit { font-size: .72rem; font-weight: 700; border-radius: 99px; padding: 1px 8px; background: var(--accent); color: #fff; }
+.suit.s2 { background: #c9a227; } .suit.s1 { background: var(--muted); }
+.pot-svg { display: block; min-width: 520px; width: 100%; height: auto; margin: 8px 0 4px; background: #fbf8f0; border-radius: 10px; }
+.potdl { display: grid; grid-template-columns: 5.2em 1fr; gap: 4px 10px; margin: 6px 0; font-size: .84rem; }
+.potdl dt { color: var(--muted); font-size: .78rem; }
+.potdl dd { margin: 0; line-height: 1.6; }
+.potdl dd small { display: block; color: var(--muted); }
+.potnotes { margin: 4px 0; padding-left: 1.2em; font-size: .82rem; color: var(--ink-2); }
+.tealinks b { display: flex; align-items: center; gap: 4px; font-size: .86rem; margin-bottom: 6px; }
+
+/* ===== 原産地モード ===== */
+.origin-top .en, .region-card .en { font-family: var(--display); font-style: italic; color: var(--accent); }
+.origin-top h2, .region-card h2 { font-family: var(--serif); margin: 0 0 4px; }
+.map-wrap { margin: 0 -4px; }
+.world-map { display: block; width: 100%; height: auto; border-radius: 12px; }
+.world-map .rg { cursor: pointer; }
+.world-map .rg:hover ellipse { fill-opacity: .6; }
+.region-chips { margin-top: 8px; }
+.region-chips .chip { font-size: .78rem; }
+.region-chips .chip small { margin-left: 4px; color: var(--muted); }
+.region-card { scroll-margin-top: 70px; }
+.scene { position: relative; margin: -4px -4px 10px; border-radius: 12px; overflow: hidden; }
+.scene-svg { display: block; width: 100%; height: auto; }
+.scene-photo { margin: 6px 0 0; }
+.scene-photo img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; display: block; }
+.scene-photo figcaption { font-size: .7rem; color: var(--muted); text-align: right; }
+.region-text { font-size: .9rem; line-height: 1.85; color: var(--ink-2); }
+.origin-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+@media (min-width: 640px) { .origin-list { grid-template-columns: repeat(3, 1fr); } }
+.origin-item { display: grid; grid-template-columns: 12px 1fr; gap: 2px 6px; align-items: center; text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px; cursor: pointer; }
+.origin-item .oi-name { font-size: .84rem; font-weight: 600; }
+.origin-item .oi-name small { color: var(--accent); font-weight: 700; }
+.origin-item .oi-sub { grid-column: 2; font-size: .7rem; color: var(--muted); font-style: italic; }
+.sec h2 small { font-size: .8rem; color: var(--muted); font-weight: 400; }
+
+/* ===== ページ内ジャンプ ===== */
+.toc { display: flex; gap: 6px; overflow-x: auto; margin-top: 10px; padding-bottom: 2px; scrollbar-width: none; }
+.toc::-webkit-scrollbar { display: none; }
+.toc .chip { white-space: nowrap; font-size: .78rem; }
+.jumpable { cursor: pointer; text-decoration: underline dotted color-mix(in srgb, var(--accent) 50%, transparent); text-underline-offset: 3px; }
+.tap { cursor: pointer; }
+.flash { animation: flash 1.5s ease; }
+@keyframes flash { 0%, 60% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--terra) 60%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
+section[id], article[id], li[id], .card[id] { scroll-margin-top: 70px; }
+button.mini-task { width: 100%; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.linkish { border: 0; background: none; font: inherit; color: inherit; padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-align: left; }
+
+/* ===== 植栽の役割 ===== */
+.role-bars { display: grid; gap: 6px; }
+.role-bar { display: grid; grid-template-columns: 9.5em 1fr 3em; align-items: center; gap: 8px; font: inherit; font-size: .82rem; color: inherit; border: 0; background: none; padding: 0; cursor: pointer; text-align: left; }
+.role-bar i { display: block; height: 8px; border-radius: 99px; background: var(--accent); min-width: 6px; }
+.role-bar b { font-weight: 600; color: var(--muted); font-size: .76rem; }
+.role-advice { margin: 10px 0 0; padding-left: 1.2em; font-size: .86rem; line-height: 1.75; color: var(--ink-2); }
+
+/* ===== ベランダ ===== */
+.seg.wrap8 { flex-wrap: wrap; }
+.seg.wrap8 button { flex: 1 0 22%; }
+.bal-hero .hero-art { background: #dfeaf0; }
+.balcony-section, .balcony-front, .sun-chart { display: block; width: 100%; height: auto; border-radius: 12px; }
+.balcony-section { min-width: 360px; max-width: 560px; margin: 0 auto 10px; }
+.sun-chart { min-width: 360px; max-width: 560px; margin: 0 auto; background: var(--surface); }
+.balcony-front .bp-pot { cursor: pointer; }
+.pot-list { display: grid; gap: 8px; }
+@media (min-width: 640px) { .pot-list { grid-template-columns: 1fr 1fr; } }
+.pot-card { display: grid; grid-template-columns: 30px 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.pc-no { width: 28px; height: 28px; border-radius: 50%; background: #c07a4a; color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .82rem; }
+.pot-card h3 { margin: 2px 0; font-family: var(--serif); font-size: 1rem; }
+.mixbar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; margin: 6px 0 2px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.mixbar i { display: block; }
+.pc-warn { margin: 4px 0 0; font-size: .76rem; color: var(--warn); font-weight: 700; }
+
+/* ===== ハーブティー ===== */
+.tea-hero { background: linear-gradient(180deg, color-mix(in srgb, #c9a24a 16%, var(--bg)), var(--bg)); padding-top: 12px; }
+.tea-ings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (min-width: 640px) { .tea-ings { grid-template-columns: repeat(3, 1fr); } }
+.tea-ing { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; font-size: .8rem; }
+.tea-ing b { font-family: var(--serif); font-size: .92rem; }
+.tea-ing small { color: var(--muted); margin-left: 4px; }
+.tea-ing p { margin: 3px 0 0; color: var(--ink-2); line-height: 1.5; display: flex; gap: 4px; align-items: flex-start; }
+.mood-chips { margin-bottom: 8px; }
+.mood-chips .chip { font-size: .8rem; }
+.tea-show { margin-bottom: 4px; }
+.tea-list { display: grid; gap: 10px; }
+@media (min-width: 760px) { .tea-list { grid-template-columns: 1fr 1fr; } }
+.tea-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; }
+.tc-head { display: grid; grid-template-columns: 62px 1fr; gap: 8px; align-items: center; }
+.tea-card h3 { margin: 0 0 3px; font-family: var(--serif); font-size: 1.04rem; }
+.tc-moods { display: flex; flex-wrap: wrap; gap: 3px; }
+.tc-moods span { font-size: .68rem; background: var(--surface-2); border-radius: 99px; padding: 0 7px; color: var(--ink-2); }
+.tc-ok, .tc-part, .tc-season { display: inline-block; margin-top: 4px; margin-right: 4px; font-size: .7rem; font-weight: 700; border-radius: 99px; padding: 0 8px; }
+.tc-ok { background: var(--accent); color: #fff; } .tc-ok.part { background: color-mix(in srgb, var(--accent) 70%, var(--surface)); }
+.tc-part { background: var(--surface-2); color: var(--muted); }
+.tc-season { background: #c9a24a; color: #fff; }
+.tc-taste { font-size: .86rem; color: var(--ink-2); margin: 8px 0 4px; line-height: 1.7; }
+.tc-ings { list-style: none; padding: 0; margin: 0 0 6px; font-size: .84rem; }
+.tc-ings li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; padding: 3px 0; border-bottom: 1px dotted var(--line); }
+.tc-ings li span:last-child { margin-left: auto; color: var(--muted); font-size: .78rem; }
+.tc-ings small { color: var(--muted); }
+.ing-ok, .ing-store, .ing-need { font-size: .66rem; font-weight: 700; border-radius: 4px; padding: 0 5px; }
+.ing-ok { background: var(--accent); color: #fff; }
+.ing-store { background: var(--surface-2); color: var(--muted); }
+.ing-need { border: 1px dashed var(--accent); background: none; color: var(--accent); font-family: inherit; cursor: pointer; }
+.tea-card details summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: .86rem; }
+.tc-tip { font-size: .82rem; color: var(--ink-2); display: flex; gap: 4px; }
+.tc-caution { font-size: .78rem; color: var(--warn); background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-radius: 8px; padding: 4px 8px; }

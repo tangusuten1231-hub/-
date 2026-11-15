@@ -49,6 +49,9 @@ const DICT = [
   { label: 'ハーブ', words: ['ハーブ', 'キッチン', '料理', 'お茶', 'ティー'], tags: ['herb'] },
   { label: '薬草', words: ['薬草', '薬用', 'メディカル', '生薬', '漢方'], tags: ['medicinal'] },
   { label: '在来種', words: ['在来', '自生', '日本の野草', '野の花'], tags: ['native'] },
+  { label: 'グラウンドカバー', words: ['グラウンドカバー', 'グランドカバー', '地面を覆', '雑草よけ', '雑草対策', '下草', 'じゅうたん'], roles: ['groundcover'] },
+  { label: '縁取り', words: ['縁取り', 'エッジ', 'ふちどり', '縁どり'], roles: ['edging'] },
+  { label: '目隠し', words: ['目隠し', '背の高い背景', 'スクリーン', '視線を遮'], roles: ['screen'], tall: true },
   { label: '野菜', words: ['野菜', '菜園', 'ポタジェ', 'キッチンガーデン', '収穫', '家庭菜園', '食べられる'], tags: ['veg'], veg: true },
   { label: '一年草も', words: ['一年草', '種まき', 'こぼれ種', '切り花畑'], annual: true },
   { label: '冬も緑', words: ['常緑', '一年中', '冬も', '冬でも'], tags: ['evergreen'] },
@@ -69,7 +72,7 @@ export const PRESETS = ['野菜', 'ハーブ', '薬草', 'ナチュラル', 'イ
 
 /** 自由入力のイメージ文から好みを読み取る */
 export function parseKeywords(text = '') {
-  const pref = { colors: new Set(), tags: new Set(), leaf: new Set(), season: new Set(), matched: [], annual: false, strictWhite: false, longbloom: false, budget: false, tall: false, short: false, sun: null };
+  const pref = { colors: new Set(), tags: new Set(), leaf: new Set(), season: new Set(), roles: new Set(), matched: [], annual: false, strictWhite: false, longbloom: false, budget: false, tall: false, short: false, sun: null };
   const t = text.replace(/\s+/g, '');
   for (const d of DICT) {
     if (!d.words.some((w) => t.includes(w))) continue;
@@ -81,6 +84,7 @@ export function parseKeywords(text = '') {
     d.tags?.forEach((c) => pref.tags.add(c));
     d.leaf?.forEach((c) => pref.leaf.add(c));
     d.season?.forEach((c) => pref.season.add(c));
+    d.roles?.forEach((c) => pref.roles.add(c));
     if (d.strictWhite) pref.strictWhite = true;
     if (d.longbloom) pref.longbloom = true;
     if (d.budget) pref.budget = true;
@@ -130,7 +134,7 @@ export function generatePlan(o) {
   let cands = PLANTS.filter((p) => p.sun.includes(sun) && (!moist || p.moist.includes(moist)));
   // 一年草は、指定があるときだけ使う（毎年の種まきが必要なため）
   const vegOK = style.potager || pref.veg;
-  if (!o.annuals && !pref.annual && !vegOK) cands = cands.filter((p) => p.type !== 'annual');
+  if (!o.annuals && !pref.annual && !vegOK && !style.cottage) cands = cands.filter((p) => p.type !== 'annual');
   // 野菜は、ポタジェか「野菜」の指定があるときだけ
   if (!vegOK) cands = cands.filter((p) => !p.tags.includes('veg') || ['zingiber', 'petasites', 'cryptotaenia', 'fragaria', 'rumex', 'chives', 'allium-tuberosum', 'perilla', 'ocimum', 'coriandrum', 'petroselinum'].includes(p.group));
   else if (!style.potager && pref.veg) cands = cands.filter((p) => p.type !== 'annual' || p.tags.includes('veg') || p.tags.includes('herb') || o.annuals || pref.annual);
@@ -165,6 +169,9 @@ export function generatePlan(o) {
     if (tagHits.length) why.push(...tagHits.map((t) => TAG_REASON[t]));
     if (p.bloom.length >= 5) why.push('長く咲く');
     if (style.bonus) { s += style.bonus(p); why.push(...style.why(p)); }
+    // 植栽での役割（グラウンドカバー・縁取り・目隠し）
+    const roleHit = [...pref.roles, ...(o.roles || [])].filter((r) => p.roles?.includes(r));
+    if (roleHit.length) { s += 3; why.push(ROLE_REASON[roleHit[0]]); }
     if (pref.veg && p.harvest?.length) { s += 1.5; if (!style.potager) why.push('食べられる'); }
     // 呼びたい生き物（蝶・蜂・野鳥・水辺）
     const ws = wildScore(p, wild, o.climate);
@@ -231,7 +238,17 @@ export function generatePlan(o) {
     if (fills.length && picked.length) why.push(`${fills.sort((a, b) => a - b).map((m) => m + '月').join('・')}の花を担当`);
     const color = palette.size ? pickColor(best.p) : chosenColor(best.p, pref);
     colorUse[color] = (colorUse[color] || 0) + 1;
-    picked.push({ plant: best.p, layer: L, color, level: evals.get(best.p.id).level, why: [...new Set(why)].slice(0, 4) });
+    picked.push({ plant: best.p, layer: L, color, level: evals.get(best.p.id).level, why: [...new Set(why)].slice(0, 4), score: best.s });
+  }
+  // 指定された役割（グラウンドカバーなど）の植物が入っていなければ、同じ層の植物と入れ替える
+  for (const need of new Set([...pref.roles, ...(o.roles || [])])) {
+    if (picked.some((x) => x.plant.roles?.includes(need))) continue;
+    const cand = scored.filter((c) => c.p.roles?.includes(need) && !picked.some((x) => x.plant.group === c.p.group)).sort((a, b) => b.s - a.s)[0];
+    if (!cand) continue;
+    const L = layerOf(cand.p);
+    const same = picked.filter((x) => x.layer === L && !x.plant.roles?.some((r) => pref.roles.has(r) || o.roles?.includes(r)));
+    const out = (same.length ? same : picked).reduce((a, b) => (b.score < a.score ? b : a));
+    picked.splice(picked.indexOf(out), 1, { plant: cand.p, layer: L, color: palette.size ? pickColor(cand.p) : chosenColor(cand.p, pref), level: evals.get(cand.p.id).level, why: [ROLE_REASON[need], ...cand.why].slice(0, 4), score: cand.s });
   }
 
   // 配置
@@ -259,8 +276,11 @@ export function generatePlan(o) {
   const harvest = Array(12).fill(0);
   species.forEach((s) => (s.plant.harvest || []).forEach((m) => harvest[localMonth(m, south) - 1]++));
 
+  const roleCount = {};
+  for (const sp of species) for (const r of sp.plant.roles || []) roleCount[r] = (roleCount[r] || 0) + 1;
+
   return {
-    harvest, plots: layout.plots,
+    harvest, plots: layout.plots, roleCount,
     width, depth, area, sun, moist, view: o.view === 'island' ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),
@@ -321,6 +341,8 @@ export function layoutPotager(picked, W, D, island, rand) {
   positions.forEach((arr, i) => { if (!arr.length) { const pl = plots[Math.floor(rand() * plots.length)]; arr.push({ x: (pl.x0 + pl.x1) / 2 + (rand() - 0.5) * 0.2, y: (pl.y0 + pl.y1) / 2 }); } });
   return { bands: [], positions, plots };
 }
+
+const ROLE_REASON = { groundcover: '地面を覆う', edging: '縁取りに', screen: '目隠しに', accent: '主役になる', structure: '骨格になる', filler: 'すき間を埋める', hanging: '垂れて広がる' };
 
 const TAG_REASON = {
   natural: 'ナチュラル', english: 'イングリッシュ', wa: '和の雰囲気', prairie: 'プレーリー', dry: '乾燥に強い',

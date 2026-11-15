@@ -337,7 +337,7 @@ export function generateSite(o) {
     const text = o.text || '';
     b.plan = generatePlan({
       climate: o.climate, sun: b.sun, moist: b.moist, width: b.width, depth: b.depth, text,
-      view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild,
+      view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
     });
   }
 
@@ -618,20 +618,20 @@ export function siteSVG(site, opts = {}) {
     }
   }
   // 花壇のラベル
-  const labels = site.beds.map((b) => `<g><circle cx="${X(b.x)}" cy="${Y(b.y)}" r="9" fill="#fffaf0" stroke="#5d6b3a" stroke-width="1.2"/><text x="${X(b.x)}" y="${Y(b.y) + 3.6}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3f4a26">${b.id}</text></g>`).join('');
+  const labels = site.beds.map((b) => `<g class="tap" data-jump="bed-${b.id}"><circle cx="${X(b.x)}" cy="${Y(b.y)}" r="9" fill="#fffaf0" stroke="#5d6b3a" stroke-width="1.2"/><text x="${X(b.x)}" y="${Y(b.y) + 3.6}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3f4a26">${b.id}</text></g>`).join('');
   // 案内ルート
   let tour = '';
   if (opts.tour && site.tour?.length) {
     const d = site.tour.map((p, i) => `${i ? 'L' : 'M'}${X(p.x).toFixed(1)} ${Y(p.y).toFixed(1)}`).join(' ');
     tour = `<path d="${d}" fill="none" stroke="#b5532f" stroke-width="1.8" stroke-dasharray="5 4" stroke-linejoin="round" opacity=".85"/>`
-      + site.tour.map((p) => `<g><circle cx="${X(p.x) + 11}" cy="${Y(p.y) - 11}" r="7.5" fill="#b5532f"/><text x="${X(p.x) + 11}" y="${Y(p.y) - 8}" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">${p.no}</text></g>`).join('');
+      + site.tour.map((p) => `<g class="tap" data-jump="tour-${p.no}"><circle cx="${X(p.x) + 11}" cy="${Y(p.y) - 11}" r="7.5" fill="#b5532f"/><text x="${X(p.x) + 11}" y="${Y(p.y) - 8}" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">${p.no}</text></g>`).join('');
   }
   let photos = '';
   if (opts.photos && site.photos?.length) {
     photos = site.photos.map((p) => {
       const px = X(p.x), py = Y(p.y), a = p.dir, L = 26, sp = 0.42;
       const p1 = [px + Math.cos(a - sp) * L, py + Math.sin(a - sp) * L], p2 = [px + Math.cos(a + sp) * L, py + Math.sin(a + sp) * L];
-      return `<g><path d="M${px} ${py} L${p1[0].toFixed(1)} ${p1[1].toFixed(1)} A${L} ${L} 0 0 1 ${p2[0].toFixed(1)} ${p2[1].toFixed(1)} Z" fill="#e2a33a" fill-opacity=".28" stroke="#c4831f" stroke-width=".8"/><rect x="${px - 8}" y="${py - 6}" width="16" height="12" rx="2.5" fill="#2f3a24"/><circle cx="${px}" cy="${py}" r="3.4" fill="#e2a33a"/><text x="${px + 10}" y="${py + 14}" font-size="9.5" font-weight="700" fill="#8a5a12">${p.no}</text></g>`;
+      return `<g class="tap" data-jump="photo-${p.no}"><path d="M${px} ${py} L${p1[0].toFixed(1)} ${p1[1].toFixed(1)} A${L} ${L} 0 0 1 ${p2[0].toFixed(1)} ${p2[1].toFixed(1)} Z" fill="#e2a33a" fill-opacity=".28" stroke="#c4831f" stroke-width=".8"/><rect x="${px - 8}" y="${py - 6}" width="16" height="12" rx="2.5" fill="#2f3a24"/><circle cx="${px}" cy="${py}" r="3.4" fill="#e2a33a"/><text x="${px + 10}" y="${py + 14}" font-size="9.5" font-weight="700" fill="#8a5a12">${p.no}</text></g>`;
     }).join('');
   }
   // 方位記号（北の向き）

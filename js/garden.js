@@ -22,6 +22,9 @@ export function evaluate(plant, climate) {
   // 一年草は毎年種から育てるので、冬の寒さの判定はしない
   if (annual) {
     // 何もしない
+  } else if (coldSite < zMin && plant.tender) {
+    level = Math.min(level, 2);
+    reasons.push('寒さに弱い。鉢植えにして、冬は室内や軒下に取り込めば育つ');
   } else if (coldSite < zMin) {
     if (coldSite >= zMin - 0.5) {
       level = Math.min(level, 2);
@@ -87,7 +90,9 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.family || p.family?.ja === f.family)
     .filter((p) => !f.type || (f.type === 'veg' ? p.tags.includes('veg') : p.type === f.type))
     .filter((p) => !f.use || p.uses?.includes(f.use))
-    .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '') + (p.family?.ja || '') + (p.family?.latin || '')).toLowerCase().includes(f.q.toLowerCase()))
+    .filter((p) => !f.role || p.roles?.includes(f.role))
+    .filter((p) => !f.origin || p.origin?.includes(f.origin))
+    .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '') + (p.family?.ja || '') + (p.family?.latin || '') + (p.aka || []).join('')).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
     .filter((r) => !f.minLevel || r.level == null || r.level >= f.minLevel)
     .sort((a, b) => (b.level ?? 0) - (a.level ?? 0) || a.plant.ja.localeCompare(b.plant.ja, 'ja'));
