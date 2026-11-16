@@ -2,9 +2,9 @@
 
 const URL_ = 'https://api.open-meteo.com/v1/forecast';
 
-export async function fetchForecast(lat, lon) {
+export async function fetchForecast(lat, lon, pastDays = 3) {
   const params = new URLSearchParams({
-    latitude: lat.toFixed(3), longitude: lon.toFixed(3), timezone: 'auto', forecast_days: '7', past_days: '3',
+    latitude: lat.toFixed(3), longitude: lon.toFixed(3), timezone: 'auto', forecast_days: '7', past_days: String(Math.max(1, Math.min(92, pastDays))),
     daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_gusts_10m_max',
   });
   const res = await fetch(`${URL_}?${params}`);

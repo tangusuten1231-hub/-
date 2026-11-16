@@ -4,6 +4,9 @@ import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pes
 import { guideSteps } from './guide.js';
 import { SOC_JA } from './designer.js';
 import { SYMPTOMS, diagnose } from './doctor.js';
+import { horizonFn, sunReport, angleOf, sunPath } from './suncheck.js';
+import { INAT_GROUPS, fetchNearby, matchLocal } from './inat.js';
+import { mergeLog, pastDaysNeeded, lastDays, logSummary, compareJa } from './wxlog.js';
 import { seedlings, bedSoil, potLiters, potSoil, fertilizer, liquid, mulch, toICS, firstSaturday, waterAdvice } from './tools.js';
 import { generatePlan, slotCandidates, BED_SHAPES, DENSITY, VARIETY, PRESETS, LAYER_JA } from './plan.js';
 import { elevationSVG, planSVG, plantThumbSVG, mapColors } from './illust.js';
@@ -20,10 +23,11 @@ import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
 import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile, listPhotos, savePhoto, deletePhoto, svgToPngBlob } from './db.js';
 import { describe, companions } from './describe.js';
 import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
-import { reply as tsupiReply, STARTERS } from './chat.js';
+import { reply as tsupiReply, STARTERS, findPlant } from './chat.js';
+import { ACTIONS, parseAction, parseShortcutLog, morningURL } from './links.js';
 import { consultPrompt, consultPromptShort, imagePrompt, parseBedsReply, AI_APPS, aiLink } from './handoff.js';
 import { fetchDaily, fetchCoast, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
-import { sunSeasons } from './sun.js';
+import { sunSeasons, declination } from './sun.js';
 import { generateSite, siteSVG, polyEditorSVG, polygonArea, isSimple, ITEMS, BED_ITEMS, DEFAULT_ITEMS, DIR_JA } from './site.js';
 import { creaturesForPlant, creaturesForGarden, biodiversity, WILD_GOALS, FEATURES } from './wildlife.js';
 import { plantCritters, bioHtml, crittersHtml, featureChips, regionHtml, kindTag, monthsText } from './wildview.js';
@@ -841,7 +845,7 @@ function renderTasks() {
       </div>`;
     }).join('')
     + `<p class="note">時期は${esc(state.loc.name)}の過去10年の終霜・初霜・暑さから計算した目安です。その年の天候に合わせて調整してください。</p>`;
-  weatherCard().then((h) => { const el = $('#wxSlot'); if (el) el.innerHTML = h; });
+  weatherCard().then(async (h) => { const el = $('#wxSlot'); if (el) el.innerHTML = h + await wxLogHtml(); });
   box.querySelectorAll('[data-tdone]').forEach((c) => c.addEventListener('change', () => {
     const [y, ...rest] = c.dataset.tdone.split('|');
     const k = rest.join('|');
@@ -1285,6 +1289,285 @@ document.addEventListener('click', (e) => {
   const pi = e.target.closest('[data-pinfo]');
   if (pi) { openPlantInfo(pi.dataset.pinfo); return; }
   if (e.target.closest('[data-calc]')) { openCalc(); }
+});
+
+// ---------- 定点カメラ（前回の写真を半透明で重ねて、同じ構図で撮る） ----------
+let camStream = null;
+function stopCamera() { if (camStream) { camStream.getTracks().forEach((t) => t.stop()); camStream = null; } }
+async function openFixedCamera(spotId = '') {
+  const g = activeGarden();
+  const spots = g.spots || [];
+  let spot = spots.find((x) => x.id === spotId) || spots[0] || null;
+  const lastOf = (sp) => diaryCache.filter((n) => n.photo && n.spot === sp?.id && (n.gardenId === g.id || !n.gardenId)).sort((a, b) => b.date.localeCompare(a.date))[0] || null;
+  openSheet(`${icon('camera', 19)} 定点カメラ`, `<div class="fcam-wrap">
+    ${spots.length ? `<label class="field"><span class="label">定点</span><select id="fcSpot">${spots.map((x) => `<option value="${x.id}"${x === spot ? ' selected' : ''}>${esc(x.name)}</option>`).join('')}</select></label>` : '<p class="hint">定点がまだありません。撮った写真は、定点「いつもの場所」として保存します。</p>'}
+    <div class="fcam"><video id="fcVideo" playsinline autoplay muted></video><img id="fcGhost" alt="" hidden><div class="fc-grid"></div><p class="fc-msg" id="fcMsg">カメラを準備しています…</p></div>
+    <label class="field fc-op"><span class="label">前回の写真の濃さ</span><input type="range" id="fcOp" min="0" max="80" value="40"></label>
+    <p class="hint" id="fcInfo"></p>
+    <div class="row fc-btns"><button type="button" class="btn primary" id="fcShot">${icon('camera', 18)}撮影して記録</button>
+      <label class="btn" for="fcFile">写真を選ぶ</label><input type="file" id="fcFile" accept="image/*" capture="environment" hidden></div>
+  </div>`, 'sheet-fcam');
+  const ghost = $('#fcGhost'), video = $('#fcVideo');
+  const showGhost = () => {
+    const last = lastOf(spot);
+    ghost.hidden = !last;
+    if (last) ghost.src = last.photo;
+    $('#fcInfo').textContent = last ? `前回（${dateJa(last.date)}）の写真を重ねています。輪郭を合わせて撮ると、同じ構図で比べられます。` : 'この定点の写真はまだありません。今日の1枚が基準になります。';
+  };
+  showGhost();
+  $('#fcOp').addEventListener('input', (e) => { ghost.style.opacity = e.target.value / 100; });
+  ghost.style.opacity = 0.4;
+  $('#fcSpot')?.addEventListener('change', (e) => { spot = spots.find((x) => x.id === e.target.value); showGhost(); });
+  const save = async (dataUrl) => {
+    if (!spot) { g.spots = [{ id: 's' + Date.now().toString(36), name: 'いつもの場所' }]; spot = g.spots[0]; saveGardens(); }
+    await saveNote({ id: Date.now().toString(36), date: todayStr(), plants: [], events: [], text: '', photo: dataUrl, spot: spot.id, garden: g.name, gardenId: g.id });
+    await loadDiary();
+    closeSheet();
+    growPick.spot = spot.id; growPick.open = true; growPick.a = growPick.b = null;
+    toast(`定点「${spot.name}」の写真を記録しました`);
+    if (state.view === 'garden') { renderGarden(); document.getElementById('growCard')?.scrollIntoView({ block: 'start' }); } else render();
+  };
+  try {
+    if (!navigator.mediaDevices?.getUserMedia) throw new Error('nocam');
+    camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 }, height: { ideal: 1440 } }, audio: false });
+    video.srcObject = camStream;
+    $('#fcMsg').hidden = true;
+  } catch {
+    $('#fcMsg').textContent = 'この端末・ブラウザではカメラを直接使えません。「写真を選ぶ」から撮影してください（前回の写真は上の見本として表示します）。';
+    $('#fcShot').hidden = true;
+  }
+  $('#fcShot').addEventListener('click', async () => {
+    if (!video.videoWidth) { toast('カメラの準備ができていません'); return; }
+    const k = Math.min(1, 1600 / Math.max(video.videoWidth, video.videoHeight));
+    const c = document.createElement('canvas');
+    c.width = Math.round(video.videoWidth * k); c.height = Math.round(video.videoHeight * k);
+    c.getContext('2d').drawImage(video, 0, 0, c.width, c.height);
+    await save(c.toDataURL('image/jpeg', 0.85));
+  });
+  $('#fcFile').addEventListener('change', async (e) => { const f = e.target.files[0]; if (!f) return; try { await save(await shrinkImage(f, 1600, 0.85)); } catch (err) { toast(err.message); } });
+}
+document.addEventListener('click', (e) => { const f = e.target.closest('[data-fcam]'); if (f) openFixedCamera(f.dataset.fcam); });
+
+// ---------- iNaturalist：近くで実際に観察された生き物 ----------
+let inatGroup = 'bird';
+function inatCard() {
+  if (!state.loc) return '';
+  return `<section class="mag" id="inatCard">
+    ${secHead('Nearby Records', '近くで実際に観察された生き物', `${esc(state.loc.name)}のまわり約5kmで、市民が写真つきで記録し、ほかの人が種を確かめた観察記録（iNaturalist）です。庭に来る生き物の手がかりになります。`)}
+    <div class="seg small inat-tabs">${Object.entries(INAT_GROUPS).map(([k, v]) => `<button type="button" data-inat="${k}" class="${k === inatGroup ? 'on' : ''}">${v.ja}</button>`).join('')}</div>
+    <div id="inatList"><button type="button" class="btn" data-inat="${inatGroup}">${icon('search', 15)}観察記録を読み込む</button></div>
+    <p class="note">データ・写真：<a href="https://www.inaturalist.org/" target="_blank" rel="noopener">iNaturalist</a>（写真の権利は各撮影者にあります）。記録の多さは、観察する人の多さにも左右されます。</p>
+  </section>`;
+}
+async function loadInat(group) {
+  inatGroup = group;
+  document.querySelectorAll('.inat-tabs button').forEach((b) => b.classList.toggle('on', b.dataset.inat === group));
+  const box = $('#inatList');
+  if (!box || !state.loc) return;
+  const key = `inat:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}:${group}`;
+  let list = null;
+  const c = store.get(key, null);
+  if (c && Date.now() - c.t < 7 * 864e5) list = c.d;
+  if (!list) {
+    box.innerHTML = '<p class="hint"><span class="spinner"></span>観察記録を取り寄せています…</p>';
+    try { list = await fetchNearby(state.loc.lat, state.loc.lon, group); store.set(key, { t: Date.now(), d: list }); }
+    catch (e) { box.innerHTML = `<p class="hint">${esc(e.message)}。通信状況を確かめて、もう一度お試しください。</p><button type="button" class="btn small" data-inat="${group}">もう一度</button>`; return; }
+  }
+  const items = matchLocal(list, CREATURES, group === 'plant' ? PLANTS : null);
+  const mine = new Set(state.garden.map((id) => byId.get(id)?.group));
+  box.innerHTML = items.length ? `<div class="inat-grid">${items.map((x) => `<div class="inat-item">
+      ${x.photo ? `<img src="${esc(x.photo)}" alt="${esc(x.ja)}" loading="lazy">` : '<span class="inat-noimg"></span>'}
+      <b>${esc(x.ja)}</b><small><i>${esc(x.latin)}</i>・${x.count}件</small>
+      ${x.critter ? `<button type="button" class="chip" data-critter="${x.critter}">生き物図鑑</button>` : ''}${x.plant ? `<button type="button" class="chip" data-find="${esc(x.plant.groupJa)}">${mine.has(x.plant.group) ? '✓ 庭にある' : '植物図鑑'}</button>` : ''}
+      <a class="inat-link" href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(x.credit)}">iNaturalist ↗</a>
+    </div>`).join('')}</div>` : '<p class="hint">この範囲では、まだ記録がありません。</p>';
+}
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-inat]'); if (b) loadInat(b.dataset.inat); });
+
+// ---------- 日当たりチェッカー ----------
+const DIR8 = [['北', 0], ['北東', 45], ['東', 90], ['南東', 135], ['南', 180], ['南西', 225], ['西', 270], ['北西', 315]];
+const dirJa = (az) => ['北', '北北東', '北東', '東北東', '東', '東南東', '南東', '南南東', '南', '南南西', '南西', '西南西', '西', '西北西', '北西', '北北西'][Math.round((((az % 360) + 360) % 360) / 22.5) % 16];
+function skyChartSVG(lat, points) {
+  const R = 120, C = 140, h = horizonFn(points);
+  const xy = (az, alt) => { const r = ((90 - Math.max(0, alt)) / 90) * R; const a = (az * Math.PI) / 180; return [C + r * Math.sin(a), C - r * Math.cos(a)]; };
+  const sky = [];
+  for (let az = 0; az <= 360; az += 3) sky.push(xy(az, h(az)));
+  const block = `M${C - R},${C}a${R},${R} 0 1,0 ${2 * R},0a${R},${R} 0 1,0 ${-2 * R},0Z M${sky.map((p) => p.map((v) => v.toFixed(1)).join(',')).join('L')}Z`;
+  const days = [[5, 21, '#e9852f', '夏至'], [2, 20, '#7aa95c', '春分・秋分'], [11, 22, '#5b8ee6', '冬至']];
+  const paths = days.map(([mo, d, col]) => {
+    const pts = sunPath(lat, declination(new Date(2026, mo, d))).filter((p) => p.alt >= 0);
+    return pts.slice(1).map((p, i) => { const q = pts[i]; const lit = p.alt > h(p.az) && q.alt > h(q.az); const [x1, y1] = xy(q.az, q.alt), [x2, y2] = xy(p.az, p.alt); return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${col}" stroke-width="${lit ? 3 : 1.5}" ${lit ? '' : 'stroke-dasharray="3 3" opacity=".6"'}/>`; }).join('');
+  }).join('');
+  const rings = [30, 60].map((a) => `<circle cx="${C}" cy="${C}" r="${((90 - a) / 90) * R}" fill="none" stroke="currentColor" stroke-opacity=".15"/>`).join('');
+  const labels = DIR8.filter((_, i) => i % 2 === 0).map(([n, az]) => { const [x, y] = xy(az, -8); return `<text x="${x.toFixed(1)}" y="${(y + 4).toFixed(1)}" text-anchor="middle" font-size="12" fill="currentColor">${n}</text>`; }).join('');
+  const dots = (points || []).map((p) => { const [x, y] = xy(p.az, p.alt); return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3" fill="#3f4a26"/>`; }).join('');
+  return `<svg class="sunchart" viewBox="0 0 280 280" role="img" aria-label="空の見え方と太陽の通り道"><circle cx="${C}" cy="${C}" r="${R}" fill="#dcebf5"/><path d="${block}" fill="#8a7a5a" fill-opacity=".55" fill-rule="evenodd"/>${rings}${paths}${dots}${labels}</svg>
+    <div class="legend">${days.map(([, , col, n]) => `<span><i style="background:${col}"></i>${n}</span>`).join('')}<span><i style="background:#8a7a5a"></i>建物・木などで空が見えない部分</span></div>
+    <p class="hint">真上から見た空の図です。中心が真上、外側の円が地平線。太い線は日が当たる時間、点線は障害物の陰になる時間です。</p>`;
+}
+function openSunCheck() {
+  const lat = state.loc?.lat ?? 35.7;
+  const st = { points: [], sensor: null, heading: null, alt: null, manual: Object.fromEntries(DIR8.map(([, az]) => [az, 0])) };
+  const SUN_JA = { full: '日向', part: '半日陰', shade: '日陰' };
+  openSheet(`${icon('sun', 19)} 日当たりチェッカー`, `<div class="suncheck">
+    <p class="hint">植えたい場所に立ち、まわりの建物・塀・木の「てっぺん」の方向と高さを記録すると、太陽の通り道と重ねて、季節ごとの日照時間を計算します（${state.loc ? esc(state.loc.name) + 'の緯度' : '緯度 35.7°'}で計算）。</p>
+    <div class="seg small" id="scMode"><button type="button" data-v="sensor" class="on">スマホのセンサーで測る</button><button type="button" data-v="manual">方位ごとに入力する</button></div>
+    <div id="scSensor">
+      <div class="sc-cam"><video id="scVideo" playsinline autoplay muted></video><div class="sc-cross"></div><p class="sc-read" id="scRead">「センサーを使う」を押してください</p></div>
+      <div class="row"><button type="button" class="btn" id="scStart">${icon('pin', 15)}センサーを使う</button><button type="button" class="btn primary" id="scAdd" disabled>${icon('plus', 15)}障害物のてっぺんを記録</button></div>
+      <p class="hint">スマホを縦に持ち、カメラを障害物の上の端（屋根・塀・木のてっぺん）に向けて「記録」。左右に少しずつ向きを変えながら、空が隠れている範囲をなぞるように何点か記録します。空が開けている方向は記録しなくてかまいません。</p>
+    </div>
+    <div id="scManual" hidden>
+      <p class="hint">方位ごとに、いちばん高く見える障害物を選びます。高さと距離がわかるときは数字で入れると正確です。</p>
+      <div class="sc-dirs">${DIR8.map(([n, az]) => `<div class="sc-dir"><b>${n}</b><select data-scaz="${az}"><option value="0">開けている</option><option value="10">遠くに建物・低い塀</option><option value="25">2階建てくらいが少し離れて</option><option value="40">2階建てくらいがすぐ近く</option><option value="60">高い建物・大きな木がすぐ近く</option></select>
+        <span class="sc-hd"><input type="number" min="0" step="0.5" placeholder="高さm" data-sch="${az}" inputmode="decimal"><input type="number" min="0" step="0.5" placeholder="距離m" data-scd="${az}" inputmode="decimal"></span></div>`).join('')}</div>
+    </div>
+    <div id="scPoints"></div>
+    <div id="scOut"></div>
+  </div>`, 'sheet-sun');
+  const out = () => {
+    const pts = $('#scManual').hidden ? st.points : DIR8.map(([, az]) => ({ az, alt: st.manual[az] }));
+    $('#scPoints').innerHTML = $('#scManual').hidden && st.points.length ? `<p class="hint">記録した点：${st.points.map((p, i) => `<button type="button" class="chip" data-scdel="${i}">${dirJa(p.az)} ${Math.round(p.alt)}° ×</button>`).join(' ')}</p>` : '';
+    const r = sunReport(lat, pts);
+    $('#scOut').innerHTML = `${skyChartSVG(lat, pts)}
+      <div class="tiles"><div class="tile"><div class="k">生育期（4〜9月）の平均</div><div class="v">${r.avg}<small>時間/日</small></div><div class="s">この場所は「${SUN_JA[r.sun]}」</div></div>
+      <div class="tile"><div class="k">夏至のころ</div><div class="v">${r.summer}<small>時間</small></div><div class="s">さえぎるものがなければ ${r.months[5].open}時間</div></div>
+      <div class="tile"><div class="k">冬至のころ</div><div class="v">${r.winter}<small>時間</small></div><div class="s">冬は太陽が低く、影が長くなる</div></div></div>
+      <div class="scroll-x"><table class="data sc-months"><tr>${r.months.map((x) => `<th>${x.m}月</th>`).join('')}</tr><tr>${r.months.map((x) => `<td>${x.hours}</td>`).join('')}</tr></table></div>
+      <p class="hint">日向＝生育期に1日6時間以上、半日陰＝3〜6時間、日陰＝3時間未満。木の葉の茂りぐあいや、照り返しは計算に入っていません。</p>
+      <div class="row"><button type="button" class="btn primary" id="scUse">${icon('plan', 15)}「${SUN_JA[r.sun]}」としてプランに使う</button></div>`;
+    $('#scUse').onclick = () => { state.planInput.sun = r.sun; store.set('planInput', state.planInput); syncPlanSegs(); closeSheet(); toast(`日当たりを「${SUN_JA[r.sun]}」にしました（平均${r.avg}時間/日）`); };
+  };
+  const body = $('#sheetBody');
+  body.onclick = (e) => {
+    const m = e.target.closest('#scMode button');
+    if (m) { body.querySelectorAll('#scMode button').forEach((b) => b.classList.toggle('on', b === m)); $('#scSensor').hidden = m.dataset.v !== 'sensor'; $('#scManual').hidden = m.dataset.v !== 'manual'; out(); return; }
+    const d = e.target.closest('[data-scdel]');
+    if (d) { st.points.splice(Number(d.dataset.scdel), 1); out(); }
+  };
+  body.oninput = (e) => {
+    const az = e.target.dataset.scaz ?? e.target.dataset.sch ?? e.target.dataset.scd;
+    if (az == null) return;
+    const H = Number(body.querySelector(`[data-sch="${az}"]`).value), D = Number(body.querySelector(`[data-scd="${az}"]`).value);
+    st.manual[az] = H > 0 && D > 0 ? angleOf(H, D) : Number(body.querySelector(`[data-scaz="${az}"]`).value);
+    out();
+  };
+  body.onchange = (e) => { if (e.target.dataset.scaz != null) body.oninput(e); };
+  const onOri = (e) => {
+    let hd = e.webkitCompassHeading;
+    if (hd == null && e.absolute && e.alpha != null) hd = (360 - e.alpha) % 360;
+    if (hd == null || e.beta == null) return;
+    st.heading = hd; st.alt = Math.max(0, e.beta - 90);
+    $('#scRead').textContent = `方位 ${dirJa(hd)}（${Math.round(hd)}°）・見上げる角度 ${Math.round(st.alt)}°`;
+    $('#scAdd').disabled = false;
+  };
+  $('#scStart').addEventListener('click', async () => {
+    try {
+      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        const ok = await DeviceOrientationEvent.requestPermission();
+        if (ok !== 'granted') throw new Error('許可されませんでした');
+      }
+      window.addEventListener('deviceorientationabsolute', onOri);
+      window.addEventListener('deviceorientation', onOri);
+      st.sensor = true;
+      $('#scRead').textContent = 'スマホを縦に持って、障害物のてっぺんに向けてください';
+      setTimeout(() => { if (st.heading == null) $('#scRead').textContent = '方位センサーの値が届きません。この端末では「方位ごとに入力する」を使ってください。'; }, 2500);
+    } catch (err) { $('#scRead').textContent = `センサーを使えませんでした（${err.message || ''}）。「方位ごとに入力する」を使ってください。`; }
+    try { camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false }); $('#scVideo').srcObject = camStream; } catch { /* カメラなしでも測れる */ }
+  });
+  $('#scAdd').addEventListener('click', () => { if (st.heading == null) return; st.points.push({ az: st.heading, alt: st.alt }); toast(`${dirJa(st.heading)}・${Math.round(st.alt)}°を記録しました`); out(); });
+  const stop = () => { window.removeEventListener('deviceorientationabsolute', onOri); window.removeEventListener('deviceorientation', onOri); };
+  $('#sheetClose').addEventListener('click', stop, { once: true });
+  out();
+}
+document.addEventListener('click', (e) => { if (e.target.closest('[data-suncheck]')) openSunCheck(); });
+
+// ---------- iPhone のショートカット・Siri との連携 ----------
+/** URL の ?do=… を実行（ショートカットや NFC タグから開いたとき） */
+async function handleURLAction() {
+  const a = parseAction(location.search);
+  if (!a) return;
+  try { history.replaceState(null, '', location.pathname); } catch { /* 古いブラウザ */ }
+  if (a.garden && state.gardens.some((g) => g.id === a.garden)) { state.gardenId = a.garden; saveGardens(); }
+  const g = activeGarden();
+  if (a.act === 'water') {
+    const plant = a.plant ? (byId.get(a.plant) || findPlant(a.plant, g.plants.map((id) => byId.get(id)).filter(Boolean))) : null;
+    await saveNote({ id: Date.now().toString(36), date: todayStr(), plants: plant ? [plant.id] : [], events: ['water'], text: a.memo, garden: g.name, gardenId: g.id, from: 'link' });
+    await loadDiary();
+    render();
+    toast(`${plant ? plant.ja + 'の' : ''}水やりを記録しました（${g.name}）。園芸ノートで確認・削除できます`);
+  } else if (a.act === 'record') openRecord(a.plant);
+  else if (a.act === 'tasks') go('tasks');
+  else if (a.act === 'doctor') openDoctor(a.plant);
+  else if (a.act === 'sun') openSunCheck();
+  else if (a.act === 'photo') openFixedCamera(a.spot);
+  else go('site');
+}
+/** ショートカットでためた記録ファイルを取り込む */
+async function importShortcutLog(file) {
+  const text = await file.text();
+  const rows = parseShortcutLog(text);
+  if (!rows.length) { toast('記録が見つかりませんでした。1行に「日付,できごと」の形で書かれているか確かめてください'); return; }
+  const done = new Set(store.get('importedLog', []));
+  const g = activeGarden();
+  const mine = g.plants.map((id) => byId.get(id)).filter(Boolean);
+  let n = 0;
+  for (const r of rows) {
+    if (done.has(r.key)) continue;
+    const plant = r.plantName ? findPlant(r.plantName, mine) : null;
+    await saveNote({ id: Date.now().toString(36) + n, date: r.date, plants: plant ? [plant.id] : [], events: r.event ? [r.event] : [], text: [r.time && `${r.time}`, r.event ? '' : r.eventText, r.memo].filter(Boolean).join(' '), garden: g.name, gardenId: g.id, from: 'shortcut' });
+    done.add(r.key); n++;
+  }
+  store.set('importedLog', [...done].slice(-3000));
+  await loadDiary();
+  render();
+  toast(n ? `${n}件の記録を「${g.name}」のノートに取り込みました（取り込み済みの${rows.length - n}件は省きました）` : 'すべて取り込み済みでした');
+}
+function openLinks() {
+  const base = location.origin + location.pathname;
+  const g = activeGarden();
+  const murl = state.loc ? morningURL(state.loc.lat, state.loc.lon) : '';
+  const copyRow = (label, text) => `<div class="lk-row"><span>${esc(label)}</span><code>${esc(text)}</code><button type="button" class="btn small" data-copytext="${esc(text)}">コピー</button></div>`;
+  openSheet(`${icon('steps', 19)} iPhoneのショートカット・Siriと連携`, `<div class="links">
+    <p class="hint">iPhoneに最初から入っている「ショートカット」アプリと組み合わせると、Siriやタグで記録したり、毎朝の水やり通知を受け取れたりします。料金はかかりません。</p>
+
+    <h3>① 毎朝の水やり通知</h3>
+    ${state.loc ? `<ol class="lk-steps">
+      <li>ショートカットアプリの「オートメーション」→「＋」→「時刻」で、毎朝7:00などを選び、「すぐに実行」にする。</li>
+      <li>アクション「URLの内容を取得」を追加し、下のURL（あなたの庭の場所の今日の予報）を貼る。${copyRow('予報のURL', murl)}</li>
+      <li>「辞書の値を取得」でキー <b>daily</b> → もう一度「辞書の値を取得」でキー <b>precipitation_sum</b> → 「リストから項目を取得」で<b>最初の項目</b>（今日の雨の予報 mm）。</li>
+      <li>「if」で「が次より大きい 4」のとき「通知を表示」＝「今日は雨の予報。水やりはお休み」、それ以外は「通知を表示」＝「雨が少ない日。鉢植えは土を触って水やりを」。</li>
+    </ol>` : '<p class="hint">先に庭の場所を設定すると、ここに予報のURLが表示されます。</p>'}
+
+    <h3>② 「Hey Siri、水やりした」で記録</h3>
+    <ol class="lk-steps">
+      <li>ショートカットアプリで新しいショートカットを作り、名前を「水やりした」にする（Siriにこの名前で頼めるようになる）。</li>
+      <li>アクション「テキスト」に「現在の日付」（形式は「ISO 8601」）と「,水やり」を入れる。植物を決めたいときは「,水やり,ラベンダー」。</li>
+      <li>アクション「ファイルに追加」で、iCloud Drive の「Shortcuts」フォルダの <b>garden-log.txt</b> に追加（「新しい行に追加」をオン）。</li>
+      <li>ときどき、このアプリで下の「ショートカットの記録を取り込む」を押して、garden-log.txt を選ぶ。取り込み済みの行は二重に入りません。</li>
+    </ol>
+    <p class="hint">「植え付け」「咲き始め」など、ノートのできごとの名前ならほかの記録にも使えます。</p>
+    <label class="btn primary" for="lkImport">${icon('note', 15)}ショートカットの記録を取り込む</label><input type="file" id="lkImport" accept=".txt,.csv,text/plain" hidden>
+
+    <h3>③ NFCタグにタッチして記録</h3>
+    <p>市販のNFCタグ（シール）を鉢や水栓に貼り、ショートカットアプリの「オートメーション」→「NFC」でタグを読み取らせ、②のショートカットを実行するよう設定します。タッチするだけで記録されます。</p>
+
+    <h3>④ URLで開く（Safariでこのアプリを使っている場合）</h3>
+    <p class="hint">ショートカットの「URLを開く」はSafariで開きます。iPhoneでは、ホーム画面に追加したアプリとSafariとで、保存されるデータが別になります。ホーム画面のアプリで使っているときは、②の方法がおすすめです。</p>
+    ${copyRow(ACTIONS.water, `${base}?do=water`)}
+    ${copyRow('ラベンダーの水やりを記録', `${base}?do=water&plant=${encodeURIComponent('ラベンダー')}`)}
+    ${copyRow(ACTIONS.record, `${base}?do=record`)}
+    ${copyRow(ACTIONS.tasks, `${base}?do=tasks`)}
+    ${copyRow(ACTIONS.photo, `${base}?do=photo`)}
+    ${copyRow(ACTIONS.sun, `${base}?do=sun`)}
+    <p class="hint">記録は、いま選んでいる庭（${esc(g.name)}）に入ります。</p>
+  </div>`, 'sheet-links');
+  $('#lkImport').addEventListener('change', async (e) => { const f = e.target.files[0]; if (f) { await importShortcutLog(f); closeSheet(); } });
+}
+document.addEventListener('click', async (e) => {
+  const c = e.target.closest('[data-copytext]');
+  if (c) { toast((await copyText(c.dataset.copytext)) ? 'コピーしました' : 'コピーできませんでした'); return; }
+  if (e.target.closest('[data-links]')) openLinks();
 });
 
 // ---------- セミオート（枠ごとに植物を選ぶ） ----------
@@ -2068,7 +2351,7 @@ function growthCard(g) {
   return `<details class="card grow" id="growCard"${growPick.open ? ' open' : ''}><summary><h2>${icon('camera', 19)}育ち具合の写真くらべ</h2><span class="sum-hint">${shots.length}枚</span></summary>
     ${tabs.length ? `<div class="chips grow-tabs">${tabs.map(([id, t]) => `<button type="button" class="chip${id === cur ? ' on' : ''}" data-gspot="${id}">${esc(t)}</button>`).join('')}</div>` : ''}
     ${body}
-    <div class="row" style="margin-top:8px"><button type="button" class="btn small" data-gnew>${icon('plus', 15)}定点をつくる</button>${spots.length ? `<button type="button" class="btn small" data-gdel="${cur}" ${cur === '_all' ? 'hidden' : ''}>この定点を削除</button>` : ''}<button type="button" class="btn small primary" data-grec>${icon('camera', 15)}写真を記録</button></div>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn small" data-gnew>${icon('plus', 15)}定点をつくる</button>${spots.length ? `<button type="button" class="btn small" data-gdel="${cur}" ${cur === '_all' ? 'hidden' : ''}>この定点を削除</button>` : ''}<button type="button" class="btn small primary" data-fcam="${cur === '_all' ? '' : cur}">${icon('camera', 15)}定点カメラで撮る</button><button type="button" class="btn small" data-grec>${icon('plus', 15)}写真を選んで記録</button></div>
   </details>`;
 }
 function bindGrowth(box, g) {
@@ -3413,6 +3696,8 @@ function renderEnjoy() {
       <div id="regionList">${regionHtml(c, now, south)}</div>
     </section>
 
+    ${inatCard()}
+
     ${friendAlbumHtml()}
 
     ${tip ? `<section class="mag quote">
@@ -3505,14 +3790,18 @@ document.addEventListener('click', async (e) => {
 
 // ---------- 下から出るシート（記録・チャット共通） ----------
 function openSheet(title, html, cls = '') {
+  stopCamera();
   $('#sheetTitle').innerHTML = title;
-  $('#sheetBody').innerHTML = html;
+  const body = $('#sheetBody');
+  body.onclick = body.oninput = body.onchange = null; // 前のシートの操作を引き継がない
+  body.innerHTML = html;
   $('#sheet').className = `sheet ${cls}`;
   $('#sheet').hidden = false;
   $('#sheetBack').hidden = false;
   document.body.classList.add('sheet-open');
 }
 function closeSheet() {
+  stopCamera();
   $('#sheet').hidden = true;
   $('#sheetBack').hidden = true;
   document.body.classList.remove('sheet-open');
@@ -3792,6 +4081,7 @@ async function renderBackup() {
       <input type="file" id="bImport" accept="application/json,.json" hidden>
     </div>
     <p class="note">iPhoneでは共有メニューから「ファイルに保存」→ iCloud Drive を選ぶと、機種変更後も復元できます。</p>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn" data-links>${icon('steps', 15)}iPhoneのショートカット・Siriと連携</button></div>
   </div>`;
   $('#themeSeg').addEventListener('click', (e) => {
     const b = e.target.closest('button');
@@ -3826,13 +4116,59 @@ async function getForecast(full = false) {
   const key = `pg:wx2:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`;
   let days = null;
   try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3 * 3600e3) days = c.d; } catch { /* なし */ }
-  if (!days) {
+  const logKey = wxLogKey();
+  const need = pastDaysNeeded(store.get(logKey, {}));
+  if (!days || need > 3) {
     try {
-      days = await fetchForecast(state.loc.lat, state.loc.lon);
+      // 天気の記録が途切れていたら、その日数分（最大92日）さかのぼって取り寄せる
+      days = await fetchForecast(state.loc.lat, state.loc.lon, Math.max(3, need));
       try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: days })); } catch { /* 保存不可 */ }
-    } catch { return null; }
+    } catch { if (!days) return null; }
   }
+  store.set(logKey, mergeLog(store.get(logKey, {}), days));
   return full ? days : days.filter((d) => !d.past);
+}
+const wxLogKey = () => `wxlog:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`;
+/** わたしの庭の天気の記録（作業暦） */
+async function wxLogHtml() {
+  if (!state.loc) return '';
+  await getForecast(true);
+  const log = store.get(wxLogKey(), {});
+  const sm = logSummary(log, state.climate?.monthly);
+  if (!sm) return '';
+  const d30 = lastDays(log, 30);
+  const dj = (k) => `${Number(k.slice(5, 7))}/${Number(k.slice(8, 10))}`;
+  const cmp = compareJa(sm.monthRain, sm.monthNormalToDate);
+  return `<div class="card wxlog">
+    <h2>${icon('cloud', 19)} わたしの庭の天気の記録</h2>
+    <p class="hint">${dj(sm.first)}から${sm.count}日分を、この端末にためています（開くたびに自動で追加）。値は約10km四方の気象解析値で、平年は過去10年の平均です。</p>
+    <div class="tiles">
+      <div class="tile"><div class="k">今月の雨（${sm.monthDays}日間）</div><div class="v">${sm.monthRain}<small>mm</small></div><div class="s">${sm.monthNormalToDate != null ? `平年の同じ時期 約${sm.monthNormalToDate}mm・${cmp}` : ''}</div></div>
+      <div class="tile"><div class="k">直近7日の雨</div><div class="v">${sm.rain7}<small>mm</small></div><div class="s">${sm.dry >= 3 ? `${sm.dry}日間、雨らしい雨なし` : '最近も雨がありました'}</div></div>
+      <div class="tile"><div class="k">記録した中でいちばん暑い日</div><div class="v">${Math.round(sm.hot.v)}<small>℃</small></div><div class="s">${dj(sm.hot.date)}</div></div>
+      <div class="tile"><div class="k">いちばん寒い朝</div><div class="v">${Math.round(sm.cold.v)}<small>℃</small></div><div class="s">${dj(sm.cold.date)}</div></div>
+    </div>
+    <h3 class="dn-h">最近30日</h3>
+    <div class="chart-wrap">${wxLogChart(d30)}</div>
+    ${sm.months.length ? `<h3 class="dn-h">月ごとの雨と気温（平年との比較）</h3><table class="data wl-months"><tr><th>月</th><th>雨（平年）</th><th>平均最高（平年）</th></tr>${sm.months.map((x) => `<tr><td>${String(x.y).slice(2)}年${x.m}月</td><td><b>${x.rain}</b>mm<small>（${x.normal ?? '—'}）${esc(compareJa(x.rain, x.normal))}</small></td><td><b>${x.tmax}</b>℃<small>（${x.normalTmax ?? '—'}）${x.normalTmax != null ? (x.tmax - x.normalTmax >= 1 ? '暑め' : x.tmax - x.normalTmax <= -1 ? '涼しめ' : '平年並み') : ''}</small></td></tr>`).join('')}</table>` : '<p class="hint">1か月分たまると、月ごとの平年比較が表示されます。</p>'}
+  </div>`;
+}
+function wxLogChart(days) {
+  const W = 340, H = 140, L = 30, R = 30, T = 8, B = 20;
+  const n = days.length, bw = (W - L - R) / n;
+  const temps = days.flatMap((d) => (d.tmax != null ? [d.tmax, d.tmin] : []));
+  if (!temps.length) return '<p class="hint">まだ記録がありません。</p>';
+  const tLo = Math.floor(Math.min(...temps) / 5) * 5, tHi = Math.ceil(Math.max(...temps) / 5) * 5 || 5;
+  const rMax = Math.max(10, ...days.map((d) => d.rain || 0));
+  const ty = (v) => T + (H - T - B) * (1 - (v - tLo) / (tHi - tLo || 1));
+  const ry = (v) => H - B - (H - T - B) * (v / rMax);
+  const bars = days.map((d, i) => (d.rain ? `<rect x="${(L + i * bw + 1).toFixed(1)}" y="${ry(d.rain).toFixed(1)}" width="${(bw - 2).toFixed(1)}" height="${(H - B - ry(d.rain)).toFixed(1)}" fill="var(--prcp)" opacity=".75"><title>${d.date} 雨${d.rain}mm</title></rect>` : '')).join('');
+  const line = (k, col) => `<path d="${days.map((d, i) => (d[k] == null ? '' : `${i && days[i - 1][k] != null ? 'L' : 'M'}${(L + (i + 0.5) * bw).toFixed(1)},${ty(d[k]).toFixed(1)}`)).join('')}" fill="none" stroke="${col}" stroke-width="1.8"/>`;
+  const ticks = [tLo, (tLo + tHi) / 2, tHi].map((v) => `<text x="${L - 4}" y="${ty(v) + 3}" text-anchor="end" font-size="8" fill="currentColor" opacity=".6">${v}°</text>`).join('')
+    + `<text x="${W - R + 4}" y="${ry(rMax) + 3}" font-size="8" fill="currentColor" opacity=".6">${Math.round(rMax)}mm</text><text x="${W - R + 4}" y="${H - B + 3}" font-size="8" fill="currentColor" opacity=".6">0mm</text>`;
+  const xl = days.map((d, i) => (i % 7 === 0 ? `<text x="${(L + (i + 0.5) * bw).toFixed(1)}" y="${H - 6}" text-anchor="middle" font-size="8" fill="currentColor" opacity=".6">${Number(d.date.slice(5, 7))}/${Number(d.date.slice(8, 10))}</text>` : '')).join('');
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="最近30日の気温と雨">${bars}${line('tmax', 'var(--tmax)')}${line('tmin', 'var(--tmin)')}${ticks}${xl}</svg>
+    <div class="legend"><span><i style="background:var(--tmax)"></i>最高気温</span><span><i style="background:var(--tmin)"></i>最低気温</span><span><i style="background:var(--prcp)"></i>雨（右の目盛り）</span></div>`;
 }
 /** 今日の水やり（ホーム） */
 async function waterHtml() {
@@ -3853,6 +4189,8 @@ async function waterHtml() {
   return `<div class="today-block water">
     <h3>${icon('drop', 17)}今日の水やり</h3>
     ${rows.filter(Boolean).map((r) => `<div class="wt ${r.need}"><span class="wt-ic">${ic[r.need]}</span><div><b>${esc(r.title)}</b><small>${esc(r.text)}</small>${r.who ? `<small class="wt-who">対象：${esc(r.who)}</small>` : ''}</div></div>`).join('')}
+    ${(() => { const sm = logSummary(store.get(wxLogKey(), {}), state.climate?.monthly); return sm ? `<p class="hint" style="margin:4px 0 0">記録では、直近7日の雨は${sm.rain7}mm${sm.dry >= 3 ? `・${sm.dry}日間雨なし` : ''}。<button type="button" class="link" data-go="tasks">天気の記録を見る</button></p>` : ''; })()}
+    <p class="hint" style="margin:2px 0 0"><button type="button" class="link" data-links>毎朝、水やりの要否を通知する（ショートカット）</button></p>
     ${!pots.length && g.kind !== 'balcony' ? '<p class="hint" style="margin:4px 0 0">鉢植えの植物は、マイ庭の「✎ 記録」で「鉢植え」にすると、鉢の水やりも表示します。</p>' : ''}
   </div>`;
 }
@@ -4089,7 +4427,7 @@ if (state.loc) loadClimate(); else render();
 go('site');
 requestPersist();
 try { localStorage.removeItem('pg:aikey'); } catch { /* 以前の版で保存したAPIキーがあれば消す */ }
-loadDiary().then((list) => { if (list.length) render(); });
+loadDiary().then((list) => { if (list.length) render(); handleURLAction(); });
 listPhotos().then((list) => { if (!list.length) return; list.forEach((x) => userPhotos.set(x.id, x.photo)); initStyleCards(); render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
