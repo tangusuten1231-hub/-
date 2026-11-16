@@ -155,3 +155,6 @@ export function socOf(p) {
   return 3;
 }
 export const SOC_JA = { 1: '1株で目立たせる', 2: '2〜3株の小さな群れ', 3: '3〜5株の群れ', 4: '7株以上の広い群れ', 5: '一面に敷きつめる' };
+
+/** 潮風（塩分）に強い植物の仲間 */
+export const SALT_GROUPS = new Set(['gazania', 'osteospermum', 'dimorphotheca', 'arctotis', 'agapanthus', 'phormium', 'rosemary', 'lavender', 'santolina', 'artemisia', 'helichrysum', 'armeria', 'limonium', 'erigeron', 'sedum', 'euphorbia', 'eryngium', 'crambe', 'rosa-rugosa', 'tsuwabuki', 'festuca', 'miscanthus', 'pennisetum', 'westringia', 'grevillea', 'leptospermum', 'olive', 'stachys', 'cerastium', 'achillea', 'gaillardia', 'euryops', 'felicia', 'dietes', 'aloe', 'kniphofia', 'tulbaghia', 'iberis', 'hedera', 'hemerocallis', 'dianthus', 'perovskia', 'verbena', 'salvia-microphylla', 'bulbine', 'anigozanthos', 'carex', 'ophiopogon', 'liriope', 'muehlenbeckia', 'scaevola', 'portulaca', 'tulipa', 'yucca']);

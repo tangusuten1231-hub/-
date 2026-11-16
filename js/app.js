@@ -22,7 +22,7 @@ import { describe, companions } from './describe.js';
 import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
 import { reply as tsupiReply, STARTERS } from './chat.js';
 import { consultPrompt, consultPromptShort, imagePrompt, parseBedsReply, AI_APPS, aiLink } from './handoff.js';
-import { fetchDaily, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
+import { fetchDaily, fetchCoast, analyzeClimate, searchPlace, reverseGeocode, formatDoy, humidityStress } from './climate.js';
 import { sunSeasons } from './sun.js';
 import { generateSite, siteSVG, polyEditorSVG, polygonArea, isSimple, ITEMS, BED_ITEMS, DEFAULT_ITEMS, DIR_JA } from './site.js';
 import { creaturesForPlant, creaturesForGarden, biodiversity, WILD_GOALS, FEATURES } from './wildlife.js';
@@ -36,7 +36,7 @@ import { tsupiLine } from './tsupiwords.js';
 import { INGREDIENTS, MOODS, TEA_RECIPES, teaStatus, teaIngredientsFor, teaCupSVG, ingOwned } from './tea.js';
 import {
   LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
-  buildTasks, TASK_KIND, localMonth, plantingTime, monthsJa, scheduleSteps,
+  buildTasks, TASK_KIND, localMonth, plantingTime, monthsJa, scheduleSteps, relayText, fillSuggestions, coldTemp, sunHours, soilPH,
 } from './garden.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -109,6 +109,7 @@ const state = {
   pi.balcony = { width: 3.6, depth: 1.2, facing: 's', floor: 3, railType: 'solid', railH: 110, roof: 'yes', ceilH: 250, obstacle: 'none', shelf: 2, shelfAt: 'wall', hang: false, water: false, ...(pi.balcony || {}) };
   if (!pi.shape) pi.shape = 'rect';
   if (!pi.pick) pi.pick = 'auto';
+  if (!Array.isArray(pi.presets)) pi.presets = [];
   if (!pi.swaps) pi.swaps = {};
   pi.site = { form: 'organic', shape: 'rect', width: 10, depth: 8, cut: 'right', points: [], size: 15, area: '', house: 'n', ...(pi.site || {}) };
   pi.items = Array.isArray(pi.items) ? pi.items.filter((k) => ITEMS[k]) : [...DEFAULT_ITEMS];
@@ -117,7 +118,26 @@ const state = {
 }
 
 const activeGarden = () => state.gardens.find((g) => g.id === state.gardenId) || state.gardens[0];
-function saveGardens() { store.set('gardens', state.gardens); store.set('gardenId', activeGarden().id); }
+/** 庭を保存。書き込めたかを返す（容量不足・プライベートモードなどで失敗することがある） */
+function saveGardens() {
+  store.set('gardens', state.gardens); store.set('gardenId', activeGarden().id);
+  try { return JSON.parse(localStorage.getItem('pg:gardens') || '[]').length === state.gardens.length; } catch { return false; }
+}
+/** 保存ボタンの違いの説明 */
+function saveHelp() {
+  return `<details class="save-help"><summary>${icon('guide', 14)}保存ボタンの違い</summary><ul>
+    <li><b>「${esc(activeGarden().name)}」に反映</b>：いま選んでいる庭の植物を、このプランの植物に置き換えます。</li>
+    <li><b>新しい庭として保存</b>：マイ庭に別の庭を追加して保存します。いまの庭はそのまま残ります。</li>
+    <li><b>この案を保存して比べる</b>：マイ庭は変えずに、プランの案だけを保存します。プラン画面の「保存した案」で並べて比べられます。</li>
+  </ul></details>`;
+}
+/** 同じ名前の庭があれば（2）（3）…を付ける */
+function uniqueGardenName(base) {
+  const b = String(base || '新しい庭').trim().slice(0, 26) || '新しい庭';
+  let n = b, k = 2;
+  while (state.gardens.some((g) => g.name === n)) n = `${b}（${k++}）`;
+  return n;
+}
 // 既存のコードが使う state.garden / state.area は「いま選んでいる庭」を指す
 Object.defineProperty(state, 'garden', { get: () => activeGarden().plants, set: (v) => { activeGarden().plants = v; saveGardens(); } });
 Object.defineProperty(state, 'area', { get: () => activeGarden().area, set: (v) => { activeGarden().area = v; saveGardens(); } });
@@ -176,10 +196,11 @@ $('#searchForm').addEventListener('submit', async (e) => {
   if (!q) return;
   const ul = $('#searchResults');
   ul.innerHTML = '';
-  setStatus('<span class="spinner"></span>検索中…');
+  setStatus(`<span class="spinner"></span>「${esc(q)}」を検索しています…（地名のデータベースに問い合わせ中。10秒ほどかかることがあります）`);
+  $('#searchForm button[type=submit]')?.setAttribute('disabled', '');
   try {
     const list = await searchPlace(q);
-    setStatus(list.length ? '' : '見つかりませんでした。別の表記で試してください。', !list.length);
+    setStatus(list.length ? `${list.length}件見つかりました。庭の場所を選んでください。` : `「${esc(q)}」は見つかりませんでした。「旭市」のように市区町村名だけ、または「千葉県 旭市」のように区切って試してください。`, !list.length);
     ul.innerHTML = list.map((r, i) => `<li><button type="button" data-i="${i}">${esc(r.name)}</button></li>`).join('');
     ul.onclick = (ev) => {
       const b = ev.target.closest('button[data-i]');
@@ -188,7 +209,9 @@ $('#searchForm').addEventListener('submit', async (e) => {
       setLocation(list[Number(b.dataset.i)]);
     };
   } catch (err) {
-    setStatus(esc(err.message), true);
+    setStatus(esc(err.message) + '。通信状況を確かめて、もう一度お試しください。', true);
+  } finally {
+    $('#searchForm button[type=submit]')?.removeAttribute('disabled');
   }
 });
 
@@ -198,30 +221,58 @@ async function setLocation(loc) {
   await loadClimate();
 }
 
+/** 海からの距離（潮風の注意と植物選びに使う） */
+async function loadCoast() {
+  if (!state.loc || !state.climate) return;
+  const key = `coast:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`;
+  const c = store.get(key, undefined);
+  if (c !== undefined && c !== null && typeof c === 'object') { state.climate.coastKm = c.km; return; }
+  try {
+    const km = await fetchCoast(state.loc.lat, state.loc.lon);
+    store.set(key, { km });
+    state.climate.coastKm = km;
+    if (state.view === 'site') renderSite();
+  } catch { /* 取得できないときは表示しない */ }
+}
 async function loadClimate() {
   const { lat, lon } = state.loc;
   const key = `climate:${lat.toFixed(2)},${lon.toFixed(2)}`;
   const cached = store.get(key, null);
-  if (cached && cached.v === 1) {
+  if (cached && cached.v === 2) {
     state.climate = cached.data;
     if (state.plan) computePlan();
     setStatus('');
     $('#locCard').open = false;
     render();
+    loadCoast();
     return;
   }
-  setStatus('<span class="spinner"></span>過去10年の気象データを解析しています…');
+  // 進み具合を段階と経過秒数で表示（止まって見えないように）
+  const t0 = Date.now();
+  let stage = 0;
+  const STAGES = ['過去10年分の気温・降水量・雪のデータを取り寄せています', '1日ごとのデータを月別に集計しています', '冬の最低気温から耐寒性ゾーンを、霜の日から植え付け時期を判定しています'];
+  const show = () => setStatus(`<span class="spinner"></span><b>気候を解析中（${stage + 1}/3）</b>　${STAGES[stage]}…<br><small>経過 ${Math.round((Date.now() - t0) / 1000)}秒・ふつうは10〜30秒ほど。2回目からはすぐに表示されます。</small>`);
+  show();
+  const timer = setInterval(show, 1000);
   try {
     const json = await fetchDaily(lat, lon);
-    state.climate = { ...analyzeClimate(json.daily, lat), elevation: json.elevation };
-    store.set(key, { v: 1, data: state.climate });
+    stage = 1; show();
+    await new Promise((r) => setTimeout(r, 30));
+    const an = analyzeClimate(json.daily, lat);
+    stage = 2; show();
+    await new Promise((r) => setTimeout(r, 30));
+    state.climate = { ...an, elevation: json.elevation };
+    store.set(key, { v: 2, data: state.climate });
     if (state.plan) computePlan();
     setStatus('');
     $('#locCard').open = false;
   } catch (err) {
     setStatus(esc(err.message) + '　通信環境を確認してもう一度お試しください。', true);
+  } finally {
+    clearInterval(timer);
   }
   render();
+  loadCoast();
 }
 
 // ---------- 描画 ----------
@@ -268,6 +319,7 @@ function siteAdvice(c) {
   if (c.heatZone >= 8) out.push(`30℃以上の日が年${Math.round(c.hotDays)}日。西日を避けられる場所が宿根草の夏越しに有利です。`);
   if (c.frostFree) out.push('霜がほとんど降りない地域。秋植えでも冬の間に根を張れます。');
   else if (c.lastFrostSafe) out.push(`寒さに弱い苗の植え付けは、遅霜の心配が少ない${formatDoy(c.lastFrostSafe)}以降が安心です。`);
+  if (c.coastKm != null && c.coastKm <= 4) out.push(`海から約${c.coastKm}km。潮風（塩分）で葉が傷みやすいので、ガザニア・ローズマリー・ハマナス・ツワブキ・アガパンサスなど潮風に強い植物を海側に、弱い植物は建物の陰に。台風や強風のあとは、葉についた塩分を水で洗い流しましょう。`);
   if (c.annualPrecip >= 1800) out.push(`年間降水量は約${c.annualPrecip}mm と多め。花壇は周囲より高く盛り土して水はけを確保しましょう。`);
   else if (c.annualPrecip < 900) out.push(`年間降水量は約${c.annualPrecip}mm と少なめ。乾燥に強い植物が向いています。`);
   return out;
@@ -281,7 +333,7 @@ function renderSite() {
   if (!c) { box.innerHTML = ''; return; }
   const { lat, lon } = state.loc;
   const frost = c.frostFree
-    ? '<div class="v">ほぼなし</div><div class="s">霜が降りる年は半分未満</div>'
+    ? `<div class="v">ほぼなし</div><div class="s">${c.frostYears === 0 ? `過去${c.years}年、0℃以下の日はありませんでした` : `霜が降りる年は${c.years}年中${c.frostYears ?? '数'}年`}${c.lastFrostTypical ? `。降りる年は終霜 ${formatDoy(c.lastFrostTypical)}・初霜 ${formatDoy(c.firstFrostTypical) || '—'}ごろ` : ''}</div>`
     : `<div class="v">${formatDoy(c.lastFrost)}</div><div class="s">初霜 ${formatDoy(c.firstFrost)}・無霜期間 約${Math.round(c.growingDays)}日</div>`;
   const seasons = sunSeasons(lat);
 
@@ -295,6 +347,7 @@ function renderSite() {
         <div class="tile"><div class="k">終霜（0℃以下の最終日）</div>${frost}</div>
         <div class="tile"><div class="k">熱帯夜（最低25℃以上）</div><div class="v">${Math.round(c.tropicalNights)}<small>日</small></div><div class="s">猛暑日 年${Math.round(c.veryHotDays)}日</div></div>
         <div class="tile"><div class="k">年間降水量</div><div class="v">${c.annualPrecip.toLocaleString()}<small>mm</small></div><div class="s">梅雨〜夏の過湿に注意</div></div>
+        ${c.coastKm !== undefined ? `<div class="tile"><div class="k">海からの距離（目安）</div><div class="v">${c.coastKm == null ? '8km以上' : `約${c.coastKm}<small>km</small>`}</div><div class="s">${c.coastKm == null ? '潮風の影響は小さい' : c.coastKm <= 2 ? '潮風・塩害に注意' : c.coastKm <= 4 ? '強風の日は潮風に注意' : '台風のときは潮風に注意'}</div></div>` : ''}
         <div class="tile"><div class="k">年間降雪量</div><div class="v">${c.annualSnow}<small>cm</small></div><div class="s">過去最低 ${c.coldestTemp}℃</div></div>
       </div>
     </div>
@@ -309,6 +362,7 @@ function renderSite() {
       <div class="legend"><span><i style="background:var(--tmax)"></i>最高気温</span><span><i style="background:var(--tmin)"></i>最低気温</span></div>
       <div class="chart-wrap">${tempChart(c.monthly)}</div>
       <h2 style="margin-top:14px">月別の降水量</h2>
+      <p class="hint" style="margin:0">縦軸は0mmから。棒の高さは雨の量に比例します。</p>
       <div class="chart-wrap">${precipChart(c.monthly)}</div>
       <details><summary>表で見る</summary>
         <div class="scroll-x"><table class="data">
@@ -380,8 +434,8 @@ function precipChart(monthly) {
     const x = xAt(i) - w / 2;
     return `<path d="M${x},${s.y(0)}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${s.y(0)}Z" fill="var(--prcp)"/>`;
   }).join('');
-  return `<svg class="chart" viewBox="0 0 ${CW} ${CH}" role="img" aria-label="月別の平均降水量">
-    ${axes(s, '')}${bars}
+  return `<svg class="chart" viewBox="0 0 ${CW} ${CH}" role="img" aria-label="月別の平均降水量（縦軸は0mmから）">
+    ${axes(s, '')}<text x="${PL - 4}" y="${PT + 2}" text-anchor="end" font-size="8">mm</text>${bars}
     <line class="cross" x1="0" x2="0" y1="${PT}" y2="${CH - PB}" visibility="hidden"/>
     ${hits(monthly.map((m, i) => `${i + 1}月｜降水量 ${m.prcp}mm`))}
   </svg>`;
@@ -456,7 +510,9 @@ function initFilters() {
 }
 function saveFilters() { store.set('filters', state.filters); renderPlants(); }
 
+const noBloomJa = (p) => (p.harvest?.length ? '花は観賞対象外（収穫を楽しむ）' : '花は観賞対象外（葉を楽しむ）');
 function monthBar(p, south) {
+  if (!p.bloom.length) return `<p class="no-bloom">${icon('leaf', 13)}${noBloomJa(p)}</p>`;
   const on = new Set(p.bloom.map((m) => localMonth(m, south)));
   const col = COLORS[p.color[0]].hex;
   return `<div class="months" aria-label="開花 ${[...on].sort((a, b) => a - b).join('・')}月">${MONTHS.map((m) => `<span${on.has(m) ? ` style="background:${col}"` : ''}></span>`).join('')}</div>
@@ -635,7 +691,7 @@ function renderGarden() {
       const on = new Set(p.bloom.map((m) => localMonth(m, south)));
       const col = COLORS[p.color[0]].hex;
       const act = actual.get(p.id);
-      return `<div class="n jumpable" title="${esc(p.ja)}" data-jump="gp-${p.id}" role="button">${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}${act?.has(m) ? '（ノートに開花の記録あり）' : ''}">${act?.has(m) ? '<i class="act"></i>' : ''}</div>`).join('')}`;
+      return `<div class="n jumpable" title="${esc(p.ja)}" data-jump="gp-${p.id}" role="button">${esc(p.ja)}${p.bloom.length ? '' : '<small class="nb">葉を楽しむ</small>'}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}${act?.has(m) ? '（ノートに開花の記録あり）' : ''}">${act?.has(m) ? '<i class="act"></i>' : ''}</div>`).join('')}`;
     }).join('')}
     <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
   </div>`;
@@ -643,7 +699,7 @@ function renderGarden() {
   const gapHtml = gaps.length
     ? gaps.map((g) => `<div class="gap"><strong>${g.month}月</strong> は咲いている花がありません。${g.suggestions.length ? 'おすすめ：' : ''}
         <div class="sugg">${g.suggestions.map((s) => `<button type="button" class="chip" data-toggle="${s.plant.id}"><span class="dot" style="background:${COLORS[s.plant.color[0]].hex}"></span>＋ ${esc(s.plant.ja)}${s.level ? ` ${LEVEL[s.level].mark}` : ''}</button>`).join('')}</div></div>`).join('')
-    : '<p class="hint">春から晩秋まで、途切れずに花が咲くリレーになっています。</p>';
+    : (() => { const r = relayText(counts); const sg = r.zero.length ? fillSuggestions(r.zero, c, south, new Set(plants.map((p) => p.id))) : []; return `<p class="hint">${esc(r.text)}</p>${sg.length ? `<div class="gap">${monthsJa(r.zero)}に咲く植物を加えるなら：<div class="sugg">${sg.map((x) => `<button type="button" class="chip" data-toggle="${x.plant.id}"><span class="dot" style="background:${COLORS[x.plant.color[0]].hex}"></span>＋ ${esc(x.plant.ja)}${x.level ? ` ${LEVEL[x.level].mark}` : ''}</button>`).join('')}</div></div>` : ''}`; })();
 
   const layers = ['back', 'middle', 'front'].map((k) => {
     const list = plants.filter((p) => heightClass(p) === k);
@@ -693,6 +749,7 @@ function renderGarden() {
     </div>
     <div class="card">
       <h2>配置と株数の目安</h2>
+      ${activeGarden().siteArea ? `<p class="site-area">庭全体 <b>${activeGarden().siteArea}㎡</b>・うち花壇 <b>${state.area}㎡</b>（${Math.round((state.area / activeGarden().siteArea) * 1000) / 10}%）</p>` : ''}
       <label class="area">花壇の面積 <input type="number" id="area" min="0.5" step="0.5" value="${state.area}" inputmode="decimal"> ㎡</label>
       <p class="hint" style="margin-top:6px">面積を植物の種類数で等分した場合の株数です。同じ植物を3〜5株まとめて植えると自然で見栄えがよくなります。</p>
       ${layers}
@@ -720,6 +777,17 @@ function renderGarden() {
 
 // ---------- 作業暦 ----------
 let taskDone = store.get('taskDone', {});
+const plantFirst = (a, b) => (b.plants?.length ? 1 : 0) - (a.plants?.length ? 1 : 0);
+/** 今月の作業（作業暦・ホーム・ツピで共通）：庭づくりの段取り → 自分の庭の植物の作業 → 一般的な作業。やったものは除く */
+function monthTasks() {
+  const c = state.climate;
+  if (!c) return [];
+  const now = new Date().getMonth() + 1, y = new Date().getFullYear();
+  const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
+  const steps = buildDue(activeGarden(), ymOf(), true).filter((b) => !b.done).map((b) => ({ kind: 'plant', title: `庭づくり：${b.title}`, detail: b.detail, build: true }));
+  const list = [...buildTasks(c, mine), ...pestTasks(c, mine)].filter((t) => t.month === now && !taskDone[y]?.[doneKey(y, now, t)]).sort(plantFirst);
+  return [...steps, ...list];
+}
 const doneKey = (y, m, t) => `${m}|${t.title}`;
 /** 作業暦をカレンダー（.ics）に書き出す：今月から12か月分。各月の最初の土曜日（今月は次の土曜日）の朝9時に通知 */
 async function exportICS(tasks, order, now) {
@@ -757,7 +825,7 @@ function renderTasks() {
   box.innerHTML = gardenPicker() + `<div class="row cal-acts"><button type="button" class="btn small" id="btnICS">${icon('calendar', 15)}スマホのカレンダーに登録</button><button type="button" class="btn small" data-calc>${icon('list', 15)}計算機</button><button type="button" class="btn small" data-doctor="">${icon('search', 15)}困ったとき</button></div>` + '<div id="wxSlot"></div>' + guideCard()
     + (plants.length ? '' : `<div class="card"><p class="hint" style="margin:0">マイ庭に植物を追加すると、植物ごとの切り戻し・株分け・病害虫の見回り時期も表示されます。</p></div>`)
     + order.map((m) => {
-      const list = tasks.filter((t) => t.month === m);
+      const list = tasks.filter((t) => t.month === m).sort(plantFirst);
       const cur = m === now;
       const d0 = new Date(); const yy = d0.getFullYear() + (m < now ? 1 : 0);
       const due = buildDue(activeGarden(), `${yy}-${String(m).padStart(2, '0')}`, cur);
@@ -855,7 +923,7 @@ function calHtml(rows, south, counts) {
     ${rows.map(({ p, color, label, jump }) => {
       const on = new Set(p.bloom.map((m) => localMonth(m, south)));
       const col = COLORS[color || p.color[0]].hex;
-      return `<div class="n${jump ? ' jumpable' : ''}" title="${esc(p.ja)}"${jump ? ` data-jump="${jump}" role="button"` : ''}>${label ? label + ' ' : ''}${esc(p.ja)}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
+      return `<div class="n${jump ? ' jumpable' : ''}" title="${esc(p.ja)}"${jump ? ` data-jump="${jump}" role="button"` : ''}>${label ? label + ' ' : ''}${esc(p.ja)}${p.bloom.length ? '' : '<small class="nb">葉を楽しむ</small>'}</div>${MONTHS.map((m) => `<div class="c${m === now ? ' now' : ''}"${on.has(m) ? ` style="background:${col}"` : ''} title="${m}月${on.has(m) ? '：開花' : ''}"></div>`).join('')}`;
     }).join('')}
     <div class="n" style="color:var(--muted);font-size:.72rem">咲いている種類</div>${counts.map((n) => `<div class="sum${n ? '' : ' zero'}">${n}</div>`).join('')}
   </div>`;
@@ -886,10 +954,11 @@ function initPlanForm() {
   $('#planStyle').innerHTML = Object.entries(STYLES).map(([k, v]) => `<option value="${k}">${v.ja}</option>`).join('');
   $('#planStyle').value = pi.style || 'border';
   const syncStyle = () => {
-    $('#styleDesc').textContent = STYLES[$('#planStyle').value].summary;
+    const st = STYLES[$('#planStyle').value];
+    $('#styleDesc').innerHTML = `${esc(st.summary)}${st.fit ? `<br><b class="style-fit">向いている庭・暮らし：</b>${esc(st.fit)}` : ''}`;
     document.querySelectorAll('#styleCards .style-card').forEach((c) => c.classList.toggle('on', c.dataset.style === $('#planStyle').value));
   };
-  $('#styleCards').innerHTML = Object.entries(STYLES).map(([k, v]) => `<button type="button" class="style-card" data-style="${k}" role="listitem"><span class="sc-art">${styleArt(k)}</span><b>${esc(v.ja.replace(/（.*?）/g, ''))}</b>${v.by ? `<small>${esc(v.by)}</small>` : ''}</button>`).join('');
+  $('#styleCards').innerHTML = Object.entries(STYLES).map(([k, v]) => `<button type="button" class="style-card" data-style="${k}" role="listitem"><span class="sc-art">${styleArt(k)}</span><b>${esc(v.ja.replace(/（.*?）/g, ''))}</b>${v.by ? `<small>${esc(v.by)}</small>` : ''}${v.fit ? `<em class="sc-fit">${esc(v.fit.split('。')[0])}</em>` : ''}</button>`).join('');
   $('#styleCards').addEventListener('click', (e) => {
     const c = e.target.closest('[data-style]');
     if (!c) return;
@@ -903,9 +972,11 @@ function initPlanForm() {
   $('#planPresets').addEventListener('click', (e) => {
     const b = e.target.closest('[data-w]');
     if (!b) return;
-    const t = $('#planText');
+    // チップは入力欄とは別の選択。入力した文章は書き換えない
+    const pi = state.planInput;
     const w = b.dataset.w;
-    t.value = t.value.includes(w) ? t.value.replace(w, '').replace(/、{2,}/g, '、').replace(/^、|、$/g, '') : (t.value ? t.value.replace(/[、。\s]*$/, '') + '、' : '') + w;
+    pi.presets = (pi.presets || []).includes(w) ? pi.presets.filter((x) => x !== w) : [...(pi.presets || []), w];
+    store.set('planInput', pi);
     syncPresetChips();
   });
   $('#planText').addEventListener('input', syncPresetChips);
@@ -1035,8 +1106,12 @@ function syncPlanSegs() {
   }).join('');
 }
 function syncPresetChips() {
-  const t = $('#planText').value;
-  document.querySelectorAll('#planPresets .chip').forEach((c) => c.classList.toggle('on', t.includes(c.dataset.w)));
+  const on = new Set(state.planInput.presets || []);
+  document.querySelectorAll('#planPresets .chip').forEach((c) => { c.classList.toggle('on', on.has(c.dataset.w)); c.setAttribute('aria-pressed', on.has(c.dataset.w)); });
+}
+/** プランの条件の文章：入力した文章と、選んだチップを合わせる */
+function planText(pi) {
+  return [pi.text || '', ...(pi.presets || []).filter((w) => !(pi.text || '').includes(w))].filter(Boolean).join('、');
 }
 // ---------- 植物ごとの記録（植えた日・場所・鉢植え） ----------
 const plantInfo = (g, id) => g.info?.[id] || {};
@@ -1112,6 +1187,54 @@ function openCalc(tab = 'plants') {
   body.onclick = (e) => { const t = e.target.closest('[data-ctab]'); if (t) openCalc(t.dataset.ctab); };
   upd();
 }
+
+// ---------- 印刷とプランの概要 ----------
+/** いま表示しているプランの植物（名前・数・単価）と概要 */
+function planSummaryData() {
+  const pi = state.planInput;
+  if (pi.mode === 'site' && state.site && !state.siteBed) {
+    const s = state.site;
+    const agg = new Map();
+    for (const b of s.beds) for (const sp of b.plan.species) { const x = agg.get(sp.plant.id) || { p: sp.plant, qty: 0, beds: [] }; x.qty += sp.qty; if (!x.beds.includes(b.id)) x.beds.push(b.id); agg.set(sp.plant.id, x); }
+    const items = [...agg.values()];
+    return { title: $('#planBox h1')?.textContent || '庭まるごとプラン', lines: [`敷地 ${s.area}㎡（花壇${s.beds.length}か所・${s.areas.bed}㎡）`, `スタイル：${(STYLES[pi.style]?.ja || '').replace(/（.*?）/g, '')}`, `概算 ${yen(s.cost.total)}（材料費・DIY）`], items, cost: s.cost.total };
+  }
+  const plan = state.plan;
+  if (!plan) return null;
+  return { title: $('#planBox h1')?.textContent || '花壇プラン', lines: [`花壇 ${Math.round(plan.area * 10) / 10}㎡（幅${plan.width}m×奥行き${plan.depth}m）`, `スタイル：${(STYLES[plan.style]?.ja || '').replace(/（.*?）/g, '')}`, `概算 ${yen(plan.cost.total)}（苗・土づくり・マルチ）`], items: plan.species.map((sp) => ({ p: sp.plant, qty: sp.qty })), cost: plan.cost.total };
+}
+function planSummaryText() {
+  const d = planSummaryData();
+  if (!d) return '';
+  const south = !!state.climate?.south;
+  const bloom = new Set(d.items.flatMap((x) => x.p.bloom.map((m) => localMonth(m, south))));
+  return [`【${d.title}】`, ...d.lines, `花の咲く月：${monthsJa([...bloom])}`, `場所：${state.loc?.name || ''}${state.climate ? `（耐寒性ゾーン${state.climate.zone.label}）` : ''}`, '', '■ 植える植物',
+    ...d.items.map((x, i) => `${i + 1}. ${x.p.ja} × ${x.qty}${x.p.type === 'bulb' ? '球' : '株'}${x.beds ? `（花壇${x.beds.join('・')}）` : ''}　約${yen(x.qty * x.p.price)}`),
+    `合計 ${d.items.length}種・${d.items.reduce((t, x) => t + x.qty, 0)}株`, '', '庭づくりアプリで作成'].join('\n');
+}
+/** 印刷用の買い物メモ（画面には出さない） */
+function printMemoHtml() {
+  const d = planSummaryData();
+  if (!d) return '';
+  return `<section class="print-only print-memo"><h2>買い物メモ・概要</h2><p>${d.lines.map(esc).join('　')}</p>
+    <table><tr><th></th><th>植物</th><th>数</th><th>目安</th>${d.items[0]?.beds ? '<th>花壇</th>' : ''}</tr>${d.items.map((x, i) => `<tr><td>□</td><td>${esc(x.p.ja)}</td><td>${x.qty}${x.p.type === 'bulb' ? '球' : '株'}</td><td>${yen(x.qty * x.p.price)}</td>${x.beds ? `<td>${x.beds.join('・')}</td>` : ''}</tr>`).join('')}</table></section>`;
+}
+document.addEventListener('click', async (e) => {
+  if (e.target.closest('[data-print]')) {
+    const box = $('#planBox');
+    box.querySelector('.print-memo')?.remove();
+    box.insertAdjacentHTML('beforeend', printMemoHtml());
+    const closed = [...box.querySelectorAll('details:not([open])')];
+    closed.forEach((d) => { d.open = true; });
+    document.body.classList.add('printing');
+    window.print();
+    setTimeout(() => { closed.forEach((d) => { d.open = false; }); document.body.classList.remove('printing'); }, 500);
+    return;
+  }
+  if (e.target.closest('[data-copysum]')) {
+    toast((await copyText(planSummaryText())) ? 'プランの概要をコピーしました。メールやメモに貼り付けられます' : 'コピーできませんでした');
+  }
+});
 
 // ---------- 症状から調べる ----------
 function openDoctor(plantId = '') {
@@ -1373,22 +1496,29 @@ function makePlan(seed, layoutSeed = 0) {
   computePlan();
   state.planMonth = state.plan?.peak ?? 6;
   renderPlan();
-  $('#planBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  scrollToResult();
+}
+/** 生成した結果の見出しへ移動（写真の読み込みで位置がずれても、もう一度合わせる） */
+function scrollToResult() {
+  const go = () => { const h = document.querySelector('#planBox .plan-hero, #planBox .site-hero, #planBox .bal-hero, #planBox'); if (!h) return; const top = h.getBoundingClientRect().top + window.scrollY - (document.querySelector('.app-header')?.offsetHeight || 64) - 6; window.scrollTo({ top, behavior: 'auto' }); };
+  requestAnimationFrame(go);
+  setTimeout(go, 350);
+  setTimeout(go, 1000);
 }
 function computePlan() {
   const pi = state.planInput;
   if (pi.mode === 'balcony') {
-    state.balcony = generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: pi.text, style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
+    state.balcony = generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: planText(pi), style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
     state.plan = null;
     return;
   }
   if (pi.mode === 'site') {
-    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
+    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
     state.siteBed = null;
     state.plan = null;
     return;
   }
-  state.plan = generatePlan({ ...pi, k: kOpts(pi), roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
+  state.plan = generatePlan({ ...pi, text: planText(pi), k: kOpts(pi), roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
 }
 
 function renderPlan() {
@@ -1447,7 +1577,13 @@ function renderPlan() {
       <div><span class="fig">${Math.round(plan.area * 10) / 10}<small>㎡</small></span><span class="cap">${plan.shape && plan.shape !== 'rect' ? BED_SHAPES[plan.shape].ja + '・' : ''}${plan.width}×${plan.depth}m・${SUN[plan.sun]}</span></div>
       <div><span class="fig">${yen(c.total)}</span><span class="cap">概算・1㎡ ${yen(c.perSqm)}</span></div>
     </div>
-    ${plan.gaps.length ? `<p class="pnote warn">${plan.gaps.map((g) => g + '月').join('・')}は花が少なめ。グラスや葉の美しさを楽しむ時期です。</p>` : '<p class="pnote ok">春から晩秋まで、どの月も何かが咲く開花リレーです。</p>'}
+    <p class="pnote ${relayText(plan.counts).zero.length ? 'warn' : 'ok'}">${esc(relayText(plan.counts).text)}</p>
+    ${plan.peakNote ? `<p class="pnote ${plan.peakNote.ok ? 'ok' : 'warn'}">${esc(plan.peakNote.text)}</p>` : ''}
+    <details class="basis"><summary>${icon('guide', 14)}数字の根拠</summary><ul>
+      <li><b>株数：</b>植物ごとの育ったときの株張りの約0.85倍の間隔で、花壇の形の中に並べた数です（こだわり設定の密度で変わります）。</li>
+      <li><b>植物の適合度：</b>◎よく育つ／○工夫すれば育つ／△難しい。この場所の過去10年の気象から求めた耐寒性ゾーン（${esc(state.climate?.zone.label || '—')}）・夏の暑さ・蒸し暑さを、植物ごとの耐寒・耐暑・蒸れへの強さと比べて判定しています。</li>
+      <li><b>費用：</b>9〜10.5cmポット苗（球根は1球）の一般的な価格と、土づくり・マルチの材料費の目安です。</li>
+    </ul></details>
 
     <section class="mag">
       ${secHead('Season Gallery', '季節の移ろい', '同じ花壇の一年。タップすると上の絵が切り替わります。')}
@@ -1481,6 +1617,7 @@ function renderPlan() {
           <p class="calc"><span class="dot" style="background:${COLORS[sp.color].hex};width:9px;height:9px"></span> ${COLORS[sp.color].ja}・${sp.plant.h[0]}〜${sp.plant.h[1]}cm${sp.level ? `・${LEVEL[sp.level].mark}` : ''}</p>
           ${monthBar({ ...sp.plant, color: [sp.color] }, south)}
           <p class="calc">${sp.qty}株 × ${yen(sp.plant.price)} = <b>${yen(sp.subtotal)}</b></p>
+          <p class="grow-mini">植え時 ${esc(monthsJa(plantingTime(sp.plant, state.climate).plant.best))}</p>${growHtml(sp.plant, true)}
           <div class="why">${sp.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
           ${sp.plant.roles?.length ? `<div class="rolerow small">${sp.plant.roles.slice(0, 3).map((k) => `<span class="role-chip">${esc(ROLES[k].ja)}</span>`).join('')}${sp.plant.soc ? `<span class="role-chip soc">${esc(SOC_JA[sp.plant.soc])}</span>` : ''}</div>` : ''}
           ${bedOfSite ? '' : `<button type="button" class="btn small swap-btn" data-swap="${sp.no}">${icon('refresh', 14)}ほかの植物に替える</button>`}
@@ -1537,8 +1674,12 @@ function renderPlan() {
       <button class="btn" type="button" id="btnApplyNew">新しい庭として保存</button>
       <button class="btn" type="button" id="btnPlanImg">${icon('save', 16)}絵を保存</button>
       <button class="btn" type="button" id="btnAlt2">別の案をつくる</button>
+      <button class="btn" type="button" data-print>${icon('note', 16)}印刷する</button>
+      <button class="btn" type="button" data-copysum>${icon('list', 16)}プランの概要をコピー</button>
+      <button class="btn" type="button" data-consult="${esc(`${plan.width}×${plan.depth}mの花壇（${(STYLES[plan.style]?.ja || '').replace(/（.*?）/g, '')}）に、${plan.species.slice(0, 10).map((sp) => sp.plant.groupJa.replace(/（.*?）/g, '')).join('・')}を植えるプランです。もっとよくするアイデアと、育てるときの注意点を教えてください。`)}">${icon('search', 16)}AIに相談</button>
       <button class="btn" type="button" data-keepplan>${icon('save', 16)}この案を保存して比べる</button>
-    </div>`;
+    </div>
+    ${saveHelp()}`;
 
   const setMonth = (mm) => {
     state.planMonth = mm;
@@ -1555,25 +1696,24 @@ function renderPlan() {
   $('#btnSiteBack')?.addEventListener('click', () => { const id = state.siteBed; state.siteBed = null; renderPlan(); document.querySelector(`[data-bedcard="${id}"]`)?.scrollIntoView({ block: 'center' }); });
   const applyTo = (g) => {
     g.planSnap = planSnap();
+    delete g.siteArea; // 花壇プランは庭全体の面積を持たない
     g.plants = plan.species.map((sp) => sp.plant.id);
     g.area = Math.round(plan.area * 10) / 10;
     g.sun = plan.sun;
     g.moist = plan.moist || g.moist || '';
     g.features = { ...(g.features || {}), ...planFeatures() };
     state.gardenId = g.id;
-    saveGardens();
-    toast(`「${g.name}」にプランを反映しました`);
+    if (!saveGardens()) { toast('保存できませんでした。端末の空き容量やブラウザの設定（プライベートモードなど）を確かめてください'); return; }
+    toast(`「${g.name}」にプランを反映しました（植物${g.plants.length}種）`);
     go('garden');
   };
   $('#btnApply').addEventListener('click', () => {
     const g = activeGarden();
-    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) return;
+    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) { toast(`置き換えをやめました（「${g.name}」はそのままです）`); return; }
     applyTo(g);
   });
   $('#btnApplyNew').addEventListener('click', () => {
-    const name = prompt('新しい庭の名前', bedOfSite?.name || state.planBedName || title);
-    if (!name) return;
-    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {} };
+    const g = { id: 'g' + Date.now().toString(36), name: uniqueGardenName(bedOfSite?.name || state.planBedName || title), plants: [], area: 3, sun: '', moist: '', have: {} };
     state.gardens.push(g);
     applyTo(g);
   });
@@ -1703,20 +1843,19 @@ function renderBalconyPlan() {
       <button class="btn" type="button" id="btnBalAlt">${icon('refresh', 16)}別の植物で考える</button>
       <button class="btn" type="button" data-keepplan>${icon('save', 16)}この案を保存して比べる</button>
       <button class="btn" type="button" data-consult="${esc(`${FACING[bp.facing][0]}向き・${bp.floor}階・${bp.width}×${bp.depth}mのベランダで、${bp.plants.slice(0, 10).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}を鉢で育てる計画です。よりよくするアイデアと注意点を教えてください。`)}">${icon('search', 16)}AIに相談</button>
-    </div>`;
+    </div>
+    ${saveHelp()}`;
   hydratePhotos(box, bp.plants);
   $('#btnBalAlt').addEventListener('click', () => { makePlan(state.planInput.seed + 1); toast('植物を選び直しました'); });
   $('#btnBalImg').addEventListener('click', async () => {
     try { const blob = await svgToPngBlob($('#balArt svg')); const r = await saveFile('balcony-plan.png', blob, 'image/png'); if (r !== 'cancel') toast('配置図を保存しました'); } catch (err) { toast(err.message); }
   });
   $('#btnBalNew').addEventListener('click', () => {
-    const name = prompt('新しい庭の名前', `${FACING[bp.facing][0]}向きのベランダ`);
-    if (!name) return;
-    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: bp.plants.map((p) => p.id), area: bp.area, sun: '', moist: '', have: {}, features: { ...bp.features }, kind: 'balcony', planSnap: planSnap() };
+    const g = { id: 'g' + Date.now().toString(36), name: uniqueGardenName(`${FACING[bp.facing][0]}向きのベランダ`), plants: bp.plants.map((p) => p.id), area: bp.area, sun: '', moist: '', have: {}, features: { ...bp.features }, kind: 'balcony', planSnap: planSnap() };
     state.gardens.push(g);
     state.gardenId = g.id;
-    saveGardens();
-    toast(`「${g.name}」を保存しました`);
+    if (!saveGardens()) { toast('保存できませんでした。端末の空き容量やブラウザの設定（プライベートモードなど）を確かめてください'); return; }
+    toast(`新しい庭「${g.name}」として保存しました（マイ庭の庭が${state.gardens.length}つになりました。名前はマイ庭で変えられます）`);
     go('garden');
   });
 }
@@ -1973,9 +2112,9 @@ const MODE_JA = { bed: '花壇', site: '庭まるごと', balcony: 'ベランダ
 /** 保存した入力からプランを作り直す（同じ入力と案番号なら同じプランになる） */
 function rebuildPlan(input) {
   const pi = input;
-  if (pi.mode === 'balcony') return generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: pi.text, style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
-  if (pi.mode === 'site') return generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: pi.text, style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
-  return generatePlan({ ...pi, k: kOpts(pi), roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
+  if (pi.mode === 'balcony') return generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: planText(pi), style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
+  if (pi.mode === 'site') return generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
+  return generatePlan({ ...pi, text: planText(pi), k: kOpts(pi), roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
 }
 /** 比較用のまとめ */
 function planFacts(mode, x) {
@@ -2152,6 +2291,11 @@ function renderSitePlan() {
       <div><span class="fig">${yen(c.total)}</span><span class="cap">概算（材料費・DIY）</span></div>
       <div><span class="fig">${s.bio.total}<small>点</small></span><span class="cap">生物多様性度・${esc(s.bio.label)}</span></div>
     </div>
+    <details class="basis"><summary>${icon('guide', 14)}数字の根拠</summary><ul>
+      <li><b>面積の内訳：</b>敷地${s.area}㎡のうち、花壇${s.areas.bed}㎡（${Math.round((s.areas.bed / s.area) * 1000) / 10}%）・小道${s.areas.path}㎡・テラス${s.areas.terrace}㎡・芝生${s.areas.lawn}㎡${s.areas.pond ? `・池${s.areas.pond}㎡` : ''}。花壇は、境界ぞいに奥行き約${Math.round(Math.max(...s.beds.map((b) => b.depth)) * 10) / 10}mまでの帯と島花壇を合わせたもので、${Math.round(s.c * 100)}cm角のマス目で数えています。</li>
+      <li><b>植物の適合度：</b>◎よく育つ／○工夫すれば育つ／△難しい。この場所の過去10年の気象から求めた耐寒性ゾーン（${esc(state.climate?.zone.label || '—')}）・夏の暑さ（30℃以上の日数）・蒸し暑さ（熱帯夜）を、植物ごとの耐寒・耐暑・蒸れへの強さと比べて判定しています。○の理由は植物の説明に書いてあります。</li>
+      <li><b>費用：</b>苗はポット苗の一般的な価格、構造物は材料を買ってDIYする場合の目安です。</li>
+    </ul></details>
     ${s.skipped?.length ? `<p class="pnote warn">敷地が小さいため、${s.skipped.map(esc).join('・')}は入れずに、花壇を優先しました。</p>` : ''}
     ${structNames.length ? `<p class="pnote">庭にあるもの：${structNames.map(esc).join('・')}</p>` : ''}
 
@@ -2214,6 +2358,8 @@ function renderSitePlan() {
 
     <section class="mag" id="sec-srelay">
       ${secHead('Bloom Relay', '庭全体の開花リレー', '植物名をタップすると説明へ移動します。')}
+      <p class="pnote ${relayText(siteCounts).zero.length ? 'warn' : 'ok'}">${esc(relayText(siteCounts).text)}</p>
+      ${s.peakNote ? `<p class="pnote ${s.peakNote.ok ? 'ok' : 'warn'}">${esc(s.peakNote.text)}</p>` : ''}
       <div class="scroll-x">${calHtml(sitePlants.map((x, i) => ({ p: x.plant, color: x.color, label: i + 1, jump: `scast-${i + 1}` })), south, siteCounts)}</div>
     </section>
 
@@ -2244,9 +2390,12 @@ function renderSitePlan() {
       <button class="btn primary" type="button" id="btnSiteNew">新しい庭として保存</button>
       <button class="btn" type="button" id="btnSiteApply">「${esc(activeGarden().name)}」に反映</button>
       <button class="btn" type="button" id="btnSiteImg">${icon('save', 16)}平面図を保存</button>
+      <button class="btn" type="button" data-print>${icon('note', 16)}印刷する</button>
+      <button class="btn" type="button" data-copysum>${icon('list', 16)}プランの概要をコピー</button>
       <button class="btn" type="button" data-keepplan>${icon('save', 16)}この案を保存して比べる</button>
       <button class="btn" type="button" data-consult="${esc(`庭まるごとプラン（敷地 約${s.area}㎡、家は${DIR_JA[s.house]}側、${structNames.join('・')}、花壇${s.beds.length}か所、植物：${s.plants.slice(0, 12).map((p) => p.groupJa.replace(/（.*?）/g, '')).join('・')}）を、もっと魅力的にするアイデアを教えてください。`)}">${icon('search', 16)}AIに相談</button>
     </div>
+    ${saveHelp()}
     <div class="alt-box">
       <b>別の案をつくる</b>
       <p class="hint">構造物の配置はそのままで植物だけ選び直すか、小道の形やテラス・池・木の位置も含めて配置から考え直すかを選べます。</p>
@@ -2284,24 +2433,23 @@ function renderSitePlan() {
   const applyTo = (g) => {
     g.planSnap = planSnap();
     g.plants = s.plants.map((p) => p.id);
-    g.area = s.areas.bed;
+    g.area = s.areas.bed; // 花壇の面積（株数の計算に使う）
+    g.siteArea = s.area; // 庭全体の面積
     g.sun = pi.sun || '';
     g.moist = pi.moist || '';
     g.features = { ...s.features };
     state.gardenId = g.id;
-    saveGardens();
-    toast(`「${g.name}」に庭のプランを反映しました`);
+    if (!saveGardens()) { toast('保存できませんでした。端末の空き容量やブラウザの設定（プライベートモードなど）を確かめてください'); return; }
+    toast(`「${g.name}」に庭のプランを反映しました（植物${g.plants.length}種）`);
     go('garden');
   };
   $('#btnSiteApply').addEventListener('click', () => {
     const g = activeGarden();
-    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) return;
+    if (g.plants.length && !confirm(`「${g.name}」の植物をこのプランで置き換えます。よろしいですか？`)) { toast(`置き換えをやめました（「${g.name}」はそのままです）`); return; }
     applyTo(g);
   });
   $('#btnSiteNew').addEventListener('click', () => {
-    const name = prompt('新しい庭の名前', title);
-    if (!name) return;
-    const g = { id: 'g' + Date.now().toString(36), name: name.trim().slice(0, 30), plants: [], area: 3, sun: '', moist: '', have: {}, features: {} };
+    const g = { id: 'g' + Date.now().toString(36), name: uniqueGardenName(title), plants: [], area: 3, sun: '', moist: '', have: {}, features: {} };
     state.gardens.push(g);
     applyTo(g);
   });
@@ -2916,6 +3064,19 @@ function initStyleCards() {
 }
 
 // ---------- 植え時（図鑑） ----------
+/** 育てる条件：耐寒温度・日照時間・土の酸度・潮風 */
+function growHtml(p, compact = false) {
+  const ct = coldTemp(p);
+  const ph = soilPH(p);
+  const items = [
+    ['耐寒温度', ct == null ? '一年草（冬越しなし）' : `約${ct}℃まで（耐寒ゾーン${p.zone[0]}）`],
+    ['日照', sunHours(p)],
+    ['土の酸度', `pH ${ph.range}・${ph.ja}`],
+    ...(p.tags.includes('salt') ? [['潮風', '比較的強い']] : []),
+  ];
+  if (compact) return `<p class="grow-mini">${items.map(([k, v]) => `${k} ${esc(v.replace(/（.*?）/g, ''))}`).join('・')}</p>`;
+  return `<dl class="grow-dl">${items.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`;
+}
 function timingHtml(p) {
   const t = plantingTime(p, state.climate);
   const now = new Date().getMonth() + 1;
@@ -2928,7 +3089,8 @@ function timingHtml(p) {
     <div class="tbar" aria-label="植え時のカレンダー">${cells}</div>
     <p>${esc(t.text)}。${esc(t.why)}。</p>
     <p class="tlegend"><i class="b"></i>適期 <i class="o"></i>植えられる <i class="x"></i>避けたい ${t.sow ? '<em>種</em>種まき' : ''}　鉢植えなら：${esc(t.pot)}</p>
-  </div>`;
+  </div>
+  ${growHtml(p)}`;
 }
 
 // ---------- 鉢植えガイド（図鑑） ----------
@@ -3208,9 +3370,9 @@ function renderEnjoy() {
   const sekki = sekkiOf();
   const examples = (need) => {
     const m = plantsForNeed(need, mine);
-    if (m.length) return `<p class="mine">あなたの庭では — ${[...new Set(m.map((p) => p.groupJa))].slice(0, 5).map(esc).join('、')}</p>`;
-    const any = [...new Map(plantsForNeed(need, PLANTS).map((p) => [p.group, p.groupJa])).values()].slice(0, 5);
-    return any.length ? `<p class="mine muted">向いている植物 — ${any.map(esc).join('、')}</p>` : '';
+    if (m.length) return `<p class="mine">${icon('leaf', 13)}あなたの庭の${[...new Set(m.map((p) => p.groupJa.replace(/（.*?）/g, '')))].slice(0, 5).map(esc).join('・')}で作れます</p>`;
+    const any = [...new Map(plantsForNeed(need, PLANTS).map((p) => [p.group, p]))].slice(0, 5).map(([, p]) => p);
+    return any.length ? `<p class="mine muted">植えると作れるようになる植物 — ${any.map((p) => `<button type="button" class="linkish" data-find="${esc(p.groupJa)}">${esc(p.groupJa.replace(/（.*?）/g, ''))}</button>`).join('・')}</p>` : '';
   };
   const recipeCard = (id, open = false) => {
     const r = RECIPES[id];
@@ -3437,8 +3599,8 @@ const chatLog = [];
 function chatContext() {
   const g = activeGarden();
   let forecast = null;
-  try { const k = state.loc && `pg:wx:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`; forecast = k ? JSON.parse(sessionStorage.getItem(k) || 'null')?.d ?? null : null; } catch { forecast = null; }
-  return { climate: state.climate, locName: state.loc?.name, garden: g, plants: g.plants.map((id) => byId.get(id)).filter(Boolean), entries: diaryCache, forecast, now: new Date() };
+  try { const k = state.loc && `pg:wx2:${state.loc.lat.toFixed(2)},${state.loc.lon.toFixed(2)}`; forecast = k ? (JSON.parse(sessionStorage.getItem(k) || 'null')?.d ?? null)?.filter((d) => !d.past) ?? null : null; } catch { forecast = null; }
+  return { climate: state.climate, locName: state.loc?.name, garden: g, plants: g.plants.map((id) => byId.get(id)).filter(Boolean), entries: diaryCache, forecast, now: new Date(), monthTasks: monthTasks() };
 }
 function chatHtml() {
   return `<div class="chat-log" id="chatLog">${chatLog.map((m) => (m.me
@@ -3727,9 +3889,8 @@ async function renderHome() {
   const north = localMonth(now, c.south);
   const mine = state.garden.map((id) => byId.get(id)).filter(Boolean);
   const blooming = mine.filter((p) => p.bloom.includes(north));
-  const steps = buildDue(activeGarden(), ymOf(), true).filter((b) => !b.done).map((b) => ({ kind: 'plant', title: `庭づくり：${b.title}`, build: true }));
-  const yNow = new Date().getFullYear();
-  const tasks = [...steps, ...[...buildTasks(c, mine), ...pestTasks(c, mine)].filter((t) => t.month === now && !taskDone[yNow]?.[doneKey(yNow, now, t)])].slice(0, steps.length ? 4 : 3);
+  const allTasks = monthTasks();
+  const tasks = allTasks.slice(0, 4);
   const ideas = ideasFor(north);
   const idea = ideas[new Date().getDate() % Math.max(1, ideas.length)];
   state.tsupiCtx = {
@@ -3750,7 +3911,7 @@ async function renderHome() {
       <div id="homeWx"></div>
       <div class="today-block">
         <h3>${icon('calendar', 17)}今月の作業</h3>
-        ${tasks.length ? tasks.map((t) => `<button type="button" class="mini-task${t.build ? ' build' : ''}" data-gojump="tasks|month-${now}"><span class="ic">${icon(t.build ? 'steps' : TASK_ICON[t.kind] || 'leaf', 16)}</span><span>${esc(t.title)}</span></button>`).join('') : '<p class="hint">急ぎの作業はありません。庭を眺めて楽しみましょう。</p>'}
+        ${tasks.length ? tasks.map((t) => `<button type="button" class="mini-task${t.build ? ' build' : ''}" data-gojump="tasks|month-${now}"><span class="ic">${icon(t.build ? 'steps' : TASK_ICON[t.kind] || 'leaf', 16)}</span><span>${esc(t.title)}</span></button>`).join('') + (allTasks.length > tasks.length ? `<p class="hint" style="margin:2px 0 0">ほかに${allTasks.length - tasks.length}件あります</p>` : '') : '<p class="hint">今月の作業は、すべて済んでいるか、急ぎのものはありません。庭を眺めて楽しみましょう。</p>'}
         <button type="button" class="link" data-go="tasks">作業暦を見る ${icon('arrow', 14)}</button>
       </div>
       ${blooming.length ? `<div class="today-block">
@@ -3923,7 +4084,7 @@ initSaved();
 initKodawari();
 initImagePlan();
 initCustomForm();
-if (state.planInput.text || state.planInput.seed) { computePlan(); state.planMonth = state.plan.peak; }
+if (state.planInput.text || state.planInput.seed) { try { computePlan(); state.planMonth = state.plan?.peak ?? 6; } catch { /* 入力が古い形式でも起動は続ける */ } }
 if (state.loc) loadClimate(); else render();
 go('site');
 requestPersist();

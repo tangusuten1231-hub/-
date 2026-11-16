@@ -1376,3 +1376,57 @@ h1, h2, h3, h4 { line-break: strict; }
 .task.done .t, .task.done .d { opacity: .5; }
 .task.done .t { text-decoration: line-through; }
 .cal-acts { flex-wrap: wrap; margin: 8px 0; }
+.save-help { margin: 6px 0 14px; font-size: .8rem; }
+.save-help summary { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); cursor: pointer; }
+.save-help ul { margin: 6px 0 0; padding-left: 1.2em; line-height: 1.7; color: var(--ink-2, inherit); }
+
+/* ===== 入力の流れ ===== */
+.form-steps { display: flex; gap: 4px; margin: 4px 0 12px; overflow-x: auto; scrollbar-width: none; }
+.form-steps::-webkit-scrollbar { display: none; }
+.form-steps button { flex: 1 0 auto; display: flex; align-items: center; gap: 4px; font: inherit; font-size: .74rem; color: var(--ink-2, inherit); background: var(--surface-2); border: 0; border-radius: 999px; padding: 5px 9px; cursor: pointer; white-space: nowrap; }
+.form-steps b, .fs-no { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: #fff; font-size: .68rem; }
+.fs-no { margin-right: 6px; vertical-align: 1px; }
+.form-sec { scroll-margin-top: 80px; }
+.site-area { margin: 0 0 6px; font-size: .86rem; }
+.basis { font-size: .8rem; margin: 4px 0 10px; }
+.basis summary { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); cursor: pointer; }
+.basis ul { margin: 6px 0 0; padding-left: 1.2em; line-height: 1.7; }
+
+/* ===== 印刷（A4） ===== */
+.print-only { display: none; }
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff !important; color: #000; }
+  .app-header, .tabbar, .fab, #toast, #planForm, #imgPlan, #savedPlans, .big-row, .alt-box, .alt-row, .toc, .save-help, .month-slider, .season-btns, .seg, .carousel-nav, button.swap-btn, .kodawari, #sheet, #sheetBack, .view:not(#view-plan) { display: none !important; }
+  .view#view-plan { display: block !important; }
+  .print-only { display: block; }
+  .cast-card, .bed-card, .hl-card, figure, svg, .print-memo tr, .build-steps li, .dn-grid { break-inside: avoid; page-break-inside: avoid; }
+  /* 印刷では、平面図・植物の一覧・つくる順番・開花・花壇・費用・買い物メモを中心に（生き物・案内・写真の撮り方などは省く） */
+  #sec-hl, #sec-tour, #sec-photo, #sec-swild, #sec-wildlife, #sec-slots, #sec-roles, .eco-web, .image-slot, .imgslot, .legend .cam, .hydrate-note { display: none !important; }
+  .mag { margin: 0 0 6mm !important; padding: 0 !important; }
+  .carousel { display: grid !important; grid-template-columns: repeat(3, 1fr); overflow: visible !important; }
+  .cast { grid-template-columns: repeat(3, 1fr) !important; }
+  .cast-card .cast-art, .cast-photo { max-height: 28mm; overflow: hidden; }
+  .cast-card .cast-art img, .cast-card .cast-art svg { max-height: 28mm; object-fit: cover; }
+  .cast-card { font-size: 8.5pt; }
+  .bed-cards { display: grid !important; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .hero, .plan-hero, .site-hero { box-shadow: none !important; }
+  svg { max-width: 100% !important; height: auto; }
+  .site-art svg, .illust.plan { max-height: 240mm; }
+  .scroll-x { overflow: visible !important; }
+  .cast { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .cast-card { box-shadow: none !important; border: 1px solid #ccc; }
+  .print-memo { break-before: page; }
+  .print-memo table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+  .print-memo td, .print-memo th { border-bottom: 1px solid #ccc; padding: 3px 4px; text-align: left; }
+  a { color: inherit; text-decoration: none; }
+}
+.grow-dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: .8rem; margin: 6px 0 10px; }
+.grow-dl dt { color: var(--muted); }
+.grow-dl dd { margin: 0; }
+.grow-mini { font-size: .7rem; color: var(--muted); margin: 2px 0; line-height: 1.5; }
+.sc-fit { display: block; font-style: normal; font-size: .66rem; line-height: 1.45; color: var(--muted); margin-top: 3px; padding: 0 8px 6px; text-align: left; }
+.style-fit { color: var(--accent); }
+.no-bloom { display: flex; align-items: center; gap: 4px; font-size: .72rem; color: var(--muted); margin: 4px 0; }
+.cal .n .nb { display: block; font-size: .6rem; color: var(--muted); }
+.linkish { border: 0; background: none; padding: 0; font: inherit; color: var(--accent); text-decoration: underline dotted; cursor: pointer; }

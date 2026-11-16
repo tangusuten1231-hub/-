@@ -44,8 +44,14 @@ test('図鑑に重複がなく、追加した地域・ハーブの植物があ�
   for (const v of Object.values(INGREDIENTS)) for (const i of v.ids || []) assert.ok(ids.has(i), i);
 });
 
-test('つくる順番の予定月：今月から、前の手順より後で、適した月を選ぶ', async () => {
+test('つくる順番の予定月：下準備→構造物→植え付けの順で、月が分かれ、植え付けは適した月', async () => {
   const { scheduleSteps } = await import('../js/garden.js');
-  const r = scheduleSteps([{ ms: [10, 11] }, { ms: [] }, { ms: [3, 4, 10], free: true }, { ms: [10, 11], free: true }, { ms: [3, 4], free: true }, { ms: [], first: true }], new Date(2026, 10, 15));
-  assert.deepEqual(r.map((x) => x.ym), ['2026-11', '2026-11', '2027-03', '2026-11', '2027-03', '2026-11']);
+  const steps = [{ key: 'prep', ms: [1, 2, 8, 9] }, { key: 'build', ms: [] }, { key: 'pere', ms: [2, 3, 4, 9, 10, 11], free: true }, { key: 'bulb', ms: [10, 11], free: true }, { key: 'annual', ms: [3, 4], free: true }, { key: 'finish', ms: [], first: true }];
+  const r = scheduleSteps(steps, new Date(2026, 10, 16));
+  assert.deepEqual(r.map((x) => x.ym), ['2026-12', '2027-01', '2027-02', '2027-10', '2027-03', '2027-02']);
+  assert.ok(new Set(r.map((x) => x.ym)).size >= 4, '同じ月に集まらない');
+  const named = scheduleSteps([{ t: '下準備', ms: [] }, { t: '宿根草', ms: [3], free: true }], new Date(2026, 10, 16));
+  assert.deepEqual(named.map((x) => x.t), ['下準備', '宿根草'], '手順の名前（t）を消さない');
+  const r2 = scheduleSteps(steps.filter((s) => s.key !== 'build'), new Date(2026, 4, 1));
+  assert.deepEqual(r2.map((x) => x.ym).slice(0, 2), ['2026-08', '2026-09']);
 });

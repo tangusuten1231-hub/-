@@ -132,6 +132,33 @@ export function bloomGaps(gardenPlants, climate, south = false) {
   return { counts, gaps };
 }
 
+/**
+ * 開花の月の実態に合わせた説明。counts：その土地の月ごとの開花数（12個）
+ * 戻り値 { text, zero:[月], winter:boolean }
+ */
+export function relayText(counts) {
+  const on = [], zero = [];
+  counts.forEach((n, i) => (n ? on : zero).push(i + 1));
+  if (!on.length) return { text: '花の咲く植物がありません。', zero, winter: false };
+  if (!zero.length) return { text: '1年中、どの月も何かが咲く開花リレーです。', zero, winter: false };
+  const winterOnly = zero.every((m) => [12, 1, 2].includes(m));
+  return {
+    text: `${monthsJa(on)}に花があり、${monthsJa(zero)}は花が途切れます。${winterOnly ? '冬は常緑の葉や実、枯れ姿や樹形を楽しむ構成です。' : 'その時期はグラスや葉の美しさを楽しむか、その月に咲く植物を加えましょう。'}`,
+    zero, winter: winterOnly,
+  };
+}
+/** 花のない月に咲く植物の提案（その地域で育つもの） */
+export function fillSuggestions(zeroMonths, climate, south = false, exclude = new Set(), n = 4) {
+  const north = zeroMonths.map((m) => localMonth(m, south));
+  return PLANTS
+    .filter((p) => !exclude.has(p.id) && p.bloom.some((m) => north.includes(m)))
+    .map((p) => ({ plant: p, ...evaluate(p, climate) }))
+    .filter((r) => r.level == null || r.level >= 2)
+    .sort((a, b) => (b.level ?? 0) - (a.level ?? 0) || b.plant.bloom.filter((m) => north.includes(m)).length - a.plant.bloom.filter((m) => north.includes(m)).length)
+    .filter((r, i, arr) => arr.findIndex((x) => x.plant.group === r.plant.group) === i)
+    .slice(0, n);
+}
+
 /** 1㎡あたりの株数の目安 */
 export function plantsPerSqm(p) {
   const s = p.spread / 100;
@@ -320,15 +347,23 @@ export function plantingTime(p, climate) {
     else if (p.tags?.includes('evergreen')) { best = cold ? [safe, wrapM(safe + 1)] : [L(3), L(4), L(9), L(10)]; ok = [L(6)]; why = '常緑樹は芽が動く前の春か、暑さが和らいだ秋'; }
     else { best = cold ? [safe, L(10)] : [L(11), L(2), L(3)]; ok = cold ? [] : [L(12), L(1)]; why = '落葉樹は葉を落として休んでいる時期に'; }
   } else {
-    // 宿根草・グラス・亜低木・シダ
+    // 宿根草・グラス・亜低木・シダ：植物の性質ごとに適期を分ける
+    const spring = cold ? [safe, wrapM(safe + 1)] : [S3, wrapM(S3 + 1)];
+    const lateSpring = cold ? [wrapM(safe + 1), wrapM(safe + 2)] : [S4, wrapM(S4 + 1)];
+    const first = p.bloom.length ? Math.min(...p.bloom) : 6;
+    const dryMed = p.moist.length === 1 && p.moist[0] === 'dry';
     if (p.tender) { best = [S4, wrapM(S4 + 1)]; ok = [wrapM(S4 + 2)]; why = '寒さに弱いので、遅霜のあとに'; }
-    else {
-      const spring = cold ? [safe, wrapM(safe + 1)] : [S3, wrapM(S3 + 1)];
-      if (p.form === 'grass') { best = spring; ok = autumn; why = 'グラスは春植えが根付きやすい'; }
-      else if (p.humid === 1 && hot) { best = autumn; ok = spring; why = '暑さに弱いので、夏までに時間のある秋植えがおすすめ'; }
-      else if (cold) { best = spring; ok = autumn; why = '寒冷地は春植え。秋植えは早めに'; }
-      else { best = [...spring, ...autumn]; why = '春と秋の2回。夏越しの体力がつく秋植えも◎'; }
-    }
+    else if (p.form === 'fern' || p.type === 'fern') { best = lateSpring; ok = [autumn[0]]; why = '新しい葉が伸び始める春の終わりに。乾かさないように'; }
+    else if (p.form === 'grass' && WARM_GRASS.includes(g)) { best = cold ? [wrapM(safe + 1), wrapM(safe + 2)] : [L(4), L(5), L(6)]; why = '暖かい季節に育つグラス。地温が上がる晩春〜初夏に植えると根付きやすい'; }
+    else if (p.form === 'grass') { best = spring; ok = autumn; why = '涼しい季節に育つグラス。春か秋の涼しい時期に'; }
+    else if (p.humid === 1 && hot) { best = autumn; ok = spring; why = '暑さに弱いので、夏までに時間のある秋植えがおすすめ'; }
+    else if (dryMed) { best = cold ? spring : [L(4), L(5)]; ok = [autumn[0]]; why = '乾燥を好む植物。冬の長雨に当てないよう、暖かくなってから植えると根腐れしにくい'; }
+    else if (!p.sun.includes('full')) { best = cold ? spring : [L(3), autumn[0]]; ok = [L(4), autumn[1] || autumn[0]]; why = '日陰の植物。芽出し前の早春か、暑さが和らぐ初秋に'; }
+    else if (cold) { best = spring; ok = autumn; why = '寒冷地は春植え。秋植えは早めに'; }
+    else if (first <= 5) { best = autumn; ok = [S3]; why = `春（${first}月ごろ）に咲くので、前の年の秋に植えて根を張らせると花つきがよい`; }
+    else if (first >= 8) { best = spring; ok = [autumn[0]]; why = `${first}月ごろから咲く遅咲き。春に植えればその年から咲く`; }
+    else if (p.heat >= 10 || p.tags?.includes('prairie')) { best = [S3 === L(3) ? L(4) : S3, wrapM(Math.max(4, S3) + 1)]; ok = autumn; why = '暑さに強い夏の花。暖かくなり始める春に植えると夏までに大株に'; }
+    else { best = [...spring, autumn[0]]; ok = [autumn[1] || autumn[0]]; why = '春と秋の2回。夏越しの体力がつく秋植えも◎'; }
   }
   const avoid = [];
   if (hot) avoid.push(L(7), L(8));
@@ -340,20 +375,54 @@ export function plantingTime(p, climate) {
   return { plant: { best, ok }, sow, avoid: avoid.filter((m) => !best.includes(m)), text, why, pot };
 }
 
+const WARM_GRASS = ['miscanthus', 'panicum', 'pennisetum', 'schizachyrium', 'sporobolus', 'bouteloua', 'muhlenbergia', 'imperata', 'hakonechloa', 'eragrostis', 'chasmanthium', 'panicum-frosted', 'vetiver', 'cymbopogon'];
+
+/** 耐寒温度の目安（℃）：植物の耐寒ゾーンの下限から。一年草は null */
+export function coldTemp(p) {
+  if (p.type === 'annual') return null;
+  const z = p.zone[0];
+  const f = -60 + (Math.floor(z) - 1) * 10 + (z % 1 ? 5 : 0);
+  return Math.round(((f - 32) * 5) / 9);
+}
+/** 日照時間の目安 */
+export function sunHours(p) {
+  const s = p.sun;
+  if (s.includes('full') && s.includes('shade')) return '日向〜日陰（2〜6時間以上）';
+  if (s.includes('full') && s.includes('part')) return '1日3〜6時間以上';
+  if (s.includes('full')) return '1日6時間以上';
+  if (s.includes('part') && s.includes('shade')) return '1日2〜4時間・明るい日陰';
+  if (s.includes('part')) return '1日3〜5時間（午前中の日が理想）';
+  return '1日2時間以下・明るい日陰';
+}
+/** 土の酸度（pH）の好み。データのない植物は個別データなしと明示 */
+const PH_ACID = new Set(['blueberry', 'camellia-sinensis', 'gardenia', 'hydrangea-serrata', 'lupinus', 'gentiana', 'kirengeshoma', 'astilbe', 'athyrium', 'dryopteris', 'matteuccia', 'polystichum', 'tricyrtis', 'primula-japonica', 'iris-ensata', 'adiantum', 'epimedium', 'pachysandra', 'asarum', 'cornus-sanguinea']);
+const PH_ALK = new Set(['lavender', 'rosemary', 'santolina', 'dianthus', 'gypsophila', 'gypsophila-elegans', 'scabiosa', 'knautia', 'clematis', 'salvia-officinalis', 'thymus', 'origanum', 'verbascum', 'echinops', 'eryngium', 'centranthus', 'helleborus', 'iris-germanica', 'artemisia', 'perovskia', 'stachys', 'cerastium', 'armeria', 'limonium', 'crambe', 'sedum', 'papaver', 'alcea', 'euphorbia', 'nepeta', 'achillea', 'teucrium-hircanicum', 'dianthus-carthusianorum', 'aubrieta', 'iberis', 'lunaria', 'cephalaria', 'salvia-pratensis']);
+export function soilPH(p) {
+  const g = p.group || p.id;
+  if (PH_ACID.has(g)) return { range: '5.0〜6.0', ja: '酸性を好む', known: true };
+  if (PH_ALK.has(g)) return { range: '6.5〜8.0', ja: '中性〜弱アルカリ性を好む（苦土石灰で調整）', known: true };
+  return { range: '6.0〜7.0', ja: '弱酸性〜中性（一般的な草花の目安。この植物の個別データは準備中）', known: false };
+}
+
 /**
- * つくる順番の予定月。下準備・構造物は今月から順に。植え付けの手順（free）は、それぞれ準備が終わった後の
- * 適した月のうち最も早い月へ（球根を待って一年草が1年遅れる、といったことがないように）。仕上げ（first）は最初の植え付けの月。
+ * つくる順番の予定月。
+ * まず主な植え付け（宿根草、なければ最初の植え付けの手順）の月 P を、準備の期間（下準備1か月＋構造物1か月）をとったうえで、
+ * 適した月のうち最も早い月に決める。下準備は P の2か月前（構造物がなければ1か月前）、構造物は P の1か月前、
+ * ほかの植え付けは P 以降の適した月、仕上げ（first）は最初の植え付けの月。
  */
 export function scheduleSteps(steps, now = new Date()) {
   const fmt = (t) => `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
   const next = (t, ms) => { const ok = (ms || []).filter(Boolean); if (!ok.length) return t; for (let k = 0; k < 24; k++) if (ok.includes(((t + k) % 12) + 1)) return t + k; return t; };
-  let t = now.getFullYear() * 12 + now.getMonth();
+  const t0 = now.getFullYear() * 12 + now.getMonth();
   const out = steps.map((st) => ({ ...st }));
-  out.filter((st) => !st.free && !st.first).forEach((st) => { t = next(t, st.ms); st.t0 = t; });
-  const base = t;
+  const seq = out.filter((st) => !st.free && !st.first);
   const free = out.filter((st) => st.free);
-  free.forEach((st) => { st.t0 = next(base, st.ms); });
-  const firstT = free.length ? Math.min(...free.map((st) => st.t0)) : base;
-  out.filter((st) => st.first).forEach((st) => { st.t0 = firstT; });
-  return out.map(({ t0, ...st }) => ({ ...st, ym: fmt(t0) }));
+  const lead = Math.max(1, seq.length);
+  const main = free.find((st) => st.key === 'pere') || free[0];
+  const P = main ? next(t0 + lead, main.ms) : t0 + lead;
+  seq.forEach((st, i) => { st._t = Math.max(t0, P - (seq.length - i)); });
+  free.forEach((st) => { st._t = st === main ? P : next(P, st.ms); });
+  const firstT = free.length ? Math.min(...free.map((st) => st._t)) : P;
+  out.filter((st) => st.first).forEach((st) => { st._t = firstT; });
+  return out.map(({ _t, ...st }) => ({ ...st, ym: fmt(_t) }));
 }

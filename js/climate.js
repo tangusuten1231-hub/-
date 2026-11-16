@@ -25,16 +25,59 @@ export async function fetchDaily(lat, lon, now = new Date()) {
   return json;
 }
 
-export async function searchPlace(name) {
-  const params = new URLSearchParams({ name, count: '8', language: 'ja', format: 'json' });
-  const res = await fetch(`${GEOCODE_URL}?${params}`);
-  if (!res.ok) throw new Error('地名検索に失敗しました');
-  const json = await res.json();
-  return (json.results || []).map((r) => ({
-    name: [r.name, r.admin1, r.country].filter(Boolean).join('、'),
-    lat: r.latitude,
-    lon: r.longitude,
-  }));
+const PREF_RE = /^(北海道|東京都?|京都府?|大阪府?|[^\s都道府県]{2,3}県)/;
+/**
+ * 地名検索。「千葉県旭市」「千葉県 旭市」「旭市」「旭」のどれでも探せるよう、
+ * 都道府県名を外した名前・「市区町村」を外した名前の順に試し、都道府県名があればその県の候補に絞る。
+ */
+export async function searchPlace(name, fetchFn = fetch) {
+  const raw = String(name).normalize('NFKC').replace(/[　\s]+/g, ' ').trim();
+  if (!raw) return [];
+  let pref = '', rest = raw.replace(/ /g, '');
+  const parts = raw.split(' ');
+  if (parts.length > 1 && PREF_RE.test(parts[0])) { pref = parts[0]; rest = parts.slice(1).join(''); }
+  const m = rest.match(PREF_RE);
+  if (m && m[0] !== rest) { pref = pref || m[0]; rest = rest.slice(m[0].length); }
+  const tries = [...new Set([raw.replace(/ /g, ''), rest, rest.replace(/(市|町|村|区|郡)$/, '')].filter((t) => t && t.length >= 1))];
+  const prefKey = pref.replace(/[都道府県]$/, '');
+  const okPref = (r) => !prefKey || (r.admin1 || '').includes(prefKey) || (r.admin2 || '').includes(prefKey);
+  let lastErr = null;
+  for (const t of tries) {
+    try {
+      const params = new URLSearchParams({ name: t, count: '20', language: 'ja', format: 'json' });
+      const res = await fetchFn(`${GEOCODE_URL}?${params}`);
+      if (!res.ok) throw new Error('地名検索に失敗しました');
+      const json = await res.json();
+      const list = (json.results || []).filter(okPref);
+      // 日本の候補を先に、人口の多い順に
+      list.sort((a, b) => (b.country_code === 'JP') - (a.country_code === 'JP') || (b.population || 0) - (a.population || 0));
+      if (list.length) {
+        return list.slice(0, 8).map((r) => ({ name: [r.name, r.admin1, r.country].filter(Boolean).join('、'), lat: r.latitude, lon: r.longitude }));
+      }
+    } catch (e) { lastErr = e; }
+  }
+  if (lastErr) throw lastErr;
+  return [];
+}
+
+/**
+ * 海からの距離の目安（km）。Open-Meteo の標高API（APIキー不要）で、まわり8方位・1〜8kmの地点の標高を調べ、
+ * 標高0m以下（海面）の地点がいちばん近い距離を返す。8km以内に海がなければ null。
+ */
+export async function fetchCoast(lat, lon, fetchFn = fetch) {
+  const dists = [1, 2, 4, 8];
+  const pts = [];
+  for (const d of dists) for (let k = 0; k < 8; k++) {
+    const a = (k / 8) * 2 * Math.PI;
+    pts.push({ d, lat: lat + (d / 111) * Math.cos(a), lon: lon + (d / (111 * Math.cos((lat * Math.PI) / 180))) * Math.sin(a) });
+  }
+  const params = new URLSearchParams({ latitude: pts.map((p) => p.lat.toFixed(4)).join(','), longitude: pts.map((p) => p.lon.toFixed(4)).join(',') });
+  const res = await fetchFn(`https://api.open-meteo.com/v1/elevation?${params}`);
+  if (!res.ok) throw new Error('elevation');
+  const j = await res.json();
+  const el = j.elevation || [];
+  const sea = pts.filter((p, i) => el[i] != null && el[i] <= 0);
+  return sea.length ? Math.min(...sea.map((p) => p.d)) : null;
 }
 
 export async function reverseGeocode(lat, lon) {
@@ -169,6 +212,10 @@ export function analyzeClimate(daily, lat = 35) {
     annualPrecip: Math.round(mean(full.map((Y) => Y.prcp))),
     annualSnow: Math.round(mean(full.map((Y) => Y.snow))),
     frostFree,
+    frostYears,
+    // 霜がまれな地域でも、霜が降りた年の終霜・初霜の目安
+    lastFrostTypical: springs.length ? median(springs) : null,
+    firstFrostTypical: autumns.length ? median(autumns) : null,
     lastFrost,
     lastFrostSafe: frostFree ? null : (south ? null : quantile(springs, 0.8)),
     firstFrost,

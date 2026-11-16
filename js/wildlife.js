@@ -123,7 +123,7 @@ export function featuresFromPlants(plants) {
   if (plants.some((p) => p.type === 'shrub' && p.h[1] >= 250)) f.tree = true;
   if (plants.some((p) => p.type === 'shrub' || (p.type === 'subshrub' && p.h[1] >= 60))) f.shrub = true;
   if (plants.some((p) => p.form === 'grass' && p.h[1] >= 40)) f.grass = true;
-  if (plants.some((p) => p.uses?.includes('winter'))) f.winter = true;
+  // 「冬も刈らずに残す」は管理のしかたなので、植物からは決めない（庭の設定で選んだときだけ）
   return f;
 }
 
@@ -133,7 +133,8 @@ export function featuresFromPlants(plants) {
  * 戻り値: [{ creature, score, level(3=来そう 2=来るかも 1=条件がそろえば), why:[理由] }]
  */
 export function creaturesForGarden(plants, features = {}, climate = null) {
-  const feat = { ...featuresFromPlants(plants), ...features };
+  const fromPlants = featuresFromPlants(plants);
+  const feat = { ...fromPlants, ...features };
   if (feat.pond) feat.water = true;
   const out = [];
   for (const c of CREATURES) {
@@ -189,7 +190,7 @@ export function biodiversity(plants, features = {}, climate = null) {
     { key: 'layers', ja: '高さと姿の層', max: 15, score: Math.round((layers / 5) * 15), detail: `地面〜低木まで 5層中 ${layers}層` },
     { key: 'native', ja: '在来種', max: 15, score: Math.round(Math.min(1, native / 0.4) * 15), detail: `在来種は ${Math.round(native * 100)}%` },
     { key: 'food', ja: '食べもの', max: 20, score: Math.round((Math.min(hostFor, 4) / 4) * 10 + (Math.min(foodPlants, 3) / 3) * 10), detail: `幼虫が育つ蝶など ${hostFor}種、鳥の実・種 ${foodPlants}種` },
-    { key: 'habitat', ja: 'すみか', max: 15, score: Math.min(15, habitat), detail: Object.keys(FEATURES).filter((k) => feat[k]).map((k) => FEATURES[k].replace(/（.*?）/g, '')).join('・') || 'まだありません' },
+    { key: 'habitat', ja: 'すみか', max: 15, score: Math.min(15, habitat), detail: Object.keys(FEATURES).filter((k) => feat[k]).map((k) => FEATURES[k].replace(/（.*?）/g, '') + (features[k] ? '' : '（植えた植物から）')).join('・') || 'まだありません' },
   ];
   const total = plants.length ? parts.reduce((t, x) => t + x.score, 0) : 0;
   const tips = [];

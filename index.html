@@ -183,6 +183,7 @@
           <button type="button" data-v="balcony">ベランダ・鉢</button>
         </div>
         <h2 id="planFormTitle">植栽プランをつくる</h2>
+        <nav class="form-steps" aria-label="入力の流れ"><button type="button" data-jump="planMode"><b>1</b>種類・広さ</button><button type="button" data-jump="fStyle"><b>2</b>スタイル</button><button type="button" data-jump="fWish"><b>3</b>希望</button><button type="button" data-jump="fCond"><b>4</b>条件</button><button type="button" data-jump="btnPlan"><b>5</b>つくる</button></nav>
         <p class="hint bed-only">どんな庭にしたいか、言葉で書いてください。地域の気候・花の色・高さ・開花リレーを考えてプランとイメージ図をつくります。</p>
         <p class="hint balcony-only">ベランダの向き・階・手すりの高さ・上の階の有無から、場所ごとの日当たりを太陽の動きで計算し、鉢の置き場所・植物・鉢の大きさ・用土・重さ・費用まで考えます。</p>
         <div class="balcony-only" id="balFields">
@@ -270,12 +271,13 @@
             </div>
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="planStyle">植栽スタイル</label>
+        <div class="field form-sec" id="fStyle">
+          <label class="label" for="planStyle"><span class="fs-no">2</span>植栽スタイル</label>
           <div class="carousel style-cards" id="styleCards" role="list"></div>
           <select id="planStyle" aria-label="植栽スタイルを選ぶ"></select>
           <p class="hint" id="styleDesc" style="margin:6px 0 0"></p>
         </div>
+        <label class="label form-sec" id="fWish" for="planText"><span class="fs-no">3</span>どんな庭にしたい？（自由に書く・下のチップでも選べます）</label>
         <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
         <div class="chips presets" id="planPresets"></div>
         <div class="field bed-only">
@@ -309,8 +311,8 @@
             <button type="button" data-v="island">四方から眺める</button>
           </div>
         </div>
-        <div class="field not-balcony">
-          <span class="label">日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small></span>
+        <div class="field not-balcony form-sec" id="fCond">
+          <span class="label"><span class="fs-no">4</span>日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small></span>
           <div class="seg" data-plan="sun">
             <button type="button" data-v="full">日向</button>
             <button type="button" data-v="part">半日陰</button>

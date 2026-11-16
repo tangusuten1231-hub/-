@@ -125,8 +125,10 @@ export function describe(p) {
   const leaf = LEAF_TEXT[p.leaf] ? `${LEAF_TEXT[p.leaf]}が美しく、花のない時期にも見どころがあります。` : '';
   const ever = p.tags.includes('evergreen') ? '冬も葉が残る常緑性です。' : '';
   const long = p.bloom.length >= 5 ? '花期がとても長いのも魅力です。' : '';
-  const flower = p.form === 'fern' || !p.bloom.length
+  const flower = p.form === 'fern'
     ? 'シダの仲間で花は咲かず、葉の姿を楽しみます。'
+    : !p.bloom.length
+      ? (p.harvest?.length ? '花は観賞の対象ではなく、育てて収穫を楽しむ植物です。' : '花は観賞の対象ではなく、葉の色や形を楽しむ植物です。')
     : p.form === 'grass' && p.color[0] === 'green'
       ? `${bloomText(p.bloom)}に穂を出します。`
       : `${bloomText(p.bloom)}に、${colors}の${FORM_NOUN[p.form] || '花'}が咲きます。`;

@@ -330,6 +330,8 @@ export function generatePlan(o) {
     // 呼びたい生き物（蝶・蜂・野鳥・水辺）
     const ws = wildScore(p, wild, o.climate);
     if (ws) { s += ws * 0.9; if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`); }
+    // 海に近い庭では、潮風に強い植物を優先
+    if (o.climate?.coastKm != null && o.climate.coastKm <= 3 && p.tags.includes('salt')) { s += 2; why.push('潮風に強い'); }
     if (k.winter && (p.tags.includes('evergreen') || p.uses?.includes('winter') || p.uses?.includes('seed'))) { s += 2; why.push('冬も楽しめる'); }
     // 庭まるごと：ほかの花壇と同じ植物をくり返して、庭全体に統一感を出す（デザインの「リピート」）
     if (o.palette?.includes(p.id)) { s += 3.2; why.unshift('庭全体でくり返す'); }
@@ -444,6 +446,30 @@ export function generatePlan(o) {
     picked.splice(picked.indexOf(out), 1, { plant: cand.p, layer: L, color: palette.size ? pickColor(cand.p) : chosenColor(cand.p, pref), level: evals.get(cand.p.id).level, why: [ROLE_REASON[need], ...cand.why].slice(0, 4), score: cand.s });
   }
 
+  // こだわり：とくに咲かせたい月が、プランの開花のピークになるよう入れ替える
+  if (k.months.length) {
+    const tgt = k.months.map((m) => localMonth(m, south)); // 植物データ（北半球の月）
+    const cnt = () => { const a = Array(13).fill(0); picked.forEach((x) => x.plant.bloom.forEach((m) => a[m]++)); return a; };
+    for (let it = 0; it < picked.length; it++) {
+      const a = cnt();
+      const tMax = Math.max(...tgt.map((m) => a[m]));
+      const others = a.map((v, m) => (m && !tgt.includes(m) ? v : 0));
+      const oMax = Math.max(...others);
+      if (tMax >= oMax + (o.peakMargin || 0)) break;
+      const peakM = others.indexOf(oMax);
+      const outs = picked.filter((x) => !x.must && !x.plant.bloom.some((m) => tgt.includes(m)) && x.plant.bloom.includes(peakM) && !(style.needsGrass && x.plant.form === 'grass' && x.layer === 'matrix'));
+      let done = false;
+      for (const out of outs.sort((a2, b2) => a2.score - b2.score)) {
+        const inn = scored.filter((c2) => c2.p.bloom.some((m) => tgt.includes(m)) && layerOf(c2.p) === out.layer && !picked.some((x) => x.plant.group === c2.p.group)).sort((a2, b2) => b2.s - a2.s)[0];
+        if (!inn) continue;
+        picked.splice(picked.indexOf(out), 1, { plant: inn.p, layer: out.layer, color: palette.size ? pickColor(inn.p) : chosenColor(inn.p, pref), level: evals.get(inn.p.id).level, why: [`${k.months.join('・')}月に咲く`, ...inn.why].slice(0, 4), score: inn.s });
+        done = true;
+        break;
+      }
+      if (!done) break;
+    }
+  }
+
   // セミオート：利用者が選んだ植物に差し替える（枠の役割・配置はそのまま）
   picked.forEach((x) => { x.orig = x.plant.id; });
   for (const x of picked) {
@@ -488,6 +514,16 @@ export function generatePlan(o) {
   const counts = Array(12).fill(0);
   species.forEach((s) => s.plant.bloom.forEach((m) => counts[localMonth(m, south) - 1]++));
   const peak = counts.indexOf(Math.max(...counts)) + 1;
+  // 指定した見ごろの月と、実際のピーク
+  let peakNote = null;
+  if (k.months.length) {
+    const mx = Math.max(...counts);
+    const best = Math.max(...k.months.map((m) => counts[m - 1]));
+    const peaks = counts.map((v, i) => (v === mx ? i + 1 : 0)).filter(Boolean);
+    peakNote = best >= mx
+      ? { ok: true, text: `指定した${k.months.join('・')}月が開花のピークです（${best}種が咲きます）。` }
+      : { ok: false, text: `${k.months.join('・')}月に咲くのは${best}種で、ピークは${peaks.join('・')}月（${mx}種）になりました。日当たり・土・気候の条件に合い、${k.months.join('・')}月に咲く植物の候補が足りないためです。` };
+  }
 
   const harvest = Array(12).fill(0);
   species.forEach((s) => (s.plant.harvest || []).forEach((m) => harvest[localMonth(m, south) - 1]++));
@@ -496,7 +532,7 @@ export function generatePlan(o) {
   for (const sp of species) for (const r of sp.plant.roles || []) roleCount[r] = (roleCount[r] || 0) + 1;
 
   return {
-    harvest, plots: layout.plots, roleCount, warnings, k,
+    harvest, plots: layout.plots, roleCount, warnings, k, peakNote,
     width, depth, area, shape: shapeId, outline: shapeId === 'custom' ? mask.loops : undefined, sun, moist, view: island ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),

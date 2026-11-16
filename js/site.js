@@ -478,8 +478,19 @@ export function generateSite(o) {
     b.plan = generatePlan({
       climate: o.climate, sun: b.sun, moist: b.moist, width: frame.W, depth: frame.D, mask, text: o.text || '',
       view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
-      palette: k ? sitePalette(beds.slice(0, k)) : null, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined,
+      palette: k ? sitePalette(beds.slice(0, k)) : null, peakMargin: 2, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined,
     });
+  }
+  // 庭全体（植物の種類ごと）の開花数で、指定した見ごろの月がピークかどうか
+  if (o.k?.months?.length) {
+    const south = !!o.climate?.south;
+    const cnt = Array(12).fill(0);
+    const seen = new Set();
+    for (const b of beds) for (const sp of b.plan.species) if (!seen.has(sp.plant.id)) { seen.add(sp.plant.id); sp.plant.bloom.forEach((m) => cnt[localMonth(m, south) - 1]++); }
+    const mx = Math.max(...cnt), best = Math.max(...o.k.months.map((m) => cnt[m - 1]));
+    const peaks = cnt.map((v, i) => (v === mx ? i + 1 : 0)).filter(Boolean);
+    var sitePeakNote = best >= mx ? { ok: true, text: `指定した${o.k.months.join('・')}月が庭全体の開花のピークです（${best}種が咲きます）。` }
+      : { ok: false, text: `${o.k.months.join('・')}月に咲くのは${best}種で、庭全体のピークは${peaks.join('・')}月（${mx}種）になりました。日当たり・土・気候の条件に合い、指定の月に咲く植物の候補が足りないためです。` };
   }
   // 小道もなめらかな曲線に
   const pathCells = cells.filter((q) => q.zone === 'path');
@@ -510,7 +521,7 @@ export function generateSite(o) {
   const site = {
     pts, area: Math.round(area * 10) / 10, W, H, c, cells, house, screen, items: [...items], structs, beds, areas,
     cost: { items: costs, total: Math.round(total), budget: Number(o.budget) || null }, skipped,
-    plants: allPlants, features, bio, critters, cx, layout: { pathStyle, mirror, pergolaAt }, organic, pathLoops, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
+    plants: allPlants, features, bio, critters, cx, layout: { pathStyle, mirror, pergolaAt }, organic, pathLoops, peakNote: typeof sitePeakNote === 'undefined' ? null : sitePeakNote, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
   };
   site.tour = tourOf(site, o.climate);
   site.photos = photoSpots(site, o.climate);

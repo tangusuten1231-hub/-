@@ -19,7 +19,7 @@ import { BALCONY_BASE, BALCONY_EXTRA } from './pots.js';
 import { ALIASES, ORIGIN } from './origin.js';
 import { rolesOf } from './roles.js';
 import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
-import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf } from './designer.js';
+import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf, SALT_GROUPS } from './designer.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
@@ -220,6 +220,7 @@ function decorate(p) {
   if (MEDICINAL_GROUPS.has(p.group)) tags.add('medicinal');
   if (VEG_GROUPS_EXTRA.includes(p.group)) tags.add('veg');
   if (BALCONY_EXTRA.includes(p.group)) tags.add('balcony');
+  if (SALT_GROUPS.has(p.group)) tags.add('salt');
   let family = familyOf(p.latin);
   if (!family.latin) family = DESIGNER_FAMILY[p.latin.replace(/^×\s*/, '').split(/[\s']/)[0]] || family;
   const q = { ...p, tags: [...tags], family, uses: [...new Set([...(USE_INDEX[p.group] || []), ...(p.use || [])])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || DESIGNER_ALIASES[p.group] || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || DESIGNER_ORIGIN[p.group] || [] };
@@ -309,6 +310,7 @@ export const TAGS = {
   medicinal: '薬用植物（生薬・民間薬）',
   veg: '野菜・食べられる',
   balcony: 'ベランダ・鉢植え向き',
+  salt: '潮風に強い',
 };
 
 export const SUN = { full: '日向', part: '半日陰', shade: '日陰' };

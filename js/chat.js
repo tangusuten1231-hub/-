@@ -1,7 +1,7 @@
 // 「ツピに聞く」：質問の言葉から話題を読み取り、気候・庭・記録・天気予報をもとに答えを組み立てる。
 // 生成AIではなく、決まった話題に答える仕組み。
 import { PLANTS } from './plants.js';
-import { evaluate, bloomGaps, buildTasks, findPlants, sowAdvice, localMonth, LEVEL } from './garden.js';
+import { evaluate, bloomGaps, buildTasks, findPlants, sowAdvice, localMonth, LEVEL, relayText } from './garden.js';
 import { PESTS, pestsForPlant, pestTasks } from './pests.js';
 import { describe, companions, bloomText } from './describe.js';
 import { formatDoy, humidityStress } from './climate.js';
@@ -140,12 +140,19 @@ export function reply(text, ctx) {
   // --- 今日・今週・今月すること ---
   if (/今日|今週|今月|何をすれば|なにをすれば|やること|作業/.test(q)) {
     if (!c) return needLoc();
-    const tasks = [...buildTasks(c, plants), ...pestTasks(c, plants)].filter((t) => t.month === month).slice(0, 4);
+    // 作業暦と同じ一覧（やった作業を除き、自分の庭の植物の作業を優先）
+    const all = ctx.monthTasks || [...buildTasks(c, plants), ...pestTasks(c, plants)].filter((t) => t.month === month);
+    const tasks = all.slice(0, 6);
     const adv = ctx.forecast ? weatherAdvice(ctx.forecast, north).filter((a) => a.level >= 2).slice(0, 2) : [];
     const ins = insights(ctx.entries || [], now, (id) => PLANTS.find((p) => p.id === id)?.ja || '').filter((i) => i.type !== 'memory').slice(0, 2);
     let html = '';
-    if (adv.length) html += p1('まず天気のことから。') + adv.map((a) => `<p><b>${esc(a.title)}</b>：${esc(a.text)}</p>`).join('');
-    html += tasks.length ? p1(`${month}月の${esc(gname)}の作業はこれだよ。`) + tasks.map((t) => `<p>・<b>${esc(t.title)}</b>　${esc(t.detail)}</p>`).join('') : p1(`${month}月は、急ぎの作業はないよ。庭をゆっくり眺めて、気づいたことをノートに書いてみてね。`);
+    const f = ctx.forecast;
+    if (f?.length) {
+      const t0 = f[0], rain = Math.round(f.reduce((t, d) => t + (d.rain || 0), 0));
+      html += p1(`今日（${now.getMonth() + 1}月${now.getDate()}日）の予報は最高${Math.round(t0.tmax)}℃・最低${Math.round(t0.tmin)}℃、この${f.length}日間の雨は合計${rain}mmだよ。`);
+    }
+    if (adv.length) html += p1('天気で気をつけること：') + adv.map((a) => `<p><b>${esc(a.title)}</b>：${esc(a.text)}</p>`).join('');
+    html += tasks.length ? p1(`${month}月の${esc(gname)}の作業は${all.length}件。作業暦と同じ内容だよ。`) + tasks.map((t) => `<p>・<b>${esc(t.title)}</b>　${esc(t.detail || '')}</p>`).join('') + (all.length > tasks.length ? p1(`ほかに${all.length - tasks.length}件あるよ。作業暦で見てね。`) : '') : p1(`${month}月の作業は、作業暦でもすべて済んでいるか、急ぎのものはないよ。庭をゆっくり眺めて、気づいたことをノートに書いてみてね。`);
     if (ins.length) html += p1('ノートからのお知らせ：') + ins.map((i) => `<p>・<b>${esc(i.title)}</b>　${esc(i.text)}</p>`).join('');
     return { html, actions: [{ label: '作業暦を見る', go: 'tasks' }, { label: '今日の記録を書く', record: true }], chips: ['水やりは必要？', '花が少ない月は？'] };
   }
@@ -154,7 +161,7 @@ export function reply(text, ctx) {
   if (/花が少ない月|途切れ|咲いていない月|リレー/.test(q)) {
     if (!plants.length) return { html: p1('まだ庭に植物が登録されていないよ。プランを作るか、図鑑から集めてみよう。'), actions: [{ label: 'プランをつくる', go: 'plan' }], chips: [] };
     const { gaps } = bloomGaps(plants, c, !!c?.south);
-    if (!gaps.length) return { html: p1(`${esc(gname)}は、春から晩秋まで途切れずに花が咲く組み合わせになっているよ。すてきだね！`), chips: ['おすすめの植物は？'] };
+    if (!gaps.length) { const { counts } = bloomGaps(plants, c, !!c?.south); return { html: p1(`${esc(gname)}は、${esc(relayText(counts).text)}`), chips: ['おすすめの植物は？'] }; }
     return { html: p1(`${esc(gname)}で花がないのは <b>${gaps.map((g) => g.month + '月').join('・')}</b> だよ。`) + gaps.slice(0, 3).map((g) => `<p>${g.month}月に咲くおすすめ：${g.suggestions.map((s) => esc(s.plant.groupJa)).join('、') || '—'}</p>`).join(''), actions: [{ label: 'マイ庭で追加する', go: 'garden' }], chips: [] };
   }
 
