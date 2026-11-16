@@ -1,7 +1,7 @@
 // 庭まるごとプラン：敷地の形（長方形・L字・自由な多角形）から、小道・テラス・パーゴラ・水場などの構造と
 // 花壇を配置し、花壇ごとの植栽、見どころ・園内の案内・フォトスポット・生き物をまとめる。
 // 敷地は「家が上（y=0側）」の向きで計算し、方角は house（家がある側）から決める。
-import { generatePlan, rng } from './plan.js';
+import { generatePlan, rng, polygonMask } from './plan.js';
 import { COLORS } from './plants.js';
 import { localMonth } from './garden.js';
 import { biodiversity, creaturesForGarden } from './wildlife.js';
@@ -99,6 +99,79 @@ export function siteShape(o) {
 }
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+// ---------- 形の輪郭（マスの集まり → なめらかな曲線） ----------
+/** マスの集まりの外周を、閉じた折れ線（m 単位）のリストにする */
+export function cellLoops(cells, c) {
+  const has = new Set(cells.map((q) => q.i + ',' + q.j));
+  const out = new Map();
+  const add = (a, b) => { const k = a.join(','); if (!out.has(k)) out.set(k, []); out.get(k).push(b); };
+  for (const q of cells) {
+    const { i, j } = q;
+    if (!has.has(i + ',' + (j - 1))) add([i, j], [i + 1, j]);
+    if (!has.has((i + 1) + ',' + j)) add([i + 1, j], [i + 1, j + 1]);
+    if (!has.has(i + ',' + (j + 1))) add([i + 1, j + 1], [i, j + 1]);
+    if (!has.has((i - 1) + ',' + j)) add([i, j + 1], [i, j]);
+  }
+  const loops = [];
+  for (const [k0, list] of out) {
+    while (list.length) {
+      const start = k0.split(',').map(Number);
+      const loop = [start];
+      let cur = list.pop();
+      for (let guard = 0; guard < 100000; guard++) {
+        if (cur[0] === start[0] && cur[1] === start[1]) break;
+        loop.push(cur);
+        const nx = out.get(cur.join(','));
+        if (!nx || !nx.length) break;
+        cur = nx.pop();
+      }
+      // 一直線上の点を省く
+      const simp = loop.filter((p, n) => {
+        const a = loop[(n - 1 + loop.length) % loop.length], b = loop[(n + 1) % loop.length];
+        return (p[0] - a[0]) * (b[1] - p[1]) - (p[1] - a[1]) * (b[0] - p[0]) !== 0;
+      });
+      if (simp.length >= 3) loops.push(simp.map(([x, y]) => [x * c, y * c]));
+    }
+  }
+  return loops;
+}
+/** チャイキン法で角を丸める（iters 回） */
+export function smoothLoop(loop, iters = 3) {
+  let p = loop;
+  for (let t = 0; t < iters; t++) {
+    const q = [];
+    for (let k = 0; k < p.length; k++) {
+      const a = p[k], b = p[(k + 1) % p.length];
+      q.push([a[0] * 0.75 + b[0] * 0.25, a[1] * 0.75 + b[1] * 0.25], [a[0] * 0.25 + b[0] * 0.75, a[1] * 0.25 + b[1] * 0.75]);
+    }
+    p = q;
+  }
+  return p.map(([x, y]) => [Math.round(x * 1000) / 1000, Math.round(y * 1000) / 1000]);
+}
+/** 偶奇規則で、点が輪郭の内側か */
+export function inLoops(x, y, loops) {
+  let c = false;
+  for (const L of loops) for (let i = 0, j = L.length - 1; i < L.length; j = i++) {
+    const [xi, yi] = L[i], [xj, yj] = L[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c;
+  }
+  return c;
+}
+const loopsD = (loops, X, Y) => loops.map((L) => 'M' + L.map(([x, y]) => `${X(x).toFixed(1)} ${Y(y).toFixed(1)}`).join('L') + 'Z').join('');
+/**
+ * 花壇の向きに合わせた座標（x=眺める人から見て左→右、y=手前0→奥）。
+ * 境界の花壇は塀を奥に、島花壇などは家の側から眺める向き。
+ */
+export function bedFrame(side, box) {
+  const { minX, maxX, minY, maxY } = box;
+  const s = ['up', 'down', 'left', 'right'].includes(side) ? side : 'island';
+  const W = s === 'left' || s === 'right' ? maxY - minY : maxX - minX;
+  const D = s === 'left' || s === 'right' ? maxX - minX : maxY - minY;
+  const toLocal = (x, y) => (s === 'up' ? [x - minX, maxY - y] : s === 'down' ? [maxX - x, y - minY] : s === 'left' ? [maxY - y, maxX - x] : s === 'right' ? [y - minY, x - minX] : [maxX - x, y - minY]);
+  const toSite = (u, v) => (s === 'up' ? [u + minX, maxY - v] : s === 'down' ? [maxX - u, v + minY] : s === 'left' ? [maxX - v, maxY - u] : s === 'right' ? [v + minX, u + minY] : [maxX - u, v + minY]);
+  return { side: s, W, D, toLocal, toSite };
+}
 const farYOf = (cells) => Math.max(...cells.map((q) => q.y));
 const down = { full: 'part', part: 'shade', shade: 'shade' };
 
@@ -144,7 +217,8 @@ export function generateSite(o) {
   const minDim = Math.min(W, H, Math.sqrt(area));
   const bD = clamp(minDim * 0.16 * (R ? 0.8 + R() * 0.45 : 1), 0.9, 2.4); // 花壇の奥行き
   const pW = minDim < 5 ? 0.6 : 0.9; // 小道の幅
-  const pathStyle = items.has('path') ? (minDim >= 6 ? pick(['ring', 'meander', 'cross'], 'ring') : pick(['meander', 'cross'], 'meander')) : 'none';
+  const organic = o.form !== 'formal';
+  const pathStyle = !items.has('path') ? 'none' : organic ? (minDim >= 6 ? pick(['ring', 'meander'], 'ring') : 'meander') : (minDim >= 6 ? pick(['cross', 'ring'], 'cross') : 'cross');
   const ringPath = pathStyle === 'ring';
   const pergolaAt = pick(['far', 'far', 'side'], 'far');
   const islandK = pick([[1.35, 0.8], [0.9, 1.25], [1.1, 1.1]], [1.35, 0.8]);
@@ -167,11 +241,26 @@ export function generateSite(o) {
   // 1) テラス
   const tD = clamp(H * 0.18, 1.6, 3.5), tW = tW0;
   const terraceOn = items.has('terrace');
-  // 2) ゾーン分け
+  // 2) ゾーン分け。自然風（organic）では、花壇の奥行きを境界ぞいに波打たせて、ふくらみとくびれのある曲線の縁にする
+  const perim = [0];
+  for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length]; perim.push(perim[i] + Math.hypot(q[0] - p[0], q[1] - p[1])); }
+  const P = perim[pts.length];
+  const along = (q) => {
+    const [a, b] = edges[q.edge];
+    const L = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    return perim[q.edge] + clamp(((q.x - a[0]) * (b[0] - a[0]) + (q.y - a[1]) * (b[1] - a[1])) / L, 0, L);
+  };
+  const waves = Math.max(2, Math.round(P / clamp(minDim * 0.6, 2.8, 6.5)));
+  const ph1 = R ? R() * 6.28 : 1.1, ph2 = R ? R() * 6.28 : 2.3;
+  const bedD = (q) => {
+    if (!organic) return bD;
+    const t = (along(q) / P) * Math.PI * 2;
+    return clamp(bD * (1 + 0.34 * Math.sin(t * waves + ph1) + 0.13 * Math.sin(t * waves * 2.3 + ph2)), Math.min(0.7, bD), bD * 1.55);
+  };
   for (const q of cells) {
     if (terraceOn && q.y < tD && Math.abs(q.x - cx) < tW / 2) q.zone = 'terrace';
-    else if (q.d < bD) q.zone = 'bed';
-    else if (ringPath && q.d < bD + pW) q.zone = 'path';
+    else if (q.d < bedD(q)) q.zone = 'bed';
+    else if (ringPath && q.d < bedD(q) + pW) q.zone = 'path';
     else q.zone = items.has('lawn') ? 'lawn' : 'meadow';
   }
   // 小さな庭・芝生なし：テラスから奥への小道（ゆるく曲げる）
@@ -196,6 +285,15 @@ export function generateSite(o) {
   };
   const carve = (x, y, rx, ry, zone, pred = () => true) => {
     for (const q of cells) if (((q.x - x) / rx) ** 2 + ((q.y - y) / ry) ** 2 <= 1 && pred(q)) q.zone = zone;
+  };
+  // 有機的な形（ゆがんだ楕円に、片側のくぼみ＝そら豆形）
+  const blob = (x, y, rx, ry, zone, pred, ph) => {
+    for (const q of cells) {
+      const u = (q.x - x) / rx, v = (q.y - y) / ry;
+      const th = Math.atan2(v, u);
+      const lim = 1 + 0.17 * Math.sin(2 * th + ph) + 0.09 * Math.sin(3 * th + ph * 1.7) - 0.24 * Math.max(0, Math.cos(th - ph)) ** 4;
+      if (Math.hypot(u, v) <= lim && pred(q)) q.zone = zone;
+    }
   };
 
   // 3) パーゴラ（奥の小道の上・横の小道の上、またはいちばん奥）とベンチ
@@ -257,7 +355,24 @@ export function generateSite(o) {
       if (cl > bc) { bc = cl; best = q; }
     }
     const r = Math.min(r0, bc * 0.85);
-    if (best && r >= 0.7) carve(best.x, best.y, r * islandK[0], r * islandK[1], 'island', (z) => z.zone === 'lawn');
+    if (best && r >= 0.7) {
+      if (organic) blob(best.x, best.y, r * islandK[0], r * islandK[1], 'island', (z) => z.zone === 'lawn', R ? R() * 6.28 : 0.7);
+      else carve(best.x, best.y, r * islandK[0], r * islandK[1], 'island', (z) => z.zone === 'lawn');
+    }
+    // 広い芝生では、もう一つ小さな島花壇でリズムをつくる（自然風）
+    const open2 = cells.filter((z) => z.zone === 'lawn');
+    if (organic && best && open2.length * c * c > 40) {
+      let b2 = null, c2 = 0;
+      for (const q of open2) {
+        let cl = q.d - bD * 1.3 - (ringPath ? pW : 0);
+        cl = Math.min(cl, Math.hypot(q.x - best.x, q.y - best.y) - r * 1.6 - 1.2);
+        for (const s2 of structs) cl = Math.min(cl, Math.hypot(s2.x - q.x, s2.y - q.y) - (s2.rx || s2.w / 2 || 0.6) - 0.5);
+        if (terraceOn) cl = Math.min(cl, q.y - tD - 0.3);
+        if (cl > c2) { c2 = cl; b2 = q; }
+      }
+      const rr = Math.min(r * 0.62, c2 * 0.8);
+      if (b2 && rr >= 0.65) blob(b2.x, b2.y, rr * islandK[1], rr * islandK[0], 'island', (z) => z.zone === 'lawn', R ? R() * 6.28 : 2.1);
+    }
   }
 
   // ---------- 花壇を分ける ----------
@@ -281,7 +396,13 @@ export function generateSite(o) {
   }
   // 小さすぎる断片は隣の芝生/草はらへ
   const minCells = Math.max(3, Math.round(0.6 / (c * c)));
-  const keep = regions.filter((r) => r.cells.length >= minCells);
+  // 細すぎる帯（内側のマスがほとんどない）も花壇にしない
+  const thick = (r) => {
+    const set = new Set(r.cells);
+    const inner = r.cells.filter((q) => [[1, 0], [-1, 0], [0, 1], [0, -1]].every(([di, dj]) => set.has(grid[q.j + dj]?.[q.i + di]))).length;
+    return inner * c * c >= Math.max(0.2, r.cells.length * c * c * 0.18);
+  };
+  const keep = regions.filter((r) => r.cells.length >= minCells && thick(r));
   for (const r of regions) if (!keep.includes(r)) r.cells.forEach((q) => { q.zone = items.has('lawn') ? 'lawn' : 'meadow'; });
   keep.sort((a, b) => b.cells.length - a.cells.length);
   const top = keep.slice(0, 8);
@@ -328,18 +449,33 @@ export function generateSite(o) {
     if (same.length < 2) continue;
     const spreadX = Math.max(...same.map((x) => x.x)) - Math.min(...same.map((x) => x.x));
     const spreadY = Math.max(...same.map((x) => x.y)) - Math.min(...same.map((x) => x.y));
-    same.forEach((x) => { x.label = spreadX >= spreadY ? (x.x < W / 2 ? screen.left : screen.right) : (x.y < H / 2 ? screen.up : screen.down); });
+    const byX = spreadX >= spreadY;
+    same.sort((a, q) => (byX ? a.x - q.x : a.y - q.y));
+    same.forEach((x, n) => { x.label = same.length === 2 ? (byX ? [screen.left, screen.right] : [screen.up, screen.down])[n] : null; x.no = n + 1; });
+    same.forEach((x) => { if (!x.label) x.name = `${x.name}${'①②③④⑤⑥⑦⑧'[x.no - 1]}`; delete x.no; });
     same.forEach((x) => { if (x.label) { x.name = `${x.name}（${DIR_JA[x.label]}寄り）`; delete x.label; } });
   }
 
-  // ---------- 花壇ごとの植栽 ----------
+  // ---------- 花壇の形（なめらかな曲線の輪郭）と、その形に合わせた植栽 ----------
   for (const [k, b] of beds.entries()) {
-    const text = o.text || '';
+    b.loops = cellLoops(b.cells, c).map((L) => (organic ? smoothLoop(L, 3) : L));
+    const xs = b.loops.flat().map((p) => p[0]), ys = b.loops.flat().map((p) => p[1]);
+    const box = { minX: Math.min(...xs), maxX: Math.max(...xs), minY: Math.min(...ys), maxY: Math.max(...ys) };
+    const frame = bedFrame(b.view === 'island' || b.zone === 'kitchen' ? 'island' : b.side, box);
+    b.frame = frame;
+    b.width = Math.round(frame.W * 10) / 10;
+    b.depth = Math.round(frame.D * 10) / 10;
+    const local = b.loops.map((L) => L.map(([x, y]) => frame.toLocal(x, y)));
+    const mask = polygonMask(local, frame.W, frame.D);
     b.plan = generatePlan({
-      climate: o.climate, sun: b.sun, moist: b.moist, width: b.width, depth: b.depth, text,
+      climate: o.climate, sun: b.sun, moist: b.moist, width: frame.W, depth: frame.D, mask, text: o.text || '',
       view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
+      palette: k ? sitePalette(beds.slice(0, k)) : null,
     });
   }
+  // 小道もなめらかな曲線に
+  const pathCells = cells.filter((q) => q.zone === 'path');
+  const pathLoops = cellLoops(pathCells, c).map((L) => (organic ? smoothLoop(L, 3) : L));
 
   // ---------- 面積と費用 ----------
   const zoneArea = (z) => Math.round(cells.filter((q) => q.zone === z).length * c * c * 10) / 10;
@@ -366,12 +502,21 @@ export function generateSite(o) {
   const site = {
     pts, area: Math.round(area * 10) / 10, W, H, c, cells, house, screen, items: [...items], structs, beds, areas,
     cost: { items: costs, total: Math.round(total), budget: Number(o.budget) || null }, skipped,
-    plants: allPlants, features, bio, critters, cx, layout: { pathStyle, mirror, pergolaAt }, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
+    plants: allPlants, features, bio, critters, cx, layout: { pathStyle, mirror, pergolaAt }, organic, pathLoops, terrace: terraceOn ? { x: cx, y: tD / 2, w: tW, h: tD } : null,
   };
   site.tour = tourOf(site, o.climate);
   site.photos = photoSpots(site, o.climate);
   site.highlights = highlightsOf(site, o.climate);
   return site;
+}
+
+/** 先に決めた花壇から、庭全体でくり返す植物（地模様のグラス・骨格・グラウンドカバー・縁取り）を選ぶ */
+export function sitePalette(beds) {
+  const out = [];
+  for (const b of beds) for (const sp of b.plan?.species || []) {
+    if (['matrix', 'structure', 'scatter', 'ground', 'edge', 'front'].includes(sp.role) || sp.plant.form === 'grass') if (!out.includes(sp.plant.id)) out.push(sp.plant.id);
+  }
+  return out.slice(0, 8);
 }
 
 /** 構造物から、生き物にとっての庭の環境を読み取る */
@@ -560,6 +705,7 @@ export function siteSVG(site, opts = {}) {
   const X = (x) => pad + x * S, Y = (y) => top + y * S;
   const c = site.c;
   const uid = 's' + Math.round(site.area * 10) + site.beds.length + (opts.uid || '');
+  const baseFill = site.items.includes('lawn') ? ZONE_FILL.lawn : '#dcd6b3';
   // 行ごとに同じゾーンのマスをまとめて描く
   const rows = new Map();
   for (const q of site.cells) { if (!rows.has(q.j)) rows.set(q.j, []); rows.get(q.j).push(q); }
@@ -570,14 +716,16 @@ export function siteSVG(site, opts = {}) {
     const flush = () => { if (run) rects += `<rect x="${X(run.i0 * c).toFixed(1)}" y="${Y(run.j * c).toFixed(1)}" width="${((run.i1 - run.i0 + 1) * c * S + 0.6).toFixed(1)}" height="${(c * S + 0.6).toFixed(1)}" fill="${run.fill}"/>`; };
     for (const q of row) {
       const z = q.zone === 'paving' ? 'paving' : q.zone;
-      const fill = z === 'path' || z === 'paving' ? `url(#${uid}g)` : z === 'terrace' ? `url(#${uid}t)` : ZONE_FILL[z];
+      // 花壇と小道は、下地を芝生（草地）の色にして、上になめらかな輪郭で描く
+      const fill = BED_Z.includes(z) || (z === 'path' && site.pathLoops) ? baseFill : z === 'path' || z === 'paving' ? `url(#${uid}g)` : z === 'terrace' ? `url(#${uid}t)` : ZONE_FILL[z];
       if (run && run.fill === fill && q.i === run.i1 + 1) run.i1 = q.i;
       else { flush(); run = { i0: q.i, i1: q.i, j: q.j, fill }; }
     }
     flush();
   }
-  // 植栽：花壇ごとに、背の高いものを奥（島花壇は中央）へ。同じ植物は「群れ（ドリフト）」にまとめて塗り分ける
-  const { plants, outlines, tags, clips } = bedDrifts(site, X, Y, S, opts.nums, opts.uid);
+  // 小道（なめらかな曲線）と花壇・植栽（花壇プランの株の位置をそのまま描く）
+  const pathSvg = site.pathLoops?.length ? `<path d="${loopsD(site.pathLoops, X, Y)}" fill="url(#${uid}g)" fill-rule="evenodd"/><path d="${loopsD(site.pathLoops, X, Y)}" fill="none" stroke="#c9b994" stroke-width="1"/>` : '';
+  const { plants, outlines, tags, clips, beds: bedShapes } = bedPlants(site, X, Y, S, opts.nums, opts.uid, `${uid}m`);
   // 構造物
   let st = '', under = '';
   for (const s of site.structs) {
@@ -628,12 +776,13 @@ export function siteSVG(site, opts = {}) {
     <defs>${clips}
       <clipPath id="${uid}c"><polygon points="${poly}"/></clipPath>
       <pattern id="${uid}g" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#e8dcc0"/><circle cx="2" cy="2" r="1" fill="#c9b994"/><circle cx="6" cy="5.5" r=".8" fill="#bfae88"/></pattern>
+      <pattern id="${uid}m" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#a88a63"/><circle cx="2" cy="3" r=".8" fill="#957650"/><circle cx="6.5" cy="7" r=".6" fill="#b89a72"/></pattern>
       <pattern id="${uid}t" width="${Math.max(8, S * 0.5)}" height="${Math.max(8, S * 0.5)}" patternUnits="userSpaceOnUse"><rect width="100%" height="100%" fill="#d6c29c"/><path d="M0 0H${Math.max(8, S * 0.5)}M0 0V${Math.max(8, S * 0.5)}" stroke="#b9a37a" stroke-width="1"/></pattern>
     </defs>
     <rect x="0" y="0" width="${VW}" height="${VH}" fill="#f4efe2"/>
     <rect x="${pad}" y="6" width="${site.W * S}" height="${top - 12}" rx="3" fill="#e2d7c0" stroke="#b5a785"/>
     <text x="${pad + 8}" y="${top - 12}" font-size="11" fill="#6b5d3e">家（${DIR_JA[site.house]}側）</text>
-    <g clip-path="url(#${uid}c)">${rects}${plants}${outlines}${under}</g>
+    <g clip-path="url(#${uid}c)">${rects}${pathSvg}${bedShapes}${plants}${outlines}${under}</g>
     <polygon points="${poly}" fill="none" stroke="#5d6b3a" stroke-width="2"/>
     ${st}${opts.tour || opts.photos ? '' : tags}${labels}${tour}${photos}${compass}${scale}
   </svg>`;
@@ -645,132 +794,70 @@ function hexShade(hex, k) {
   const f = (v) => Math.round(k >= 0 ? v + (255 - v) * k : v * (1 + k));
   return '#' + [n >> 16, (n >> 8) & 255, n & 255].map((v) => f(v).toString(16).padStart(2, '0')).join('');
 }
-/**
- * 花壇の植栽を「群れ」で塗り分ける。
- * 奥行き（境界花壇は塀側から、島花壇は中央から）を背丈の段に分け、各段の中で植物を横方向に群れとしてくり返す。
- * 球根（株間に植え込むもの）は手前の段に小さな点で散らす。
- */
-export function bedDrifts(site, X, Y, S, nums, uidx = '') {
-  const c = site.c;
-  const pts = site.pts;
-  // 境界ぞいの位置（周長上の距離）
-  const perim = [0];
-  for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length]; perim.push(perim[i] + Math.hypot(q[0] - p[0], q[1] - p[1])); }
-  const along = (q) => {
-    const p = pts[q.edge], r = pts[(q.edge + 1) % pts.length];
-    const L = Math.hypot(r[0] - p[0], r[1] - p[1]) || 1;
-    const t = ((q.x - p[0]) * (r[0] - p[0]) + (q.y - p[1]) * (r[1] - p[1])) / L;
-    return perim[q.edge] + Math.max(0, Math.min(L, t));
-  };
-  let plants = '', outlines = '', tags = '', clips = '', bulbDots = '';
-  const uid = 'bd' + Math.round(site.area * 10) + uidx;
-  const best = new Map(); // 植物ごとに一番大きな群れ（番号札を付ける）
-  const drawn = [];
-  for (const b of site.beds) {
-    const has = new Set(b.cells.map((q) => q.i + ',' + q.j));
-    // 輪郭（隣が同じ花壇でない辺）
-    let d = '';
-    for (const q of b.cells) {
-      const x0 = X(q.i * c), y0 = Y(q.j * c), x1 = X((q.i + 1) * c), y1 = Y((q.j + 1) * c);
-      if (!has.has(q.i + ',' + (q.j - 1))) d += `M${x0.toFixed(1)} ${y0.toFixed(1)}H${x1.toFixed(1)}`;
-      if (!has.has(q.i + ',' + (q.j + 1))) d += `M${x0.toFixed(1)} ${y1.toFixed(1)}H${x1.toFixed(1)}`;
-      if (!has.has((q.i - 1) + ',' + q.j)) d += `M${x0.toFixed(1)} ${y0.toFixed(1)}V${y1.toFixed(1)}`;
-      if (!has.has((q.i + 1) + ',' + q.j)) d += `M${x1.toFixed(1)} ${y0.toFixed(1)}V${y1.toFixed(1)}`;
-    }
-    clips += `<clipPath id="${uid}${b.id}">${b.cells.map((q) => `<rect x="${X(q.i * c).toFixed(1)}" y="${Y(q.j * c).toFixed(1)}" width="${(c * S + 0.5).toFixed(1)}" height="${(c * S + 0.5).toFixed(1)}"/>`).join('')}</clipPath>`;
-    const sp = b.plan.species.filter((x) => x.role !== 'under').sort((a, q) => q.plant.h[1] - a.plant.h[1]);
-    const bulbs = b.plan.species.filter((x) => x.role === 'under');
-    if (sp.length) {
-      const island = b.view === 'island';
-      const n = b.cells.length;
-      // 奥行きの順位と横方向の位置
-      const dep = new Map(), lat = new Map();
-      const byDepth = [...b.cells].sort((a, q) => (island ? Math.hypot(a.x - b.x, a.y - b.y) - Math.hypot(q.x - b.x, q.y - b.y) : a.d - q.d));
-      byDepth.forEach((q, k) => dep.set(q, n > 1 ? k / (n - 1) : 0));
-      const wide = Math.max(...b.cells.map((q) => q.x)) - Math.min(...b.cells.map((q) => q.x)) >= Math.max(...b.cells.map((q) => q.y)) - Math.min(...b.cells.map((q) => q.y));
-      for (const q of b.cells) lat.set(q, island ? (wide ? q.x : q.y) : along(q));
-      // 面積の割合（株数×株張り²）
-      const w = sp.map((x) => x.qty * (x.plant.spread / 100) ** 2);
-      const W = w.reduce((t, v) => t + v, 0) || 1;
-      const nT = Math.min(sp.length, b.depth < 1.5 && !island ? 2 : 3);
-      const tiers = Array.from({ length: nT }, () => []);
-      let cum = 0;
-      sp.forEach((x, i) => { const mid = (cum + w[i] / 2) / W; cum += w[i]; tiers[Math.min(nT - 1, Math.floor(mid * nT))].push(i); });
-      const live = tiers.filter((t) => t.length);
-      const share = live.map((t) => t.reduce((s2, i) => s2 + w[i], 0) / W);
-      const edges = [0]; share.forEach((v, k) => edges.push(edges[k] + v));
-      const seed = b.id.charCodeAt(0);
-      const tierOf = (q) => {
-        const r = dep.get(q) + 0.16 * Math.sin(lat.get(q) * 1.9 + seed) * (live.length > 1 ? 1 : 0);
-        for (let k = 0; k < live.length; k++) if (r < edges[k + 1] || k === live.length - 1) return k;
-        return live.length - 1;
-      };
-      const groups = live.map(() => []);
-      for (const q of b.cells) groups[tierOf(q)].push(q);
-      const target = Math.max(3, Math.round(1.1 / (c * c)));
-      groups.forEach((cells, k) => {
-        if (!cells.length) return;
-        cells.sort((a, q) => (lat.get(a) + 0.35 * Math.sin(dep.get(a) * 9 + seed)) - (lat.get(q) + 0.35 * Math.sin(dep.get(q) * 9 + seed)));
-        const ids = live[k];
-        const tw = ids.reduce((s2, i) => s2 + w[i], 0) || 1;
-        const reps = Math.max(1, Math.min(4, Math.round(cells.length / (ids.length * target))));
-        const seq = [];
-        for (let r = 0; r < reps; r++) for (let m = 0; m < ids.length; m++) seq.push(ids[(m + r * (ids.length > 2 ? 1 : 0)) % ids.length]);
-        let pos = 0;
-        seq.forEach((i, m) => {
-          const cnt = m === seq.length - 1 ? cells.length - pos : Math.max(1, Math.round((w[i] / tw / reps) * cells.length));
-          const part = cells.slice(pos, pos + cnt);
-          pos += cnt;
-          if (part.length) drawn.push({ b, s: sp[i], cells: part, tier: k });
-        });
-      });
-    }
-    // 球根：手前の段に点で散らす
-    const front = [...b.cells].sort((a, q) => (b.view === 'island' ? Math.hypot(q.x - b.x, q.y - b.y) - Math.hypot(a.x - b.x, a.y - b.y) : q.d - a.d));
-    bulbs.forEach((x, k) => {
-      const col = COLORS[x.color]?.hex || '#e8e2d0';
-      front.slice(0, Math.ceil(front.length * 0.6)).forEach((q, m) => {
-        if ((m + k * 3) % Math.max(2, bulbs.length + 2) !== 0) return;
-        for (let t = 0; t < 3; t++) bulbDots += `<circle cx="${(X(q.x) + Math.cos(t * 2.1 + k) * c * S * 0.22).toFixed(1)}" cy="${(Y(q.y) + Math.sin(t * 2.1 + k) * c * S * 0.22).toFixed(1)}" r="${Math.max(1.6, c * S * 0.06).toFixed(1)}" fill="${col}" stroke="#4d5a2c" stroke-opacity=".5" stroke-width=".5"/>`;
-      });
-    });
-    outlines += `<path d="${d}" fill="none" stroke="#3f4a26" stroke-width="2" stroke-linecap="round" stroke-opacity=".85"/>`;
-  }
-  // 色：同じ花色の植物は濃淡で見分ける
-  const seen = {}, colOf = new Map();
-  const steps = [0, -0.22, 0.28, -0.38, 0.42];
-  for (const x of drawn) {
-    const id = x.s.plant.id;
-    if (colOf.has(id)) continue;
-    const base = x.s.plant.form === 'grass' ? '#c9b77a' : x.s.color === 'green' ? '#7fa45e' : COLORS[x.s.color]?.hex || '#8a9a5b';
+const BED_Z = ['bed', 'island', 'meadow', 'kitchen'];
+/** 庭全体で、植物ごとの色（同じ花色は濃淡で見分ける） */
+export function siteColors(site) {
+  const seen = {}, out = new Map();
+  const steps = [0, -0.22, 0.28, -0.38, 0.42, 0.14];
+  for (const b of site.beds) for (const sp of b.plan.species) {
+    const id = sp.plant.id;
+    if (out.has(id)) continue;
+    const base = sp.plant.form === 'grass' ? '#c9b77a' : sp.color === 'green' ? '#7fa45e' : COLORS[sp.color]?.hex || '#8a9a5b';
     const k = (seen[base] = (seen[base] ?? -1) + 1);
-    colOf.set(id, hexShade(base === '#f7f5ee' || base.toLowerCase() === '#ffffff' ? '#ebe5d2' : base, steps[k % steps.length]));
+    out.set(id, hexShade(/^#f[0-9a-f]f[0-9a-f]e/i.test(base) || base.toLowerCase() === '#ffffff' ? '#ebe5d2' : base, steps[k % steps.length]));
   }
-  // 奥の段から描く（手前の群れが上に重なる）
-  const R = c * S * 0.66;
-  for (const x of [...drawn].sort((a, q) => a.tier - q.tier)) {
-    const col = colOf.get(x.s.plant.id);
-    const grass = x.s.plant.form === 'grass';
-    plants += `<g data-pid="${x.s.plant.id}" clip-path="url(#${uid}${x.b.id})">` + x.cells.map((q) => `<circle cx="${X(q.x).toFixed(1)}" cy="${Y(q.y).toFixed(1)}" r="${R.toFixed(1)}" fill="${col}"/>`).join('');
-    // 質感：草はすじ、ほかは株の中心の点
-    plants += x.cells.map((q) => grass
-      ? `<path d="M${(X(q.x) - R * 0.35).toFixed(1)} ${(Y(q.y) + R * 0.3).toFixed(1)}l${(R * 0.15).toFixed(1)} ${(-R * 0.6).toFixed(1)}M${X(q.x).toFixed(1)} ${(Y(q.y) + R * 0.3).toFixed(1)}v${(-R * 0.7).toFixed(1)}M${(X(q.x) + R * 0.35).toFixed(1)} ${(Y(q.y) + R * 0.3).toFixed(1)}l${(-R * 0.15).toFixed(1)} ${(-R * 0.6).toFixed(1)}" stroke="#8a7a45" stroke-width=".9" fill="none" stroke-linecap="round"/>`
-      : `<circle cx="${X(q.x).toFixed(1)}" cy="${Y(q.y).toFixed(1)}" r="${Math.max(1.4, R * 0.16).toFixed(1)}" fill="${hexShade(col, -0.35)}" fill-opacity=".55"/>`).join('') + '</g>';
-    const cur = best.get(x.s.plant.id);
-    if (!cur || x.cells.length > cur.cells.length) best.set(x.s.plant.id, x);
+  return out;
+}
+/**
+ * 花壇（なめらかな輪郭）と、花壇プランで決めた株の位置を庭の平面図に描く。
+ * うすい円＝育ったときの広がり、点＝植える位置。番号札は植物ごとに一番大きな群れへ（植物の一覧と対応）。
+ */
+export function bedPlants(site, X, Y, S, nums, uidx = '', soil = '') {
+  const uid = 'bd' + Math.round(site.area * 10) + uidx;
+  const col = siteColors(site);
+  let clips = '', beds = '', plants = '', outlines = '', tags = '';
+  const groups = new Map(); // 植物ID → [群れ]
+  for (const b of site.beds) {
+    const d = loopsD(b.loops, X, Y);
+    clips += `<clipPath id="${uid}${b.id}"><path d="${d}" clip-rule="evenodd"/></clipPath>`;
+    beds += `<path d="${d}" fill="${soil ? `url(#${soil})` : '#a88a63'}" fill-rule="evenodd"/>`;
+    const fr = b.frame;
+    let spread = '', dots = '', bulbs = '';
+    for (const sp of b.plan.species) {
+      const c = col.get(sp.plant.id);
+      const pts = sp.positions.map((q) => fr.toSite(q.x, q.y));
+      if (sp.role === 'under') { bulbs += pts.map(([x, y]) => `<circle cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="${Math.max(1.1, S * 0.03).toFixed(1)}" fill="${c}" stroke="#3f4a26" stroke-width=".4"/>`).join(''); continue; }
+      const R = Math.max(1.5, (sp.plant.spread / 200) * S);
+      spread += `<g fill="${c}" fill-opacity=".5">${pts.map(([x, y]) => `<circle cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="${R.toFixed(1)}"/>`).join('')}</g>`;
+      dots += pts.map(([x, y]) => `<circle cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="${Math.max(1.1, R * 0.3).toFixed(1)}" fill="${hexShade(c, -0.25)}" stroke="#fffaf0" stroke-width=".5"/>`).join('');
+      // 群れ（近い株どうし）
+      const link = (sp.plant.spread / 100) * 1.6;
+      const left = pts.slice();
+      while (left.length) {
+        const g = [left.shift()];
+        for (let k = 0; k < g.length; k++) for (let j = left.length - 1; j >= 0; j--) if (Math.hypot(g[k][0] - left[j][0], g[k][1] - left[j][1]) <= link) g.push(left.splice(j, 1)[0]);
+        if (!groups.has(sp.plant.id)) groups.set(sp.plant.id, []);
+        groups.get(sp.plant.id).push(g);
+      }
+    }
+    plants += `<g clip-path="url(#${uid}${b.id})">${spread}${dots}${bulbs}</g>`;
+    outlines += `<path d="${d}" fill="none" stroke="#4f5d2f" stroke-width="1.8" stroke-linejoin="round" fill-rule="evenodd"/>`;
   }
-  // 番号札（植物の一覧と対応）：植物ごとに一番大きな群れへ1つ
   if (nums) {
-    for (const [id, x] of best) {
+    const placed = [];
+    for (const [id, gs] of groups) {
       const no = nums.get(id);
       if (!no) continue;
-      const mx = x.cells.reduce((t, q) => t + q.x, 0) / x.cells.length, my = x.cells.reduce((t, q) => t + q.y, 0) / x.cells.length;
-      const q = x.cells.reduce((m, p) => (Math.hypot(p.x - mx, p.y - my) < Math.hypot(m.x - mx, m.y - my) ? p : m), x.cells[0]);
-      tags += `<g class="tap" data-jump="scast-${no}"><circle cx="${X(q.x).toFixed(1)}" cy="${Y(q.y).toFixed(1)}" r="8" fill="#2f3a24" fill-opacity=".82" stroke="#fffaf0" stroke-width="1"/><text x="${X(q.x).toFixed(1)}" y="${(Y(q.y) + 3.4).toFixed(1)}" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fffaf0">${no}</text></g>`;
+      const g = gs.reduce((a, b) => (b.length > a.length ? b : a));
+      const mx = g.reduce((t, p) => t + p[0], 0) / g.length, my = g.reduce((t, p) => t + p[1], 0) / g.length;
+      let [x, y] = g.reduce((m, p) => (Math.hypot(p[0] - mx, p[1] - my) < Math.hypot(m[0] - mx, m[1] - my) ? p : m), g[0]);
+      x = X(x); y = Y(y);
+      for (let t = 0; t < 8 && placed.some((q) => Math.hypot(q[0] - x, q[1] - y) < 15); t++) { x += 7 * Math.cos(t * 2.1); y += 7 * Math.sin(t * 2.1); }
+      placed.push([x, y]);
+      tags += `<g class="tap" data-jump="scast-${no}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7.5" fill="#22291f" fill-opacity=".86" stroke="${col.get(id)}" stroke-width="1.6"/><text x="${x.toFixed(1)}" y="${(y + 3.2).toFixed(1)}" text-anchor="middle" font-size="8.8" font-weight="700" fill="#fff">${no}</text></g>`;
     }
   }
-  // 球根の点は群れの上に描く
-  return { plants: plants + bulbDots, outlines, tags, clips, colors: colOf, drifts: drawn };
+  return { clips, beds, plants, outlines, tags, colors: col };
 }
 
 /** 自由な形の入力用：方眼と点のSVG */

@@ -113,6 +113,9 @@ function chosenColor(p, pref) {
   return p.color.find((c) => pref.colors.has(c)) ?? p.color[0];
 }
 
+/** 主に料理・薬用に使う植物（観賞用の花壇には入れない） */
+const KITCHEN_ONLY = new Set(['laurus', 'zanthoxylum', 'camellia-sinensis', 'cryptotaenia', 'rumex', 'levisticum', 'petroselinum', 'coriandrum', 'anethum', 'ocimum', 'perilla', 'satureja', 'summer-savory', 'stevia', 'cymbopogon', 'zingiber', 'petasites', 'lindera', 'lycium', 'wasabi', 'egoma', 'turmeric', 'cumin', 'anise', 'caraway', 'chervil', 'sweet-cicely', 'mentha', 'melissa', 'houttuynia', 'symphytum', 'gotu-kola', 'vetiver', 'glycyrrhiza', 'coptis', 'atractylodes', 'bupleurum', 'aralia', 'allium-tuberosum']);
+
 /** 花壇の形 */
 export const BED_SHAPES = {
   rect: { ja: '長方形', text: 'いちばん基本の形。塀ぞいのボーダーにも' },
@@ -120,11 +123,89 @@ export const BED_SHAPES = {
   oval: { ja: '楕円形', text: '細長い場所に。やわらかい印象の島花壇' },
   half: { ja: '半円形', text: '塀や壁を背にした、まっすぐな奥と丸い手前' },
   kidney: { ja: 'そら豆形', text: '手前がくぼんだ曲線。イングリッシュガーデンの定番' },
+  custom: { ja: '庭に合わせた形', text: '庭まるごとプランで、小道や芝生に合わせて決めた形' },
   wave: { ja: '曲線ボーダー', text: '奥はまっすぐ、手前の縁がゆるく波打つボーダー' },
 };
+/** 植え付けの間隔＝育ったときの株張り × この係数（育つと隣と触れ合い、地面が見えなくなる密度。プロの植栽設計の目安） */
+export const PLANT_GAP = 0.85;
+
+/**
+ * 任意の形（閉じた折れ線のリスト、花壇の座標 x=左→右・y=手前0→奥）から、配置に使う「形」をつくる。
+ * 庭まるごとプランの花壇（曲線の縁、L字の角など）に使う。内外判定は5cm角のラスターで高速に行う。
+ */
+export function polygonMask(loops, W, D) {
+  const res = 0.05;
+  const nx = Math.max(1, Math.ceil(W / res)), ny = Math.max(1, Math.ceil(D / res));
+  const grid = new Uint8Array(nx * ny);
+  const inPoly = (x, y) => {
+    let c = false;
+    for (const L of loops) for (let i = 0, j = L.length - 1; i < L.length; j = i++) {
+      const [xi, yi] = L[i], [xj, yj] = L[j];
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
+  // 行ごとに交点を求めて塗る（走査線）
+  for (let j = 0; j < ny; j++) {
+    const y = (j + 0.5) * res;
+    const xs = [];
+    for (const L of loops) for (let i = 0, k = L.length - 1; i < L.length; k = i++) {
+      const [xi, yi] = L[i], [xk, yk] = L[k];
+      if ((yi > y) !== (yk > y)) xs.push(xi + ((y - yi) * (xk - xi)) / (yk - yi));
+    }
+    xs.sort((a, b) => a - b);
+    for (let t = 0; t + 1 < xs.length; t += 2) {
+      const a = Math.max(0, Math.ceil(xs[t] / res - 0.5)), b = Math.min(nx - 1, Math.floor(xs[t + 1] / res - 0.5));
+      for (let i = a; i <= b; i++) grid[j * nx + i] = 1;
+    }
+  }
+  const cell = (x, y) => { const i = Math.floor(x / res), j = Math.floor(y / res); return i >= 0 && j >= 0 && i < nx && j < ny ? grid[j * nx + i] : 0; };
+  const inside = (x, y) => cell(x, y) === 1;
+  // 縁からの距離（チャンファー距離変換）
+  const dist = new Float32Array(nx * ny);
+  for (let k = 0; k < nx * ny; k++) dist[k] = grid[k] ? 1e9 : 0;
+  const d1 = res, d2 = res * Math.SQRT2;
+  const at = (i, j) => (i < 0 || j < 0 || i >= nx || j >= ny ? 0 : dist[j * nx + i]);
+  for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const k = j * nx + i; if (!grid[k]) continue; dist[k] = Math.min(dist[k], at(i - 1, j) + d1, at(i, j - 1) + d1, at(i - 1, j - 1) + d2, at(i + 1, j - 1) + d2); }
+  for (let j = ny - 1; j >= 0; j--) for (let i = nx - 1; i >= 0; i--) { const k = j * nx + i; if (!grid[k]) continue; dist[k] = Math.min(dist[k], at(i + 1, j) + d1, at(i, j + 1) + d1, at(i + 1, j + 1) + d2, at(i - 1, j + 1) + d2); }
+  let maxD = res, area = 0, sx = 0, sy = 0;
+  for (let k = 0; k < nx * ny; k++) if (grid[k]) { area++; maxD = Math.max(maxD, dist[k]); sx += (k % nx + 0.5) * res; sy += (Math.floor(k / nx) + 0.5) * res; }
+  const cx = area ? sx / area : W / 2, cy = area ? sy / area : D / 2;
+  area *= res * res;
+  // 列ごとの手前・奥の縁
+  const lo = new Float32Array(nx).fill(NaN), hi = new Float32Array(nx).fill(NaN);
+  for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) if (grid[j * nx + i]) { const y = (j + 0.5) * res; if (Number.isNaN(lo[i])) lo[i] = y; hi[i] = y; }
+  const col = (x) => {
+    let i = clamp(Math.floor(x / res), 0, nx - 1);
+    for (let k = 0; k < nx && Number.isNaN(lo[i]); k++) { const a = i - k, b = i + k; if (a >= 0 && !Number.isNaN(lo[a])) { i = a; break; } if (b < nx && !Number.isNaN(lo[b])) { i = b; break; } }
+    return i;
+  };
+  const loF = (x) => lo[col(x)] - res / 2, hiF = (x) => hi[col(x)] + res / 2;
+  // 島花壇の深さ＝縁からの距離（中央ほど1）
+  const depthOf = (x, y, island) => {
+    if (island) { const i = Math.floor(x / res), j = Math.floor(y / res); return i >= 0 && j >= 0 && i < nx && j < ny ? clamp(dist[j * nx + i] / maxD, 0, 1) : 0; }
+    const a = loF(x), b = hiF(x);
+    return clamp((y - a) / Math.max(0.05, b - a), 0, 1);
+  };
+  const latOf = (x, y, island) => (island ? (Math.atan2(y - cy, x - cx) + Math.PI) / (2 * Math.PI) : clamp(x / W, 0, 1));
+  // 群れの中心を置くための見本点
+  const samples = [];
+  const step = Math.max(1, Math.round(0.15 / res));
+  for (let j = 0; j < ny; j += step) for (let i = 0; i < nx; i += step) if (grid[j * nx + i]) { const x = (i + 0.5) * res, y = (j + 0.5) * res; samples.push({ x, y, l: latOf(x, y, true), d: dist[j * nx + i] / maxD }); }
+  const place = (f, t, island) => {
+    if (!island) { const x = clamp(f * W, 0.02, W - 0.02); const a = loF(x), b = hiF(x); if (Number.isFinite(a)) return { x, y: a + clamp(t, 0, 1) * (b - a) }; }
+    let best = samples[0] || { x: cx, y: cy }, bs = Infinity;
+    const ff = ((f % 1) + 1) % 1;
+    for (const p of samples) { let dl = Math.abs(p.l - ff); dl = Math.min(dl, 1 - dl); const sc = dl * dl * 4 + (p.d - t) ** 2; if (sc < bs) { bs = sc; best = p; } }
+    return { x: best.x, y: best.y };
+  };
+  const outline = loops.reduce((a, b) => (b.length > a.length ? b : a), loops[0] || []);
+  return { shape: 'custom', lo: loF, hi: hiF, inside, depthOf, latOf, place, area, outline, loops, radial: true };
+}
+
 /** 形の上下の縁（x ごとの手前 lo と奥 hi、単位 m）。長方形は null（従来どおりの配置） */
 export function bedShape(shape, W, D) {
-  if (!BED_SHAPES[shape] || shape === 'rect') return null;
+  if (!BED_SHAPES[shape] || shape === 'rect' || shape === 'custom') return null;
   const U = (x) => clamp((x - W / 2) / (W / 2), -1, 1);
   const ov = (x) => Math.sqrt(Math.max(0, 1 - U(x) ** 2));
   let lo, hi;
@@ -172,10 +253,10 @@ export function bedShape(shape, W, D) {
  * @param o { climate, sun, moist, width, depth, text, view: 'border'|'island', style, budget, seed }
  */
 export function generatePlan(o) {
-  const shapeId = BED_SHAPES[o.shape] ? o.shape : 'rect';
+  const shapeId = o.mask ? 'custom' : BED_SHAPES[o.shape] ? o.shape : 'rect';
   const width = Math.max(0.5, Number(o.width) || 3);
   const depth = shapeId === 'circle' ? width : Math.max(0.4, Number(o.depth) || 1.2);
-  const mask = bedShape(shapeId, width, depth);
+  const mask = o.mask || bedShape(shapeId, width, depth);
   const area = mask ? Math.round(mask.area * 100) / 100 : width * depth;
   const pref = parseKeywords(o.text);
   const sun = o.sun || pref.sun || 'full';
@@ -184,7 +265,7 @@ export function generatePlan(o) {
   const styleId = STYLES[o.style] ? o.style : 'border';
   const wild = Array.isArray(o.wild) ? o.wild.filter((g) => WILD_GOALS[g]) : [];
   const style = STYLES[styleId];
-  const rand = rng(hash(`${o.text}|${sun}|${moist}|${width}|${depth}|${o.view}|${styleId}${shapeId === 'rect' ? '' : '|' + shapeId}|${wild.join()}`) + (o.seed || 0) * 7919);
+  const rand = rng(hash(`${o.text}|${sun}|${moist}|${width}|${depth}|${o.view}|${styleId}${shapeId === 'rect' ? '' : '|' + shapeId}${shapeId === 'custom' ? '|' + Math.round(mask.area * 10) : ''}|${wild.join()}`) + (o.seed || 0) * 7919);
 
   // 候補
   let cands = PLANTS.filter((p) => p.sun.includes(sun) && (!moist || p.moist.includes(moist)));
@@ -194,6 +275,8 @@ export function generatePlan(o) {
   // 野菜は、ポタジェか「野菜」の指定があるときだけ
   if (!vegOK) cands = cands.filter((p) => !p.tags.includes('veg') || ['zingiber', 'petasites', 'cryptotaenia', 'fragaria', 'rumex', 'chives', 'allium-tuberosum', 'perilla', 'ocimum', 'coriandrum', 'petroselinum'].includes(p.group));
   else if (!style.potager && pref.veg) cands = cands.filter((p) => p.type !== 'annual' || p.tags.includes('veg') || p.tags.includes('herb') || o.annuals || pref.annual);
+  // 料理・薬用が主な植物（観賞用の花壇では目立たない・広がりすぎる）は、ハーブや薬草の指定があるときだけ
+  if (!vegOK && !pref.tags.has('herb') && !pref.tags.has('medicinal')) cands = cands.filter((p) => !KITCHEN_ONLY.has(p.group));
   // 大きくなる低木は狭い花壇には入れない
   cands = cands.filter((p) => p.type !== 'shrub' || p.h[1] <= 200 || area >= 8);
   if (style.filter) cands = cands.filter(style.filter);
@@ -232,6 +315,8 @@ export function generatePlan(o) {
     // 呼びたい生き物（蝶・蜂・野鳥・水辺）
     const ws = wildScore(p, wild, o.climate);
     if (ws) { s += ws * 0.9; if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`); }
+    // 庭まるごと：ほかの花壇と同じ植物をくり返して、庭全体に統一感を出す（デザインの「リピート」）
+    if (o.palette?.includes(p.id)) { s += 3.2; why.unshift('庭全体でくり返す'); }
     return { s: s + rand() * 1.5, why };
   };
   const scored = cands.map((p) => ({ p, ...score(p) }));
@@ -308,7 +393,7 @@ export function generatePlan(o) {
   }
 
   // 配置
-  const island = mask ? (['circle', 'oval'].includes(shapeId) || (o.view === 'island' && shapeId === 'kidney')) : o.view === 'island';
+  const island = shapeId === 'custom' ? o.view === 'island' : mask ? (['circle', 'oval'].includes(shapeId) || (o.view === 'island' && shapeId === 'kidney')) : o.view === 'island';
   // 春咲きの球根は、花後に葉が消えるので専用の場所をとらず、宿根草の株間に群れで植え込む
   const under = (p) => p.type === 'bulb' && Math.min(...p.bloom) <= 5 && !style.potager;
   const main = picked.filter((x) => !under(x.plant));
@@ -318,6 +403,7 @@ export function generatePlan(o) {
     : style.layout === 'potager' ? layoutPotager(main, width, depth, island, rand)
       : layoutNatural(main, width, depth, island, rand, style, mask)) : { bands: [], positions: [] };
   if (mask) fitToShape(lay.positions, mask, rand);
+  if (style.layout === 'bands' || style.layout === 'gradient') thinClose(lay.positions, main);
   const bulbPos = interplantBulbs(bulbs, width, depth, island, rand, mask);
   const layout = { bands: lay.bands, plots: lay.plots, positions: picked.map((x) => (under(x.plant) ? bulbPos[bulbs.indexOf(x)] : lay.positions[main.indexOf(x)])) };
   const species = picked.map((s, i) => ({ ...s, role: under(s.plant) ? 'under' : s.layer, roleJa: under(s.plant) ? '株間に植え込む球根' : ROLE_JA[s.layer], no: i + 1, positions: layout.positions[i], qty: layout.positions[i].length }));
@@ -344,7 +430,7 @@ export function generatePlan(o) {
 
   return {
     harvest, plots: layout.plots, roleCount,
-    width, depth, area, shape: shapeId, sun, moist, view: island ? 'island' : 'border', pref, style: styleId, wild,
+    width, depth, area, shape: shapeId, outline: shapeId === 'custom' ? mask.loops : undefined, sun, moist, view: island ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),
     cost: { plants: plantsCost, extras, total, perSqm: Math.round(total / area), budget: Number(o.budget) || null },
@@ -381,6 +467,21 @@ export function interplantBulbs(bulbs, W, D, island, rand, mask = null) {
   return out;
 }
 
+/** 帯や区切りの境目で、隣の植物と近すぎる株を間引く（どの植物も最低1株は残す） */
+export function thinClose(positions, picked) {
+  const spr = picked.map((p) => p.plant.spread / 100);
+  const order = picked.map((_, i) => i).sort((a, b) => spr[b] - spr[a]);
+  const kept = [];
+  for (const i of order) {
+    const keep = [];
+    for (const p of positions[i]) {
+      const close = kept.some((q) => Math.hypot(q.x - p.x, q.y - p.y) < ((spr[i] + spr[q.i]) / 2) * 0.62);
+      if (!close || !keep.length && p === positions[i][positions[i].length - 1]) { keep.push(p); kept.push({ x: p.x, y: p.y, i }); }
+    }
+    positions[i] = keep;
+  }
+}
+
 /** 形からはみ出した株を除き、どの植物も最低1株は残す */
 export function fitToShape(positions, mask, rand) {
   positions.forEach((arr, i) => {
@@ -388,8 +489,8 @@ export function fitToShape(positions, mask, rand) {
     if (!keep.length && arr.length) {
       // いちばん内側に近い株を、形の中へ寄せる
       const p = arr[0];
-      const x = clamp(p.x, 0.05, Infinity);
-      keep.push({ x: p.x, y: clamp(p.y, mask.lo(x) + 0.05, mask.hi(x) - 0.05) });
+      const y = clamp(p.y, mask.lo(p.x) + 0.05, mask.hi(p.x) - 0.05);
+      keep.push(mask.inside(p.x, y) ? { x: p.x, y } : mask.place(0.5, 0.5, false));
     }
     positions[i] = keep;
     void rand;
@@ -424,17 +525,18 @@ export function layoutBedShaped(picked, W, D, island, rand, gradient, mask) {
     const weights = order.map((i) => picked[i].plant.spread);
     const wsum = weights.reduce((a, b) => a + b, 0) || 1;
     const last = bi === bands.length - 1;
+    // 帯ごとに共通の六角格子（帯の植物の株張りの中央値 × 係数）を敷き、横方向の区切りで植物に振り分ける（細い区切りでも株が抜けない）
+    const sp = idx.map((i) => picked[i].plant.spread / 100).sort((a, b) => a - b);
+    const grid = hexFill({ x0: 0, x1: W, y0: 0, y1: D }, (sp[Math.floor(sp.length / 2)] || 0.4) * PLANT_GAP, rand)
+      .filter((p) => { if (!mask.inside(p.x, p.y)) return false; const d = mask.depthOf(p.x, p.y, island); return d >= band.t0 && (d < band.t1 || (last && d <= 1)); });
     let f = island ? rand() : 0;
-    order.forEach((i, k) => {
-      const w = weights[k] / wsum;
-      const f0 = f, f1 = f + w;
-      f = f1;
-      const inSeg = (x, y) => { let l = mask.latOf(x, y, island); if (island && l < f0) l += 1; return l >= f0 && l < f1; };
-      const pts = hexFill({ x0: 0, x1: W, y0: 0, y1: D }, picked[i].plant.spread / 100, rand)
-        .filter((p) => { if (!mask.inside(p.x, p.y)) return false; const d = mask.depthOf(p.x, p.y, island); return d >= band.t0 && (d < band.t1 || (last && d <= 1)) && inSeg(p.x, p.y); });
-      if (!pts.length && !positions[i].length) pts.push(mask.place(island ? (f0 + f1) / 2 % 1 : (f0 + f1) / 2, (band.t0 + band.t1) / 2, island));
-      positions[i].push(...pts);
-    });
+    const segs = order.map((i, k) => { const w = weights[k] / wsum; const s0 = { i, f0: f, f1: f + w }; f += w; return s0; });
+    const inSeg = (g, x, y) => { let l = mask.latOf(x, y, island); if (island && l < g.f0) l += 1; return l >= g.f0 && l < g.f1; };
+    for (const p of grid) {
+      const g = segs.find((q) => inSeg(q, p.x, p.y)) || segs[segs.length - 1];
+      positions[g.i].push(p);
+    }
+    for (const g of segs) if (!positions[g.i].length) positions[g.i].push(mask.place(island ? ((g.f0 + g.f1) / 2) % 1 : (g.f0 + g.f1) / 2, (band.t0 + band.t1) / 2, island));
   });
   return { bands: [], positions };
 }
@@ -545,7 +647,7 @@ export function layoutBed(picked, W, D, island, rand, gradient = false) {
     order.forEach((i, k) => {
       const w = (weights[k] / wsum) * W;
       const seg = { x0: x, x1: x + w, y0: band.y0, y1: band.y1 };
-      positions[i].push(...hexFill(seg, picked[i].plant.spread / 100, rand));
+      positions[i].push(...hexFill(seg, (picked[i].plant.spread / 100) * PLANT_GAP, rand));
       x += w;
     });
   });
@@ -579,7 +681,9 @@ export { LAYER_JA };
  */
 export function layoutNatural(picked, W, D, island, rand, style, mask = null) {
   const spreads = picked.map((p) => p.plant.spread / 100).sort((a, b) => a - b);
-  const s = Math.min(0.9, Math.max(0.25, spreads[Math.floor(spreads.length / 2)] * (style.spacing || 1)));
+  // 混ぜ植え（マトリクス・コテージ）は、スタイルの間隔の係数がすでに密植の値
+  const gap = style.layout === 'intermingle' ? 1 : PLANT_GAP;
+  const s = Math.min(0.8, Math.max(0.22, spreads[Math.floor(spreads.length / 2)] * (style.spacing || 1) * gap));
   const pts = [];
   const dy = s * 0.866;
   for (let r = 0, y = dy / 2; y < D; r++, y += dy) {
@@ -615,7 +719,8 @@ export function layoutNatural(picked, W, D, island, rand, style, mask = null) {
       if (role === 'structure' && !island && dep(pt) < 0.25 && idxOf('theme').length) role = 'theme';
       if (role === 'structure' && island && dep(pt) < 0.4 && idxOf('theme').length) role = 'theme';
       const sp = pickFrom(idxOf(role));
-      const clump = role === 'structure' ? 1 : 3;
+      // 群れの大きさは植物の社会性（soc）で：単独で見せる植物は1株、地面を覆う植物は大きな群れ
+      const clump = role === 'structure' ? 1 : [3, 1, 2, 3, 5, 7][picked[sp].plant.soc || 3];
       const near = pts.map((q, j) => ({ q, j, d: Math.hypot(q.x - pt.x, q.y - pt.y) })).filter((o) => o.q.owner < 0).sort((a, b) => a.d - b.d).slice(0, clump);
       for (const o of near) if (o.d < s * 2.2) o.q.owner = sp;
     }
@@ -660,7 +765,7 @@ export function layoutNatural(picked, W, D, island, rand, style, mask = null) {
   }
 
   // 株の大きさに合わせて間隔をあける：近すぎる株は、小さな植物（地模様・グラウンドカバー）に替えるか、植えずにあけておく
-  const spr = picked.map((p) => (p.plant.spread / 100) * (style.spacing || 1));
+  const spr = picked.map((p) => (p.plant.spread / 100) * (style.spacing || 1) * gap);
   const small = picked.map((p, i) => i).filter((i) => ['matrix', 'ground', 'edge'].includes(picked[i].layer)).sort((a, b) => spr[a] - spr[b]);
   const placed = [];
   const fits = (pt, i) => placed.every((q) => Math.hypot(q.x - pt.x, q.y - pt.y) >= ((spr[i] + spr[q.owner]) / 2) * 0.82);

@@ -1226,3 +1226,59 @@ h1, h2, h3, h4 { line-break: strict; }
 .bd-item small { display: block; font-size: .74rem; color: var(--muted); line-height: 1.6; }
 .bd-item.done b { text-decoration: line-through; color: var(--muted); }
 .mini-task.build .ic { color: var(--terra, #b5653f); }
+
+/* ===== デザイナーの視点 ===== */
+.design-notes { display: grid; gap: 6px; }
+.dn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 6px; }
+.dn-fig .fig { display: block; font-size: 1.7rem; }
+.dn-fig .cap { font-size: .72rem; color: var(--muted); }
+.dn-h { font-size: .9rem; margin: 10px 0 4px; }
+.dn-bar, .dn-pal { display: flex; height: 14px; border-radius: 7px; overflow: hidden; }
+.dn-bar i, .dn-pal i { display: block; height: 100%; }
+.dn-pal i { border-right: 1px solid rgba(255,255,255,.6); }
+.dn-layers { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+.dn-layers li { display: grid; grid-template-columns: 12px 1fr auto; gap: 2px 8px; align-items: baseline; }
+.dn-layers .sw { width: 12px; height: 12px; border-radius: 3px; align-self: center; }
+.dn-layers b { font-size: .86rem; }
+.dn-layers small { grid-column: 2 / 4; font-size: .72rem; color: var(--muted); line-height: 1.5; }
+.dn-layers em { font-style: normal; font-size: .7rem; grid-column: 3; grid-row: 1; }
+.dn-layers em.ok { color: var(--accent); } .dn-layers em.warn { color: var(--terra, #b5653f); }
+.dn-p { font-size: .84rem; margin: 6px 0 0; line-height: 1.7; }
+.dn-points { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: .85rem; line-height: 1.7; }
+.soc-line { display: flex; align-items: center; gap: 4px; font-size: .8rem; color: var(--muted); margin: 6px 0; }
+.soc-line b { color: var(--ink, inherit); font-weight: 600; }
+.role-chip.soc { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+
+/* ===== 庭の仲間（なかよし度・おみやげ・アルバム） ===== */
+.visitors header { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.visitors header .link { margin-left: auto; display: inline-flex; align-items: center; gap: 3px; font-size: .76rem; }
+.visitor { cursor: default; }
+.visitor .v-art { border: 0; background: none; padding: 0; cursor: pointer; }
+.v-art.hop { animation: hop .5s ease; }
+@keyframes hop { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-12px) rotate(-6deg); } 70% { transform: translateY(0) rotate(4deg); } }
+.v-acts { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.v-acts .chip { font: inherit; font-size: .7rem; padding: 2px 8px; cursor: pointer; }
+.v-acts .chip.gift { background: #fbe7c4; border-color: #e2a33a; animation: glow 1.6s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: 0 0 0 4px rgba(226,163,58,.25); } }
+.hearts { color: #d9677d; font-size: .72rem; letter-spacing: 1px; }
+.hearts i { font-style: normal; color: var(--line); }
+.album { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.al-card { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 8px 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; font: inherit; color: inherit; cursor: pointer; text-align: center; }
+.al-card b { font-size: .82rem; }
+.al-card small { font-size: .66rem; color: var(--muted); line-height: 1.4; }
+.al-card em { position: absolute; top: 4px; right: 6px; font-style: normal; }
+.al-card.unmet { cursor: default; }
+.al-card.unmet .al-art { filter: brightness(0) opacity(.18); }
+.friend-prof .fp-top { display: flex; gap: 12px; align-items: center; }
+.fp-say { background: var(--surface-2); border-radius: 12px; padding: 8px 12px; font-size: .9rem; }
+.fp-dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: .84rem; margin: 8px 0; }
+.fp-dl dt { color: var(--muted); }
+.fp-dl dd { margin: 0; line-height: 1.6; }
+.fp-h { font-size: .9rem; margin: 10px 0 6px; }
+.gift-cards { display: grid; gap: 6px; margin-bottom: 10px; }
+.gift-card { border: 1px solid #e2c48a; background: #fdf4e3; border-radius: 12px; padding: 8px 10px; }
+.gift-card b { font-size: .86rem; }
+.gift-card p { margin: 2px 0 0; font-size: .8rem; line-height: 1.6; }
+.gift-card.locked { background: var(--surface); border-style: dashed; border-color: var(--line); color: var(--muted); }
+#toast.friend { display: flex; align-items: center; gap: 8px; text-align: left; }
+#toast .ft-art { flex: none; background: #fffaf0; border-radius: 50%; display: grid; place-items: center; width: 40px; height: 40px; }

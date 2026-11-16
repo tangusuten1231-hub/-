@@ -75,7 +75,7 @@ export const STYLES = {
       return s;
     },
     why: (p) => (p.h[1] <= 45 ? ['地面を覆う'] : []),
-    spacing: 0.8, speciesFactor: 0.9, roleShare: { ground: 0.5, theme: 0.37, structure: 0.13 },
+    spacing: 0.8, speciesFactor: 0.9, roleShare: { ground: 0.56, theme: 0.32, structure: 0.12 },
   },
   jekyll: {
     ja: 'カラーグラデーション・ボーダー（ガートルード・ジーキルの手法を参考）',

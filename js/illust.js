@@ -333,8 +333,8 @@ export function planSVG(plan) {
   const VH = bd + oy + 66;
   const X = (x) => ox + x * sc, Y = (y) => oy + bd - y * sc; // 手前（y=0）が下
   const col = mapColors(plan);
-  const mask = bedShape(plan.shape, plan.width, plan.depth);
-  const shapeD = mask ? 'M' + mask.outline.map(([x, y]) => `${r1(X(x))} ${r1(Y(y))}`).join('L') + 'Z' : '';
+  const mask = plan.outline ? { loops: plan.outline } : bedShape(plan.shape, plan.width, plan.depth);
+  const shapeD = mask ? (mask.loops || [mask.outline]).map((L) => 'M' + L.map(([x, y]) => `${r1(X(x))} ${r1(Y(y))}`).join('L') + 'Z').join('') : '';
   const uid = (mask ? plan.shape : '') + 'pl' + Math.round(plan.width * 100) + Math.round(plan.depth * 100) + plan.species.length;
   // 方眼（50cmごと）と目盛り
   let grid = '';
@@ -384,10 +384,10 @@ export function planSVG(plan) {
   const sbar = [0.5, 1, 2].find((v) => v * sc >= 50) || 2;
   const front = mask && plan.view === 'island' ? `${BED_SHAPES[plan.shape].ja}・四方から眺める花壇${plan.plots ? '（区画の間は通路）' : ''}` : plan.plots ? 'ポタジェ：区画の間は通路（ウッドチップなど）' : plan.view === 'island' ? '四方から眺める花壇' : '▼ 手前（通路・眺める側）';
   return `<svg class="illust plan" viewBox="0 0 ${VW} ${r1(VH)}" role="img" aria-label="花壇の平面図">
-    <defs><clipPath id="${uid}">${mask ? `<path d="${shapeD}"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10"/>`}</clipPath>
+    <defs><clipPath id="${uid}">${mask ? `<path d="${shapeD}" clip-rule="evenodd"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10"/>`}</clipPath>
       <pattern id="${uid}m" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#6d5640"/><circle cx="2" cy="3" r=".9" fill="#7f6650"/><circle cx="6.5" cy="7" r=".7" fill="#5f4a37"/></pattern></defs>
     ${plan.view === 'border' && !plan.plots ? `<text x="${r1(ox + bw / 2)}" y="18" text-anchor="middle" font-size="15" fill="currentColor" opacity=".7">奥（塀・フェンス側）</text>` : ''}
-    ${mask ? `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="#cfdcae" opacity=".55"/><path d="${shapeD}" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>`}
+    ${mask ? `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="#cfdcae" opacity=".55"/><path d="${shapeD}" fill-rule="evenodd" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>` : `<rect x="${ox}" y="${oy}" width="${r1(bw)}" height="${r1(bd)}" rx="10" fill="${plan.plots ? '#d9ccb0' : `url(#${uid}m)`}"/>`}
     <g clip-path="url(#${uid})">${plots}${grid}${bandLines}${spreads.join('')}${bulbs.join('')}${dots.join('')}</g>
     ${mask ? `<path d="${shapeD}" fill="none" stroke="#7d6a48" stroke-width="3" stroke-linejoin="round"/>` : ''}
     ${tags}${ticks}${bandLabels}

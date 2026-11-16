@@ -41,3 +41,15 @@ test('庭のお客さんは季節に合ったキャラクターだけ来る', ()
   }
   for (const f of FRIENDS) { assert.ok(CREATURES.some((c) => c.id === f.critter), f.id); assert.match(friendSVG(f), /^<svg/); }
 });
+
+test('仲間：なかよし度の段階と、全員のひみつ・おみやげ', async () => {
+  const { FRIENDS, FRIEND_EXTRA, friendLevel, friendSVG } = await import('../js/friends.js');
+  assert.equal(friendLevel(0).hearts, 0);
+  assert.equal(friendLevel(1).ja, 'はじめまして');
+  assert.equal(friendLevel(7).ja, 'なかよし');
+  assert.equal(friendLevel(30).hearts, 4);
+  for (const f of FRIENDS) {
+    assert.ok(FRIEND_EXTRA[f.id]?.secret && FRIEND_EXTRA[f.id].gifts.length === 3, f.id);
+    assert.match(friendSVG(f), /<svg/);
+  }
+});

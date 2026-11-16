@@ -62,5 +62,5 @@ test('曲線の花壇（円・楕円・半円・そら豆・曲線ボーダー�
   const c = generatePlan({ climate, width: 3, depth: 1, style: 'border', shape: 'circle' });
   assert.equal(c.depth, 3, '円は奥行き＝直径');
   assert.ok(Math.abs(c.area - Math.PI * 1.5 * 1.5) < 0.1);
-  assert.match(planSVG(c), /<path d="M[^"]+Z"\/>/);
+  assert.match(planSVG(c), /<path d="M[^"]+Z"/);
 });

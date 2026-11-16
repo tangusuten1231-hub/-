@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { polygonArea, inside, isSimple, siteShape, generateSite, siteSVG, bedDrifts } from '../js/site.js';
+import { polygonArea, inside, isSimple, siteShape, generateSite, siteSVG, bedPlants, inLoops } from '../js/site.js';
 
 const climate = { zone: { value: 8.5, label: '8b' }, south: false, heatZone: 7, hotDays: 50, tropicalNights: 20, avgMinTemp: -3 };
 
@@ -46,16 +46,38 @@ test('自由な形・家が南でも動き、小さな庭でも壊れない', ()
   assert.ok(tiny.beds.length >= 1);
 });
 
-test('平面図の花壇：すべてのマスを群れで塗り分け、植物ごとに番号札は1つ', () => {
+test('平面図の花壇：なめらかな輪郭と、花壇プランの株の位置を描く。番号札は植物ごとに1つ', () => {
   const s = generateSite({ shape: 'rect', width: 10, depth: 8, house: 'n', items: ['path', 'terrace', 'lawn', 'water'], text: 'ナチュラル', climate, style: 'matrix' });
   const ids = [...new Set(s.beds.flatMap((b) => b.plan.species.filter((x) => x.role !== 'under').map((x) => x.plant.id)))];
   const nums = new Map(ids.map((id, i) => [id, i + 1]));
-  const r = bedDrifts(s, (x) => x, (y) => y, 40, nums);
+  const r = bedPlants(s, (x) => x, (y) => y, 40, nums);
+  assert.equal((r.tags.match(/data-jump="scast-/g) || []).length, ids.length);
   for (const b of s.beds) {
-    const got = r.drifts.filter((d) => d.b === b).flatMap((d) => d.cells);
-    assert.equal(got.length, b.cells.length, `花壇${b.id}のマスがすべて塗られる`);
-    assert.equal(new Set(got).size, got.length, '同じマスを二重に塗らない');
+    assert.ok(b.loops.length >= 1 && b.loops[0].length > 8, '曲線の輪郭');
+    // 花壇プランの株は、庭の座標に戻すと花壇の輪郭の内側（ラスターの誤差5cmまで）
+    for (const sp of b.plan.species) for (const q of sp.positions) {
+      const [x, y] = b.frame.toSite(q.x, q.y);
+      const ok = inLoops(x, y, b.loops) || [[0.06, 0], [-0.06, 0], [0, 0.06], [0, -0.06]].some(([dx, dy]) => inLoops(x + dx, y + dy, b.loops));
+      assert.ok(ok, `花壇${b.id}の外に株`);
+    }
   }
-  assert.equal((r.tags.match(/data-jump="scast-/g) || []).length, new Set(r.drifts.map((d) => d.s.plant.id)).size);
   assert.match(siteSVG(s, { nums }), /clipPath id="bd/);
+});
+
+test('庭まるごと：花壇の植栽密度は花壇単体のプランと同じくらい', () => {
+  const s = generateSite({ shape: 'rect', width: 12, depth: 9, house: 'n', items: ['path', 'terrace', 'lawn'], text: '', climate, style: 'border' });
+  for (const b of s.beds) {
+    // 育ったときに地面を覆う割合（低木が多い小さな花壇では株数が少なくても覆う）
+    const cover = b.plan.species.filter((x) => x.role !== 'under').reduce((t, x) => t + x.qty * Math.PI * (x.plant.spread / 200) ** 2, 0) / b.plan.area;
+    assert.ok(cover > 0.6 && cover < 2.2, `花壇${b.id}の被覆 ${cover.toFixed(2)}`);
+  }
+  // 自然風では、花壇や小道の縁が曲線（直線だけの角ばった形ではない）
+  const angled = s.beds[0].loops[0].filter((p, i, L) => { const a = L[(i + L.length - 1) % L.length], c2 = L[(i + 1) % L.length]; return Math.abs((p[0] - a[0]) * (c2[1] - p[1]) - (p[1] - a[1]) * (c2[0] - p[0])) > 1e-9; }).length;
+  assert.ok(angled > 20);
+});
+
+test('整形式を選ぶと、花壇の輪郭は直線のまま', () => {
+  const s = generateSite({ shape: 'rect', width: 10, depth: 8, house: 'n', items: ['path', 'lawn'], text: '', climate, style: 'border', form: 'formal' });
+  assert.equal(s.organic, false);
+  for (const L of s.beds[0].loops) for (const [x, y] of L) assert.ok(Math.abs(x / s.c - Math.round(x / s.c)) < 1e-6 && Math.abs(y / s.c - Math.round(y / s.c)) < 1e-6);
 });

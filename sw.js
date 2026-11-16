@@ -1,9 +1,9 @@
 // オフラインでもアプリ本体を開けるようにするサービスワーカー
-const CACHE = 'garden-nav-v19';
+const CACHE = 'garden-nav-v20';
 const SHELL = [
   './', 'index.html', 'css/style.css', 'icon.svg', 'manifest.webmanifest',
   'js/app.js', 'js/plants.js', 'js/cultivars.js', 'js/more.js', 'js/annuals.js', 'js/meta.js', 'js/enjoy.js', 'js/weather.js', 'js/db.js', 'js/art.js', 'js/describe.js', 'js/diary.js', 'js/chat.js', 'js/handoff.js', 'js/mascot.js', 'js/climate.js', 'js/garden.js', 'js/sun.js',
-  'js/plan.js', 'js/styles.js', 'js/pests.js', 'js/guide.js', 'js/illust.js', 'js/images.js', 'js/wildlife.js', 'js/wildview.js', 'js/site.js', 'js/veg.js', 'js/critterinfo.js', 'js/critterart.js', 'js/ecoweb.js', 'js/friends.js', 'js/origin.js', 'js/pots.js', 'js/roles.js', 'js/balcony.js', 'js/tea.js', 'js/tsupiwords.js', 'js/world.js',
+  'js/plan.js', 'js/styles.js', 'js/pests.js', 'js/guide.js', 'js/illust.js', 'js/images.js', 'js/wildlife.js', 'js/wildview.js', 'js/site.js', 'js/veg.js', 'js/critterinfo.js', 'js/critterart.js', 'js/ecoweb.js', 'js/friends.js', 'js/origin.js', 'js/pots.js', 'js/roles.js', 'js/balcony.js', 'js/tea.js', 'js/tsupiwords.js', 'js/world.js', 'js/designer.js',
 ];
 
 self.addEventListener('install', (e) => {
