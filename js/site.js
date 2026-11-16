@@ -2,7 +2,7 @@
 // 花壇を配置し、花壇ごとの植栽、見どころ・園内の案内・フォトスポット・生き物をまとめる。
 // 敷地は「家が上（y=0側）」の向きで計算し、方角は house（家がある側）から決める。
 import { generatePlan, rng, polygonMask } from './plan.js';
-import { COLORS } from './plants.js';
+import { COLORS, PLANTS } from './plants.js';
 import { localMonth } from './garden.js';
 import { biodiversity, creaturesForGarden } from './wildlife.js';
 
@@ -456,6 +456,14 @@ export function generateSite(o) {
     same.forEach((x) => { if (x.label) { x.name = `${x.name}（${DIR_JA[x.label]}寄り）`; delete x.label; } });
   }
 
+  // ---------- こだわり：入れたい植物を、日当たりの合う花壇（大きい順に最大2か所）へ ----------
+  const mustOf = new Map(beds.map((b) => [b, []]));
+  for (const id of o.k?.must || []) {
+    const p = PLANTS.find((q) => q.id === id);
+    if (!p) continue;
+    const fit = beds.filter((b) => p.sun.includes(b.sun) && b.zone !== 'kitchen').sort((a, q) => q.area - a.area);
+    (fit.length ? fit.slice(0, 2) : [beds.slice().sort((a, q) => q.area - a.area)[0]]).forEach((b) => b && mustOf.get(b).push(id));
+  }
   // ---------- 花壇の形（なめらかな曲線の輪郭）と、その形に合わせた植栽 ----------
   for (const [k, b] of beds.entries()) {
     b.loops = cellLoops(b.cells, c).map((L) => (organic ? smoothLoop(L, 3) : L));
@@ -470,7 +478,7 @@ export function generateSite(o) {
     b.plan = generatePlan({
       climate: o.climate, sun: b.sun, moist: b.moist, width: frame.W, depth: frame.D, mask, text: o.text || '',
       view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
-      palette: k ? sitePalette(beds.slice(0, k)) : null,
+      palette: k ? sitePalette(beds.slice(0, k)) : null, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined,
     });
   }
   // 小道もなめらかな曲線に

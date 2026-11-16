@@ -22,6 +22,179 @@ function seasonOf(nm) {
 const FRUIT = { tomato: '#d6402f', 'mini-tomato': '#e0503a', eggplant: '#4a2a5a', pepper: '#3f7a2f', cucumber: '#4f7a2f', zucchini: '#3f6a2f', okra: '#6f9a3f', 'green-bean': '#6f9a3f', strawberry: '#d63a3a', blueberry: '#3a4a8a', lemon: '#f0d040', olive: '#4a5a2a', goya: '#5f9a3f', luffa: '#6f9a4f', watermelon: '#3f6a2f', sasage: '#6f9a3f', roselle: '#b8203a', corn: '#e8c84a' };
 const AUTUMN = ['#b88a3a', '#c07a3a', '#a86a3a', '#b8963f'];
 
+// 植物ごとの姿（シルエット）の描き分け
+const SIL = {};
+const silOf = (kind, ids) => ids.split(' ').forEach((id) => { SIL[id] = kind; });
+silOf('sword', 'iris-germanica iris-sanguinea iris-ensata iris-japonica hemerocallis crocosmia agapanthus kniphofia dietes sisyrinchium-striatum phormium gladiolus tulbaghia dierama eucomis galtonia bulbine clivia hesperantha anigozanthos');
+silOf('bigleaf', 'hosta bergenia rodgersia ligularia tsuwabuki petasites brunnera rhubarb artichoke begonia-grandis rohdea');
+silOf('bell', 'digitalis campanula penstemon aquilegia adenophora polygonatum convallaria galanthus helleborus fritillaria platycodon cyclamen');
+silOf('cup', 'tulipa papaver papaver-rhoeas crocus eschscholzia paeonia anemone-flaccida');
+silOf('trumpet', 'lilium narcissus nicotiana zephyranthes');
+silOf('spider', 'lycoris');
+silOf('climber', 'clematis');
+silOf('rosette', 'aloe');
+const MOPHEAD = { 'hydrangea-arb': 'mop', 'hydrangea-serrata': 'lace', 'hydrangea-quercifolia': 'cone', 'hydrangea-paniculata': 'cone', buddleja: 'cone' };
+const ROSES = new Set(['rosa-rugosa', 'rosa-gallica', 'mini-rose']);
+// 小さな形のパーツ
+const bellPath = (x, y, r, c, ex = '') => `<path d="M${r1(x - r * 0.45)},${r1(y)} Q${r1(x - r * 0.55)},${r1(y + r * 1.05)} ${r1(x - r * 0.75)},${r1(y + r * 1.35)} L${r1(x + r * 0.75)},${r1(y + r * 1.35)} Q${r1(x + r * 0.55)},${r1(y + r * 1.05)} ${r1(x + r * 0.45)},${r1(y)}Z" fill="${c}"${ex}/>`;
+const cupPath = (x, y, r, c, ex = '') => `<path d="M${r1(x - r)},${r1(y - r)} Q${r1(x - r * 1.05)},${r1(y + r * 0.7)} ${r1(x)},${r1(y + r * 0.75)} Q${r1(x + r * 1.05)},${r1(y + r * 0.7)} ${r1(x + r)},${r1(y - r)} Q${r1(x + r * 0.45)},${r1(y - r * 0.45)} ${r1(x)},${r1(y - r * 1.1)} Q${r1(x - r * 0.45)},${r1(y - r * 0.45)} ${r1(x - r)},${r1(y - r)}Z" fill="${c}"${ex}/>`;
+const star = (x, y, r, c, n = 6, ex = '', rot = 0) => Array.from({ length: n }, (_, i) => { const a = (i / n) * Math.PI * 2 + rot; const px = x + Math.cos(a) * r * 0.55, py = y + Math.sin(a) * r * 0.55; return `<ellipse cx="${r1(px)}" cy="${r1(py)}" rx="${r1(r * 0.55)}" ry="${r1(r * 0.2)}" transform="rotate(${r1((a * 180) / Math.PI)} ${r1(px)} ${r1(py)})" fill="${c}"${ex}/>`; }).join('');
+const leafPath = (x, y, w, h, ang, c, rib) => `<g transform="translate(${r1(x)} ${r1(y)}) rotate(${r1(ang)})"><path d="M0,0 C${r1(w * 0.55)},${r1(-h * 0.15)} ${r1(w * 0.62)},${r1(-h * 0.8)} 0,${r1(-h)} C${r1(-w * 0.62)},${r1(-h * 0.8)} ${r1(-w * 0.55)},${r1(-h * 0.15)} 0,0Z" fill="${c}"/><path d="M0,0 L0,${r1(-h * 0.9)}" stroke="${rib}" stroke-width="1" opacity=".6"/></g>`;
+
+/**
+ * 姿ごとの描き分け（剣形の葉・大きな葉・釣鐘・カップ・ラッパ・ヒガンバナ・つる・ロゼット）。
+ * 描いたら文字列を返す。対象外なら null
+ */
+function drawSpecial(p, sil, o) {
+  const { cx, baseY, H, W, leaf, dark, light, fc, fr, show, seedheads, R, stroke, out } = o;
+  const g = p.group;
+  const stalk = (x0, x1, y1, w = 1.4, col = dark) => `<path d="M${r1(x0)},${baseY} Q${r1((x0 + x1) / 2 + (R() - 0.5) * 4)},${r1((baseY + y1) / 2)} ${r1(x1)},${r1(y1)}" stroke="${col}" stroke-width="${w}" fill="none"/>`;
+  if (sil === 'sword') {
+    // 剣のような細長い葉を扇形に
+    const n = 9, lh = g === 'agapanthus' || g === 'hemerocallis' || g === 'clivia' ? 0.55 : g === 'kniphofia' || g === 'crocosmia' ? 0.6 : 0.75;
+    for (let i = 0; i < n; i++) {
+      const t = i / (n - 1) - 0.5;
+      const tx = cx + t * W * 1.05, ty = baseY - H * lh * (1 - Math.abs(t) * 0.55);
+      const arch = g === 'hemerocallis' || g === 'agapanthus' || g === 'clivia' ? 0.5 : 0.15;
+      out.push(`<path d="M${r1(cx + t * 5)},${baseY} Q${r1(cx + t * W * (0.2 + arch * 0.2))},${r1(baseY - H * lh * 0.95)} ${r1(tx + t * W * arch)},${r1(ty + H * lh * arch * 0.4)}" stroke="${i % 3 ? leaf : dark}" stroke-width="${r1(Math.max(2.2, fr * 0.55))}" fill="none" stroke-linecap="round"/>`);
+    }
+    if (!show) return out.join('');
+    const tops = [-0.25, 0.05, 0.3].slice(0, W > 40 ? 3 : 2);
+    for (const [k, t] of tops.entries()) {
+      const x = cx + t * W * 0.8, y = baseY - H * (0.92 + R() * 0.08);
+      if (seedheads) { out.push(stalk(cx + t * 6, x, y, 1.3, STRAW), `<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(fr * 0.35)}" ry="${r1(fr * 0.7)}" fill="${SEED}"/>`); continue; }
+      if (g === 'kniphofia') {
+        // トーチ：先が濃く、下が淡い穂
+        out.push(stalk(cx + t * 6, x, y + fr * 2, 1.8));
+        for (let j = 0; j < 9; j++) out.push(`<ellipse cx="${r1(x)}" cy="${r1(y + j * fr * 0.45)}" rx="${r1(fr * (0.55 + j * 0.03))}" ry="${r1(fr * 0.35)}" fill="${shadeHex(j < 4 ? fc : '#efc93a', j < 4 ? -0.05 * j : 0.1)}"/>`);
+      } else if (g === 'crocosmia' || g === 'dierama' || g === 'anigozanthos') {
+        // 弓なりの花茎に小さな筒形の花が並ぶ
+        const dx = (k % 2 ? 1 : -1) * W * 0.25;
+        out.push(`<path d="M${r1(cx + t * 6)},${baseY} Q${r1(x)},${r1(y - fr)} ${r1(x + dx)},${r1(y + fr * 2.5)}" stroke="${dark}" stroke-width="1.3" fill="none"/>`);
+        for (let j = 0; j < 7; j++) { const u = j / 6, px = x + dx * u, py = y - fr * 0.6 + fr * 3 * u * u; out.push(`<ellipse cx="${r1(px)}" cy="${r1(py + fr * 0.4)}" rx="${r1(fr * 0.28)}" ry="${r1(fr * 0.55)}" fill="${fc}"${stroke}/>`); }
+      } else if (g.startsWith('iris') || g === 'dietes' || g === 'sisyrinchium-striatum') {
+        // アヤメ形：上に立つ花弁と、垂れる花弁
+        out.push(stalk(cx + t * 6, x, y, 1.4));
+        const r = fr * (g === 'iris-germanica' ? 1.25 : 1);
+        out.push(`<path d="M${r1(x)},${r1(y)} q${r1(-r * 0.5)},${r1(-r * 1.2)} 0,${r1(-r * 1.4)} q${r1(r * 0.5)},${r1(r * 0.2)} 0,${r1(r * 1.4)}Z" fill="${shadeHex(fc, 0.15)}"${stroke}/>`,
+          `<path d="M${r1(x)},${r1(y)} q${r1(-r * 1.4)},${r1(r * 0.1)} ${r1(-r * 1.1)},${r1(r * 1)} q${r1(r * 0.5)},${r1(-r * 0.2)} ${r1(r * 1.1)},${r1(-r * 1)}Z M${r1(x)},${r1(y)} q${r1(r * 1.4)},${r1(r * 0.1)} ${r1(r * 1.1)},${r1(r * 1)} q${r1(-r * 0.5)},${r1(-r * 0.2)} ${r1(-r * 1.1)},${r1(-r * 1)}Z" fill="${fc}"${stroke}/>`,
+          `<path d="M${r1(x - r * 0.2)},${r1(y + r * 0.2)} l${r1(-r * 0.4)},${r1(r * 0.35)}" stroke="#efc93a" stroke-width="1.2"/>`);
+      } else if (g === 'agapanthus' || g === 'tulbaghia' || g === 'clivia') {
+        // 花火のような丸い花房
+        out.push(stalk(cx + t * 6, x, y, 1.6));
+        for (let j = 0; j < 14; j++) { const a = (j / 14) * Math.PI * 2; const rr = fr * (g === 'tulbaghia' ? 0.9 : 1.6); out.push(`<path d="M${r1(x)},${r1(y)} l${r1(Math.cos(a) * rr)},${r1(Math.sin(a) * rr * 0.8)}" stroke="${dark}" stroke-width=".7"/><ellipse cx="${r1(x + Math.cos(a) * rr)}" cy="${r1(y + Math.sin(a) * rr * 0.8)}" rx="${r1(fr * 0.32)}" ry="${r1(fr * 0.22)}" fill="${fc}"${stroke}/>`); }
+      } else if (g === 'hemerocallis') {
+        out.push(stalk(cx + t * 6, x, y, 1.4), star(x, y, fr * 1.4, fc, 6, stroke), `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.3)}" fill="${shadeHex(fc, -0.3)}"/>`);
+      } else {
+        // 穂状（グラジオラス・ブルビネなど）
+        out.push(stalk(cx + t * 6, x, y, 1.4));
+        for (let j = 0; j < 6; j++) out.push(`<ellipse cx="${r1(x + (j % 2 ? 1 : -1) * fr * 0.3)}" cy="${r1(y + j * fr * 0.8)}" rx="${r1(fr * 0.55)}" ry="${r1(fr * 0.4)}" fill="${j % 2 ? shadeHex(fc, 0.12) : fc}"${stroke}/>`);
+      }
+    }
+    return out.join('');
+  }
+  if (sil === 'bigleaf') {
+    // 大きな葉が重なる株。葉脈つき
+    const big = g === 'rhubarb' || g === 'rodgersia' || g === 'petasites' || g === 'artichoke';
+    const lh = Math.min(H * 0.7, W * (big ? 0.55 : 0.45));
+    const n = 7;
+    for (let i = 0; i < n; i++) {
+      const t = i / (n - 1) - 0.5;
+      const col = g === 'artichoke' ? (i % 2 ? '#a9b5a6' : '#93a39a') : i % 3 === 0 ? dark : i % 3 === 1 ? leaf : light;
+      out.push(leafPath(cx + t * W * 0.55, baseY, lh * (g === 'artichoke' ? 0.45 : 0.75), lh * (1 - Math.abs(t) * 0.35), t * 95, col, shadeHex(col, -0.35)));
+    }
+    if (p.leaf === 'variegated') for (let i = 0; i < 10; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.8)}" cy="${r1(baseY - R() * lh * 0.8)}" r="1.8" fill="#f4f1e0" opacity=".85"/>`);
+    if (!show) return out.join('');
+    const k = W > 50 ? 3 : 2;
+    for (let j = 0; j < k; j++) {
+      const t = k === 1 ? 0 : j / (k - 1) - 0.5;
+      const x = cx + t * W * 0.4, y = baseY - H * (0.9 + R() * 0.1);
+      out.push(stalk(cx + t * 4, x, y, 1.4));
+      if (seedheads) { out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.5)}" fill="${SEED}"/>`); continue; }
+      if (g === 'hosta' || g === 'rohdea') for (let m = 0; m < 5; m++) out.push(bellPath(x + (m % 2 ? fr * 0.45 : 0), y + m * fr * 0.9, fr * 0.6, fc, stroke));
+      else if (g === 'tsuwabuki' || g === 'ligularia') { for (let m = 0; m < (g === 'ligularia' ? 7 : 3); m++) { const px = x + (g === 'ligularia' ? (m % 2 ? 1 : -1) * fr * 0.3 : (m - 1) * fr * 1.6), py = y + (g === 'ligularia' ? m * fr * 0.7 : Math.abs(m - 1) * fr * 0.6); out.push(star(px, py, fr * (g === 'ligularia' ? 0.8 : 1.3), fc, 8, ''), `<circle cx="${r1(px)}" cy="${r1(py)}" r="${r1(fr * 0.25)}" fill="#b07a2a"/>`); } }
+      else if (g === 'artichoke') out.push(`<circle cx="${r1(x)}" cy="${r1(y + fr * 0.6)}" r="${r1(fr * 1.1)}" fill="#7f9a6a"/>`, `<path d="M${r1(x - fr)},${r1(y)} l${r1(fr * 0.25)},${r1(-fr * 1.2)} l${r1(fr * 0.4)},${r1(fr * 1)} l${r1(fr * 0.4)},${r1(-fr * 1.1)} l${r1(fr * 0.35)},${r1(fr * 1.1)} l${r1(fr * 0.25)},${r1(-fr)}" fill="${fc}" stroke="${fc}" stroke-width="1"/>`);
+      else for (let m = 0; m < 9; m++) out.push(`<circle cx="${r1(x + (R() - 0.5) * fr * 2.4)}" cy="${r1(y + (R() - 0.3) * fr * 1.6)}" r="${r1(fr * 0.32)}" fill="${fc}"${stroke}/>`);
+    }
+    return out.join('');
+  }
+  if (sil === 'spider') {
+    // ヒガンバナ：葉のない茎の先に、反り返る花びらと長い雄しべ
+    if (!show) { for (let i = 0; i < 7; i++) { const t = i / 6 - 0.5; out.push(`<path d="M${r1(cx + t * 4)},${baseY} q${r1(t * W * 0.4)},${r1(-H * 0.25)} ${r1(t * W * 0.8)},${r1(-H * 0.18)}" stroke="${leaf}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`); } return out.join(''); }
+    for (let j = 0; j < 3; j++) {
+      const x = cx + (j - 1) * W * 0.3, y = baseY - H * (0.9 + R() * 0.1);
+      out.push(`<line x1="${r1(cx + (j - 1) * 4)}" y1="${baseY}" x2="${r1(x)}" y2="${r1(y)}" stroke="#6f9a4f" stroke-width="1.6"/>`);
+      for (let m = 0; m < 6; m++) { const a = (m / 6) * Math.PI * 2; out.push(`<path d="M${r1(x)},${r1(y)} q${r1(Math.cos(a) * fr * 1.2)},${r1(Math.sin(a) * fr * 0.6 - fr * 0.4)} ${r1(Math.cos(a) * fr * 1.6)},${r1(Math.sin(a) * fr * 0.9 - fr * 1.2)}" stroke="${fc}" stroke-width="${r1(fr * 0.3)}" fill="none" stroke-linecap="round"/><path d="M${r1(x)},${r1(y)} q${r1(Math.cos(a) * fr * 1.6)},${r1(-fr * 1.4)} ${r1(Math.cos(a) * fr * 2.2)},${r1(-fr * 1.6)}" stroke="${fc}" stroke-width=".6" fill="none"/>`); }
+    }
+    return out.join('');
+  }
+  if (sil === 'climber') {
+    // つる植物：オベリスクに絡む
+    const top = baseY - Math.max(H, (p.h[1] / 100) * o.sc * 0.8);
+    out.push(`<path d="M${r1(cx - W * 0.25)},${baseY} L${r1(cx)},${r1(top - 8)} L${r1(cx + W * 0.25)},${baseY} M${r1(cx - W * 0.18)},${r1(baseY - (baseY - top) * 0.3)} h${r1(W * 0.36)} M${r1(cx - W * 0.1)},${r1(baseY - (baseY - top) * 0.62)} h${r1(W * 0.2)}" stroke="#8a6a44" stroke-width="2" fill="none"/>`);
+    for (let i = 0; i < 3; i++) out.push(`<path d="M${r1(cx + (i - 1) * 4)},${baseY} ${Array.from({ length: 6 }, (_, k) => `Q${r1(cx + (k % 2 ? 1 : -1) * W * 0.3)},${r1(baseY - (baseY - top) * (k + 0.5) / 6)} ${r1(cx + (i - 1) * 3)},${r1(baseY - (baseY - top) * (k + 1) / 6)}`).join(' ')}" stroke="${i % 2 ? leaf : dark}" stroke-width="1.6" fill="none"/>`);
+    if (!o.dormant) for (let i = 0; i < 12; i++) out.push(`<ellipse cx="${r1(cx + (R() - 0.5) * W * 0.6)}" cy="${r1(top + (baseY - top) * R() * 0.9)}" rx="${r1(fr * 0.55)}" ry="${r1(fr * 0.3)}" fill="${[leaf, dark, light][i % 3]}"/>`);
+    if (show && !seedheads) for (let i = 0; i < 9; i++) { const x = cx + (R() - 0.5) * W * 0.6, y = top + (baseY - top) * R() * 0.8; out.push(star(x, y, fr * 1.1, fc, 4, stroke, R()), `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.22)}" fill="#efe1a0"/>`); }
+    return out.join('');
+  }
+  if (sil === 'rosette') {
+    for (let i = 0; i < 11; i++) { const t = i / 10 - 0.5; out.push(`<path d="M${r1(cx + t * 6)},${baseY} Q${r1(cx + t * W * 0.6)},${r1(baseY - H * 0.5)} ${r1(cx + t * W * 1.1)},${r1(baseY - H * 0.45 * (1 - Math.abs(t)))}" stroke="${i % 2 ? leaf : dark}" stroke-width="${r1(fr * 0.8)}" fill="none" stroke-linecap="round"/>`); }
+    if (show) out.push(stalk(cx, cx + 2, baseY - H, 1.6), ...Array.from({ length: 7 }, (_, j) => `<ellipse cx="${r1(cx + 2)}" cy="${r1(baseY - H + j * fr * 0.6)}" rx="${r1(fr * 0.35)}" ry="${r1(fr * 0.45)}" fill="${shadeHex(fc, j * 0.05)}"/>`));
+    return out.join('');
+  }
+  return null;
+}
+/** 釣鐘・カップ・ラッパの花（葉の茂みは共通の描き方のあとに重ねる） */
+function drawFlowers(p, sil, o) {
+  const { cx, baseY, H, W, dark, leaf, fc, fr, seedheads, R, stroke, fh } = o;
+  const g = p.group;
+  const out = [];
+  const n = W > 50 ? 5 : 3;
+  for (let i = 0; i < n; i++) {
+    const t = n === 1 ? 0 : i / (n - 1) - 0.5;
+    const x = cx + t * W * 0.7 + (R() - 0.5) * 5, y = baseY - H * (0.82 + R() * 0.18);
+    const bend = g === 'polygonatum' ? W * 0.35 * (t >= 0 ? 1 : -1) : 0;
+    out.push(`<path d="M${r1(cx + t * W * 0.2)},${r1(baseY - fh * 0.5)} Q${r1(x - bend * 0.2)},${r1((baseY + y) / 2)} ${r1(x + bend)},${r1(y + (bend ? H * 0.25 : 0))}" stroke="${dark}" stroke-width="1.3" fill="none"/>`);
+    if (seedheads) { out.push(`<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(fr * 0.35)}" ry="${r1(fr * 0.6)}" fill="${SEED}"/>`); continue; }
+    if (sil === 'bell') {
+      if (g === 'digitalis' || g === 'penstemon') {
+        // 片側に筒形の花がずらりと並ぶ穂
+        const len = (baseY - y) * 0.45, m = Math.max(5, Math.round(len / (fr * 0.85)));
+        for (let j = 0; j < m; j++) { const u = j / (m - 1); out.push(bellPath(x + fr * 0.25, y + len * u, fr * (0.5 + u * 0.35), j % 2 ? shadeHex(fc, 0.1) : fc, stroke)); }
+        out.push(`<line x1="${r1(x)}" y1="${r1(y)}" x2="${r1(x)}" y2="${r1(y + len)}" stroke="${dark}" stroke-width="1.2"/>`);
+      } else if (g === 'polygonatum') {
+        for (let j = 0; j < 6; j++) { const u = j / 6; out.push(bellPath(cx + t * W * 0.2 + (x + bend - cx - t * W * 0.2) * (0.35 + u * 0.6), (baseY - fh * 0.5) + (y + H * 0.25 - baseY + fh * 0.5) * (0.35 + u * 0.6) + fr * 0.3, fr * 0.5, fc, stroke)); }
+      } else if (g === 'aquilegia' || g === 'helleborus' || g === 'cyclamen' || g === 'fritillaria' || g === 'galanthus' || g === 'convallaria') {
+        const m = g === 'convallaria' ? 5 : 2;
+        for (let j = 0; j < m; j++) { const px = x + (g === 'convallaria' ? fr * 0.4 : (j - 0.5) * fr * 1.6), py = y + j * fr * (g === 'convallaria' ? 0.8 : 0.4); out.push(`<path d="M${r1(x)},${r1(y)} q${r1((px - x) * 0.5)},${r1(-fr * 0.4)} ${r1(px - x)},${r1(py - y)}" stroke="${dark}" stroke-width=".9" fill="none"/>`, bellPath(px, py, fr * (g === 'convallaria' || g === 'galanthus' ? 0.45 : 0.8), fc, stroke)); }
+      } else {
+        // カンパニュラ・キキョウ：上向き〜横向きの鐘
+        for (let j = 0; j < 4; j++) { const px = x + (j % 2 ? 1 : -1) * fr * 0.5, py = y + j * fr * 1.1; out.push(cupPath(px, py, fr * 0.65, j % 2 ? shadeHex(fc, 0.12) : fc, stroke)); }
+      }
+    } else if (sil === 'cup') {
+      if (g === 'paeonia') {
+        // シャクヤク：大きな八重の花
+        const r = fr * 1.6;
+        out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(r)}" fill="${shadeHex(fc, -0.08)}"${stroke}/>`, `<circle cx="${r1(x - r * 0.2)}" cy="${r1(y - r * 0.15)}" r="${r1(r * 0.72)}" fill="${fc}"/>`, `<circle cx="${r1(x + r * 0.15)}" cy="${r1(y - r * 0.3)}" r="${r1(r * 0.4)}" fill="${shadeHex(fc, 0.2)}"/>`);
+      } else if (g === 'papaver' || g === 'papaver-rhoeas' || g === 'eschscholzia' || g === 'anemone-flaccida') {
+        const r = fr * (g === 'papaver' ? 1.5 : 1.05);
+        out.push(cupPath(x, y, r, fc, stroke), `<circle cx="${r1(x)}" cy="${r1(y - r * 0.35)}" r="${r1(r * 0.28)}" fill="${g === 'eschscholzia' ? '#f2b02c' : '#2b2a22'}" opacity=".85"/>`);
+      } else out.push(cupPath(x, y, fr * 0.95, fc, stroke), `<path d="M${r1(x)},${r1(y - fr)} v${r1(fr * 1.4)}" stroke="${shadeHex(fc, -0.2)}" stroke-width=".8"/>`);
+    } else if (sil === 'trumpet') {
+      if (g === 'narcissus') {
+        out.push(star(x, y, fr * 1.2, g === 'narcissus' && fc === flowerHex('yellow') ? fc : '#f6f1df', 6, stroke), `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.45)}" fill="${fc === flowerHex('white') ? '#efc93a' : shadeHex(fc, -0.15)}"/>`);
+      } else if (g === 'nicotiana' || g === 'zephyranthes') {
+        out.push(star(x, y, fr * 0.85, fc, 5, stroke), `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.2)}" fill="${shadeHex(fc, -0.3)}"/>`);
+      } else {
+        // ユリ：横向きに開く6弁の大きな花
+        for (let j = 0; j < 2; j++) { const px = x + (j ? 1 : -1) * fr * 1.2, py = y + j * fr * 0.8; out.push(star(px, py, fr * 1.6, fc, 6, stroke, 0.3), `<circle cx="${r1(px)}" cy="${r1(py)}" r="${r1(fr * 0.25)}" fill="#8a4a2a"/>`); }
+      }
+    }
+    out.push(`<path d="M${r1((cx + x) / 2)},${r1((baseY + y) / 2)} l-4,-2 M${r1((cx + x) / 2)},${r1((baseY + y) / 2 + 6)} l4,-2" stroke="${leaf}" stroke-width="2" stroke-linecap="round"/>`);
+  }
+  return out.join('');
+}
+
 /** その月に、その株が地上に見えているか（北半球の月） */
 function presence(p, nm) {
   const first = Math.min(...(p.bloom.length ? p.bloom : [6]));
@@ -129,10 +302,30 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
         const x = cx + (R() - 0.5) * W * 0.95, y = topY + (baseY - topY) * (0.12 + R() * 0.55);
         out.push(`<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(W * (0.18 + R() * 0.1))}" ry="${r1((baseY - topY) * (0.16 + R() * 0.08))}" fill="${[leaf, dark, light][i % 3]}"/>`);
       }
-      if (blooming) for (let i = 0; i < 16; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.9)}" cy="${r1(topY + (baseY - topY) * (0.1 + R() * 0.5))}" r="${r1(fr * 0.7)}" fill="${fc}"/>`);
+      const mop = MOPHEAD[p.group];
+      if (blooming && mop) {
+        // アジサイ：手まり咲き・額咲き・円錐形の花房
+        for (let i = 0; i < 7; i++) {
+          const x = cx + (R() - 0.5) * W * 0.85, y = topY + (baseY - topY) * (0.12 + R() * 0.4);
+          if (mop === 'cone') { for (let j = 0; j < 7; j++) out.push(`<circle cx="${r1(x + (R() - 0.5) * fr * (1.6 - j * 0.2))}" cy="${r1(y - j * fr * 0.55)}" r="${r1(fr * (0.6 - j * 0.05))}" fill="${j % 2 ? shadeHex(fc, 0.15) : fc}"/>`); }
+          else if (mop === 'lace') { out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.9)}" fill="${shadeHex(fc, -0.2)}" opacity=".8"/>`); for (let j = 0; j < 6; j++) { const a = (j / 6) * Math.PI * 2; out.push(star(x + Math.cos(a) * fr * 1.3, y + Math.sin(a) * fr * 0.9, fr * 0.6, fc, 4)); } }
+          else { out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 1.7)}" fill="${fc}"/>`); for (let j = 0; j < 8; j++) out.push(`<circle cx="${r1(x + (R() - 0.5) * fr * 2.4)}" cy="${r1(y + (R() - 0.5) * fr * 2.2)}" r="${r1(fr * 0.42)}" fill="${shadeHex(fc, j % 2 ? 0.2 : -0.12)}"/>`); }
+        }
+      } else if (blooming && ROSES.has(p.group)) {
+        // バラ：花びらの重なる丸い花
+        for (let i = 0; i < 12; i++) { const x = cx + (R() - 0.5) * W * 0.85, y = topY + (baseY - topY) * (0.08 + R() * 0.5); out.push(`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(fr * 0.95)}" fill="${shadeHex(fc, -0.1)}"/><circle cx="${r1(x - fr * 0.15)}" cy="${r1(y - fr * 0.15)}" r="${r1(fr * 0.6)}" fill="${fc}"/><path d="M${r1(x - fr * 0.3)},${r1(y)} q${r1(fr * 0.3)},${r1(-fr * 0.5)} ${r1(fr * 0.6)},0" stroke="${shadeHex(fc, -0.3)}" stroke-width=".7" fill="none"/>`); }
+      } else if (blooming) for (let i = 0; i < 16; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.9)}" cy="${r1(topY + (baseY - topY) * (0.1 + R() * 0.5))}" r="${r1(fr * 0.7)}" fill="${fc}"/>`);
       if (p.harvest?.includes(nm) && FRUIT[p.group]) for (let i = 0; i < 8; i++) out.push(`<circle cx="${r1(cx + (R() - 0.5) * W * 0.8)}" cy="${r1(topY + (baseY - topY) * (0.2 + R() * 0.5))}" r="${r1(fr * 0.7)}" fill="${FRUIT[p.group]}"/>`);
     }
     return out.join('');
+  }
+
+  const sil = SIL[p.group];
+  const showF = blooming || seedheads;
+  const strokeF = color === 'white' ? ' stroke="#c9c3b2" stroke-width=".6"' : '';
+  if (sil && !['bell', 'cup', 'trumpet'].includes(sil) && !(dormant && sil !== 'rosette' && sil !== 'climber')) {
+    const r = drawSpecial(p, sil, { cx, baseY, H, W, leaf, dark, light, fc, fr, show: showF, seedheads, R, stroke: strokeF, out, sc, dormant });
+    if (r != null) return r;
   }
 
   // 休眠中（冬）
@@ -173,6 +366,10 @@ export function drawPlant(p, color, cx, baseY, sc, nm, seed) {
   const stroke = color === 'white' ? ' stroke="#c9c3b2" stroke-width=".6"' : '';
   const tint = (i) => (seedheads ? SEED : i % 3 === 1 ? shadeHex(fc, 0.15) : i % 3 === 2 ? shadeHex(fc, -0.1) : fc);
 
+  if (['bell', 'cup', 'trumpet'].includes(sil)) {
+    if (show) out.push(drawFlowers(p, sil, { cx, baseY, H, W, dark, leaf, fc, fr, seedheads, R, stroke, fh }));
+    return out.join('');
+  }
   switch (p.form) {
     case 'spike': {
       for (const [k, st] of stems(5, 0.7).entries()) {

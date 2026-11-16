@@ -19,7 +19,6 @@ export const DESIGNER_BASE = [
   D('cephalaria', 'ケファラリア・ギガンテア', 'Cephalaria gigantea', 'herb', { zone: [3, 8], heat: 7, h: [150, 220], spread: 80, bloom: [6, 7], color: ['yellow'], form: 'airy', tags: ['english', 'natural', 'pollinator'], price: 1000, soc: 1, note: '背丈を超える細い茎の先に、淡いクリーム色の花。向こうが透けて見えるので、花壇の手前寄りに置いても奥を隠さない。' }),
   // ---- プレーリー・北米 ----
   D('silphium', 'シルフィウム・ラシニアツム（コンパスプラント）', 'Silphium laciniatum', 'herb', { zone: [4, 9], humid: 2, moist: ['dry', 'mid'], h: [150, 250], spread: 60, bloom: [7, 8, 9], color: ['yellow'], form: 'daisy', tags: ['prairie', 'natural', 'pollinator', 'dry'], price: 1500, soc: 1, use: ['seed', 'bird', 'winter'], note: '深く切れ込んだ大きな葉が南北を向いて立つことから「コンパスプラント」と呼ばれる。根が深く、乾燥に強いプレーリーの巨人。' }),
-  D('rudbeckia-subtomentosa', "ルドベキア‘ヘンリー・アイラーズ’", "Rudbeckia subtomentosa 'Henry Eilers'", 'herb', { zone: [4, 8], humid: 3, h: [120, 150], spread: 50, bloom: [8, 9, 10], color: ['yellow'], form: 'daisy', tags: ['prairie', 'natural', 'pollinator', 'easy'], price: 1000, soc: 2, use: ['cut', 'seed'], note: '花びらが細い筒のように丸まった、個性的な黄色の花。葉をもむとほのかに甘い香りがする。' }),
   D('zizia', 'ジジア・アウレア', 'Zizia aurea', 'herb', { zone: [3, 8], heat: 8, sun: ['full', 'part'], moist: ['mid', 'wet'], h: [40, 70], spread: 40, bloom: [5, 6], color: ['yellow'], form: 'plate', tags: ['prairie', 'natural', 'pollinator'], price: 900, soc: 3, note: '春に黄色の小さな傘形の花。北米の野の花で、アゲハチョウの仲間の幼虫の食草になる。' }),
   D('dalea', 'ダレア・プルプレア', 'Dalea purpurea', 'herb', { zone: [3, 8], humid: 1, moist: ['dry'], h: [40, 80], spread: 30, bloom: [6, 7, 8], color: ['purple'], form: 'spike', tags: ['prairie', 'natural', 'pollinator', 'dry'], price: 1000, soc: 3, note: '細い茎の先の円筒形の花穂が、下から輪になって咲き上がる。マメ科でやせた土でも育つ。' }),
   D('callirhoe', 'カリロエ・インボルクラタ（ワインカップ）', 'Callirhoe involucrata', 'herb', { zone: [4, 8], humid: 1, moist: ['dry'], h: [15, 30], spread: 60, bloom: [6, 7, 8, 9], color: ['red'], form: 'mound', tags: ['prairie', 'natural', 'pollinator', 'dry'], price: 900, soc: 3, note: '地面を這うように広がり、ワインレッドのカップ形の花を夏じゅう咲かせる。乾いた日向のグラウンドカバーに。' }),
@@ -30,9 +29,6 @@ export const DESIGNER_BASE = [
   D('luzula', 'ルズラ・ニベア', 'Luzula nivea', 'grass', { zone: [4, 9], heat: 7, sun: ['part', 'shade'], h: [30, 50], spread: 30, bloom: [5, 6], color: ['white'], form: 'grass', tags: ['shade', 'evergreen', 'natural'], price: 800, soc: 4, note: '日陰でも育つ常緑のグラス。白い綿毛のような花穂が、林の縁を明るくする。' }),
   D('chasmanthium', 'チャスマンティウム（ニセコバンソウ）', 'Chasmanthium latifolium', 'grass', { zone: [4, 9], humid: 3, sun: ['full', 'part'], moist: ['mid', 'wet'], h: [60, 100], spread: 45, bloom: [7, 8, 9], color: ['green'], form: 'grass', tags: ['natural', 'shade'], price: 700, soc: 3, use: ['dry', 'winter'], note: '平たい小判形の穂が垂れて、風にさらさら揺れる。半日陰でも育ち、穂はドライフラワーにもなる。' }),
   // ---- ゲラニウム ----
-  D('geranium-macrorrhizum', 'ゲラニウム・マクロリズム', 'Geranium macrorrhizum', 'herb', { zone: [3, 8], heat: 8, sun: ['part', 'full', 'shade'], moist: ['dry', 'mid'], h: [25, 40], spread: 50, bloom: [5, 6], color: ['pink'], form: 'mound', tags: ['shade', 'natural', 'fragrant', 'easy', 'evergreen'], price: 700, soc: 5, note: '葉に独特の香りがあり、根茎で広がって地面を覆う。乾いた日陰にも耐える、頼もしいグラウンドカバー。' }),
-  D('geranium-phaeum', 'ゲラニウム・ファエウム', 'Geranium phaeum', 'herb', { zone: [4, 8], heat: 7, sun: ['part', 'shade'], h: [50, 70], spread: 45, bloom: [5, 6], color: ['purple'], form: 'mound', tags: ['shade', 'natural', 'english'], price: 800, soc: 3, note: '黒に近い深い紫の小花が、うつむいて咲く。木陰の下草に品のあるアクセントをつくる。' }),
-  D('geranium-pratense', 'ゲラニウム・プラテンセ', 'Geranium pratense', 'herb', { zone: [4, 8], heat: 7, humid: 1, h: [60, 90], spread: 60, bloom: [6, 7], color: ['blue'], form: 'mound', tags: ['english', 'natural', 'pollinator'], price: 800, soc: 3, note: 'ヨーロッパの草原に咲く野生のゲラニウム。花のあとに株元まで切り戻すと、きれいな葉が出直す。' }),
   // ---- ヨーロッパ・西アジア ----
   D('salvia-pratensis', 'サルビア・プラテンシス', 'Salvia pratensis', 'herb', { zone: [3, 8], heat: 8, moist: ['dry', 'mid'], h: [50, 80], spread: 40, bloom: [5, 6, 7], color: ['blue'], form: 'spike', tags: ['natural', 'english', 'pollinator', 'dry'], price: 700, soc: 3, note: 'ヨーロッパの草原に自生する青いセージ。ネモローサより大きな花が、まばらに並ぶ。' }),
   D('teucrium-hircanicum', 'テウクリウム・ヒルカニクム', 'Teucrium hircanicum', 'herb', { zone: [5, 9], heat: 8, moist: ['dry', 'mid'], h: [40, 60], spread: 40, bloom: [6, 7, 8, 9], color: ['purple'], form: 'spike', tags: ['natural', 'pollinator', 'dry'], price: 800, soc: 3, note: '細い赤紫の穂が長く咲き、ミツバチがよく訪れる。乾いた土でも元気。' }),
@@ -52,8 +48,8 @@ export const DESIGNER_BASE = [
 /** 原産地（グループID → 地域） */
 export const DESIGNER_ORIGIN = {
   selinum: ['himalaya'], pimpinella: ['europe'], crambe: ['westasia'], cephalaria: ['westasia'], silphium: ['prairie'], 'rudbeckia-maxima': ['na_east'],
-  'rudbeckia-subtomentosa': ['prairie'], zizia: ['na_east', 'prairie'], dalea: ['prairie'], callirhoe: ['prairie'], eurybia: ['na_east'], bouteloua: ['prairie', 'na_west'],
-  anemanthele: ['aus'], luzula: ['europe'], chasmanthium: ['na_east'], 'geranium-macrorrhizum': ['europe'], 'geranium-phaeum': ['europe'], 'geranium-pratense': ['europe', 'himalaya'],
+  zizia: ['na_east', 'prairie'], dalea: ['prairie'], callirhoe: ['prairie'], eurybia: ['na_east'], bouteloua: ['prairie', 'na_west'],
+  anemanthele: ['aus'], luzula: ['europe'], chasmanthium: ['na_east'], 
   'salvia-pratensis': ['europe'], 'teucrium-hircanicum': ['westasia'], 'lysimachia-ephemerum': ['europe'], 'sisyrinchium-striatum': ['southam'],
   'cornus-sanguinea': ['europe'], kalimeris: ['eastasia'], karigane: ['japan', 'eastasia'], polystichum: ['japan', 'eastasia'],
   arctotis: ['safrica'], bulbine: ['safrica'], dietes: ['safrica'],
@@ -61,8 +57,7 @@ export const DESIGNER_ORIGIN = {
 /** 別名 */
 export const DESIGNER_ALIASES = {
   silphium: ['コンパスプラント'], callirhoe: ['ワインカップ', 'ポピーマロウ'], eurybia: ['ホワイトウッドアスター'], anemanthele: ['フェザントグラス'],
-  chasmanthium: ['ニセコバンソウ', 'インディアン・ウッド・オーツ'], bouteloua: ['ブルーグラマ'], 'geranium-macrorrhizum': ['ビッグルートゲラニウム'], 'geranium-phaeum': ['クロバナフウロ'],
-  'geranium-pratense': ['メドウクレーンズビル'], kalimeris: ['ユウガギクの仲間'], karigane: ['雁草'], arctotis: ['アフリカンデージー'],
+  chasmanthium: ['ニセコバンソウ', 'インディアン・ウッド・オーツ'], bouteloua: ['ブルーグラマ'],  kalimeris: ['ユウガギクの仲間'], karigane: ['雁草'], arctotis: ['アフリカンデージー'],
   dietes: ['アフリカンアイリス'], polystichum: ['猪手'],
 };
 /** 新しい属の科 */
@@ -132,23 +127,13 @@ export const DESIGNER_CULTIVARS = {
   carex: { list: [
     { cv: 'ペンシルバニカ', en: 'pensylvanica', ja: 'カレックス・ペンシルバニカ', latin: 'Carex pensylvanica', wiki: 'Carex pensylvanica', h: [15, 25], sun: ['part', 'shade', 'full'], note: '芝生の代わりにもなる、細い葉の低いスゲ。日陰の地面をやわらかく覆う。' },
   ] },
-  'geranium-macrorrhizum': { group: 'ゲラニウム・マクロリズム', list: [
-    { cv: 'ベバンズバラエティ', en: "Bevan's Variety", color: ['pink'], note: '濃いマゼンタピンクの花。もっとも普及している品種。' },
-    { cv: 'インゲルセンズバラエティ', en: "Ingwersen's Variety", color: ['pink'], note: '淡いピンクの花。明るい日陰に。' },
-    { cv: 'ホワイトネス', en: 'White-Ness', color: ['white'], note: '白花で、葉も明るい緑。日陰を明るくする。' },
-  ] },
-  'geranium-phaeum': { group: 'ゲラニウム・ファエウム', list: [
-    { cv: '原種', en: 'phaeum', ja: 'ゲラニウム・ファエウム' },
-    { cv: 'サモボール', en: 'Samobor', note: '葉に濃い紫の模様が入り、花のない時期も楽しめる。' },
-    { cv: 'アルブム', en: 'Album', color: ['white'], note: '白花。日陰の花壇で浮かび上がるように咲く。' },
-  ] },
-  'geranium-pratense': { group: 'ゲラニウム・プラテンセ', list: [
-    { cv: '原種', en: 'pratense', ja: 'ゲラニウム・プラテンセ' },
-    { cv: 'ミセス・ケンドール・クラーク', en: 'Mrs. Kendall Clark', note: '青に白い筋が入る、やわらかな色の花。' },
-    { cv: 'ブラックビューティー', en: 'Black Beauty', leaf: 'bronze', color: ['purple'], h: [40, 60], note: '黒に近い銅葉に、淡い藤色の花。カラーリーフとしても。' },
-  ] },
   'iris-sanguinea': { list: [
     { cv: 'バターアンドシュガー', en: 'Butter and Sugar', ja: "シベリアアヤメ‘バターアンドシュガー’", latin: "Iris sibirica 'Butter and Sugar'", wiki: 'Iris sibirica', color: ['yellow', 'white'], zone: [3, 9], h: [60, 80], note: '白と淡い黄色の二色咲き。明るい色で、青い花の多い初夏の花壇を軽やかにする。' },
+  ] },
+  'geranium-rozanne': { list: [
+    { cv: 'マクロリズム‘ホワイトネス’', en: 'White-Ness', ja: "ゲラニウム・マクロリズム‘ホワイトネス’", latin: "Geranium macrorrhizum 'White-Ness'", wiki: 'Geranium macrorrhizum', color: ['white'], h: [25, 40], spread: 50, sun: ['part', 'full', 'shade'], moist: ['dry', 'mid'], bloom: [5, 6], tags: ['shade', 'natural', 'fragrant', 'easy'], soc: 5, note: '香りのある葉で地面を覆う、白花のグラウンドカバー。乾いた日陰にも強い。' },
+    { cv: 'ファエウム‘アルブム’', en: 'phaeum Album', ja: "ゲラニウム・ファエウム‘アルブム’", latin: "Geranium phaeum 'Album'", wiki: 'Geranium phaeum', color: ['white'], h: [50, 70], spread: 45, sun: ['part', 'shade'], bloom: [5, 6], tags: ['shade', 'natural', 'english'], note: '白い小花がうつむいて咲く。木陰の花壇に浮かび上がるように明るい。' },
+    { cv: 'プラテンセ‘ブラックビューティー’', en: 'Black Beauty', ja: "ゲラニウム・プラテンセ‘ブラックビューティー’", latin: "Geranium pratense 'Black Beauty'", wiki: 'Geranium pratense', leaf: 'bronze', color: ['purple'], h: [40, 60], spread: 50, bloom: [6, 7], note: '黒に近い銅葉に、淡い藤色の花。花のない時期もカラーリーフとして映える。' },
   ] },
   'salvia-pratensis': { group: 'サルビア・プラテンシス', list: [
     { cv: '原種', en: 'pratensis', ja: 'サルビア・プラテンシス' },

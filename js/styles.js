@@ -8,6 +8,7 @@ export const ROLE_JA = {
   matrix: '地模様（マトリクス）', block: '群植ブロック', scatter: '散らし（点景）',
   structure: '骨格（ストラクチャー）', theme: '季節のテーマ', ground: 'グラウンドカバー',
   crop: '野菜の区画', edge: '縁取り（ハーブ・花）', accent: 'アクセント',
+  point: '点（目を引く1株・小さな群れ）', line: '線（縁取り・流れるリボン）', plane: '面（地を覆う広がり）',
 };
 
 const tall = (p) => p.h[1] >= 100;
@@ -47,7 +48,7 @@ export const STYLES = {
       return s;
     },
     why: (p) => (p.tags.includes('prairie') ? ['枯れ姿も美しい'] : structural(p) ? ['形が際立つ'] : []),
-    spacing: 1.0, matrixShare: 0.38, speciesFactor: 0.75,
+    spacing: 1.0, matrixShare: 0.38, speciesFactor: 0.75, needsGrass: true,
   },
   matrix: {
     ja: 'マトリクス植栽（レイナー＆ウェスト『ポストワイルド』の手法を参考）',
@@ -164,6 +165,32 @@ STYLES.cottage = {
   bonus: (p) => (p.tags.includes('english') ? 2 : 0) + (p.tags.includes('fragrant') ? 1.5 : 0) + (p.tags.includes('herb') ? 1 : 0) + (COTTAGE_SEEDERS.includes(p.group) ? 1.5 : 0) + (p.form === 'spike' && p.h[1] >= 100 ? 1 : 0) - (p.form === 'grass' ? 1.5 : 0) - (p.tags.includes('veg') && p.type === 'annual' ? 1 : 0),
   why: (p) => (COTTAGE_SEEDERS.includes(p.group) ? ['こぼれ種で増える'] : p.tags.includes('fragrant') ? ['香りがよい'] : p.tags.includes('english') ? ['英国の庭の定番'] : []),
   spacing: 0.85, speciesFactor: 1.2,
+};
+
+// 点・線・面の構成：花壇を3つの造形要素で組み立てる
+const pointLike = (p) => p.type === 'shrub' || ((p.roles?.includes('structure') || p.roles?.includes('accent')) && p.h[1] >= 70 && p.form !== 'mound') || ((p.soc || 3) <= 2 && p.h[1] >= 60);
+const planeLike = (p) => p.roles?.includes('groundcover') || p.roles?.includes('matrix') || (p.form === 'grass' && p.h[1] <= 90) || (p.soc || 3) >= 4;
+STYLES.composition = {
+  ja: '点・線・面の構成（デザイナーの構成法）',
+  by: 'Point · Line · Plane',
+  summary: '花壇を「点（目を引く1株）」「線（縁取りや流れるリボン状の群れ）」「面（地面を覆う広がり）」の3つの要素で組み立てる構成法。形の違う植物を役割ごとに選び、種類が多くても散らからない景色をつくる。',
+  principles: [
+    '点：形の強い植物を1〜3株ずつ、間をあけて置き、視線の止まる場所をつくる',
+    '線：手前の縁取りと、花壇を斜めに横切るリボン状の群れで、視線の流れをつくる',
+    '面：グラスやグラウンドカバーを大きく広げ、点と線を受け止める「地」にする',
+    '点・線・面それぞれで形（穂・球・平たい花・霞・グラス）の違う植物を選ぶ',
+    '同じ線の植物を離れた場所でもう一度使い、全体をつなぐ',
+  ],
+  layout: 'composition',
+  roleOf: (p) => (pointLike(p) ? 'point' : planeLike(p) ? 'plane' : 'line'),
+  targets: (n) => {
+    const point = Math.max(2, Math.round(n * 0.25));
+    const plane = Math.max(2, Math.round(n * 0.3));
+    return { point, plane, line: Math.max(2, n - point - plane) };
+  },
+  bonus: (p) => (structural(p) ? 1 : 0) + (p.tags.includes('natural') ? 0.5 : 0) + (p.leaf !== 'green' ? 0.4 : 0),
+  why: (p) => (pointLike(p) ? ['点として目を引く'] : planeLike(p) ? ['面として地を覆う'] : ['線をつくる']),
+  spacing: 1.0, speciesFactor: 1.0,
 };
 
 STYLES.matrix.cost = { mulch: { ja: '初年度の薄いマルチ（2年目以降は不要）', perSqm: 400 } };

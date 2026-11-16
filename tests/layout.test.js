@@ -64,3 +64,27 @@ test('曲線の花壇（円・楕円・半円・そら豆・曲線ボーダー�
   assert.ok(Math.abs(c.area - Math.PI * 1.5 * 1.5) < 0.1);
   assert.match(planSVG(c), /<path d="M[^"]+Z"/);
 });
+
+test('点・線・面の構成：3つの役割がそろい、形の違う植物が選ばれ、株は重なりすぎない', () => {
+  for (const view of ['border', 'island']) {
+    const pl = generatePlan({ climate, sun: 'full', width: 5, depth: 2.4, text: '', style: 'composition', view, seed: 1 });
+    const roles = new Set(pl.species.map((s) => s.role));
+    for (const r of ['point', 'line', 'plane']) assert.ok(roles.has(r), `${view}: ${r}`);
+    assert.ok(new Set(pl.species.map((s) => s.plant.form)).size >= 5, '形の多様性');
+    const pts = pl.species.filter((s) => s.role !== 'under').flatMap((s) => s.positions.map((p) => ({ ...p, s: s.plant.spread / 100 })));
+    let bad = 0;
+    for (let a = 0; a < pts.length; a++) for (let b = a + 1; b < pts.length; b++) if (Math.hypot(pts[a].x - pts[b].x, pts[a].y - pts[b].y) < ((pts[a].s + pts[b].s) / 2) * 0.6) bad++;
+    assert.ok(bad <= Math.max(2, pts.length * 0.05), `${view}: 近すぎる株 ${bad}`);
+  }
+});
+
+test('こだわり設定：入れたい植物・避けたい植物・色・草丈・密度', () => {
+  const base = { climate, sun: 'full', width: 4, depth: 2, text: '', style: 'border' };
+  const pl = generatePlan({ ...base, k: { must: ['gazania-talent'], exclude: ['echinacea'], colors: ['white', 'blue'], colorMode: 'only', maxH: 100 } });
+  assert.ok(pl.species.some((s) => s.plant.id === 'gazania-talent'), '入れたい植物');
+  assert.ok(!pl.species.some((s) => s.plant.group === 'echinacea' && s.plant.id === 'echinacea'), '避けたい植物');
+  for (const s of pl.species) if (!s.must) assert.ok(s.plant.h[1] <= 100, `草丈 ${s.plant.ja}`);
+  for (const s of pl.species) if (!s.must && s.plant.form !== 'grass' && s.plant.form !== 'fern' && !s.plant.color.includes('green')) assert.ok(s.plant.color.some((c) => ['white', 'blue'].includes(c)), `色 ${s.plant.ja}`);
+  const air = generatePlan({ ...base, k: { density: 'airy' } }), tight = generatePlan({ ...base, k: { density: 'tight' } });
+  assert.ok(tight.totalPlants > air.totalPlants, '密度');
+});

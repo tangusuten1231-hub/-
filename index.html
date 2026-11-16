@@ -279,6 +279,14 @@
         <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
         <div class="chips presets" id="planPresets"></div>
         <div class="field bed-only">
+          <span class="label">植物の選び方</span>
+          <div class="seg" data-plan="pick">
+            <button type="button" data-v="auto">おまかせ</button>
+            <button type="button" data-v="semi">自分で選ぶ（セミオート）</button>
+          </div>
+          <p class="hint" style="margin:6px 0 0">セミオートでは、役割と大きさに合う「枠」をアプリが用意し、それぞれの枠に入れる植物を候補の中から選べます。</p>
+        </div>
+        <div class="field bed-only">
           <span class="label">花壇の形</span>
           <div class="shape-pick" data-plan="shape">
             <button type="button" data-v="rect"><svg viewBox="0 0 40 26" aria-hidden="true"><rect x="3" y="5" width="34" height="16" rx="2"/></svg>長方形</button>
@@ -326,6 +334,10 @@
           <div class="chips" id="planWild"></div>
           <p class="hint" style="margin:4px 0 0">選ぶと、その生き物の食草や蜜源になる植物を優先します。</p>
         </div>
+        <details class="kodawari not-balcony" id="kodawari">
+          <summary><span data-ico="list"></span><b>こだわり設定</b><small id="kSummary">入れたい植物・色・密度・種類の数など</small></summary>
+          <div id="kBody"></div>
+        </details>
         <label class="toggle not-balcony" style="margin:4px 0 4px"><input type="checkbox" id="planGround"> 足元をグラウンドカバーで覆う（雑草よけ・乾燥防止）</label>
         <label class="toggle" style="margin:4px 0 10px"><input type="checkbox" id="planAnnuals"> 一年草も使う（毎年の種まきが必要）</label>
         <label class="field"><span class="label">予算（任意・円）</span><input type="number" id="planBudget" min="0" step="1000" inputmode="numeric" placeholder="例：30000"></label>
