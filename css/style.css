@@ -181,8 +181,9 @@ details > summary { cursor: pointer; color: var(--accent); font-size: .88rem; ma
 .layer { margin-top: 6px; }
 .layer h3 { display: flex; justify-content: space-between; align-items: baseline; }
 .layer h3 small { color: var(--muted); font-weight: 400; font-size: .78rem; }
-.gplant { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .9rem; }
-.gplant .grow { flex: 1; min-width: 0; }
+.gplant { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 8px 0; border-top: 1px solid var(--line); font-size: .9rem; }
+.gplant .grow { flex: 1 1 calc(100% - 24px); min-width: 0; }
+.gplant .qty { margin: 0 auto 0 18px; }
 .gplant .sub { font-size: .76rem; color: var(--muted); }
 .gplant .qty { font-variant-numeric: tabular-nums; font-size: .82rem; color: var(--ink-2); white-space: nowrap; }
 .icon-btn { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; padding: 4px 6px; min-width: 32px; min-height: 32px; }
@@ -588,7 +589,7 @@ details > summary { color: var(--accent); }
 .today-idea .en { font-family: var(--display); font-style: italic; color: var(--accent); font-size: .9rem; }
 .today-idea b { font-family: var(--serif); font-size: .98rem; }
 .today-idea small { color: var(--ink-2); font-size: .78rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .quick button { border: 1px solid var(--line); background: var(--surface); border-radius: 16px; padding: 12px 4px 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: .7rem; color: var(--ink-2); cursor: pointer; }
 .quick button .ico { color: var(--accent); }
 .empty { box-shadow: none; background: transparent; border-style: dashed; }
@@ -1328,3 +1329,50 @@ h1, h2, h3, h4 { line-break: strict; }
 .sw-same { font-size: .64rem; color: var(--accent); }
 .kodawari .chips { flex-wrap: wrap; overflow: visible; }
 .kodawari .seg button { font-size: .78rem; padding-inline: 2px; white-space: nowrap; overflow: visible; text-overflow: clip; min-width: 0; }
+
+/* ===== 困ったとき・計算機・水やり・作業のチェック ===== */
+.doctor .dr-sym .chip { font: inherit; font-size: .8rem; cursor: pointer; }
+.dr-h { font-size: .95rem; margin: 14px 0 6px; }
+.dr-list { display: grid; gap: 8px; }
+.dr-item { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 2px 12px; }
+.dr-item.high { border-color: var(--terra, #b5653f); }
+.dr-item summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 8px 0; cursor: pointer; list-style: none; }
+.dr-item summary::-webkit-details-marker { display: none; }
+.dr-item summary small { color: var(--muted); font-size: .7rem; }
+.dr-lv { font-size: .66rem; font-weight: 700; padding: 1px 6px; border-radius: 6px; background: var(--surface-2); }
+.dr-item.high .dr-lv { background: #f7dfd2; color: #9a4a2a; }
+.dr-why { font-size: .74rem; color: var(--accent); margin: 0 0 4px; }
+.dr-item h4 { font-size: .8rem; margin: 8px 0 2px; }
+.dr-item ul { margin: 0 0 8px; padding-left: 1.2em; font-size: .82rem; line-height: 1.7; }
+.info-line { margin-top: 2px; }
+.info-line .link { font-size: .72rem; padding: 0 4px; }
+.info-line .muted { color: var(--muted); }
+.pinfo { display: grid; gap: 10px; }
+.calc { display: grid; gap: 12px; }
+.calc-tabs { flex-wrap: wrap; }
+.calc-tabs button { font-size: .8rem; white-space: nowrap; }
+.calc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.calc-form .field { margin: 0; }
+.calc-form select { grid-column: 1 / -1; }
+.calc-form label:has(select) { grid-column: 1 / -1; }
+.cin { display: flex; align-items: center; gap: 4px; }
+.cin input { flex: 1 1 0; width: 0; min-width: 0; }
+.cin small { color: var(--muted); }
+.calc-out { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border-radius: 14px; padding: 12px 14px; }
+.cres { margin: 0 0 6px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.cres b { font-size: 1.9rem; font-family: var(--serif, inherit); color: var(--accent); }
+.cres.sub b { font-size: 1.3rem; color: inherit; }
+.cres small { flex-basis: 100%; font-size: .74rem; color: var(--muted); }
+.calc-out .hint { margin: 6px 0 0; font-size: .74rem; }
+.today-block.water .wt { display: grid; grid-template-columns: 30px 1fr; gap: 8px; padding: 6px 0; border-top: 1px dotted var(--line); }
+.wt-ic { font-size: 1.1rem; text-align: center; }
+.wt b { display: block; font-size: .88rem; }
+.wt small { display: block; font-size: .76rem; color: var(--muted); line-height: 1.6; }
+.wt .wt-who { color: var(--accent); }
+.wt.none b { color: var(--muted); }
+.task { position: relative; }
+.tdone { display: flex; flex-direction: column; align-items: center; gap: 1px; font-size: .62rem; color: var(--muted); margin-left: auto; min-width: 42px; cursor: pointer; }
+.tdone input { width: 22px; height: 22px; accent-color: var(--accent); }
+.task.done .t, .task.done .d { opacity: .5; }
+.task.done .t { text-decoration: line-through; }
+.cal-acts { flex-wrap: wrap; margin: 8px 0; }

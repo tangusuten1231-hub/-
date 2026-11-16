@@ -4,15 +4,17 @@ const URL_ = 'https://api.open-meteo.com/v1/forecast';
 
 export async function fetchForecast(lat, lon) {
   const params = new URLSearchParams({
-    latitude: lat.toFixed(3), longitude: lon.toFixed(3), timezone: 'auto', forecast_days: '7',
+    latitude: lat.toFixed(3), longitude: lon.toFixed(3), timezone: 'auto', forecast_days: '7', past_days: '3',
     daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_gusts_10m_max',
   });
   const res = await fetch(`${URL_}?${params}`);
   if (!res.ok) throw new Error('forecast');
   const j = await res.json();
   const d = j.daily;
+  const n = new Date();
+  const today = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
   return d.time.map((t, i) => ({
-    date: t, code: d.weather_code[i], tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i],
+    past: t < today, date: t, code: d.weather_code[i], tmax: d.temperature_2m_max[i], tmin: d.temperature_2m_min[i],
     rain: d.precipitation_sum[i] ?? 0, pop: d.precipitation_probability_max?.[i] ?? null, gust: d.wind_gusts_10m_max?.[i] ?? 0,
   }));
 }
