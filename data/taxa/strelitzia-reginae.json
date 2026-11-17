@@ -1,0 +1,99 @@
+{
+ "id": "strelitzia-reginae",
+ "rank": "species",
+ "scientificName": "Strelitzia reginae",
+ "names": {
+  "ja": "ストレリチア・レギナエ",
+  "aliases": [
+   "ストレリチア",
+   "ゴクラクチョウカ",
+   "極楽鳥花"
+  ]
+ },
+ "refs": {
+  "ncsu": "strelitzia-reginae"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    13,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Grow indoors in a well-lit, sunny spot"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日の当たる明るい場所を勧めるため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Grow indoors in a well-lit, sunny spot"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされ、国内の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Bird of paradise needs moderate temperatures 55 to 65 F at night.",
+    "fahrenheit": [
+     55
+    ]
+   },
+   {
+    "src": "estimate",
+    "reason": "上限は一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water plants freely and fertilize regularly in spring and summer"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "but keep drier in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎや水はけの悪い土で根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can occur from overwatering or poorly drained soils."
+  }
+ ]
+}

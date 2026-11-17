@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2871003",
+ "retrieved": "2026-11-17",
+ "query": "Philodendron hederaceum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2871003,
+ "acceptedKey": 2871003,
+ "acceptedName": "Philodendron hederaceum",
+ "authorship": "(Jacq.) Schott",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Philodendron",
+ "synonyms": [
+  "Arum hederaceum",
+  "Pothos hederaceus"
+ ]
+}

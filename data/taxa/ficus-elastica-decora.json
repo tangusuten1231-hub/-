@@ -1,0 +1,19 @@
+{
+ "id": "ficus-elastica-decora",
+ "rank": "cultivar",
+ "parent": "ficus-elastica",
+ "cultivar": "Decora",
+ "names": {
+  "ja": "フィカス・デコラ",
+  "aliases": [
+   "デコラゴム"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "大きく厚い濃緑の葉。",
+   "src": "ncsu",
+   "quote": "large, very thick, dark green leaves"
+  }
+ ]
+}

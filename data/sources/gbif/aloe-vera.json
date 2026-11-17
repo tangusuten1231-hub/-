@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2777724",
+ "retrieved": "2026-11-17",
+ "query": "Aloe vera",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2777724,
+ "acceptedKey": 2777724,
+ "acceptedName": "Aloe vera",
+ "authorship": "(L.) Burm.f.",
+ "rank": "SPECIES",
+ "family": "Asphodelaceae",
+ "genus": "Aloe",
+ "synonyms": [
+  "Aloe barbadensis",
+  "Aloe chinensis",
+  "Aloe elongata",
+  "Aloe flava",
+  "Aloe humilis",
+  "Aloe indica",
+  "Aloe lanzae",
+  "Aloe maculata",
+  "Aloe rubescens",
+  "Aloe variegata",
+  "Aloe vulgaris"
+ ]
+}

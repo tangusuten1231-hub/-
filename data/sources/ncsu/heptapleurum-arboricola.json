@@ -1,0 +1,255 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/heptapleurum-arboricola/",
+ "slug": "heptapleurum-arboricola",
+ "retrieved": "2026-11-17",
+ "scientificName": "Heptapleurum arboricola",
+ "commonNames": [
+  "Dwarf Schefflera",
+  "Dwarf Umbrella Tree",
+  "Hawaiian Umbrella Tree",
+  "Octopus Tree",
+  "Parasol Plant",
+  "Umbrella Plant",
+  "Umbrella Tree"
+ ],
+ "description": "Dwarf umbrella tree is an evergreen flowering shrub in the ginseng family (Araliaceae) native to China and Taiwan. Although the dwarf umbrella tree may grow 10-15 feet tall when planted outside in South Florida, this tropical plant can be grown indoors and will only get from 4 to 6 feet high and wide in a container. It should be placed in a southern, western, or eastern exposure with filtered light (eg. sheer curtain) for 3 to 4 hours daily. While it can tolerate some full sun outdoors, as a houseplant, bright, direct light will burn the leaves. Allow the soil to dry out and then thoroughly soak it with water. This plant likes high humidity and a well-drained potting medium rich in organic matter. The humidity around the plant can be raised by placing the container on a tray of wet pebbles (the water line should be below the surface of the pebbles so that the pot is not sitting directly in water). The dwarf umbrella tree will rarely produce flowers when grown indoors but can safely be put outside in a sheltered location when temperatures will not dip below 60 degrees. The dwarf umbrella may used as an indoor potted plant. In areas where the plant is winter hardy, consider using the plant as a specimen, accent, or hedge. All parts of this plant are seriously toxic to dogs and cats. Quick ID HInts: evergreen shrub or small tree growing 10 to 25 feet tall when grown in tropical areas 3 to 6 feet tall, smaller ornamental when grown as a houseplant the leaves are evergreen, glossy, compound, palmate and arranged in a circle on the leafstalks. each leaf has 7 to 9 leaflets that are obovate, oblong, to elliptic tiny red flowers appear in compound panicles small round orange drupes become black when mature Insects, Diseases, and Other Plant Problems: Red spider mites, mealybugs and scale can be a serious problem. If the soil is too wet or too dry the leave will drop off. No serious disease problems.",
+ "cultivars": [
+  {
+   "name": "Compacta",
+   "note": "smaller plant with dense clusters of glossy green leaves"
+  },
+  {
+   "name": "Dazzle",
+   "note": "variegated, with some leaves almost completely creamy white"
+  },
+  {
+   "name": "Dwarf",
+   "note": "dark green leaves, grows to height of 4 feet tall"
+  },
+  {
+   "name": "Gold Capella",
+   "note": "variegated yellow or gold and green leaves"
+  },
+  {
+   "name": "Trinette",
+   "note": "variegated cream and green leaves"
+  },
+  {
+   "name": "Variegata",
+   "note": "leaves are medium green with cream to yellow variegation"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Heptapleurum"
+  ],
+  "Species": [
+   "arboricola"
+  ],
+  "Family": [
+   "Araliaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "The plant has been used as a medicine and has had environmental and social uses also."
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Taiwan and Hainan Province"
+  ],
+  "Distribution": [
+   "Bermuda, Florida, Hawaii, Jamaica, Nansei-shoto"
+  ],
+  "Dimensions": [
+   "Height: 10 ft. 0 in. - 25 ft. 0 in.",
+   "Width: 4 ft. 0 in. - 8 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Shrub"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Dense",
+   "Irregular",
+   "Rounded",
+   "Vase"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Black",
+   "Orange"
+  ],
+  "Fruit Value To Gardener": [
+   "Showy"
+  ],
+  "Fruit Type": [
+   "Drupe"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruits are round, orange drupes about 1/4 inch in diameter that become black when matured."
+  ],
+  "Flower Color": [
+   "Red/Burgundy"
+  ],
+  "Flower Inflorescence": [
+   "Panicle"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Summer"
+  ],
+  "Flower Description": [
+   "The flowers bloom during the summer and are tiny red blooms that appear in compound panicles. Indoor typically do not flower."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Oblong",
+   "Obovate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are comprised of 7 to 9 individual leaflets, arranged in a circle like spokes of an umbrella. Leaflets are 2-4.5 inches long in terminal rosettes. They are obovate, entire, obtuse, stalked, and bright green and glossy."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Houseplants",
+   "Patio"
+  ],
+  "Landscape Theme": [
+   "Drought Tolerant Garden"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Hedge",
+   "Small Tree",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Salt"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "It is harmful to cats and dogs if leaves are chewed. Intense mouth and throat irritation results in excessive drooling, difficulty swallowing, and vomiting. Sap can be irritating to people with sensitive skin. Use gloves as a precaution."
+  ],
+  "Poison Toxic Principle": [
+   "calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "interiorscape",
+  "houseplant",
+  "showy leaves",
+  "small tree",
+  "tropical evergreen",
+  "indoor tree",
+  "woody",
+  "moist soil",
+  "drought tolerant",
+  "salt tolerant",
+  "well-drained soil",
+  "evergreen",
+  "partial shade tolerant",
+  "container plant",
+  "shade garden",
+  "variegated",
+  "patio",
+  "problem for dogs",
+  "problem for cats",
+  "fpp"
+ ]
+}

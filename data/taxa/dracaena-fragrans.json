@@ -1,0 +1,103 @@
+{
+ "id": "dracaena-fragrans",
+ "rank": "species",
+ "scientificName": "Dracaena fragrans",
+ "names": {
+  "ja": "ドラセナ・フラグランス",
+  "aliases": [
+   "ドラセナ",
+   "マッサンゲアナ"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-fragrans"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    21,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Keep it in bright to moderate, filtered light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "if light levels are too low, the leaves will narrow"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sun can burn the foliage"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the temperature above 50 degrees F if possible.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Corn plants thrive in temperatures of 70 to 80 degrees F.",
+    "fahrenheit": [
+     70,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Leaves can turn brown at the tips if indoor humidity is too low."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the soil moist during the growing season"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "cut back on the water in the winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "フッ素や塩類の蓄積に弱い。葉先が茶色くなったら月に一度、鉢土を水で洗い流す。",
+   "src": "ncsu",
+   "quote": "It is sensitive to fluorides and built-up salts, so if leaves turn brown, try watering with non-fluoridated water and flush salts monthly."
+  },
+  {
+   "ja": "暖房で乾燥する冬は、加湿器で葉先の枯れを防げる。",
+   "src": "ncsu",
+   "quote": "A humidifier may help to prevent leaf tip browning, especially in the winter when the house is heated."
+  }
+ ]
+}

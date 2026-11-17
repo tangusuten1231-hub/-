@@ -1,0 +1,19 @@
+{
+ "id": "ficus-elastica-burgundy",
+ "rank": "cultivar",
+ "parent": "ficus-elastica",
+ "cultivar": "Burgundy",
+ "names": {
+  "ja": "フィカス・バーガンディ",
+  "aliases": [
+   "黒ゴム"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "赤みを帯びた濃緑の葉。",
+   "src": "ncsu",
+   "quote": "dark green leaves with hints of burgundy"
+  }
+ ]
+}

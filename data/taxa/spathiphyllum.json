@@ -1,0 +1,108 @@
+{
+ "id": "spathiphyllum",
+ "rank": "genus",
+ "scientificName": "Spathiphyllum",
+ "names": {
+  "ja": "スパティフィラム",
+  "aliases": [
+   "ピースリリー",
+   "スパティフィラム・ウォーリシー"
+  ]
+ },
+ "refs": {
+  "ncsu": "spathiphyllum"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 4,
+   "idealC": [
+    20,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Peace lilies prefer partial to deep shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Peace lilies prefer partial to deep shade."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Do not place plants in direct sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Extended periods below 40 degrees F can damage leaves, stems and roots.",
+    "fahrenheit": [
+     40
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They enjoy warm conditions between 68 and 85 degrees F during the day",
+    "fahrenheit": [
+     68,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Brown leaf tips are caused by excessive direct sunlight, underwatering, or low humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the soil moist, but not soggy; allow it to dry between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "4〜16℃（40〜60°F）の寒さやすきま風では成長がかなり遅くなる。",
+   "src": "ncsu",
+   "quote": "Cold and drafty conditions, specifically temperatures of 40 to 60 degrees F, will slow growth considerably."
+  },
+  {
+   "ja": "肥料は規定の1/4の濃さで。与えすぎると葉先や根が傷む。",
+   "src": "ncsu",
+   "quote": "Fertilize at one-quarter of the recommended strength"
+  },
+  {
+   "ja": "鉢底から水を吸わせる「底面給水」がよく合う。",
+   "src": "ncsu",
+   "quote": "Watering from below works very well for peace lilies."
+  }
+ ]
+}

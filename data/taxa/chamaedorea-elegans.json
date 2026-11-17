@@ -1,0 +1,100 @@
+{
+ "id": "chamaedorea-elegans",
+ "rank": "species",
+ "scientificName": "Chamaedorea elegans",
+ "names": {
+  "ja": "テーブルヤシ",
+  "aliases": [
+   "チャメドレア・エレガンス",
+   "カマエドレア"
+  ]
+ },
+ "refs": {
+  "ncsu": "chamaedorea-elegans"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "They need bright indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "they can tolerate low-light conditions"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Try to keep near a north- or east-facing window if possible for optimal light levels."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Protect from cold drafts near windows, doors or vents."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "low to medium humidity levels"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "let the soil dry slightly out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "肥料は生育期にときどき与え、冬は与えない。",
+   "src": "ncsu",
+   "quote": "Fertilize periodically during the growing season and none in the winter."
+  },
+  {
+   "ja": "植え替えは必要なときだけ。2年に1回程度で十分。",
+   "src": "ncsu",
+   "quote": "Repot only when necessary; generally, every other year is enough."
+  }
+ ]
+}

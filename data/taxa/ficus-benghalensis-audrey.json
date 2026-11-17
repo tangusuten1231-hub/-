@@ -1,0 +1,19 @@
+{
+ "id": "ficus-benghalensis-audrey",
+ "rank": "cultivar",
+ "parent": "ficus-benghalensis",
+ "cultivar": "Audrey",
+ "names": {
+  "ja": "フィカス・ベンガレンシス‘オードリー’",
+  "aliases": [
+   "オードリー"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "室内向きの品種。白っぽい葉脈が目立つ。",
+   "src": "ncsu",
+   "quote": "popular houseplant, 1 to 2 feet tall, partial sun, easy to grow, white"
+  }
+ ]
+}

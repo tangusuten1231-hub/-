@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2768035",
+ "retrieved": "2026-11-17",
+ "query": "Beaucarnea recurvata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2768035,
+ "acceptedKey": 2768035,
+ "acceptedName": "Beaucarnea recurvata",
+ "authorship": "(K.Koch & Fintelm.) Lem.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Beaucarnea",
+ "synonyms": [
+  "Beaucarnea inermis",
+  "Beaucarnea tuberculata",
+  "Dasylirion inerme",
+  "Dasylirion inermis",
+  "Dasylirion recurvatum",
+  "Nolina recurvata",
+  "Nolina tuberculata",
+  "Pincenectia linifolia",
+  "Pincenectia recurvata",
+  "Pincenectia tuberculata",
+  "Pincenectitia tuberculata"
+ ]
+}

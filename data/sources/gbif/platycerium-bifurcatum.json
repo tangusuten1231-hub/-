@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7126767",
+ "retrieved": "2026-11-17",
+ "query": "Platycerium bifurcatum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7126767,
+ "acceptedKey": 7126767,
+ "acceptedName": "Platycerium bifurcatum",
+ "authorship": "(Cav.) C.Chr.",
+ "rank": "SPECIES",
+ "family": "Polypodiaceae",
+ "genus": "Platycerium",
+ "synonyms": []
+}

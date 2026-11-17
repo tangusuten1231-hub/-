@@ -1,0 +1,100 @@
+{
+ "id": "maranta-leuconeura",
+ "rank": "species",
+ "scientificName": "Maranta leuconeura",
+ "names": {
+  "ja": "マランタ・レウコネウラ",
+  "aliases": [
+   "マランタ",
+   "プレイヤープラント"
+  ]
+ },
+ "refs": {
+  "ncsu": "maranta-leuconeura"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "When grown indoors, place in bright, indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "This plant tolerates low to medium light."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of direct sunlight or low humidity."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is also intolerant of low temperatures or cold drafts."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "as it requires high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep potting soil evenly moist throughout the growing season"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "hold back on watering to allow the soil to dry out in the winter months"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "日が強すぎると葉の模様が色あせる。",
+   "src": "ncsu",
+   "quote": "Too much sun will bleach out the attractive leaves colors."
+  },
+  {
+   "ja": "フッ素や肥料のやりすぎで葉が焼ける。",
+   "src": "ncsu",
+   "quote": "Leaves will burn with high fluorides and with over-fertilization."
+  }
+ ]
+}

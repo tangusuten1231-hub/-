@@ -1,0 +1,152 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/maranta-leuconeura/",
+ "slug": "maranta-leuconeura",
+ "retrieved": "2026-11-17",
+ "scientificName": "Maranta leuconeura",
+ "commonNames": [
+  "Cathedral Windows",
+  "Herringbone Plant",
+  "Prayer Plant",
+  "Rabbit Tracks",
+  "Red-Veined Prayer Plant"
+ ],
+ "description": "The Prayer Plant is an evergreen tropical plant in the arrowroot family commonly grown as a houseplant in temperate climates. The Prayer Plant has variegated ovate leaves with entire margins that fold at night to resemble praying hands. The undersides of the leaves are gray-green to purple-green. New leaves appear as a rolled tube. When grown indoors, place in bright, indirect light. Too much sun will bleach out the attractive leaves colors. Keep potting soil evenly moist throughout the growing season, but hold back on watering to allow the soil to dry out in the winter months. Place this plant in a humidified room or in a pot standing in a tray of wet pebbles as it requires high humidity. The plant will spread horizontally. Propagate by rhizomatous division. This plant blooms under ideal conditions, but the flowers are small and insignificant. This plant is desired for its interesting, patterned foliage. The prominent red fishbone-patterned veins, pale central variegation, and pale underside are characteristic of this plant. By day, leaves are held parallel to the ground and move to a perpendicular 'prayer' position at night. The upper and undersides of the leaves lose color in low light and fertility situations. This plant is commonly used in interiors as hanging baskets and as ground cover in interiorscapes. This plant tolerates low to medium light. It is intolerant of direct sunlight or low humidity. It is also intolerant of low temperatures or cold drafts. Leaves will burn with high fluorides and with over-fertilization. This plant has no serious pest or disease problems. Quick ID Hints: Rabbit track-like dark spots on each side midrib Leaves raised to 'prayer' position at night Leaf underside is light grey-green Low-growing with oblong leaves and truncate apex Leaf is oblong-elliptic with red fishbone-pattern veins Leaf underside is usually red/purple Variegation down midrib is light green to yellow Insects, Diseases, and Other Plant Problems: No serious insect or disease problems but occasional spider mites and mealybugs can be an issue. Root rot may occur with poorly drained soils.",
+ "cultivars": [
+  {
+   "name": "Fascinator Tricolor",
+   "note": "dark green leaves, light green margins, rib veins red, center yellow"
+  },
+  {
+   "name": "Lemon' or Lemon Lime Prayer Plant",
+   "note": "dark green leaf with yellowish-green center and striping"
+  },
+  {
+   "name": "Silver Band",
+   "note": "dark green leaf but the center of the leaf has a broad patch of silver green"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Maranta"
+  ],
+  "Species": [
+   "leuconeura"
+  ],
+  "Family": [
+   "Marantaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Root Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Brazil"
+  ],
+  "Distribution": [
+   "Columbia and parts of Mexico."
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 6 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Spreading"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches",
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b"
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Panicle"
+  ],
+  "Flower Shape": [
+   "Lipped"
+  ],
+  "Flower Petals": [
+   "2-3 rays/petals",
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Rarely flowers indoors but flowers are small, have 2 to 5 petals, are white to purple or spotted purple, zygomorphic, two-lipped, and appear on slender stalks. The corolla tube is green, sepals are thin, bracts are persistent and papery, and staminodes are petaloid. Inflorescence is a stalked panicle on the axillary."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green",
+   "Purple/Lavender",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Leaves are alternate, crowded, simple, oblong-elliptic, have an apex truncate with a short sharp acumen, have a rotund base, are entire, have an upper side that is medium to dark green and variegated with pale green to yellow markings at the midrib, have central and main veins that are prominent in a fishbone pattern and are colored red, have pale green margins, and have an underside that is reddish to burgundy in color. Leaves exhibit sleep movement and are erect at night. They also have a long, sheathing petiole."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are short and rhizomatous."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Resistance To Challenges": [
+   "Heat",
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "interiorscape",
+  "houseplant",
+  "showy leaves",
+  "evergreen",
+  "fantz",
+  "variegated",
+  "fpp",
+  "humidity tolerant",
+  "indoor",
+  "subshrub",
+  "spreading"
+ ]
+}

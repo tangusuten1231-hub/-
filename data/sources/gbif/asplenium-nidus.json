@@ -1,0 +1,33 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2650676",
+ "retrieved": "2026-11-17",
+ "query": "Asplenium nidus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2650676,
+ "acceptedKey": 2650676,
+ "acceptedName": "Asplenium nidus",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Aspleniaceae",
+ "genus": "Asplenium",
+ "synonyms": [
+  "Asplenium ellipticum",
+  "Asplenium ficifolium",
+  "Asplenium scolopendrium",
+  "Asplenium simplex",
+  "Neottopteris elliptica",
+  "Neottopteris musaefolia",
+  "Neottopteris nidus",
+  "Neottopteris ovata",
+  "Neottopteris rigida",
+  "Neottopteris stenocarpa",
+  "Neottopteris vulgaris",
+  "Phyllitis amboinica",
+  "Polypodium giganteum",
+  "Tarachia simplex",
+  "Thamnopteris nidus"
+ ]
+}

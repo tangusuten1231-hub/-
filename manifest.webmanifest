@@ -1,0 +1,11 @@
+{
+ "name": "へやみどり",
+ "short_name": "へやみどり",
+ "description": "室内の観葉植物の図鑑と記録帳",
+ "start_url": "./",
+ "display": "standalone",
+ "background_color": "#f6f4ee",
+ "theme_color": "#2f6b4f",
+ "lang": "ja",
+ "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

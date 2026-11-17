@@ -1,0 +1,230 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/chlorophytum-comosum/",
+ "slug": "chlorophytum-comosum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Chlorophytum comosum",
+ "commonNames": [
+  "Anthericum Comosum",
+  "Chlorophytum",
+  "Ribbon Plant",
+  "Spider Ivy",
+  "Spiderplant",
+  "Spider Plant",
+  "Walking Anthericum"
+ ],
+ "description": "Spider plant is an herbaceous perennial houseplant in the Asparagaceae (asparagus) family. Its native region is tropical West Africa to Cameroon and Ethiopia to South Africa. It is commonly grown as a houseplant for its adaptability to many conditions. Spider plant prefers medium light levels yet can tolerate deep shade. It is intolerant of direct sunlight. It grows best in moist soil and medium air humidity, though it is tolerant of drought and dry soil. Keep temperatures above 45 degrees F. Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn. Reduce watering during winter. Use a humidifier or place the plant container on a tray of pebbles with water to increase the humidity. Do not over-fertilize, as this decreases plantlet formation. Spider plant propagates easily by plantlets or division. Stolons and plantlets are light dependent and develop when the mother plant receives short days and long, uninterrupted nights&ndash;less than 12 hours of light a day&ndash;for at least three weeks. Spider plant does particularly well in hanging baskets or other containers where the leaves and stems can cascade down the side. Quick ID Hints: Green linear leaves are often striped white Long stolons produce plantlets and flowers Insects, Diseases, and Other Plant Problems: No significant problems. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Bonnie",
+   "note": "green leaves that curl and twist"
+  },
+  {
+   "name": "Bonnie Variegated",
+   "note": "curled green leaves that have creamy white stripes"
+  },
+  {
+   "name": "Hawaiian",
+   "note": "variegation on new leaves but variegation fades with age"
+  },
+  {
+   "name": "Milky Way",
+   "note": "leaves have a broad white or cream center with green margins"
+  },
+  {
+   "name": "Picturatum",
+   "note": "leaves have central yellow stripe"
+  },
+  {
+   "name": "Vittatum",
+   "note": "Medium green leaves with a wide, creamy white, central stripe."
+  },
+  {
+   "name": "White Stripe",
+   "note": "the center leaf vein has a narrow white or cream line and the flower stalks are cream to yellowish"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Chlorophytum"
+  ],
+  "Species": [
+   "comosum"
+  ],
+  "Family": [
+   "Asparagacea"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "W. Tropical Africa to Cameroon, Ethiopia to S. Africa"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 1 ft. 6 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Cascading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "NC Region": [
+   "Coastal"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Small capsule after flowering."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Panicle",
+   "Raceme"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Spring",
+   "Summer",
+   "Winter"
+  ],
+  "Flower Shape": [
+   "Star"
+  ],
+  "Flower Petals": [
+   "6 petals/rays",
+   "Tepals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Small white star-shaped flowers form in loose panicles, the stolons sometimes bearing plantlets at nodes. Flowers erect to typically arching-pendulous, white, 1/4 in, tepals 6, spreading, free."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Strappy green or striped green and white leaves up to 12-18 in long. Sessile, crowded, linear to lanceolate, grass-like, often striped white longitudinally, 12-15 nerved and a deep groove in the middle."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Smooth (glabrous)"
+  ],
+  "Stem Description": [
+   "Leaves emerge from a short, compressed stem. Stolons are long and green, producing flowers and plantlets."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Walkways"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil",
+   "Heavy Shade"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "hanging baskets",
+  "white flowers",
+  "white leaves",
+  "striped leaves",
+  "fantz",
+  "cascading",
+  "evergreen",
+  "ebh-h",
+  "ebh",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "hsc",
+  "hsc-f",
+  "herbaceous perennial",
+  "division",
+  "offsets plantlets",
+  "container plant",
+  "perennial",
+  "fpp"
+ ]
+}

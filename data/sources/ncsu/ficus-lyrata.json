@@ -1,0 +1,237 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/ficus-lyrata/",
+ "slug": "ficus-lyrata",
+ "retrieved": "2026-11-17",
+ "scientificName": "Ficus lyrata",
+ "commonNames": [
+  "Banjo fig",
+  "Fiddle-leaf Fig"
+ ],
+ "description": "The fiddle-leaf fig is a small tropical tree and broadleaf evergreen, commonly grown and popular as a houseplant in many areas of the United States. As a houseplant, it will grow 2 to 10 feet tall. It has large, broad, lyre-shaped, green leaves that can measure up to 18 inches long. This plant rarely flowers or fruits when grown as a houseplant. The stems have a milky sap that can irritate the skin. This plant is native to tropical regions of western and central Africa. It will grow 60 to 100 feet tall and is erect and vase-shaped. It is frequently used as an ornamental shade tree in tropical climates. In its native habitat, the plant will produce figs that appear solitary or in pairs. The genus name, Ficus , is derived from the Latin name for an edible fig. The specific epithet, lyrata , means \"in the shape of a lyre\" and refers to the shape of the plant's leaves. The fiddle-leaf fig prefers bright indirect light or partial shade and moist, well-drained, loamy, acidic soils. They are sensitive to overwatering and also need protection from the afternoon sun. It also performs best in medium relative humidity with a temperature greater than 55 degrees F. This a relatively low-maintenance houseplant that may be pruned as needed. The fiddle-leaf fig can be planted outdoors in plant hardiness zones 10 through 12. This plant is toxic to humans, cats, and dogs if ingested. Oral irritation, excessive drooling, and vomiting may occur. The sap can irritate the skin and gloves are recommended when handling this plant, particularly when pruning or propagating. In the United States, the fiddle-leaf fig is a tropical tree that is used as a houseplant in temperate areas and may be grown in a container. The container can be brought outside to a sheltered deck or patio during the summer months and brought indoors as the outdoor temperatures start to drop in the fall. The fiddle-leaf fig can also make a great focal point in a living room or office space. Texturally heavy, this plant is best suited for large spaces. Seasons of Interest: Foliage: Year-round Quick ID Hints: small tropical tree used as a houseplant, 2 to 10 feet tall woody stem with milk sap large, leathery, coarse, and fiddle-shaped leaves, up to 18 inches long and 12 inches wide leaves are bullate and not glossy rarely fruits or flowers as a houseplant Insects, Diseases, and Other Plant Problems: The fiddle leaf fig has no serious insect pests or diseases. As a houseplant, monitor for scale, aphids, mealy bugs, thrips, and spider mites. Potential diseases include bacterial or fungal diseases. Leaf scorch can occur if the plant is receiving too much direct sunlight. Brown spots may occur if there is a fluctuation in room temperatures for heating or cooling vents. Leaf drop may occur from too much or too little water. VIDEO created by Andy Pulte for &ldquo;Landscape Plant Identification, Taxonomy and Morphology&rdquo; a plant identification course offered by the Department of Plant Sciences, University of Tennessee. More information on Ficus .",
+ "cultivars": [
+  {
+   "name": "Bambino",
+   "note": "dwarf variety, grows a few feet tall"
+  },
+  {
+   "name": "Compacta",
+   "note": "grows up to 5 feet tall, smaller leaves"
+  },
+  {
+   "name": "\"Little Sunshine",
+   "note": "small plant and has bright, violin-shaped green leaves"
+  },
+  {
+   "name": "Variegata",
+   "note": "leaves are green and cream colored, uncommon variety"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Ficus"
+  ],
+  "Species": [
+   "lyrata"
+  ],
+  "Family": [
+   "Moraceae"
+  ],
+  "Life Cycle": [
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropical Western and Central Africa"
+  ],
+  "Distribution": [
+   "Native: Cameroon, Gabon, Ghana, Guinea, Ivory Coast, Liberia, Nigeria, Sierra Leone, and Togo. Introduced: Canary Island El Salvador, Trinidad-Tobago, and the United States."
+  ],
+  "Play Value": [
+   "Textural"
+  ],
+  "Edibility": [
+   "Toxic if ingested."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Tree"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Rounded",
+   "Spreading",
+   "Vase"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Green",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a globose, fleshy fig that is finely pubescent and appears either solitary or in pairs. It is green with white flecks or dots and turns red upon ripening. It is round and measures 0.5 to 1.25 inches in diameter. The fruits are rarely seen when grown as a houseplant. They are present if grown outdoors in their native habitat."
+  ],
+  "Flower Inflorescence": [
+   "Insignificant"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The flowers are not showy and appear minute, axillary, unisexual, enclosed in a fleshy receptacle (fig), entered by an apical orifice, and pollinated by fig wasps. Houseplants rarely bloom."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Obovate"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "It has attractive oval and semi-lobed thick leathery green leaves. Some of the leaves resemble fiddles, hence the common name. Leaves have prominent veins and can grow 12 inches long and 5 inches wide. The leaves are alternate, simple, large, obovate to lyrate, apex truncate to obtuse, base cordate, bullate, initially finely pubescent and later glabrous, and coriaceous. They are dull green on the upper surface and pale green on the undersides. The leaf blade can measure 8 to 15 inches long."
+  ],
+  "Bark Color": [
+   "Dark Brown",
+   "Dark Gray"
+  ],
+  "Surface/Attachment": [
+   "Exfoliating",
+   "Smooth"
+  ],
+  "Bark Description": [
+   "The bark is brown and flaky when the tree is young. As it matures, the bark becomes gray and smooth."
+  ],
+  "Stem Color": [
+   "Brown/Copper"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The plant is scarcely branched in younger specimens, stiff and sturdy, and without aerial roots. The sap from the stems is milky."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Oral irritation, burning of the mouth, tongue, and lips, excessive drooling, vomiting, and difficulty swallowing."
+  ],
+  "Poison Toxic Principle": [
+   "insoluble calcium oxalates"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "fantz",
+  "evergreen",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "tropical feel",
+  "landscape plant sleuths course",
+  "acidic soils tolerant",
+  "container plant",
+  "wet soils intolerant",
+  "specimen",
+  "low maintenance",
+  "humidity tolerant",
+  "broadleaf evergreen",
+  "poisonous if ingested",
+  "patio",
+  "fpp"
+ ]
+}

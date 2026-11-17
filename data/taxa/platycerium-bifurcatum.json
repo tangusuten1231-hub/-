@@ -1,0 +1,100 @@
+{
+ "id": "platycerium-bifurcatum",
+ "rank": "species",
+ "scientificName": "Platycerium bifurcatum",
+ "names": {
+  "ja": "ビカクシダ",
+  "aliases": [
+   "コウモリラン",
+   "プラティケリウム・ビフルカツム"
+  ]
+ },
+ "refs": {
+  "ncsu": "platycerium-bifurcatum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It takes dappled sunlight to partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は木漏れ日〜半日陰とするため、室内では強い直射日光を避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされ、国内の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Black spot may occur when the humidity is too high."
+   },
+   {
+    "src": "estimate",
+    "reason": "湿度が高すぎると黒い斑点が出るとされるため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allowing the roots to dry slightly between waterings but never letting them dry out completely"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "株元（貯水葉のあたり）に定期的に水をやる。鉢植えなら底から吸わせてもよい。",
+   "src": "ncsu",
+   "quote": "Water its crown regularly"
+  },
+  {
+   "ja": "湿度が高すぎると黒い斑点が出ることがある。",
+   "src": "ncsu",
+   "quote": "Black spot may occur when the humidity is too high."
+  }
+ ]
+}

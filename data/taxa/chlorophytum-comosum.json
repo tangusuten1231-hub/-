@@ -1,0 +1,104 @@
+{
+ "id": "chlorophytum-comosum",
+ "rank": "species",
+ "scientificName": "Chlorophytum comosum",
+ "names": {
+  "ja": "オリヅルラン",
+  "aliases": [
+   "クロロフィツム",
+   "スパイダープラント"
+  ]
+ },
+ "refs": {
+  "ncsu": "chlorophytum-comosum"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Spider plant prefers medium light levels yet can tolerate deep shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Spider plant prefers medium light levels yet can tolerate deep shade."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Keep temperatures above 45 degrees F.",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "medium air humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It grows best in moist soil"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering during winter."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水道水の塩素やフッ素で葉先が枯れることがある。",
+   "src": "ncsu",
+   "quote": "Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn."
+  },
+  {
+   "ja": "肥料を与えすぎると子株がつきにくくなる。",
+   "src": "ncsu",
+   "quote": "Do not over-fertilize, as this decreases plantlet formation."
+  },
+  {
+   "ja": "子株は、1日の明るい時間が12時間未満の日が3週間以上続くとつく（夜に照明を当てない）。",
+   "src": "ncsu",
+   "quote": "less than 12 hours of light a day"
+  }
+ ]
+}

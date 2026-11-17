@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3038724",
+ "retrieved": "2026-11-17",
+ "query": "Heptapleurum arboricola",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3038724,
+ "acceptedKey": 3038724,
+ "acceptedName": "Heptapleurum arboricola",
+ "authorship": "Hayata",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Heptapleurum",
+ "synonyms": [
+  "Heptapleurum arboriculum",
+  "Heptapleurum sasakii",
+  "Schefflera arboricola"
+ ]
+}

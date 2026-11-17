@@ -1,0 +1,224 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/anthurium-andraeanum/",
+ "slug": "anthurium-andraeanum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Anthurium andraeanum",
+ "commonNames": [
+  "Anthurium",
+  "Flamingo Flower",
+  "Flamingo Lily",
+  "Laceleaf",
+  "Painter's Palette",
+  "Tail Flower"
+ ],
+ "description": "The Flamingo Flower is a strikingly beautiful and popular perennial houseplant that is native to tropical Colombia and Ecuador. It thrives in warm, humid, and shaded rainforests. In its native habitat, it grows as an epiphyte. As a houseplant, the plant will grow 1 to 1.5 feet tall and 9 to 12 inches wide. The leaves are large, glossy, heart-shaped, dark green, and up to 12 inches long. The flowers are glossy, heart-shaped spathes that may be red, pink, orange, or white with a straight white or cream-colored spadix with tiny flowers. After blooming, berry-like fruits appear, but houseplants rarely produce fruits. The Flamingo Flower is a member of the arum family (Araceae). This plant prefers bright, indirect sunlight, moist, well-drained soil, and warm and humid conditions. Direct sun can scorch its leaves. It is best to water the plant when the top inch of the soil feels dry. They prefer temperatures between 65 to 80 degrees Fahrenheit and humidity of 60 to 80%. These plants do not tolerate cold drafts or sudden temperature changes. They are winter hardy in USDA plant hardiness zones 11 to 12. Liquid fertilizer is recommended weekly during the plant's growing season. Repot the plant every 2 to 3 years or when it appears rootbound. Repotting is recommended during the spring. The Flamingo Flower can be propagated by division or stem cuttings. The plants are not only decorative, but they also have air-purifying abilities by removing toxins from the air. The flowers of this plant are long-lasting as cut flowers and are very popular with florists. The Flamingo Flower is toxic if ingested by pets or humans. Consider using this tropical plant in your home or office out of the reach of small children or pets. Insects, Diseases, and Other Plant Problems: Monitor for aphids, spider mites, mealybugs, and scales. Overwatering can cause root rot. Leaf spots can occur if there is poor air circulation or if the foliage gets wet. Insufficient light or nutrient deficiencies can decrease flower production. Yellowing leaves may occur from overwatering, poor drainage, or lack of nutrients. More information on Anthurium .",
+ "cultivars": [
+  {
+   "name": "Acropolis",
+   "note": "large, glossy white spathe, spadix is creamy-white at the base and pale yellow at the tip"
+  },
+  {
+   "name": "Baron",
+   "note": "compact habit, glossy green leaves, spathe is pink in the center with green edges"
+  },
+  {
+   "name": "Cheers",
+   "note": "pink spathe"
+  },
+  {
+   "name": "Florida",
+   "note": "dark green leaves, bright red spathe, and spadix matures to yellow."
+  },
+  {
+   "name": "Midori",
+   "note": "green spathe"
+  },
+  {
+   "name": "Rosee Choco",
+   "note": "deep red spathe"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Anthurium"
+  ],
+  "Species": [
+   "andraeanum"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Colombia to Ecuador"
+  ],
+  "Distribution": [
+   "Native to Colombia and Ecuador; Introduced to Trinidad-Tobago, Venezuelan Antilles, and Windward Islands"
+  ],
+  "Play Value": [
+   "Attractive Flowers",
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 1 ft. 6 in.",
+   "Width: 0 ft. 9 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "The fruit is an elongated, fleshy berry. Indoor plants rarely produce fruits."
+  ],
+  "Flower Color": [
+   "Green",
+   "Pink",
+   "Red/Burgundy",
+   "Variegated",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Value To Gardener": [
+   "Good Cut",
+   "Long-lasting",
+   "Showy"
+  ],
+  "Flower Description": [
+   "The inflorescence includes creamy-yellow spadix with tiny flowers, and a spathe that is wide, flat, and has a waxy appearance. The spathe color varies from red, pink, green, or white, and some cultivars are variegated. The flowers are last up to 4 weeks, and the plant blooms multiple times a year in the proper conditions."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are simple, alternate, 8 to 12 inches long, heart-shaped, and dark green."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested, chewing and biting this plant will release toxins and cause symptoms that include drooling, oral pain, mouth, lip, and tongue swelling, difficulty swallowing, decreased appetite, and vomiting. Contac with the sap can cause irritation of the skin and eyes resulting in redness and stinging."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "problem for dogs",
+  "perennial",
+  "houseplant",
+  "herbaceous perennial",
+  "epiphytic",
+  "interesting flowers",
+  "problem for cats",
+  "tropical feel",
+  "contact dermatitis",
+  "container plant",
+  "interesting leaves",
+  "poisonous if ingested",
+  "interiorscape",
+  "erect",
+  "problem for children",
+  "acidic soils tolerant"
+ ]
+}

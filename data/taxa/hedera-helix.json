@@ -1,0 +1,86 @@
+{
+ "id": "hedera-helix",
+ "rank": "species",
+ "scientificName": "Hedera helix",
+ "names": {
+  "ja": "ヘデラ・ヘリックス",
+  "aliases": [
+   "アイビー",
+   "セイヨウキヅタ",
+   "イングリッシュアイビー"
+  ]
+ },
+ "refs": {
+  "ncsu": "hedera-helix"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    10,
+    25
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "estimate",
+    "reason": "出典の光の条件は日向から日陰まで幅広いため、室内では葉色がよく保てる明るい日陰を最適とした"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Full sun (6 or more hours of direct sunlight a day)"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン4（屋外で−30℃程度まで）とされるため、室内では凍らなければ問題ない。0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "寒さに強い温帯の植物のため、一般的な室温よりやや低めの範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に室内の湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に室内の水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "note": "屋外では侵略的になることがある（出典では Invasive Species）。庭に植えるときは注意。"
+}

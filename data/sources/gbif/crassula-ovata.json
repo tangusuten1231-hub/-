@@ -1,0 +1,28 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5362063",
+ "retrieved": "2026-11-17",
+ "query": "Crassula ovata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5362063,
+ "acceptedKey": 5362063,
+ "acceptedName": "Crassula ovata",
+ "authorship": "(Mill.) Druce",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Crassula",
+ "synonyms": [
+  "Cotyledon lutea",
+  "Cotyledon ovata",
+  "Crassula arborescens",
+  "Crassula argentea",
+  "Crassula articulata",
+  "Crassula lucens",
+  "Crassula nitida",
+  "Crassula obliqua",
+  "Crassula portulacea",
+  "Toelkenia ovata"
+ ]
+}

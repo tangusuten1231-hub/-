@@ -1,0 +1,100 @@
+{
+ "id": "ficus-benghalensis",
+ "rank": "species",
+ "scientificName": "Ficus benghalensis",
+ "names": {
+  "ja": "フィカス・ベンガレンシス",
+  "aliases": [
+   "ベンガルボダイジュ",
+   "ベンガレンシス"
+  ]
+ },
+ "refs": {
+  "ncsu": "ficus-benghalensis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "thrives in bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は室内では明るい間接光を勧めるため、強い日差しは避け朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers temperatures between 65 to 80 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The humidity level should range from 50 to 80%."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the top 2 to 3 inches of the soil feels dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "受け皿にたまった水は捨てる。",
+   "src": "ncsu",
+   "quote": "empty any excess water standing in the tray"
+  },
+  {
+   "ja": "湿度が低すぎると葉が裂けることがある。",
+   "src": "ncsu",
+   "quote": "Cracked leaves can occur if the humidity is too low."
+  }
+ ]
+}

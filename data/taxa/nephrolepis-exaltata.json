@@ -1,0 +1,100 @@
+{
+ "id": "nephrolepis-exaltata",
+ "rank": "species",
+ "scientificName": "Nephrolepis exaltata",
+ "names": {
+  "ja": "ネフロレピス",
+  "aliases": [
+   "ネフロレピス・エクサルタータ",
+   "タマシダの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "nephrolepis-exaltata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    21
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Plant in bright, indirect light and warmth"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は屋外の日陰にも耐えるとするが、室内では暗いと葉が間延びしやすいため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Plant in bright, indirect light and warmth"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "(60 to 70 degrees Fahrenheit)",
+    "fahrenheit": [
+     60,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "This fern needs high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist soil that should never be allowed to dry out"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "In the winter, reduce watering as the plant is dormant"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "キッチンや浴室の近くなど、湿度の高い場所に向く。",
+   "src": "ncsu",
+   "quote": "Place near kitchens and bathrooms for higher humidity"
+  },
+  {
+   "ja": "空気が乾くとカイガラムシやハダニがつきやすい。",
+   "src": "ncsu",
+   "quote": "Scales or spider mites can be a problem if the air around the plant is too dry."
+  }
+ ]
+}

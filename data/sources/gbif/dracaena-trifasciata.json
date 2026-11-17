@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/11041822",
+ "retrieved": "2026-11-17",
+ "query": "Dracaena trifasciata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 11041822,
+ "acceptedKey": 11041822,
+ "acceptedName": "Dracaena trifasciata",
+ "authorship": "(Prain) Mabb.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Sansevieria laurentii",
+  "Sansevieria trifasciata"
+ ]
+}

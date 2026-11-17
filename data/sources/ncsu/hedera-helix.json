@@ -1,0 +1,357 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/hedera-helix/",
+ "slug": "hedera-helix",
+ "retrieved": "2026-11-17",
+ "scientificName": "Hedera helix",
+ "commonNames": [
+  "Baltic Ivy",
+  "Branching Ivy",
+  "California Ivy",
+  "Common Ivy",
+  "English Ivy",
+  "Glacier Ivy",
+  "Hahn's Self Branching English Ivy",
+  "Needlepoint Ivy",
+  "Sweetheart Ivy"
+ ],
+ "description": "English ivy is a broadleaf evergreen, woody, vining, perennial ground cover in the ginseng family (Araliaceae) that rapidly grows 20 to 80 feet high and 3 to 50 feet wide. It is an invasive species in North Carolina that was introduced from Europe and Scandinavia east to Russia. In North America, English ivy is widespread in urban areas and disturbed forests. The plant grows in two stages. The juvenile stage is the climbing, spreading stage, producing thick green, glossy leaves on non-flowering stems with adventitious roots. The adult stage is the shrubby non-climbing stage in which stems do not spread or climb, but do produce clusters of greenish-white flowers in early fall followed by blue-black toxic berries. It spreads by division, root cutting, seed and stem cutting. Its aggressive and vining nature causes English ivy to climb trees and shrubs and will eventually kill them. In natural or forested areas it smothers the ground, preventing native wildflower, shrub and tree seedlings from sprouting. Once established, it is nearly impossible to eradicate and vines planted around homes easily crawl into unintended areas, curl around gutters, and damage painted surfaces, loose mortar and aluminum siding. The 80 foot height potential for this plant reflects a landscape plant. It is safer, in North Carolina, to grow English ivy as a houseplant. If grown outdoors, plant it in a patio container. This plant is problematic and landscape alternatives should be considered. Please see the suggestions in the left-hand column or this video created by Charlotte Glen as part of the Plants, Pests, and Pathogens series. Insects, Diseases and Other Plant Problems : English ivy is subject to aphids, mealybugs, caterpillars, mites, loopers and scale. Watch for leaf spots, canker, bacterial leaf spot, stem rot and powdery mildew.",
+ "cultivars": [
+  {
+   "name": "Arborescens",
+   "note": "grows to a 3 foot shrub, non-vining, ovate, unlobed leaves"
+  },
+  {
+   "name": "Baltica",
+   "note": "smaller leaves, hardy. good for erosion control"
+  },
+  {
+   "name": "Bulgaria",
+   "note": "hardy and drought resistant"
+  },
+  {
+   "name": "Buttercup",
+   "note": "slow-growing, leaves are butter yellow"
+  },
+  {
+   "name": "Glacier",
+   "note": "triangular leaves, gray and green and creamy white margins"
+  },
+  {
+   "name": "Gnome",
+   "note": "petite, slow-growing, 3-lobed, triangular blackish to silvery-green leaves with a light border, dark maroon stems"
+  },
+  {
+   "name": "Gold Child' or 'Goldchild",
+   "note": "gray-green leaves that are edged with bright gold"
+  },
+  {
+   "name": " Green California",
+   "note": "deep green foliage without variegation"
+  },
+  {
+   "name": "Hibernica",
+   "note": "larger, shiny leaves, popular form"
+  },
+  {
+   "name": "Ivalace",
+   "note": "dark, shiny, 5 lobed leaves with wavy or curly edges"
+  },
+  {
+   "name": "Midas Touch",
+   "note": "green variegated with gold, 8\" tall by 8' wide, less invasive"
+  },
+  {
+   "name": "Variegated",
+   "note": "Lobed green leaves with creamy-white or pale margins."
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Hedera"
+  ],
+  "Species": [
+   "helix"
+  ],
+  "Family": [
+   "Araliaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Historically, English ivy was used as a topical agent for its antifungal and antimicrobial properties."
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Root Cutting",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Europe, Scandinavia east to Russia"
+  ],
+  "Distribution": [
+   "Argentina, Morocco, New South Wales, New Zealand, Queensland, South Australia, Tasmania, United States, Victoria, and Western Australia"
+  ],
+  "Fire Risk Rating": [
+   "low flammability"
+  ],
+  "Climbing Method": [
+   "Clinging",
+   "Tendrils"
+  ],
+  "Edibility": [
+   "Leaves and berries are toxic to humans."
+  ],
+  "Dimensions": [
+   "Height: 20 ft. 0 in. - 80 ft. 6 in.",
+   "Width: 3 ft. 0 in. - 50 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Vine",
+   "Weed"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Ascending",
+   "Climbing",
+   "Creeping",
+   "Prostrate"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "24-60 feet",
+   "more than 60 feet"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Mountains",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b, 13a, 13b"
+  ],
+  "Fruit Color": [
+   "Black",
+   "Blue"
+  ],
+  "Display/Harvest Time": [
+   "Fall"
+  ],
+  "Fruit Type": [
+   "Aggregate",
+   "Berry",
+   "Drupe"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Conspicuous cluster of black berry-like drupes."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Umbel"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Flowers small, greenish-yellow, 5-parted. An umbel or compound umbels. Only occur on mature branches."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Palmasect"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Evergreen, 3-5 palmate lobes with palmate venation when juvenile, ovate to rhombic on mature/adult branches borne well off the ground; leaves dark green above and lustrous, prominently whitish-gray becoming lighter green with age borne adjacent to major veins. Leaves are typically 4 inches long × 2.5 to 5 inches wide."
+  ],
+  "Bark Color": [
+   "Green"
+  ],
+  "Surface/Attachment": [
+   "Exfoliating"
+  ],
+  "Bark Plate Shape": [
+   "Round"
+  ],
+  "Bark Description": [
+   "Usually not visible under leaf cover unless plant is climbing a structure or tree."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Buds": [
+   "Smooth/Hairless"
+  ],
+  "Stem Bud Terminal": [
+   "Only 1 terminal bud, smaller than side buds"
+  ],
+  "Stem Cross Section": [
+   "Round"
+  ],
+  "Stem Form": [
+   "Straight"
+  ],
+  "Stem Description": [
+   "Produces adventitious roots for climbing. Individual English ivy plants may have both juvenile and adult stems. The juvenile phase typically forms the ground cover. Juvenile English ivy begins to climb when vertical structure is available (e.g., trees, shrubs, buildings, utility poles), and vertical stems transition to the adult phase."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Attracts": [
+   "Songbirds"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Heavy Shade",
+   "Salt"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Invasive Species",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses",
+   "Weedy"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "Contact with plant cell sap causes severe skin irritation with redness, itching, and blisters. Ingestion of berries causes burning sensation in the throat. Ingestion of leaves can result in delirium, stupor, convulsions, hallucinations, fever and rash, vomiting, abdominal pain, hypersalivation, and diarrhea. Foliage is more toxic than berries. English ivy contains allergens that may affect humans."
+  ],
+  "Poison Toxic Principle": [
+   "Triterpenoid saponins and polyacetylene compounds"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "apvg",
+  "invasive",
+  "evergreen",
+  "poisonous",
+  "perennial weed",
+  "fantz",
+  "problem for cats",
+  "apvg-vg",
+  "problem for dogs",
+  "problem for horses",
+  "deer browsing plant",
+  "drought tolerant",
+  "glossy leaves",
+  "evergreen vine",
+  "aggressive",
+  "contact dermatitis",
+  "dense growth",
+  "landscape plant sleuths course",
+  "high maintenance",
+  "cpp",
+  "houseplant",
+  "hortcontest",
+  "fpp",
+  "th-wildlife",
+  "th-smell"
+ ]
+}

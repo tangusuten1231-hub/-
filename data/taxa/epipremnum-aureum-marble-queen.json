@@ -1,0 +1,29 @@
+{
+ "id": "epipremnum-aureum-marble-queen",
+ "rank": "cultivar",
+ "parent": "epipremnum-aureum",
+ "cultivar": "Marble Queen",
+ "names": {
+  "ja": "ポトス・マーブルクイーン"
+ },
+ "care": {
+  "light": {
+   "min": "medium"
+  }
+ },
+ "evidence": {
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Low light can cause loss of variegation."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "緑の葉と茎に白い斑が大理石模様に入る。",
+   "src": "ncsu",
+   "quote": "green leaves and stems that are marbled with white"
+  }
+ ]
+}

@@ -1,0 +1,414 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/aglaonema/",
+ "slug": "aglaonema",
+ "retrieved": "2026-11-17",
+ "scientificName": "Aglaonema",
+ "commonNames": [
+  "Chinese Evergreen",
+  "Golden Evergreen",
+  "Philippine Evergreen",
+  "Poison Dart Plant"
+ ],
+ "description": "Chinese evergreen is an herbaceous perennial in the Araceae (arum) family and is native to the tropical and subtropical areas of Southeast Asia and New Guinea. There are 26 species in the genus and many cultivars. It is commonly grown as a houseplant and is one of the easiest to grow in the home or office. This tropical shrub grows to 1.5 feet, is erect and bushy, and resembles a dumb cane ( Dieffenbachia ). The tendency to have only 5-8 main lateral veins distinguishes it from Dieffenbachi a. It has lance-shaped leaves that reach 4 to 8 inches long and 2 to 3 inches wide and that may be attractively variegated with white, silver, pink and/or red. It may produce a white spadix and greenish-white spathe, but houseplants may not flower if the light level is low. Red clusters of berries follow the blooms. The plant does well in diffuse sun or good indirect light and prefers high humidity but will tolerate dryer air. Keep the potting mix moist from spring to fall. It does not require a winter dormancy period but prefers a reduction in watering during the winter. Remove flowers and fruits to direct energy to plant growth. It is intolerant of cold temperatures and prefers a daytime temperature in the 70 to 80-degree F range. The plant tends to get leggy with age as the stem grows. It is an excellent plant for low-light, indoor locations; it can also be used outdoors as a filler plant or low hedge in warm regions. Grow it in an Asian or shade garden, in a container, beside a patio or walkway, or in a woodland setting. Quick ID Hints: Lanceolate leaves are green and variegated with yellow/cream, grey, or pink/red Leaves contain 5&ndash;8 main lateral veins Inflorescence is white spadix and greenish-white spathe Stem is present, becoming sugarcane-like with age Insects, Diseases, and Other Plant Problems: There are no serious disease or insect problems, but watch for aphids, mealybugs, spider mites, and scale. Root rots can occur with over-watering; allow the medium to dry between waterings and avoid using cold water. The leaves may turn brown in very dry air or a drafty location. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Aglaonema commutatum 'Crete",
+   "note": "green leaves with splashes and borders of burgundy red with pale pink stems"
+  },
+  {
+   "name": "Aglaonema commutatum 'Frasher",
+   "note": "leaves are milky green with cream variegation and white petioles"
+  },
+  {
+   "name": "Aglaonema commutatum 'Maria",
+   "note": "dark green leaves with silver stripes, shade tolerant"
+  },
+  {
+   "name": "Aglaonema commutatum (Philippine Evergreen)",
+   "note": "elliptic dark green lance-shaped leaves that reach 4-12\" long and 2-4\" wide"
+  },
+  {
+   "name": "Aglaonema commutatum 'Pseudobracteatum",
+   "note": "leaves are with spattered gray-green, leaf veins are highlighted in white"
+  },
+  {
+   "name": "Aglaonema commutatum 'Silver Bay",
+   "note": "green foliage with silver tinges in the center of the leaf"
+  },
+  {
+   "name": "Aglaonema commutatum 'Treubii",
+   "note": "narrow grayish-green leaves, spotted with pale green or yellowish green"
+  },
+  {
+   "name": "Aglaonema commutatum 'White Rajah",
+   "note": "leaves have massive amount of white coloration throughout."
+  },
+  {
+   "name": "Aglaonema modestum 'BJ Freeman",
+   "note": "light green leaves with grayish-green flecks along the midribs and margins"
+  },
+  {
+   "name": "Aglaonema modestum (Chinese Evergreen)",
+   "note": "leaves large, up to 10 inches long, often variegated"
+  },
+  {
+   "name": "Aglaonema nitidum (Burmese Evergreen)",
+   "note": "colorful deeply channeled petioles with narrowly oblong to oblanceolate-elliptic leaves"
+  },
+  {
+   "name": "Aglaonema nitidum 'Curtissii",
+   "note": "leaves are striped silver along the primary veins"
+  },
+  {
+   "name": "Aglaonema nitidum 'Ernesto's Favourite",
+   "note": "green leaves with a board silver stripe on the midrib"
+  },
+  {
+   "name": "Aglaonema nitidum 'Silver King",
+   "note": "prominent silver variegation on the leaves with only splashes of green"
+  },
+  {
+   "name": "Aglaonema pictum",
+   "note": "compact, bushy habit, grows up 1-2 feet tall, and 1-2 feet wide"
+  },
+  {
+   "name": "Aglaonema pictum 'Tricolor",
+   "note": "distinctive, camouflage pattern of foliage in green, silver, and light green"
+  },
+  {
+   "name": "Butterfly",
+   "note": "bright green leaf with light yellow specks, pink stripe in the center, and pink stems"
+  },
+  {
+   "name": "Chocolate",
+   "note": "dark green leaves with burgundy red veins"
+  },
+  {
+   "name": "Cutlass",
+   "note": "long, streaked leaves of creamy greenish-white with a dark green center and edges"
+  },
+  {
+   "name": "Diamond Bay",
+   "note": "long, lanced-shaped green leaves that have a silvery green center"
+  },
+  {
+   "name": "Emerald Bay",
+   "note": "prominent center, silvery green leaves with a bright green border"
+  },
+  {
+   "name": "Favonian",
+   "note": "pink leaves with green leaf edging, green veins and stems"
+  },
+  {
+   "name": "Golden Fluorite",
+   "note": "dark green to pale yellow leaves, pink center"
+  },
+  {
+   "name": "Golden Madonna",
+   "note": "emerald green, lanceolate leaves, patterned with splashes of white and gold, white stems"
+  },
+  {
+   "name": "Green Bowl",
+   "note": "dark green leaf margins with silverish center and yellowish white mid-rib"
+  },
+  {
+   "name": "Green Papaya",
+   "note": "variegated leaves of green and yellowish- green, pink stems"
+  },
+  {
+   "name": "Harlequin",
+   "note": "dark green leaves mottled with yellow and pink veins"
+  },
+  {
+   "name": "Jubilee",
+   "note": "glossy, lance-shaped variegated leaves of green and silver"
+  },
+  {
+   "name": "Lady Valentine",
+   "note": "showy pink and green leaves"
+  },
+  {
+   "name": "Lucky Red",
+   "note": "new leaves are pale pink, becomes hot pink, and then darkens to red"
+  },
+  {
+   "name": "Pink Dalmation",
+   "note": "large foliage with pink spots scattered over the leaves"
+  },
+  {
+   "name": "Prestige",
+   "note": "green and pink leaves with dark pink center"
+  },
+  {
+   "name": "Red Anjamani",
+   "note": "bright red, lance-shaped leaves with thin green edges"
+  },
+  {
+   "name": "Red Emerald",
+   "note": "emerald green leaves that are speckled with amber spots and red center"
+  },
+  {
+   "name": "Red Gold",
+   "note": "green leaves that are rimmed in red, stems and leaf veins are tinged with red"
+  },
+  {
+   "name": "Red Ruby",
+   "note": "green leaves with large splashes of pink"
+  },
+  {
+   "name": "Red Zircon",
+   "note": "pinkish red leaves with green edges, rare variety"
+  },
+  {
+   "name": "Siam Aurora",
+   "note": "green leaves that have deep crimson on both the veins and edges"
+  },
+  {
+   "name": "Silver Queen",
+   "note": "dark green leaves with silver-gray variegation, green margins and veins"
+  },
+  {
+   "name": "Sparkling Sarah",
+   "note": "pink stems, leaves are large, bright green with splashes of pink"
+  },
+  {
+   "name": "Spring Snow",
+   "note": "cream colored leaves speckled with a green pattern"
+  },
+  {
+   "name": "Suzy",
+   "note": "low light tolerant, green leaves with splashes of pink coloring"
+  },
+  {
+   "name": "Tigress",
+   "note": "green leaves with white and green striations"
+  },
+  {
+   "name": "Wishes",
+   "note": "pink to red foliage"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Aglaonema"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Northeast India to Papua New Guinea"
+  ],
+  "Distribution": [
+   "Native: Assam, Bangladesh, Borneo, Cambodia, China, East Himalaya, Jawa, Laos, Malaya, Myanmar, New Guinea, Philippines, Sumatra, Thailand, and Vietnam. Introduced: Cuba, India, Puerto Rico, Trinidad-Tobago, United States, Venezuelan Antilles"
+  ],
+  "Fire Risk Rating": [
+   "low flammability"
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "high humidity"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 1 ft. 8 in.",
+   "Width: 1 ft. 0 in. - 1 ft. 6 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Dense",
+   "Erect",
+   "Multi-stemmed"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10b, 11a, 11b"
+  ],
+  "Fruit Color": [
+   "Red/Burgundy"
+  ],
+  "Fruit Value To Gardener": [
+   "Showy"
+  ],
+  "Display/Harvest Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "Red clusters of berries follow the blooms. A globose to cylindroid berry, green ripening to white or red."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "Blooms rarely as a houseplant in the late summer or early fall with a whitish-yellow spadix with yellow-green spathe. Cylindrical to club-shaped; spathe, stalked, ovate, greenish to yellow."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Gray/Silver",
+   "Green",
+   "Pink",
+   "Red/Burgundy",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Other/more complex"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "It has elliptic dark green lance-shaped leaves that reach 4-12\" long and 2-4\" wide. Alternate, simple, oblong-lanceolate, acute, cuneate, entire, often with banded yellow-white, grey-white, or pink-red along primary veins or spotted. Veins are curved and minor veins are not visible. Petioles are sometimes white and shorter than the leaf length."
+  ],
+  "Stem Color": [
+   "Gray/Silver",
+   "Green",
+   "Pink",
+   "White"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Attractive silver-gray blotches appear on upright stems, usually white or green, sometimes with a pink cast. Erect, becoming decumbent, encircled with leaf scars."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio",
+   "Small Space",
+   "Walkways",
+   "Woodland"
+  ],
+  "Landscape Theme": [
+   "Asian Garden",
+   "Shade Garden"
+  ],
+  "Resistance To Challenges": [
+   "Heavy Shade",
+   "Humidity"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "This plant contains calcium oxalate crystals, which are toxic if ingested or if the juice/sap is touched (dermatitis). More so a concern for dogs, cats, and horses but can also a concern for humans. Animals may have the following symptoms: struggle to swallow, irritated/painful--even burning/swelling mouth (including lips and tongue and esophagus), may vomit, foam at the mouth, and much drooling. To humans and animals, it is poisonous if ingested (or if the juice from the plant is touched). Other symptoms (more so for humans) include a rash, pain where the rash is, and mucous membranes irritated."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "low light",
+  "houseplant",
+  "silver",
+  "dappled sunlight",
+  "dark green",
+  "fantz",
+  "evergreen",
+  "humidity tolerant",
+  "ebh-h",
+  "ebh",
+  "interiorscape",
+  "tropical feel",
+  "spadix",
+  "container plant",
+  "hsc",
+  "hsc-f",
+  "perennial",
+  "variegated",
+  "patio"
+ ]
+}

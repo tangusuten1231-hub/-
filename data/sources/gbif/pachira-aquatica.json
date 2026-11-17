@@ -1,0 +1,33 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3152235",
+ "retrieved": "2026-11-17",
+ "query": "Pachira aquatica",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3152235,
+ "acceptedKey": 3152235,
+ "acceptedName": "Pachira aquatica",
+ "authorship": "Aubl.",
+ "rank": "SPECIES",
+ "family": "Malvaceae",
+ "genus": "Pachira",
+ "synonyms": [
+  "Bombax aquaticum",
+  "Bombax macrocarpum",
+  "Bombax rigidifolium",
+  "Carolinea grandiflora",
+  "Carolinea macrocarpa",
+  "Carolinea princeps",
+  "Pachira carolinea",
+  "Pachira grandiflora",
+  "Pachira longiflora",
+  "Pachira longifolia",
+  "Pachira macrocarpa",
+  "Pachira pustulifera",
+  "Pachira villosula",
+  "Pachira villulosa",
+  "Sophora carolina"
+ ]
+}

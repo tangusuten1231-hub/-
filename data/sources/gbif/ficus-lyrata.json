@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5361899",
+ "retrieved": "2026-11-17",
+ "query": "Ficus lyrata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5361899,
+ "acceptedKey": 5361899,
+ "acceptedName": "Ficus lyrata",
+ "authorship": "Warb.",
+ "rank": "SPECIES",
+ "family": "Moraceae",
+ "genus": "Ficus",
+ "synonyms": [
+  "Ficus jollyana",
+  "Ficus pandurata"
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "id": "monstera-deliciosa",
+ "rank": "species",
+ "scientificName": "Monstera deliciosa",
+ "names": {
+  "ja": "モンステラ・デリシオサ",
+  "aliases": [
+   "モンステラ",
+   "ホウライショウ"
+  ]
+ },
+ "refs": {
+  "ncsu": "monstera-deliciosa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "moderate brightness but not direct sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "moderate brightness but not direct sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "average warm temperature of 60 to 85 degrees F",
+    "fahrenheit": [
+     60,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "and high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water this plant thoroughly, then allow the top quarter to one-third part to dry between watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "しっかりした支柱がないと茎が折れやすい。",
+   "src": "ncsu",
+   "quote": "Sturdy support is necessary to prevent the stems from breaking."
+  },
+  {
+   "ja": "剪定や植え替えは春に。葉のほこりはこまめに拭き取る。",
+   "src": "ncsu",
+   "quote": "Prune or re-pot if needed in the spring and wipe dust off of the leaves regularly."
+  },
+  {
+   "ja": "斑入りの品種は緑葉のものより多くの光が必要。",
+   "src": "ncsu",
+   "quote": "Variegated cultivars will need more sunlight than darker green cultivars."
+  }
+ ]
+}

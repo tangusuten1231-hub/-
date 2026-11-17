@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2769937",
+ "retrieved": "2026-11-17",
+ "query": "Aspidistra elatior",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2769937,
+ "acceptedKey": 2769937,
+ "acceptedName": "Aspidistra elatior",
+ "authorship": "Blume",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Aspidistra",
+ "synonyms": []
+}

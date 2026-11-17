@@ -1,0 +1,16 @@
+{
+ "id": "philodendron-hederaceum-brasil",
+ "rank": "cultivar",
+ "parent": "philodendron-hederaceum",
+ "cultivar": "Brasil",
+ "names": {
+  "ja": "フィロデンドロン・ブラジル"
+ },
+ "tips": [
+  {
+   "ja": "葉の中央に黄色〜黄緑の斑が入る。",
+   "src": "ncsu",
+   "quote": "variegated center stripe of yellow to light green"
+  }
+ ]
+}

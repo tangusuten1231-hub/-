@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2734661",
+ "retrieved": "2026-11-17",
+ "query": "Chamaedorea elegans",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2734661,
+ "acceptedKey": 2734661,
+ "acceptedName": "Chamaedorea elegans",
+ "authorship": "Mart.",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Chamaedorea",
+ "synonyms": [
+  "Chamaedorea deppeana",
+  "Chamaedorea helleriana",
+  "Chamaedorea pulchella",
+  "Collinia deppeana",
+  "Collinia elegans",
+  "Kunthia deppei",
+  "Neanthe bella",
+  "Neanthe elegans",
+  "Neanthe neesiana",
+  "Nunnezharia elegans",
+  "Nunnezharia pulchella",
+  "Nunnezharoa elegans",
+  "Nunnezharoa pulchella"
+ ]
+}

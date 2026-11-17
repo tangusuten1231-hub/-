@@ -1,0 +1,103 @@
+{
+ "id": "pachira-aquatica",
+ "rank": "species",
+ "scientificName": "Pachira aquatica",
+ "names": {
+  "ja": "パキラ",
+  "aliases": [
+   "パキラ・アクアティカ",
+   "マネーツリー"
+  ]
+ },
+ "refs": {
+  "ncsu": "pachira-aquatica"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The money tree prefers indirect sunlight or a mix of sun and shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Leaf scorch can occur from exposure to direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "the tree should be brought indoors before temperatures drop to 45 degrees Fahrenheit",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "thrives in a humid environment"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Standing water is not tolerated and can cause root rot."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Leaf drop can occur if the soil is too dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "つやのある葉が黄色くなるのは、湿度不足か肥料不足のことがある。",
+   "src": "ncsu",
+   "quote": "Yellow leaves can occur if the humidity is too low or inadequate nutrients in the soil."
+  }
+ ],
+ "note": "日本で流通するパキラには近縁の Pachira glabra（パキラ・グラブラ）も多い。育て方の情報は P. aquatica のもの。"
+}

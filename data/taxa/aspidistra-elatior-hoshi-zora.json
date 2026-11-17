@@ -1,0 +1,19 @@
+{
+ "id": "aspidistra-elatior-hoshi-zora",
+ "rank": "cultivar",
+ "parent": "aspidistra-elatior",
+ "cultivar": "Hoshi-zora",
+ "names": {
+  "ja": "ハラン‘星空’",
+  "aliases": [
+   "ホシゾラ"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "緑の葉に黄色や白の点が散る。",
+   "src": "ncsu",
+   "quote": "green leaves that are speckled with yellow or white dots"
+  }
+ ]
+}

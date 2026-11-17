@@ -1,0 +1,104 @@
+{
+ "id": "tradescantia-zebrina",
+ "rank": "species",
+ "scientificName": "Tradescantia zebrina",
+ "names": {
+  "ja": "トラデスカンチア・ゼブリナ",
+  "aliases": [
+   "シマムラサキツユクサ",
+   "ゼブリナ"
+  ]
+ },
+ "refs": {
+  "ncsu": "tradescantia-zebrina"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It does best in filtered sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "In areas providing low lighting, the stems can lose their lower leaves"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "When located in full sunlight, the greatest color intensity can be appreciated."
+   },
+   {
+    "src": "ncsu",
+    "quote": "the sun can wash out the color"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされ、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "This plant will thrive in temperatures between 65 to 75 degrees",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "tolerates the average home humidity levels as well as high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant regularly, but allow the soil to dry out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering during the winter months"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水やりのとき葉をぬらすと病気が出やすい。",
+   "src": "ncsu",
+   "quote": "getting the leaves wet during watering"
+  },
+  {
+   "ja": "汁で皮ふがかぶれることがある。",
+   "src": "ncsu",
+   "quote": "They also have a watery sap that can cause skin irritation."
+  }
+ ]
+}

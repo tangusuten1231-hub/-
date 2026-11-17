@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2867866",
+ "retrieved": "2026-11-17",
+ "query": "Syngonium podophyllum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2867866,
+ "acceptedKey": 2867866,
+ "acceptedName": "Syngonium podophyllum",
+ "authorship": "Schott",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Syngonium",
+ "synonyms": [
+  "Pothos auritus",
+  "Syngonium vellozoanum"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2872695",
+ "retrieved": "2026-11-17",
+ "query": "Anthurium andraeanum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2872695,
+ "acceptedKey": 2872695,
+ "acceptedName": "Anthurium andraeanum",
+ "authorship": "Linden ex André",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Anthurium",
+ "synonyms": [
+  "Anthurium venustum"
+ ]
+}

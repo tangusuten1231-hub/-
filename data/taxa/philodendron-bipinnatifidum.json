@@ -1,0 +1,98 @@
+{
+ "id": "philodendron-bipinnatifidum",
+ "rank": "species",
+ "scientificName": "Philodendron bipinnatifidum",
+ "names": {
+  "ja": "セローム",
+  "aliases": [
+   "フィロデンドロン・セローム",
+   "ヒトデカズラ",
+   "タウマトフィルム"
+  ]
+ },
+ "refs": {
+  "ncsu": "philodendron-bipinnatifidum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers high light and moderate humidity but tolerates low light conditions."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers high light and moderate humidity but tolerates low light conditions."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "full sun can cause leaf scorch"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は60°F（16℃）を下回ったら室内へ入れるとするが、傷む温度の記載ではない。耐寒ゾーン9a（屋外で−6℃程度まで）とされ、国内の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers high light and moderate humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Root rot can occur in overly damp soil though they do not tolerate drought"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "塩類がたまるのを嫌う。ときどき鉢土を水で洗い流す。",
+   "src": "ncsu",
+   "quote": "It does not tolerate salt buildup, so flush soil regularly"
+  },
+  {
+   "ja": "暗い場所や水のやりすぎで、葉が小さく切れ込みも少なくなる。",
+   "src": "ncsu",
+   "quote": "Low light and over-watering will cause leaves to be smaller with fewer or no lobes."
+  }
+ ],
+ "note": "近年は Thaumatophyllum bipinnatifidum（タウマトフィルム属）に分類されることも多い。"
+}

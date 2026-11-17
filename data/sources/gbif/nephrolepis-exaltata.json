@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2650927",
+ "retrieved": "2026-11-17",
+ "query": "Nephrolepis exaltata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2650927,
+ "acceptedKey": 2650927,
+ "acceptedName": "Nephrolepis exaltata",
+ "authorship": "(L.) Schott",
+ "rank": "SPECIES",
+ "family": "Nephrolepidaceae",
+ "genus": "Nephrolepis",
+ "synonyms": [
+  "Aspidium exaltatum",
+  "Aspidium flagelliferum",
+  "Nephrodium exaltatum"
+ ]
+}

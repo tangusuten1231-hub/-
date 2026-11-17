@@ -1,0 +1,16 @@
+{
+ "id": "asplenium-nidus-osaka",
+ "rank": "cultivar",
+ "parent": "asplenium-nidus",
+ "cultivar": "Osaka",
+ "names": {
+  "ja": "アスプレニウム‘オオサカ’"
+ },
+ "tips": [
+  {
+   "ja": "細い帯状の葉で、縁が波打つ。",
+   "src": "ncsu",
+   "quote": "narrow, strap-like leaves with rippled margins"
+  }
+ ]
+}

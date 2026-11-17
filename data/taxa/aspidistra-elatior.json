@@ -1,0 +1,91 @@
+{
+ "id": "aspidistra-elatior",
+ "rank": "species",
+ "scientificName": "Aspidistra elatior",
+ "names": {
+  "ja": "ハラン",
+  "aliases": [
+   "葉蘭",
+   "アスピディストラ"
+  ]
+ },
+ "refs": {
+  "ncsu": "aspidistra-elatior"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    10,
+    25
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Cast iron plants prefer partial to full shade and are intolerant of direct sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It is a good specimen for planting in dense shade."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Cast iron plants prefer partial to full shade and are intolerant of direct sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン7a（屋外で−17℃程度まで）とされ屋外でも越冬するため、室内では凍らなければ問題ない。0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "寒さに強い植物のため、一般的な室温よりやや低めの範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water regularly spring to autumn"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "sparingly in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "乾燥ややせた土にも耐える、とても丈夫な植物。",
+   "src": "ncsu",
+   "quote": "it can tolerate dry and nutrient-poor soils"
+  }
+ ]
+}

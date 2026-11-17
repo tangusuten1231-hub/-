@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/10965694",
+ "retrieved": "2026-11-17",
+ "query": "Philodendron bipinnatifidum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 10965694,
+ "acceptedKey": 10965694,
+ "acceptedName": "Philodendron bipinnatifidum",
+ "authorship": "Schott ex Kunth, 1841",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Philodendron",
+ "synonyms": []
+}

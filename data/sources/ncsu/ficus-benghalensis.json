@@ -1,0 +1,240 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/ficus-benghalensis/",
+ "slug": "ficus-benghalensis",
+ "retrieved": "2026-11-17",
+ "scientificName": "Ficus benghalensis",
+ "commonNames": [
+  "Ara Banyan",
+  "Banyan Tree",
+  "Bengal Fig",
+  "East Indian Fig Tree",
+  "Indian Banyan Tree",
+  "Strangler Fig"
+ ],
+ "description": "The Bengal fig is large evergreen tree with horizontal branches, descending aerial roots, and a huge fluted trunk. It is the national tree of India and is native to India, Pakistan, East Himalaya, Nepal, and Sri Lanka. This species is found in tropical and sub-tropical forests, and it is one of the world's largest trees based on canopy size, and some of the trees are thousands of years old. It begins as an epiphyte and eventually smothers its host tree. It can grow up to 100 feet tall, has a wide spreading crown, and aerial roots that turn into woody trunks. It is usually planted for shade; however, it has become a serious weed problem since being introduced in Florida. There are cultivars available that are much smaller and are popular as houseplants in colder climates. The genus name, Ficus , is Latin and means fig. The specific epithet, benghalensis , is named after the Bengal region. It is a member of the mulberry or fig family (Moraceae). When planted as a houseplant, the Bengal fig tree thrives in bright, indirect sunlight and moist, well-drained soil that consists of a good quality potting mix with perlite and a neutral pH. Water the plant when the top 2 to 3 inches of the soil feels dry. Water it well, insure good drainage, and empty any excess water standing in the tray. Fertilize the plant with a liquid fertilizer during its growing season from spring through summer. The plant prefers temperatures between 65 to 80 degrees Fahrenheit and needs protection from cold drafts or sudden temperature changes. The humidity level should range from 50 to 80%. A humidifier near your plant would help maintain high humidity. The houseplant can be propagated by stem cuttings or air layering. The leaves of the Bengal fig are glossy, green, elliptical to ovate with light colored veins, and entire margins. The tiny male and female flowers are contained in a bulbous structure or receptacle that has a tiny hole or ostiole. Specialized pollinators, fig wasps, will squeeze through the ostiole and disperse the pollen and fertilize the female flowers. The flowers will produce small berry-like fruits. As a houseplant, this plant rarely flowers and is grown primarily for its ornamental foliage. This tree is sacred to the Hindus and Buddhists. It is often found planted near their temples. In the landscape, Bengal fig is used as a shade tree or street tree in parks and gardens. Birds are attracted to its ornamental fruits. 'Audrey' is a cultivar and a popular houseplant. It grows 1 to 2 feet tall and has attractive glossy, green leaves and requires minimal care. Its trunk and stems are smooth. Houseplants do not produce the aerial roots that are common in the wild. Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, scale insects, and fungus gnats. Root rot can occur from overwatering. Poor air circulation and excessive moisture can cause leaf spot that appears as brown and yellow spots that spread slowly on the leaves. Dry, light brown spots result from underwatering. Cracked leaves can occur if the humidity is too low. Be mindful as a houseplant, the Bengal fig is toxic if ingested. Keep out of the reach of pets or children. The sap of this plant can cause skin irritation; therefore, wearing protective gloves is recommended when handling this plant. When planted outdoors, the Bengal fig is fast-growing and can kill its host tree. Its root system can also damage infrastructure if planted near buildings. Control measures are difficult due to its epiphytic growth. More information on Ficus .",
+ "cultivars": [
+  {
+   "name": "Audrey",
+   "note": "popular houseplant, 1 to 2 feet tall, partial sun, easy to grow, white trunk, glossy green leaves, deep veins"
+  },
+  {
+   "name": "Chandelier® Happiness™",
+   "note": "2 to 4 feet tall, upright, medium green, oval-shaped leaves. light colored veins,"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Ficus"
+  ],
+  "Species": [
+   "benghalensis"
+  ],
+  "Family": [
+   "Moraceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "The Bengal fig is a sacred plant of India, China, and Southeast Asia and is also used for treating diabetes, snake bites, skin ailments, and digestive problems."
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "India Subcontinent and Andaman Islands"
+  ],
+  "Distribution": [
+   "Native: Andaman Islands, Assam, Bangladesh, East Himalaya, India, Laccadive Islands, Maldives, Nepal, Pakistan, and Sri Lanka. Introduced: Afghanistan, Chagos Archipelago, Gilbert Island, Iran, Jamaica, Laos, Marianas, Mauritius, Myanmar, Palestine, Queensland, Rodrigues, Réunion, St. Helena, Trinidad-Tobago, United States--Florida, and Vietnam."
+  ],
+  "Wildlife Value": [
+   "The fruits attracts birds. It is pollinated by the fig wasp, Eupristina masoni."
+  ],
+  "Play Value": [
+   "Attracts Pollinators",
+   "Easy to Grow",
+   "Shade",
+   "Wildlife Food Source"
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Houseplant",
+   "Poisonous",
+   "Tree",
+   "Vine"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Horizontal",
+   "Multi-stemmed",
+   "Multi-trunked",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "more than 60 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Orange",
+   "Red/Burgundy"
+  ],
+  "Display/Harvest Time": [
+   "Fall"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "The fruits occur in pairs at the leaf axils, and they are sessile and berry-like. They are spherical, hairy, and are 0.5 to 1 inches in diameter. They are red or orange when mature."
+  ],
+  "Flower Color": [
+   "Gold/Yellow"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Petals": [
+   "Tepals"
+  ],
+  "Flower Description": [
+   "The flowers are yellow, monoecious (both male and female flowers occur on the same plant). The flowers are borne within a structure known as a Synconium and are fertilized by wasps. The male flower has a stem and 2 to 3 tepals. The female flower is sessile with 3 or 4 tepals. The gall flowers have a stem and 3 or 4 tepals and is the site where the fig wasp lays her eggs. Flowers appear in the spring from March to April."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are green, leathery, elliptical to ovate with an acuminate tip, entire margins, smooth on the upper surface, and finely pubescent on the underside. The leaf measures 4 to 10 inches long and 4 to 8 inches wide, and the leaves are clustered at the branch tips. The petiole is stout and hairy."
+  ],
+  "Bark Color": [
+   "Light Brown"
+  ],
+  "Bark Description": [
+   "Initially the roots are aerial and then turn into woody trunks when they reach the soil. The aerial roots form from the branches and become secondary trunks. The trunk bark is brown and smooth."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Shade Tree",
+   "Street Tree"
+  ],
+  "Attracts": [
+   "Pollinators"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses",
+   "Weedy"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested by pets or humans, it can cause decreased appetite, drooling, nausea, vomiting, and diarrhea. The sap can irritate the skin."
+  ],
+  "Poison Toxic Principle": [
+   "Proteolytic enzyme and psoralen"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "wasps",
+  "evergreen tree",
+  "drought tolerant",
+  "street tree",
+  "interesting leaves",
+  "container plant",
+  "shade tree",
+  "problem for dogs",
+  "problem for cats",
+  "contact dermatitis",
+  "poisonous if ingested",
+  "problem for children",
+  "multitrunked",
+  "horizontal branching",
+  "multistemmed",
+  "spreading",
+  "erect"
+ ]
+}

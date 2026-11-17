@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2866350",
+ "retrieved": "2026-11-17",
+ "query": "Aglaonema",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2866350,
+ "acceptedKey": 2866350,
+ "acceptedName": "Aglaonema",
+ "authorship": "Schott",
+ "rank": "GENUS",
+ "family": "Araceae",
+ "genus": "Aglaonema",
+ "synonyms": []
+}

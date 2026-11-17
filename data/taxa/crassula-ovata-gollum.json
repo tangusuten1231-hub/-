@@ -1,0 +1,19 @@
+{
+ "id": "crassula-ovata-gollum",
+ "rank": "cultivar",
+ "parent": "crassula-ovata",
+ "cultivar": "Gollum",
+ "names": {
+  "ja": "クラッスラ‘ゴーラム’",
+  "aliases": [
+   "宇宙の木"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "筒状の葉で、先端が吸盤のように丸くくぼむ。",
+   "src": "ncsu",
+   "quote": "tubular leaves, leaf tips are circular like a small suction cup"
+  }
+ ]
+}

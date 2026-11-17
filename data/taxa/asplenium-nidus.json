@@ -1,0 +1,98 @@
+{
+ "id": "asplenium-nidus",
+ "rank": "species",
+ "scientificName": "Asplenium nidus",
+ "names": {
+  "ja": "アスプレニウム・ニドゥス",
+  "aliases": [
+   "シマオオタニワタリ",
+   "アビス"
+  ]
+ },
+ "refs": {
+  "ncsu": "asplenium-nidus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 4,
+   "idealC": [
+    16,
+    21
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Bright light or light shade, such as a north-facing window, is suitable."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Bright light or light shade, such as a north-facing window, is suitable."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Too much sun may turn it yellow or stop growth."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "will not survive temperatures below 40 degrees F",
+    "fahrenheit": [
+     40
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Ideal temperatures are 60 to 70 degrees F.",
+    "fahrenheit": [
+     60,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Using a pebble tray of water may be needed to provide adequate humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "This plant does not tolerate dry conditions"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "生育期は月に1回、薄めた液体肥料を与えるとよい。",
+   "src": "ncsu",
+   "quote": "Active growth periods may benefit from the monthly application of dilute liquid fertilizer."
+  }
+ ]
+}

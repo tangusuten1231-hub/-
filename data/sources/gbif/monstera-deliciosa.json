@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2868241",
+ "retrieved": "2026-11-17",
+ "query": "Monstera deliciosa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2868241,
+ "acceptedKey": 2868241,
+ "acceptedName": "Monstera deliciosa",
+ "authorship": "Liebm.",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Monstera",
+ "synonyms": [
+  "Monstera borsigiana",
+  "Monstera lennea",
+  "Monstera lenneana",
+  "Philodendron anatomicum",
+  "Philodendron fenestratum",
+  "Philodendron pertusum",
+  "Tornelia fragrans"
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "id": "syngonium-podophyllum",
+ "rank": "species",
+ "scientificName": "Syngonium podophyllum",
+ "names": {
+  "ja": "シンゴニウム",
+  "aliases": [
+   "シンゴニウム・ポドフィルム"
+  ]
+ },
+ "refs": {
+  "ncsu": "syngonium-podophyllum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "bright but shady locations"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid locations with full sun, as direct sunlight will tend to burn or bleach the foliage."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The ideal location will include a warm setting with high humidity."
+   },
+   {
+    "src": "estimate",
+    "reason": "「暖かい場所」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The ideal location will include a warm setting with high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "数年ごとに植え替えて根を整理すると大きさを保てる。",
+   "src": "ncsu",
+   "quote": "Repotting every few years and trimming the root system can keep the plant manageable."
+  }
+ ]
+}

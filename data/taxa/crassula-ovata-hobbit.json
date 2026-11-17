@@ -1,0 +1,16 @@
+{
+ "id": "crassula-ovata-hobbit",
+ "rank": "cultivar",
+ "parent": "crassula-ovata",
+ "cultivar": "Hobbit",
+ "names": {
+  "ja": "クラッスラ‘ホビット’"
+ },
+ "tips": [
+  {
+   "ja": "スプーン形の葉が内側に巻く。",
+   "src": "ncsu",
+   "quote": "spoon-shaped leaves that curl inwards"
+  }
+ ]
+}

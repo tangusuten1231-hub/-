@@ -1,0 +1,269 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/crassula-ovata/",
+ "slug": "crassula-ovata",
+ "retrieved": "2026-11-17",
+ "scientificName": "Crassula ovata",
+ "commonNames": [
+  "Baby Jade",
+  "Chinese rubber plant",
+  "Dwarf rubber plant",
+  "Jade Plant",
+  "Jade tree",
+  "Japanese rubber plant",
+  "Lucky Plant",
+  "Money Plant"
+ ],
+ "description": "Jade plant is a subtropical, broadleaf evergreen, flowering, succulent shrub in the stonecrop family. It is a native of South Africa and a popular, low maintenance, houseplant worldwide. The species name \"ovata\" means egg-shaped referring to the thick, fleshy leaves. As it matures, the plant takes the form of a miniature tree. Tiny pink flowers appear in the spring on plants grown outdoors.The genus name comes from the Latin crassus meaning thick, referring to the thick leaves. The species name means egg-shaped. Plant in well-drained potting soil that contains a lot of loam and place the pot in a sunny location indoors that also provides some afternoon shade. Bright light and average to cool indoor temperatures are also essential for good plant health. Water in moderation when the soil is dry and reduce watering from fall to late winter. It does not usually bloom in home environments. If grown outdoors, it should be located in a site with partial shade. Propagation is easily achieved by leaf cutting. Clemson University Home and Garden Information Center has a factsheet on Jade Plants. Quick ID Hints : Leaves are oval, succulent, and entire Stems are branched and thick with prominent stipular scars Leaves have scattered sunken stomata Diseases, Insect Pests, and Other Plant Problems: Aphids, scale, spider mites and mealybugs can be occasional problems. Leaf fall and root rot can result from over watering.",
+ "cultivars": [
+  {
+   "name": "Botany Bay",
+   "note": "compact, bushy, light greenish-yellow leaves with red tips"
+  },
+  {
+   "name": "Crosby's Compact",
+   "note": "compact habit, small, rounded leaves in shades of red, yellow, and orange"
+  },
+  {
+   "name": "Gollum",
+   "note": "tubular leaves, leaf tips are circular like a small suction cup"
+  },
+  {
+   "name": "Gollum Variegata",
+   "note": "variegated leaves of pale green and white"
+  },
+  {
+   "name": "Hobbit",
+   "note": "spoon-shaped leaves that curl inwards"
+  },
+  {
+   "name": "Hummel's Sunset",
+   "note": "shrub-like habit with yellowish-orange to red leaves"
+  },
+  {
+   "name": "Minima",
+   "note": "dwarf, small, rounded dark green leaves"
+  },
+  {
+   "name": "Pink Beauty",
+   "note": "pink flowers, small leaves tinged with red"
+  },
+  {
+   "name": "Red Coral",
+   "note": "bright reddish-orange tubular foliage"
+  },
+  {
+   "name": "Skinny Fingers",
+   "note": "long, thin, tubular-shaped green leaves"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Crassula"
+  ],
+  "Species": [
+   "ovata"
+  ],
+  "Family": [
+   "Crassulaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "South Africa"
+  ],
+  "Distribution": [
+   "Sometimes grown outdoors in California or the Iberian peninsula."
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 6 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Shrub",
+   "Succulent"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Multi-stemmed",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry",
+   "Very Dry"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Insignificant"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Description": [
+   "Pollinated flowers produce a small capsule filled with seed."
+  ],
+  "Flower Color": [
+   "Pink",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Shape": [
+   "Star"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays",
+   "Colored Sepals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "This plant rarely blooms as a houseplant but can form a 2-3 branched cyme with white flowers tinged with pink. They have 4-5 petals that are fused at the base and purple anthers. This plant has abundant terminal clusters of small white flowers following the development of pink sepal covered flower buds."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Red/Burgundy"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Opposite"
+  ],
+  "Leaf Shape": [
+   "Cuneate",
+   "Obovate",
+   "Obtuse",
+   "Orbicular"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The 1 to 3½ inch long and ¾ to 1½ inch wide oval leaves are thick, fleshy, and shiny. They are mid to dark green, stemless and the margins will acquire a red tint in direct sun. The leaves have scattered sunken stomata and tend to be clustered at the ends of the branches. This plant has succulent, flattened, obovate leaves on thick, brittle, succulent stems. Leaves are simple and nearly sessile."
+  ],
+  "Bark Color": [
+   "Dark Brown",
+   "Light Brown",
+   "Light Gray"
+  ],
+  "Surface/Attachment": [
+   "Peeling"
+  ],
+  "Bark Description": [
+   "The bark is woody, peeling with distinct rings called stipular scars."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Gray/Silver",
+   "Green",
+   "Red/Burgundy"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Cross Section": [
+   "Round"
+  ],
+  "Stem Form": [
+   "Straight"
+  ],
+  "Stem Surface": [
+   "Smooth (glabrous)"
+  ],
+  "Stem Description": [
+   "Branched, fleshy, and thick with distinct rings around the stem. New growth is green or reddish-brown while older growth has a more grey color. Stays a similar diameter the entire length of the stem."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil"
+  ],
+  "Problems": [
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "drought tolerant",
+  "evergreen",
+  "fantz",
+  "succulent",
+  "pink flowers",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "tropical feel",
+  "broadleaf evergreen",
+  "shrub",
+  "container plant",
+  "perennial",
+  "branching",
+  "th-touch",
+  "fpp"
+ ]
+}

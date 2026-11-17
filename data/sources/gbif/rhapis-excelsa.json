@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2736747",
+ "retrieved": "2026-11-17",
+ "query": "Rhapis excelsa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2736747,
+ "acceptedKey": 2736747,
+ "acceptedName": "Rhapis excelsa",
+ "authorship": "(Thunb.) A.Henry",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Rhapis",
+ "synonyms": [
+  "Chamaerops excelsa",
+  "Chamaerops kwanwortsik",
+  "Rhapis aspera",
+  "Rhapis cordata",
+  "Rhapis divaricata",
+  "Rhapis excelsa",
+  "Rhapis flabelliformis",
+  "Rhapis javanica",
+  "Rhapis kwamwonzick",
+  "Rhapis major",
+  "Trachycarpus excelsus"
+ ]
+}

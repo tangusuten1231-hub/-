@@ -1,0 +1,19 @@
+{
+ "id": "philodendron-hederaceum-lemon-lime",
+ "rank": "cultivar",
+ "parent": "philodendron-hederaceum",
+ "cultivar": "Lemon Lime",
+ "names": {
+  "ja": "フィロデンドロン・ライム",
+  "aliases": [
+   "レモンライム"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "明るい黄色〜黄緑色の葉。",
+   "src": "ncsu",
+   "quote": "bright yellow to chartreuse foliage"
+  }
+ ]
+}

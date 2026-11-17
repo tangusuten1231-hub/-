@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5361919",
+ "retrieved": "2026-11-17",
+ "query": "Ficus benghalensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5361919,
+ "acceptedKey": 5361919,
+ "acceptedName": "Ficus benghalensis",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Moraceae",
+ "genus": "Ficus",
+ "synonyms": [
+  "Ficus banyana",
+  "Ficus chauvieri",
+  "Ficus cotoneifolia",
+  "Ficus cotonifolia",
+  "Ficus crassinervia",
+  "Ficus indica",
+  "Ficus karet",
+  "Ficus lancifolia",
+  "Ficus lasiophylla",
+  "Ficus procera",
+  "Ficus umbrosa",
+  "Perula benghalensis",
+  "Urostigma bengalense",
+  "Urostigma benghalense"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/8351737",
+ "retrieved": "2026-11-17",
+ "query": "Hedera helix",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 8351737,
+ "acceptedKey": 8351737,
+ "acceptedName": "Hedera helix",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Hedera",
+ "synonyms": []
+}

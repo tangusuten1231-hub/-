@@ -1,0 +1,91 @@
+{
+ "id": "rhapis-excelsa",
+ "rank": "species",
+ "scientificName": "Rhapis excelsa",
+ "names": {
+  "ja": "カンノンチク",
+  "aliases": [
+   "観音竹",
+   "ラピス"
+  ]
+ },
+ "refs": {
+  "ncsu": "rhapis-excelsa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 3,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "As an indoor plant, it needs indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "withstands deep shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "As an indoor plant, it needs indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は50°F（10℃）を下回りそうなら室内へ入れるよう勧めるが、耐寒ゾーン9a（屋外で−6℃程度まで）とされ、冬のすきま風にも耐えるとするため、室内の目安を3℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "has low humidity requirements"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It needs well-drained potting soil and regular watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "except in the winter when watering can be reduced"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬のすきま風にも耐えるので、玄関などドアの近くにも置ける。",
+   "src": "ncsu",
+   "quote": "It is a good specimen to use near doors because of its tolerance to periodic drafts of winter cold."
+  }
+ ]
+}

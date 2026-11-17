@@ -1,0 +1,95 @@
+{
+ "id": "beaucarnea-recurvata",
+ "rank": "species",
+ "scientificName": "Beaucarnea recurvata",
+ "names": {
+  "ja": "トックリラン",
+  "aliases": [
+   "ノリナ",
+   "ポニーテール",
+   "ボーカルネア"
+  ]
+ },
+ "refs": {
+  "ncsu": "beaucarnea-recurvata"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "provide a sunny window"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日の当たる窓辺を勧めるため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "provide a sunny window"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is slow growing, drought tolerant and hardy to 50 degrees F.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "does well even with indoor heated air"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "In summer, water deeply but allow plants to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Greatly reduce water in the winter."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬は乾かし気味を好み、暖房で乾いた空気にも強い。",
+   "src": "ncsu",
+   "quote": "Ponytail palm prefers dry winters and does well even with indoor heated air"
+  }
+ ]
+}

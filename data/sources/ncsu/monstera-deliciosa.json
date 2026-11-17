@@ -1,0 +1,246 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/monstera-deliciosa/",
+ "slug": "monstera-deliciosa",
+ "retrieved": "2026-11-17",
+ "scientificName": "Monstera deliciosa",
+ "commonNames": [
+  "Ceriman",
+  "Cutleaf Philodendron",
+  "Hurricane Plant",
+  "Mexican Breadfruit",
+  "Split-leaf Philodendron",
+  "Swiss Cheese Plant"
+ ],
+ "description": "Split-leaf philodendron is not actually a philodendron but a woody, perennial, broadleaf evergreen, climbing vine in the arum family (Araceae). It is native from Mexico to Panama and can grow to 70 feet tall, though it stays between 6 to 8 feet in most home environments. In North Carolina it is grown as a houseplant. It prefers an average warm temperature of 60 to 85 degrees F, moderate brightness but not direct sunlight, and high humidity. Variegated cultivars will need more sunlight than darker green cultivars. Water this plant thoroughly, then allow the top quarter to one-third part to dry between watering. Using a humidifier or setting in the plant container on a tray of wet pebbles helps increase the humidity in dry interior settings. Sturdy support is necessary to prevent the stems from breaking. Prune or re-pot if needed in the spring and wipe dust off of the leaves regularly. Propagate by layering or stem cutting. In its native habitat it starts its life as a terrestrial plant, turning epiphytic once it comes into contact with a sturdy tree it can climb. While It typically does not produce flowers or fruits in interior landscapes, it can produce an edible fruit that is said to taste like a cross between a banana and pineapple. Quick ID Hints: Gigantic pinnately-lobed leaves with internal holes. Leaves are broadly ovate to cordate. Junction between leaf blade and petiole is present on mature leaves. Insects, Disease, and Other Plant Problems: No significant problems. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Albo Variegata",
+   "note": "striking plant with variegated leaves, rare, and expensive"
+  },
+  {
+   "name": "Thai Constellation",
+   "note": "pattern of marbled and speckled creamy white and green variegation, resembling a constellation, rare"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Monstera"
+  ],
+  "Species": [
+   "deliciosa"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico to Panama"
+  ],
+  "Climbing Method": [
+   "Clinging"
+  ],
+  "Edibility": [
+   "Only ripe fruits are edible and are used to flavor drinks and ice cream or are eaten fresh. Some people are allergic."
+  ],
+  "Plant Type": [
+   "Edible",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous",
+   "Vine"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Climbing"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Cream/Tan",
+   "Green",
+   "White"
+  ],
+  "Fruit Value To Gardener": [
+   "Edible"
+  ],
+  "Fruit Type": [
+   "Aggregate",
+   "Berry"
+  ],
+  "Fruit Length": [
+   "> 3 inches"
+  ],
+  "Fruit Width": [
+   "1-3 inches"
+  ],
+  "Fruit Description": [
+   "This plant produces an aggregate of creamy-white berries covered by green hexagonal \"scales\"; the fruit is ripe once the scale covering it falls off naturally. These berries are edible and taste like a mixture of banana and pineapple. Rarely produces fruit as a houseplant."
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Value To Gardener": [
+   "Long-lasting"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Size": [
+   "> 6 inches"
+  ],
+  "Flower Description": [
+   "The inflorescence is a spadix and spathe. Spathes are large, creamy-white, and up to 1' in size. The spadix is shorter than the spathe at 10\" long and an inch thick. Rarely flowers as a house plant."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Leathery"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Ovate",
+   "Pinnatifid"
+  ],
+  "Leaf Margin": [
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are gigantic, up to 1 foot or more, dark green, glossy, long petiolate, heart-shaped, perforated with several holes throughout the blade, some extending to margin and splitting margin to appear deeply lobed to pinnatifid. Only mature leaves have these holes, developing as the leaf grows. The leaves have a distinct junction where the blade meets the petiole. Some cultivars are variegated."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are thick, long, and leafy."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Intense burning of mouth, tongue, and throat; nausea, vomiting, difficulty swallowing, drooling, and diarrhea may also occur; contact with cell sap may cause skin irritation. Only if eaten in large quantities."
+  ],
+  "Poison Toxic Principle": [
+   "Needle-like calcium oxalate crystals; possibly other unidentified toxins"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "poisonous",
+  "interiorscape",
+  "showy leaves",
+  "fantz",
+  "green leaves",
+  "edible fruits",
+  "specimen",
+  "large leaves",
+  "problem for cats",
+  "problem for dogs",
+  "problem for horses",
+  "spadix",
+  "houseplant",
+  "epiphytic",
+  "hsc",
+  "hsc-f",
+  "vertical spaces",
+  "partial shade tolerant",
+  "dappled shade",
+  "white fruits",
+  "landscape plant sleuths course",
+  "container plant",
+  "perennial",
+  "trellis"
+ ]
+}

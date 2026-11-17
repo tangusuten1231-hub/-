@@ -1,0 +1,28 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2761337",
+ "retrieved": "2026-11-17",
+ "query": "Maranta leuconeura",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2761337,
+ "acceptedKey": 2761337,
+ "acceptedName": "Maranta leuconeura",
+ "authorship": "É.Morren",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Maranta",
+ "synonyms": [
+  "Calathea fascinator",
+  "Calathea kerchoveana",
+  "Calathea leuconeura",
+  "Calathea massangeana",
+  "Maranta depressa",
+  "Maranta fascinator",
+  "Maranta kerchoveana",
+  "Maranta kerchovei",
+  "Maranta kerchoviana",
+  "Maranta massangeana"
+ ]
+}

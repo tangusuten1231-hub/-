@@ -1,0 +1,105 @@
+{
+ "id": "goeppertia-ornata",
+ "rank": "species",
+ "scientificName": "Goeppertia ornata",
+ "names": {
+  "ja": "カラテア・オルナータ",
+  "aliases": [
+   "カラテア",
+   "ゲッペルチア"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-ornata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "bright, indirect light or partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "leaves turning brown may be from cold drafts, lack of humidity, or too much direct sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "leaves turning brown may be from cold drafts"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the room temperature between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "the humidity about 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid overwatering or allowing the soil to dry out."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉は夜に閉じ、朝に開く。光と温度の変化に反応している。",
+   "src": "ncsu",
+   "quote": "the leaves close or fold at night and reopen at sunrise"
+  },
+  {
+   "ja": "水不足だと葉が丸まる。",
+   "src": "ncsu",
+   "quote": "Inadequate water can cause leaf curling"
+  }
+ ],
+ "note": "以前の学名は Calathea ornata。日本では今も「カラテア」の名で流通している。"
+}

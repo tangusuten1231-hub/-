@@ -1,0 +1,108 @@
+{
+ "id": "anthurium-andraeanum",
+ "rank": "species",
+ "scientificName": "Anthurium andraeanum",
+ "names": {
+  "ja": "アンスリウム",
+  "aliases": [
+   "アンスリウム・アンドレアナム",
+   "オオベニウチワ"
+  ]
+ },
+ "refs": {
+  "ncsu": "anthurium-andraeanum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Insufficient light or nutrient deficiencies can decrease flower production."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sun can scorch its leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "These plants do not tolerate cold drafts or sudden temperature changes."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer temperatures between 65 to 80 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "humidity of 60 to 80%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It is best to water the plant when the top inch of the soil feels dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "植え替えは2〜3年ごと、または根詰まりしたら。時期は春がよい。",
+   "src": "ncsu",
+   "quote": "Repot the plant every 2 to 3 years or when it appears rootbound."
+  },
+  {
+   "ja": "光や肥料が足りないと花が咲きにくい。",
+   "src": "ncsu",
+   "quote": "Insufficient light or nutrient deficiencies can decrease flower production."
+  }
+ ]
+}

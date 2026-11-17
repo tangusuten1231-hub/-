@@ -1,0 +1,32 @@
+{
+ "id": "monstera-deliciosa-albo-variegata",
+ "rank": "cultivar",
+ "parent": "monstera-deliciosa",
+ "cultivar": "Albo Variegata",
+ "names": {
+  "ja": "モンステラ・アルボ・バリエガータ",
+  "aliases": [
+   "斑入りモンステラ"
+  ]
+ },
+ "care": {
+  "light": {
+   "min": "bright"
+  }
+ },
+ "evidence": {
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Variegated cultivars will need more sunlight than darker green cultivars."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "白い斑が大きく入る希少な品種。",
+   "src": "ncsu",
+   "quote": "striking plant with variegated leaves, rare, and expensive"
+  }
+ ]
+}

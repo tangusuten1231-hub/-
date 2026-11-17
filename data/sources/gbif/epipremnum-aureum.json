@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2868323",
+ "retrieved": "2026-11-17",
+ "query": "Epipremnum aureum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2868323,
+ "acceptedKey": 2868323,
+ "acceptedName": "Epipremnum aureum",
+ "authorship": "(Linden & André) G.S.Bunting",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Epipremnum",
+ "synonyms": [
+  "Epipremnum mooreense",
+  "Pothos aureus",
+  "Rhaphidophora aurea",
+  "Scindapsus aureus"
+ ]
+}

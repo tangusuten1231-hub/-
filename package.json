@@ -1,0 +1,14 @@
+{
+  "name": "heyamidori",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "室内の観葉植物の図鑑と記録帳（PWA）",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "build": "node tools/build-catalog.mjs",
+    "fetch:ncsu": "node tools/fetch-ncsu.mjs",
+    "fetch:gbif": "node tools/fetch-gbif.mjs",
+    "test": "node --test tests/*.test.js"
+  }
+}

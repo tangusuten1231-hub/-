@@ -1,0 +1,95 @@
+{
+ "id": "ficus-elastica",
+ "rank": "species",
+ "scientificName": "Ficus elastica",
+ "names": {
+  "ja": "フィカス・エラスティカ",
+  "aliases": [
+   "ゴムの木",
+   "インドゴムノキ"
+  ]
+ },
+ "refs": {
+  "ncsu": "ficus-elastica"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "under bright indirect light or partial shade and protection from the afternoon sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Rubber Plant does best in partial shade or low light"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は暗めでもよいとするが、暗いと間延びして葉を落としやすいため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "protection from the afternoon sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は55°F（13℃）以上でよく育つとするが、耐寒ゾーン9a（屋外で−6℃程度まで）とされ、国内の一般的な目安は5℃のため"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "medium relative humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water regularly, but avoid overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering altogether when the plant is dormant (from fall to late winter)."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "置き場所を変えたり、すきま風や寒さに当たると葉を落としやすい。",
+   "src": "ncsu",
+   "quote": "Rubber Plant prefers to remain in one location and do not do well with drafts or cold temperatures."
+  }
+ ]
+}

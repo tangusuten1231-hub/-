@@ -1,0 +1,19 @@
+{
+ "id": "hoya-carnosa-compacta",
+ "rank": "cultivar",
+ "parent": "hoya-carnosa",
+ "cultivar": "Compacta",
+ "names": {
+  "ja": "ホヤ・カルノーサ・コンパクタ",
+  "aliases": [
+   "クリンクルカール"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が内側に巻き、ロープのような姿になる。",
+   "src": "ncsu",
+   "quote": "leaves are folded over and gives them a rope-like appearance"
+  }
+ ]
+}

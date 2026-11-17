@@ -1,0 +1,104 @@
+{
+ "id": "aglaonema",
+ "rank": "genus",
+ "scientificName": "Aglaonema",
+ "names": {
+  "ja": "アグラオネマ",
+  "aliases": [
+   "リョクチク",
+   "チャイニーズエバーグリーン"
+  ]
+ },
+ "refs": {
+  "ncsu": "aglaonema"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    21,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The plant does well in diffuse sun or good indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It is an excellent plant for low-light, indoor locations"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は拡散光か明るい間接光を勧めるため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of cold temperatures"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "prefers a daytime temperature in the 70 to 80-degree F range",
+    "fahrenheit": [
+     70,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "prefers high humidity but will tolerate dryer air"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the medium to dry between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "prefers a reduction in watering during the winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冷たい水を使わない。",
+   "src": "ncsu",
+   "quote": "avoid using cold water"
+  },
+  {
+   "ja": "乾燥した空気やすきま風で葉が茶色くなることがある。",
+   "src": "ncsu",
+   "quote": "The leaves may turn brown in very dry air or a drafty location."
+  }
+ ]
+}

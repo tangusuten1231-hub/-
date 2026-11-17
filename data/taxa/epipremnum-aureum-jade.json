@@ -1,0 +1,19 @@
+{
+ "id": "epipremnum-aureum-jade",
+ "rank": "cultivar",
+ "parent": "epipremnum-aureum",
+ "cultivar": "Jade",
+ "names": {
+  "ja": "ポトス・ジェイド",
+  "aliases": [
+   "グリーンポトス"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "斑のない濃い緑の葉。暗めの場所でもよく育つ。",
+   "src": "ncsu",
+   "quote": "solid dark green leaves, great in low light"
+  }
+ ]
+}

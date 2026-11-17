@@ -1,0 +1,97 @@
+{
+ "id": "chrysalidocarpus-lutescens",
+ "rank": "species",
+ "scientificName": "Chrysalidocarpus lutescens",
+ "names": {
+  "ja": "アレカヤシ",
+  "aliases": [
+   "コガネタケヤシ",
+   "ヤマドリヤシ",
+   "ディプシス・ルテセンス"
+  ]
+ },
+ "refs": {
+  "ncsu": "chrysalidocarpus-lutescens"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "provide bright indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "the plant tolerates full sun but prefers partial shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "a warm to average room"
+   },
+   {
+    "src": "estimate",
+    "reason": "「暖かい〜ふつうの部屋」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "In the home, they prefer a bright location in a warm to average room and high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "keep moist but not soggy during the growing season"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "植え替えは2〜3年に1回。",
+   "src": "ncsu",
+   "quote": "Repot every 2 or 3 years."
+  }
+ ],
+ "note": "近年の分類の見直しで Chrysalidocarpus 属に移され、出典（NC State）もこの学名を使う。GBIF の分類表では Dypsis lutescens が正式名のまま。"
+}

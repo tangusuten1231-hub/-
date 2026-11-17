@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2735935",
+ "retrieved": "2026-11-17",
+ "query": "Chrysalidocarpus lutescens",
+ "matchType": "EXACT",
+ "status": "SYNONYM",
+ "usageKey": 2735936,
+ "acceptedKey": 2735935,
+ "acceptedName": "Dypsis lutescens",
+ "authorship": "(H.Wendl.) Beentje & J.Dransf.",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Dypsis",
+ "synonyms": [
+  "Areca flavescens",
+  "Chrysalidocarpus glaucescens",
+  "Chrysalidocarpus lutescens"
+ ]
+}

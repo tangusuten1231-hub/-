@@ -1,0 +1,103 @@
+{
+ "id": "ficus-microcarpa",
+ "rank": "species",
+ "scientificName": "Ficus microcarpa",
+ "names": {
+  "ja": "ガジュマル",
+  "aliases": [
+   "フィカス・ミクロカルパ",
+   "ガジュマルの木"
+  ]
+ },
+ "refs": {
+  "ncsu": "ficus-microcarpa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    20,
+    30
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Full sun (6 or more hours of direct sunlight a day)"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）で、沖縄など南西諸島に自生するため、国内の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It is suitable for temperatures above 68 degrees F all year long",
+    "fahrenheit": [
+     68
+    ]
+   },
+   {
+    "src": "estimate",
+    "reason": "上限は熱帯原産の観葉植物の一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "High humidity (70% - 100%) is preferable"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に水やりの頻度の記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "湿度が高いと気根がよく伸びる。",
+   "src": "ncsu",
+   "quote": "High humidity (70% - 100%) is preferable and seems to favor the development of aerial roots."
+  },
+  {
+   "ja": "挿し木で簡単にふやせる（水挿しでも土でも）。",
+   "src": "ncsu",
+   "quote": "The species can be propagated easily by cuttings, either in water or directly in a substrate of sand or potting soil."
+  }
+ ]
+}

@@ -1,0 +1,187 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/asplenium-nidus/",
+ "slug": "asplenium-nidus",
+ "retrieved": "2026-11-17",
+ "scientificName": "Asplenium nidus",
+ "commonNames": [
+  "Bird's Nest Fern",
+  "Birds Nest Fern",
+  "Nest Fern"
+ ],
+ "description": "Bird's nest fern is a tropical, evergreen, epiphytic herbaceous perennial native to a wide area from Indonesia, Malaysia, New Guinea and tropical Australia. It belongs to the Spleenwort family (Aspleniaceae). This resident of rainforests usually grows as an epiphyte, perched on trunks and tree limbs. This plant does not tolerate dry conditions, nor can it tolerate frost. It is characterized by dramatic foliage similar in appearance to banana leaves. Large, simple, strap-shaped, bright green fronds have black midribs and wavy margins. The plant is a litter trapper. Its funnel-shaped rosette of fronds catches falling leaves and other debris and creates its own compost pile, which feeds the plant. Outside the Tropics, Bird's Nest fern may be grown as a houseplant and will not survive temperatures below 40 degrees F. It does best in rich, moist, porous soil such as a fern potting mix. Using a pebble tray of water may be needed to provide adequate humidity. Bright light or light shade, such as a north-facing window, is suitable. Too much sun may turn it yellow or stop growth. Ideal temperatures are 60 to 70 degrees F. Active growth periods may benefit from the monthly application of dilute liquid fertilizer. Outdoors, in tropical zones, it is attractive in containers, hanging baskets, and mass plantings or it can be allowed to grow epiphytically on tree trunks. Insects, Diseases, and Other Plant Problems: No serious problems. Fragile foliage, handle gently. Susceptible to slugs, snails, scale, mealybugs, bacterial leaf diseases, leaf nematodes, and chemical insecticides. Avoid exposure to direct heat or drafts. VIDEO Created by NC State Extension's Homegrown series featuring Mark Weathington , Director of JC Raulston Arboretum .",
+ "cultivars": [
+  {
+   "name": "Antiquum",
+   "note": "wavy leaf margins"
+  },
+  {
+   "name": "Campio",
+   "note": "ruffled, feather like green leaves"
+  },
+  {
+   "name": "Crispy Wave",
+   "note": "sword-like ruffled leaves"
+  },
+  {
+   "name": "Osaka",
+   "note": "narrow, strap-like leaves with rippled margins"
+  },
+  {
+   "name": "Victoria",
+   "note": "tongue-like fronds, long, and wavy"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Asplenium"
+  ],
+  "Species": [
+   "nidus"
+  ],
+  "Family": [
+   "Aspleniaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Country Or Region Of Origin": [
+   "Polynesia, HI, SE Asia, Australia, Madagascar"
+  ],
+  "Distribution": [
+   "Polynesia, HI, SE Asia, Australia, Madagascar"
+  ],
+  "Wildlife Value": [
+   "Food source for larvae of some Lepidoptera. Batrachedra bedelliella feeds exclusively on A. nidus."
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "Rabbits, deer, heavy shade"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 5 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Fern",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Erect",
+   "Rounded"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Description": [
+   "No fruits. This plant reproduces via spores."
+  ],
+  "Flower Description": [
+   "No flowers."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Fronds",
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Light green, glossy, simple, entire, strap shaped, wavy with a brown-black midrib. Fronds can grow to 4-5 feet long and 8 inches wide. Sori are found in clusters on the undersides, arranged in a herringbone fashion from the mid-rib to the margin of the leaf in black straight lines."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stemless"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Small groups",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Heavy Shade",
+   "Humidity",
+   "Rabbits"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "rabbit resistant",
+  "interiorscape",
+  "epiphytic",
+  "showy leaves",
+  "fantz",
+  "humidity tolerant",
+  "deer resistant",
+  "fern",
+  "shade garden",
+  "container plant"
+ ]
+}

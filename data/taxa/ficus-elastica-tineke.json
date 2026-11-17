@@ -1,0 +1,16 @@
+{
+ "id": "ficus-elastica-tineke",
+ "rank": "cultivar",
+ "parent": "ficus-elastica",
+ "cultivar": "Tineke",
+ "names": {
+  "ja": "フィカス・ティネケ"
+ },
+ "tips": [
+  {
+   "ja": "緑にクリーム色〜淡い黄色の斑が入る。",
+   "src": "ncsu",
+   "quote": "green and cream or pale yellow variegated leaves"
+  }
+ ]
+}

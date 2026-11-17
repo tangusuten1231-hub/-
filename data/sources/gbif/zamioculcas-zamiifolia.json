@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2869014",
+ "retrieved": "2026-11-17",
+ "query": "Zamioculcas zamiifolia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2869014,
+ "acceptedKey": 2869014,
+ "acceptedName": "Zamioculcas zamiifolia",
+ "authorship": "(G.Lodd.) Engl.",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Zamioculcas",
+ "synonyms": [
+  "Caladium zamiifolium",
+  "Zamioculcas lanceolata",
+  "Zamioculcas loddigesii"
+ ]
+}

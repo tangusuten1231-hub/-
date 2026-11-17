@@ -1,0 +1,101 @@
+{
+ "id": "epipremnum-aureum",
+ "rank": "species",
+ "scientificName": "Epipremnum aureum",
+ "names": {
+  "ja": "ポトス",
+  "aliases": [
+   "オウゴンカズラ",
+   "エピプレムナム"
+  ]
+ },
+ "refs": {
+  "ncsu": "epipremnum-aureum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "survives for long periods in low light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers bright, indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典は加湿をすすめるが、乾燥した室内でも育つ植物として一般に知られるため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "let the well-drained potting medium dry out between watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "暗い場所では斑が薄くなる。",
+   "src": "ncsu",
+   "quote": "Low light can cause loss of variegation."
+  },
+  {
+   "ja": "つるは水に挿すだけで簡単に根が出る。",
+   "src": "ncsu",
+   "quote": "Vines easily root in water."
+  },
+  {
+   "ja": "支柱に登らせて光が足りると、大きな成熟した葉を出す。",
+   "src": "ncsu",
+   "quote": "If given a support on which to climb and adequate light, the plant will begin to produce large, mature leaves."
+  }
+ ]
+}

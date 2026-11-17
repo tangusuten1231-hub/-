@@ -1,0 +1,225 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/spathiphyllum/",
+ "slug": "spathiphyllum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Spathiphyllum",
+ "commonNames": [
+  "Peace Lily",
+  "Spathe Flower",
+  "White Sails"
+ ],
+ "description": "Peace lily is a group of about 60 species of flowering plants that are semi-evergreen, perennial herbs typically grown as houseplants. They are members of the arum family (Araceae) and are native to Mexico, tropical America, Malesia and islands of the western Pacific. The genus name is Greek for \"spathe leaf,\" referring to the prominent spathe, which is a modified leaf. Peace lilies prefer partial to deep shade. Do not place plants in direct sun. They enjoy warm conditions between 68 and 85 degrees F during the day and no more than a 10-degree drop at night. Cold and drafty conditions, specifically temperatures of 40 to 60 degrees F, will slow growth considerably. Extended periods below 40 degrees F can damage leaves, stems and roots. Keep the soil moist, but not soggy; allow it to dry between waterings. Watering from below works very well for peace lilies. Fertilize at one-quarter of the recommended strength and flush soil between applications of fertilizer. Over-fertilizing and salt build-up can burn the leaf tips and roots. The plant requires a large pot and should be kept somewhat pot-bound. Use a potting mix high in organic matter. Re-pot, when necessary, in February or March. While peace lilies can grow up to 6 feet tall, they more typically reach 3 feet high and wide in an indoor setting. Dwarf cultivars are available. The plants have no specific bloom time, but flower freely. These low-maintenance plants are popular as specimens or accents in interior groupings for their deep-green glossy foliage and showy, white blooms that change to pale green after 10 days and then remain lovely for at least another month. Insects, Diseases and Other Plant Problems : Mealybugs are probably the most common insect indoors. Because of the wide foliage, cleaning the leaves regularly with a damp cloth to remove dust will help its appearance and remove some pests that tend to gather under the bottom of the leaves. Brown leaf tips are caused by excessive direct sunlight, underwatering, or low humidity. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Mauna Loa",
+   "note": "Large plant with leaves nearly 3 feet long. Large white spathe."
+  },
+  {
+   "name": "Petite",
+   "note": "A small cultivar bred for houseplant culture."
+  },
+  {
+   "name": "Spathiphyllum wallisii 'Domino",
+   "note": "up to 1 to 3 feet tall, deep green leaves with pale green to cream colored stripes"
+  },
+  {
+   "name": "Spathiphyllum wallisii 'Gemini",
+   "note": "compact variety, up to 12 inches, irregular white stripes across the leaves"
+  },
+  {
+   "name": "Spathiphyllum wallisii (Peace Lily)",
+   "note": "native to Colombia and Venezuela, smaller Peace Lily, up to 12 inches tall"
+  },
+  {
+   "name": "Spathiphyllum wallisii 'Sensation",
+   "note": "over 5 feet tall, large variety"
+  },
+  {
+   "name": "Spathiphyllum wallisii 'Variegata",
+   "note": "similar to \"Gemini' but the white stripes are more prominent, up to 12 inches tall"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Spathiphyllum"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico, Tropical America, Malesia, and Western Pacific"
+  ],
+  "Distribution": [
+   "Cultivated worldwide."
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Edibility": [
+   "Leaves poisonous if eaten in large quantities."
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 6 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 5 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Semi-evergreen"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Mounding",
+   "Rounded"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Value To Gardener": [
+   "Long Bloom Season",
+   "Showy"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Size": [
+   "> 6 inches"
+  ],
+  "Flower Description": [
+   "The inflorescence is spadix and spathe with white, sail-like 4 inch to 12 inch blooms above the foliage. The spathe is white to greenish-white, oblong to oblong-lanceolate, and cuspidate. It is concave to flat, has an acuminate tip, and spreads or curves around the spadix. The spadix is greenish-white or cream, shorter than spathe; peduncle exceeding foliage."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate",
+   "Oblong",
+   "Ovate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are basal rosettes. They are erect, simple, ovate-lanceolate to elliptic-oblong, 4 to 25 inches long and 1 to 10 inches wide. They are acuminate, dark green, glossy, rugose, and have a prominent mid-rib often with numerous impressed lateral veins. The petiole is shorter than or equal in length to the blade. No variegation."
+  ],
+  "Stem Color": [
+   "Insignificant"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are acaulescent, having no visible above-ground stem."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "The leaves of the Peace Lily can be poisonous if eaten in large quantities. Symptoms include severe pain in the mouth and a burning sensation to the lips, tongue, and throat, excessive drooling, vomiting (not horses), difficulty swallowing"
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Leaves"
+  ]
+ },
+ "tags": [
+  "white flowers",
+  "houseplant",
+  "poisonous",
+  "interiorscape",
+  "herbaceous",
+  "ebh-h",
+  "ebh",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "spadix",
+  "evergreen",
+  "hsc",
+  "hsc-fl",
+  "perennial",
+  "problem for children",
+  "container plant",
+  "poisonous if ingested",
+  "fpp"
+ ]
+}

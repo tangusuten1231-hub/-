@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2763116",
+ "retrieved": "2026-11-17",
+ "query": "Strelitzia reginae",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2763116,
+ "acceptedKey": 2763116,
+ "acceptedName": "Strelitzia reginae",
+ "authorship": "Banks",
+ "rank": "SPECIES",
+ "family": "Strelitziaceae",
+ "genus": "Strelitzia",
+ "synonyms": [
+  "Strelitzia regalis"
+ ]
+}

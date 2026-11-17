@@ -1,0 +1,90 @@
+{
+ "id": "aloe-vera",
+ "rank": "species",
+ "scientificName": "Aloe vera",
+ "names": {
+  "ja": "アロエ・ベラ",
+  "aliases": [
+   "アロエ"
+  ]
+ },
+ "refs": {
+  "ncsu": "aloe-vera"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Grow this plant in full sun to partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日向〜半日陰とするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Grow this plant in full sun to partial shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされ、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、乾燥に強い多肉植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to completely dry between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Water less frequently in the winter months."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎは根腐れのもと。",
+   "src": "ncsu",
+   "quote": "Overwatering should be avoided, it can lead to the roots rotting."
+  }
+ ]
+}

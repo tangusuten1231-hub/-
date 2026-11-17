@@ -1,0 +1,32 @@
+{
+ "id": "monstera-deliciosa-thai-constellation",
+ "rank": "cultivar",
+ "parent": "monstera-deliciosa",
+ "cultivar": "Thai Constellation",
+ "names": {
+  "ja": "モンステラ・タイコンステレーション",
+  "aliases": [
+   "タイコン"
+  ]
+ },
+ "care": {
+  "light": {
+   "min": "bright"
+  }
+ },
+ "evidence": {
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Variegated cultivars will need more sunlight than darker green cultivars."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "クリーム色の斑が星座のように細かく散る。",
+   "src": "ncsu",
+   "quote": "pattern of marbled and speckled creamy white and green variegation, resembling a constellation"
+  }
+ ]
+}

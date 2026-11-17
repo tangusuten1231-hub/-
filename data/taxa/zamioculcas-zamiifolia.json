@@ -1,0 +1,92 @@
+{
+ "id": "zamioculcas-zamiifolia",
+ "rank": "species",
+ "scientificName": "Zamioculcas zamiifolia",
+ "names": {
+  "ja": "ザミオクルカス",
+  "aliases": [
+   "ZZプラント",
+   "ザミア（流通名）"
+  ]
+ },
+ "refs": {
+  "ncsu": "zamioculcas-zamiifolia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "they do best with bright indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "they will grow in very low levels of light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Scalding and browning of leaves can occur if the plant is placed in direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は屋外の鉢を60°F（16℃）を下回ったら室内へ入れるよう勧めるが、傷む温度の記載ではないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、多肉質の地下茎と葉に水を蓄え乾燥に強いとされるため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water twice monthly in the summer, but only if the soil has dried out completely."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Water it only once a month in winter months when it is not actively growing."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "肥料は年に1〜2回、観葉植物用の液体肥料で十分。",
+   "src": "ncsu",
+   "quote": "Use a balanced liquid houseplant fertilizer once or twice a year."
+  }
+ ],
+ "note": "「ザミア」は別の植物（ソテツの仲間 Zamia）の名前でもあるので注意。"
+}

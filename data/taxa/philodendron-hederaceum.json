@@ -1,0 +1,95 @@
+{
+ "id": "philodendron-hederaceum",
+ "rank": "species",
+ "scientificName": "Philodendron hederaceum",
+ "names": {
+  "ja": "フィロデンドロン・ヘデラセウム",
+  "aliases": [
+   "ヒメカズラ",
+   "オキシカルジウム"
+  ]
+ },
+ "refs": {
+  "ncsu": "philodendron-hederaceum"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It refers medium light but will tolerate low light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It can survive for long periods in extremely low light."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典に直射日光の記載はないが、明るさは中程度を好むとされるため避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers average indoor air temperatures"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ふつうの室温」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "prefers medium relative humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep soil slightly moist"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "slow down on watering in the winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "乾燥した空気にも耐えるが、霧吹きを喜ぶ。",
+   "src": "ncsu",
+   "quote": "it appreciates misting"
+  }
+ ]
+}

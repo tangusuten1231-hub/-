@@ -1,0 +1,219 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-obtusifolia/",
+ "slug": "peperomia-obtusifolia",
+ "retrieved": "2026-11-17",
+ "scientificName": "Peperomia obtusifolia",
+ "commonNames": [
+  "American Rubber Plant",
+  "Baby Rubberplant",
+  "Baby Rubber Plant",
+  "Oval Leaf Peperomia"
+ ],
+ "description": "Baby Rubber Plant is a tropical evergreen herbaceous shrub that is erect and bushy and grows up to 2 feet tall. It is native to South America, and it is a member of the Piperaceae or pepper family. The glossy cupped, obovate leaves on branched, distinct stems and petioles that are usually tinged pink are key ID features. Leaf attachment is a sub-peltate. This plant tolerates low light for several months without stress, especially non-variegated cultivars. It is intolerant of wet soil, very dry soil, or very drafty sites. This plant prefers bright indirect light, dry soil, and medium to low relative humidity. Sunlight that is too strong or direct will burn the leaves. This plant is commonly used as an interior specimen or desktop plant. Quick ID Hints: Leaves are obovate, cupped, glossy Stems are distinct and branched Petioles and stems are usually tinged pink and red Inflorescence is a cream-colored spike Insects, Diseases, and Other Plant Problems: This plant has no serious pest or disease problems. Overwatering is a big problem and causes the leaves to yellow, and it can lead to root rot. Monitor for mealybugs, spider mites, and whiteflies. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Alba",
+   "note": "young plants have creamy white variegation and stems tinged with red, the leaf color changes to green with maturity"
+  },
+  {
+   "name": "Gold Tip",
+   "note": "leaves have a marbled variegation with gold color at the leaf tips"
+  },
+  {
+   "name": "\"Minima",
+   "note": "compact, dense green leaves"
+  },
+  {
+   "name": "Obtipan Green",
+   "note": "short, erect, clumping habit with emerald green leave,"
+  },
+  {
+   "name": "USA",
+   "note": "Variegated leaves in patches of several shades"
+  },
+  {
+   "name": "Variegata",
+   "note": "glossy green leaves with cream variegation"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "obtusifolia"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Florida to Tropical America"
+  ],
+  "Distribution": [
+   "Bahamas, Belize, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Florida, Guatemala, Guyana, Haiti, Honduras, Jamaica, Mexico, Nicaragua, Peru, Puerto Rico, Suriname, Trinidad-Tobago, and Venezuela"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 2 ft. 0 in.",
+   "Width: 0 ft. 6 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Open",
+   "Rounded",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Insignificant"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Inconspicuous"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "Insignificant",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Flowers are white-cream in color and minute, having no petals. They are crowded on an erect spike (spadix) that is 3.5-5\" long. Flowers have 2 stamens and 0 perianths."
+  ],
+  "Leaf Color": [
+   "Cream/Tan",
+   "Green",
+   "Red/Burgundy",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Waxy"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cuneate",
+   "Elliptical",
+   "Obovate",
+   "Obtuse",
+   "Orbicular",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are evergreen, alternate, simple, obovate, obtuse to emarginate, cuneate, entire, concave, coriaceous, waxy, glossy green, and sub-peltate. They can grow 2-6\" long and have pinnate venation, the midrib indented into the leaf surface. Petioles are short, less than an inch in size, often pink or red, and somewhat winged. The leaves are almost as thick as those of succulents. They are often variegated or have red leaf margins."
+  ],
+  "Stem Color": [
+   "Green",
+   "Pink",
+   "Red/Burgundy"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Smooth (glabrous)"
+  ],
+  "Stem Description": [
+   "Stems are branched, stoloniferous, and ascend up to 6\". May be reddish to pinkish in color and are succulent in texture."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ]
+ },
+ "tags": [
+  "interiorscape",
+  "evergreen",
+  "fantz",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "houseplant",
+  "hsc",
+  "hsc-f",
+  "herbaceous perennial",
+  "low maintenance",
+  "showy leaves",
+  "pet friendly",
+  "perennial",
+  "variegated"
+ ]
+}

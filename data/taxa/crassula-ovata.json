@@ -1,0 +1,96 @@
+{
+ "id": "crassula-ovata",
+ "rank": "species",
+ "scientificName": "Crassula ovata",
+ "names": {
+  "ja": "金のなる木",
+  "aliases": [
+   "カネノナルキ",
+   "クラッスラ・オバタ",
+   "花月"
+  ]
+ },
+ "refs": {
+  "ncsu": "crassula-ovata"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    15,
+    25
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "place the pot in a sunny location indoors that also provides some afternoon shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Bright light and average to cool indoor temperatures are also essential for good plant health."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "place the pot in a sunny location indoors that also provides some afternoon shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。耐寒ゾーン11a（屋外で4℃程度まで）とされるため5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Bright light and average to cool indoor temperatures are also essential for good plant health."
+   },
+   {
+    "src": "estimate",
+    "reason": "「ふつう〜涼しめの室温」をやや低めの範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、乾燥に強い多肉植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water in moderation when the soil is dry"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering from fall to late winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで葉が落ちたり根が腐ったりする。",
+   "src": "ncsu",
+   "quote": "Leaf fall and root rot can result from over watering."
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "ficus-microcarpa-green-island",
+ "rank": "cultivar",
+ "parent": "ficus-microcarpa",
+ "cultivar": "Green Island",
+ "names": {
+  "ja": "フィカス・グリーンアイランド"
+ },
+ "tips": [
+  {
+   "ja": "つやのある濃い緑の丸葉。",
+   "src": "ncsu",
+   "quote": "glossy, deep green leaves"
+  }
+ ]
+}

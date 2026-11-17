@@ -1,0 +1,278 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/epipremnum-aureum/",
+ "slug": "epipremnum-aureum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Epipremnum aureum",
+ "commonNames": [
+  "Devil's Ivy",
+  "Devil's Vine",
+  "Golden Pothos",
+  "Ivy Arum",
+  "Marble Queen",
+  "Pothos",
+  "Taro Vine"
+ ],
+ "description": "Pothos is a low-maintenance, herbaceous perennial, broadleaf evergreen houseplant in the arum family (Araceae) grown for its glossy, green or variegated leaves on cascading stems. It is native to the Society Islands. It grows only 6 to 8 feet as a horizontal groundcover, but the trailing and climbing vines can grow as long as 40 feet. This feature makes it well-suited for hanging baskets. As a container plant, it generally retains its juvenile leaf shape. The species epithet is Latin for \"golden.\" Pothos is very easy to grow. It prefers bright, indirect light and survives for long periods in low light. Use a humidifier or place the plant container on a tray of wet pebbles to increase humidity, and let the well-drained potting medium dry out between watering. Fertilize every other month except when the plant is dormant in the winter. Wipe down the leaves occasionally with a soft rag to remove any collected dust. Over time, leaves will yellow and fall off, concentrating most of the leaves at the end of the stems. Prune stems back to maintain a bushy habit. Vines easily root in water. They climb by brown aerial roots. If given a support on which to climb and adequate light, the plant will begin to produce large, mature leaves. In the recent past, Epipremnum aureum was treated as a cultivar of Epipremnum pinnatum and given the name E. pinnatum &lsquo;Aureum&rsquo;. After further study, botanists determined that the two have distinctively different vegetative features and should be recognized as separate species. Plants formerly called E. pinnatum 'Aureum' are now correctly called E. aureum . It is distinguished from Philodendron hederaceum by the absence of conspicuous free stipules on new growth and by the grooved petioles. Quick ID Hints: Indoor vine with glossy, heart-shaped leaves variegated with yellow No free stipules on new growth Petioles are grooved Insects, Diseases, and Other Plant Problems: Root rot and blackening of the leaf margins can occur with overwatering. Low light can cause loss of variegation. Monitor for mealybugs and scales. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Beautifall® 'Njoy' Pothos",
+   "note": "small, thinner, green leaves with a cream colored variegation"
+  },
+  {
+   "name": "Golden Pothos",
+   "note": "golden, yellow-green variegated leaves"
+  },
+  {
+   "name": "Jade",
+   "note": "solid dark green leaves, great in low light"
+  },
+  {
+   "name": "Lime",
+   "note": "bright yellow-green leaves"
+  },
+  {
+   "name": "Marble Queen",
+   "note": "green leaves and stems that are marbled with white"
+  },
+  {
+   "name": "Neon",
+   "note": "yellow leaves"
+  },
+  {
+   "name": "Pearls and Jade",
+   "note": "green and white variegated leaves"
+  },
+  {
+   "name": "Snow Queen",
+   "note": "highly variegated green and white leaves"
+  },
+  {
+   "name": "Tricolor",
+   "note": "leaves variegated with white, stems off white"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Epipremnum"
+  ],
+  "Species": [
+   "aureum"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Society Islands"
+  ],
+  "Climbing Method": [
+   "Clinging"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 0 ft. 8 in.",
+   "Width: 13 ft. 0 in. - 40 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous",
+   "Vine"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Climbing",
+   "Creeping",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Shallow Rocky"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet",
+   "6-feet-12 feet",
+   "12-24 feet",
+   "24-60 feet"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Mountains",
+   "Piedmont"
+  ],
+  "Fruit Color": [
+   "Orange",
+   "Red/Burgundy"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "Red-orange when ripe. Houseplants rarely if ever produce fruits."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green",
+   "Purple/Lavender"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Description": [
+   "Rarely flowers in a spadix surrounded by a spathe. Spadix shorter than spathe, stout; spathe boat-shaped, not forming tube, yellow to green or purple."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Leathery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Deltoid",
+   "Elliptical",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves heart-shaped to elliptic-ovate, glossy medium green variegated with paler green underside. Veins may be reddish. Alternate, simple, sheathing, cordate, acuminate, cordate base, entire, coriaceous, glossy, green or green variegated yellow, cream to white, 3-4 in long. Petioles slender, shorter than leaf blade, and grooved to clasp the stem; stipule fused to petiole, free edges whitish, turning brownish, drying & dropping."
+  ],
+  "Stem Color": [
+   "Gold/Yellow",
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems green and striped with white or yellow. Slender, with adventitious roots."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Vertical Spaces"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Dry Soil",
+   "Heavy Shade",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "Oral irritation, pain and swelling of mouth, tongue, and lips, excessive drooling, vomiting (not horses), difficulty swallowing, skin irritation, diarrhea"
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "interiorscape",
+  "houseplant",
+  "evergreen",
+  "bright green",
+  "rabbit resistant",
+  "low maintenance",
+  "deer resistant",
+  "fantz",
+  "problem for cats",
+  "ebh-h",
+  "ebh",
+  "problem for dogs",
+  "problem for horses",
+  "vertical spaces",
+  "showy leaves",
+  "yellow leaves",
+  "white leaves",
+  "green leaves",
+  "gold leaves",
+  "hanging baskets",
+  "poisonous",
+  "spadix",
+  "heavy shade tolerant",
+  "easy to grow",
+  "container plant",
+  "shade garden",
+  "hsc",
+  "hsc-f",
+  "glossy leaves",
+  "heart-shaped leaves",
+  "perennial",
+  "variegated",
+  "fpp"
+ ]
+}

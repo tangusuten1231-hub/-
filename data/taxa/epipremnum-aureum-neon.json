@@ -1,0 +1,19 @@
+{
+ "id": "epipremnum-aureum-neon",
+ "rank": "cultivar",
+ "parent": "epipremnum-aureum",
+ "cultivar": "Neon",
+ "names": {
+  "ja": "ポトス・ライム（ネオン）",
+  "aliases": [
+   "ライムポトス"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "明るい黄緑〜黄色の葉。",
+   "src": "ncsu",
+   "quote": "yellow leaves"
+  }
+ ]
+}

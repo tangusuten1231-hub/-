@@ -1,0 +1,19 @@
+{
+ "id": "hoya-carnosa-krimson-queen",
+ "rank": "cultivar",
+ "parent": "hoya-carnosa",
+ "cultivar": "Krimson Queen",
+ "names": {
+  "ja": "ホヤ‘クリムソンクイーン’",
+  "aliases": [
+   "ホヤ・トリカラー"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "緑の葉の縁にクリーム白〜ピンクの斑。",
+   "src": "ncsu",
+   "quote": "leaves have a green center, encircled with creamy white to pink margin"
+  }
+ ]
+}

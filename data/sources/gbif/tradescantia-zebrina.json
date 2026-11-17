@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2765359",
+ "retrieved": "2026-11-17",
+ "query": "Tradescantia zebrina",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2765359,
+ "acceptedKey": 2765359,
+ "acceptedName": "Tradescantia zebrina",
+ "authorship": "Bosse",
+ "rank": "SPECIES",
+ "family": "Commelinaceae",
+ "genus": "Tradescantia",
+ "synonyms": [
+  "Commelina zebrina",
+  "Cyanotis zebrina",
+  "Tradescantia zebrina",
+  "Zebrina pendula"
+ ]
+}

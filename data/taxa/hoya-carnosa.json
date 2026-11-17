@@ -1,0 +1,105 @@
+{
+ "id": "hoya-carnosa",
+ "rank": "species",
+ "scientificName": "Hoya carnosa",
+ "names": {
+  "ja": "ホヤ・カルノーサ",
+  "aliases": [
+   "サクララン",
+   "ホヤ"
+  ]
+ },
+ "refs": {
+  "ncsu": "hoya-carnosa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Bright indirect light year-round is ideal."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は明るい間接光を最適とするが、半日陰の屋外で夏を過ごせるとするため、朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Bring it back inside when nighttime temperatures fall below 50 degrees F."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は夜温が50°F（10℃）を下回ったら室内へ入れるよう勧める。南西諸島に自生する種で、室内での国内の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "This plant loves high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry out between watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冷たい水はストレスになる。室温の水を使う。",
+   "src": "ncsu",
+   "quote": "Always use water at room temperature."
+  },
+  {
+   "ja": "つぼみや花があるときは植え替えない。",
+   "src": "ncsu",
+   "quote": "Repot the wax plant when it outgrows its current container and is not in bud or flower."
+  },
+  {
+   "ja": "空気が乾くとハダニがつきやすい。",
+   "src": "ncsu",
+   "quote": "spider mites can be an issue and can appear when the air is too dry"
+  }
+ ]
+}

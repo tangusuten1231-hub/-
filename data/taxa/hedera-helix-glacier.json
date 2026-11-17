@@ -1,0 +1,19 @@
+{
+ "id": "hedera-helix-glacier",
+ "rank": "cultivar",
+ "parent": "hedera-helix",
+ "cultivar": "Glacier",
+ "names": {
+  "ja": "ヘデラ‘グレーシャー’",
+  "aliases": [
+   "白雪姫"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "灰緑色の葉にクリーム白の縁取り。",
+   "src": "ncsu",
+   "quote": "gray and green and creamy white margins"
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "id": "dracaena-trifasciata",
+ "rank": "species",
+ "scientificName": "Dracaena trifasciata",
+ "names": {
+  "ja": "サンスベリア",
+  "aliases": [
+   "サンセベリア",
+   "トラノオ",
+   "スネークプラント",
+   "サンスベリア・トリファスキアタ"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-trifasciata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    20,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Place in a location where it will receive direct sunlight only part of the day, 2 to 6 hours"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "as it will tolerate very low light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Place in a location where it will receive direct sunlight only part of the day, 2 to 6 hours"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It tolerates low humidity and cool temperatures around 50 degrees.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It tolerates low humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "In spring to autumn allow the soil to dry between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "In winter only water every one to two months."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水はけのよい土と控えめな水やりが必須。水のやりすぎで根が腐る。",
+   "src": "ncsu",
+   "quote": "Well-drained soil and careful watering are a must; do not overwater, as the roots will rot."
+  }
+ ],
+ "note": "以前は Sansevieria trifasciata という学名だったが、現在はドラセナ属に分類されている。"
+}

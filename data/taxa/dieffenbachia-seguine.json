@@ -1,0 +1,98 @@
+{
+ "id": "dieffenbachia-seguine",
+ "rank": "species",
+ "scientificName": "Dieffenbachia seguine",
+ "names": {
+  "ja": "ディフェンバキア",
+  "aliases": [
+   "ディーフェンバキア"
+  ]
+ },
+ "refs": {
+  "ncsu": "dieffenbachia-seguine"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers loose, fertile, high organic soil and indirect light, moderate temperatures, and high humidity."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It needs to be protected from cold drafts and direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It needs to be protected from cold drafts and direct sunlight."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "moderate temperatures"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ほどほどの温度」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "moderate temperatures, and high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the top 1-inch surface of the soil to dry completely before watering the plant again"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "ペットや子どもには有毒。手の届かない場所に置く。",
+   "src": "ncsu",
+   "quote": "it can be toxic for pets and children"
+  }
+ ]
+}
