@@ -257,7 +257,8 @@ views.settings = () => `<h1>設定</h1>
       <li>育て方・毒性・原産地などは <a href="https://plants.ces.ncsu.edu/" target="_blank" rel="noopener">NC State Extension Gardener Plant Toolbox</a>（CC BY 4.0）の記載に基づきます。</li>
       <li>学名・科・旧学名は <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF Backbone Taxonomy</a>（CC BY 4.0）に基づきます。</li>
       <li>出典の原文は「根拠」から確認できます。出典に記載のない項目は「目安」と表示し、理由を添えています。</li>
-      <li>日本語名・明るさの段階（lux）の定義・水やりの日数の目安は、このアプリ独自のものです。</li></ul></div>`;
+      <li>日本語名・明るさの段階（lux）の定義・水やりの日数の目安は、このアプリ独自のものです。</li></ul></div>
+  <div class="card"><h3>庭づくりアプリ</h3><p class="small">屋外の宿根草ガーデンは <a href="../">庭づくりアプリ</a> で。</p></div>`;
 
 // ---- ルーター ----
 const nav = [['', '🏠', 'ホーム'], ['zukan', '📖', '図鑑'], ['my', '🪴', 'マイ植物'], ['spots', '🪟', '置き場所'], ['settings', '⚙️', '設定']];

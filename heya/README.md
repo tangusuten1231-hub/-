@@ -14,9 +14,24 @@
 | 🪟 置き場所 | 窓の向き・距離・レースカーテン・実測の照度・冬の最低室温から明るさを見積もり、その場所に合う植物を提案 |
 | ⚙️ 設定 | 一緒に暮らす動物（猫・犬）、バックアップの書き出し／読み込み、データの出典 |
 
+## 公開先
+
+同じリポジトリの庭づくりアプリと1つの GitHub Pages サイトにまとめて公開します。
+
+| アプリ | 場所 | URL |
+| --- | --- | --- |
+| 庭づくりアプリ | リポジトリのルート | https://tangusuten1231-hub.github.io/-/ |
+| へやみどり（このアプリ） | `heya/` フォルダ | https://tangusuten1231-hub.github.io/-/heya/ |
+
+`main` ブランチの内容が公開されます（Settings → Pages → Deploy from a branch → `main` / root）。
+2つのアプリは同じサイト（オリジン）を共有するため、保存先の名前を分けています（へやみどり：IndexedDB `heyamidori`・キャッシュ `heyamidori-*`／庭づくり：`pg-garden`・`pg:*`）。
+
 ## 動かし方
 
+`heya/` フォルダで実行します。
+
 ```sh
+cd heya
 npm start          # http://localhost:8080
 npm test           # データの正確さ・ロジックのテスト
 ```
