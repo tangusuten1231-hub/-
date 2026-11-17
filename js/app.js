@@ -1,4 +1,4 @@
-import { PLANTS, COLORS, SUN, MOIST, TAGS, LEAF, FORMS, addCustom, removeCustom } from './plants.js';
+import { PLANTS, COLORS, SUN, MOIST, TAGS, LEAF, FORMS, addCustom, removeCustom, speciesKey } from './plants.js';
 import { STYLES } from './styles.js';
 import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pests.js';
 import { guideSteps } from './guide.js';
@@ -8,6 +8,8 @@ import { horizonFn, sunReport, angleOf, sunPath, sunWindows, sunNow, lightToday,
 import { INAT_GROUPS, fetchNearby, matchLocal } from './inat.js';
 import { mergeLog, pastDaysNeeded, lastDays, logSummary, compareJa } from './wxlog.js';
 import { seedlings, bedSoil, potLiters, potSoil, fertilizer, liquid, mulch, toICS, firstSaturday, waterAdvice } from './tools.js';
+import { zoneJa, zoneRangeJa, CHILL_SRC } from './fit.js';
+import { NCSU_NOTES } from './verified.js';
 import { generatePlan, slotCandidates, BED_SHAPES, DENSITY, VARIETY, PRESETS, LAYER_JA, SKILLS } from './plan.js';
 import { elevationSVG, planSVG, plantThumbSVG, mapColors } from './illust.js';
 import { loadImages, imageOf, placeImage } from './images.js';
@@ -582,8 +584,8 @@ function plantCard(rs) {
       <span>草丈 ${p.h[0]}〜${p.h[1]}cm</span>
       <span>${p.sun.map((s) => SUN[s]).join('・')}</span>
       <span>土：${p.moist.map((m) => MOIST[m]).join('・')}</span>
-      <span>${p.type === 'annual' ? (p.sow === 'cool' ? '涼しい季節に育つ' : '暖かい季節に育つ') : `耐寒 ${p.zone[0]}〜${p.zone[1]}・耐暑 ${p.heat}`}</span>
-      <span>蒸れ ${['', '弱い', '普通', '強い'][p.humid]}</span>
+      <span>${p.type === 'annual' ? (p.sow === 'cool' ? '涼しい季節に育つ' : '暖かい季節に育つ') : `耐寒ゾーン ${zoneRangeJa(p.zone)}`}</span>
+      <span>蒸れ ${{ weak: '弱い', normal: '普通', strong: '強い' }[p.fit.heatHumidityTolerance] || '—'}${p.fit.humidVerified ? '' : '（目安）'}</span>
       <span>${FORMS[p.form].ja}</span>
       <span>${LEAF[p.leaf].ja}</span>
       <span>株間 ${p.spread}cm</span>
@@ -3545,13 +3547,33 @@ function growHtml(p, compact = false) {
   const ct = coldTemp(p);
   const ph = soilPH(p);
   const items = [
-    ['耐寒温度', ct == null ? '一年草（冬越しなし）' : `約${ct}℃まで（耐寒ゾーン${p.zone[0]}）`],
+    ['耐寒温度', ct == null ? '一年草（冬越しなし）' : `約${ct}℃まで（耐寒ゾーン${zoneJa(p.zone[0])}${p.fit?.zoneVerified ? '' : '・目安'}）`],
+    ['夏の暑さ', heatJa(p)],
     ['日照', sunHours(p)],
     ['土の酸度', `pH ${ph.range}・${ph.ja}`],
-    ...(p.tags.includes('salt') ? [['潮風', '比較的強い']] : []),
+    ...(p.fit?.saltTolerance ? [['潮風', '比較的強い']] : []),
+    ...(p.fit?.chillRequirement ? [['冬の低温', p.fit.chillRequirement === 'high' ? '冬に低温に当たらないと咲かない（暖地では冷蔵処理など）' : '低温に当たると花つきがよい（なくても咲く）']] : []),
   ];
+  const src = sourceOf(p);
   if (compact) return `<p class="grow-mini">${items.map(([k, v]) => `${k} ${esc(v.replace(/（.*?）/g, ''))}`).join('・')}</p>`;
-  return `<dl class="grow-dl">${items.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`;
+  return `<dl class="grow-dl">${items.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${src}`;
+}
+/** 夏の暑さへの強さ（出典で確かめたものと、目安を区別して表示） */
+function heatJa(p) {
+  const v = p.verified;
+  if (v?.heatMax != null) return v.heatMax >= 8 ? '米国南部の特に暑い地域の夏には弱い（出典）' : '暑さ・蒸し暑さに弱い（出典）';
+  if (v?.heatMin != null) return `暑さに強い（米国ノースカロライナ州の、夏が暑く蒸す沿岸平野でも育つ）`;
+  if (v?.regionCool) return `米国ノースカロライナ州では${v.region.includes('P') ? '丘陵・山地' : '山地'}向き（夏の暑い沿岸平野は推奨地域外）`;
+  if (p.type === 'annual') return p.sow === 'cool' ? '暑さが苦手（夏前に咲き終わる）' : '暑さに強い';
+  return `目安：ヒートゾーン${p.heat}まで（出典未確認）`;
+}
+/** 生育条件の出典 */
+function sourceOf(p) {
+  const out = [];
+  if (p.verified?.src === 'ncsu') { const q = NCSU_NOTES[speciesKey(p.latin)]; out.push(`<a href="${p.verified.url}" target="_blank" rel="noopener">NC State Extension Plant Toolbox</a>（耐寒ゾーン・推奨地域・暑さ／湿気／塩への強さ、CC BY 4.0）${q ? `本文：“${esc(q)}”` : ''}`); }
+  if (p.climateSrc) out.push(esc(p.climateSrc));
+  if (p.fit?.chillRequirement && (CHILL_SRC[p.id] || CHILL_SRC[p.group])) out.push(`冬の低温：${esc(CHILL_SRC[p.id] || CHILL_SRC[p.group])}`);
+  return `<p class="grow-src">${out.length ? `出典：${out.join('／')}` : '生育条件は一般的な栽培情報にもとづく目安です（出典の確認はまだ）。'}</p>`;
 }
 function timingHtml(p) {
   const t = plantingTime(p, state.climate);

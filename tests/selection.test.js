@@ -24,9 +24,13 @@ test('気候判定用の項目：図鑑の値を写し、データのないも�
   assert.equal(ASAHI.zone.label, '9b'); assert.equal(SAPPORO.zone.label, '7a'); assert.equal(NAHA.zone.label, '12a');
   for (const p of PLANTS) {
     assert.deepEqual([p.fit.hardinessZoneMin, p.fit.hardinessZoneMax], p.zone, p.id);
-    assert.equal(p.fit.heatZoneMax, p.heat, p.id);
+    // 暑さの上限：出典で弱さを確かめたものはその値、ほかは図鑑の目安（出典で強さを確かめたものは下限として反映）
+    assert.equal(p.fit.heatZoneMax, p.verified?.heatMax ?? Math.max(p.heat, p.verified?.heatMin ?? 0), p.id);
+    assert.equal(p.fit.heatVerified, p.verified?.heatMax != null, p.id);
   }
-  assert.equal(P('tulipa').fit.chillRequirement, 'high');
+  assert.equal(P('crocus').fit.chillRequirement, 'high');
+  assert.equal(P('tulipa').fit.chillRequirement, 'low'); // 図鑑のチューリップは原種系（暖地向きとされる）
+  assert.equal(P('digitalis-dalmatian').fit.chillRequirement, null); // 1年目に咲く品種は低温不要
   assert.equal(P('echinacea').fit.chillRequirement, null); // 出典のない値は作らない
   assert.equal(climateTraits(P('rosemary')).saltTolerance, 'strong');
   for (const [k, v] of Object.entries(CLIMATE_FIX)) assert.ok(v.src && PLANTS.some((p) => (p.id === k || p.group === k) && p.climateSrc === v.src), k);
@@ -34,11 +38,20 @@ test('気候判定用の項目：図鑑の値を写し、データのないも�
 
 test('ハードフィルター：札幌・那覇で育たない植物を外し、旭市では残す', () => {
   for (const id of ['verbena-tapien', 'ceanothus']) assert.ok(hardFails(P(id), SAPPORO).length, `札幌 ${id}`);
-  for (const id of ['camassia', 'digitalis', 'matteuccia', 'actaea']) assert.ok(hardFails(P(id), NAHA).length, `那覇 ${id}`);
+  // 冬に低温が必要なもの（出典あり）は那覇で外れる
+  for (const id of ['camassia', 'digitalis']) assert.ok(hardFails(P(id), NAHA).some((f) => f.key === 'chill'), `那覇 ${id}`);
+  // 冬が暖かいこと自体では外さない。冷涼地向きのクサソテツ・サラシナショウマは、出典にもとづく注意つきで「育ちにくい」
+  for (const id of ['matteuccia', 'actaea']) { const r = evaluate(P(id), NAHA); assert.ok(r.grade <= 3, `那覇 ${id} ${r.gradeJa}`); assert.ok(!hardFails(P(id), NAHA).some((f) => f.key === 'warm')); }
+  // 夏の暑さ・湿気で外すのは、出典の本文で弱いと確かめた植物だけ
+  for (const c of [ASAHI, SAPPORO, NAHA]) for (const p of PLANTS) for (const f of hardFails(p, c)) {
+    if (f.key === 'heat') assert.ok(p.fit.heatVerified, `${p.id} 暑さ（出典なし）`);
+    if (f.key === 'humid') assert.ok(p.fit.humidVerified, `${p.id} 湿気（出典なし）`);
+    assert.notEqual(f.key, 'warm');
+  }
   for (const id of ['verbena-tapien', 'ceanothus', 'camassia', 'digitalis', 'matteuccia', 'actaea']) assert.equal(hardFails(P(id), ASAHI).length, 0, `旭市 ${id}`);
   // 図鑑の判定（△）とプランの除外は同じ基準
   for (const c of [ASAHI, SAPPORO, NAHA]) for (const p of PLANTS) assert.equal(evaluate(p, c).level === 1, hardFails(p, c).length > 0, p.id);
-  assert.match(hardFails(P('tulipa'), NAHA).map((f) => f.text).join(), /低温/);
+  assert.match(hardFails(P('crocus'), NAHA).map((f) => f.text).join(), /低温/);
 });
 
 test('プラン：違反0件・見ごろの月がピーク・理由は実データどおり・地域で顔ぶれが変わる', () => {
@@ -52,7 +65,7 @@ test('プラン：違反0件・見ごろの月がピーク・理由は実デー�
       assert.ok(sp.why.length, sp.plant.id);
       for (const w of sp.why) {
         let m;
-        if ((m = w.match(/^ゾーン(\w+)に適合（耐寒(\d+)〜(\d+)）$/))) assert.deepEqual([m[1], +m[2], +m[3]], [lab, ...sp.plant.zone], w);
+        if ((m = w.match(/^ゾーン(\w+)で冬越しできる（耐寒(\d+)([ab])まで）$/))) assert.deepEqual([m[1], +m[2] + (m[3] === 'b' ? 0.5 : 0)], [lab, sp.plant.zone[0]], w);
         if ((m = w.match(/^(\d+)月の(.+)花$/))) { assert.ok(sp.plant.bloom.includes(+m[1]), w); assert.ok(sp.plant.color.some((x) => COLORS[x].ja === m[2]), w); }
       }
       if (sp.role !== 'under' && (sp.plant.soc ?? 3) >= 3) assert.ok(sp.qty >= 3, `${sp.plant.ja} ${sp.qty}株`);
@@ -77,7 +90,8 @@ test('育てやすさの6段階：決め方と図鑑の絞り込み', async () =
     if (r.grade === 2) assert.ok(r.tips.length, p.id);
   }
   assert.equal(evaluate(P('pelargonium'), SAPPORO).grade, 2); // 鉢で取り込めば育つ
-  assert.equal(evaluate(P('tulipa'), NAHA).grade, 1);
+  assert.equal(evaluate(P('digitalis'), NAHA).grade, 1); // 冬の低温が必要な二年草（球根のような冷蔵処理はできない）
+  assert.equal(evaluate(P('crocus'), NAHA).grade, 2); // 球根は冷蔵処理で育てられる
   assert.equal(evaluate(P('echinacea'), ASAHI).grade, 6);
   assert.ok(gradeMatch(5, 'ge4') && !gradeMatch(3, 'ge4') && gradeMatch(2, '2') && !gradeMatch(2, '1') && gradeMatch(1, ''));
   const easy = findPlants(ASAHI, { grade: '6' });

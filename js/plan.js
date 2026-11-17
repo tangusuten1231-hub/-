@@ -337,6 +337,13 @@ export function generatePlan(o) {
       warnings.push(`この場所の条件（日当たり・土・気候・希望）では「簡単に育つ」植物が${new Set(easy.map((p) => p.group)).size}種しかないため、「${add}」植物も加えました。`);
     }
   }
+  // 「ふつう」：「育ちにくい」植物は使わない。候補が足りないときだけ加え、そのことを表示する
+  if (site && skillId === 'standard') {
+    const ok = cands.filter((p) => evals.get(p.id).grade >= 4);
+    const need = Math.max(8, Math.round((3 + area * 1.1) * 2));
+    if (ok.length >= need) cands = ok;
+    else if (cands.length > ok.length) warnings.push(`この場所の条件（日当たり・土・気候・希望）では「育つ」以上の植物が${new Set(ok.map((p) => p.group)).size}種しかないため、「育ちにくい」植物も候補に入れています（理由は植物ごとに表示）。`);
+  }
   const monthsWanted = [...pref.season];
 
   // ---------- スコア（100点満点の目安）----------

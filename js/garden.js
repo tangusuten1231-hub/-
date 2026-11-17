@@ -15,11 +15,11 @@ export const LEVEL = {
  */
 export const GRADE = {
   6: { ja: '簡単に育つ', mark: '◎', note: '「よく育つ」の条件を満たし、図鑑で「手間いらず」の丈夫な植物' },
-  5: { ja: 'よく育つ', mark: '◎', note: '冬の寒さ・冬の暖かさ・夏の暑さ・蒸れのどれも、植物の限界に近くない' },
-  4: { ja: '育つ', mark: '○', note: '育つが、夏の暑さ・蒸れ・冬の暖かさ・冬の低温のうち1つが植物の限界に近い' },
-  3: { ja: '育ちにくい', mark: '△', note: '耐寒性が限界に近い（冬の寒さが耐寒ゾーンの下限から半ゾーン以内）、または限界に近い条件が2つ以上ある' },
+  5: { ja: 'よく育つ', mark: '◎', note: '冬の寒さ・夏の暑さ・蒸れ・冬の低温のどれも、植物の限界に近くない' },
+  4: { ja: '育つ', mark: '○', note: '育つが、夏の暑さ・蒸れ・冬の低温のうち1つが限界に近いか、暖地での栽培の情報が少ない' },
+  3: { ja: '育ちにくい', mark: '△', note: '耐寒性が限界に近い（冬の寒さが耐寒ゾーンの下限から半ゾーン以内）、または注意すべき条件が2つ以上ある' },
   2: { ja: '育てるには工夫が必要', mark: '△', note: 'このままでは育たないが、鉢で冬に取り込む・防寒・球根の冷蔵処理・夏の日よけなどで育てられる' },
-  1: { ja: '育てられない', mark: '×', note: '気候が植物の限界を大きく超えていて、工夫しても育てるのが難しい' },
+  1: { ja: '育てられない', mark: '×', note: '冬の寒さ・夏の暑さ・蒸れ・冬の低温が、出典で確かめた植物の限界を大きく超えていて、工夫しても育てるのが難しい' },
 };
 /** 6段階 → 3段階（◎ よく育つ / ○ 工夫すれば育つ / △ 難しい）。プランや他の画面で使う */
 export const levelOfGrade = (g) => (g >= 4 ? 3 : g === 3 ? 2 : 1);
@@ -51,6 +51,7 @@ export function evaluate(plant, climate) {
       }
       if (f.key === 'chill' && plant.type === 'bulb') return '球根を冷蔵庫（5℃前後）で8週間ほど冷やしてから植える（冷蔵処理）。花後は毎年植え替える';
       if (f.key === 'humid' && site.stress === 2) return '高植えや砂利マルチで水はけをよくし、梅雨前に切り戻して風通しを確保する';
+      if (f.key === 'humid') return '鉢植えにして、梅雨から夏は雨の当たらない風通しのよい場所へ移す（地植えなら高植え・砂利マルチ・梅雨前の切り戻し）';
       if (f.key === 'heat' && annual && plant.sow === 'cool') return '秋に種をまき、暑くなる前に咲き終える一年草として育てる';
       if (f.key === 'heat' && site.heat === t.heatZoneMax + 1) return '夏は午後に日陰になる場所に植える（鉢なら夏は涼しい半日陰へ移す）';
       return null;
@@ -59,13 +60,25 @@ export function evaluate(plant, climate) {
     if (fixes.every(Boolean)) { grade = 2; tips.push(...new Set(fixes)); reasons.push(...tips.map((x) => `工夫：${x}`)); } else grade = 1;
   } else {
     let edges = 0, hardEdge = false;
-    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { hardEdge = true; reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護'); }
-    // 冬の暖かさの上限は、米国の資料では夏の暑さも含めて決められていることが多い（暑さは別に判定）ので、限界に近い条件の1つとして数える
-    if (!annual && t.hardinessZoneMax < 11 && site.zoneInt > t.hardinessZoneMax) { edges++; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
-    if (t.heatZoneMax != null && site.heat === t.heatZoneMax) { edges++; reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心'); }
-    if (t.heatHumidityTolerance === 'weak' && site.stress === 1) { edges++; reasons.push('蒸れに弱い。水はけをよくし梅雨前に透かす'); }
+    const est = (v) => (v ? '' : '（目安・出典未確認）');
+    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { hardEdge = true; reasons.push(`耐寒性がぎりぎり。冬は株元をマルチングで保護${est(t.zoneVerified)}`); }
+    // 夏の暑さ：出典で確かめた値は「上限いっぱい」で注意。推定値は、上回るときに注意（外す理由にはしない）
+    if (t.heatZoneMax != null) {
+      if (t.heatVerified && site.heat === t.heatZoneMax) { edges++; reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心'); }
+      else if (!t.heatVerified && site.heat > t.heatZoneMax) { edges++; reasons.push('暑い地域では夏に弱ることがある（目安・出典未確認）。午後に日陰になる場所だと安心'); }
+    }
+    if (t.heatHumidityTolerance === 'weak' && (site.stress === 1 || (!t.humidVerified && site.stress >= 2))) { edges++; reasons.push(`蒸れに弱い。水はけをよくし梅雨前に透かす${est(t.humidVerified)}`); }
     else if (t.heatHumidityTolerance === 'normal' && site.stress === 3) { edges++; reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保'); }
+    // 出典（NC State）で、夏の暑い沿岸平野が推奨地域に入っていない（山地・丘陵向き）：暑い地域では注意
+    if (plant.verified?.regionCool && site.heat >= 7 && !t.heatVerified) { edges++; reasons.push(`米国ノースカロライナ州では${plant.verified.region.includes('P') ? '丘陵・山地' : '山地'}向きとされ、夏の暑い沿岸平野は推奨地域外。暑い地域では午後に日陰になる場所が安心`); }
+    // 米国の資料の栽培範囲（耐寒ゾーンの上限）より2ゾーン以上暖かい地域：暖地での栽培の情報が少ないので注意として表示（外す理由にはしない）
+    // 3ゾーン以上外れる（例：那覇で、ゾーン8までの植物）ときは「育ちにくい」
+    if (!annual && t.hardinessZoneMax < 11 && site.zoneInt >= Math.floor(t.hardinessZoneMax) + 2) {
+      if (site.zoneInt >= Math.floor(t.hardinessZoneMax) + 3) hardEdge = true; else edges++;
+      reasons.push(`米国の資料の栽培範囲（ゾーン${Math.floor(t.hardinessZoneMax)}まで）より暖かい地域で、栽培の情報が少ない。暖地では夏の暑さや蒸れで弱ることがある`);
+    }
     if (!annual && t.chillRequirement === 'high' && site.coldMonth != null && site.coldMonth > 7) { edges++; reasons.push('冬の低温が少なめの地域。年々花が減るときは植え替えを'); }
+    if (!annual && t.chillRequirement === 'low' && site.coldMonth != null && site.coldMonth > 10) { edges++; reasons.push(`冬の低温が少ない地域（いちばん寒い月の平均${site.coldMonth}℃）。花つきが落ちることがある`); }
     grade = hardEdge || edges >= 2 ? 3 : edges === 1 ? 4 : plant.tags?.includes('easy') ? 6 : 5;
     if (grade >= 5) reasons.push(grade === 6 ? '丈夫で手間がかからず、この地域の寒さ・暑さにも余裕がある' : annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに余裕をもって合っています');
   }
@@ -415,6 +428,13 @@ export function sunHours(p) {
 const PH_ACID = new Set(['blueberry', 'camellia-sinensis', 'gardenia', 'hydrangea-serrata', 'lupinus', 'gentiana', 'kirengeshoma', 'astilbe', 'athyrium', 'dryopteris', 'matteuccia', 'polystichum', 'tricyrtis', 'primula-japonica', 'iris-ensata', 'adiantum', 'epimedium', 'pachysandra', 'asarum', 'cornus-sanguinea']);
 const PH_ALK = new Set(['lavender', 'rosemary', 'santolina', 'dianthus', 'gypsophila', 'gypsophila-elegans', 'scabiosa', 'knautia', 'clematis', 'salvia-officinalis', 'thymus', 'origanum', 'verbascum', 'echinops', 'eryngium', 'centranthus', 'helleborus', 'iris-germanica', 'artemisia', 'perovskia', 'stachys', 'cerastium', 'armeria', 'limonium', 'crambe', 'sedum', 'papaver', 'alcea', 'euphorbia', 'nepeta', 'achillea', 'teucrium-hircanicum', 'dianthus-carthusianorum', 'aubrieta', 'iberis', 'lunaria', 'cephalaria', 'salvia-pratensis']);
 export function soilPH(p) {
+  // 出典（NC State）の土の酸度：A 酸性（pH 6.0未満）・N 中性（6.0〜8.0）・L アルカリ性（8.0超）
+  const v = p.verified?.ph;
+  if (v) {
+    const T = { A: ['6.0未満', '酸性を好む'], N: ['6.0〜8.0', '中性を好む（酸性の土は苦土石灰で調整）'], L: ['8.0超', 'アルカリ性を好む'], AN: ['6.0未満〜8.0', '酸性〜中性（幅広く対応）'], NL: ['6.0〜8.0超', '中性〜アルカリ性'], ANL: ['6.0未満〜8.0超', '幅広く対応'] };
+    const [range, ja] = T[v] || T.ANL;
+    return { range, ja: `${ja}（出典：NC State）`, known: true };
+  }
   const g = p.group || p.id;
   if (PH_ACID.has(g)) return { range: '5.0〜6.0', ja: '酸性を好む', known: true };
   if (PH_ALK.has(g)) return { range: '6.5〜8.0', ja: '中性〜弱アルカリ性を好む（苦土石灰で調整）', known: true };

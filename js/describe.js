@@ -2,6 +2,7 @@
 import { PLANTS, COLORS } from './plants.js';
 import { TYPE_JA, USES } from './meta.js';
 import { heightClass } from './garden.js';
+import { zoneRangeJa } from './fit.js';
 
 /** 月のリストを「5〜6月と9〜10月」のような言い方に */
 export function bloomText(months) {
@@ -61,11 +62,12 @@ function coldText(p) {
     : z <= 6 ? '寒さに強く、多くの地域で屋外で冬越しできます'
     : z <= 7 ? '関東以西の平地なら屋外で冬越しできますが、寒冷地では防寒が必要です'
     : '寒さに弱いので、霜の降りる地域では鉢に上げるか、しっかり防寒します';
-  return `耐寒性ゾーンは${p.zone[0]}〜${p.zone[1]}が目安で、${t}。`;
+  return `耐寒性ゾーンは${zoneRangeJa(p.zone)}${p.fit?.zoneVerified ? '' : 'が目安'}で、${t}。`;
 }
 function humidText(p) {
-  if (p.humid === 1) return '高温多湿が苦手なので、梅雨から夏は風通しをよくし、水はけを良くして蒸れを防ぐことが大切です。';
-  if (p.humid === 3) return '日本の蒸し暑い夏にも強く、育てやすい植物です。';
+  const h = p.fit?.heatHumidityTolerance;
+  if (h === 'weak') return '高温多湿が苦手なので、梅雨から夏は風通しをよくし、水はけを良くして蒸れを防ぐことが大切です。';
+  if (h === 'strong') return p.fit?.humidVerified ? '湿気の多い夏にも強いとされる植物です（米国南東部での評価）。' : '蒸し暑い夏にも比較的強い植物です（目安）。';
   return '';
 }
 function careText(p) {

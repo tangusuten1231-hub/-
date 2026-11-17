@@ -21,7 +21,14 @@ import { rolesOf } from './roles.js';
 import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
 import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf, SALT_GROUPS } from './designer.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
-import { CLIMATE_FIX, climateTraits } from './fit.js';
+import { CLIMATE_FIX, climateTraits, ncsuTraits, NCSU_SKIP } from './fit.js';
+import { NCSU } from './verified.js';
+/** 学名から「属 種小名」（小文字）を取り出す。品種名・変種・交配記号は除く */
+export function speciesKey(latin) {
+  const b = String(latin).replace(/\s*'.*$/, '').replace(/×/g, 'x').replace(/\s+(var|subsp|ssp)\.\s+.*$/, '').trim();
+  const w = b.split(/\s+/).filter((x) => x && x !== 'x');
+  return w.length >= 2 && /^[a-z]/.test(w[1]) ? `${w[0]} ${w[1]}`.toLowerCase() : null;
+}
 import { OKINAWA_BASE } from './okinawa.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
@@ -228,7 +235,12 @@ function decorate(p) {
   const q = { ...p, tags: [...tags], family, uses: [...new Set([...(USE_INDEX[p.group] || []), ...(p.use || [])])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || DESIGNER_ALIASES[p.group] || p.aka || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || DESIGNER_ORIGIN[p.group] || p.origin || [] };
   q.roles = rolesOf(q);
   q.soc = socOf(q);
-  // 気候データの訂正（出典を確認できたもの）と、気候判定用の項目
+  // 出典で確かめた生育条件（NC State Plant Toolbox）：耐寒ゾーンを置きかえ、暑さ・湿気・塩への強さを加える
+  const key = speciesKey(q.latin);
+  const ncsu = NCSU_SKIP.has(key) ? null : ncsuTraits(NCSU[key]);
+  // 亜熱帯の植物（okinawa.js）など、データに出典つきの値があるものは、その耐寒ゾーンを優先する
+  if (ncsu) { if (!p.climateSrc) q.zone = ncsu.zone; q.verified = ncsu; }
+  // 個別に出典を確認した訂正（こちらを優先）と、気候判定用の項目
   const fix = CLIMATE_FIX[q.id] || CLIMATE_FIX[q.group];
   if (fix) { if (fix.zone) q.zone = fix.zone; q.climateSrc = fix.src; }
   q.fit = climateTraits(q);

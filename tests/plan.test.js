@@ -89,7 +89,7 @@ test('品種データ：種のデータを継承し、違いだけ上書き', as
   const ws = PLANTS.find((p) => p.id === 'echinacea-white-swan');
   assert.deepEqual(ws.color, ['white']);
   assert.equal(ws.group, 'echinacea');
-  assert.deepEqual(ws.zone, [3, 9]); // 継承
+  assert.deepEqual(ws.zone, PLANTS.find((p) => p.id === 'echinacea').zone); // 継承（出典の値：NC State 3a〜8b）
   assert.equal(ws.latin, "Echinacea purpurea 'White Swan'");
   // 先頭の品種は旧IDを引き継ぐ（保存データ互換）
   assert.ok(PLANTS.find((p) => p.id === 'echinacea').cv);
@@ -97,7 +97,7 @@ test('品種データ：種のデータを継承し、違いだけ上書き', as
   const hidcote = PLANTS.find((p) => p.id === 'lavender-hidcote');
   const phenomenal = PLANTS.find((p) => p.id === 'lavender-phenomenal');
   const { evaluate } = await import('../js/garden.js');
-  assert.ok(evaluate(phenomenal, tokyo).level > evaluate(hidcote, tokyo).level);
+  assert.ok(evaluate(phenomenal, tokyo).grade > evaluate(hidcote, tokyo).grade);
 });
 
 test('プランで同じ種の品種を重複させない', () => {
