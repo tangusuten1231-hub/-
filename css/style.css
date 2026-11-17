@@ -1502,3 +1502,8 @@ h1, h2, h3, h4 { line-break: strict; }
 .ss-fit { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
 .ss-fit .chip { font-size: .72rem; }
 .ss-fit .chip.lv1 { border-color: #b5532f; } .ss-fit .chip.lv2 { border-color: #c4831f; }
+/* 選定理由・挑戦枠 */
+.why.challenge span { color: #9a4a1c; background: #f7e4d6; }
+.sel-why { font-size: .74rem; color: var(--muted, #6b6b5f); margin: 4px 0; line-height: 1.5; }
+.sel-why b { color: var(--accent); margin-right: 6px; font-weight: 700; }
+.sel-why.challenge b { color: #9a4a1c; }

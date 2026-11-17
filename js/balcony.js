@@ -139,7 +139,11 @@ export function generateBalcony(o) {
   const cands = PLANTS.filter((p) => {
     if (p.type === 'annual' && !allowAnnual && !p.tags.includes('balcony')) return false;
     if (p.tags.includes('veg') && p.type === 'annual' && !pref.veg && !p.tags.includes('balcony')) return false;
-    if (o.climate && evaluate(p, o.climate).level < 2) return false;
+    if (o.climate) {
+      const ev = evaluate(p, o.climate);
+      // 鉢植えは冬に室内へ取り込めるので、寒さだけが理由の「寒さに弱い植物」は候補に残す
+      if (ev.level < 2 && !(p.tender && ev.fails.every((f) => f.key === 'cold'))) return false;
+    }
     return true;
   });
   const guide = new Map(cands.map((p) => [p.id, potGuide(p)]));

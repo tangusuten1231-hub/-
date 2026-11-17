@@ -21,6 +21,7 @@ import { rolesOf } from './roles.js';
 import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
 import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf, SALT_GROUPS } from './designer.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
+import { CLIMATE_FIX, climateTraits } from './fit.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
 const CULTIVARS = { ...CV1 };
@@ -226,6 +227,10 @@ function decorate(p) {
   const q = { ...p, tags: [...tags], family, uses: [...new Set([...(USE_INDEX[p.group] || []), ...(p.use || [])])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || DESIGNER_ALIASES[p.group] || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || DESIGNER_ORIGIN[p.group] || [] };
   q.roles = rolesOf(q);
   q.soc = socOf(q);
+  // 気候データの訂正（出典を確認できたもの）と、気候判定用の項目
+  const fix = CLIMATE_FIX[q.id] || CLIMATE_FIX[q.group];
+  if (fix) { if (fix.zone) q.zone = fix.zone; q.climateSrc = fix.src; }
+  q.fit = climateTraits(q);
   return q;
 }
 /** 自分で登録した品種を追加（種のデータを引き継ぐ） */

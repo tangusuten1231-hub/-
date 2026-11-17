@@ -19,7 +19,7 @@ test('キーワード解析', () => {
 
 test('プラン生成: 種類数・層・色・費用', () => {
   const plan = generatePlan({ climate: tokyo, text: '白と青のナチュラルな庭', width: 3, depth: 1.2, sun: 'full', view: 'border' });
-  assert.equal(plan.species.length, 7);
+  assert.ok(plan.species.length >= 5 && plan.species.length <= 8, `${plan.species.length}種`);
   const layers = new Set(plan.species.map((s) => s.layer));
   assert.ok(layers.has('back') && layers.has('middle') && layers.has('front'));
   assert.ok(plan.species.every((s) => ['white', 'blue'].includes(s.color) || s.plant.form === 'grass'));

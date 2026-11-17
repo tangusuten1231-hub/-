@@ -1,6 +1,7 @@
 // 適性判定・開花リレー分析・作業カレンダー生成（純粋関数）
 import { PLANTS } from './plants.js';
 import { humidityStress, doyToDate } from './climate.js';
+import { siteOf, hardFails, climateTraits } from './fit.js';
 
 export const LEVEL = {
   3: { mark: '◎', label: 'よく育つ' },
@@ -8,62 +9,35 @@ export const LEVEL = {
   1: { mark: '△', label: '難しい' },
 };
 
-/** 地域の気候に対する植物の適性 */
+/**
+ * 地域の気候に対する植物の適性。
+ * level 1（△ 難しい）は、プランの候補から外すハードフィルター（fit.js の hardFails）と同じ基準。
+ * 図鑑・マイ庭・プランで判定が食い違わないよう、ここでも同じ関数を使う。
+ */
 export function evaluate(plant, climate) {
   if (!climate) return { level: null, reasons: [] };
-  let level = 3;
-  const reasons = [];
-  const site = climate.zone.value;
-  const deepSnow = climate.annualSnow >= 100 && plant.type !== 'subshrub';
-  const coldSite = deepSnow ? site + 1 : site;
-  const [zMin, zMax] = plant.zone;
+  const site = siteOf(climate);
+  const t = plant.fit || climateTraits(plant);
   const annual = plant.type === 'annual';
-
-  // 一年草は毎年種から育てるので、冬の寒さの判定はしない
-  if (annual) {
-    // 何もしない
-  } else if (coldSite < zMin && plant.tender) {
-    level = Math.min(level, 2);
-    reasons.push('寒さに弱い。鉢植えにして、冬は室内や軒下に取り込めば育つ');
-  } else if (coldSite < zMin) {
-    if (coldSite >= zMin - 0.5) {
-      level = Math.min(level, 2);
-      reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護');
-    } else {
-      level = 1;
-      reasons.push(`冬の寒さが厳しすぎる（耐寒ゾーン${zMin}以上向き）`);
-    }
-  } else if (deepSnow && site < zMin) {
-    level = Math.min(level, 2);
-    reasons.push('積雪の保温効果で越冬できる見込み。雪の少ない年は防寒を');
+  const fails = hardFails(plant, climate, site);
+  const reasons = fails.map((f) => f.text);
+  const deepSnow = climate.annualSnow >= 100;
+  let level = fails.length ? 1 : 3;
+  if (fails.length) {
+    const onlyCold = fails.every((f) => f.key === 'cold');
+    if (onlyCold && plant.tender) reasons.push('鉢植えにして、冬は室内や軒下に取り込めば育てられます');
+    else if (onlyCold && deepSnow && ['herb', 'bulb', 'fern', 'grass'].includes(plant.type) && site.zone >= t.hardinessZoneMin - 1) reasons.push(`雪の多い地域（年${climate.annualSnow}cm）では、雪の下で冬を越せることもあります（保証はできません）`);
+  } else {
+    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { level = 2; reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護'); }
+    if (!annual && site.zoneInt > t.hardinessZoneMax) { level = 2; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
+    if (t.heatZoneMax != null && site.heat === t.heatZoneMax) reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心');
+    if (t.heatHumidityTolerance === 'weak' && site.stress === 1) reasons.push('蒸れに弱い。水はけをよくし梅雨前に透かす');
+    else if (t.heatHumidityTolerance === 'normal' && site.stress === 3) reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保');
+    if (t.chillRequirement === 'high' && site.coldMonth != null && site.coldMonth > 7) reasons.push('冬の低温が少なめの地域。年々花が減るときは植え替えを');
   }
-  if (!annual && site > zMax + 1) {
-    level = Math.min(level, 2);
-    reasons.push('冬の寒さが足りず、休眠不足で弱ることがある');
-  }
-
-  const heatDiff = climate.heatZone - plant.heat;
-  if (heatDiff >= 2) {
-    level = 1;
-    reasons.push('夏の暑さで夏越しが難しい');
-  } else if (heatDiff === 1) {
-    level = Math.min(level, 2);
-    reasons.push('夏の暑さに注意。午後に日陰になる場所がおすすめ');
-  }
-
-  const stress = humidityStress(climate);
-  if (plant.humid === 1 && stress >= 2) {
-    level = Math.min(level, 2);
-    reasons.push(stress === 3
-      ? '蒸れにとても弱い。高植え・砂利マルチ・梅雨前の切り戻しが必須'
-      : '蒸れに弱い。水はけをよくし梅雨前に透かす');
-  } else if (plant.humid === 2 && stress === 3) {
-    reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保');
-  }
-
-  if (!reasons.length) reasons.push(annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに合っています');
-  if (annual) reasons.push(sowAdvice(plant, climate));
-  return { level, reasons };
+  if (level === 3 && !reasons.length) reasons.push(annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに合っています');
+  if (annual && level > 1) reasons.push(sowAdvice(plant, climate));
+  return { level, reasons, fails };
 }
 
 /** 一年草の種まき時期（地域の気候から） */
@@ -403,6 +377,8 @@ export function soilPH(p) {
   if (PH_ALK.has(g)) return { range: '6.5〜8.0', ja: '中性〜弱アルカリ性を好む（苦土石灰で調整）', known: true };
   return { range: '6.0〜7.0', ja: '弱酸性〜中性（一般的な草花の目安。この植物の個別データは準備中）', known: false };
 }
+// 気候判定用の項目に、個別データのある土の酸度（pH）を加える
+for (const p of PLANTS) if (p.fit) { const ph = soilPH(p); p.fit.phRange = ph.known ? ph.range : null; }
 
 /**
  * つくる順番の予定月。

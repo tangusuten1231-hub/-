@@ -60,7 +60,8 @@ test('鉢植えガイド：小さな草花は小さな鉢、木は大きな鉢�
 test('寒さに弱いベランダ植物は「取り込めば育つ」と判定', () => {
   const zone8 = { ...climate, zone: { value: 8, label: '8a' } };
   const r = evaluate(PLANTS.find((p) => p.id === 'pelargonium'), zone8);
-  assert.equal(r.level, 2);
+  assert.equal(r.level, 1); // 地植えの候補からは外れる（気候のハードフィルター）
+  assert.ok(r.fails.every((f) => f.key === 'cold'));
   assert.ok(r.reasons.some((t) => t.includes('取り込め')));
 });
 

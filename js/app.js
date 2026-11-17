@@ -1774,7 +1774,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ---------- こだわり設定 ----------
-const K_DEFAULT = { must: [], exclude: [], colors: [], colorMode: 'prefer', leafs: [], density: 'standard', variety: 'standard', maxH: 0, months: [], winter: false };
+const K_DEFAULT = { must: [], exclude: [], colors: [], colorMode: 'prefer', leafs: [], density: 'standard', variety: 'standard', maxH: 0, months: [], winter: false, challenge: false };
 /** こだわり設定の値（何も変えていなければ undefined＝おまかせ） */
 function kOpts(pi) {
   const k = { ...K_DEFAULT, ...(pi.k || {}) };
@@ -1792,6 +1792,7 @@ function kSummaryText(k) {
   if (k.maxH) t.push(`${k.maxH}cmまで`);
   if (k.months.length) t.push(`${monthsJa(k.months)}に咲かせる`);
   if (k.winter) t.push('冬も楽しむ');
+  if (k.challenge) t.push('挑戦枠あり');
   return t.join('・') || '入れたい植物・色・密度・種類の数など（おまかせ）';
 }
 function renderKodawari() {
@@ -1817,6 +1818,7 @@ function renderKodawari() {
     <div class="k-row"><span class="label">とくに咲かせたい月</span>
       <div class="chips k-months">${MONTHS.map((m) => `<button type="button" class="chip${k.months.includes(m) ? ' on' : ''}" data-kmonth="${m}">${m}月</button>`).join('')}</div></div>
     <label class="toggle"><input type="checkbox" id="kWinter" ${k.winter ? 'checked' : ''}> 冬も楽しむ（常緑・種の頭・枯れ姿の美しい植物を優先）</label>
+    <label class="toggle"><input type="checkbox" id="kChallenge" ${k.challenge ? 'checked' : ''}> 挑戦枠（この地域の気候では育てにくい植物を、全体の1割まで注意書きつきで入れる）</label>
     <div class="row"><button type="button" class="btn small" data-kreset>${icon('refresh', 14)}こだわりをリセット</button></div>
     <datalist id="kPlantList">${PLANTS.filter((p) => !p.custom).map((p) => `<option value="${esc(p.ja)}"></option>`).join('')}</datalist>`;
   $('#kSummary').textContent = kSummaryText(k);
@@ -1850,7 +1852,10 @@ function initKodawari() {
     save();
   });
   box.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.matches('#kMustQ,#kExQ')) { e.preventDefault(); addBy(e.target.id === 'kMustQ' ? 'must' : 'exclude', e.target.value); } });
-  box.addEventListener('change', (e) => { if (e.target.id === 'kWinter') { state.planInput.k.winter = e.target.checked; save(); } });
+  box.addEventListener('change', (e) => {
+    if (e.target.id === 'kWinter') { state.planInput.k.winter = e.target.checked; save(); }
+    if (e.target.id === 'kChallenge') { state.planInput.k.challenge = e.target.checked; save(); }
+  });
 }
 
 /** 保存した案を開いたとき、入力欄を案の内容に戻す */
@@ -2035,7 +2040,7 @@ function renderPlan() {
           ${monthBar({ ...sp.plant, color: [sp.color] }, south)}
           <p class="calc">${sp.qty}株 × ${yen(sp.plant.price)} = <b>${yen(sp.subtotal)}</b></p>
           <p class="grow-mini">植え時 ${esc(monthsJa(plantingTime(sp.plant, state.climate).plant.best))}</p>${growHtml(sp.plant, true)}
-          <div class="why">${sp.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
+          <div class="why${sp.challenge ? ' challenge' : ''}">${sp.why.map((w) => `<span>${esc(w)}</span>`).join('')}</div>
           ${sp.plant.roles?.length ? `<div class="rolerow small">${sp.plant.roles.slice(0, 3).map((k) => `<span class="role-chip">${esc(ROLES[k].ja)}</span>`).join('')}${sp.plant.soc ? `<span class="role-chip soc">${esc(SOC_JA[sp.plant.soc])}</span>` : ''}</div>` : ''}
           ${bedOfSite ? '' : `<button type="button" class="btn small swap-btn" data-swap="${sp.no}">${icon('refresh', 14)}ほかの植物に替える</button>`}
         </div>
@@ -2526,6 +2531,8 @@ function bindGrowth(box, g) {
 let savedPlans = store.get('savedPlans', []);
 const cmpPick = new Set();
 const MODE_JA = { bed: '花壇', site: '庭まるごと', balcony: 'ベランダ' };
+// 植物の選び方の版。保存した案は入力から作り直すので、選び方を変えた版より前に保存した案は、植物が一部変わることがある
+const SEL_VER = 2;
 /** 保存した入力からプランを作り直す（同じ入力と案番号なら同じプランになる） */
 function rebuildPlan(input) {
   const pi = input;
@@ -2562,7 +2569,7 @@ function keepCurrentPlan() {
   if (savedPlans.some((p) => JSON.stringify(p.input) === JSON.stringify(input))) { toast('この案はもう保存されています'); openSaved(); return; }
   const n = savedPlans.filter((p) => p.mode === mode).length + 1;
   const title = (mode === 'site' && state.siteBed ? '' : $('#planBox h1')?.textContent) || `${MODE_JA[mode]}の案`;
-  savedPlans.unshift({ id: 'p' + Date.now().toString(36), at: new Date().toISOString(), mode, name: `${MODE_JA[mode]}の案${n}`, title, style: (STYLES[pi.style]?.ja || '').replace(/（.*?）/g, ''), input, facts: planFacts(mode, obj) });
+  savedPlans.unshift({ id: 'p' + Date.now().toString(36), at: new Date().toISOString(), sel: SEL_VER, mode, name: `${MODE_JA[mode]}の案${n}`, title, style: (STYLES[pi.style]?.ja || '').replace(/（.*?）/g, ''), input, facts: planFacts(mode, obj) });
   if (savedPlans.length > 30) savedPlans.length = 30;
   store.set('savedPlans', savedPlans);
   cmpPick.add(savedPlans[0].id);
@@ -2630,7 +2637,7 @@ function initSaved() {
       state.planMonth = state.plan?.peak ?? 6;
       renderPlan();
       $('#planBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      toast(`「${p.name}」を開きました`);
+      toast(p.sel === SEL_VER ? `「${p.name}」を開きました` : `「${p.name}」を開きました。植物の選び方（気候の判定）を改良したため、保存したときと植物が一部変わることがあります`);
     } else if (r) {
       const p = savedPlans.find((q) => q.id === r.dataset.spren);
       const n = prompt('案の名前', p.name);
@@ -2675,7 +2682,7 @@ function renderSitePlan() {
   // 庭全体の植物の一覧（花壇をまたいで集計）
   const agg = new Map();
   for (const b of s.beds) for (const sp of b.plan.species) {
-    const x = agg.get(sp.plant.id) || { plant: sp.plant, color: sp.color, qty: 0, beds: [], roleJa: sp.roleJa, role: sp.role };
+    const x = agg.get(sp.plant.id) || { plant: sp.plant, color: sp.color, qty: 0, beds: [], roleJa: sp.roleJa, role: sp.role, why: sp.why || [], challenge: sp.challenge };
     x.qty += sp.qty;
     if (!x.beds.includes(b.id)) x.beds.push(b.id);
     agg.set(sp.plant.id, x);
@@ -2763,6 +2770,7 @@ function renderSitePlan() {
           ${monthBar({ ...x.plant, color: [x.color] }, south)}
           <p class="calc">${x.qty}${x.plant.type === 'bulb' ? '球' : '株'} × ${yen(x.plant.price)} = <b>${yen(x.qty * x.plant.price)}</b></p>
           <div class="bed-tags">${x.beds.map((id) => `<button type="button" class="chip" data-jump="bed-${id}"><span class="bid">${id}</span>${esc(s.beds.find((b) => b.id === id)?.name.replace(/（.*?）/g, '') || '')}</button>`).join('')}</div>
+          ${x.why.length ? `<p class="sel-why${x.challenge ? ' challenge' : ''}"><b>${x.challenge ? '挑戦枠' : '選んだ理由'}</b>${x.why.filter((w) => w !== '挑戦枠').map(esc).join('／')}</p>` : ''}
           <div class="why"><span>植え時 ${esc(monthsJa(plantingTime(x.plant, state.climate).plant.best))}</span>${(x.plant.roles || []).slice(0, 2).map((k) => `<span>${esc(ROLES[k].ja)}</span>`).join('')}</div>
         </div>
       </article>`).join('')}</div>

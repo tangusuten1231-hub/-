@@ -75,12 +75,13 @@ test('適性判定: 暑い地域で冷涼地向きの植物は難しい', () => 
   assert.equal(evaluate(rud, hot).level, 3);
 });
 
-test('適性判定: 積雪の保温効果を考慮', () => {
+test('適性判定: 積雪の保温効果は見込まず、雪の下で越冬できることもあると注記する', () => {
   const snowy = { zone: hardinessZone(-30), heatZone: 2, hotDays: 3, tropicalNights: 0, annualSnow: 300, south: false };
   const gaura = PLANTS.find((p) => p.id === 'gaura'); // zone 5〜
   const r = evaluate(gaura, snowy);
   assert.equal(snowy.zone.label, '4b');
-  assert.equal(r.level, 2);
+  assert.equal(r.level, 1);
+  assert.ok(r.reasons.some((t) => t.includes('雪の下')));
 });
 
 test('絞り込み', () => {

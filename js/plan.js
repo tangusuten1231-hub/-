@@ -1,6 +1,7 @@
 // 植栽プラン生成：キーワード解析 → 植物選定（開花リレー・高さ・形のバランス）→ 配置 → 費用
-import { PLANTS, COLORS } from './plants.js';
+import { PLANTS, COLORS, LEAF } from './plants.js';
 import { evaluate, heightClass, localMonth } from './garden.js';
+import { siteOf, hardFails, climateFit, regionalKind, REGIONAL_JA, climateReason, hasClimateData } from './fit.js';
 import { STYLES, ROLE_JA, WARMTH } from './styles.js';
 import { wildScore, WILD_GOALS } from './wildlife.js';
 
@@ -296,46 +297,82 @@ export function generatePlan(o) {
   cands = cands.filter((p) => p.type !== 'shrub' || p.h[1] <= 200 || area >= 8);
   if (style.filter) cands = cands.filter(style.filter);
   if (pref.strictWhite) cands = cands.filter((p) => p.color.includes('white') || p.form === 'grass' || p.leaf === 'silver' || p.leaf === 'variegated');
+  // ---------- 気候のハードフィルター（育たない植物は候補から外す） ----------
+  // スタイルや色の点数がいくら高くても、この場所の冬の寒さ・暖かさ・夏の暑さ・低温要求・高温多湿に合わない植物は選ばない
+  const site = siteOf(o.climate);
+  const failsOf = new Map(cands.map((p) => [p.id, site ? hardFails(p, o.climate, site) : []]));
+  const challengers = cands.filter((p) => failsOf.get(p.id).length === 1); // 挑戦枠の候補（理由が1つだけ）
+  cands = cands.filter((p) => !failsOf.get(p.id).length);
+  // 気候判定に必要なデータ（耐寒ゾーン・ヒートゾーン・高温多湿）がない植物は「判定保留」。主役（後景・中景）には選ばない
+  if (site) cands = cands.filter((p) => hasClimateData(p) || heightClass(p) === 'front');
   const evals = new Map(cands.map((p) => [p.id, evaluate(p, o.climate)]));
-  if (o.climate) cands = cands.filter((p) => evals.get(p.id).level >= 2);
   if (depth < 0.6 || pref.short) cands = cands.filter((p) => p.h[1] <= Math.max(60, depth * 120));
+  const monthsWanted = [...pref.season];
 
+  // ---------- スコア（100点満点の目安）----------
+  // 気候への適合度 30・希望との一致 25・生物多様性 10・手間とコスト 10 は植物ごとに決まる点。
+  // 開花リレーの穴埋め 15・構造の多様さ 10 は、選んでいる途中のプラン全体を見て加える（下の選定ループ）。
+  const W8 = { climate: 30, wish: 25, relay: 15, structure: 10, bio: 10, care: 10 };
   const score = (p) => {
-    const lv = (evals.get(p.id) || evaluate(p, o.climate)).level;
-    let s = lv === 3 ? 3 : lv === 2 ? 1.2 : 2;
     const why = [];
+    // 気候への適合度：ゾーンの範囲の真ん中ほど高い。その地域でこそ育つ植物は積極的に加点
+    const regional = site ? regionalKind(p, o.climate, site) : null;
+    const cf = site ? climateFit(p, o.climate, site) : 0.5;
+    const climateS = W8.climate * Math.min(1, cf * 0.7 + (regional ? 0.45 : 0));
+    // 希望との一致
+    let wish = 0;
     const tagHits = p.tags.filter((t) => pref.tags.has(t));
-    s += Math.min(3, tagHits.length) * 2.2;
-    if (pref.tags.size && !tagHits.length) s -= 1.5;
+    wish += Math.min(2, tagHits.length) * 6;
+    if (pref.tags.size && !tagHits.length) wish -= pref.tags.has('herb') || pref.tags.has('medicinal') ? 18 : 9; // ハーブ園・薬草園は、その植物が中心になるように
+    let colorHit = null;
     if (pref.colors.size) {
       const hits = p.color.filter((c) => pref.colors.has(c));
-      if (hits.length) { s += 2.5 + hits.length / p.color.length; why.push(`${COLORS[hits[0]].ja}の花`); }
-      else if (p.form !== 'grass' && p.color[0] !== 'green') s -= 3;
+      if (hits.length) { wish += 8 + (2 * hits.length) / p.color.length; colorHit = hits[0]; }
+      else if (p.form !== 'grass' && p.color[0] !== 'green') wish -= 10;
     }
-    if (pref.leaf.size && pref.leaf.has(p.leaf)) { s += 1.8; why.push('葉色'); }
-    if (pref.longbloom) s += (p.bloom.length - 3) * 0.7;
-    // 費用は「1㎡あたりの苗代」（価格 ÷ 株間²）で比べる
-    const perSqm = p.price / (p.spread / 100) ** 2;
-    s -= pref.budget ? perSqm / 2400 + p.price / 400 : perSqm / 12000 + p.price / 3000;
-    if (pref.tall && p.h[1] >= 100) s += 1.2;
-    if (pref.season.size && p.bloom.some((m) => pref.season.has(m))) { s += 1.5; }
-    if (lv === 3 && o.climate) why.unshift('気候に合う');
-    if (tagHits.length) why.push(...tagHits.map((t) => TAG_REASON[t]));
-    if (p.bloom.length >= 5) why.push('長く咲く');
-    if (style.bonus) { s += style.bonus(p); why.push(...style.why(p)); }
-    // 植栽での役割（グラウンドカバー・縁取り・目隠し）
+    const inSeason = monthsWanted.filter((m) => p.bloom.includes(m));
+    if (inSeason.length) wish += 6;
+    if (pref.leaf.size && pref.leaf.has(p.leaf)) { wish += 3; why.push(LEAF[p.leaf]?.ja || '葉色'); }
+    if (pref.longbloom) wish += Math.max(0, p.bloom.length - 3) * 1.2;
+    if (pref.tall && p.h[1] >= 100) wish += 2;
     const roleHit = [...pref.roles, ...(o.roles || [])].filter((r) => p.roles?.includes(r));
-    if (roleHit.length) { s += 3; why.push(ROLE_REASON[roleHit[0]]); }
-    if (pref.veg && p.harvest?.length) { s += 1.5; if (!style.potager) why.push('食べられる'); }
-    // 呼びたい生き物（蝶・蜂・野鳥・水辺）
+    if (roleHit.length) wish += 6;
+    if (pref.veg && p.harvest?.length) wish += 3;
+    if (k.winter && (p.tags.includes('evergreen') || p.uses?.includes('winter') || p.uses?.includes('seed'))) wish += 3;
+    if (o.palette?.includes(p.id)) wish += 7; // 庭まるごと：ほかの花壇と同じ植物をくり返す（リピート）
+    if (style.bonus) wish += style.bonus(p) * 1.5;
+    // 低予算の希望：1㎡あたりの苗代が安いほど高く（希望との一致として扱う）
+    const perSqm0 = p.price / (p.spread / 100) ** 2;
+    if (pref.budget) wish -= Math.min(10, perSqm0 / 600);
+    // 呼びたい生き物（蝶・蜂・野鳥など）の希望
+    if (wild.length) wish += Math.min(8, wildScore(p, wild, o.climate) * 2.5);
+    wish = Math.max(-12, Math.min(W8.wish, wish));
+    // 生物多様性：蜜源・食草・実もの（野鳥）・在来種
+    let bio = 0;
+    if (p.tags.includes('pollinator')) bio += 4;
+    if (p.tags.includes('native')) bio += 3;
+    if (p.uses?.includes('bird') || p.uses?.includes('seed')) bio += 2;
     const ws = wildScore(p, wild, o.climate);
-    if (ws) { s += ws * 0.9; if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`); }
-    // 海に近い庭では、潮風に強い植物を優先
-    if (o.climate?.coastKm != null && o.climate.coastKm <= 3 && p.tags.includes('salt')) { s += 2; why.push('潮風に強い'); }
-    if (k.winter && (p.tags.includes('evergreen') || p.uses?.includes('winter') || p.uses?.includes('seed'))) { s += 2; why.push('冬も楽しめる'); }
-    // 庭まるごと：ほかの花壇と同じ植物をくり返して、庭全体に統一感を出す（デザインの「リピート」）
-    if (o.palette?.includes(p.id)) { s += 3.2; why.unshift('庭全体でくり返す'); }
-    return { s: s + rand() * 1.5, why };
+    bio = Math.min(W8.bio, bio + ws * 2);
+    // 手間とコスト：1㎡あたりの苗代（価格 ÷ 株間²）と、手間いらずの希望
+    const perSqm = p.price / (p.spread / 100) ** 2;
+    let care = W8.care - Math.min(6, perSqm / (pref.budget ? 900 : 3000)) - (pref.budget ? p.price / 500 : 0);
+    if (pref.tags.has('easy') && !p.tags.includes('easy')) care -= 4;
+    if (site?.coastal && p.tags.includes('salt')) care += 3; // 海に近い庭では潮風に強い植物を優先
+    care = Math.max(0, Math.min(W8.care, care));
+    // 選定の理由（すべて図鑑のデータと気象データから）
+    if (site) why.push(climateReason(p, o.climate, site));
+    if (regional) why.push(REGIONAL_JA[regional]);
+    if (p.tags.includes('pollinator')) why.push('蜜源');
+    if (tagHits.length) why.push(...tagHits.filter((t) => t !== 'pollinator').map((t) => TAG_REASON[t]));
+    if (roleHit.length) why.push(ROLE_REASON[roleHit[0]]);
+    if (ws >= 1.2) why.push(`${wild.map((g) => WILD_GOALS[g]).join('・')}を呼ぶ`);
+    if (site?.coastal && p.tags.includes('salt')) why.push('潮風に強い');
+    if (p.tags.includes('native') && !tagHits.includes('native')) why.push('日本の在来種');
+    if (o.palette?.includes(p.id)) why.unshift('庭全体でくり返す');
+    if (style.why) why.push(...style.why(p));
+    const s = climateS + wish + bio + care;
+    return { s, why: [...new Set(why.filter(Boolean))], parts: { climate: climateS, wish, bio, care }, regional };
   };
   const scored = cands.map((p) => ({ p, ...score(p) }));
 
@@ -377,73 +414,133 @@ export function generatePlan(o) {
     const L = layerOf(p);
     const ev = evaluate(p, o.climate);
     if (!p.sun.includes(sun)) warnings.push(`${p.ja}は${{ full: '日向', part: '半日陰', shade: '日陰' }[sun]}が苦手です。`);
-    else if (o.climate && ev.level < 2) warnings.push(`${p.ja}は、この地域の気候では育てにくい植物です。`);
+    else if (o.climate && ev.level < 2) warnings.push(`${p.ja}は、この地域の気候では育てにくい植物です（${ev.reasons[0]}）。`);
     const col = palette.size ? pickColor(p) : chosenColor(p, pref);
     colorUse[col] = (colorUse[col] || 0) + 1;
     count[L] = (count[L] ?? 0) + 1;
     forms[p.form] = (forms[p.form] || 0) + 1;
     p.bloom.map((m) => localMonth(m, south)).forEach((m) => covered.add(m));
-    picked.push({ plant: p, layer: L, color: col, level: ev.level, why: ['指定した植物', ...(score(p).why || [])].slice(0, 4), score: 99, must: true });
+    picked.push({ plant: p, layer: L, color: col, level: ev.level, why: ['指定した植物', ...(score(p).why || [])], score: 99, must: true });
     const j = pool.findIndex((c) => c.p.id === p.id);
     if (j >= 0) pool.splice(j, 1);
   }
   const nAll = Math.max(n, picked.length + 2);
   const heights = {};
   const leafUse = {};
-  while (picked.length < nAll && pool.length) {
-    let best = null, bestV = -Infinity;
-    for (const c of pool) {
-      const L = layerOf(c.p);
-      const local = c.p.bloom.map((m) => localMonth(m, south));
-      const gain = local.filter((m) => want.includes(m) && !covered.has(m)).length;
-      let v = c.s + gain * 1.6;
-      v += (count[L] ?? 0) < (target[L] ?? 0) ? 3 : -4;
-      v += forms[c.p.form] ? -0.9 * forms[c.p.form] : 1;
-      // 多様性：同じ高さ×同じ形の重なりを避け、葉色の変化も少し加える
-      const hk = heightClass(c.p) + c.p.form;
-      if (heights[hk]) v -= 1.2 * heights[hk];
-      if (c.p.leaf !== 'green' && !leafUse[c.p.leaf]) v += 0.6;
-      if (picked.some((x) => x.plant.group === c.p.group)) v -= 6; // 同じ種の品種は重ねない
-      if (needGrass && c.p.form === 'grass' && !forms.grass) v += 1.5;
-      if (palette.size > 1) {
-        const col = pickColor(c.p);
-        if (palette.has(col)) v += 1.5 - (colorUse[col] || 0) * 0.8;
-      }
-      if (v > bestV) { bestV = v; best = c; }
+  const genusOf = (p) => p.latin.replace(/^×\s*/, '').split(/[\s']/)[0];
+  const genusCap = Math.max(1, Math.floor(nAll * 0.3));
+  const genusUse = {};
+  picked.forEach((x) => { const g = genusOf(x.plant); genusUse[g] = (genusUse[g] || 0) + 1; });
+  const famUse = {};
+  // 花色の比率：指定色の花が7割前後、差し色は3割まで
+  const flowering = (p) => p.form !== 'grass' && p.form !== 'fern' && p.color[0] !== 'green' && p.bloom.length;
+  const colorStat = () => {
+    const fl = picked.filter((x) => flowering(x.plant));
+    return { all: fl.length, hit: fl.filter((x) => pref.colors.has(x.color)).length };
+  };
+  const tgtMonths = k.months.map((m) => localMonth(m, south)); // 植物データ（北半球の月）
+  const monthCount = () => { const a = Array(13).fill(0); picked.forEach((x) => x.plant.bloom.forEach((m) => a[m]++)); return a; };
+  // 入れ替えてよいか（同じ種・属の上限・差し色の比率を守る）
+  const okSwap = (out, p) => {
+    const rest = picked.filter((x) => x !== out);
+    if (rest.some((x) => x.plant.group === p.group)) return false;
+    if (rest.filter((x) => genusOf(x.plant) === genusOf(p)).length >= genusCap) return false;
+    if (pref.colors.size && flowering(p) && !p.color.some((c) => pref.colors.has(c))) {
+      const fl = rest.filter((x) => flowering(x.plant));
+      const miss = fl.filter((x) => !pref.colors.has(x.color)).length + 1;
+      if (miss / (fl.length + 1) > 0.3) return false;
     }
+    return true;
+  };
+  // 開花リレーの穴埋め・構造の多様さ（プラン全体を見て加える点）
+  const dynamic = (c) => {
+    const L = layerOf(c.p);
+    const local = c.p.bloom.map((m) => localMonth(m, south));
+    const gain = local.filter((m) => want.includes(m) && !covered.has(m)).length;
+    let relay = Math.min(W8.relay, gain * 5);
+    let struct = 0;
+    struct += forms[c.p.form] ? -2 * forms[c.p.form] : 4;
+    const hk = heightClass(c.p) + c.p.form;
+    if (heights[hk]) struct -= 2.5 * heights[hk];
+    if (c.p.leaf !== 'green' && !leafUse[c.p.leaf]) struct += 1.5;
+    const fam = c.p.family?.ja;
+    if (fam && famUse[fam]) struct -= 2 * famUse[fam]; else struct += 2;
+    if (needGrass && c.p.form === 'grass' && !forms.grass) struct += 3;
+    struct = Math.max(-W8.structure, Math.min(W8.structure, struct));
+    // 層の目標（後景3：中景4：前景3）を守るための大きな加減点
+    let v = c.s + relay + struct + ((count[L] ?? 0) < (target[L] ?? 0) ? 12 : -15);
+    // 見ごろの月：指定した月より、ほかの月の開花数が多くならないように
+    if (tgtMonths.length) {
+      const a = monthCount();
+      const tMax = Math.max(...tgtMonths.map((m) => a[m]));
+      const inT = c.p.bloom.some((m) => tgtMonths.includes(m));
+      if (inT) v += 4;
+      else if (c.p.bloom.some((m) => a[m] + 1 > tMax)) v -= 30;
+    }
+    if (palette.size > 1) {
+      const col = pickColor(c.p);
+      if (palette.has(col)) v += 3 - (colorUse[col] || 0) * 1.5;
+    }
+    return { v, fills: local.filter((m) => want.includes(m) && !covered.has(m)) };
+  };
+  // 選んではいけない組み合わせ（同じ種の品種の重複・同じ属が3割を超える・差し色が3割を超える）
+  const blocked = (c) => {
+    if (picked.some((x) => x.plant.group === c.p.group)) return true;
+    if ((genusUse[genusOf(c.p)] || 0) >= genusCap) return true;
+    if (pref.colors.size && flowering(c.p) && !c.p.color.some((x) => pref.colors.has(x))) {
+      const st = colorStat();
+      if ((st.all - st.hit + 1) / (st.all + 1) > 0.3) return true;
+    }
+    return false;
+  };
+  // 重み付き抽選：その時点の最高点から BAND 点以内の候補だけを、点数を重みにして選ぶ。
+  // 点の低い候補が紛れ込まないよう、最高点から BAND 点を超えて低い候補は抽選に入れない（＝候補群の下限）。
+  const BAND = o.band ?? 17;
+  while (picked.length < nAll && pool.length) {
+    const ev = pool.filter((c) => !blocked(c)).map((c) => ({ c, ...dynamic(c) }));
+    if (!ev.length) break;
+    const top = Math.max(...ev.map((x) => x.v));
+    const group = ev.filter((x) => x.v >= top - BAND);
+    const weights = group.map((x) => x.v - (top - BAND) + 1);
+    let r = rand() * weights.reduce((t, w) => t + w, 0);
+    let ch = group[group.length - 1];
+    for (let i = 0; i < group.length; i++) { r -= weights[i]; if (r <= 0) { ch = group[i]; break; } }
+    const best = ch.c;
     pool.splice(pool.indexOf(best), 1);
     const L = layerOf(best.p);
     const local = best.p.bloom.map((m) => localMonth(m, south));
-    const fills = local.filter((m) => want.includes(m) && !covered.has(m));
+    const fills = ch.fills;
     local.forEach((m) => covered.add(m));
     count[L] = (count[L] ?? 0) + 1;
     forms[best.p.form] = (forms[best.p.form] || 0) + 1;
     heights[heightClass(best.p) + best.p.form] = (heights[heightClass(best.p) + best.p.form] || 0) + 1;
     leafUse[best.p.leaf] = (leafUse[best.p.leaf] || 0) + 1;
+    genusUse[genusOf(best.p)] = (genusUse[genusOf(best.p)] || 0) + 1;
+    if (best.p.family?.ja) famUse[best.p.family.ja] = (famUse[best.p.family.ja] || 0) + 1;
     const why = [...best.why];
     if (fills.length && picked.length) why.push(`${fills.sort((a, b) => a - b).map((m) => m + '月').join('・')}の花を担当`);
     const color = palette.size ? pickColor(best.p) : chosenColor(best.p, pref);
     colorUse[color] = (colorUse[color] || 0) + 1;
-    picked.push({ plant: best.p, layer: L, color, level: evals.get(best.p.id).level, why: [...new Set(why)].slice(0, 4), score: best.s });
+    picked.push({ plant: best.p, layer: L, color, level: evals.get(best.p.id).level, why: [...new Set(why)], score: best.s, regional: best.regional });
   }
   // グラスの地模様が要のスタイルでは、グラスを必ず1種入れる
   if (style.needsGrass && !picked.some((x) => x.plant.form === 'grass' && x.layer === 'matrix')) {
-    const g = scored.filter((c) => c.p.form === 'grass' && layerOf(c.p) === 'matrix' && !picked.some((x) => x.plant.group === c.p.group)).sort((a, b) => b.s - a.s)[0];
+    const g = scored.filter((c) => c.p.form === 'grass' && layerOf(c.p) === 'matrix' && okSwap(null, c.p)).sort((a, b) => b.s - a.s)[0];
     const L = g && layerOf(g.p);
     const out = g && (picked.filter((x) => !x.must && x.layer === L)[0] || picked.filter((x) => !x.must).sort((a, b) => a.score - b.score)[0]);
-    if (out) picked.splice(picked.indexOf(out), 1, { plant: g.p, layer: L, color: g.p.color[0], level: evals.get(g.p.id).level, why: ['地模様のグラス', ...g.why].slice(0, 4), score: g.s });
+    if (out) picked.splice(picked.indexOf(out), 1, { plant: g.p, layer: L, color: g.p.color[0], level: evals.get(g.p.id).level, why: ['地模様のグラス', ...g.why], score: g.s });
   }
   // 指定された役割（グラウンドカバーなど）の植物が入っていなければ、同じ層の植物と入れ替える
   for (const need of new Set([...pref.roles, ...(o.roles || [])])) {
     if (picked.some((x) => x.plant.roles?.includes(need))) continue;
-    const cand = scored.filter((c) => c.p.roles?.includes(need) && !picked.some((x) => x.plant.group === c.p.group)).sort((a, b) => b.s - a.s)[0];
+    const cand = scored.filter((c) => c.p.roles?.includes(need) && okSwap(null, c.p)).sort((a, b) => b.s - a.s)[0];
     if (!cand) continue;
     const L = layerOf(cand.p);
     const same = picked.filter((x) => !x.must && x.layer === L && !x.plant.roles?.some((r) => pref.roles.has(r) || o.roles?.includes(r)));
     const pickable = same.length ? same : picked.filter((x) => !x.must);
     if (!pickable.length) continue;
     const out = pickable.reduce((a, b) => (b.score < a.score ? b : a));
-    picked.splice(picked.indexOf(out), 1, { plant: cand.p, layer: L, color: palette.size ? pickColor(cand.p) : chosenColor(cand.p, pref), level: evals.get(cand.p.id).level, why: [ROLE_REASON[need], ...cand.why].slice(0, 4), score: cand.s });
+    picked.splice(picked.indexOf(out), 1, { plant: cand.p, layer: L, color: palette.size ? pickColor(cand.p) : chosenColor(cand.p, pref), level: evals.get(cand.p.id).level, why: [ROLE_REASON[need], ...cand.why], score: cand.s });
   }
 
   // こだわり：とくに咲かせたい月が、プランの開花のピークになるよう入れ替える
@@ -460,9 +557,9 @@ export function generatePlan(o) {
       const outs = picked.filter((x) => !x.must && !x.plant.bloom.some((m) => tgt.includes(m)) && x.plant.bloom.includes(peakM) && !(style.needsGrass && x.plant.form === 'grass' && x.layer === 'matrix'));
       let done = false;
       for (const out of outs.sort((a2, b2) => a2.score - b2.score)) {
-        const inn = scored.filter((c2) => c2.p.bloom.some((m) => tgt.includes(m)) && layerOf(c2.p) === out.layer && !picked.some((x) => x.plant.group === c2.p.group)).sort((a2, b2) => b2.s - a2.s)[0];
+        const inn = scored.filter((c2) => c2.p.bloom.some((m) => tgt.includes(m)) && layerOf(c2.p) === out.layer && okSwap(out, c2.p)).sort((a2, b2) => b2.s - a2.s)[0];
         if (!inn) continue;
-        picked.splice(picked.indexOf(out), 1, { plant: inn.p, layer: out.layer, color: palette.size ? pickColor(inn.p) : chosenColor(inn.p, pref), level: evals.get(inn.p.id).level, why: [`${k.months.join('・')}月に咲く`, ...inn.why].slice(0, 4), score: inn.s });
+        picked.splice(picked.indexOf(out), 1, { plant: inn.p, layer: out.layer, color: palette.size ? pickColor(inn.p) : chosenColor(inn.p, pref), level: evals.get(inn.p.id).level, why: [...inn.why], score: inn.s });
         done = true;
         break;
       }
@@ -480,24 +577,74 @@ export function generatePlan(o) {
     x.plant = p;
     x.color = palette.size ? pickColor(p) : chosenColor(p, pref);
     x.level = evaluate(p, o.climate).level;
-    x.why = ['自分で選んだ植物', ...score(p).why].slice(0, 4);
+    x.why = ['自分で選んだ植物', ...score(p).why];
     x.chosen = true;
+  }
+
+  // 挑戦枠（こだわり設定で選んだときだけ）：気候の判定で外れた植物を、全体の1割まで、警告つきで入れる
+  if (k.challenge && site) {
+    const room = Math.floor(picked.length / 10);
+    const ch = challengers.filter((p) => !picked.some((x) => x.plant.group === p.group) && (!pref.colors.size || !flowering(p) || p.color.some((c) => pref.colors.has(c))))
+      .map((p) => ({ p, ...score(p) })).sort((a2, b2) => b2.s - a2.s);
+    for (let i = 0; i < room && ch.length; i++) {
+      const c = ch.shift();
+      const L = layerOf(c.p);
+      const outs = picked.filter((x) => !x.must && !x.chosen && !x.challenge && x.layer === L).sort((a2, b2) => a2.score - b2.score);
+      if (!outs.length) continue;
+      const fail = failsOf.get(c.p.id)[0];
+      picked.splice(picked.indexOf(outs[0]), 1, { plant: c.p, layer: L, color: palette.size ? pickColor(c.p) : chosenColor(c.p, pref), level: 1, challenge: true, why: ['挑戦枠', fail.text], score: c.s, orig: c.p.id });
+      warnings.push(`挑戦枠：${c.p.ja}は、この場所では${fail.key === 'cold' ? '冬越しが難しい' : fail.key === 'heat' || fail.key === 'humid' ? '夏越しが難しい' : '花が咲きにくい'}可能性があります（${fail.text}）。`);
+    }
+  }
+  // 選定理由の仕上げ：割り当てた花色と、見ごろの月を、気候の理由のすぐ後に入れる（どちらも図鑑のデータどおり）
+  const COLOR_WHY = /^(\d+月の.+花|.+の花|\d+月に咲く)$/;
+  for (const x of picked) {
+    if (x.challenge) continue;
+    const base = x.why.filter((w) => !COLOR_WHY.test(w));
+    const sm = tgtMonths.length ? tgtMonths.find((m) => x.plant.bloom.includes(m)) : [...pref.season].find((m) => x.plant.bloom.includes(m));
+    const col = x.plant.color.includes(x.color) && x.color !== 'green' ? COLORS[x.color].ja : null;
+    const cw = sm && col && pref.colors.has(x.color) ? `${localMonth(sm, south)}月の${col}花` : col && pref.colors.has(x.color) ? `${col}の花` : sm ? `${localMonth(sm, south)}月に咲く` : null;
+    const i = base.findIndex((w) => /^(ゾーン|ヒートゾーン)/.test(w));
+    if (cw) base.splice(i >= 0 ? i + 1 : Math.min(1, base.length), 0, cw);
+    x.why = [...new Set(base)].slice(0, 4);
   }
 
   // 配置
   const island = shapeId === 'custom' ? o.view === 'island' : mask ? (['circle', 'oval'].includes(shapeId) || (o.view === 'island' && shapeId === 'kidney')) : o.view === 'island';
   // 春咲きの球根は、花後に葉が消えるので専用の場所をとらず、宿根草の株間に群れで植え込む
   const under = (p) => p.type === 'bulb' && Math.min(...p.bloom) <= 5 && !style.potager;
-  const main = picked.filter((x) => !under(x.plant));
-  const bulbs = picked.filter((x) => under(x.plant));
-  const lay = main.length ? (style.layout === 'bands' || style.layout === 'gradient'
-    ? (mask ? layoutBedShaped(main, width, depth, island, rand, style.layout === 'gradient', mask) : layoutBed(main, width, depth, island, rand, style.layout === 'gradient'))
-    : style.layout === 'composition' ? layoutComposition(main, width, depth, island, rand, mask || polygonMask([[[0, 0], [width, 0], [width, depth], [0, depth]]], width, depth))
-    : style.layout === 'potager' ? layoutPotager(main, width, depth, island, rand)
-      : layoutNatural(main, width, depth, island, rand, style, mask)) : { bands: [], positions: [] };
-  if (mask) fitToShape(lay.positions, mask, rand);
-  if (style.layout === 'bands' || style.layout === 'gradient') thinClose(lay.positions, main);
-  const bulbPos = interplantBulbs(bulbs, width, depth, island, rand, mask);
+  const doLayout = () => {
+    const main = picked.filter((x) => !under(x.plant));
+    const bulbs = picked.filter((x) => under(x.plant));
+    const lay = main.length ? (style.layout === 'bands' || style.layout === 'gradient'
+      ? (mask ? layoutBedShaped(main, width, depth, island, rand, style.layout === 'gradient', mask) : layoutBed(main, width, depth, island, rand, style.layout === 'gradient'))
+      : style.layout === 'composition' ? layoutComposition(main, width, depth, island, rand, mask || polygonMask([[[0, 0], [width, 0], [width, depth], [0, depth]]], width, depth))
+      : style.layout === 'potager' ? layoutPotager(main, width, depth, island, rand)
+        : layoutNatural(main, width, depth, island, rand, style, mask)) : { bands: [], positions: [] };
+    if (mask) fitToShape(lay.positions, mask, rand);
+    if (style.layout === 'bands' || style.layout === 'gradient') thinClose(lay.positions, main);
+    return { main, bulbs, lay, bulbPos: interplantBulbs(bulbs, width, depth, island, rand, mask) };
+  };
+  let { main, bulbs, lay, bulbPos } = doLayout();
+  // 株のまとまり：群れで植える植物（3〜5株の群れ以上）が1〜2株ずつに散らばるときは、花壇の広さに対して種類が多すぎる。
+  // 種類を減らして配置し直し、1種あたりの株数を確保する（1株で目立たせる低木・主役、指定・自分で選んだ植物は対象外）
+  if (!['potager', 'composition'].includes(style.layout)) {
+    for (let it = 0; it < 8; it++) {
+      const thin = main.filter((x, i) => !x.must && !x.chosen && !x.challenge && (x.plant.soc ?? 3) >= 3 && lay.positions[i].length < 3 && main.filter((y) => y.layer === x.layer).length > 1);
+      if (!thin.length || picked.length <= 4) break;
+      const key = (x) => (tgtMonths.some((m) => x.plant.bloom.includes(m)) ? 2 : 0) + (pref.colors.has(x.color) ? 1 : 0) + x.score / 1000;
+      const out = thin.sort((a2, b2) => key(a2) - key(b2))[0];
+      picked.splice(picked.indexOf(out), 1);
+      ({ main, bulbs, lay, bulbPos } = doLayout());
+    }
+  }
+  // 種類を減らしたあとも、挑戦枠が全体の1割を超えないように
+  while (picked.filter((x) => x.challenge).length > Math.floor(picked.length / 10)) {
+    const ch = picked.filter((x) => x.challenge).pop();
+    picked.splice(picked.indexOf(ch), 1);
+    warnings.splice(warnings.findIndex((w) => w.includes(ch.plant.ja)), 1);
+    ({ main, bulbs, lay, bulbPos } = doLayout());
+  }
   const layout = { bands: lay.bands, plots: lay.plots, positions: picked.map((x) => (under(x.plant) ? bulbPos[bulbs.indexOf(x)] : lay.positions[main.indexOf(x)])) };
   const species = picked.map((s, i) => ({ ...s, role: under(s.plant) ? 'under' : s.layer, roleJa: under(s.plant) ? '株間に植え込む球根' : ROLE_JA[s.layer], no: i + 1, positions: layout.positions[i], qty: layout.positions[i].length }));
   // 番号は役割の順（後景→前景、骨格→地模様など）に振り直す
@@ -606,10 +753,15 @@ export function fitToShape(positions, mask, rand) {
  */
 export function layoutBedShaped(picked, W, D, island, rand, gradient, mask) {
   const has = (l) => picked.some((p) => p.layer === l);
-  const seq = [['front', 0.3], ['middle', 0.36], ['back', 0.34]].filter(([l]) => has(l));
+  const seq = [['front', 0.3], ['middle', 0.4], ['back', 0.3]].filter(([l]) => has(l));
   const sum = seq.reduce((t, [, f]) => t + f, 0) || 1;
-  let t0 = 0;
-  const bands = seq.map(([layer, f]) => { const b = { layer, t0, t1: t0 + f / sum }; t0 = b.t1; return b; });
+  // 帯の境目は「面積」の比（前景3：中景4：後景3）で決める。アイランド花壇や曲線の花壇では、奥行きの比と面積の比が一致しないため
+  const ds = [];
+  for (let x = 0.025; x < W; x += Math.max(0.05, W / 120)) for (let y = 0.025; y < D; y += Math.max(0.05, D / 60)) if (mask.inside(x, y)) ds.push(mask.depthOf(x, y, island));
+  ds.sort((a, b) => a - b);
+  const q = (f) => (ds.length ? ds[Math.min(ds.length - 1, Math.floor(f * ds.length))] : f);
+  let acc = 0;
+  const bands = seq.map(([layer, f], i) => { const t0 = i === 0 ? 0 : q(acc); acc += f / sum; return { layer, t0, t1: i === seq.length - 1 ? 1.0001 : q(acc) }; });
   const positions = picked.map(() => []);
   bands.forEach((band, bi) => {
     const idx = picked.map((p, i) => (p.layer === band.layer ? i : -1)).filter((i) => i >= 0);
@@ -845,7 +997,7 @@ export function layoutBed(picked, W, D, island, rand, gradient = false) {
     const seq = [['front', 0.17], ['middle', 0.2], ['back', 0.26], ['middle', 0.2], ['front', 0.17]].filter(([l]) => has(l));
     bands = normalize(seq);
   } else {
-    const seq = [['front', 0.3], ['middle', 0.36], ['back', 0.34]].filter(([l]) => has(l));
+    const seq = [['front', 0.3], ['middle', 0.4], ['back', 0.3]].filter(([l]) => has(l));
     bands = normalize(seq);
   }
   function normalize(seq) {

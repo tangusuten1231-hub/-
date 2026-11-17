@@ -475,18 +475,45 @@ export function generateSite(o) {
     b.depth = Math.round(frame.D * 10) / 10;
     const local = b.loops.map((L) => L.map(([x, y]) => frame.toLocal(x, y)));
     const mask = polygonMask(local, frame.W, frame.D);
-    b.plan = generatePlan({
+    b.planArgs = {
       climate: o.climate, sun: b.sun, moist: b.moist, width: frame.W, depth: frame.D, mask, text: o.text || '',
       view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
       palette: k ? sitePalette(beds.slice(0, k)) : null, peakMargin: 2, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined,
-    });
+    };
+    b.plan = generatePlan(b.planArgs);
   }
   // 庭全体（植物の種類ごと）の開花数で、指定した見ごろの月がピークかどうか
   if (o.k?.months?.length) {
     const south = !!o.climate?.south;
-    const cnt = Array(12).fill(0);
-    const seen = new Set();
-    for (const b of beds) for (const sp of b.plan.species) if (!seen.has(sp.plant.id)) { seen.add(sp.plant.id); sp.plant.bloom.forEach((m) => cnt[localMonth(m, south) - 1]++); }
+    const tgt = o.k.months;
+    const countAll = () => {
+      const cnt = Array(12).fill(0);
+      const seen = new Set();
+      for (const b of beds) for (const sp of b.plan.species) if (!seen.has(sp.plant.id)) { seen.add(sp.plant.id); sp.plant.bloom.forEach((m) => cnt[localMonth(m, south) - 1]++); }
+      return cnt;
+    };
+    // 花壇ごとには見ごろの月がピークでも、庭全体で数えるとほかの月が上回ることがある。
+    // そのときは、ほかの月だけに咲く植物を除いて、その植物を使っている花壇を選び直す（数回まで）
+    for (let it = 0; it < 6; it++) {
+      const cnt = countAll();
+      const tMax = Math.max(...tgt.map((m) => cnt[m - 1]));
+      const over = cnt.map((v, i) => (v > tMax && !tgt.includes(i + 1) ? i + 1 : 0)).filter(Boolean);
+      if (!over.length) break;
+      const ids = new Map();
+      for (const b of beds) for (const sp of b.plan.species) {
+        const lm = sp.plant.bloom.map((m) => localMonth(m, south));
+        if (!sp.must && !sp.chosen && !lm.some((m) => tgt.includes(m)) && lm.some((m) => over.includes(m))) ids.set(sp.plant.id, (ids.get(sp.plant.id) || 0) + 1);
+      }
+      if (!ids.size) break;
+      const [drop] = [...ids.entries()].sort((a2, b2) => a2[1] - b2[1])[0];
+      for (const b of beds) {
+        if (!b.plan.species.some((sp) => sp.plant.id === drop)) continue;
+        const kk = b.planArgs.k || { must: [], exclude: [] };
+        b.planArgs = { ...b.planArgs, k: { ...kk, exclude: [...(kk.exclude || []), drop] } };
+        b.plan = generatePlan(b.planArgs);
+      }
+    }
+    const cnt = countAll();
     const mx = Math.max(...cnt), best = Math.max(...o.k.months.map((m) => cnt[m - 1]));
     const peaks = cnt.map((v, i) => (v === mx ? i + 1 : 0)).filter(Boolean);
     var sitePeakNote = best >= mx ? { ok: true, text: `指定した${o.k.months.join('・')}月が庭全体の開花のピークです（${best}種が咲きます）。` }
