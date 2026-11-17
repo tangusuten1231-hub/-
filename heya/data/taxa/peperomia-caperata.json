@@ -1,0 +1,102 @@
+{
+ "id": "peperomia-caperata",
+ "rank": "species",
+ "scientificName": "Peperomia caperata",
+ "group": "foliage",
+ "names": {
+  "ja": "ペペロミア・カペラータ",
+  "aliases": [
+   "エメラルドリップル"
+  ]
+ },
+ "refs": {
+  "ncsu": "peperomia-caperata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Medium light conditions such as sun filtered through a thin curtain are ideal"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It is tolerant of low light for several months without stress"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "sun filtered through a thin curtain"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "very drafty sites"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "medium to low relative humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "soil that dries between watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "根腐れしやすいので、水はけのよい土を使う。",
+   "src": "ncsu",
+   "quote": "It is susceptible to root rot so use a porous well-draining potting soil.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "コナジラミ・コナカイガラムシ・ハダニに注意。",
+   "src": "ncsu",
+   "quote": "Insect pests include whiteflies, mealybugs, and spider mites.",
+   "symptom": "pests"
+  }
+ ]
+}

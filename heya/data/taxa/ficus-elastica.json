@@ -2,6 +2,7 @@
  "id": "ficus-elastica",
  "rank": "species",
  "scientificName": "Ficus elastica",
+ "group": "foliage",
  "names": {
   "ja": "フィカス・エラスティカ",
   "aliases": [
@@ -89,7 +90,8 @@
   {
    "ja": "置き場所を変えたり、すきま風や寒さに当たると葉を落としやすい。",
    "src": "ncsu",
-   "quote": "Rubber Plant prefers to remain in one location and do not do well with drafts or cold temperatures."
+   "quote": "Rubber Plant prefers to remain in one location and do not do well with drafts or cold temperatures.",
+   "symptom": "drop"
   }
  ]
 }

@@ -1,0 +1,189 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/stromanthe-thalia/",
+ "slug": "stromanthe-thalia",
+ "retrieved": "2026-11-17",
+ "scientificName": "Stromanthe thalia",
+ "commonNames": [
+  "Stromanthe"
+ ],
+ "description": "Stromanthe is a tender evergreen herbaceous perennial that is native to the rainforests of Brazil. It prefers high humidity and warm temperatures. The plant has beautiful foliage that is up to 20 inches long, elliptical to oblong, glossy, dark green on the upper surface, and burgundy on the undersides. At night the leaves fold together to resemble praying hands. In the spring, panicles of tiny white flowers with orangish-red sepals and red bracts appear. The plant grows up to 5 feet tall and 3 feet wide when grown outdoors, but as a houseplant, it is usually only 2 to 3 feet tall. The genus name Stromanthe originates from two Greek words, stroma and anthos . Stroma means \"bed,\" and anthos means \"a flower.\" This refers to the flower inflorescence. The specific epithet, thalia , is Greek for \"to blossom\" or \"blooming.\" The plant is hardy in USDA Zones 10 to 12, but it is typically grown as a houseplant or annual in the United States. It prefers partial to dappled shade and moist, well-drained soils. Direct sun can scorch the leaves, and it is intolerant of dry soils. The plant thrives in high humidity. Consider using a humidifier or setting the plant's container on a bed of moist pebbles to increase the interior humidity. Propagation by division is best done in the spring before the new growth starts. 'Triostar' is a popular variegated cultivar of this species with olive-green leaves variegated with white, cream, and pink. You will find it commercially under several different names, including 'Tristar,' 'Tricolor,' and 'Triostar.' The eye-catching plant is a member of the Marantaceae or prayer plant family. Consider this tropical plant for a shaded patio or an area of your home with indirect sunlight so you can enjoy the colorful foliage year-round. rhizomatous, herbaceous perennial, erect, clumping habit, 3 to 5 feet tall, and 2 to 3 feet wide branching stems elliptical to oblong leaves up to 20 inches long, 6 inches wide, dark green, undersides red with entire margins panicles of tiny white flowers with orangish-red sepals and red bracts Insects, Diseases, and Other Plant Problems: Monitor for mealybugs, aphids, and spider mites. Root and stem rot can occur from overwatering.",
+ "cultivars": [
+  {
+   "name": "Magic Star",
+   "note": "green leaves with creamy white variegations, maroon on the undersides of the leaf"
+  },
+  {
+   "name": "Triostar",
+   "note": "green leaves variegated with white, cream, pink, undersides solid pink to burgundy with pink variegations"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Stromanthe"
+  ],
+  "Species": [
+   "thalia"
+  ],
+  "Family": [
+   "Marantaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Brazil"
+  ],
+  "Distribution": [
+   "Brazil Northeast, Brazil South, and Brazil Southeast"
+  ],
+  "Play Value": [
+   "Attractive Flowers",
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 5 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Annual",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Orange",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Panicle"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Petals": [
+   "Bracts",
+   "Colored Sepals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Blooming in the spring, the flowers are tiny white with orangish-red sepals and red bracts. Flowers are rarely seen in houseplants, but they have been seen in plants that are grown in greenhouses. The flowers measure 0.5 inches long, and the panicles are 2 to 3 inches in width."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are oblong or elliptical, glossy, dark green on the upper surface, burgundy underneath, and have entire margins. They can measure 6 to 12 inches long and even up to 20 inches long and 6 inches wide. They have long petioles, and the leaves fold up at night."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Branching stems that may grow up to 5 feet tall."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ]
+ },
+ "tags": [
+  "clumping",
+  "houseplant",
+  "herbaceous perennial",
+  "dappled shade",
+  "low maintenance",
+  "interesting flowers",
+  "humidity tolerant",
+  "annual",
+  "interesting leaves",
+  "container plant",
+  "drought intolerant",
+  "pet friendly",
+  "partial shade tolerant"
+ ],
+ "images": [
+  {
+   "id": "38311",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Stromanthe_thalia_T_hYkWmxPKTA3H.jpeg",
+   "caption": "'Trostar'",
+   "author": "Javier Alejandro",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38312",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Stromanthe_thalia_T_GAtrAOBT2SEY.jpeg",
+   "caption": "'Trostar'",
+   "author": "Mike Shell",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38313",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Stromanthe_thalia_T_GN4E5vwXHJwK.jpeg",
+   "caption": "Presented as the cultivar 'Tricolor'",
+   "author": "Wendy Cutler",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

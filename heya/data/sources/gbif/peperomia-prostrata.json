@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/10776468",
+ "retrieved": "2026-11-17",
+ "query": "Peperomia prostrata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 10776468,
+ "acceptedKey": 10776468,
+ "acceptedName": "Peperomia prostrata",
+ "authorship": "B.S.Williams ex Mast. & T.Moore",
+ "rank": "SPECIES",
+ "family": "Piperaceae",
+ "genus": "Peperomia",
+ "synonyms": []
+}

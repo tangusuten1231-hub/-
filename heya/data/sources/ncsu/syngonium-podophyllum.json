@@ -232,5 +232,71 @@
   "interiorscape",
   "perennial",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40696",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Arrowhead_Vine_Dell__qOIPUJxpynLB.mpo",
+   "caption": "Syngonium podophyllum (Arrowhead Vine) houseplant view",
+   "author": "Dell Enecks (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "33950",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_yH52ua3oyAB6.jpeg",
+   "caption": "Potted form",
+   "author": "Jerzy Opiola",
+   "license": "CC BY 1.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/1.0/"
+  },
+  {
+   "id": "33954",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_bFM1OLDxHGpo.jpeg",
+   "caption": "Foliage",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38436",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_HYxZDhmX73Tr.jpeg",
+   "caption": "Foliage.",
+   "author": "Steven Rodriquez",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "33952",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_NY6D5DVCx8Bj.jpeg",
+   "caption": "Flower and buds",
+   "author": "Filogen'",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "33953",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_zD25I8aZA4MQ.jpeg",
+   "caption": "Flower close up",
+   "author": "Meneerke Bloem",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "33951",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_sWk6LYvP0qrV.jpeg",
+   "caption": "Form",
+   "author": "Loupok",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "33955",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Syngonium_podophyllu_KxtMsiDGljHT.jpeg",
+   "caption": "Habit",
+   "author": "Reuben C.J. Lim",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  }
  ]
 }

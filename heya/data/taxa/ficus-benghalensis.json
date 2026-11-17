@@ -2,6 +2,7 @@
  "id": "ficus-benghalensis",
  "rank": "species",
  "scientificName": "Ficus benghalensis",
+ "group": "foliage",
  "names": {
   "ja": "フィカス・ベンガレンシス",
   "aliases": [
@@ -94,7 +95,8 @@
   {
    "ja": "湿度が低すぎると葉が裂けることがある。",
    "src": "ncsu",
-   "quote": "Cracked leaves can occur if the humidity is too low."
+   "quote": "Cracked leaves can occur if the humidity is too low.",
+   "symptom": "brown"
   }
  ]
 }

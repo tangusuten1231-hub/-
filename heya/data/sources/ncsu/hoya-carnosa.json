@@ -11,7 +11,7 @@
   "Porcelain Flower",
   "Wax Plant"
  ],
- "description": "Wax plant is a broadleaf evergreen, epiphytic, vining, herbaceous perennial in the dogbane family (Asclepiadaceae). It is native to Southeast Asia, Japan, and Taiwan. The species epithet means &ldquo;fleshy,&rdquo; referring to the thick, succulent leaves. Bright indirect light year-round is ideal. As this plant is an epiphyte, use a loose, fast-draining potting mix high in organic matter and a container with good drainage. Allow the soil to dry out between watering. Too wet or too dry soil can cause the leaves to drop. This plant loves high humidity, and you may consider using a humidifier or placing the plant container on a tray of wet pebbles. Propagate the wax plant by stem cutting. Repot the wax plant when it outgrows its current container and is not in bud or flower. It doesn&rsquo;t mind being pot-bound. The new pot should not be more than 2 inches larger than the existing container. If pruning is necessary, it is best done in early spring before its rapid growth begins. Resist pruning the peduncle (&ldquo;spur&rdquo;) where flowers have been produced, as this will repeatedly produce flowers over several years. Cutting off these stems is cutting off future flowers. Most plants will not produce flowers until they are 2 or 3 years old. Blooming can occur in the spring, summer, or fall. Given its climbing habit and rapid growth, the wax plant is a great choice for hanging baskets. Like many houseplants, it can spend the summer outdoors on a patio in partial shade. Bring it back inside when nighttime temperatures fall below 50 degrees F. Insects, Diseases, and Other Plant Problems: Mealybugs can be a problem, and fungus gnats, which are attracted to potting mixes that are too wet. Occasionally, spider mites can be an issue and can appear when the air is too dry. Cold water can shock this plant. Always use water at room temperature. More information on Hoya .",
+ "description": "Wax plant is a broadleaf evergreen, epiphytic, vining, herbaceous perennial in the dogbane family (Asclepiadaceae). It is native to Southeast Asia, Japan, and Taiwan. The species epithet means \"fleshy,\" referring to the thick, succulent leaves. Bright indirect light year-round is ideal. As this plant is an epiphyte, use a loose, fast-draining potting mix high in organic matter and a container with good drainage. Allow the soil to dry out between watering. Too wet or too dry soil can cause the leaves to drop. This plant loves high humidity, and you may consider using a humidifier or placing the plant container on a tray of wet pebbles. Propagate the wax plant by stem cutting. Repot the wax plant when it outgrows its current container and is not in bud or flower. It doesn't mind being pot-bound. The new pot should not be more than 2 inches larger than the existing container. If pruning is necessary, it is best done in early spring before its rapid growth begins. Resist pruning the peduncle (\"spur\") where flowers have been produced, as this will repeatedly produce flowers over several years. Cutting off these stems is cutting off future flowers. Most plants will not produce flowers until they are 2 or 3 years old. Blooming can occur in the spring, summer, or fall. Given its climbing habit and rapid growth, the wax plant is a great choice for hanging baskets. Like many houseplants, it can spend the summer outdoors on a patio in partial shade. Bring it back inside when nighttime temperatures fall below 50 degrees F. Insects, Diseases, and Other Plant Problems: Mealybugs can be a problem, and fungus gnats, which are attracted to potting mixes that are too wet. Occasionally, spider mites can be an issue and can appear when the air is too dry. Cold water can shock this plant. Always use water at room temperature. More information on Hoya .",
  "cultivars": [
   {
    "name": "Compacta' or 'Krinkle Kurl",
@@ -194,5 +194,87 @@
   "epiphytic",
   "climber",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40475",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250522_140412_Hoya_82TMpz5jA5rQ.jpeg",
+   "caption": "Hoya carnosa, houseplant view",
+   "author": "Matt Stevens (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8148",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Hoya_carnosa--saiberiac--CC-BY.jpg",
+   "caption": "Young plant in container",
+   "author": "saiberiac",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8147",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Hoya-carnosa--Melanie-J-Watts--CC-BY-NC-ND.jpg",
+   "caption": "Form",
+   "author": "Melanie J. Watts",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "38171",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Hoya_carnosa_Compac_wsL2404NNGaD.jpeg",
+   "caption": "Hoya carnosa 'Compacta' showing contorted leaves.",
+   "author": "Jane Helebrant",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "21904",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/A24F79BB-C8D5-4870-B_gMVx0tQrupsQ.jpg",
+   "caption": "Underside of leaf",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8144",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Hoya-carnosa--Fuad-Al-Ansari--CC-BY-NC.jpg",
+   "caption": "Vine with flowers",
+   "author": "Fuad-Al-Ansari",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8145",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Hoya_carnosa_flower__xkE2hxE5tSnZ.jfif",
+   "caption": "Flower buds",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "21902",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/image_vR5zBcj2hcxT.jpeg",
+   "caption": "Flowers are hairy with 5 petals",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "21901",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/F3CB76A5-C1E6-4A0F-B_daD3rzsyrdVe.jpeg",
+   "caption": "Umble inflorescence",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "21903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/0C8234DE-9E74-4692-B_aXYlgTDnstUD.jpeg",
+   "caption": "Roots form along the stem",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

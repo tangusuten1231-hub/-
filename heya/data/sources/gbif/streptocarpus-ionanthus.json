@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/6710927",
+ "retrieved": "2026-11-17",
+ "query": "Streptocarpus ionanthus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 6710927,
+ "acceptedKey": 6710927,
+ "acceptedName": "Streptocarpus ionanthus",
+ "authorship": "(H.Wendl.) Christenh.",
+ "rank": "SPECIES",
+ "family": "Gesneriaceae",
+ "genus": "Streptocarpus",
+ "synonyms": [
+  "Saintpaulia amaniensis"
+ ]
+}

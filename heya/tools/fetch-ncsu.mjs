@@ -10,6 +10,8 @@ const decode = (s) => s
   .replace(/<[^>]+>/g, ' ')
   .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"')
   .replace(/&#39;|&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&ldquo;|&rdquo;/g, '"').replace(/&lsquo;|&rsquo;/g, "'").replace(/&ndash;|&mdash;/g, '-').replace(/&deg;/g, '°').replace(/&frac12;/g, '1/2')
+  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
   .replace(/\s+/g, ' ').trim();
 
 /** ページ HTML から属性を取り出す（テストからも使う） */
@@ -36,8 +38,20 @@ export function parseNcsu(html) {
     const [name, note = ''] = m[1].split(/<br\s*\/?>/);
     return { name: decode(name).replace(/^'|'$/g, ''), note: decode(note) };
   }) : [];
+  // 写真（ギャラリー）: 署名つき URL は期限があるので、クエリを除いた URL と出典・ライセンスを残す
+  const images = [];
+  const seen = new Set();
+  for (const m of html.matchAll(/<img class="img-thumbnail modal_img"([\s\S]*?)\/>/g)) {
+    const attr = (k) => { const x = m[1].match(new RegExp(`${k}="([^"]*)"`)); return x ? x[1] : ''; };
+    const id = attr('data-image-id');
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    const lic = attr('data-license').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    images.push({ id, file: attr('src').split('?')[0], caption: decode(attr('data-caption')), author: decode(attr('data-attrib')),
+      license: decode(lic), licenseUrl: (lic.match(/href='([^']*)'/) ?? [])[1] ?? '' });
+  }
   const tags = [...new Set([...html.matchAll(/>#([a-z0-9 -]+)</g)].map((m) => m[1].trim()))];
-  return { scientificName, commonNames, description, cultivars, attributes, tags };
+  return { scientificName, commonNames, description, cultivars, attributes, tags, images };
 }
 
 async function fetchOne(slug) {

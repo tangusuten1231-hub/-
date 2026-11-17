@@ -253,5 +253,71 @@
   "problem for children",
   "fast growing",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "8179",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia-zebrina--Maja-Dumat--CC-BY.jpg",
+   "caption": "Tradescantia zebrina",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8180",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia-zebrina--Dick-Culbert--CC-BY.jpg",
+   "caption": "Tradescantia zebrina",
+   "author": "Dick Culbert",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8181",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia-zebrina--abbamouse--CC-BY-SA.jpg",
+   "caption": "Tradescantia zebrina",
+   "author": "abbamouse",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "26822",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_Zebrina_ilhVrE71ZQpx.jpeg",
+   "caption": "Tradescantia zebrina. Leaves Close-up",
+   "author": "Quercus2018",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "26823",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_zebrina_ILt6ox3hlcdH.jpe",
+   "caption": "Tradescantia zebrina.",
+   "author": "Mokkie",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "26897",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_zebrina_t4e0v6C0DZAN.jpeg",
+   "caption": "Tradescantia zebrina",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29182",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_zebrina_ckn6ex3hsN5W.jpe",
+   "caption": "Tradescantia zebrina. Leaf and branch",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29183",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_zebrina_Rpc1JhCJCSeA.jpe",
+   "caption": "Tradescantia zebrina",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
  ]
 }

@@ -1,0 +1,218 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/dracaena-sanderiana/",
+ "slug": "dracaena-sanderiana",
+ "retrieved": "2026-11-17",
+ "scientificName": "Dracaena sanderiana",
+ "commonNames": [
+  "Chinese Water Bamboo",
+  "Friendship Bamboo",
+  "Lucky Bamboo",
+  "Ribbon Plant",
+  "Water Bamboo"
+ ],
+ "description": "Lucky bamboo is not a bamboo at all. It is a tropical, perennial shrub from West Africa and a member of the asparagus family (Asparagaceae). The species epithet commemorates German-born nurseryman and orchid specialist Henry Frederick Conrad Sander, of St. Albans, England. Lucky bamboo is a popular, easy-to-grow and undemanding houseplant outside of the tropical zone. It performs well in containers with partial shade outdoors in summer or bright but indirect light indoors all year. It requires a moist potting mix, or it can be grown in chlorine-free water. Change the water weekly (to prevent mosquitoes) and provide a weak liquid fertilizer. Putting some pebbles in the bottom gives a place for the roots to grow (and gives weight to the container to prevent it from tipping over). The bright green, strappy leaves are widely spaced along the upright stems, giving the plant an open, airy appearance. The stems are often trained into a variety of shapes (e.g., braided or spiral). Lucky bamboo rarely blooms as a houseplant. Insects, Diseases, and Other Plant Problems: No serious insect pests or diseases. Monitor for mealybugs, mites and scale insects. Overwatering can cause yellowing of the leaves and rotting of the stems. Low humidity can cause browning of the leaf tips. More information on Dracaena .",
+ "cultivars": [
+  {
+   "name": "Silver Ribbon",
+   "note": "slightly twisted leaves with variegated green stripes"
+  },
+  {
+   "name": "White Stripe",
+   "note": "deep green foliage with creamy white edging"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Dracaena"
+  ],
+  "Species": [
+   "sanderana"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "West Central Tropical Africa to North East Angola"
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Shrub"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Occasionally Wet"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Mountains",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b"
+  ],
+  "Flower Color": [
+   "White"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Winter"
+  ],
+  "Flower Description": [
+   "Small white flowers in clusters. Rarely blooms as a house plant."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Smooth"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Bright green to gray-green strappy leaves are widely spaced along the upright stems"
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Smooth (glabrous)"
+  ],
+  "Stem Description": [
+   "Thick green fleshy stem resembling bamboo."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Problem for Cats",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Toxic, if ingested, for cats and dogs. Vomiting (occasionally with blood), depression, anorexia, hypersalivation, dilated pupils (cats). Humans should not eat this plant. The sap can cause skin irritation."
+  ],
+  "Poison Toxic Principle": [
+   "Saponins"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "bamboo",
+  "houseplant",
+  "interiorscape",
+  "problem for dogs",
+  "problem for cats",
+  "tropical feel",
+  "container plant",
+  "shade garden",
+  "problem for children",
+  "poisonous if ingested"
+ ],
+ "images": [
+  {
+   "id": "8124",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena-sanderiana--cthoyes--CC-BY-NC-ND.jpg",
+   "caption": "Dracaena sanderiana as a potted plant.",
+   "author": "cthoyes",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "13215",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_sanderiana__zxrD83VbqB11.jpe",
+   "caption": "Dracaena sanderiana. Rooted stem cutting.",
+   "author": "Bernard Ladenthin",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "13217",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_sanderiana__mhDSZEL3v36u.jpe",
+   "caption": "Dracaena sanderiana in water.",
+   "author": "Bernard Ladenthin",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "13218",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_sanderiana__g8pv9VV2jvwG.jfif",
+   "caption": "Dracaena sanderiana node",
+   "author": "Randen Pederson",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "id": "alocasia-x-mortfontanensis",
+ "rank": "species",
+ "scientificName": "Alocasia x mortfontanensis",
+ "group": "foliage",
+ "names": {
+  "ja": "アロカシア・アマゾニカ",
+  "aliases": [
+   "アロカシア",
+   "アマゾニカ"
+  ]
+ },
+ "refs": {
+  "ncsu": "alocasia-x-mortfontanensis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight can scorch its leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Air temperatures should not drop below 60 degrees Fahrenheit.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "as well as warm temperatures and high humidity"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "as well as warm temperatures and high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, and well-drained, fertile, loamy soil"
+   },
+   {
+    "src": "ncsu",
+    "quote": "Overwatering may cause root rot and bacterial stem rot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "the plant should be brought inside for overwintering, and watering should be reduced"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根や茎が腐る。",
+   "src": "ncsu",
+   "quote": "Overwatering may cause root rot and bacterial stem rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "ハダニ・コナカイガラムシ・アブラムシに注意。",
+   "src": "ncsu",
+   "quote": "Monitor for spider mites, mealybugs, and aphids.",
+   "symptom": "pests"
+  }
+ ]
+}

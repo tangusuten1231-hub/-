@@ -1,0 +1,98 @@
+{
+ "id": "dionaea-muscipula",
+ "rank": "species",
+ "scientificName": "Dionaea muscipula",
+ "group": "carnivorous",
+ "names": {
+  "ja": "ハエトリソウ",
+  "aliases": [
+   "ハエトリグサ",
+   "ディオネア"
+  ]
+ },
+ "refs": {
+  "ncsu": "dionaea-muscipula"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    15,
+    30
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "moist"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It needs high humidity, wet, sandy soil, and full sun to partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なた〜半日陰を必要とするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "full sun to partial shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン6a（屋外で−23℃程度まで）とされる温帯の植物。室内では凍らなければ問題ないため0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、温帯の植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It needs high humidity, wet, sandy soil"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Do not allow the soil to dry out."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Do not allow the soil to dry out."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水は雨水か蒸留水を使う。水道水や硬水で枯れることがある。",
+   "src": "ncsu",
+   "quote": "Irrigate with rainwater or distilled water; treated (chlorinated) water or hard water can kill the plant."
+  },
+  {
+   "ja": "肥料は与えない。",
+   "src": "ncsu",
+   "quote": "Do not fertilize the plant."
+  }
+ ],
+ "note": "北米原産の温帯の植物。冬の寒さには強い。"
+}

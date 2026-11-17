@@ -1,0 +1,113 @@
+{
+ "id": "fittonia-albivenis",
+ "rank": "species",
+ "scientificName": "Fittonia albivenis",
+ "group": "foliage",
+ "names": {
+  "ja": "フィットニア",
+  "aliases": [
+   "アミメグサ",
+   "フィットニア・アルビベニス"
+  ]
+ },
+ "refs": {
+  "ncsu": "fittonia-albivenis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "it thrives in bright to medium light, average to cool room temperature, and medium humidity"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "it thrives in bright to medium light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The leaves may become scorched from direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Leaves will shrivel and fall off in dry air, drafts, or direct sun."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は「ふつう〜涼しめの室温」を好むとし、耐寒ゾーン11a（屋外で4℃程度まで）とされるため、10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "average to cool room temperature"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ふつう〜涼しめの室温」をやや低めの範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "and medium humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "If it gets too dry it will dramatically wilt but it comes back after getting a drink."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "乾くとぐったりしおれるが、水をやると戻る。",
+   "src": "ncsu",
+   "quote": "If it gets too dry it will dramatically wilt but it comes back after getting a drink.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "乾燥・すきま風・直射日光で葉が縮れて落ちる。",
+   "src": "ncsu",
+   "quote": "Leaves will shrivel and fall off in dry air, drafts, or direct sun.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "葉が黄色くなるのは水のやりすぎのことがある。",
+   "src": "ncsu",
+   "quote": "Yellowing leaves may indicate overwatering.",
+   "symptom": "yellow"
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2873745",
+ "retrieved": "2026-11-17",
+ "query": "Scindapsus pictus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2873745,
+ "acceptedKey": 2873745,
+ "acceptedName": "Scindapsus pictus",
+ "authorship": "Hassk.",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Scindapsus",
+ "synonyms": [
+  "Pothos argenteus",
+  "Pothos argyraeus",
+  "Pothos endresii",
+  "Scindapsus argyraeus",
+  "Scindapsus pothoides"
+ ]
+}

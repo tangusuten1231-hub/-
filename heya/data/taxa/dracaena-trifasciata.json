@@ -2,6 +2,7 @@
  "id": "dracaena-trifasciata",
  "rank": "species",
  "scientificName": "Dracaena trifasciata",
+ "group": "succulent",
  "names": {
   "ja": "サンスベリア",
   "aliases": [
@@ -90,7 +91,8 @@
   {
    "ja": "水はけのよい土と控えめな水やりが必須。水のやりすぎで根が腐る。",
    "src": "ncsu",
-   "quote": "Well-drained soil and careful watering are a must; do not overwater, as the roots will rot."
+   "quote": "Well-drained soil and careful watering are a must; do not overwater, as the roots will rot.",
+   "symptom": "rot"
   }
  ],
  "note": "以前は Sansevieria trifasciata という学名だったが、現在はドラセナ属に分類されている。"

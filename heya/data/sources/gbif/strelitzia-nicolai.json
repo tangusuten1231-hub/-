@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2763112",
+ "retrieved": "2026-11-17",
+ "query": "Strelitzia nicolai",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2763112,
+ "acceptedKey": 2763112,
+ "acceptedName": "Strelitzia nicolai",
+ "authorship": "Regel & Körn.",
+ "rank": "SPECIES",
+ "family": "Strelitziaceae",
+ "genus": "Strelitzia",
+ "synonyms": [
+  "Strelitzia quensonii"
+ ]
+}

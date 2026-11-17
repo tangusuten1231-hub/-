@@ -1,0 +1,108 @@
+{
+ "id": "codiaeum-variegatum",
+ "rank": "species",
+ "scientificName": "Codiaeum variegatum",
+ "group": "foliage",
+ "names": {
+  "ja": "クロトン",
+  "aliases": [
+   "ヘンヨウボク",
+   "コディアエウム"
+  ]
+ },
+ "refs": {
+  "ncsu": "codiaeum-variegatum"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The plants need bright light for the best leaf color, with some direct sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "may lose lower leaves in too much shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The plants need bright light for the best leaf color, with some direct sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Bring the plants indoors when temperatures reach 50 degrees F.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "low to medium relative humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water them liberally from spring to autumn"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "sparingly in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "暗すぎると下の葉が落ちる。",
+   "src": "ncsu",
+   "quote": "may lose lower leaves in too much shade",
+   "symptom": "drop"
+  },
+  {
+   "ja": "ハダニがつきやすい。",
+   "src": "ncsu",
+   "quote": "Spider mite susceptibility sometimes limits interiorscape use to short-term.",
+   "symptom": "pests"
+  },
+  {
+   "ja": "きれいな葉色には明るい光が必要。",
+   "src": "ncsu",
+   "quote": "The plants need bright light for the best leaf color",
+   "symptom": "fade"
+  }
+ ]
+}

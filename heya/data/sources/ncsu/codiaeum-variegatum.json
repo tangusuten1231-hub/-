@@ -1,0 +1,377 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/codiaeum-variegatum/",
+ "slug": "codiaeum-variegatum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Codiaeum variegatum",
+ "commonNames": [
+  "Croton",
+  "Fire Croton",
+  "Garden Croton",
+  "Joseph's Coat",
+  "Variagated Croton"
+ ],
+ "description": "Crotons are woody, flowering, broadleaf evergreen shrubs in the spurge family (Euphorbiaceae) reaching heights of 8 feet in the narrow climate range of their native habitat, Malaysia, the Pacific islands, and northern Australia. It is more common to see these plants grown indoors, where they can attain a height of 3 feet. While the wild type has green glossy leaves, the cultivars, of which there are hundreds, are grown for their attractive, variegated foliage. The leaves of crotons may vary in size, shape, or color depending on which cultivars are grown. The genus name comes from the Latinized version of the Ternate vernacular name, kodiho . The species epithet, variegatum, means variegated, in reference to the color of the foliage. Crotons prefer full sun or partial shade and well-drained, humus-rich soil that is occasionally dry with low to medium relative humidity. Water them liberally from spring to autumn, sparingly in winter. They are easy to grow as an indoor houseplant or outdoor accent plant in winter-hardy sites in USDA Zones 11 and 12. The plants need bright light for the best leaf color, with some direct sun, and may lose lower leaves in too much shade. To meet the plant's humidity requirements, consider placing the plant on a bed of wet pebbles indoors. Crotons do not require winter dormancy but appreciate a resting period with reduced watering from fall to late winter. Where protected from frost, use crotons as foundation plants, hedges or specimen plants. Bring the plants indoors when temperatures reach 50 degrees F. or treat them as tender annuals planted outdoors in summer. Alternatively, enjoy them year-round as houseplants. Quick ID Hints: Leaves are green, leathery, and glossy. Upright interior shrub. Milky sap exudes from broken leaves or stems. Insects, Diseases, and Other Plant Problems: Spider mite susceptibility sometimes limits interiorscape use to short-term. A clear sap that flows from cut leaves or stems can be an irritant to soft tissue, causing itching and swelling. Wash your hands thoroughly when handling plants and keep your hands away from your eyes. The sap will permanently stain fabrics. VIDEO Created by Elisabeth Meyer for \" Edibles, Bulbs, and Houseplants \" a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Andreanum",
+   "note": "broad oval yellow leaves with gold veins and margins"
+  },
+  {
+   "name": "Aureo-maculatum",
+   "note": "Yellow spotted leaves."
+  },
+  {
+   "name": "Eleanor Roosevelt",
+   "note": "medium green leaves with golden yellow spots that transition to dark red"
+  },
+  {
+   "name": "Evening Embers",
+   "note": "blue-black metallic leaves with highlights of red and green"
+  },
+  {
+   "name": "Franklin Roosevelt",
+   "note": "medium green leaves splashed with yellow, orange, and pink"
+  },
+  {
+   "name": "Gold Dust",
+   "note": "rounded oval, bright green leaves spotted with golden yellow"
+  },
+  {
+   "name": "Majesticum",
+   "note": "Nine inch long yellow and red leaves."
+  },
+  {
+   "name": "Petra",
+   "note": "most common, dark green leaves with yellow, pink, and orangish-red markings along the veins"
+  },
+  {
+   "name": "Spirale",
+   "note": "Twisted red and green leaves."
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Codiaeum"
+  ],
+  "Species": [
+   "variegatum"
+  ],
+  "Family": [
+   "Euphorbiaceae"
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Country Or Region Of Origin": [
+   "Malaysia, Pacific islands and northern Australia"
+  ],
+  "Distribution": [
+   "South Central China, Cuba, Puerto Rico"
+  ],
+  "Dimensions": [
+   "Height: 2 ft. 0 in. - 8 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 6 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Annual",
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Shrub"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Oval"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet",
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a capsule containing three seeds that are 1/4 inch in diameter."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Insignificant",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Raceme"
+  ],
+  "Flower Description": [
+   "A slender axillary raceme, at branch tips. Male and female flowers on separate inflorescences; the male flowers are white with five small petals and 20–30 stamens; female flowers are yellowish, with no petals."
+  ],
+  "Leaf Color": [
+   "Brown/Copper",
+   "Gold/Yellow",
+   "Green",
+   "Pink",
+   "Purple/Lavender",
+   "Red/Burgundy"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Leathery"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Linear",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Alternate, simple 18-inch leaves, linear to ovate, acute, entire or lobed, coriaceous (leathery), often rugose (crinkled) or twisted and glossy. Cultivated varieties are more colorful. Leaves are in bright colors ranging from yellow, pink, orange, red, bronze, purple and green in patterns involving blotching and striping. Clear sap exudes when broken."
+  ],
+  "Bark Color": [
+   "Dark Brown"
+  ],
+  "Surface/Attachment": [
+   "Fissured"
+  ],
+  "Bark Description": [
+   "Woody old growth is vertically fissured."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Leaf Scar Shape": [
+   "Round"
+  ],
+  "Stem Description": [
+   "New growth green, old growth brown and woody with vertical fissures and oval leaf scars giving the stem a pock-marked appearance."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Foundation Planting",
+   "Hedge",
+   "Specimen"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "TOXIC ONLY IF LARGE QUANTITIES EATEN. SKIN IRRITATION MINOR OR LASTING ONLY FOR A FEW MINUTES. Allergic dermatitis with skin rash developing after repeated contact. Nausea, vomiting, diarrhea when ingested."
+  ],
+  "Poison Toxic Principle": [
+   "Diterpene esters"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "ncemgva2018",
+  "poisonous",
+  "fantz",
+  "houseplant",
+  "interiorscape",
+  "evergreen shrub",
+  "ebh-h",
+  "ebh",
+  "glossy leaves",
+  "leathery leaves",
+  "tropical",
+  "container plant",
+  "variegated",
+  "colorful leaves",
+  "attractive leaves",
+  "contact dermatitis",
+  "hsc",
+  "hsc-f",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "40358",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__CsLq5CqoIeNm.jpeg",
+   "caption": "Codiaeum variegatum, Croton, houseplant view",
+   "author": "Joanne Kollar (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40694",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Croton_Dell_Enecks_GXVQGj3klnHB.mpo",
+   "caption": "Codiaeum variegatum (Croton) houseplant view",
+   "author": "Dell Enecks (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38424",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__vnKNnXRWjreb.jpeg",
+   "caption": "Potted houseplant of Codiaeum variegatum.",
+   "author": "Mike Linksvayer",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "37994",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__OYF24eWaRVCJ.jpeg",
+   "caption": "Form",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "23934",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/753036065_8f6e928751_Vf1n6TMpSb2e.jfif",
+   "caption": "Form",
+   "author": "Dinesh Valke",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "37995",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__55v5E2LEAupF.jpeg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "37999",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__4CjRhce1zPBS.jpeg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38000",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__E1742UmqeJdf.jpeg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "37996",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__o8cnsCPjETP5.jpeg",
+   "caption": "Leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "37998",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__wGlIWtkl8Uzq.jpeg",
+   "caption": "Leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "37997",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum__zC9MOwPGvkSS.jpeg",
+   "caption": "Leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40368",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Croton_flower_Codiae_CvP8Uq4PQtxf.jpeg",
+   "caption": "Codiacum variegatum, Croton, flower",
+   "author": "Joanne Kollar (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8327",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum_flowers_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Flowers",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8329",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Codiaeum_variegatum_fruit_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Fruit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

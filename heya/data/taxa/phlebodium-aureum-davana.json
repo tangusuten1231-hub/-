@@ -1,0 +1,16 @@
+{
+ "id": "phlebodium-aureum-davana",
+ "rank": "cultivar",
+ "parent": "phlebodium-aureum",
+ "cultivar": "Davana",
+ "names": {
+  "ja": "フレボディウム‘ダバナ’"
+ },
+ "tips": [
+  {
+   "ja": "コンパクトで、青白い葉のふちが波打つ。",
+   "src": "ncsu",
+   "quote": "compact, glaucous blue, wavy leaf margins"
+  }
+ ]
+}

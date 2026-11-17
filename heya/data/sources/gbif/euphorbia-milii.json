@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3067157",
+ "retrieved": "2026-11-17",
+ "query": "Euphorbia milii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3067157,
+ "acceptedKey": 3067157,
+ "acceptedName": "Euphorbia milii",
+ "authorship": "Des Moul.",
+ "rank": "SPECIES",
+ "family": "Euphorbiaceae",
+ "genus": "Euphorbia",
+ "synonyms": [
+  "Euphorbia bojeri",
+  "Euphorbia breonii",
+  "Sterigmanthe bojeri",
+  "Tumalis bojeri"
+ ]
+}

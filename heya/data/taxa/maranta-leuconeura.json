@@ -2,6 +2,7 @@
  "id": "maranta-leuconeura",
  "rank": "species",
  "scientificName": "Maranta leuconeura",
+ "group": "foliage",
  "names": {
   "ja": "マランタ・レウコネウラ",
   "aliases": [
@@ -89,12 +90,14 @@
   {
    "ja": "日が強すぎると葉の模様が色あせる。",
    "src": "ncsu",
-   "quote": "Too much sun will bleach out the attractive leaves colors."
+   "quote": "Too much sun will bleach out the attractive leaves colors.",
+   "symptom": "fade"
   },
   {
    "ja": "フッ素や肥料のやりすぎで葉が焼ける。",
    "src": "ncsu",
-   "quote": "Leaves will burn with high fluorides and with over-fertilization."
+   "quote": "Leaves will burn with high fluorides and with over-fertilization.",
+   "symptom": "brown"
   }
  ]
 }

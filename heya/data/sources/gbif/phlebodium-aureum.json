@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2650479",
+ "retrieved": "2026-11-17",
+ "query": "Phlebodium aureum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2650479,
+ "acceptedKey": 2650479,
+ "acceptedName": "Phlebodium aureum",
+ "authorship": "(L.) J.Sm.",
+ "rank": "SPECIES",
+ "family": "Polypodiaceae",
+ "genus": "Phlebodium",
+ "synonyms": [
+  "Chrysopteris aurea",
+  "Chrysopteris grandis",
+  "Chrysopteris martinicensis",
+  "Chrysopteris microdictya",
+  "Chrysopteris pulvinata",
+  "Phlebodium grande",
+  "Phlebodium microdictyum",
+  "Phlebodium pulvinatum",
+  "Pleopeltis aurea",
+  "Polypodium attenuatum",
+  "Polypodium auratum",
+  "Polypodium aureum",
+  "Polypodium leucatomos",
+  "Polypodium pulvinatum"
+ ]
+}

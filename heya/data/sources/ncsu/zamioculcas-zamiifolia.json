@@ -13,7 +13,7 @@
   "Zuzu Plant",
   "ZZ Plant"
  ],
- "description": "ZZ plant is a rhizomatous, evergreen herbaceous perennial in the aroid family (Araceae) native to tropical Africa. The pinnate leaves are erect, emerging from a thick, underground rhizome. The species epithet is compounded from the Latin and means &ldquo;having leaves like Zamia ,&rdquo; which is an unrelated genus. This plant has a slow growth rate, reaching 2 to 4 feet in height and width. In the landscape, ZZ plant needs to be planted in partial to deep shade and highly organic or sandy soil with good drainage. It has bulbous fleshy rhizomes that give rise to glossy leaves that store water and make it highly drought tolerant. As a houseplant, pot it in well-drained potting soil that is watered routinely but allowed to dry out between waterings, as wet feet are not tolerated. Water it only once a month in winter months when it is not actively growing. Water twice monthly in the summer, but only if the soil has dried out completely. Use a balanced liquid houseplant fertilizer once or twice a year. This plant can be treated in much the same way as cactus and other succulent plants. While they will grow in very low levels of light, even in areas with only fluorescent light, they do best with bright indirect sunlight. Scalding and browning of leaves can occur if the plant is placed in direct sunlight. Propagate by division or leaf cutting. This plant has a medium toxicity to cats and dogs. ZZ plant is one of the easiest to grow, low-maintenance houseplants and is seen frequently in commercial interiorscapes. In some areas, it may be possible to grow this plant in a container outdoors if it is brought in once the temperature falls below 60 degrees F. Quick ID Hints: stemless evergreen, grows up to 3 feet tall pinnately compound leaves each leaf has 6 to 8 pairs of glossy green leaflets that are elliptic the flower is a spadix surrounded by a sheath-like spathe Insects, Diseases, and Other Plant Problems: No significant problems, but watch for scale insects. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "description": "ZZ plant is a rhizomatous, evergreen herbaceous perennial in the aroid family (Araceae) native to tropical Africa. The pinnate leaves are erect, emerging from a thick, underground rhizome. The species epithet is compounded from the Latin and means \"having leaves like Zamia ,\" which is an unrelated genus. This plant has a slow growth rate, reaching 2 to 4 feet in height and width. In the landscape, ZZ plant needs to be planted in partial to deep shade and highly organic or sandy soil with good drainage. It has bulbous fleshy rhizomes that give rise to glossy leaves that store water and make it highly drought tolerant. As a houseplant, pot it in well-drained potting soil that is watered routinely but allowed to dry out between waterings, as wet feet are not tolerated. Water it only once a month in winter months when it is not actively growing. Water twice monthly in the summer, but only if the soil has dried out completely. Use a balanced liquid houseplant fertilizer once or twice a year. This plant can be treated in much the same way as cactus and other succulent plants. While they will grow in very low levels of light, even in areas with only fluorescent light, they do best with bright indirect sunlight. Scalding and browning of leaves can occur if the plant is placed in direct sunlight. Propagate by division or leaf cutting. This plant has a medium toxicity to cats and dogs. ZZ plant is one of the easiest to grow, low-maintenance houseplants and is seen frequently in commercial interiorscapes. In some areas, it may be possible to grow this plant in a container outdoors if it is brought in once the temperature falls below 60 degrees F. Quick ID Hints: stemless evergreen, grows up to 3 feet tall pinnately compound leaves each leaf has 6 to 8 pairs of glossy green leaflets that are elliptic the flower is a spadix surrounded by a sheath-like spathe Insects, Diseases, and Other Plant Problems: No significant problems, but watch for scale insects. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants,\" a plant identification course developed in partnership with Longwood Gardens.",
  "cultivars": [
   {
    "name": "Chameleon",
@@ -192,5 +192,143 @@
   "slow growing",
   "low maintenance",
   "perennial"
+ ],
+ "images": [
+  {
+   "id": "24934",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_qf3aOU8bLAzp.jpg",
+   "caption": "Zamioculcas zamiifolia. Potted.",
+   "author": "Susan Broderick",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24935",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_sTu4AGh0LW3W.jpg",
+   "caption": "Zamioculcas zamiifolia leaf",
+   "author": "Susan Broderick",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24936",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_iElBjrTcqaha.jpg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Susan Broderick",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24937",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_1aNf6suCyV4z.jpg",
+   "caption": "Zamioculcas zamiifolia. Inset shows tiny flowers.",
+   "author": "Darius Baužys",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24938",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_4AYLEXS6WXwp.jpg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Michelangelo76",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "25033",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_fpMHH9kwYyWG.jfif",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "25034",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_9l01CxFHc5Xl.jfif",
+   "caption": "Zamioculcas zamiifolia. Emerging leaf.",
+   "author": "Dacnoh",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "25035",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_0bi14lFvhSMg.jfif",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Daderot",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "25038",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_ekJSWSC6aMfC.jpeg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "25039",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_gXNVPbEe6Kaj.jfif",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Michelangelo76",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "25044",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_MJ5jQAhfIlFP.jfif",
+   "caption": "Zamioculcas zamiifolia. Potted.",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "25045",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_3gOUeoIgReU7.jpeg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "25046",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_jxb6Av1Dd9Xa.jfif",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "26664",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_Andreas__JNycNQzZOXLS.jpeg",
+   "caption": "Zamioculcas zamiifolia. Potted.",
+   "author": "Andreas Hammerschmidt",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "26665",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_AKLw0o6i7KmY.jpe",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "Alexander Brergmann",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "32206",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_7G8cOHhPiWaT.jpeg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "32208",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Zamioculcas_zamiifol_VUsezcz1IQAT.jpeg",
+   "caption": "Zamioculcas zamiifolia",
+   "author": "User-WeFt",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
  ]
 }

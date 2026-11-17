@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/9669385",
+ "retrieved": "2026-11-17",
+ "query": "Philodendron xanadu",
+ "matchType": "EXACT",
+ "status": "SYNONYM",
+ "usageKey": 2870723,
+ "acceptedKey": 9669385,
+ "acceptedName": "Thaumatophyllum xanadu",
+ "authorship": "(Croat, J.Boos & Mayo) Sakur., Calazans & Mayo",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Thaumatophyllum",
+ "synonyms": [
+  "Philodendron xanadu"
+ ]
+}

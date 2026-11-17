@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2985944",
+ "retrieved": "2026-11-17",
+ "query": "Kalanchoe blossfeldiana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2985944,
+ "acceptedKey": 2985944,
+ "acceptedName": "Kalanchoe blossfeldiana",
+ "authorship": "Poelln.",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Kalanchoe",
+ "synonyms": [
+  "Kalanchoe coccinea"
+ ]
+}

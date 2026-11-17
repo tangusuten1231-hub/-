@@ -1,0 +1,201 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/monstera-adansonii/",
+ "slug": "monstera-adansonii",
+ "retrieved": "2026-11-17",
+ "scientificName": "Monstera adansonii",
+ "commonNames": [
+  "Adanson's Monstera",
+  "Cheese Plant",
+  "Five Hole Plant",
+  "Swiss Cheese Plant",
+  "Swiss Cheese Vine"
+ ],
+ "description": "The Swiss Cheese Plant is a tender, evergreen, herbaceous perennial climber that hails from the tropical rainforests of Mexico, Central America, and South America. In its native habitat, it uses aerial roots to attach itself to a large tree so it can climb upwards to have access to more sunlight. It is a popular houseplant with large, medium to dark green, heart-shaped leaves and unique oval holes. The holes in the leaves help sunlight to filter down to the plant. Using a trellis or moss pole, an Indoors plant can reach up to 3 to 8 feet tall and 1 to 3 feet wide. It can grow 10 to 13 feet when grown outdoors. This plant prefers bright, indirect sunlight and warm, humid conditions. Direct sun can cause scorched leaves. Moist, well-drained soil with a slightly acidic pH is recommended. Avoid cold drafts and temperature drops below 50 degrees Fahrenheit. The plant prefers high humidity; consider using a humidifier or placing the container on a tray of wet pebbles. It is hardy in USDA Zones 10 to 12. Be sure to provide a stake, trellis, or moss pole in the center of the container to give the plant a structure to climb upon. The Swiss Cheese Plant is a member of the Arum or Araceae family, which also includes Calla Lily and Elephant Ear. Don't be confused by another plant that is sometimes called the \"Swiss Cheese Plant,\" known as Monstera deliciosa . It is a larger plant and has bigger leaves than Monstera adansonii. Monstera adansonii is a smaller plant and has fast growth rate. This plant is toxic to humans and pets if ingested. Exercise caution when children or pets are nearby. It is also recommended to use gloves when handling this plant due to the risk of contact dermatitis. The Swiss Cheese Plant is a very popular indoor plant, and is primarily used as a tropical ornamental. Quick ID Hints: herbaceous perennial, evergreen, climber, vining habit large, medium to dark green, glossy, heart-shaped, perforated leaves resembling swiss cheese leaves can reach up to 18 inches wide in the wild, usually smaller when grown as a houseplant creamy white flowers can appear in the spring when grown outdoors Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, aphids, whiteflies, and scales insects. Overwatering can result in root rot. Avoid splashing water on the foliage and provide good air circulation to prevent leaf spots. Rust, powdery mildew, and blight can occur.",
+ "cultivars": [
+  {
+   "name": "Archipelago",
+   "note": "variegated leaves"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Monstera"
+  ],
+  "Species": [
+   "adansonii"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Southern Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Native: Belize, Bolivia, Brazil, Colombia, Costa Rica, Ecuador, Guyana, Honduras, Mexico Southwest, Nicaragua, Panama, Peru, Suriname, Trinidad-Tobago, Venezuela, and Windward Islands. Introduced: Puerto Rico"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 13 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Ascending",
+   "Climbing"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix",
+   "Spike"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Description": [
+   "In the wild the flowers will appear in the spring as a creamy white spathe surrounded by a yellowish spike. Houseplants typically do not flower."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Cordate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested, inflammation of the mouth, throat, eyes, and digestive tract, vomiting, drooling, and loss of appetite. The sap causes skin irritation."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "partial shade tolerant",
+  "houseplant",
+  "problem for dogs",
+  "climber",
+  "warm climates",
+  "problem for cats",
+  "humidity tolerant",
+  "interesting leaves",
+  "container plant",
+  "poisonous if ingested",
+  "acidic soils tolerant",
+  "problem for children",
+  "fast growing",
+  "trellis"
+ ],
+ "images": [
+  {
+   "id": "40885",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250801_132203_kTrOcFawV5j1.jpeg",
+   "caption": "Monstera adansonii (Swiss Cheese Plant) houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38261",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_adansonii_p_pjcMquXpyans.jpeg",
+   "caption": "Potted plant.",
+   "author": "Benjamin Ho",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38429",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_adansonii_p_VyBsdNAyMAAK.jpeg",
+   "caption": "Potted plant.",
+   "author": "Therese Yarde",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
+ ]
+}

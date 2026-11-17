@@ -2,6 +2,7 @@
  "id": "tradescantia-zebrina",
  "rank": "species",
  "scientificName": "Tradescantia zebrina",
+ "group": "foliage",
  "names": {
   "ja": "トラデスカンチア・ゼブリナ",
   "aliases": [
@@ -93,7 +94,8 @@
   {
    "ja": "水やりのとき葉をぬらすと病気が出やすい。",
    "src": "ncsu",
-   "quote": "getting the leaves wet during watering"
+   "quote": "getting the leaves wet during watering",
+   "symptom": "spots"
   },
   {
    "ja": "汁で皮ふがかぶれることがある。",

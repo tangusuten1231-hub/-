@@ -1,0 +1,117 @@
+{
+ "id": "kalanchoe-blossfeldiana",
+ "rank": "species",
+ "scientificName": "Kalanchoe blossfeldiana",
+ "group": "flowering",
+ "names": {
+  "ja": "カランコエ",
+  "aliases": [
+   "カランコエ・ブロスフェルディアナ",
+   "ベニベンケイ"
+  ]
+ },
+ "refs": {
+  "ncsu": "kalanchoe-blossfeldiana"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    16,
+    21
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The florist kalanchoe prefers bright indirect sunlight or partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "To ensure blooming, the plant should receive 6 to 8 hours of bright light every day."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Prolonged direct sun can scorch the leaves so afternoon shade is recommended."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "should be brought indoors in cooler climates before the temperatures drop to 45 degrees Fahrenheit",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "prefers temperatures of 60 degrees Fahrenheit at night and 70 degrees Fahrenheit during the day",
+    "fahrenheit": [
+     60,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "it is best to allow the soil to dry out between waterings and then water them deeply"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花を咲かせるには、秋〜冬に1日14時間の真っ暗な時間を6週間以上つくる（夜に照明を当てない）。",
+   "src": "ncsu",
+   "quote": "In the fall and winter, total darkness is required for 14 hours a day for at least 6 weeks.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "花が咲かないのは、暗い時間が足りないことが多い。",
+   "src": "ncsu",
+   "quote": "If the plant fails to bloom, it may be the result of the plant not receiving the period of darkness required to reset the bloom cycle.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "咲き終わった花を摘むと、次の花が咲きやすい。",
+   "src": "ncsu",
+   "quote": "To encourage more blooms, deadhead the spent flowers."
+  },
+  {
+   "ja": "水のやりすぎで根や茎が腐る。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause root rot or stem rot.",
+   "symptom": "rot"
+  }
+ ]
+}

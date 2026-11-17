@@ -169,5 +169,31 @@
   "white flowers",
   "interesting leaves",
   "variegated"
+ ],
+ "images": [
+  {
+   "id": "40074",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_Ornata_9V_LZB61T8ylSVo.jpeg",
+   "caption": "Goeppertia ornata",
+   "author": "9V1BH",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "41950",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_ornata_fo_miaBQjqpxBXH.jpeg",
+   "caption": "Goeppertia ornata- Growing in a pot",
+   "author": "Renan Andrade",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41951",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Calathea_ornata_-lea_uaE2v3mVQnnW.jpeg",
+   "caption": "Goeppertia ornata- Leaves",
+   "author": "BiRdY777",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
  ]
 }

@@ -1,0 +1,112 @@
+{
+ "id": "pilea-peperomioides",
+ "rank": "species",
+ "scientificName": "Pilea peperomioides",
+ "group": "foliage",
+ "names": {
+  "ja": "ピレア・ペペロミオイデス",
+  "aliases": [
+   "ピレア",
+   "パンケーキプランツ"
+  ]
+ },
+ "refs": {
+  "ncsu": "pilea-peperomioides"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The Chinese Money Plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Leggy growth results from inadequate light."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The Chinese Money Plant prefers bright, indirect sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "it is tolerant of the average home's humidity levels"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "They are susceptible to root rot if overwatered."
+   },
+   {
+    "src": "estimate",
+    "reason": "水のやりすぎで根腐れしやすいため、表面が乾いてからとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光が足りないと間延びする。",
+   "src": "ncsu",
+   "quote": "Leggy growth results from inadequate light.",
+   "symptom": "leggy"
+  },
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "They are susceptible to root rot if overwatered.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "冷たいすきま風や暖房器具の近くは避ける。",
+   "src": "ncsu",
+   "quote": "Cold drafts and sources of heat need to be avoided."
+  }
+ ]
+}

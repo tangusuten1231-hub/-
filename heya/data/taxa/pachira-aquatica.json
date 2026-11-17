@@ -2,6 +2,7 @@
  "id": "pachira-aquatica",
  "rank": "species",
  "scientificName": "Pachira aquatica",
+ "group": "foliage",
  "names": {
   "ja": "パキラ",
   "aliases": [
@@ -96,7 +97,8 @@
   {
    "ja": "つやのある葉が黄色くなるのは、湿度不足か肥料不足のことがある。",
    "src": "ncsu",
-   "quote": "Yellow leaves can occur if the humidity is too low or inadequate nutrients in the soil."
+   "quote": "Yellow leaves can occur if the humidity is too low or inadequate nutrients in the soil.",
+   "symptom": "yellow"
   }
  ],
  "note": "日本で流通するパキラには近縁の Pachira glabra（パキラ・グラブラ）も多い。育て方の情報は P. aquatica のもの。"

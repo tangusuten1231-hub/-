@@ -1,0 +1,319 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/echeveria/",
+ "slug": "echeveria",
+ "retrieved": "2026-11-17",
+ "scientificName": "Echeveria",
+ "commonNames": [
+  "Echeveria",
+  "Mexican Rosettes",
+  "Mexican Snowballs",
+  "Variegated Wax Plant"
+ ],
+ "description": "Echeveria includes nearly 200 species of houseplants and myriads of hybrids. The genus is named for Atanasio Echeverria y Godoy, a seventeenth century botanical illustrator who contributed to Flora Mexicana. The plants are succulents and found in the Crassulaceae family which includes sedums, the Jade Tree, Kalanchoe and many other genera. This plant is native to an area stretching from southwest Texas to northwest Argentina and it has been introduced to Vietnam and New Zealand. The thick fleshy leaves of this plant form a tight rosette which stays very close to the ground for a while, but eventually, as the leaves wither and drop from the bottom of the stem, the stem becomes visible. This plant can be propagated vegetatively in several ways. Offsets (small rosettes that form at the base of the mother plant) can be detached and placed in very well drained soil and it will root. You could also cut off the crown leaving a short stem that can be plunged into very well drained soil. Or you might want to try removing a leaf and just leaving it on the soil. Eventually a small rosette will form and the old leaf will wither away. The plant is native to deserts and so doesn't mind being in full sun. In fact, the coloring of the leaves improves with sunlight. It needs little water. And because they are generally small they make great additions to edge of border and rock gardens. However, they are not truly frost hardy, so unless you live in a frost-free area, you have to bring them inside for the winter. These plants are easily grown in pots in a bright, sunny windowsill, where they thrive with little care. The leaves come in many different colors most tending towards grey, sea green and blue green. However some are pointed, some are rounded, some have thin veins of color running along the edge, others have a blush of color fading in towards the center. Once a year, rosettes will produce one or more flower stalks that rise above the rosette and produce flowers of light pink, reddish pink sometimes with yellow marking in the throat. The flowers attract bumble bees and hummingbirds. Quick ID: Thick, fleshy, upright leaves in a mounding habit Entire margins with a point at the tip Insects, Diseases, and Other Plant Problems: No significant problems VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Blue Metal",
+   "note": "hybrid with mottled leaves in many colors"
+  },
+  {
+   "name": "Deresina' (E. derenbergii x E. elegans 'Potosina')",
+   "note": "rosette of fleshy, spooned-shaped leaves of green with red tips when young then blue-green and magenta with age"
+  },
+  {
+   "name": "Echeveria runyonii 'Topsy Turvy",
+   "note": "award-winning; curved, rectangular leaves"
+  },
+  {
+   "name": "Imbricata' (E. secunda x E. gibbiflora 'Metallica')",
+   "note": "rosette of spoon-shaped, grayish-green to blue green leaves with a waxy coating"
+  },
+  {
+   "name": "Lara' (E. secunda x E. minima)",
+   "note": "rosette of blue-green leaves with reddish-pink edges"
+  },
+  {
+   "name": "Lola' (E. lilacina x E. 'Deresina')",
+   "note": "rosette of gray white leaves, pink tips"
+  },
+  {
+   "name": "Perle von Nurnberg' (E. gibbiflora 'Metallica' x E. elegans)",
+   "note": "rosette of grayish leaves with purplish-pink tones"
+  },
+  {
+   "name": "Pulv-oliver' (E. pulvinata x E. harmsii)",
+   "note": "rosettes, fleshy, light green hairy leaves with red tips, also known as Plush Plant"
+  },
+  {
+   "name": "Victor' (E. multicaulis x E. derenbergii)",
+   "note": "compact rosette of green leaves with shades of yellow-red"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Echeveria"
+  ],
+  "Family": [
+   "Crassulaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Texas to Argentina"
+  ],
+  "Distribution": [
+   "introduced range includes Vietnam, New Zealand"
+  ],
+  "Wildlife Value": [
+   "Attracts bumble bees and hummingbirds"
+  ],
+  "Play Value": [
+   "Attracts Pollinators"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 1 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 2 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Mounding"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "Fruit Color": [
+   "Brown/Copper"
+  ],
+  "Display/Harvest Time": [
+   "Summer"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Description": [
+   "Tiny black seeds in a capsule"
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Orange",
+   "Pink"
+  ],
+  "Flower Inflorescence": [
+   "Cyme",
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The unscented flowers of this plant are tubular and usually deep pink with or without yellow markings. But the plant breeders have extended the range and you can find them salmon pink and sometimes yellow. They appear annually at the end a stem that is usually erect but sometimes droops. They hang down in a loose bunch attracting bumble bees and hummingbirds."
+  ],
+  "Leaf Color": [
+   "Blue",
+   "Gray/Silver",
+   "Green",
+   "Pink",
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Glossy",
+   "Smooth",
+   "Waxy"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Linear",
+   "Oblanceolate",
+   "Ovate",
+   "Spatulate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves of this plant are what make it. They are thick and fleshy and come in a range of colors, shapes, sizes and markings. The color is better in full sun. They wither and drop off from the bottom and can be a source of disease if not removed. They have a point at the tip, but can be distinguished from Aonium by the entire margins and more upright habit. Most are smooth and hairless and some have a glaucous bloom on the surface."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Cross Section": [
+   "Round"
+  ],
+  "Stem Surface": [
+   "Covered with a powdery bloom (glaucous)"
+  ],
+  "Stem Description": [
+   "The stems of this plant are succulent and the same color as the leaves. Although they are very short at the start of the plant's life they do grow erectly and may branch. If you don't like the stem with a tuft at the top, cut off the tuft with and inch or so of stem and repot it."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Patio",
+   "Pool/Hardscape",
+   "Rock Wall",
+   "Small Space",
+   "Vertical Spaces"
+  ],
+  "Landscape Theme": [
+   "Children's Garden",
+   "Cottage Garden",
+   "Drought Tolerant Garden",
+   "Pollinator Garden",
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Foundation Planting",
+   "Small groups"
+  ],
+  "Attracts": [
+   "Bees",
+   "Hummingbirds"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ]
+ },
+ "tags": [
+  "rock garden",
+  "drought tolerant",
+  "crevice garden",
+  "small spaces",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "hsc-s",
+  "hsc",
+  "houseplant",
+  "easy to grow",
+  "herbaceous perennial",
+  "container plant",
+  "easy to propagate",
+  "easy to grow houseplant",
+  "pet friendly",
+  "perennial",
+  "th-touch"
+ ],
+ "images": [
+  {
+   "id": "24358",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/echeveria-spp-cabarr_6bgNtaAnsc6Q.jpeg",
+   "caption": "Form",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "24665",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echeveria_Victor_Re_xDQJBAl5s3SZ.jpeg",
+   "caption": "Form",
+   "author": "Sean A. O'Hara",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24666",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echeveria_derenbergi_mk0E3bS1X96W.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24667",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echeveria_elegansDi_uUM9mViNHkOy.jpeg",
+   "caption": "Form",
+   "author": "Dick Culbert",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24668",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echeveria_multicauli_lkyjoc0dsoHd.jpeg",
+   "caption": "Form",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24669",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echeveria_runyoniiE_qyvmRK9VYOdt.jpeg",
+   "caption": "Form",
+   "author": "Eria Wei",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

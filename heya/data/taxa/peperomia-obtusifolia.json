@@ -2,6 +2,7 @@
  "id": "peperomia-obtusifolia",
  "rank": "species",
  "scientificName": "Peperomia obtusifolia",
+ "group": "foliage",
  "names": {
   "ja": "ペペロミア・オブツシフォリア",
   "aliases": [
@@ -88,7 +89,8 @@
   {
    "ja": "水のやりすぎがいちばんの失敗。葉が黄色くなり根腐れする。",
    "src": "ncsu",
-   "quote": "Overwatering is a big problem and causes the leaves to yellow, and it can lead to root rot."
+   "quote": "Overwatering is a big problem and causes the leaves to yellow, and it can lead to root rot.",
+   "symptom": "yellow"
   }
  ]
 }

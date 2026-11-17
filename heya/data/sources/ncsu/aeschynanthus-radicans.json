@@ -1,0 +1,265 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/aeschynanthus-radicans/",
+ "slug": "aeschynanthus-radicans",
+ "retrieved": "2026-11-17",
+ "scientificName": "Aeschynanthus radicans",
+ "commonNames": [
+  "Basket Vine",
+  "Lipstick Plant",
+  "Lipstick Vine"
+ ],
+ "description": "Lipstick Plant is a tropical, evergreen, epiphytic herbaceous perennial native to Thailand, the Malaysian peninsula, Sumatra and Borneo. It is a member of the gloxinia family (Gesneriaceae). Its genus name is compounded from two Greek words, aischyne , meaning \"shame,\" and anthos , meaning flower, referring perhaps to the blushing red flowers. The species epithet is a Latin word meaning \"rooting.\" The lipstick plant needs bright indirect light (but not full sun). It likes warmth but does best when the soil temperatures will stay between 65 and 70 degrees Fahrenheit during the growing season. During the winter, it can be kept a bit cooler and drier. If the temperature falls below 50 degrees, leaf drop will occur. The lipstick plant enjoys high humidity but with air circulation; stagnant moist air will encourage fungal disease. Water them often but be sure the potting soil has good drainage. Using a dilute liquid fertilizer, such as one made for orchids, during the growing season will encourage leaf growth and blooming. The lipstick plant is a popular and striking houseplant with its bright red tubular flowers and waxy, green leaves, often edged with red. This is an easy plant to propagate and share with friends by taking a three-node soft stem cutting. Remove all but the uppermost 2 to 4 leaves and dip the cut end in rooting hormone. Pot up the cutting in a mixture of equal parts vermiculite and perlite and keep moist. Roots should appear in two weeks. Insects, Diseases, and Other Plant Problems: Insects affecting lipstick plant include aphids, mealybugs, and mites. Botrytis blight and leaf spot are diseases that can occur. Fungal problems can be avoided by keeping leaves dry and out of contact with potting medium.",
+ "cultivars": [
+  {
+   "name": "Curly",
+   "note": "Leaves curl and twist."
+  },
+  {
+   "name": "Mona Lisa",
+   "note": "Orange-red flowers"
+  },
+  {
+   "name": "Rasta",
+   "note": "Densely curled leaves and bright red flowers"
+  },
+  {
+   "name": "Tangerine",
+   "note": "Orange-yellow flowers."
+  },
+  {
+   "name": "Variegata",
+   "note": "green leaves variegated with white, cream, and yellow"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Aeschynanthus"
+  ],
+  "Species": [
+   "radicans"
+  ],
+  "Family": [
+   "Gesneriaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Peninsula Thailand to W. & Central Malesia"
+  ],
+  "Wildlife Value": [
+   "In its native habitat, nectar from the tubular red flowers attracts hummingbirds."
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "This plant has no significant insect or pest problems."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Cascading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "1-3 inches"
+  ],
+  "Fruit Description": [
+   "1.5\" long capsule."
+  ],
+  "Flower Color": [
+   "Red/Burgundy"
+  ],
+  "Flower Inflorescence": [
+   "Umbel"
+  ],
+  "Flower Value To Gardener": [
+   "Long Bloom Season",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "This plant flowers freely with terminal flower clusters. Buds appear first and resemble tubes of lipstick, hence the common name. Tubular scarlet red flowers follow, with yellow throats and 5-lobed petals that are shorter on top than bottom and have leaf like bracts at the base The fragrance of the flower is malodorus (unpleasant)"
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Opposite"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are smooth, often thick and leathery, storing water in case of drought."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Buds": [
+   "Smooth/Hairless"
+  ],
+  "Stem Description": [
+   "Smooth, hairless stems."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Woodland"
+  ],
+  "Landscape Theme": [
+   "Asian Garden"
+  ],
+  "Attracts": [
+   "Hummingbirds"
+  ],
+  "Resistance To Challenges": [
+   "Diseases",
+   "Insect Pests"
+  ],
+  "Problems": [
+   "Malodorous"
+  ]
+ },
+ "tags": [
+  "showy flowers",
+  "fleshy leaves",
+  "tubular flowers",
+  "red flowers",
+  "yellow flowers",
+  "disease resistant",
+  "pest resistant",
+  "hanging baskets",
+  "epiphytic",
+  "tropical feel",
+  "low maintenance",
+  "container plant",
+  "malodorous",
+  "vine",
+  "houseplant",
+  "tropical herbaceous perennial",
+  "tropical"
+ ],
+ "images": [
+  {
+   "id": "8099",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aeschynanthus-radicans--Elizabeth-1--CC-BY-NC-ND.jpg",
+   "caption": "",
+   "author": "Elizabeth",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "8100",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aeschynanthus-radicans--Elizabeth--CC-BY-NC-ND.jpg",
+   "caption": "",
+   "author": "Elizabeth",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "8101",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aeschynanthus-radicans--Maja-Dumat--CC-BY.jpg",
+   "caption": "",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "23140",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aeschynanthus_radica_6OQ6DXfz0g51.jpg",
+   "caption": "Leaf",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "23142",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aeschynanthus_radica_ULU8QozIvvud.jfif",
+   "caption": "Flower detail",
+   "author": "Jacinta Lluch Valero.",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

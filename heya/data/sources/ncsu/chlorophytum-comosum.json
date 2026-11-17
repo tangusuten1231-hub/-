@@ -14,7 +14,7 @@
   "Spider Plant",
   "Walking Anthericum"
  ],
- "description": "Spider plant is an herbaceous perennial houseplant in the Asparagaceae (asparagus) family. Its native region is tropical West Africa to Cameroon and Ethiopia to South Africa. It is commonly grown as a houseplant for its adaptability to many conditions. Spider plant prefers medium light levels yet can tolerate deep shade. It is intolerant of direct sunlight. It grows best in moist soil and medium air humidity, though it is tolerant of drought and dry soil. Keep temperatures above 45 degrees F. Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn. Reduce watering during winter. Use a humidifier or place the plant container on a tray of pebbles with water to increase the humidity. Do not over-fertilize, as this decreases plantlet formation. Spider plant propagates easily by plantlets or division. Stolons and plantlets are light dependent and develop when the mother plant receives short days and long, uninterrupted nights&ndash;less than 12 hours of light a day&ndash;for at least three weeks. Spider plant does particularly well in hanging baskets or other containers where the leaves and stems can cascade down the side. Quick ID Hints: Green linear leaves are often striped white Long stolons produce plantlets and flowers Insects, Diseases, and Other Plant Problems: No significant problems. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "description": "Spider plant is an herbaceous perennial houseplant in the Asparagaceae (asparagus) family. Its native region is tropical West Africa to Cameroon and Ethiopia to South Africa. It is commonly grown as a houseplant for its adaptability to many conditions. Spider plant prefers medium light levels yet can tolerate deep shade. It is intolerant of direct sunlight. It grows best in moist soil and medium air humidity, though it is tolerant of drought and dry soil. Keep temperatures above 45 degrees F. Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn. Reduce watering during winter. Use a humidifier or place the plant container on a tray of pebbles with water to increase the humidity. Do not over-fertilize, as this decreases plantlet formation. Spider plant propagates easily by plantlets or division. Stolons and plantlets are light dependent and develop when the mother plant receives short days and long, uninterrupted nights-less than 12 hours of light a day-for at least three weeks. Spider plant does particularly well in hanging baskets or other containers where the leaves and stems can cascade down the side. Quick ID Hints: Green linear leaves are often striped white Long stolons produce plantlets and flowers Insects, Diseases, and Other Plant Problems: No significant problems. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
  "cultivars": [
   {
    "name": "Bonnie",
@@ -226,5 +226,103 @@
   "container plant",
   "perennial",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "8115",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum-comosum--Maja-Dumat--CC-BY.jpg",
+   "caption": "Form",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40370",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spider_plant_Chlorop_QHwwp31hCibQ.jpeg",
+   "caption": "Chlorophytum comosum, Spider Plant, houseplant view",
+   "author": "Joanne Kollar (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38416",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum-comosum_o937O1PQHHIs.jpeg",
+   "caption": "Potted plant of a variegated clone of Chlorophytum comosum.",
+   "author": "Gary Cziko",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "11899",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_9vcE0KuDcQCp.jpe",
+   "caption": "leaves and form",
+   "author": "Mokkie CC",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38418",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_Flower__pRzLHzhBL1oI.jpeg",
+   "caption": "Flower, buds, & small plantlet on the tip of the inflorescence.",
+   "author": "Wildfeuer",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33237",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_ChDmrS9vRlER.jpeg",
+   "caption": "Flower",
+   "author": "Daniel VILLAFRUELA",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8117",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum-comosum--Jean-Marie-Van-der-Maren--CC-BY-ND.jpg",
+   "caption": "Flowers",
+   "author": "Jean Marie Van der Maren",
+   "license": "CC BY-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/4.0/legalcode"
+  },
+  {
+   "id": "38412",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/ChlorophytumCapense__EQG3eMgKaVKj.jpeg",
+   "caption": "Chlorophytum comosum 'Vittatum' with plantlets",
+   "author": "Fanghong",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38417",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_OZpZean2W1CA.jpeg",
+   "caption": "C. comosum 'Vittatum' (Cabarrus County,NC)",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38421",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_V4kihXrjGeEQ.jpeg",
+   "caption": "C. comosum 'Vittatum' plantlets",
+   "author": "Valerie Everett",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38422",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_IGDv5lpQk2tU.jpeg",
+   "caption": "Plantlets on a variegated C. comosum.",
+   "author": "Patti Haskins",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "41998",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chlorophytum_comosum_YUzswpgdjCwH.jpeg",
+   "caption": "Roots forming on plantlet",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2895345",
+ "retrieved": "2026-11-17",
+ "query": "Coffea arabica",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2895345,
+ "acceptedKey": 2895345,
+ "acceptedName": "Coffea arabica",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Rubiaceae",
+ "genus": "Coffea",
+ "synonyms": [
+  "Coffea bourbonica",
+  "Coffea corymbulosa",
+  "Coffea laurifolia",
+  "Coffea laurina",
+  "Coffea moka",
+  "Coffea sundana",
+  "Coffea vulgaris"
+ ]
+}

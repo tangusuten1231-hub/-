@@ -1,0 +1,224 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/alocasia-x-mortfontanensis/",
+ "slug": "alocasia-x-mortfontanensis",
+ "retrieved": "2026-11-17",
+ "scientificName": "Alocasia x mortfontanensis",
+ "commonNames": [
+  "African Mask",
+  "Amazon Elephant's Ear",
+  "Amazonica",
+  "Amazonica Alocasia"
+ ],
+ "description": "Alocasia x mortfontanensis is a hybrid of A. longiloba &times; A. sanderi that was bred and described by French horticulturist M.M. Chantrier, of Mortefontaine, France. The epithet, mortfontanensis, means \"originating from [the French commune] Mortefontaine.\" This ornamental herbaceous perennial has large, smooth, thick, arrowhead-shaped, medium to dark green leaves. The silvery to lime-white veins are very prominent. Its flowers have a small, creamy-white, finger-like spadix that is surrounded by a light green spathe. As houseplants, they rarely flower. The plant size varies from 1 to 4 feet tall and 1 to 2 feet wide. This plant prefers bright, indirect sunlight, moist, and well-drained, fertile, loamy soil as well as warm temperatures and high humidity. Air temperatures should not drop below 60 degrees Fahrenheit. Direct sunlight can scorch its leaves. It may be grown indoors as a houseplant or outdoors after the danger of the last spring frost has passed. Before the first frost of fall, the plant should be brought inside for overwintering, and watering should be reduced. It may be propagated by division of offsets. This is a strikingly beautiful tropical plant has several popular cultivars, and they may be used as houseplants, container plantings, patio settings, or garden borders. All parts of this plant are toxic; therefore, exercise caution when small children or pets are nearby. Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, and aphids. Overwatering may cause root rot and bacterial stem rot. More information on Alocasia .",
+ "cultivars": [
+  {
+   "name": "Bambino",
+   "note": "dwarf, glossy, arrowhead-shaped, dark green leaves with bold light green or white veins"
+  },
+  {
+   "name": "Ivory Coast",
+   "note": "arrow-shaped, deep green leaves with silvery-green veins, stems become light pink at maturity"
+  },
+  {
+   "name": "Polly",
+   "note": "compact, up to 2 feet tall, large, dark green leaves with silvery-green veins"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Alocasia"
+  ],
+  "Species": [
+   "× mortfontanensis"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Play Value": [
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 4 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous"
+  ],
+  "Habit/Form": [
+   "Clumping"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Description": [
+   "The blooms are small, creamy white, finger-like spadix and surrounded by a light green spathe. Houseplants rarely produce flowers."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Purple/Lavender",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Margin": [
+   "Lobed",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The ornamental leaves are large, smooth, thick, arrowhead-shaped of medium to dark green with very prominent silver to lime white veins. The undersides of the leaf are purple, and the margins are undulating or wavy."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Border"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Heat",
+   "Humidity",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "Poisonous by ingestion, contact dermatitis, and eye injury. If ingested, mouth, lip, tongue, throat pain, difficulty speaking, nausea, diarrhea, vomiting, delirium, and possible death. People with a tendency to rheumatism, arthritis, gout, kidney stones and hyperacidity should be especially cautious."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "problem for dogs",
+  "houseplant",
+  "problem for cats",
+  "tropical feel",
+  "interesting leaves",
+  "container plant",
+  "contact dermatitis",
+  "poisonous",
+  "poisonous if ingested",
+  "interiorscape",
+  "problem for children",
+  "clumping",
+  "heat tolerant",
+  "rabbit resistant",
+  "herbaceous perennial",
+  "rhizomatous",
+  "humidity tolerant",
+  "deer resistant",
+  "partial shade tolerant"
+ ],
+ "images": [
+  {
+   "id": "38630",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Alocasia_x_mortfonta_yVUmKxJ0fsrf.jpeg",
+   "caption": "Form",
+   "author": "Pinke",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38631",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Alocasia_x_mortfonta_8stdULQRS9MB.jpeg",
+   "caption": "Form",
+   "author": "Teresa Grau Ros",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "41001",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Alocasia_x_amazonica_eopWil7KuoUX.jpeg",
+   "caption": "'Polly' growing in a pot",
+   "author": "Tim Kortekamp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4186167",
+ "retrieved": "2026-11-17",
+ "query": "Peperomia caperata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4186167,
+ "acceptedKey": 4186167,
+ "acceptedName": "Peperomia caperata",
+ "authorship": "Ruiz & Pav. ex Yunck.",
+ "rank": "SPECIES",
+ "family": "Piperaceae",
+ "genus": "Peperomia",
+ "synonyms": [
+  "Peperomia argentea",
+  "Peperomia caperata"
+ ]
+}

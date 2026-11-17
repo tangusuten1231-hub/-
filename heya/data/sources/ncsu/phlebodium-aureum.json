@@ -1,0 +1,250 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/phlebodium-aureum/",
+ "slug": "phlebodium-aureum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Phlebodium aureum",
+ "commonNames": [
+  "Blue Star Fern",
+  "Cabbage Palm Fern",
+  "Golden Polypody",
+  "Gold Foot Fern",
+  "Hare Foot Fern",
+  "Rabbits Foot Fern"
+ ],
+ "description": "The blue star fern is in the polypody family (Polypodiaceae), native to the American tropics and is commonly grown as a houseplant. It is an herbaceous perennial, rhizomatous epiphyte, spreading by its creeping rhizomes that are densely covered in golden scales. The species epithet is Latin for \"golden\" and references the color of the scales on the rhizome. Cultural conditions should mimic the natural conditions this plant experiences in the wild. Ideal growing conditions include partial sun, medium to high humidity, good air circulation and a moist but not soggy substrate. It needs a loose, organic substrate with an acid pH. It tolerates drying out between waterings. It is often grown in a hanging basket, which gives excellent air circulation and shows off the fuzzy, golden rhizomes. The fronds are large and deeply lobed, from 12 to 50 inches long and 4 to 20 inches wide. The evergreen fronds vary in color from bright green to blue-green or gray-green in some cultivars. They have undulate margins. Spore sori are round and run along each side of the pinna midrib. This fern can be used as a houseplant or in containers outside or in woodlands or shade gardens. Insects, Diseases, and Other Plant Problems: Monitor for spider mites, thrips, Florida fern caterpillar, and fungus gnats. Potential diseases include crown rot and root rot. Browning of fronds usually indicates that the plant needs higher humidity while curling is a common symptom of low humidity and underwatering. VIDEO Created by NC State Extension's Homegrown series featuring Mark Weathington , Director of JC Raulston Arboretum .",
+ "cultivars": [
+  {
+   "name": "Davana",
+   "note": "compact, glaucous blue, wavy leaf margins"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Phlebodium"
+  ],
+  "Species": [
+   "aureum"
+  ],
+  "Family": [
+   "Polypodiaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Southeast United States, Caribbean to South Tropical America"
+  ],
+  "Distribution": [
+   "Native: Argentina, Bahamas, Brazil, Columbia, Cuba, Dominican Republic, Haiti, Jamaica, Puerto Rico, Suriname, Trinidad-Tobago, Venezuela, and the United States--AL, FL, and GA. Introduced: Canary Islands, Cape Provinces, Hawaii, India, Madeira, Queensland, and Sri Lanka"
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "Heavy shade, Deer"
+  ],
+  "Climbing Method": [
+   "Scrambler"
+  ],
+  "Dimensions": [
+   "Height: 2 ft. 0 in. - 4 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 6 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Fern",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Climbing",
+   "Creeping"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "8b, 9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b, 13a, 13b"
+  ],
+  "Fruit Description": [
+   "No fruits. This plants reproduces via spores."
+  ],
+  "Flower Description": [
+   "No flowers."
+  ],
+  "Leaf Color": [
+   "Blue",
+   "Gray/Silver",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Slippery"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)",
+   "Fronds"
+  ],
+  "Leaf Arrangement": [
+   "Other/more complex"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Stem Color": [
+   "Blue"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio",
+   "Small Space",
+   "Woodland"
+  ],
+  "Landscape Theme": [
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Accent"
+  ],
+  "Attracts": [
+   "Songbirds"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Heavy Shade",
+   "Urban Conditions",
+   "Wind"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "epiphytic",
+  "evergreen",
+  "deer resistant",
+  "fern",
+  "container plant"
+ ],
+ "images": [
+  {
+   "id": "8275",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Polypodium_aureum_Wildlife_Travel_ccbync2.0.jpg",
+   "caption": "Fronds",
+   "author": "Wildlife Travel",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "10450",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Forest_Kim_Star_Attribution_2.0_Generic_CC_BY_2.0_Polypodium_Phlebodium_aureum.jpeg",
+   "caption": "Fronds/Form",
+   "author": "Forest Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "10451",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Forest_Kim_Starr_Attribution_2.0_Generic_CC_BY_2.0_Polypodium_Phlebodium_aureum_rhizome.jpe",
+   "caption": "Fuzzy rhizome.",
+   "author": "Forest Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "10452",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Forest_Kim_Starr_Attribution_3.0_Unported_CC_BY_3.0_Polypodium_Phlebodium_aurem.jpe",
+   "caption": "Fronds/Form",
+   "author": "Forest Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "10454",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Screen_Shot_2019-04-29_at_12.52.57_AM.png",
+   "caption": "sori",
+   "author": "Homer Edward Price",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "30952",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phlebodium_aureum_Ma_kF7HECSwddUr.jpeg",
+   "caption": "Sori",
+   "author": "Mary Keim",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "30953",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phlebodium_aureum_St_6GzpLUN7SaPe.jpeg",
+   "caption": "Form",
+   "author": "Stefano",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "30954",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phlebodium_aureum_2__jcXhRMPkOZYF.jpeg",
+   "caption": "Sori",
+   "author": "Forest & Kim Starr",
+   "license": "",
+   "licenseUrl": ""
+  },
+  {
+   "id": "31016",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Polypodium_aureum_2__gbUjvNSyrQ8R.jpeg",
+   "caption": "Form",
+   "author": "Marija Gajić",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

@@ -228,5 +228,63 @@
   "broadleaf evergreen",
   "tree",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "8128",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--Margaret-Shear--CC-BY-SA.jpg",
+   "caption": "Houseplant",
+   "author": "Margaret Shear",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8129",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--Kathleen-Moore--CC-BY.jpg",
+   "caption": "Variegated Leaf",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8130",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--Forest-and-Kim-Starr--CC-BY.jpg",
+   "caption": "Fruit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8131",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--Wendy-Cutler-crop--CC-BY-SA.jpg",
+   "caption": "Tree",
+   "author": "Wendy Cutler",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8132",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--weisserstier--CC-BY.jpg",
+   "caption": "Trunk",
+   "author": "Weisserstier",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8133",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus-elastica--eltigrillo99--CC-BY-NC-ND.jpg",
+   "caption": "Roots",
+   "author": "eltigrillo99",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "23704",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/ficus_elastica-young_HQkXGQ9EuwU5.jpg",
+   "caption": "Young Plant (Cabarrus County,NC)",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

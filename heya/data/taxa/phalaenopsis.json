@@ -1,0 +1,128 @@
+{
+ "id": "phalaenopsis",
+ "rank": "genus",
+ "scientificName": "Phalaenopsis",
+ "group": "orchid",
+ "names": {
+  "ja": "胡蝶蘭",
+  "aliases": [
+   "コチョウラン",
+   "ファレノプシス"
+  ]
+ },
+ "refs": {
+  "ncsu": "phalaenopsis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The best placement in the house is on an east windowsill"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Moth orchids prefer low light"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は「弱い光を好む」とするが、置き場所は東向きの窓辺を最適とするため、「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The best placement in the house is on an east windowsill, but they can grow well on well-shaded west and south windowsills."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は秋に花芽をつけるため1週間ほど夜温を55°F（13℃）程度に下げるとする。それより低い温度の記載がないため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Moth orchids prefer low light, warm temperatures and high humidity."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Moth orchids prefer low light, warm temperatures and high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Potting mix should dry some between waterings."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Mature plants should be watered once weekly or more often in the heat of summer."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水やりは朝、ぬるま湯を鉢に通すように与え、受け皿に水を残さない。",
+   "src": "ncsu",
+   "quote": "Let the pot drain completely so that plants do not stand in water.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "秋に1週間ほど夜を13℃前後に下げると花芽がつく（白い大輪系）。",
+   "src": "ncsu",
+   "quote": "require a cool, nighttime chill (ca. 55 degrees F for a week) in autumn to initiate flower spikes",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "温度・湿度・水・肥料・置き場所の変化で、つぼみが落ちることがある。",
+   "src": "ncsu",
+   "quote": "Flower bud drop, also known as bud blast, may be caused by changes in temperature, humidity, moisture, fertilizer or location.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "葉がしわしわになるのは水不足か、根腐れで根が傷んでいるサイン。",
+   "src": "ncsu",
+   "quote": "Shriveled or wrinkled leaves are a sign that the leaves are not getting enough water",
+   "symptom": "curl"
+  },
+  {
+   "ja": "植え替えは2年に1回程度、花が終わったあとか新しい葉が出始めたとき。",
+   "src": "ncsu",
+   "quote": "Orchids need to be repotted approximately every two years after blooms have faded or as new leaves begin to appear."
+  }
+ ]
+}

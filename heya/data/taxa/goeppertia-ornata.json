@@ -2,6 +2,7 @@
  "id": "goeppertia-ornata",
  "rank": "species",
  "scientificName": "Goeppertia ornata",
+ "group": "foliage",
  "names": {
   "ja": "カラテア・オルナータ",
   "aliases": [
@@ -98,7 +99,8 @@
   {
    "ja": "水不足だと葉が丸まる。",
    "src": "ncsu",
-   "quote": "Inadequate water can cause leaf curling"
+   "quote": "Inadequate water can cause leaf curling",
+   "symptom": "curl"
   }
  ],
  "note": "以前の学名は Calathea ornata。日本では今も「カラテア」の名で流通している。"

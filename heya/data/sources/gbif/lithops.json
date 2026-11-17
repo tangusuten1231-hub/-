@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3231652",
+ "retrieved": "2026-11-17",
+ "query": "Lithops",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3231652,
+ "acceptedKey": 3231652,
+ "acceptedName": "Lithops",
+ "authorship": "N.E.Br.",
+ "rank": "GENUS",
+ "family": "Aizoaceae",
+ "genus": "Lithops",
+ "synonyms": []
+}

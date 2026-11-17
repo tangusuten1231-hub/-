@@ -1,0 +1,130 @@
+{
+ "id": "lithops",
+ "rank": "genus",
+ "scientificName": "Lithops",
+ "group": "succulent",
+ "names": {
+  "ja": "リトープス",
+  "aliases": [
+   "生ける宝石",
+   "リトプス"
+  ]
+ },
+ "refs": {
+  "ncsu": "lithops"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 4,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Living stones grow best in 4 to 5 hours of sunlight in the morning and partial shade in the afternoon."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Insufficient light will cause the plant to stretch"
+   },
+   {
+    "src": "estimate",
+    "reason": "光が足りないと徒長するため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "4 to 5 hours of sunlight in the morning and partial shade in the afternoon"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "They do not tolerate temperatures below 40 degrees",
+    "fahrenheit": [
+     40
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "they will also thrive in temperatures between 65 to 80 degrees",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Watering this plant is based on its growth cycle."
+   },
+   {
+    "src": "estimate",
+    "reason": "生育期でもしっかり乾かしてから水をやる。季節ごとの水やりは「育てるコツ」を参照"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "During the winter and early spring do not water them at all."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬〜早春は水をまったくやらない。",
+   "src": "ncsu",
+   "quote": "During the winter and early spring do not water them at all."
+  },
+  {
+   "ja": "夏は休眠するので水やりを止める。",
+   "src": "ncsu",
+   "quote": "Stop watering during the summer months while it is dormant."
+  },
+  {
+   "ja": "晩春〜初夏に水をやり、夏の終わりからは生育・開花に合わせて2週間に1回。",
+   "src": "ncsu",
+   "quote": "At the end of summer, water once every 2 weeks while they are actively growing and blooming."
+  },
+  {
+   "ja": "水のやりすぎで黄色くぶよぶよになったり、割れたり、根腐れしたりする。",
+   "src": "ncsu",
+   "quote": "Overwatering may cause yellowing and mushy leaves, brown spots, splitting of the leaves, and root rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "光が足りないと間延び（徒長）する。",
+   "src": "ncsu",
+   "quote": "Insufficient light will cause the plant to stretch which is known as etiolation.",
+   "symptom": "leggy"
+  }
+ ],
+ "note": "水やりの時期がほかの植物と大きく違う（冬〜早春は断水、夏も休眠）。アプリの水やりの目安より「育てるコツ」を優先してください。"
+}

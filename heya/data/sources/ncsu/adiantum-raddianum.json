@@ -1,0 +1,222 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/adiantum-raddianum/",
+ "slug": "adiantum-raddianum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Adiantum raddianum",
+ "commonNames": [
+  "Delta Maidenhair",
+  "Maidenhair Fern",
+  "Pacific Maidenhair"
+ ],
+ "description": "The Delta maidenhair is a herbaceous perennial plant in the Ribbon-fern family (Pteridaceae). It is native to the Tropical Americas and West Indies. The genus name comes from the Greek word adiantos meaning unwetted in reference to the water-repellent foliage. The specific epithet honors Italian botanist Giuseppe Raddi (1770-1829). This fern needs partial shade to shade but loses vitality in too much shade or full sun. It needs moist to wet soil and the roots should not be allowed to dry out. It spreads by creeping rhizomes. It grows 1 to 2 feet high and wide. The Delta maidenhair fern is often grown as a houseplant and does well if kept in bathrooms, where it is more humid. The fern does well in terrariums or in sheltered rock gardens in wet pebbles and soil. Quick ID Hints : Fronds decompound, membranous, in flat planes Pinnae in flat planes Pinnules triangular, lobed Sori marginal covered by revolute marginal flap Stipe & rachis wiry, black Diseases, Insect Pests, and Other Plant Problems: No significant diseases or pests. The Florida Fern Caterpillar can be a problem. VIDEO Created by NC State Extension's Homegrown series featuring Mark Weathington , Director of JC Raulston Arboretum . More information on Adiantum .",
+ "cultivars": [
+  {
+   "name": "Brilliantelse",
+   "note": "foliage has pinkish to violet new growth that matures to green, dense habit"
+  },
+  {
+   "name": "Fragrantissimum",
+   "note": "soft fragrance, light green fronds with black stems, popular houseplant"
+  },
+  {
+   "name": "‘Fritz Lüthi’",
+   "note": "large pinnae, deeply lobed, large triangular shaped blade"
+  },
+  {
+   "name": "‘Kensington Gem’",
+   "note": "fronds have small, delicate green leaves and black stems"
+  },
+  {
+   "name": "Microphyllum",
+   "note": "dwarf, up to 12 inches tall, compact"
+  },
+  {
+   "name": "Red Venus",
+   "note": "delicate, red foliage that matures to a light green,"
+  },
+  {
+   "name": "Variegatum' or Snowflake Fern",
+   "note": "delicate, light green leaves with flecks of white variegation"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Adiantum"
+  ],
+  "Species": [
+   "raddianum"
+  ],
+  "Family": [
+   "Pteridaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropical Americas and West Indies"
+  ],
+  "Distribution": [
+   "Tropical Americas and West Indies"
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "This plant is seldom damaged by deer."
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 2 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Fern",
+   "Houseplant"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Deciduous"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Clumping",
+   "Creeping"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9b, 10a, 10b"
+  ],
+  "Fruit Description": [
+   "No fruit; reproduces via spores"
+  ],
+  "Flower Description": [
+   "No flowers."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)",
+   "Fronds"
+  ],
+  "Leaf Arrangement": [
+   "Other/more complex"
+  ],
+  "Leaf Shape": [
+   "Obovate"
+  ],
+  "Leaf Margin": [
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Delicate, lace-likec lustered fronds, clump forming. 1-5-pinnate, arching, weakly glaucous beneath, membraneous; pinnae often decompound, flabellately branched; pinnules/leaflets somewhat triangular, broadly cuneate, lobed, sterile lobes cut deeply; stipe/petiole wiry, shiny black or tinged purple. SORI round to elongated, covered my revolute pinnule marginal flap."
+  ],
+  "Stem Color": [
+   "Black"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Resistance To Challenges": [
+   "Deer"
+  ]
+ },
+ "tags": [
+  "deciduous",
+  "fern",
+  "high maintenance",
+  "houseplant",
+  "interiorscape",
+  "delicate",
+  "lacy leaves",
+  "humidity tolerant",
+  "tropical feel",
+  "deer resistant",
+  "container plant"
+ ],
+ "images": [
+  {
+   "id": "3905",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum-raddianum-1--Forest-and-Kim-Starr--CC-BY.jpg",
+   "caption": "Fronds",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "173",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum-raddianum-2--Forest-and-Kim-Starr--CC-BY.jpg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "6954",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum-raddianum--Forest-and-Kim-Starr--CC-BY.jpg",
+   "caption": "Close up of leaf margin",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "10515",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum_raddianum-close_up_of_plant-Vengolis_from_Wikimedia_Commons-CC_BY-SA4.0.jpeg",
+   "caption": "Whole plant/ Form",
+   "author": "Vengolis via. Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "40989",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum_fragrans_po_n85mh5owsz30.jpeg",
+   "caption": "Potted plant",
+   "author": "André Karwath",
+   "license": "CC BY-SA 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/"
+  },
+  {
+   "id": "10516",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum_raddianum-growing_habit-Daderot_from_Wikimedia_Commons-Public_Domain.jpe",
+   "caption": "Growth habit",
+   "author": "Daderot from Wikimedia Commons",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "10517",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Adiantum_raddianum-sori-Forrest_and_Kim_Star-CC_BY_3.0.jpeg",
+   "caption": "Sori",
+   "author": "Forrest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  }
+ ]
+}

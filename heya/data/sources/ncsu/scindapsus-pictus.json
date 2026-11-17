@@ -1,0 +1,211 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/scindapsus-pictus/",
+ "slug": "scindapsus-pictus",
+ "retrieved": "2026-11-17",
+ "scientificName": "Scindapsus pictus",
+ "commonNames": [
+  "Satin Pothos",
+  "Silk Pothos",
+  "Silver Pothos"
+ ],
+ "description": "Satin pothos is a tropical evergreen climbing vine with variegated dark green and silvery foliage in the Arum family. It is native to tropical areas of Bangladesh and Malesia. In its native habitat, this plant climbs on tree trunks, supported by rootlets, and reaches a height up to 10 feet tall and 4 feet wide. It is not frost hardy so it is typically grown as an ornamental houseplant in the United States. The satin pothos prefers bright indirect light and moist, well-drained, potting soil when used as a houseplant. Room temperatures of 65 to 85 degrees Fahrenheit are best suited for this plant. Cooler air and direct sunlight are not tolerated. This plant is hardy in zones 11 to 12 and may be planted outside in partial shade in fertile, moist, acidic, well-drained soil. Pinching the stems will help to keep the plant tidy. It may be propagated by stem cuttings. The juvenile leaves are ovate with entire margins and a heart-shaped base. Each leaf is green to dark green and has silver-grayish blotches. The underside of the leaf is paler without blotches. The mature leaves may be pinnately lobed or entire. Tiny insignificant flowers followed by small berries may appear on outdoor plants in the summer, but indoor plants rarely bloom or produce fruit. The indoor plant grows 1.5 to 3 feet tall and should be trained on an upright stake, or it may allowed to trail downward from a hanging basket or pot. Quick ID Hints: tropical evergreen climbing vine green to dark green leaves with silver-gray blotches on the upper surface the underside of the leaf is paler and without blotches juvenile leaves are ovate with cordate base and entire margins mature leaves may be pinnately lobed or the margins may be entire. indoor plants rarely flower insignificant spikes of tiny apetalous blooms enclosed by a spathe may be found when planted outdoors flowers are followed by small berries Insects, Diseases, and Other Plant Problems: There are no serious insect or disease problems. Monitor for scale, mites, mealy bugs, thrips, fungal leaf spot, and botrytis. In poorly drained or wet soils, root rot may occur. Yellow leaves may be a sign of overwatering, and curling leaves may be a sign of underwatering.",
+ "cultivars": [
+  {
+   "name": "Argyraeus",
+   "note": "small, dark green leaves with silver edges"
+  },
+  {
+   "name": "Exotica",
+   "note": "heart shaped green leaves that are splashed with shimmery silver variegation"
+  },
+  {
+   "name": "Shimmering Falls™ Silver Splash Satin Pothos",
+   "note": "dark green leaves with silver mottling variegation"
+  },
+  {
+   "name": "Silvery Ann' or 'Silvery Anne",
+   "note": "large, lance-shaped, light green leaves with large silver splotches"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Scindapsus"
+  ],
+  "Species": [
+   "pictus"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Southeast Bangladesh, West and Central Malesia"
+  ],
+  "Distribution": [
+   "Native to Bangladesh, Borneo, Jawa, Malay, Philippines, Sulawesi, Sumatera, and Thailand. Used as a houseplant in the United States."
+  ],
+  "Play Value": [
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 10 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 4 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Vine"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Climbing"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "Plants grown outdoors may produce flowers that are followed by small berries. Indoor plants typically do not produce flowers or fruit."
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Spadix"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The flowers are insignificant and may bloom during the summer; however, indoor plants rarely bloom. The blooms are spikes of tiny apetalous flowers that are surrounded by a spathe."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Shape": [
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "The juvenile leaves are oval, entire, 3 to 4 inches long, and have a satin texture. The base of the leaf is heart-shaped. They are matte green to dark green with blotches of silver gray. The underside of the leaf is paler and does not have blotches. The mature leaf may be entire or pinnately lobed."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "slow growing",
+  "tropical vine",
+  "interiorscape",
+  "evergreen vine",
+  "evergreen",
+  "hanging baskets",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "tropical feel",
+  "poisonous",
+  "spadix",
+  "container plant",
+  "perennial",
+  "vine"
+ ],
+ "images": [
+  {
+   "id": "40619",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250620_130501_Scin_3Z9qKdeTlSks.jpeg",
+   "caption": "Scindapsus pictus, Shimmering Falls™ Silver Splash Satin Pothos",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "24408",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/scindapsis_pictus-wh_TIZke5Uecjbm.jpeg",
+   "caption": "whole plant, Cabarrus County, NC",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "42006",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Scindapsus_pictus--c_Gz4KPi9CRo08.jpeg",
+   "caption": "Mature plant form grown as trailing houseplant",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5574508",
+ "retrieved": "2026-11-17",
+ "query": "Fittonia albivenis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5574508,
+ "acceptedKey": 5574508,
+ "acceptedName": "Fittonia albivenis",
+ "authorship": "(Lindl. ex Veitch) Brummitt",
+ "rank": "SPECIES",
+ "family": "Acanthaceae",
+ "genus": "Fittonia",
+ "synonyms": [
+  "Adelaster albivenis",
+  "Adelaster albovenosus",
+  "Eranthemum rubronervium",
+  "Eranthemum rubrovenium",
+  "Eranthemum sanguinolentum",
+  "Eranthemum verschaffeltii",
+  "Fittonia argyroneura",
+  "Fittonia metallica",
+  "Fittonia pearcei",
+  "Fittonia verschaffeltii",
+  "Gymnostachyum argyroneurum",
+  "Gymnostachyum pearcei",
+  "Gymnostachyum verschaffeltii"
+ ]
+}

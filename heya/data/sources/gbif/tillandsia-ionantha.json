@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2695006",
+ "retrieved": "2026-11-17",
+ "query": "Tillandsia ionantha",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2695006,
+ "acceptedKey": 2695006,
+ "acceptedName": "Tillandsia ionantha",
+ "authorship": "Planch.",
+ "rank": "SPECIES",
+ "family": "Bromeliaceae",
+ "genus": "Tillandsia",
+ "synonyms": [
+  "Pityrophyllum erubescens",
+  "Tillandsia erubescens",
+  "Tillandsia scopus"
+ ]
+}

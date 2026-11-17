@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2699095",
+ "retrieved": "2026-11-17",
+ "query": "Guzmania lingulata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2699095,
+ "acceptedKey": 2699095,
+ "acceptedName": "Guzmania lingulata",
+ "authorship": "(L.) Mez",
+ "rank": "SPECIES",
+ "family": "Bromeliaceae",
+ "genus": "Guzmania",
+ "synonyms": [
+  "Caraguata lingulata",
+  "Tillandsia clavata",
+  "Tillandsia lingulata"
+ ]
+}

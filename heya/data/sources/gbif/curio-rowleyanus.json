@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3149649",
+ "retrieved": "2026-11-17",
+ "query": "Curio rowleyanus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3149649,
+ "acceptedKey": 3149649,
+ "acceptedName": "Curio rowleyanus",
+ "authorship": "(H.Jacobsen) P.V.Heath",
+ "rank": "SPECIES",
+ "family": "Asteraceae",
+ "genus": "Curio",
+ "synonyms": [
+  "Kleinia rowleyana",
+  "Senecio rowleyanus"
+ ]
+}

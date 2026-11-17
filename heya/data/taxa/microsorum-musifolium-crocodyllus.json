@@ -1,0 +1,19 @@
+{
+ "id": "microsorum-musifolium-crocodyllus",
+ "rank": "cultivar",
+ "parent": "microsorum-musifolium",
+ "cultivar": "Crocodyllus",
+ "names": {
+  "ja": "ワニ皮シダ",
+  "aliases": [
+   "クロコダイルファーン"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉脈が網目になり、ワニの皮のような模様。",
+   "src": "ncsu",
+   "quote": "emerald green veins resembling crocodile skin"
+  }
+ ]
+}

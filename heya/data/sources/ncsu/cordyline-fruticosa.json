@@ -1,0 +1,396 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/cordyline-fruticosa/",
+ "slug": "cordyline-fruticosa",
+ "retrieved": "2026-11-17",
+ "scientificName": "Cordyline fruticosa",
+ "commonNames": [
+  "Baby Doll Ti Plant",
+  "Cabbage Palm",
+  "Cabbage Tree",
+  "Good-Luck Plant",
+  "Hawaiian Good Luck Plant",
+  "Hawaiian Ti Plant",
+  "Hawiian Ti",
+  "Ti Plant"
+ ],
+ "description": "The Ti plant is a broadleaf evergreen shrub or small tree with multi-colored leaves and is popular as a houseplant. This flowering tropical plant has stunning foliage with shades of pale pink, green, purple or deep red depending on the cultivar. It is native to Australia and the Western Pacific Islands. It is frequently grown in Hawaiian gardens, and it is believed to bring good luck. The genus name, Cordyline , is from the Greek word, kordyle , which means club. The specific epithet, fruticosa , means shrubby. It is a member of the asparagus family (Asparagaceae). This plant requires bright indirect light to maintain its bright foliage colors. It prefers moist, well-drained, fertile loamy soil or peat-based potting mix and medium humidity. It should be watered regularly, but allow the plant to dry out a bit between watering. Watering should be reduced from late fall to late winter. This plant prefers high humidity and humidifier may be required when grown indoors. Fertilizing the plant several times a year will also help it to maintain its colors. The plant is winter hardy in USDA Plant Hardiness Zones 10 to 12 and does not tolerate temperatures below 50 degrees Fahrenheit. It does best at temperatures between 65 to 95 degrees Fahrenheit. It has a rhizomatous root system and can be propagated by division. The plants can also be grown from stem sections that are available commercially and are known as Ti logs. The Ti plant can grow up to 9 to 15 feet tall and 3 to 8 feet wide The foliage is spirally arranged, lance-shaped, and each leaf can measure up to 30 inches long and 6 inches wide. Up to 12-inch long panicles of small, fragrant white to pale lavender flowers appear during the spring or summer and are followed by red berries. Potted indoor plants rarely flower or fruit. The Ti plant is highly prized because of its tropical flowers, and the colorful foliage will add interest to your home garden. This plant may be used for garden borders, as a container planting, or as a houseplant. When considering this plant, whether indoor or outdoor use, be sure that the light, temperature, and humidity requirements can be maintained. Quick ID Hints : Leaves have grooved petioles (often confused with Dracaena spp., which have no petioles) Leaves are usually tinged or splashed with red White roots (Dracaena has orange or yellow roots) Insects, Diseases, and Other Plant Problems: Monitor for aphids, scale insects, spider mites, fungus gnats, thrips, and mealybugs. It may be susceptible to leaf spot and other fungal diseases. Provide good air circulation and avoid overwatering or soggy wet soil. The leaf tips will turn brown if the air is too dry. This plant is toxic to dogs, cats, and horses. The Ti plant is considered to have a low toxicity in humans and can cause gastro-intestinal discomfort, if ingested. Supervise children and pets in the presence of this plant. Wear gloves when handling the plant due to the risk of skin irritation. More information on Cordyline .",
+ "cultivars": [
+  {
+   "name": "Black Magic",
+   "note": "deep purple-black foliage"
+  },
+  {
+   "name": "Candy Cane",
+   "note": "green leaves streaked with cream and has pink margins"
+  },
+  {
+   "name": "Florida Red",
+   "note": "strap-like leaves of dark purple or red, variegated with reddish-pink"
+  },
+  {
+   "name": "Hawaiian Boy",
+   "note": "dark purple to red leaves"
+  },
+  {
+   "name": "Maria",
+   "note": "magenta leaves with pink streaks and tips"
+  },
+  {
+   "name": "Morning Sunshine",
+   "note": "yellow, pink, orange, and green colored leaves"
+  },
+  {
+   "name": "Pink Passion",
+   "note": "sword-shaped, bright pinkish-purple leaves with darker pink margins"
+  },
+  {
+   "name": "Ruby",
+   "note": "3 to 6 feet tall, rich deep red leaves and burgundy on the undersides of the leaf"
+  },
+  {
+   "name": "Sherbert",
+   "note": "green leaves striped with pink, cream, and magenta"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Cordyline"
+  ],
+  "Species": [
+   "fruticosa"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Used as a medicine, fuel, and food. The leaves are used as a food wrapper in Hawaiian cooking."
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Papua New Guinea, Australia, to the Western Pacific"
+  ],
+  "Distribution": [
+   "Native: Fiji, Marianas, Marshall Islands, New Guinea, Queensland, and Solomon Island. Introduced Bolivia, Cambodia, China Southeast, Costa Rica, Ecuador, El Salvador, Hawaii, Honduras, India, Jamaica, Jaw, Malaya, Mexico, Myanmar, New Caledonia, New Zealand North, Puerto Rico, Samoa, Thailand, Tonga, Trinidad-Tobago, Wake Island, and Windward Islands."
+  ],
+  "Play Value": [
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 9 ft. 0 in. - 15 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 8 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Shrub",
+   "Tree"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Open"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Red/Burgundy"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a fleshy, round, red berry that measure less than 0.5 inches in diameter."
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Panicle"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Description": [
+   "A terminal panicle of fragrant white to pale lavender, radially symmetric, 6 tepals united at base to form tube, lobes reflexed."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Pink",
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Smooth"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Other/more complex"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Evergreen, spirally arranged, crowded, simple, smooth, oblong-lanceolate, up to 30 inches long and up to 6 inches wide, variegated light green and pinks to dark red, petiole grooved."
+  ],
+  "Bark Description": [
+   "Multi-trunked and not showy."
+  ],
+  "Stem Color": [
+   "Red/Burgundy"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Clustered, erect, branched or unbranched, red stems."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Border",
+   "Flowering Tree",
+   "Mass Planting",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Vomiting (occasionally with blood), diarrhea, lethargy, depression, anorexia, hypersalivation, dilated pupils (cats); Skin irritation or rash can occur with contact of the plant's sap."
+  ],
+  "Poison Toxic Principle": [
+   "Saponins"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "pink leaves",
+  "red leaves",
+  "interiorscape",
+  "purple leaves",
+  "evergreen",
+  "bright light",
+  "attractive leaves",
+  "vibrant",
+  "fantz",
+  "problem for cats",
+  "problem for dogs",
+  "problem for horses",
+  "tropical feel",
+  "container plant",
+  "lavender flowers",
+  "open",
+  "red fruits",
+  "small tree",
+  "contact dermatitis",
+  "broadleaf evergreen",
+  "poisonous if ingested",
+  "shrub",
+  "fragrant flowers",
+  "erect",
+  "problem for children",
+  "variegated",
+  "white flowers"
+ ],
+ "images": [
+  {
+   "id": "8119",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline-terminalis--Megan-Hansen--CC-BY-SA.jpg",
+   "caption": "leaves",
+   "author": "Megan Hansen",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8120",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis-Lilnoe--Megan-Hansen--CC-BY-SA.jpg",
+   "caption": "leaves",
+   "author": "Megan Hansen",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8121",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis-Lilnoe--Megan-Hansen-1--CC-BY-SA.jpg",
+   "caption": "leaves",
+   "author": "Megan Hansen",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8123",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline-terminalis--Forest-and-Kim-Starr--CC-BY.jpg",
+   "caption": "berries",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "12940",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_BHXZ0LeZ3qjN.jfif",
+   "caption": "leaves and flowers",
+   "author": "Yercaud-elango",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "12941",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_iJjmVPW7keNu.jpe",
+   "caption": "leaves and flowers",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "12942",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_yqtJmfOdkZDg.jfif",
+   "caption": "leaves and flowers",
+   "author": "Tatters",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "12943",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_hj4MfY26m5io.jfif",
+   "caption": "leaves",
+   "author": "David J. Stang c",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "12944",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_90URqC5xxJON.jfif",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "12945",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_JePULXqSaz8r.jpe",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "12946",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_pyreIEkLk63e.jpe",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "12947",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_BLXMuEPuS0eC.jpe",
+   "caption": "leaves",
+   "author": "Dryas",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "12948",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_terminalis_A28bv6ioUnZ8.jpe",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "41070",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cordyline_fruticosa__VDYoUmODt0CQ.jpeg",
+   "caption": "Growing in a container",
+   "author": "William Coville",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

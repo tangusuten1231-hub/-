@@ -186,5 +186,79 @@
   "houseplant",
   "figs",
   "weedy"
+ ],
+ "images": [
+  {
+   "id": "42406",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_1_F_w7ntZ73KURzT.jpeg",
+   "caption": "Ficus microcarpa",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25776",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_for_bZYcCawZkKrk.jfif",
+   "caption": "Ficus microcarpa trunk.",
+   "author": "David Stanley",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25777",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_bar_YFRlffWq2Toz.jfif",
+   "caption": "Ficus microcarpa trunk and aerial roots",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25781",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_bon_XVKx67udeIyw.jfif",
+   "caption": "Ficus microcarpa as a bonsai",
+   "author": "Joey McCoy",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25780",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_fru_DkVpevwsCQ66.jfif",
+   "caption": "Fruit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "42407",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_For_HmUuyBc30TRK.jpeg",
+   "caption": "Ficus microcarpa",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "42408",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_Gr_4OhZ5lnFhm3p.jpeg",
+   "caption": "Ficus microcarpa 'Green Island'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "42409",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_Gr_XcUAVQKaqJaE.jpeg",
+   "caption": "Ficus microcarpa 'Green Island'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "42410",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_microcarpa_lou_2eFIsWatNndu.jpeg",
+   "caption": "Ficus microcarpa",
+   "author": "loupok",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  }
  ]
 }

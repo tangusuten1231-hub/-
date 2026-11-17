@@ -1,0 +1,107 @@
+{
+ "id": "philodendron-xanadu",
+ "rank": "species",
+ "scientificName": "Philodendron xanadu",
+ "group": "foliage",
+ "names": {
+  "ja": "フィロデンドロン・ザナドゥ",
+  "aliases": [
+   "ザナドゥ",
+   "ウィンターボーン"
+  ]
+ },
+ "refs": {
+  "ncsu": "philodendron-xanadu"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Indoors, it prefers bright but indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Indoors, it prefers bright but indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "熱帯原産の観葉植物の一般的な安全域として。出典に傷む温度の記載はない。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、余裕をみて10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperature ranges of 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "some humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Yellowing of the leaves will occur if overwatered."
+   },
+   {
+    "src": "estimate",
+    "reason": "水のやりすぎで葉が黄色くなるとされるため、表面が乾いてからとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水をやりすぎると葉が黄色くなる。",
+   "src": "ncsu",
+   "quote": "Yellowing of the leaves will occur if overwatered.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "鉢植えは1〜2年ごとに植え替える。",
+   "src": "ncsu",
+   "quote": "Container plants may need to be repotted every 1 to 2 years."
+  }
+ ],
+ "note": "GBIF の分類表では Thaumatophyllum xanadu（タウマトフィルム属）を正式名としている。日本では今もフィロデンドロンの名で流通している。"
+}

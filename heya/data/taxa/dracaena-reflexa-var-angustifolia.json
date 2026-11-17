@@ -1,0 +1,101 @@
+{
+ "id": "dracaena-reflexa-var-angustifolia",
+ "rank": "species",
+ "scientificName": "Dracaena reflexa var. angustifolia",
+ "group": "foliage",
+ "names": {
+  "ja": "ドラセナ・コンシンネ",
+  "aliases": [
+   "ドラセナ・マルギナータ",
+   "マルギナータ",
+   "コンシンネ"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-reflexa-var-angustifolia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Bright, indirect light is ideal."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Bright, indirect light is ideal."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the plants to dry between waterings but not severely"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "フッ素で葉が変色しやすい。蒸留水などフッ素を含まない水を使う。",
+   "src": "ncsu",
+   "quote": "This species is sensitive to fluoride (like most other Dracaenas) which causes discoloration of leaves so use distilled or non-fluorinated water.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "ハダニ・アザミウマなどに注意。",
+   "src": "ncsu",
+   "quote": "Mites, thrips, and chewing insects can be a problem.",
+   "symptom": "pests"
+  }
+ ],
+ "note": "日本では「ドラセナ・コンシンネ」「マルギナータ」の名で流通する（旧学名 Dracaena marginata）。"
+}

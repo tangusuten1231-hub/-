@@ -1,0 +1,106 @@
+{
+ "id": "sedum-morganianum",
+ "rank": "species",
+ "scientificName": "Sedum morganianum",
+ "group": "succulent",
+ "names": {
+  "ja": "玉つづり",
+  "aliases": [
+   "タマツヅリ",
+   "セダム・モルガニアヌム"
+  ]
+ },
+ "refs": {
+  "ncsu": "sedum-morganianum"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 4,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "prefers high light interior environments such as a windowsill with at least partial sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "prefers high light interior environments"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "a windowsill with at least partial sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "the plant will tolerate temperatures down to 40 degrees F",
+    "fahrenheit": [
+     40
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry out between watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering in the winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水やりにはぬるめの水を使う。",
+   "src": "ncsu",
+   "quote": "Tepid water should be used to water plants"
+  },
+  {
+   "ja": "挿し穂や落ちた葉から簡単に根が出てふえる。",
+   "src": "ncsu",
+   "quote": "Cuttings and dropped leaves root easily, making propagation a simple process."
+  },
+  {
+   "ja": "水のやりすぎで病気や害虫が出やすい。",
+   "src": "ncsu",
+   "quote": "Pest/disease problems can occur due to overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

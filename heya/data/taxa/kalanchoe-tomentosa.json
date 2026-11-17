@@ -1,0 +1,110 @@
+{
+ "id": "kalanchoe-tomentosa",
+ "rank": "species",
+ "scientificName": "Kalanchoe tomentosa",
+ "group": "succulent",
+ "names": {
+  "ja": "月兎耳",
+  "aliases": [
+   "ツキトジ",
+   "カランコエ・トメントサ",
+   "パンダプランツ"
+  ]
+ },
+ "refs": {
+  "ncsu": "kalanchoe-tomentosa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    24
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The panda plant prefers bright, indirect sunlight for at least 6 hours per day"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Leggy growth is usually caused by inadequate sunlight"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "it needs to be protected from the sun in very hot climates to prevent leaf burn"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "performs best in temperatures between 60 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     60,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers low humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The soil should be allowed to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉がしわしわになるのは水不足。",
+   "src": "ncsu",
+   "quote": "Shriveled or wrinkled leaves may be the result of underwatering.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉や茎が黄色くぶよぶよになるのは水のやりすぎ。",
+   "src": "ncsu",
+   "quote": "Yellow or mushy leaves or stems can be caused by overwatering.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "間延びするのは日光不足。",
+   "src": "ncsu",
+   "quote": "Leggy growth is usually caused by inadequate sunlight",
+   "symptom": "leggy"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2695149",
+ "retrieved": "2026-11-17",
+ "query": "Tillandsia usneoides",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2695149,
+ "acceptedKey": 2695149,
+ "acceptedName": "Tillandsia usneoides",
+ "authorship": "(L.) L.",
+ "rank": "SPECIES",
+ "family": "Bromeliaceae",
+ "genus": "Tillandsia",
+ "synonyms": [
+  "Dendropogon usneoides",
+  "Renealmia usneoides",
+  "Strepsia usneoides",
+  "Tillandsia crinita",
+  "Tillandsia filiformis",
+  "Tillandsia trichodes",
+  "Tillandsia trichoides"
+ ]
+}

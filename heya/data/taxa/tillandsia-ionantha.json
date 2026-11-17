@@ -1,0 +1,104 @@
+{
+ "id": "tillandsia-ionantha",
+ "rank": "species",
+ "scientificName": "Tillandsia ionantha",
+ "group": "airplant",
+ "names": {
+  "ja": "チランジア・イオナンタ",
+  "aliases": [
+   "エアプランツ",
+   "イオナンタ",
+   "ティランジア"
+  ]
+ },
+ "refs": {
+  "ncsu": "tillandsia-ionantha"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "soak",
+   "winter": "soak"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Provide them with bright indirect lighting."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Provide them with bright indirect lighting."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They require high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Nevertheless, they need regular, thorough watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、生育期と同じとした（間隔は長めにする）"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水やりのあとは、葉の間にたまった水を軽く振って切る。",
+   "src": "ncsu",
+   "quote": "Be sure to gently shake any excess water from the leaves.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "開花が近づくと上の葉が赤くなる。",
+   "src": "ncsu",
+   "quote": "When the plant is getting ready to bloom the top leaves will turn bright red."
+  },
+  {
+   "ja": "生育期は、半分以下に薄めた液体肥料を与える。",
+   "src": "ncsu",
+   "quote": "Fertilize during the growing season with a dilute (half-strength or even less) liquid fertilizer."
+  }
+ ]
+}

@@ -2,6 +2,7 @@
  "id": "aglaonema",
  "rank": "genus",
  "scientificName": "Aglaonema",
+ "group": "foliage",
  "names": {
   "ja": "アグラオネマ",
   "aliases": [
@@ -98,7 +99,8 @@
   {
    "ja": "乾燥した空気やすきま風で葉が茶色くなることがある。",
    "src": "ncsu",
-   "quote": "The leaves may turn brown in very dry air or a drafty location."
+   "quote": "The leaves may turn brown in very dry air or a drafty location.",
+   "symptom": "brown"
   }
  ]
 }

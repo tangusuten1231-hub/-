@@ -1,0 +1,306 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/oxalis-triangularis/",
+ "slug": "oxalis-triangularis",
+ "retrieved": "2026-11-17",
+ "scientificName": "Oxalis triangularis",
+ "commonNames": [
+  "False Shamrock",
+  "Love Plant",
+  "Purple Shamrock",
+  "Purple Wood Sorrel"
+ ],
+ "description": "Purple shamrock plant is a rhizomatous, herbaceous perennial in the wood sorrel family (Oxalidaceae) native to South America. It is grown as an ornamental garden or houseplant. The species epithet is Latin for \"triangula\" and describes the shape of the leaflets. In areas colder than Zone 8, it will need to be grown as a houseplant. Use a loamy potting mix with good drainage and allow the surface to dry between waterings. Place in full sun to partial shade. The plant may go dormant for a while in the autumn, or if it gets too hot or too dry. Cut back on watering and wait for new growth to appear. In the garden (Zones 8 and higher), the purple shamrock plant thrives in well-drained soil, in sun or partial shade. It will go dormant in winter and reemerge in spring. The plant grows from unusually structured rhizomes with scale leaves that store water and nutrients. It is like an elongated bulb. The plant can be propagated by dividing the rhizome or by breaking off the scale leaves, which will produce new plants. The trifoliolate leaves resemble a shamrock and can be green to variegated to deep maroon in color. The leaves close up at night or when disturbed. The white to pink 5-petaled flowers bloom in clusters in spring to summer on stems held above the plant and also close at night. Use purple shamrock in the border or as an accent or groundcover. It grows equally well in containers. It is at home in a rock garden, cottage garden, edible garden, or (partial) shade garden. As its flowers attract butterflies, it could be used in a butterfly garden. Insects, Diseases, and Other Plant Problems: No serious insect or disease problems.",
+ "cultivars": [
+  {
+   "name": "Atropurpurea",
+   "note": "deep purple leaves with a wide black border, light pink flower during the summer"
+  },
+  {
+   "name": "Charmed Wine",
+   "note": "deep purple shamrock-like leaves, white flowers"
+  },
+  {
+   "name": "Ebony",
+   "note": "purple black shamrock-like leaves, white flowers that transition to pink as they mature"
+  },
+  {
+   "name": "Fanny",
+   "note": "olive green leaves with silver pattern in the center of the leaf, soft pink flowers"
+  },
+  {
+   "name": "Francis",
+   "note": "bright purple shamrock-like leaves, light lavender flower in the fall"
+  },
+  {
+   "name": "Mijke",
+   "note": "deep purple leaves, mauve flowers in the spring and summer"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Oxalis"
+  ],
+  "Species": [
+   "triangularis"
+  ],
+  "Family": [
+   "Oxalidaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "South America"
+  ],
+  "Wildlife Value": [
+   "Deer resistant. Attracts butterflies."
+  ],
+  "Edibility": [
+   "Leaves and flowers are edible but should be used in moderation."
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 1 ft. 6 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "8a, 8b, 9a, 9b, 10a, 11a, 11b"
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme",
+   "Umbel"
+  ],
+  "Flower Value To Gardener": [
+   "Edible",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Funnel",
+   "Saucer",
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "5-petaled white to pale pink flowers early summer through fall. They close at night."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Purple/Lavender"
+  ],
+  "Leaf Value To Gardener": [
+   "Edible",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)"
+  ],
+  "Leaf Arrangement": [
+   "Alternate",
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Deltoid"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Deep maroon to green trifoliolate leaves that close at night. The leaves are edible in moderation."
+  ],
+  "Stem Color": [
+   "Green",
+   "Purple/Lavender"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Cross Section": [
+   "Round"
+  ],
+  "Stem Surface": [
+   "Smooth (glabrous)"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Landscape Theme": [
+   "Butterfly Garden",
+   "Cottage Garden",
+   "Edible Garden",
+   "Rock Garden",
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Border",
+   "Mass Planting",
+   "Specimen"
+  ],
+  "Attracts": [
+   "Butterflies"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "All parts of the plant have toxic potential, although the possibility of serious effects is usually limited to ingestions of large quantities. Consuming Oxalis species can produce colic in horses, and kidney failure is possible if significant amounts are eaten."
+  ],
+  "Poison Toxic Principle": [
+   "Soluble calcium oxylates"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "white flowers",
+  "pink flowers",
+  "purple leaves",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "herbaceous perennial",
+  "poisonous",
+  "full sun tolerant",
+  "partial shade tolerant",
+  "perennial",
+  "variegated",
+  "th-sight",
+  "accent",
+  "crystal skipper butterfly"
+ ],
+ "images": [
+  {
+   "id": "19706",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis_triangularis__s93koRatXZ7Y.jpg",
+   "caption": "Oxalis triangularis. Potted plant.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19707",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis_triangularis__rE46wDLW7mJv.jpg",
+   "caption": "Oxalis triangularis. Flowers",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19708",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis_triangularis__26xE2TZW2xUr.jpeg",
+   "caption": "Oxalis triangularis. Leaf.",
+   "author": "me",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "19967",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis_triangularis__2rrIN0F5VxTl.jpg",
+   "caption": "Oxalis triangularis. Cultivar with green leaves.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19969",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis_Triangularis__M41QTM0ReaBR.jpg",
+   "caption": "Oxalis triangularis",
+   "author": "Quercus2018",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "33903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Oxalis-triangularis-_v9VNGGJLFHa4.jpeg",
+   "caption": "Oxalis triangularis 'Myka' - Leaves - April 22 - Wake Co., NC",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

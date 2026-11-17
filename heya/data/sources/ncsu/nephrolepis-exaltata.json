@@ -224,5 +224,87 @@
   "hsc-f",
   "accent",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "8280",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_David_Eickhoff_ccby2.0.jpg",
+   "caption": "Form",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8281",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_themozhis_pixel_displays_ccby2.0.jpg",
+   "caption": "Fronds/Form",
+   "author": "themozhi's pixel displays",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8282",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_leaves_David_Eickhoff_ccby2.0.jpg",
+   "caption": "Close up of Fronds",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8283",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_spores_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Spores",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8284",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_spores_David_Eickhoff_ccby2.0.jpg",
+   "caption": "Spores",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8285",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_Ruffles_Forest_and_Kim_Starr_ccby2.0_2.jpg",
+   "caption": "Form 'Ruffles'",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8286",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata__Tiger_Variegated_Kristine_Paulus_ccby2.0.jpg",
+   "caption": "Form 'Tiger'",
+   "author": "Kristine Paulus",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "10459",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Andrey_Korzun_Attribution-ShareAlike_3.0_Unported_CC_BY-SA_3.0_Nephrolepis_exaltata.jpe",
+   "caption": "Form",
+   "author": "Andrey Korzun",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "18424",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_TpNtcPMBIoMB.jfif",
+   "caption": "'Tiger' Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "18425",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Nephrolepis_exaltata_f10DxTPKl3Fu.jfif",
+   "caption": "'Tiger' Leaves",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  }
  ]
 }

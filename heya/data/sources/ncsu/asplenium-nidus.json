@@ -183,5 +183,87 @@
   "fern",
   "shade garden",
   "container plant"
+ ],
+ "images": [
+  {
+   "id": "40477",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250524_111213_Aspl_uZxdKLrWrJAV.jpeg",
+   "caption": "Asplenium nidus, cultivar with wavy margins.",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38369",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_pott_U8ymw9CxCvqy.jpeg",
+   "caption": "Potted plant.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38368",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_foli_fo48tFWw3Sdx.jpeg",
+   "caption": "Plant showing trapped litter.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38402",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_kath_0dzPV5MnXDUp.jpeg",
+   "caption": "Asplenium nidus, cultivar with wavy margins.",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8287",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_in_container_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Asplenium nidus, cultivar with wavy margins.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8289",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_habit_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Habit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8290",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_new_leaf_orange.tag.pixx_ccbyncnd2.0.jpg",
+   "caption": "New leaf",
+   "author": "orange.tag.pixx",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "8291",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_leaf_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Close up of leaf margin",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8292",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_leaf_underside_Lauren_Gutierrez_ccbynd2.0.jpg",
+   "caption": "Leaf underside showing lines of sporangia.",
+   "author": "Jungle Rebel",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8293",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asplenium_nidus_seedlings_Nishan_Chathuranga_ccby2.0.jpg",
+   "caption": "Young plants growing epiphytically.",
+   "author": "Nishan Chathuranga",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
  ]
 }

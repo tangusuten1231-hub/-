@@ -2,6 +2,7 @@
  "id": "nephrolepis-exaltata",
  "rank": "species",
  "scientificName": "Nephrolepis exaltata",
+ "group": "fern",
  "names": {
   "ja": "ネフロレピス",
   "aliases": [
@@ -94,7 +95,8 @@
   {
    "ja": "空気が乾くとカイガラムシやハダニがつきやすい。",
    "src": "ncsu",
-   "quote": "Scales or spider mites can be a problem if the air around the plant is too dry."
+   "quote": "Scales or spider mites can be a problem if the air around the plant is too dry.",
+   "symptom": "pests"
   }
  ]
 }

@@ -1,0 +1,113 @@
+{
+ "id": "goeppertia-insignis",
+ "rank": "species",
+ "scientificName": "Goeppertia insignis",
+ "group": "foliage",
+ "names": {
+  "ja": "カラテア・ランシフォリア",
+  "aliases": [
+   "カラテア・インシグニス",
+   "ラトルスネークプラント"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-insignis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "in limited sun to bright shade locations"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It will tolerate early morning sun or diffused sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "The rattlesnake plant does not tolerate full sun, drafts, or sudden temperature changes."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はないが、65°F（18℃）以上の安定した温度を必要とし、冷たいすきま風を避けるよう勧めるため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "at room temperatures ranging from 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "To provide the required high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "water regularly to keep soils moist (but not wet)"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering and fertilization in winter when plant growth typically slows down."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が黄色くなるのは、水の不足かやりすぎ。",
+   "src": "ncsu",
+   "quote": "Yellowing of the leaves can be a result of underwatering or overwatering.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "葉のふちや先が茶色く巻くのは湿度不足。",
+   "src": "ncsu",
+   "quote": "Browning or curling of the leaf edges and tips can result from low humidity.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "水やりで葉をぬらすと斑点が出やすい。",
+   "src": "ncsu",
+   "quote": "fungal leaf spots can occur from wetting the leaves when watering",
+   "symptom": "spots"
+  }
+ ]
+}

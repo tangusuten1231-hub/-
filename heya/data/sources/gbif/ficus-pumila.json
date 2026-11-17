@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5361930",
+ "retrieved": "2026-11-17",
+ "query": "Ficus pumila",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5361930,
+ "acceptedKey": 5361930,
+ "acceptedName": "Ficus pumila",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Moraceae",
+ "genus": "Ficus",
+ "synonyms": [
+  "Ficus hanceana",
+  "Ficus longipedicellata",
+  "Ficus repens",
+  "Ficus scandens",
+  "Ficus stipulacea",
+  "Ficus stipulata",
+  "Ficus vestita",
+  "Plagiostigma pumila",
+  "Tenorea heterophylla",
+  "Urostigma scandens",
+  "Varinga repens"
+ ]
+}

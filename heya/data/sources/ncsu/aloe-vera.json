@@ -220,5 +220,87 @@
   "tropical feel",
   "herbaceous perennial",
   "perennial"
+ ],
+ "images": [
+  {
+   "id": "40018",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_Vera_form_Mokki_xvFrD1IxGzWb.jpeg",
+   "caption": "Form",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "41003",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_Vera_Form_kandr_77RP9ZptVxrn.jpeg",
+   "caption": "Form in a pot",
+   "author": "K. Andre",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "41002",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_vera_Form_in_a__7JIpdVIH2OAj.jpeg",
+   "caption": "Form in a pot",
+   "author": "Tim Kortekamp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "1306",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_vera_leaves_wit_DEMsjbwfmGtV.jpeg",
+   "caption": "Leaves with serrated margins",
+   "author": "Roberto PlaPau Pámies Grácia",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8482",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_vera_flowers_Ma_Q9GeBQGUwPqh.jpeg",
+   "caption": "Flower",
+   "author": "María del Pilar Alcalá",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "16070",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_vera_flowers_th_ByCw5yWOYSQg.jpeg",
+   "caption": "Flowers",
+   "author": "thatplantguy",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "40019",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_vera_flowers_fo_piXJbMmJJLND.jpeg",
+   "caption": "Flowers forming",
+   "author": "Donna J. Parry",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "16109",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/aloe_vera_split_Raul_wUBctFtfJhcM.jpeg",
+   "caption": "Aloe Vera leaf split",
+   "author": "Raul654",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "16071",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/aloe_vera_mass_plant_zWKcX1Fc0FPT.jpe",
+   "caption": "Mass planting",
+   "author": "Nelson, New Zealand",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "16069",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/aloe-vera-background_TdjrTdnB3KC3.jpe",
+   "caption": "Aloe Vera leaf",
+   "author": "",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  }
  ]
 }

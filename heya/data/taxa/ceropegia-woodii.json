@@ -1,0 +1,109 @@
+{
+ "id": "ceropegia-woodii",
+ "rank": "species",
+ "scientificName": "Ceropegia woodii",
+ "group": "succulent",
+ "names": {
+  "ja": "ハートカズラ",
+  "aliases": [
+   "セロペギア",
+   "ラブチェーン"
+  ]
+ },
+ "refs": {
+  "ncsu": "ceropegia-woodii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "large gaps between the leaves indicate that the plant is not getting enough light"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Too much sunlight will result in scorched leaves"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It should be allowed to dry out completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "It is dormant over the winter and watering should be reduced even further."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れし、葉が黄色くなる。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause root rot and yellowing of the leaves",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "葉がしおれるのは水不足。",
+   "src": "ncsu",
+   "quote": "wilted leaves are the result of underwatering",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉と葉の間があくのは光不足。",
+   "src": "ncsu",
+   "quote": "large gaps between the leaves indicate that the plant is not getting enough light",
+   "symptom": "leggy"
+  }
+ ]
+}

@@ -251,5 +251,71 @@
   "problem for dogs",
   "problem for cats",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "8138",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Heptapleurum-arboricola--Dinesh-Valke-1--CC-BY-SA.jpg",
+   "caption": "",
+   "author": "Dinesh Valke",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8139",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Heptapleurum_arboricola--Dinesh-Valke--CC-BY-SA.jpg",
+   "caption": "",
+   "author": "Dinesh Valke",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8140",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Heptapleurum-arboricola--Christoph-Diewald--CC-BY-NC-ND.jpg",
+   "caption": "Fruit",
+   "author": "Christoph Diewald",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "38073",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Heptapleuron-arboric_7tRVRhxstF71.jpeg",
+   "caption": "Grown as a bonsai.",
+   "author": "Cindy Scott",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38074",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_arboricol_svOnx3gPxIna.jpeg",
+   "caption": "Foliage and fruits.",
+   "author": "JMK",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38075",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_arboricol_amFWHIy6r3Lq.jpeg",
+   "caption": "Potted plant.",
+   "author": "Nicke L.",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38076",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/schefflera-arboricol_2vGqJ6rZeurA.jpeg",
+   "caption": "Foliage. Mecklenburg Co., NC.",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38077",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_arboricol_EnDyML4xkKO5.jpeg",
+   "caption": "A low hedge or border.",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
  ]
 }

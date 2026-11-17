@@ -1,0 +1,307 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/phalaenopsis/",
+ "slug": "phalaenopsis",
+ "retrieved": "2026-11-17",
+ "scientificName": "Phalaenopsis",
+ "commonNames": [
+  "Moon Orchid",
+  "Moon Orchids",
+  "Moth Orchid",
+  "Moth Orchids",
+  "Phalaenopsis Orchid",
+  "Phalaenopsis Orchids"
+ ],
+ "description": "Moth orchid is an epiphytic, tropical, herbaceous perennial in the orchid family (Orchidaceae). Moth orchids can range from a few inches to 2 feet in height and up to 2 feet (but usually less) in spread. Their region of origin is tropical and subtropical Asia and northeast Australia. The genus name comes from the Greek words phalaina, which means \"moth,\" and opsis, which means \"like\" because the flowers look like moths. Moth orchids are the most popular and widely available kind of orchid sold as a houseplant. Commercial production is centered in Taiwan and the Netherlands. A modern hybrid, of which there are more than 34,000 registered, may have a dozen or more species in its ancestry and an equal number of hybrid generations. Moth orchids are also crossed with related genera to produce intergeneric hybrids such as Aeridopsis (= Aerides &times; Phalaenopsis ), Moirara (= Phalaenopsis &times; Renanthera &times; Vanda ), Parnataara (= Aerides &times; Arachnis &times; Phalaenopsis ), Renanthopsis (= Phalaenopsis &times; Renanthera ), Rhynchonopsis (= Phalaenopsis &times; Rhynchostylis ) and Vandaenopsis (= Phalaenopsis &times; Vanda ). Hybrids previously known as Doritaenopsis (= Doritis &times; Phalaenopsis ) are Phalaenopsis because the genus Doritis is now treated as a synonym of Phalaenopsis . Moth orchids prefer low light, warm temperatures and high humidity. They are winter hardy in USDA Zones 10 to 12 and consequently must be grown as houseplants or greenhouse plants in North Carolina. The best placement in the house is on an east windowsill, but they can grow well on well-shaded west and south windowsills. Since they prefer warm, humid, damp but not soggy conditions, they are planted in pots with a bark-based medium that provides excellent drainage. The roots can photosynthesize, producing a green color from chlorophyll production, so clear plastic pots are often used. Orchids should be watered in the mornings with tepid water by placing plants in a sink and allowing water to flow freely through potting medium and foliage. Let the pot drain completely so that plants do not stand in water. Mature plants should be watered once weekly or more often in the heat of summer. Potting mix should dry some between waterings. If the growing medium is pure sphagnum moss, it can be difficult to rewet. It is better to repot such plants into bark-based orchid growing medium. Plants should be fertilized regularly with a balanced fertilizer twice monthly at half strength or weekly at quarter strength. Orchids need to be repotted approximately every two years after blooms have faded or as new leaves begin to appear. The flower stalk should be cut just above the fist node below the faded flowers; often (but not always) the node will produce a branch with more flowers. Moth orchids will flower repeatedly once a year with proper care. The large-flowered, white species and hybrids that flower in spring require a cool, nighttime chill (ca. 55 degrees F for a week) in autumn to initiate flower spikes. The modern dwarf hybrids, which are bred from summer-flowering species, do not require a cool chill to initiate flowers. Flowers can last for four months or more. The showy flowers appearing in long sprays on arching stems are 3 to 6 inches wide in large-flowered hybrids but may be only 1 or 2 inches wide in dwarf cultivars. Traditionally, flowers were only white, pale pink or white with a pink lip, but breakthroughs in breeding are now giving consumers moth orchids in a wider range of colors including, yellow, cream, peachy tones and purple-red, as well as spotted (so-called \"harlequin\" patterns), splashed and variously patterned flowers. Genetic engineering has resulted in the production of blue-flowered moth orchids, but these are not yet widely available. Instead, consumers are offered moth orchids whose white flowers have been dyed blue, pink, or another color. These orchids, if they rebloom, will produce white flowers. Insects, Diseases and Other Plant Problems : Scale and mealybugs may appear. Flower bud drop, also known as bud blast, may be caused by changes in temperature, humidity, moisture, fertilizer or location. Botrytis spot on the flowers can be a problem. Shriveled or wrinkled leaves are a sign that the leaves are not getting enough water - either the potting medium is being kept too dry or the plant's roots are damaged (often rotted by a soggy growing medium). VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti\" a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Phalaenopsis"
+  ],
+  "Family": [
+   "Orchidaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropical & Subtropical Asia, NE. Australia"
+  ],
+  "Distribution": [
+   "cultivated worldwide."
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 6 in. - 2 ft. 0 in.",
+   "Width: 0 ft. 6 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green",
+   "Orange",
+   "Pink",
+   "Purple/Lavender",
+   "Variegated",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Shape": [
+   "Lipped"
+  ],
+  "Flower Petals": [
+   "2-3 rays/petals",
+   "Colored Sepals"
+  ],
+  "Flower Size": [
+   "3-6 inches"
+  ],
+  "Flower Description": [
+   "Flowers usually in white, pink, yellow or purple in various patterns. 2 true petals, 3 sepals, a \"lip\", and a \"column\" that contains the reproductive parts. They can be 1 to 4 inches across."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Glossy",
+   "Leathery"
+  ],
+  "Leaf Type": [
+   "Sheath",
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate",
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Oblong",
+   "Obovate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Thick green leaves 3-10 in long, 3-6 per plant, with few visible veins. Young leaves are glossy and clasp the flowering scape."
+  ],
+  "Stem Color": [
+   "Insignificant"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Acaulescent, no visible stem."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ]
+ },
+ "tags": [
+  "orchid",
+  "epiphytic",
+  "houseplant",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "ebh-h",
+  "hsc",
+  "hsc-fl",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "38453",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_flowers_Tad23ZAptUhA.jpeg",
+   "caption": "Classic white moth orchids",
+   "author": "Geoff McKay",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "23733",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/phalaenopsis-flowers_2kde6THRwqsW.jpg",
+   "caption": "Miniature plant in a Pot (Cabarrus County, NC)",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38400",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/phalaenopsis-flower-_CqivnRDmVvSA.jpeg",
+   "caption": "Flower Stem - Carrabus Co., NC",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "27762",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_sumatra_MI6V8SPWy202.jpeg",
+   "caption": "Flower",
+   "author": "Sunoochi",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24996",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/phalaenopsis_Golden_vxaThnhaR5DF.jfif",
+   "caption": "Flower",
+   "author": "Eric in SF",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24997",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_florese_dclVTuNqthMe.jfif",
+   "caption": "Flower",
+   "author": "Involuntarius",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "25000",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_sp.Jam_sQDDBkc6Ko4M.jfif",
+   "caption": "Flower",
+   "author": "James St. John",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25001",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/PhalaenopsisIanare_LTLz6iLAHtTu.jfif",
+   "caption": "Flower",
+   "author": "lanaré Sévi",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "26266",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_Antigng_6WY43qluU4Y7.jpe",
+   "caption": "Form and Flowers",
+   "author": "Antigng",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "26652",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis__Dick_C_mKkzA4GS8YjG.jpeg",
+   "caption": "Flower",
+   "author": "Dick Culbert",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "26655",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_hybrid__bO76TYAHYRlp.jpe",
+   "caption": "Flower",
+   "author": "Jeff Kubina",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "26658",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_sunooch_06ysZt39fmCr.jpe",
+   "caption": "Leaf and Stem",
+   "author": "sunoochi",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "27757",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/1Phalaenopsis_philip_HKpnkvcWn102.jfif",
+   "caption": "Flower",
+   "author": "Orchi",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "27758",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis__gerse_JMCvGitbmHb2.jpeg",
+   "caption": "Flower petal",
+   "author": "Orchi",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "27760",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_sanderi_UBGwJhquEr5F.jfif",
+   "caption": "Flower",
+   "author": "Orchi",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "32291",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_sunooch_MKXGQqSFrl0F.jpeg",
+   "caption": "Form",
+   "author": "sunoochi",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38454",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Phalaenopsis_flowers_f432Sy8AYITX.jpeg",
+   "caption": "Flowers of a modern hybrid.",
+   "author": "Susanne Nilsson",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "41568",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aphrodites-phalaeno_Ar1IrShJgyZi.jpeg",
+   "caption": "Aphrodite's phalaenopsis Moth Orchid flower and bud",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41569",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aphrodites-phalaeno_v8OCRWfBul8E.jpeg",
+   "caption": "Aphrodite's phalaenopsis Moth Orchid flowers and buds-",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
+ ]
+}

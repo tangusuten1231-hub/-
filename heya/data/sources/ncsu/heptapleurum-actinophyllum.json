@@ -1,0 +1,342 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/heptapleurum-actinophyllum/",
+ "slug": "heptapleurum-actinophyllum",
+ "retrieved": "2026-11-17",
+ "scientificName": "Heptapleurum actinophyllum",
+ "commonNames": [
+  "Australian Ivy Palm",
+  "Octopus Tree",
+  "Schefflera",
+  "Starleaf",
+  "Umbrella Tree"
+ ],
+ "description": "Schefflera is an evergreen shrub or multi-stemmed medium-sized tree that can grow up to 40 feet tall, and it is found in the wet tropical areas of Northern Australia and in Southern New Guinea. As a young tree, it is also an epiphyte and will cling to other trees. but it becomes terrestrial as it matures. The common name, Schefflera, honors a 19th century Polish botanist, J.C. Scheffler. This tree is a member of the ivy family (Araliaceae). The specific epithet, actinophylla , is from the Greek words, actino , meaning rayed and phylla, meaning leaf. This references the tree's leaf arrangement. As a houseplant , it prefers a bright sunny location with high humidity and temperatures above 60 degrees Fahrenheit. The preferred temperature range is from 65 to 90 degrees Fahrenheit. It thrives in rich, moist, and well-drained soil. Water the plant regularly with rainwater or filtered water. It can be pruned to control its size and may be cut back in the winter. It does best when protected from the hot afternoon sun. In North Carolina, these plants can also be grown in protected locations outdoors in containers, but they must be brought in over the winter. They are winter hardy in zones 10 to 12. This plant can be propagated by seeds, layering, or cuttings. Schefflera grows upright and has thin, green trunk initially, and later it becomes woody and grayish-brown. Indoor plant size ranges from 4 to 6 feet tall and 3 to 6 feet wide. The leaves are green, leathery, oblong to elliptic, compound palmate with 5 to 18 stalked leaflets arranged in a whorl. The ornamental flowers are small, red to pinkish-red, fragrant with 11 petals, and arranged in stiff, terminal racemes up to 2 to 4 feet in length. The fruits are reddish-purple to black drupes, containing 8 seeds. For a tropical feel with glossy, dense, green foliage, consider the schefflera for your indoor space. Quick ID Hints: Shrub/small tree with palmately compound leaves Stalked leaflets are broad, leaf margins are entire and undulate Insects, Diseases, and Other Plant Problems: No serious problems but suffers occasionally from aphids, mealybugs, spider mites, thrips, and scale. Bacterial leaf spot and soft rot occur when soils are too wet. Underwatered plants will drop their leaves. Avoid cold drafts and heating vents to prevent plant stress. All parts of this plant are toxic if ingested and should be kept out of the reach of pets and children. Skin irritation can result from contact with the plant's sap. This plant is reported as an exotic pest plant in Florida.",
+ "cultivars": [
+  {
+   "name": "Amate",
+   "note": "fast-growing, compact, up to 10 feet tall, rounded habit"
+  },
+  {
+   "name": "Variegata",
+   "note": "Variegated leaves"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Heptapleurum"
+  ],
+  "Species": [
+   "actinophyllum"
+  ],
+  "Family": [
+   "Araliaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Used as animal food and as a medicine."
+  ],
+  "Life Cycle": [
+   "Perennial",
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "South New Guinea to Northern Australia"
+  ],
+  "Distribution": [
+   "Native: New Guinea, Northern Territory, Queensland. Introduced: Bahamas, Bangladesh, Bermuda, Canary Islands, Caroline Island, Christmas Island, Comoros, Dominican Republic, Florida, Haiti, Hawaii, Leeward Islands, Madeira, Marianas, Marshall Island, Nicobar Island, Norfolk Island, Puerto Rico, and Society Island."
+  ],
+  "Wildlife Value": [
+   "Attracts birds and butterflies."
+  ],
+  "Play Value": [
+   "Easy to Grow",
+   "Fragrance",
+   "Wildlife Food Source",
+   "Wind Break"
+  ],
+  "Dimensions": [
+   "Height: 4 ft. 0 in. - 6 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 6 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Houseplant",
+   "Perennial",
+   "Shrub",
+   "Tree"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Dense",
+   "Erect",
+   "Spreading",
+   "Vase"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Black",
+   "Purple/Lavender",
+   "Red/Burgundy"
+  ],
+  "Fruit Value To Gardener": [
+   "Showy"
+  ],
+  "Display/Harvest Time": [
+   "Fall"
+  ],
+  "Fruit Type": [
+   "Drupe"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a fleshy, reddish-purple to black drupes that and measure a half-inch in diameter. Fruits appear from September to December."
+  ],
+  "Flower Color": [
+   "Pink",
+   "Red/Burgundy"
+  ],
+  "Flower Inflorescence": [
+   "Raceme",
+   "Umbel"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Summer"
+  ],
+  "Flower Petals": [
+   "7 - 20 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The 1-inch red to pinkish-red flowers appear on compact umbels that are held above the foliage and are arranged like the ribs of an inverted umbrella, or like the tentacles of an octopus. There are 8 to 12 flowered heads. Each flower has 12 to 18 petals. Each raceme can measure up to 2 to 4 feet long. Flowers from June to September. Rarely blooms as a houseplant but may if grown outdoors in the summer sun."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Leathery"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are palmately compound with 5 to 18 sets of leaflets in terminal rosettes to 11.5 by 4 inches. They are oblong to elliptical and undulate. The leaves are green, glossy, leathery, smooth, and measure 6 to 12 inches long and 2 to 4 inches wide. The leaf underside is a paler green. Indoor plants the leaves will be smaller at 4 to 6 inches long. The petiolules elongate and are conspicuous."
+  ],
+  "Bark Color": [
+   "Green",
+   "Light Brown",
+   "Light Gray"
+  ],
+  "Surface/Attachment": [
+   "Smooth"
+  ],
+  "Bark Description": [
+   "The bark is green to gray and smooth. The tree or shrub is typically multi-stemmed."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are shiny green and become brown and woody. Branches are few, short, often apically."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Landscape Theme": [
+   "Butterfly Garden"
+  ],
+  "Design Feature": [
+   "Border",
+   "Flowering Tree",
+   "Small Tree"
+  ],
+  "Attracts": [
+   "Butterflies",
+   "Songbirds"
+  ],
+  "Resistance To Challenges": [
+   "Heat",
+   "Humidity"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "All part of this plant are toxic if ingested. Oral irritation, pain and swelling of mouth, tongue, and lips, excessive drooling, vomiting, difficulty swallowing, and diarrhea. Skin irritation can result from contact with the sap of this plant."
+  ],
+  "Poison Toxic Principle": [
+   "Terpenoids, saponins, insoluble calcium oxalates"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Bark",
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "showy fruits",
+  "low maintenance",
+  "black fruits",
+  "interiorscape",
+  "evergreen",
+  "fantz",
+  "humidity tolerant",
+  "problem for cats",
+  "problem for dogs",
+  "problem for horses",
+  "full sun tolerant",
+  "partial shade tolerant",
+  "container plant",
+  "patio",
+  "hortcontest",
+  "interesting leaves",
+  "red flowers",
+  "tropical feel",
+  "heat tolerant",
+  "perennial",
+  "small tree",
+  "contact dermatitis",
+  "poisonous if ingested",
+  "shrub",
+  "problem for children",
+  "broadleaf evergreen",
+  "epiphytic",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "15998",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_actinophy_9MIlQhevAQFj.jpe",
+   "caption": "Form",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15999",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_actinophy_kHSGCiH1TNGH.jpe",
+   "caption": "Native habitat form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "16002",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_actinophy_pDzXjq9oqpRE.jpe",
+   "caption": "Fruit",
+   "author": "mauroguanandi",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "16000",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_actinophy_okjfOnWYKv37.jpe",
+   "caption": "Fruit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "16001",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Schefflera_actinophy_nPdWvwXNgydx.jpe",
+   "caption": "Stem",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

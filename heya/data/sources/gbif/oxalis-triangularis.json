@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7156971",
+ "retrieved": "2026-11-17",
+ "query": "Oxalis triangularis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7156971,
+ "acceptedKey": 7156971,
+ "acceptedName": "Oxalis triangularis",
+ "authorship": "A.St.-Hil.",
+ "rank": "SPECIES",
+ "family": "Oxalidaceae",
+ "genus": "Oxalis",
+ "synonyms": []
+}

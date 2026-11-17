@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/9482657",
+ "retrieved": "2026-11-17",
+ "query": "Clivia miniata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 9482657,
+ "acceptedKey": 9482657,
+ "acceptedName": "Clivia miniata",
+ "authorship": "(Lindl.) Verschaff.",
+ "rank": "SPECIES",
+ "family": "Amaryllidaceae",
+ "genus": "Clivia",
+ "synonyms": [
+  "Clivia sulphurea",
+  "Imantophyllum barkeri",
+  "Imantophyllum miniatum",
+  "Imatophyllum atrosanguineum",
+  "Imatophyllum miniatum",
+  "Imatophyllum vanhouttei",
+  "Vallota miniata"
+ ]
+}

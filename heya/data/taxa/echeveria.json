@@ -1,0 +1,94 @@
+{
+ "id": "echeveria",
+ "rank": "genus",
+ "scientificName": "Echeveria",
+ "group": "succulent",
+ "names": {
+  "ja": "エケベリア",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "echeveria"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants are easily grown in pots in a bright, sunny windowsill"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日の当たる窓辺を勧めるため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The plant is native to deserts and so doesn't mind being in full sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "they are not truly frost hardy"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は霜に耐えないため冬は室内に入れるとする。最低温度の記載がないため、多肉植物の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It needs little water."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "日光に当てると葉の色がよくなる。",
+   "src": "ncsu",
+   "quote": "In fact, the coloring of the leaves improves with sunlight.",
+   "symptom": "fade"
+  }
+ ]
+}

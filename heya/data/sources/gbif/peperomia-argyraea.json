@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/12251984",
+ "retrieved": "2026-11-17",
+ "query": "Peperomia argyraea",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 12251984,
+ "acceptedKey": 12251984,
+ "acceptedName": "Peperomia argyraea",
+ "authorship": "W.Bull",
+ "rank": "SPECIES",
+ "family": "Piperaceae",
+ "genus": "Peperomia",
+ "synonyms": []
+}

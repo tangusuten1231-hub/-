@@ -1,0 +1,218 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/ceropegia-woodii/",
+ "slug": "ceropegia-woodii",
+ "retrieved": "2026-11-17",
+ "scientificName": "Ceropegia woodii",
+ "commonNames": [
+  "Bushman's Pipe",
+  "Chain of Hearts",
+  "Chinese Lantern",
+  "Necklace Vine",
+  "Rosary Vine",
+  "String of Hearts",
+  "Sweetheart Vine"
+ ],
+ "description": "String of Hearts is a tender, succulent, evergreen perennial that has trailing branches that resemble a string of beads. The plant is frequently called the Rosary Vine because of the beads or aerial tubers that develop along the cascading vines. The tubercles will root and produce another plant if the stem comes in contact with the soil. The stems are long and wiry and drape over a container and hang down about 3 feet. The heart-shaped leaves are. dark green and etched with silver on the upper surface and purple on the underside. The leaves occur about every 3 inches along the stem, and the beads form on the stems between the leaves. The purplish to purplish-white flowers are tubular, and occasionally, insects may become trapped within the flower tubes. However, the String of Hearts is not a carnivorous plant. This plant is native to Southern Africa and is found along hillsides. The vines can reach up to 12 feet long in their native habitat. The genus name, Ceropegia, originated from the Greek word \"keros,\" which means wax, and \" pege,\" meaning fountain. This refers to the appearance of the flowers that seem waxy and are shaped like a fountain. The plant is called the Bushman's Pipe in Southern Africa. The specific epithet, woodii, is in honor of John Medley Wood who was a collector of native African plants. The String of Hearts prefers well-drained sandy, potting soil, and bright, indirect sunlight. Be careful not to overwater this plant. It should be allowed to dry out completely between waterings. It is dormant over the winter and watering should be reduced even further. The stringy stems that are vining and trailing are well suited for a hanging pot or basket. It may also be trained on a small trellis. The plant likes to be crowded; therefore, repotting should be deferred until necessary. In hardiness zone 10, the String of Hearts can be planted outside, but it can spread easily. Quick ID Hints: stems are long and wiry, draping over the container aerial tubers or tubercles develop along the stem between leaves and are bead-like small heart-shaped dark green leaves are etched with silver, the underside of the leaf is purple purplish to purplish white tubular flowers Insects, Disease, and Other Plant Problems: Monitor for aphids, mealybugs, and scale. Overwatering can cause root rot and yellowing of the leaves, and wilted leaves are the result of underwatering. Too much sunlight will result in scorched leaves, and large gaps between the leaves indicate that the plant is not getting enough light.",
+ "cultivars": [
+  {
+   "name": "f. variegata",
+   "note": "cream and pink variegated leaves"
+  },
+  {
+   "name": "Heartless",
+   "note": "bright green leaves with pink on the underside"
+  },
+  {
+   "name": "Orange River",
+   "note": "green leaves with a shade of orange"
+  },
+  {
+   "name": "Silver Glory",
+   "note": "silver variegated and apple shaped leaves, each leaf has a dark green line"
+  },
+  {
+   "name": "String of Arrows",
+   "note": "lime green and silver pointed foliage, pink bloom"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Ceropegia"
+  ],
+  "Species": [
+   "woodii"
+  ],
+  "Family": [
+   "Apocynaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Zimbabwe to South Africa"
+  ],
+  "Distribution": [
+   "Native to the Cape Provinces, Mozambique, Northern Provinces, Swaziland, and Zimbabwe. Introduced to Bismark Archipelago and Society Islands"
+  ],
+  "Wildlife Value": [
+   "The flowers attract hummingbirds."
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Climbing",
+   "Prostrate"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)"
+  ],
+  "Soil Texture": [
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Description": [
+   "Horn-shaped seed pod. The seeds are flat and have a pappus. They are dispersed by the wind."
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The flowers are tubular and are purple to purplish-white."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Purple/Lavender",
+   "Variegated"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Opposite"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Lanceolate",
+   "Ovate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "< 1 inch"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The leaves are opposite, ovate to lanceolate, or heart-shaped, dark green and marbled with silver. The underside of the leaf is purple."
+  ],
+  "Stem Color": [
+   "Purple/Lavender"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The long, wiry, pink stems grow from tubers. The tubercles look like beads on the vine and root easily when in contact with soil."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Patio"
+  ],
+  "Attracts": [
+   "Hummingbirds"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "container plant",
+  "hanging baskets",
+  "succulent",
+  "perennial",
+  "interesting flowers",
+  "interesting leaves",
+  "cascading",
+  "hummingbird friendly",
+  "prostrate",
+  "climber"
+ ],
+ "images": [
+  {
+   "id": "38275",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ceropegia_woodii_lea_YvLljz2yO8fN.jpeg",
+   "caption": "Leaves.",
+   "author": "Grigoris Deoudis",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38276",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ceropegia_woodii_vin_ERlka53XAQIs.jpeg",
+   "caption": "Potted plant.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38277",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ceropegia_woodii_flo_4fn4BgFzUvzA.jpeg",
+   "caption": "Flowers.",
+   "author": "Martin Bohnet",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

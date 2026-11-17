@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7431653",
+ "retrieved": "2026-11-17",
+ "query": "Dracaena sanderiana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7431653,
+ "acceptedKey": 7431653,
+ "acceptedName": "Dracaena sanderiana",
+ "authorship": "Mast.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Dracaena poggei",
+  "Dracaena vanderystii",
+  "Pleomele poggei",
+  "Pleomele sanderiana"
+ ]
+}

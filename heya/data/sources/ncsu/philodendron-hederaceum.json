@@ -222,5 +222,79 @@
   "contact dermatitis",
   "poisonous if ingested",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "30904",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_scanden_7JA8bNZDqzwy.jpeg",
+   "caption": "Form",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30941",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_MMz1Dy89vcGD.jpeg",
+   "caption": "foliage.",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_cordatu_FImPa0wddAhI.jpeg",
+   "caption": "Stem and Leaves",
+   "author": "Henryr10",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "30905",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_scanden_SoASA0ak98vH.jpeg",
+   "caption": "Leaves",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30940",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_WzC4UAyTrUdx.jpeg",
+   "caption": "Leaves",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30938",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_nkA4BD2IrFd2.jpeg",
+   "caption": "Form",
+   "author": "Alex Popovkin, Bahia, Brazil",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38432",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_vwkrheKTXqTY.jpeg",
+   "caption": "P. hederaceum 'Brasil'",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "30942",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_gxgn2ccAzMsU.jpeg",
+   "caption": "'Brasil' has variegated leaves",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "36974",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_hederac_zxZvZ13u5gJe.jpeg",
+   "caption": "'Brasil' is a cultivar with unstable variegation .",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
  ]
 }

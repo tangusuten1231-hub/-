@@ -2,6 +2,7 @@
  "id": "platycerium-bifurcatum",
  "rank": "species",
  "scientificName": "Platycerium bifurcatum",
+ "group": "fern",
  "names": {
   "ja": "ビカクシダ",
   "aliases": [
@@ -94,7 +95,8 @@
   {
    "ja": "湿度が高すぎると黒い斑点が出ることがある。",
    "src": "ncsu",
-   "quote": "Black spot may occur when the humidity is too high."
+   "quote": "Black spot may occur when the humidity is too high.",
+   "symptom": "spots"
   }
  ]
 }

@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5293153",
+ "retrieved": "2026-11-17",
+ "query": "Phoenix roebelenii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5293153,
+ "acceptedKey": 5293153,
+ "acceptedName": "Phoenix roebelenii",
+ "authorship": "O'Brien",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Phoenix",
+ "synonyms": []
+}

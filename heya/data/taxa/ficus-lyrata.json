@@ -2,6 +2,7 @@
  "id": "ficus-lyrata",
  "rank": "species",
  "scientificName": "Ficus lyrata",
+ "group": "foliage",
  "names": {
   "ja": "フィカス・リラータ",
   "aliases": [
@@ -89,12 +90,14 @@
   {
    "ja": "冷暖房の風で室温が変わると、葉に茶色の斑点が出ることがある。",
    "src": "ncsu",
-   "quote": "Brown spots may occur if there is a fluctuation in room temperatures for heating or cooling vents."
+   "quote": "Brown spots may occur if there is a fluctuation in room temperatures for heating or cooling vents.",
+   "symptom": "spots"
   },
   {
    "ja": "水が多すぎても少なすぎても葉を落とす。",
    "src": "ncsu",
-   "quote": "Leaf drop may occur from too much or too little water."
+   "quote": "Leaf drop may occur from too much or too little water.",
+   "symptom": "drop"
   }
  ]
 }

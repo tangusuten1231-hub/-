@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/11008739",
+ "retrieved": "2026-11-17",
+ "query": "Heptapleurum actinophyllum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 11008739,
+ "acceptedKey": 11008739,
+ "acceptedName": "Heptapleurum actinophyllum",
+ "authorship": "(Endl.) Lowry & G.M.Plunkett",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Heptapleurum",
+ "synonyms": [
+  "Aralia longipes",
+  "Brassaia actinophylla",
+  "Brassaia singaporensis",
+  "Schefflera actinophylla"
+ ]
+}

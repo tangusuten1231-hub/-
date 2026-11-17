@@ -9,7 +9,7 @@
   "Banjo fig",
   "Fiddle-leaf Fig"
  ],
- "description": "The fiddle-leaf fig is a small tropical tree and broadleaf evergreen, commonly grown and popular as a houseplant in many areas of the United States. As a houseplant, it will grow 2 to 10 feet tall. It has large, broad, lyre-shaped, green leaves that can measure up to 18 inches long. This plant rarely flowers or fruits when grown as a houseplant. The stems have a milky sap that can irritate the skin. This plant is native to tropical regions of western and central Africa. It will grow 60 to 100 feet tall and is erect and vase-shaped. It is frequently used as an ornamental shade tree in tropical climates. In its native habitat, the plant will produce figs that appear solitary or in pairs. The genus name, Ficus , is derived from the Latin name for an edible fig. The specific epithet, lyrata , means \"in the shape of a lyre\" and refers to the shape of the plant's leaves. The fiddle-leaf fig prefers bright indirect light or partial shade and moist, well-drained, loamy, acidic soils. They are sensitive to overwatering and also need protection from the afternoon sun. It also performs best in medium relative humidity with a temperature greater than 55 degrees F. This a relatively low-maintenance houseplant that may be pruned as needed. The fiddle-leaf fig can be planted outdoors in plant hardiness zones 10 through 12. This plant is toxic to humans, cats, and dogs if ingested. Oral irritation, excessive drooling, and vomiting may occur. The sap can irritate the skin and gloves are recommended when handling this plant, particularly when pruning or propagating. In the United States, the fiddle-leaf fig is a tropical tree that is used as a houseplant in temperate areas and may be grown in a container. The container can be brought outside to a sheltered deck or patio during the summer months and brought indoors as the outdoor temperatures start to drop in the fall. The fiddle-leaf fig can also make a great focal point in a living room or office space. Texturally heavy, this plant is best suited for large spaces. Seasons of Interest: Foliage: Year-round Quick ID Hints: small tropical tree used as a houseplant, 2 to 10 feet tall woody stem with milk sap large, leathery, coarse, and fiddle-shaped leaves, up to 18 inches long and 12 inches wide leaves are bullate and not glossy rarely fruits or flowers as a houseplant Insects, Diseases, and Other Plant Problems: The fiddle leaf fig has no serious insect pests or diseases. As a houseplant, monitor for scale, aphids, mealy bugs, thrips, and spider mites. Potential diseases include bacterial or fungal diseases. Leaf scorch can occur if the plant is receiving too much direct sunlight. Brown spots may occur if there is a fluctuation in room temperatures for heating or cooling vents. Leaf drop may occur from too much or too little water. VIDEO created by Andy Pulte for &ldquo;Landscape Plant Identification, Taxonomy and Morphology&rdquo; a plant identification course offered by the Department of Plant Sciences, University of Tennessee. More information on Ficus .",
+ "description": "The fiddle-leaf fig is a small tropical tree and broadleaf evergreen, commonly grown and popular as a houseplant in many areas of the United States. As a houseplant, it will grow 2 to 10 feet tall. It has large, broad, lyre-shaped, green leaves that can measure up to 18 inches long. This plant rarely flowers or fruits when grown as a houseplant. The stems have a milky sap that can irritate the skin. This plant is native to tropical regions of western and central Africa. It will grow 60 to 100 feet tall and is erect and vase-shaped. It is frequently used as an ornamental shade tree in tropical climates. In its native habitat, the plant will produce figs that appear solitary or in pairs. The genus name, Ficus , is derived from the Latin name for an edible fig. The specific epithet, lyrata , means \"in the shape of a lyre\" and refers to the shape of the plant's leaves. The fiddle-leaf fig prefers bright indirect light or partial shade and moist, well-drained, loamy, acidic soils. They are sensitive to overwatering and also need protection from the afternoon sun. It also performs best in medium relative humidity with a temperature greater than 55 degrees F. This a relatively low-maintenance houseplant that may be pruned as needed. The fiddle-leaf fig can be planted outdoors in plant hardiness zones 10 through 12. This plant is toxic to humans, cats, and dogs if ingested. Oral irritation, excessive drooling, and vomiting may occur. The sap can irritate the skin and gloves are recommended when handling this plant, particularly when pruning or propagating. In the United States, the fiddle-leaf fig is a tropical tree that is used as a houseplant in temperate areas and may be grown in a container. The container can be brought outside to a sheltered deck or patio during the summer months and brought indoors as the outdoor temperatures start to drop in the fall. The fiddle-leaf fig can also make a great focal point in a living room or office space. Texturally heavy, this plant is best suited for large spaces. Seasons of Interest: Foliage: Year-round Quick ID Hints: small tropical tree used as a houseplant, 2 to 10 feet tall woody stem with milk sap large, leathery, coarse, and fiddle-shaped leaves, up to 18 inches long and 12 inches wide leaves are bullate and not glossy rarely fruits or flowers as a houseplant Insects, Diseases, and Other Plant Problems: The fiddle leaf fig has no serious insect pests or diseases. As a houseplant, monitor for scale, aphids, mealy bugs, thrips, and spider mites. Potential diseases include bacterial or fungal diseases. Leaf scorch can occur if the plant is receiving too much direct sunlight. Brown spots may occur if there is a fluctuation in room temperatures for heating or cooling vents. Leaf drop may occur from too much or too little water. VIDEO created by Andy Pulte for \"Landscape Plant Identification, Taxonomy and Morphology\" a plant identification course offered by the Department of Plant Sciences, University of Tennessee. More information on Ficus .",
  "cultivars": [
   {
    "name": "Bambino",
@@ -233,5 +233,79 @@
   "poisonous if ingested",
   "patio",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40788",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_potted1_JMJWHaB91xr1.jpeg",
+   "caption": "Ficus lyrata. Potted interiorscape plant.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8249",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_habit___Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Ficus lyrata habit",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8251",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_in_pots_NC_Cooperative_Extension_ccby2.0.jpg",
+   "caption": "Ficus lyrata in pots",
+   "author": "NC Cooperative Extension",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8252",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_bud__Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Ficus lyrata bud",
+   "author": "NC Cooperative Extension",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8253",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_stem__NC_Cooperative_Extension_ccby2.0.jpg",
+   "caption": "Ficus lyrata stem",
+   "author": "NC Cooperative Extension",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8254",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_leaf_underside__NC_Cooperative_Extension_ccby2.0.jpg",
+   "caption": "Ficus lyrata leaf underside",
+   "author": "NC Cooperative Extension",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8255",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_leaf_veination_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Ficus lyrata leaf veination",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8256",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_fruit__Cerlin_Ng_ccbyncnd2.0.jpg",
+   "caption": "Ficus lyrata fruit",
+   "author": "Cerlin Ng",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "40789",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_lyrata_potted2_K9hvlzYJuNAU.jpeg",
+   "caption": "Ficus lyrata. Potted interiorscape plant.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
  ]
 }

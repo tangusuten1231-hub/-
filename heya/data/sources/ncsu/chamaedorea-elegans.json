@@ -18,7 +18,7 @@
   "Parlour Palm",
   "Reed Palm"
  ],
- "description": "Parlor palm is a solitary, understory member of the palm family (Arecaceae) native to southern Mexico and northern Central America. The genus name is compounded from the Greek chamai- , meaning &ldquo;of the ground,&rdquo; and -dorea , meaning &ldquo;gift.&rdquo; The name references the beauty and low stature of these palms. The Latin epithet means &ldquo;elegant&rdquo; and also highlights the beauty of this species. They need bright indirect light and low to medium humidity levels, though they can tolerate low-light conditions. Try to keep near a north- or east-facing window if possible for optimal light levels. This plant has been shown to remove indoor air pollutants. Overwatering can be a problem, so be sure to plant in well-drained soil and let the soil dry slightly out between waterings. It can tolerate drought and dry soil for short periods, but it grows more lushly in moist soil. Repot only when necessary; generally, every other year is enough. Protect from cold drafts near windows, doors or vents. Plant in a humus-rich houseplant or container mix. Fertilize periodically during the growing season and none in the winter. It is not hazardous for pets. Although this species has a solitary stem, growers frequently put three or more plants in a single pot to give a more lush finished product. Usually, over time, some stems are out-competed and die. Stems can grow up to 5 feet in indoor environments but usually are smaller. It is one of the most sought-after indoor palms because it thrives in interior conditions (dry air, dim light) that other plants cannot tolerate. The leaves spread out attractively. When grown outdoors in a warm climate, it can reach 6 or 7 feet tall and the leaf spread can be up to 3 feet wide. This palm is dioecious, meaning male and female flowers are on separate plants. Consequently, the palm rarely produces fruits, but if you encounter fruits, take care in handling them. The pulp contains crystals that irritate the skin of sensitive individuals. Quick ID Hints : Fine-textured, pinnately compound leaf. Base of the petiole clasps the stem. Stem erect, thin, green. Leaflets are narrow and linear. Insects, Diseases, and Other Plant Problems: Red spider mites and mealybugs are potential insects that can cause problems. Misting and cleaning with a damp cloth can prevent or remove these from the plant. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course offered in partnership with Longwood Gardens.",
+ "description": "Parlor palm is a solitary, understory member of the palm family (Arecaceae) native to southern Mexico and northern Central America. The genus name is compounded from the Greek chamai- , meaning \"of the ground,\" and -dorea , meaning \"gift.\" The name references the beauty and low stature of these palms. The Latin epithet means \"elegant\" and also highlights the beauty of this species. They need bright indirect light and low to medium humidity levels, though they can tolerate low-light conditions. Try to keep near a north- or east-facing window if possible for optimal light levels. This plant has been shown to remove indoor air pollutants. Overwatering can be a problem, so be sure to plant in well-drained soil and let the soil dry slightly out between waterings. It can tolerate drought and dry soil for short periods, but it grows more lushly in moist soil. Repot only when necessary; generally, every other year is enough. Protect from cold drafts near windows, doors or vents. Plant in a humus-rich houseplant or container mix. Fertilize periodically during the growing season and none in the winter. It is not hazardous for pets. Although this species has a solitary stem, growers frequently put three or more plants in a single pot to give a more lush finished product. Usually, over time, some stems are out-competed and die. Stems can grow up to 5 feet in indoor environments but usually are smaller. It is one of the most sought-after indoor palms because it thrives in interior conditions (dry air, dim light) that other plants cannot tolerate. The leaves spread out attractively. When grown outdoors in a warm climate, it can reach 6 or 7 feet tall and the leaf spread can be up to 3 feet wide. This palm is dioecious, meaning male and female flowers are on separate plants. Consequently, the palm rarely produces fruits, but if you encounter fruits, take care in handling them. The pulp contains crystals that irritate the skin of sensitive individuals. Quick ID Hints : Fine-textured, pinnately compound leaf. Base of the petiole clasps the stem. Stem erect, thin, green. Leaflets are narrow and linear. Insects, Diseases, and Other Plant Problems: Red spider mites and mealybugs are potential insects that can cause problems. Misting and cleaning with a damp cloth can prevent or remove these from the plant. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course offered in partnership with Longwood Gardens.",
  "cultivars": [
   {
    "name": "Variegata",
@@ -228,5 +228,79 @@
   "accent",
   "fairy garden",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40848",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_111430_Cham_6ELfDQ4It62b.jpeg",
+   "caption": "Chamaedorea elegans houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "14901",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_elegans__yXSKNvNnhhQ0.jpe",
+   "caption": "Form",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8110",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea-elegans--Forest-and-Kim-Star-1--CC-BY.jpg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8111",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea-elegans--Dick-Culbert--CC-BY.jpg",
+   "caption": "Form",
+   "author": "Dick Culbert",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "14905",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_elegans__WwxYJx3j4IdC.jpeg",
+   "caption": "Form",
+   "author": "Tequila",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "40849",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_111552_Cham_NrlX7IqVhpoX.jpeg",
+   "caption": "Chamaedorea elegans foliage view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "14903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_elegans__yfrzJNuBUlIT.jpeg",
+   "caption": "Leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "14902",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_elegans_YKJRCh4okRjR.jpe",
+   "caption": "flower buds",
+   "author": "JMK",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "8112",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea-elegans--Forest-and-Kim-Star--CC-BY.jpg",
+   "caption": "Inflorescence.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

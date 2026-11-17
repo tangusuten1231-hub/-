@@ -2,6 +2,7 @@
  "id": "philodendron-bipinnatifidum",
  "rank": "species",
  "scientificName": "Philodendron bipinnatifidum",
+ "group": "foliage",
  "names": {
   "ja": "セローム",
   "aliases": [
@@ -91,7 +92,8 @@
   {
    "ja": "暗い場所や水のやりすぎで、葉が小さく切れ込みも少なくなる。",
    "src": "ncsu",
-   "quote": "Low light and over-watering will cause leaves to be smaller with fewer or no lobes."
+   "quote": "Low light and over-watering will cause leaves to be smaller with fewer or no lobes.",
+   "symptom": "leggy"
   }
  ],
  "note": "近年は Thaumatophyllum bipinnatifidum（タウマトフィルム属）に分類されることも多い。"

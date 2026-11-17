@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7262766",
+ "retrieved": "2026-11-17",
+ "query": "Ficus maclellandii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7262766,
+ "acceptedKey": 7262766,
+ "acceptedName": "Ficus maclellandii",
+ "authorship": "King",
+ "rank": "SPECIES",
+ "family": "Moraceae",
+ "genus": "Ficus",
+ "synonyms": [
+  "Ficus rhododendrifolia",
+  "Ficus thorelii",
+  "Urostigma rhododendrifolium"
+ ]
+}

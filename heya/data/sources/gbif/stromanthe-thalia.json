@@ -1,0 +1,26 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2761259",
+ "retrieved": "2026-11-17",
+ "query": "Stromanthe thalia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2761259,
+ "acceptedKey": 2761259,
+ "acceptedName": "Stromanthe thalia",
+ "authorship": "(Vell.) J.M.A.Braga",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Stromanthe",
+ "synonyms": [
+  "Heliconia thalia",
+  "Maranta sanguinea",
+  "Maranta spectabilis",
+  "Phrynium sanguineum",
+  "Stromanthe sanguinea",
+  "Stromanthe spectabilis",
+  "Thalia sanguinea",
+  "Thalia spectabilis"
+ ]
+}

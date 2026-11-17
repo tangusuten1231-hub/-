@@ -1,0 +1,19 @@
+{
+ "id": "ficus-pumila-variegata",
+ "rank": "cultivar",
+ "parent": "ficus-pumila",
+ "cultivar": "Variegata",
+ "names": {
+  "ja": "フィカス・プミラ‘バリエガータ’",
+  "aliases": [
+   "斑入りプミラ"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "小さなハート形の葉に白い縁取り。",
+   "src": "ncsu",
+   "quote": "small, heart-shaped green leaves with wide white margins"
+  }
+ ]
+}

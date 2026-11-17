@@ -221,5 +221,63 @@
   "container plant",
   "poisonous if ingested",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40363",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250402_143108_Spat_kUu0TsbX8wCV.jpeg",
+   "caption": "Spathiphyllum, Peace Lily, houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "21008",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_flfm_0_BmF26fWBWLAa.jpe",
+   "caption": "Flower Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "38435",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_foliag_4SjrK4vvS32Y.jpeg",
+   "caption": "Potted specimen.",
+   "author": "Sherri Barras",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "21231",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_montan_lxGwtE98LWyS.jpe",
+   "caption": "Leaves",
+   "author": "Jerzy Opiola",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "21230",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_montan_zj7lgkSMwkkI.jpeg",
+   "caption": "Flower",
+   "author": "Franz Xaver",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "21228",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_florib_MWVtAG4WmFEo.jpe",
+   "caption": "Flower",
+   "author": "Christopher Hollis",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "21229",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Spathiphyllum_florib_wo9GPEsXEXJK.jpeg",
+   "caption": "Flower",
+   "author": "Salicyna",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
  ]
 }

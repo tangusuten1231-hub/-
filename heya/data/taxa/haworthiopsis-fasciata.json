@@ -1,0 +1,110 @@
+{
+ "id": "haworthiopsis-fasciata",
+ "rank": "species",
+ "scientificName": "Haworthiopsis fasciata",
+ "group": "succulent",
+ "names": {
+  "ja": "ハオルチア・ファスキアータ",
+  "aliases": [
+   "十二の巻",
+   "ハオルチア"
+  ]
+ },
+ "refs": {
+  "ncsu": "haworthiopsis-fasciata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "it prefers bright indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "While the plant is somewhat tolerant of low-light conditions"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "If it receives too much sunlight, it will turn a deep red showing it is stressed or turn white and dry up."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Indoor temperatures of 60 to 80 degrees Fahrenheit are well tolerated",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "the humidity levels found in most homes are adequate"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid overwatering by allowing the soil to dry out completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "模様が薄くなるのは光不足。",
+   "src": "ncsu",
+   "quote": "If the leaf patterns fade, this is the result of inadequate light.",
+   "symptom": "fade"
+  },
+  {
+   "ja": "日が強すぎると赤くなったり、白く干からびたりする。",
+   "src": "ncsu",
+   "quote": "If it receives too much sunlight, it will turn a deep red showing it is stressed or turn white and dry up.",
+   "symptom": "scorch"
+  },
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Excessive watering can cause root rot.",
+   "symptom": "rot"
+  }
+ ],
+ "note": "よく似た Haworthiopsis attenuata と混同・誤表示されることが多い（出典の記載）。"
+}

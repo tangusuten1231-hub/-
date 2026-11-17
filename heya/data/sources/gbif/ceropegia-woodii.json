@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3572767",
+ "retrieved": "2026-11-17",
+ "query": "Ceropegia woodii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3572767,
+ "acceptedKey": 3572767,
+ "acceptedName": "Ceropegia woodii",
+ "authorship": "Schltr.",
+ "rank": "SPECIES",
+ "family": "Apocynaceae",
+ "genus": "Ceropegia",
+ "synonyms": [
+  "Ceropegia barbertonensis",
+  "Ceropegia euryacme",
+  "Ceropegia hastata",
+  "Ceropegia leptocarpa",
+  "Ceropegia schoenlandii"
+ ]
+}

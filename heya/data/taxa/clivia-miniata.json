@@ -1,0 +1,103 @@
+{
+ "id": "clivia-miniata",
+ "rank": "species",
+ "scientificName": "Clivia miniata",
+ "group": "flowering",
+ "names": {
+  "ja": "クンシラン",
+  "aliases": [
+   "君子蘭",
+   "クリビア"
+  ]
+ },
+ "refs": {
+  "ncsu": "clivia-miniata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    15,
+    25
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "morning sun is best"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "the natal lily requires dappled sunlight to deep shade"
+   },
+   {
+    "src": "estimate",
+    "reason": "花を咲かせるには光が必要なため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "morning sun is best"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン9a（屋外で−6℃程度まで）とされ、出典は夜温10℃以下の休眠期間で花つきがよくなるとするため、5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、一般的な室温よりやや低めの範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It is drought tolerant."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬に1〜2か月、夜温10℃以下の休眠期間をつくると花つきがよくなる。",
+   "src": "ncsu",
+   "quote": "it will flower best when given a dormant, rest period of a month or two with nighttime temperatures below 50 degrees",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "水のやりすぎで株元が腐る。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause crown rot.",
+   "symptom": "rot"
+  }
+ ]
+}

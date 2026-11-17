@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/9395407",
+ "retrieved": "2026-11-17",
+ "query": "Haworthiopsis fasciata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 9395407,
+ "acceptedKey": 9395407,
+ "acceptedName": "Haworthiopsis fasciata",
+ "authorship": "(Willd.) G.D.Rowley",
+ "rank": "SPECIES",
+ "family": "Asphodelaceae",
+ "genus": "Haworthiopsis",
+ "synonyms": [
+  "Aloe fasciata",
+  "Apicra fasciata",
+  "Catevala fasciata",
+  "Haworthia fasciata"
+ ]
+}

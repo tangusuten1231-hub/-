@@ -1,0 +1,102 @@
+{
+ "id": "howea-forsteriana",
+ "rank": "species",
+ "scientificName": "Howea forsteriana",
+ "group": "palm",
+ "names": {
+  "ja": "ケンチャヤシ",
+  "aliases": [
+   "ケンティアパーム",
+   "ホーウェア"
+  ]
+ },
+ "refs": {
+  "ncsu": "howea-forsteriana"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Indoors, it requires moderate light and temperatures that are comfortable for people."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "requires little light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "As long as direct sunlight is avoided"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures that are comfortable for people"
+   },
+   {
+    "src": "estimate",
+    "reason": "「人が快適な温度」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "have a track record for surviving low light, dust, central heating"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "a well-drained, humus-rich potting mix that does not dry out"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "暗さ・ほこり・暖房・乾燥など、室内の悪条件に強い。",
+   "src": "ncsu",
+   "quote": "These palms are well suited to containers and have a track record for surviving low light, dust, central heating, rough handling, drought and general neglect."
+  },
+  {
+   "ja": "ハダニ・コナカイガラムシ・カイガラムシがよくつく。",
+   "src": "ncsu",
+   "quote": "Fungal leaf spot, as well as spider mites, mealybugs and scale insects are common issues.",
+   "symptom": "pests"
+  }
+ ]
+}

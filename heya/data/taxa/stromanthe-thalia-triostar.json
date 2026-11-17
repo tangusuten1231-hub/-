@@ -1,0 +1,19 @@
+{
+ "id": "stromanthe-thalia-triostar",
+ "rank": "cultivar",
+ "parent": "stromanthe-thalia",
+ "cultivar": "Triostar",
+ "names": {
+  "ja": "ストロマンテ・トリオスター",
+  "aliases": [
+   "トリオスター"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "緑の葉に白・クリーム・ピンクの斑。葉裏はピンク〜赤紫。",
+   "src": "ncsu",
+   "quote": "green leaves variegated with white, cream, pink"
+  }
+ ]
+}

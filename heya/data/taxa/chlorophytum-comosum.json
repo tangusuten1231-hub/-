@@ -2,6 +2,7 @@
  "id": "chlorophytum-comosum",
  "rank": "species",
  "scientificName": "Chlorophytum comosum",
+ "group": "foliage",
  "names": {
   "ja": "オリヅルラン",
   "aliases": [
@@ -88,7 +89,8 @@
   {
    "ja": "水道水の塩素やフッ素で葉先が枯れることがある。",
    "src": "ncsu",
-   "quote": "Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn."
+   "quote": "Avoid watering with tap water as the chlorine and fluorides can cause leaf tip burn.",
+   "symptom": "brown"
   },
   {
    "ja": "肥料を与えすぎると子株がつきにくくなる。",

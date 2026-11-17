@@ -1,0 +1,102 @@
+{
+ "id": "adenium-obesum",
+ "rank": "species",
+ "scientificName": "Adenium obesum",
+ "group": "succulent",
+ "names": {
+  "ja": "アデニウム",
+  "aliases": [
+   "砂漠のバラ",
+   "アデニウム・オベスム"
+  ]
+ },
+ "refs": {
+  "ncsu": "adenium-obesum"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Grow this plant in full sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なたを勧めるため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Grow this plant in full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Bring this plant indoors when outside temperatures reach 55°F",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯の多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the plant to dry between waterings but water during growing periods"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "decrease water while dormant"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "土が湿りすぎると腐る。",
+   "src": "ncsu",
+   "quote": "Soils that are too wet will produce rots.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "春に肥料を与えると花が咲きやすい。",
+   "src": "ncsu",
+   "quote": "Provide fertilizer in spring to encourage blooming.",
+   "symptom": "noflower"
+  }
+ ]
+}

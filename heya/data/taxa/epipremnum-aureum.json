@@ -2,6 +2,7 @@
  "id": "epipremnum-aureum",
  "rank": "species",
  "scientificName": "Epipremnum aureum",
+ "group": "foliage",
  "names": {
   "ja": "ポトス",
   "aliases": [
@@ -85,7 +86,8 @@
   {
    "ja": "暗い場所では斑が薄くなる。",
    "src": "ncsu",
-   "quote": "Low light can cause loss of variegation."
+   "quote": "Low light can cause loss of variegation.",
+   "symptom": "fade"
   },
   {
    "ja": "つるは水に挿すだけで簡単に根が出る。",

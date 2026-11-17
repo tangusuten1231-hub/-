@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3084036",
+ "retrieved": "2026-11-17",
+ "query": "Rhipsalis baccifera",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3084036,
+ "acceptedKey": 3084036,
+ "acceptedName": "Rhipsalis baccifera",
+ "authorship": "(J.S.Muell.) Stearn",
+ "rank": "SPECIES",
+ "family": "Cactaceae",
+ "genus": "Rhipsalis",
+ "synonyms": [
+  "Cassytha baccifera",
+  "Cereus baccifer",
+  "Cereus bacciferus",
+  "Hariota cassutha",
+  "Hariota cassytha",
+  "Rhipsalis bermejensis",
+  "Rhipsalis cassutha",
+  "Rhipsalis corallioides",
+  "Rhipsalis delphinensis",
+  "Rhipsalis pendula",
+  "Rhipsalis pilosa"
+ ]
+}

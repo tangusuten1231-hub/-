@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4025019",
+ "retrieved": "2026-11-17",
+ "query": "Microsorum musifolium",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4025019,
+ "acceptedKey": 4025019,
+ "acceptedName": "Microsorum musifolium",
+ "authorship": "(Blume) Copel.",
+ "rank": "SPECIES",
+ "family": "Polypodiaceae",
+ "genus": "Microsorum",
+ "synonyms": [
+  "Drynaria musifolia",
+  "Pleopeltis musifolia",
+  "Polypodium musifolium"
+ ]
+}

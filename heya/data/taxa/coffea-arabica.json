@@ -1,0 +1,105 @@
+{
+ "id": "coffea-arabica",
+ "rank": "species",
+ "scientificName": "Coffea arabica",
+ "group": "foliage",
+ "names": {
+  "ja": "コーヒーノキ",
+  "aliases": [
+   "コーヒーの木",
+   "アラビカコーヒー"
+  ]
+ },
+ "refs": {
+  "ncsu": "coffea-arabica"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    21,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "with bright light and high humidity"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は屋外では半日陰を好むとするため、強い日差しは避け朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "and leaf drop can occur at temperatures below 55°F.",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Plants prefer daytime temperatures of 70 to 80°F",
+    "fahrenheit": [
+     70,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "with bright light and high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "13℃（55°F）を下回ると葉が落ちることがある。",
+   "src": "ncsu",
+   "quote": "leaf drop can occur at temperatures below 55°F",
+   "symptom": "drop"
+  },
+  {
+   "ja": "植えて3〜4年で、白い香りのよい花が咲く。",
+   "src": "ncsu",
+   "quote": "Three to four years after initial planting, small white fragrant blooms will appear from late spring to early summer."
+  }
+ ]
+}
