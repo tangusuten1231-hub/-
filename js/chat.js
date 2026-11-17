@@ -1,7 +1,7 @@
 // 「ツピに聞く」：質問の言葉から話題を読み取り、気候・庭・記録・天気予報をもとに答えを組み立てる。
 // 生成AIではなく、決まった話題に答える仕組み。
 import { PLANTS } from './plants.js';
-import { evaluate, bloomGaps, buildTasks, findPlants, sowAdvice, localMonth, LEVEL, relayText } from './garden.js';
+import { evaluate, bloomGaps, buildTasks, findPlants, sowAdvice, localMonth, GRADE, relayText } from './garden.js';
 import { PESTS, pestsForPlant, pestTasks } from './pests.js';
 import { describe, companions, bloomText } from './describe.js';
 import { formatDoy, humidityStress } from './climate.js';
@@ -102,7 +102,7 @@ export function reply(text, ctx) {
     const d = describe(plant);
     const ev = c ? evaluate(plant, c) : null;
     const inGarden = plants.some((x) => x.id === plant.id);
-    const head = `<p><b>${esc(plant.ja)}</b>${inGarden ? `（${esc(gname)}に植えているね）` : ''}${ev?.level ? `　この地域では <b>${LEVEL[ev.level].mark} ${LEVEL[ev.level].label}</b> だよ。` : ''}</p>`;
+    const head = `<p><b>${esc(plant.ja)}</b>${inGarden ? `（${esc(gname)}に植えているね）` : ''}${ev?.grade ? `　この地域では <b>${GRADE[ev.grade].mark} ${GRADE[ev.grade].ja}</b> だよ。` : ''}</p>`;
     const actions = [{ label: '図鑑で見る', find: plant.groupJa }];
     if (/切り戻|剪定|切る|刈|摘心/.test(q)) return { html: head + p1(esc(d[2].t)), actions, chips: [`${strip(plant.groupJa)}の病気や虫は？`] };
     if (/株分け|ふやし|増やし/.test(q)) return { html: head + p1(esc(d[2].t)) + (plant.uses?.includes('seed') ? p1('種でもふやせるよ。花がらを残して、茶色く乾いたら採ろう。') : ''), actions, chips: [] };

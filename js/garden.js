@@ -10,34 +10,68 @@ export const LEVEL = {
 };
 
 /**
+ * 地域への生育適性（6段階）。すべて図鑑の値（耐寒ゾーン・ヒートゾーン・高温多湿への強さ・低温要求・手間いらず）と
+ * 場所の気象データ（ゾーン・ヒートゾーン・熱帯夜・いちばん寒い月の平均気温）から決める。
+ */
+export const GRADE = {
+  6: { ja: '簡単に育つ', mark: '◎', note: '「よく育つ」の条件を満たし、図鑑で「手間いらず」の丈夫な植物' },
+  5: { ja: 'よく育つ', mark: '◎', note: '冬の寒さ・冬の暖かさ・夏の暑さ・蒸れのどれも、植物の限界に近くない' },
+  4: { ja: '育つ', mark: '○', note: '育つが、夏の暑さ・蒸れ・冬の暖かさ・冬の低温のうち1つが植物の限界に近い' },
+  3: { ja: '育ちにくい', mark: '△', note: '耐寒性が限界に近い（冬の寒さが耐寒ゾーンの下限から半ゾーン以内）、または限界に近い条件が2つ以上ある' },
+  2: { ja: '育てるには工夫が必要', mark: '△', note: 'このままでは育たないが、鉢で冬に取り込む・防寒・球根の冷蔵処理・夏の日よけなどで育てられる' },
+  1: { ja: '育てられない', mark: '×', note: '気候が植物の限界を大きく超えていて、工夫しても育てるのが難しい' },
+};
+/** 6段階 → 3段階（◎ よく育つ / ○ 工夫すれば育つ / △ 難しい）。プランや他の画面で使う */
+export const levelOfGrade = (g) => (g >= 4 ? 3 : g === 3 ? 2 : 1);
+
+/**
  * 地域の気候に対する植物の適性。
- * level 1（△ 難しい）は、プランの候補から外すハードフィルター（fit.js の hardFails）と同じ基準。
- * 図鑑・マイ庭・プランで判定が食い違わないよう、ここでも同じ関数を使う。
+ * grade：6段階（GRADE）。grade 2 以下は、プランの候補から外すハードフィルター（fit.js の hardFails）に当たる植物。
+ * level：3段階（LEVEL）。図鑑・マイ庭・プランで判定が食い違わないよう、どれもこの関数を使う。
+ * tips：「工夫が必要」の植物で、育てるための具体的な工夫
  */
 export function evaluate(plant, climate) {
-  if (!climate) return { level: null, reasons: [] };
+  if (!climate) return { level: null, grade: null, reasons: [], tips: [] };
   const site = siteOf(climate);
   const t = plant.fit || climateTraits(plant);
   const annual = plant.type === 'annual';
   const fails = hardFails(plant, climate, site);
   const reasons = fails.map((f) => f.text);
+  const tips = [];
   const deepSnow = climate.annualSnow >= 100;
-  let level = fails.length ? 1 : 3;
+  let grade;
   if (fails.length) {
-    const onlyCold = fails.every((f) => f.key === 'cold');
-    if (onlyCold && plant.tender) reasons.push('鉢植えにして、冬は室内や軒下に取り込めば育てられます');
-    else if (onlyCold && deepSnow && ['herb', 'bulb', 'fern', 'grass'].includes(plant.type) && site.zone >= t.hardinessZoneMin - 1) reasons.push(`雪の多い地域（年${climate.annualSnow}cm）では、雪の下で冬を越せることもあります（保証はできません）`);
+    // 外れた理由が、すべて工夫で補えるものか
+    const fix = (f) => {
+      if (f.key === 'cold' && plant.tender) return '鉢植えにして、冬は室内や軒下に取り込めば育てられる';
+      if (f.key === 'cold' && site.zone >= t.hardinessZoneMin - 1) {
+        return deepSnow && ['herb', 'bulb', 'fern', 'grass'].includes(plant.type)
+          ? `冬は株元を腐葉土などで厚くマルチングする。雪の多い地域（年${climate.annualSnow}cm）では、雪の下で冬を越せることもある`
+          : '冬は株元を腐葉土やバークで厚くマルチングし、寒波の夜は不織布で覆う（耐寒ゾーン1つ分の寒さまでの目安）';
+      }
+      if (f.key === 'chill' && plant.type === 'bulb') return '球根を冷蔵庫（5℃前後）で8週間ほど冷やしてから植える（冷蔵処理）。花後は毎年植え替える';
+      if (f.key === 'humid' && site.stress === 2) return '高植えや砂利マルチで水はけをよくし、梅雨前に切り戻して風通しを確保する';
+      if (f.key === 'heat' && annual && plant.sow === 'cool') return '秋に種をまき、暑くなる前に咲き終える一年草として育てる';
+      if (f.key === 'heat' && site.heat === t.heatZoneMax + 1) return '夏は午後に日陰になる場所に植える（鉢なら夏は涼しい半日陰へ移す）';
+      return null;
+    };
+    const fixes = fails.map(fix);
+    if (fixes.every(Boolean)) { grade = 2; tips.push(...new Set(fixes)); reasons.push(...tips.map((x) => `工夫：${x}`)); } else grade = 1;
   } else {
-    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { level = 2; reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護'); }
-    if (!annual && site.zoneInt > t.hardinessZoneMax) { level = 2; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
-    if (t.heatZoneMax != null && site.heat === t.heatZoneMax) reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心');
-    if (t.heatHumidityTolerance === 'weak' && site.stress === 1) reasons.push('蒸れに弱い。水はけをよくし梅雨前に透かす');
-    else if (t.heatHumidityTolerance === 'normal' && site.stress === 3) reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保');
-    if (t.chillRequirement === 'high' && site.coldMonth != null && site.coldMonth > 7) reasons.push('冬の低温が少なめの地域。年々花が減るときは植え替えを');
+    let edges = 0, hardEdge = false;
+    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { hardEdge = true; reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護'); }
+    // 冬の暖かさの上限は、米国の資料では夏の暑さも含めて決められていることが多い（暑さは別に判定）ので、限界に近い条件の1つとして数える
+    if (!annual && site.zoneInt > t.hardinessZoneMax) { edges++; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
+    if (t.heatZoneMax != null && site.heat === t.heatZoneMax) { edges++; reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心'); }
+    if (t.heatHumidityTolerance === 'weak' && site.stress === 1) { edges++; reasons.push('蒸れに弱い。水はけをよくし梅雨前に透かす'); }
+    else if (t.heatHumidityTolerance === 'normal' && site.stress === 3) { edges++; reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保'); }
+    if (!annual && t.chillRequirement === 'high' && site.coldMonth != null && site.coldMonth > 7) { edges++; reasons.push('冬の低温が少なめの地域。年々花が減るときは植え替えを'); }
+    grade = hardEdge || edges >= 2 ? 3 : edges === 1 ? 4 : plant.tags?.includes('easy') ? 6 : 5;
+    if (grade >= 5) reasons.push(grade === 6 ? '丈夫で手間がかからず、この地域の寒さ・暑さにも余裕がある' : annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに余裕をもって合っています');
   }
-  if (level === 3 && !reasons.length) reasons.push(annual ? 'この地域で育てやすい一年草です' : 'この地域の寒さ・暑さに合っています');
+  const level = levelOfGrade(grade);
   if (annual && level > 1) reasons.push(sowAdvice(plant, climate));
-  return { level, reasons, fails };
+  return { level, grade, gradeJa: GRADE[grade].ja, reasons, fails, tips };
 }
 
 /** 一年草の種まき時期（地域の気候から） */
@@ -69,7 +103,16 @@ export function findPlants(climate, f = {}) {
     .filter((p) => !f.q || (p.ja + p.latin + (p.groupJa || '') + (p.family?.ja || '') + (p.family?.latin || '') + (p.aka || []).join('')).toLowerCase().includes(f.q.toLowerCase()))
     .map((p) => ({ plant: p, ...evaluate(p, climate) }))
     .filter((r) => !f.minLevel || r.level == null || r.level >= f.minLevel)
-    .sort((a, b) => (b.level ?? 0) - (a.level ?? 0) || a.plant.ja.localeCompare(b.plant.ja, 'ja'));
+    .filter((r) => gradeMatch(r.grade, f.grade))
+    .sort((a, b) => (b.grade ?? 0) - (a.grade ?? 0) || a.plant.ja.localeCompare(b.plant.ja, 'ja'));
+}
+
+/** 育てやすさの条件：'6'〜'1'（その段階だけ）または 'ge5' など（その段階以上）。場所が未設定（grade なし）のときは絞り込まない */
+export function gradeMatch(grade, cond) {
+  if (!cond || grade == null) return true;
+  const m = String(cond).match(/^(ge)?([1-6])$/);
+  if (!m) return true;
+  return m[1] ? grade >= Number(m[2]) : grade === Number(m[2]);
 }
 
 export function heightClass(p) {

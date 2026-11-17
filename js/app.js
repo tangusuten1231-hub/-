@@ -39,7 +39,7 @@ import { visitors, friendSVG, FRIENDS, FRIEND_EXTRA, friendLevel, FRIEND_LEVELS 
 import { tsupiLine } from './tsupiwords.js';
 import { INGREDIENTS, MOODS, TEA_RECIPES, teaStatus, teaIngredientsFor, teaCupSVG, ingOwned } from './tea.js';
 import {
-  LEVEL, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
+  LEVEL, GRADE, findPlants, evaluate, heightClass, HEIGHT_LABEL, bloomGaps, plantsPerSqm,
   buildTasks, TASK_KIND, localMonth, plantingTime, monthsJa, scheduleSteps, relayText, fillSuggestions, coldTemp, sunHours, soilPH,
 } from './garden.js';
 
@@ -78,7 +78,7 @@ const state = {
   gardenId: store.get('gardenId', null),
   loc: store.get('loc', null),
   climate: null,
-  filters: { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', sort: 'fit', view: 'list', ...store.get('filters', {}) },
+  filters: { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', grade: '', sort: 'fit', view: 'list', ...store.get('filters', {}) },
   planInput: { style: 'border', ...store.get('planInput', { text: '', width: 3, depth: 1.2, view: 'border', sun: 'full', moist: '', budget: '', seed: 0 }) },
   plan: null,
   planMonth: null,
@@ -489,7 +489,7 @@ function initFilters() {
     if (b) { state.filters.view = b.dataset.v; saveFilters(); }
   });
   $('#fReset').addEventListener('click', () => {
-    Object.assign(state.filters, { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', role: '', origin: '' });
+    Object.assign(state.filters, { sun: '', moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', role: '', origin: '', grade: '' });
     saveFilters();
   });
   $('#fColor').innerHTML = Object.entries(COLORS).map(([k, c]) => `<button type="button" class="chip" data-v="${k}"><span class="dot" style="background:${c.hex}"></span>${c.ja}</button>`).join('');
@@ -513,7 +513,17 @@ function initFilters() {
   fMonth.addEventListener('change', () => { f.month = fMonth.value; saveFilters(); });
   $('#fQ').addEventListener('input', (e) => { f.q = e.target.value; saveFilters(); });
   $('#fShowHard').addEventListener('change', (e) => { state.showHard = e.target.checked; renderPlants(); });
+  $('#fGrade').addEventListener('change', (e) => { f.grade = e.target.value; saveFilters(); });
+  $('#gradeHelp').innerHTML = [6, 5, 4, 3, 2, 1].map((g) => `<li><span class="gr gr-${g}">${GRADE[g].ja}</span>${esc(GRADE[g].note)}</li>`).join('')
+    + '<li class="gh-src">場所の気象データ（耐寒ゾーン・ヒートゾーン・熱帯夜・いちばん寒い月の気温）と、図鑑の植物ごとの値（耐寒ゾーン・ヒートゾーン・蒸れへの強さ・冬の低温の必要・手間いらず）で決めています。</li>';
 }
+/** 育てやすさの絞り込みの選択肢（件数つき）。byGrade：段階 → その段階の品種がある種（group）の集合 */
+const GRADE_OPTS = [['', 'すべて'], ['ge5', 'よく育つ以上（簡単に育つ・よく育つ）'], ['ge4', '育つ以上'], ['6'], ['5'], ['4'], ['3'], ['2'], ['1']];
+function gradeOptions(byGrade) {
+  const n = (v) => { if (!byGrade) return ''; const m = String(v).match(/^(ge)?(\d)$/); if (!m) return ''; const u = new Set(); for (const [g, set] of Object.entries(byGrade)) if (m[1] ? +g >= +m[2] : +g === +m[2]) set.forEach((x) => u.add(x)); return `（${u.size}種）`; };
+  return GRADE_OPTS.map(([v, ja]) => `<option value="${v}">${ja || GRADE[v].ja}${n(v)}</option>`).join('');
+}
+const gradeBadge = (r, short = false) => (r.grade ? `<span class="lv gr gr-${r.grade}" title="${esc(GRADE[r.grade].note)}">${GRADE[r.grade].mark} ${short && r.grade === 2 ? '工夫が必要' : GRADE[r.grade].ja}</span>` : '');
 function saveFilters() { store.set('filters', state.filters); renderPlants(); }
 
 const noBloomJa = (p) => (p.harvest?.length ? '花は観賞対象外（収穫を楽しむ）' : '花は観賞対象外（葉を楽しむ）');
@@ -532,10 +542,10 @@ function plantCard(rs) {
   const south = state.climate?.south;
   const inGarden = state.garden.includes(p.id);
   const multi = p.cvCount > 1;
-  const lv = r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark} ${LEVEL[r.level].label}</span>` : '';
+  const lv = gradeBadge(r);
   const chips = multi ? `<div class="cv-row">
       <span class="label" style="margin:0">品種 ${rs.length < p.cvCount ? `（条件に合う ${rs.length}/${p.cvCount}）` : `（${p.cvCount}）`}</span>
-      <div class="chips">${rs.map((x) => `<button type="button" class="chip cv${x.plant.id === p.id ? ' on' : ''}" data-cv="${x.plant.id}" data-group="${group}"><span class="dot" style="background:${COLORS[x.plant.color[0]].hex}"></span>${esc(x.plant.cv)}${x.level && x.level < 3 ? ` <small>${LEVEL[x.level].mark}</small>` : ''}${state.garden.includes(x.plant.id) ? ' ✓' : ''}</button>`).join('')}</div>
+      <div class="chips">${rs.map((x) => `<button type="button" class="chip cv${x.plant.id === p.id ? ' on' : ''}" data-cv="${x.plant.id}" data-group="${group}"><span class="dot" style="background:${COLORS[x.plant.color[0]].hex}"></span>${esc(x.plant.cv)}${x.grade && x.grade < 5 ? ` <small>${GRADE[x.grade].mark}</small>` : ''}${state.garden.includes(x.plant.id) ? ' ✓' : ''}</button>`).join('')}</div>
     </div>` : '';
   return `<article class="plant" data-card="${group}">
     ${photoHtml(p)}
@@ -553,7 +563,7 @@ function plantCard(rs) {
     <div class="famline">${esc(p.family.ja)}・${esc(p.tags.includes('veg') && p.harvest ? (p.type === 'annual' ? '野菜' : '野菜（多年草）') : TYPE_JA[p.type] || '')}${p.tags.includes('native') ? '・日本の在来種' : ''}${p.tags.includes('herb') ? '・ハーブ' : ''}</div>
     ${p.soc ? `<p class="soc-line">${icon('leaf', 14)}植え方の目安：<b>${esc(SOC_JA[p.soc])}</b></p>` : ''}
     <div class="rolerow">${(p.roles || []).map((k) => `<button type="button" class="role-chip" data-role="${k}" title="${esc(ROLES[k].text)}">${esc(ROLES[k].ja)}</button>`).join('')}${(p.origin || []).map((o) => `<button type="button" class="origin-chip" data-region="${o}">${icon('pin', 13)}${esc(REGIONS[o].ja)}</button>`).join('')}</div>
-    ${r.level ? `<ul class="reasons">${r.reasons.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    ${r.level ? `<ul class="reasons">${r.reasons.map((t) => (t.startsWith('工夫：') ? `<li class="tip"><b>工夫</b>${esc(t.slice(3))}</li>` : `<li>${esc(t)}</li>`)).join('')}</ul>` : ''}
     ${monthBar(p, south)}
     <div class="meta">
       <span>草丈 ${p.h[0]}〜${p.h[1]}cm</span>
@@ -613,7 +623,18 @@ function renderPlants(keepPage = false) {
   if (!keepPage) state.shown = PAGE;
 
   const all = findPlants(state.climate, f);
-  const list = state.showHard ? all : all.filter((r) => r.level !== 1);
+  // 育てやすさの選択肢：ほかの条件で絞り込んだうえでの、段階ごとの種の数
+  const fg = $('#fGrade');
+  $('#fGradeBox').hidden = !state.climate;
+  if (state.climate) {
+    const byGrade = {};
+    for (const r of findPlants(state.climate, { ...f, grade: '' })) (byGrade[r.grade] = byGrade[r.grade] || new Set()).add(r.plant.group);
+    fg.innerHTML = gradeOptions(byGrade);
+    fg.value = f.grade || '';
+  }
+  // 「工夫が必要」「育てられない」は、表示を選んだときか、育てやすさでその段階を選んだときだけ表示
+  const pickedLow = /^[12]$/.test(f.grade || '');
+  const list = state.showHard || pickedLow ? all : all.filter((r) => r.level !== 1);
   const groups = new Map();
   for (const r of list) {
     if (!groups.has(r.plant.group)) groups.set(r.plant.group, []);
@@ -624,7 +645,7 @@ function renderPlants(keepPage = false) {
   const arr = sortGroups([...groups.values()], f.sort);
   const hiddenGroups = new Set(all.map((r) => r.plant.group)).size - arr.length;
   $('#plantCount').textContent = (state.climate ? '' : '※ 場所を設定すると、地域に合うかどうかを判定します。 ')
-    + `${arr.length}種・${list.length}品種${hiddenGroups > 0 ? `（育てにくい${hiddenGroups}種を非表示）` : ''}${f.role ? `・役割「${ROLES[f.role].ja}」で絞り込み中` : ''}`;
+    + `${arr.length}種・${list.length}品種${f.grade ? `・育てやすさ「${f.grade.startsWith('ge') ? GRADE_OPTS.find((o) => o[0] === f.grade)[1].replace(/（.*）/, '') : GRADE[f.grade].ja}」` : ''}${hiddenGroups > 0 ? `（工夫が必要・育てられない${hiddenGroups}種を非表示）` : ''}${f.role ? `・役割「${ROLES[f.role].ja}」で絞り込み中` : ''}`;
   const shown = arr.slice(0, state.shown);
   const asList = (f.view || 'list') === 'list';
   let lastFam = '';
@@ -3695,7 +3716,7 @@ function plantRow(rs) {
       <span class="psub">${esc(p.family.ja)}・${esc(p.tags.includes('veg') && p.harvest ? '野菜' : TYPE_JA[p.type] || '')}${multi ? `・${rs.length < p.cvCount ? `${rs.length}/` : ''}${p.cvCount}品種` : ''}・${p.h[0]}〜${p.h[1]}cm</span>
       ${monthBar(p, state.climate?.south)}
     </span>
-    ${r.level ? `<span class="lv lv-${r.level}">${LEVEL[r.level].mark}</span>` : ''}
+    ${gradeBadge(r, true)}
   </button>`;
 }
 document.addEventListener('click', (e) => {

@@ -88,6 +88,11 @@
             <button type="button" data-v="wet">湿りぎみ</button>
           </div>
         </div>
+        <div class="field" id="fGradeBox">
+          <label class="label" for="fGrade">この地域での育てやすさ</label>
+          <select id="fGrade" data-filter="grade"></select>
+          <details class="grade-help"><summary>6段階の決め方</summary><ul id="gradeHelp"></ul></details>
+        </div>
         <details class="more">
           <summary>さらに絞り込む</summary>
           <div class="field">
@@ -119,7 +124,7 @@
           <label class="field"><span class="label">植栽での役割（グラウンドカバー・縁取りなど）</span><select id="fRole"></select></label>
           <button type="button" class="btn small" id="fReset">条件をリセット</button>
         </details>
-        <label class="toggle"><input type="checkbox" id="fShowHard"> 育てにくい植物（△）も表示</label>
+        <label class="toggle"><input type="checkbox" id="fShowHard"> 「工夫が必要」「育てられない」植物も表示</label>
       </div>
       <div class="listbar">
         <select id="fSort" aria-label="並び順">

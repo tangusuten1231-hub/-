@@ -65,3 +65,25 @@ test('プラン：違反0件・見ごろの月がピーク・理由は実デー�
   const share = [...a].filter((g) => sets[0].has(g)).length / ((a.size + sets[0].size) / 2);
   assert.ok(share >= 0.3 && share <= 0.75, `同条件2プランの共通 ${Math.round(share * 100)}%`);
 });
+
+test('育てやすさの6段階：決め方と図鑑の絞り込み', async () => {
+  const { GRADE, gradeMatch, findPlants } = await import('../js/garden.js');
+  assert.deepEqual(Object.keys(GRADE).map(Number).sort(), [1, 2, 3, 4, 5, 6]);
+  for (const c of [ASAHI, SAPPORO, NAHA]) for (const p of PLANTS) {
+    const r = evaluate(p, c);
+    assert.ok(r.grade >= 1 && r.grade <= 6, p.id);
+    assert.equal(r.grade <= 2, hardFails(p, c).length > 0, p.id); // 工夫が必要・育てられない ＝ プランの候補から外れる植物
+    if (r.grade === 6) assert.ok(p.tags.includes('easy'), p.id);
+    if (r.grade === 2) assert.ok(r.tips.length, p.id);
+  }
+  assert.equal(evaluate(P('pelargonium'), SAPPORO).grade, 2); // 鉢で取り込めば育つ
+  assert.equal(evaluate(P('tulipa'), NAHA).grade, 1);
+  assert.equal(evaluate(P('echinacea'), ASAHI).grade, 6);
+  assert.ok(gradeMatch(5, 'ge4') && !gradeMatch(3, 'ge4') && gradeMatch(2, '2') && !gradeMatch(2, '1') && gradeMatch(1, ''));
+  const easy = findPlants(ASAHI, { grade: '6' });
+  assert.ok(easy.length && easy.every((r) => r.grade === 6));
+  const ge4 = findPlants(SAPPORO, { grade: 'ge4' });
+  assert.ok(ge4.every((r) => r.grade >= 4));
+  const all = findPlants(NAHA, {});
+  for (let i = 1; i < all.length; i++) assert.ok(all[i - 1].grade >= all[i].grade); // おすすめ順は育てやすい順
+});

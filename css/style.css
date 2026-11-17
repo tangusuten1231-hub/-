@@ -1507,3 +1507,17 @@ h1, h2, h3, h4 { line-break: strict; }
 .sel-why { font-size: .74rem; color: var(--muted, #6b6b5f); margin: 4px 0; line-height: 1.5; }
 .sel-why b { color: var(--accent); margin-right: 6px; font-weight: 700; }
 .sel-why.challenge b { color: #9a4a1c; }
+/* 育てやすさ（6段階） */
+.gr-6, .gr-5 { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.gr-6 { background: color-mix(in srgb, var(--good) 26%, transparent); }
+.gr-4 { background: color-mix(in srgb, var(--good) 9%, transparent); color: color-mix(in srgb, var(--good) 75%, var(--ink, #333)); }
+.gr-3 { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+.gr-2 { background: color-mix(in srgb, var(--bad) 10%, transparent); color: color-mix(in srgb, var(--bad) 70%, var(--warn)); }
+.gr-1 { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.grade-help { margin-top: 6px; font-size: .78rem; }
+.grade-help summary { cursor: pointer; color: var(--accent); }
+.grade-help ul { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
+.grade-help li { line-height: 1.5; }
+.grade-help .gr { display: inline-block; border-radius: 999px; padding: 0 8px; margin-right: 6px; font-weight: 700; font-size: .72rem; }
+.grade-help .gh-src { color: var(--muted, #6b6b5f); }
+.reasons li.tip b { color: var(--accent); margin-right: 6px; }

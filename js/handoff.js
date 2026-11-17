@@ -2,7 +2,7 @@
 // このアプリからAIのサービスに接続することはなく、APIキーも課金の仕組みも持たない。
 import { PLANTS, COLORS } from './plants.js';
 import { TYPE_JA } from './meta.js';
-import { evaluate, buildTasks, localMonth, LEVEL } from './garden.js';
+import { evaluate, buildTasks, localMonth, GRADE } from './garden.js';
 import { pestsForPlant, pestTasks, regionRisks } from './pests.js';
 import { describe, bloomText } from './describe.js';
 import { formatDoy } from './climate.js';
@@ -95,7 +95,7 @@ function plantFacts(question, ctx) {
   const ev = ctx.climate ? evaluate(p, ctx.climate) : null;
   const pests = pestsForPlant(p, ctx.climate).slice(0, 3).map(({ pest }) => pest.ja);
   return `\n# 質問に出てくる植物の図鑑データ\n・${p.ja}（${p.latin}、${p.family.ja}、${TYPE_JA[p.type]}）\n・草丈 ${p.h[0]}〜${p.h[1]}cm、開花 ${bloomText(p.bloom) || 'なし'}、花色 ${p.color.map((c) => COLORS[c].ja).join('・')}\n`
-    + (ev?.level ? `・この地域での適性：${LEVEL[ev.level].mark} ${LEVEL[ev.level].label}（${ev.reasons.join('。')}）\n` : '')
+    + (ev?.grade ? `・この地域での育てやすさ：${GRADE[ev.grade].ja}（${ev.reasons.join('。')}）\n` : '')
     + `・育て方：${d[1].t}\n・手入れ：${d[2].t}\n${pests.length ? `・注意したい病害虫：${pests.join('、')}\n` : ''}`;
 }
 
