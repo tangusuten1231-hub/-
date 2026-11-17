@@ -4,7 +4,7 @@ import { pestsForPlant, regionRisks, pestTasks, KIND_ICON, RISK_JA } from './pes
 import { guideSteps } from './guide.js';
 import { SOC_JA } from './designer.js';
 import { SYMPTOMS, diagnose } from './doctor.js';
-import { horizonFn, sunReport, angleOf, sunPath } from './suncheck.js';
+import { horizonFn, sunReport, angleOf, sunPath, sunWindows, sunNow, lightToday, luxJa, plantFit, clockJa } from './suncheck.js';
 import { INAT_GROUPS, fetchNearby, matchLocal } from './inat.js';
 import { mergeLog, pastDaysNeeded, lastDays, logSummary, compareJa } from './wxlog.js';
 import { seedlings, bedSoil, potLiters, potSoil, fertilizer, liquid, mulch, toICS, firstSaturday, waterAdvice } from './tools.js';
@@ -19,7 +19,7 @@ import { TYPE_JA, USES, FAMILY } from './meta.js';
 import { ideasFor, RECIPES, plantsForNeed } from './enjoy.js';
 import { icon, tsupi, tsupiSays, TASK_ICON, PEST_ICON, MONTHLY_WORDS } from './mascot.js';
 import { art, ART_BY_ICON, ART_BY_RECIPE, MONTH_OLD, SEASON_EN, sekkiOf } from './art.js';
-import { fetchForecast, weatherAdvice, weatherIcon, md } from './weather.js';
+import { fetchForecast, fetchLight, weatherAdvice, weatherIcon, md } from './weather.js';
 import { listNotes, saveNote, deleteNote, shrinkImage, requestPersist, storageInfo, exportAll, importAll, saveFile, listPhotos, savePhoto, deletePhoto, svgToPngBlob } from './db.js';
 import { describe, companions } from './describe.js';
 import { EVENTS, EVENT_GROUPS, insights, actualBloom, yearStats } from './diary.js';
@@ -305,6 +305,8 @@ function render() {
     $('#gardenBox').hidden = t !== 'plants';
     $('#journalBox').hidden = t !== 'diary';
     $('#backupBox').hidden = t !== 'data';
+    $('#sunBox').hidden = t !== 'sun';
+    if (t === 'sun') renderSunSpots();
     if (t === 'diary') renderJournal();
     if (t === 'data') renderBackup();
   }
@@ -1405,19 +1407,23 @@ function skyChartSVG(lat, points) {
     <div class="legend">${days.map(([, , col, n]) => `<span><i style="background:${col}"></i>${n}</span>`).join('')}<span><i style="background:#8a7a5a"></i>建物・木などで空が見えない部分</span></div>
     <p class="hint">真上から見た空の図です。中心が真上、外側の円が地平線。太い線は日が当たる時間、点線は障害物の陰になる時間です。</p>`;
 }
-function openSunCheck() {
-  const lat = state.loc?.lat ?? 35.7;
-  const st = { points: [], sensor: null, heading: null, alt: null, manual: Object.fromEntries(DIR8.map(([, az]) => [az, 0])) };
+function openSunCheck(opts = {}) {
+  const lat = state.loc?.lat ?? 35.7, lon = state.loc?.lon ?? 139.7;
+  const g = activeGarden();
+  const spot = opts.spotId ? (g.sunSpots || []).find((x) => x.id === opts.spotId) : null;
+  const st = { points: spot && spot.mode !== 'manual' ? [...spot.points] : [], sensor: null, heading: null, alt: null, manual: Object.fromEntries(DIR8.map(([, az]) => [az, spot?.mode === 'manual' ? (spot.points.find((p) => p.az === az)?.alt ?? 0) : 0])), check: [...(spot?.plants || [])] };
+  const fromPlan = opts.from === 'plan';
   const SUN_JA = { full: '日向', part: '半日陰', shade: '日陰' };
   openSheet(`${icon('sun', 19)} 日当たりチェッカー`, `<div class="suncheck">
     <p class="hint">植えたい場所に立ち、まわりの建物・塀・木の「てっぺん」の方向と高さを記録すると、太陽の通り道と重ねて、季節ごとの日照時間を計算します（${state.loc ? esc(state.loc.name) + 'の緯度' : '緯度 35.7°'}で計算）。</p>
-    <div class="seg small" id="scMode"><button type="button" data-v="sensor" class="on">スマホのセンサーで測る</button><button type="button" data-v="manual">方位ごとに入力する</button></div>
-    <div id="scSensor">
+    ${spot ? `<p class="sc-spot">${icon('pin', 15)}<b>${esc(spot.name)}</b>（${esc(dateJa(spot.date))}に測定）</p>` : ''}
+    <div class="seg small" id="scMode"><button type="button" data-v="sensor" class="${spot?.mode === 'manual' ? '' : 'on'}">スマホのセンサーで測る</button><button type="button" data-v="manual" class="${spot?.mode === 'manual' ? 'on' : ''}">方位ごとに入力する</button></div>
+    <div id="scSensor"${spot?.mode === 'manual' ? ' hidden' : ''}>
       <div class="sc-cam"><video id="scVideo" playsinline autoplay muted></video><div class="sc-cross"></div><p class="sc-read" id="scRead">「センサーを使う」を押してください</p></div>
       <div class="row"><button type="button" class="btn" id="scStart">${icon('pin', 15)}センサーを使う</button><button type="button" class="btn primary" id="scAdd" disabled>${icon('plus', 15)}障害物のてっぺんを記録</button></div>
       <p class="hint">スマホを縦に持ち、カメラを障害物の上の端（屋根・塀・木のてっぺん）に向けて「記録」。左右に少しずつ向きを変えながら、空が隠れている範囲をなぞるように何点か記録します。空が開けている方向は記録しなくてかまいません。</p>
     </div>
-    <div id="scManual" hidden>
+    <div id="scManual"${spot?.mode === 'manual' ? '' : ' hidden'}>
       <p class="hint">方位ごとに、いちばん高く見える障害物を選びます。高さと距離がわかるときは数字で入れると正確です。</p>
       <div class="sc-dirs">${DIR8.map(([n, az]) => `<div class="sc-dir"><b>${n}</b><select data-scaz="${az}"><option value="0">開けている</option><option value="10">遠くに建物・低い塀</option><option value="25">2階建てくらいが少し離れて</option><option value="40">2階建てくらいがすぐ近く</option><option value="60">高い建物・大きな木がすぐ近く</option></select>
         <span class="sc-hd"><input type="number" min="0" step="0.5" placeholder="高さm" data-sch="${az}" inputmode="decimal"><input type="number" min="0" step="0.5" placeholder="距離m" data-scd="${az}" inputmode="decimal"></span></div>`).join('')}</div>
@@ -1435,15 +1441,97 @@ function openSunCheck() {
       <div class="tile"><div class="k">冬至のころ</div><div class="v">${r.winter}<small>時間</small></div><div class="s">冬は太陽が低く、影が長くなる</div></div></div>
       <div class="scroll-x"><table class="data sc-months"><tr>${r.months.map((x) => `<th>${x.m}月</th>`).join('')}</tr><tr>${r.months.map((x) => `<td>${x.hours}</td>`).join('')}</tr></table></div>
       <p class="hint">日向＝生育期に1日6時間以上、半日陰＝3〜6時間、日陰＝3時間未満。木の葉の茂りぐあいや、照り返しは計算に入っていません。</p>
-      <div class="row"><button type="button" class="btn primary" id="scUse">${icon('plan', 15)}「${SUN_JA[r.sun]}」としてプランに使う</button></div>`;
-    $('#scUse').onclick = () => { state.planInput.sun = r.sun; store.set('planInput', state.planInput); syncPlanSegs(); closeSheet(); toast(`日当たりを「${SUN_JA[r.sun]}」にしました（平均${r.avg}時間/日）`); };
+      <div id="scToday" class="sc-today"></div>
+      <div class="scx-fit">
+        <h3 class="dn-h">${icon('leaf', 15)}植物はここで育つ？</h3>
+        <div class="k-search"><input type="search" id="scPlantQ" list="scPlantList" placeholder="植物名（買う予定の植物など）" autocomplete="off"><button type="button" class="btn small" id="scPlantAdd">調べる</button></div>
+        <datalist id="scPlantList">${[...new Map(PLANTS.map((p) => [p.ja, p])).keys()].map((n) => `<option value="${esc(n)}"></option>`).join('')}</datalist>
+        ${g.plants.length ? `<div class="chips sc-mine">${g.plants.map((id) => byId.get(id)).filter(Boolean).map((p) => `<button type="button" class="chip${st.check.includes(p.id) ? ' on' : ''}" data-sccheck="${p.id}">${esc(p.groupJa.replace(/（.*?）/g, ''))}</button>`).join('')}</div><p class="hint" style="margin:0">↑ ${esc(g.name)}の植物をタップすると判定します（この場所に植えている植物の確認に）。</p>` : ''}
+        <div id="scFitList"></div>
+      </div>
+      <div class="scx-find">
+        <h3 class="dn-h">${icon('search', 15)}この日当たり（${SUN_JA[r.sun]}）で育つ植物</h3>
+        ${(() => { const c = state.climate; const ok = PLANTS.filter((p) => p.sun.includes(r.sun) && (!c || evaluate(p, c).level >= 2)); const groups = [...new Map(ok.map((p) => [p.group, p])).values()]; const pick = groups.sort(() => 0).filter((p, i) => i % Math.max(1, Math.floor(groups.length / 12)) === 0).slice(0, 12);
+          return `<p class="hint">図鑑の${groups.length}種（${ok.length}品種）が、この日当たり${c ? 'と地域の気候' : ''}に合います。</p><div class="chips">${pick.map((p) => `<button type="button" class="chip" data-find="${esc(p.groupJa)}"><span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>${esc(p.groupJa.replace(/（.*?）/g, ''))}</button>`).join('')}</div>
+          <button type="button" class="btn small" data-scfind="${r.sun}">${icon('book', 15)}図鑑で全部見る（日当たり：${SUN_JA[r.sun]}で絞り込み）</button>`; })()}
+      </div>
+      <div class="scx-save">
+        <label class="field"><span class="label">この場所の名前（保存して、あとで見返したり測り直したりできます）</span><input type="text" id="scName" maxlength="30" value="${esc(spot?.name || '')}" placeholder="例：南の花壇の奥、玄関前の鉢"></label>
+        <div class="row"><button type="button" class="btn primary" id="scSave">${icon('save', 15)}${spot ? '上書き保存' : 'この場所を保存'}</button>${fromPlan || state.view === 'plan' ? `<button type="button" class="btn" id="scUse">${icon('plan', 15)}「${SUN_JA[r.sun]}」としてプランに使う</button>` : ''}</div>
+      </div>`;
+    const curPts = pts;
+    if ($('#scUse')) $('#scUse').onclick = () => { state.planInput.sun = r.sun; store.set('planInput', state.planInput); syncPlanSegs(); closeSheet(); toast(`日当たりを「${SUN_JA[r.sun]}」にしました（平均${r.avg}時間/日）`); };
+    $('#scSave').onclick = () => {
+      const name = $('#scName').value.trim() || `測った場所 ${(g.sunSpots || []).length + 1}`;
+      g.sunSpots = g.sunSpots || [];
+      const rec = { id: spot?.id || 'sun' + Date.now().toString(36), name, date: todayStr(), mode: $('#scManual').hidden ? 'sensor' : 'manual', points: curPts, plants: st.check };
+      const i = g.sunSpots.findIndex((x) => x.id === rec.id);
+      if (i >= 0) g.sunSpots[i] = rec; else g.sunSpots.push(rec);
+      saveGardens();
+      closeSheet();
+      toast(`「${name}」を保存しました（マイ庭の「日当たり」で見返せます）`);
+      if (state.view === 'garden') render();
+    };
+    const fit = () => {
+      $('#scFitList').innerHTML = st.check.map((id) => { const p = byId.get(id); if (!p) return ''; const f = plantFit(p, r.sun, r.avg); const ev = state.climate ? evaluate(p, state.climate) : null;
+        return `<div class="sc-fitrow lv${f.level}"><span class="mk">${f.mark}</span><div><b>${esc(p.ja)}</b><small>好む日当たり：${p.sun.map((x) => SUN_JA[x]).join('・')}。${esc(f.text)}${ev && ev.level < 3 ? `　気候：${LEVEL[ev.level].mark}${esc(ev.reasons[0] || '')}` : ''}</small></div><button type="button" class="icon-btn" data-scuncheck="${id}" aria-label="外す">✕</button></div>`; }).join('') || '<p class="hint" style="margin:0">植物名を入れるか、庭の植物をタップしてください。</p>';
+    };
+    fit();
+    st.fit = fit;
+    loadToday(curPts, r);
+  };
+  const loadToday = async (pts, r) => {
+    const box = $('#scToday');
+    if (!box) return;
+    const now = new Date();
+    const w = sunWindows(lat, lon, pts, now);
+    const sn = sunNow(lat, lon, pts, now);
+    const m = now.getMonth() + 1;
+    const base = `<h3 class="dn-h">${icon('calendar', 15)}今日（${m}月${now.getDate()}日）のこの場所</h3>
+      <p>直射日光が当たるのは <b>${w.wins.length ? w.wins.map((x) => `${clockJa(x.from)}〜${clockJa(x.to)}`).join('・') : '一日中ありません'}</b>（約${w.hours}時間）。${r.months[m - 1] ? `この時期の目安どおりです（月の平均${r.months[m - 1].hours}時間）。` : ''}</p>
+      <p>いまは ${!sn.up ? '<b>日の出前・日の入り後</b>' : sn.lit ? `<b>日なた</b>（太陽は${dirJa(sn.az)}・高さ${sn.alt}°）` : `<b>日陰</b>（太陽は${dirJa(sn.az)}・高さ${sn.alt}°で、障害物の陰）`}。</p>`;
+    box.innerHTML = base + '<p class="hint"><span class="spinner"></span>今日の天気（日射の予報）を調べています…</p>';
+    let hourly = null;
+    const key = `pg:light:${lat.toFixed(2)},${lon.toFixed(2)}`;
+    try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3600e3) hourly = c.d; } catch { /* なし */ }
+    if (!hourly) { try { hourly = await fetchLight(lat, lon); sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: hourly })); } catch { hourly = null; } }
+    if (!$('#scToday')) return;
+    const L = hourly ? lightToday(hourly, lat, lon, pts, now) : null;
+    if (!L) { box.innerHTML = base + '<p class="hint">天気の予報を取得できませんでした（オフラインなど）。上の日照時間は、晴れた場合の計算です。</p>'; return; }
+    const verdict = L.dli >= 20 ? '日向の植物にも十分な光の量' : L.dli >= 8 ? '半日陰の植物に向く光の量' : '日陰の植物に向く光の量';
+    box.innerHTML = base + `<p>今日の天気は<b>${esc(L.sky)}</b>（雲量 平均${L.cloud}%）。${sn.up && L.nowLux != null ? `いまの明るさは推定 <b>約${L.nowLux >= 10000 ? (Math.round(L.nowLux / 1000) / 10) + '万' : L.nowLux.toLocaleString()}ルクス</b>（${esc(luxJa(L.nowLux))}）。` : ''}</p>
+      <p>今日この場所に届く光の量は約<b>${L.dli}</b>（植物が使う光の1日の合計・mol/㎡）。さえぎるもののない場所（${L.openDli}）の<b>${L.ratio}%</b>で、${verdict}です。${[11, 12, 1, 2].includes(m) ? '冬は太陽が低く日も短いので、どこでも少なめになります。' : ''}</p>
+      <div class="sc-hours">${L.hours.filter((x) => x.hr >= 5 && x.hr <= 19).map((x) => `<span title="${x.hr}時 約${x.w}W/㎡${x.lit ? '・日なた' : '・日陰'}" style="height:${Math.max(2, Math.min(100, x.w / 9))}%" class="${x.lit ? 'lit' : ''}"></span>`).join('')}</div>
+      <div class="sc-hlab"><span>5時</span><span>12時</span><span>19時</span></div>
+      <p class="hint">明るさと光の量は、気象予報の日射量とこの場所の障害物から計算した推定値です（iPhoneのブラウザからは照度センサーを使えないため）。色の濃い棒が直射日光の当たる時間。木の葉の茂りや壁の照り返しは含みません。</p>`;
   };
   const body = $('#sheetBody');
+  // 保存した場所を開いたとき、方位ごとの入力を戻す
+  if (spot?.mode === 'manual') for (const [, az] of DIR8) {
+    const sel = body.querySelector(`[data-scaz="${az}"]`), v = st.manual[az];
+    if (![...sel.options].some((o) => Number(o.value) === v)) sel.insertAdjacentHTML('beforeend', `<option value="${v}">記録した角度 ${v}°</option>`);
+    sel.value = String(v);
+  }
   body.onclick = (e) => {
     const m = e.target.closest('#scMode button');
     if (m) { body.querySelectorAll('#scMode button').forEach((b) => b.classList.toggle('on', b === m)); $('#scSensor').hidden = m.dataset.v !== 'sensor'; $('#scManual').hidden = m.dataset.v !== 'manual'; out(); return; }
     const d = e.target.closest('[data-scdel]');
-    if (d) { st.points.splice(Number(d.dataset.scdel), 1); out(); }
+    if (d) { st.points.splice(Number(d.dataset.scdel), 1); out(); return; }
+    const ck = e.target.closest('[data-sccheck]');
+    if (ck) { const id = ck.dataset.sccheck; st.check = st.check.includes(id) ? st.check.filter((x) => x !== id) : [...st.check, id]; ck.classList.toggle('on'); st.fit?.(); return; }
+    const un = e.target.closest('[data-scuncheck]');
+    if (un) { st.check = st.check.filter((x) => x !== un.dataset.scuncheck); body.querySelector(`[data-sccheck="${un.dataset.scuncheck}"]`)?.classList.remove('on'); st.fit?.(); return; }
+    if (e.target.closest('#scPlantAdd')) {
+      const q = $('#scPlantQ').value.trim();
+      const p = PLANTS.find((x) => x.ja === q) || findPlant(q, []);
+      if (!p) { toast('図鑑に見つかりませんでした'); return; }
+      if (!st.check.includes(p.id)) st.check.push(p.id);
+      $('#scPlantQ').value = '';
+      st.fit?.();
+      return;
+    }
+    const f = e.target.closest('[data-scfind]');
+    if (f) { Object.assign(state.filters, { sun: f.dataset.scfind, moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', role: '', origin: '' }); closeSheet(); go('plants'); saveFilters(); syncFilterUI(); }
   };
   body.oninput = (e) => {
     const az = e.target.dataset.scaz ?? e.target.dataset.sch ?? e.target.dataset.scd;
@@ -1480,7 +1568,53 @@ function openSunCheck() {
   $('#sheetClose').addEventListener('click', stop, { once: true });
   out();
 }
-document.addEventListener('click', (e) => { if (e.target.closest('[data-suncheck]')) openSunCheck(); });
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-suncheck]'); if (b) openSunCheck({ spotId: b.dataset.suncheck || '', from: b.dataset.from || '' }); });
+/** 図鑑の絞り込みの表示を、いまの条件に合わせる */
+function syncFilterUI() {
+  document.querySelectorAll('#filters .seg').forEach((seg) => seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.v === (state.filters[seg.dataset.filter] || ''))));
+}
+/** マイ庭の「日当たり」タブ：保存した場所の一覧 */
+function renderSunSpots() {
+  const box = $('#sunBox');
+  const g = activeGarden();
+  const spots = g.sunSpots || [];
+  const lat = state.loc?.lat ?? 35.7, lon = state.loc?.lon ?? 139.7;
+  const SUN_JA = { full: '日向', part: '半日陰', shade: '日陰' };
+  const now = new Date();
+  box.innerHTML = `<div class="card">
+    <h2>${icon('sun', 19)} 日当たり</h2>
+    <p class="hint">庭のいろいろな場所で日当たりを測って保存できます。植物を買う前の下見や、いま植えている場所の光が足りているかの確認に。保存した場所は、今日の天気と時刻をふまえて判定し直します。</p>
+    <button type="button" class="btn primary" data-suncheck="">${icon('plus', 15)}新しい場所を測る</button>
+  </div>
+  ${spots.length ? spots.map((sp) => {
+    const r = sunReport(lat, sp.points);
+    const w = sunWindows(lat, lon, sp.points, now);
+    const sn = sunNow(lat, lon, sp.points, now);
+    const plants = (sp.plants || []).map((id) => byId.get(id)).filter(Boolean);
+    return `<div class="card sun-spot">
+      <div class="ss-head"><div class="ss-art">${skyChartMini(lat, sp.points)}</div><div><h3>${esc(sp.name)}</h3>
+        <p class="calc"><b class="ss-cls ${r.sun}">${SUN_JA[r.sun]}</b> 生育期の平均 ${r.avg}時間/日・冬至 ${r.winter}時間</p>
+        <p class="calc">今日 ${w.hours}時間（${w.wins.map((x) => `${clockJa(x.from)}〜${clockJa(x.to)}`).join('・') || 'なし'}）・いまは${!sn.up ? '夜' : sn.lit ? '日なた' : '日陰'}</p>
+        <small class="muted">${esc(dateJa(sp.date))}に測定</small></div></div>
+      ${plants.length ? `<div class="ss-fit">${plants.map((p) => { const f = plantFit(p, r.sun, r.avg); return `<span class="chip lv${f.level}" title="${esc(f.text)}">${f.mark} ${esc(p.groupJa.replace(/（.*?）/g, ''))}</span>`; }).join('')}</div>` : ''}
+      <div class="row"><button type="button" class="btn small" data-suncheck="${sp.id}">${icon('search', 14)}くわしく・今日の判定</button><button type="button" class="btn small" data-scfind="${r.sun}" data-scfindgo>${icon('book', 14)}育つ植物を図鑑で</button><button type="button" class="icon-btn" data-sundel="${sp.id}" aria-label="削除">${icon('trash', 16)}</button></div>
+    </div>`;
+  }).join('') : '<p class="hint" style="padding:0 4px">まだ保存した場所はありません。</p>'}`;
+}
+/** 小さな空の図（一覧用） */
+function skyChartMini(lat, points) {
+  const R = 34, C = 38, h = horizonFn(points);
+  const xy = (az, alt) => { const r = ((90 - Math.max(0, alt)) / 90) * R; const a = (az * Math.PI) / 180; return [C + r * Math.sin(a), C - r * Math.cos(a)]; };
+  const sky = []; for (let az = 0; az <= 360; az += 6) sky.push(xy(az, h(az)));
+  const path = (mo, d, col) => { const pts = sunPath(lat, declination(new Date(2026, mo, d))).filter((p) => p.alt >= 0); return `<path d="M${pts.map((p) => xy(p.az, p.alt).map((v) => v.toFixed(1)).join(',')).join('L')}" fill="none" stroke="${col}" stroke-width="1.6"/>`; };
+  return `<svg viewBox="0 0 76 76" width="76" height="76" aria-hidden="true"><circle cx="${C}" cy="${C}" r="${R}" fill="#dcebf5"/><path d="M${C - R},${C}a${R},${R} 0 1,0 ${2 * R},0a${R},${R} 0 1,0 ${-2 * R},0Z M${sky.map((p) => p.map((v) => v.toFixed(1)).join(',')).join('L')}Z" fill="#8a7a5a" fill-opacity=".55" fill-rule="evenodd"/>${path(5, 21, '#e9852f')}${path(11, 22, '#5b8ee6')}<text x="${C}" y="9" text-anchor="middle" font-size="8" fill="currentColor">北</text></svg>`;
+}
+document.addEventListener('click', (e) => {
+  const d = e.target.closest('[data-sundel]');
+  if (d) { const g = activeGarden(); const sp = (g.sunSpots || []).find((x) => x.id === d.dataset.sundel); if (sp && confirm(`「${sp.name}」を削除しますか？`)) { g.sunSpots = g.sunSpots.filter((x) => x !== sp); saveGardens(); renderSunSpots(); } return; }
+  const f = e.target.closest('[data-scfindgo]');
+  if (f) { Object.assign(state.filters, { sun: f.dataset.scfind, moist: '', height: '', month: '', color: '', q: '', tag: '', family: '', type: '', use: '', role: '', origin: '' }); go('plants'); saveFilters(); syncFilterUI(); }
+});
 
 // ---------- iPhone のショートカット・Siri との連携 ----------
 /** URL の ?do=… を実行（ショートカットや NFC タグから開いたとき） */
@@ -4268,6 +4402,9 @@ async function renderHome() {
       <button type="button" data-go="enjoy">${icon('cup', 22)}<span>楽しむ</span></button>
       <button type="button" data-doctor="">${icon('search', 22)}<span>困ったとき</span></button>
       <button type="button" data-calc>${icon('list', 22)}<span>計算機</span></button>
+      <button type="button" data-gotab="sun">${icon('sun', 22)}<span>日当たり</span></button>
+      <button type="button" data-go="tasks">${icon('cloud', 22)}<span>天気の記録</span></button>
+      <button type="button" data-links>${icon('steps', 22)}<span>iPhone連携</span></button>
     </div>
     <header class="sec" style="margin-top:22px"><span class="en">Climate</span><h2>庭の気候</h2></header>`;
   const days = await getForecast();

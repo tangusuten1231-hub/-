@@ -72,3 +72,27 @@ test('iNaturalist：近くの観察記録を読み、図鑑と結びつける', 
   assert.equal(m[0].critter, 'shijuukara');
   assert.ok(m[1].plant, '植物図鑑と学名で結びつく');
 });
+
+test('日当たり：今日の時間帯・空の見える割合・光の量・植物との相性', async () => {
+  const { sunWindows, skyView, lightToday, plantFit, solarHour, sunNow } = await import('../js/suncheck.js');
+  const d = new Date(2026, 5, 21, 12, 0);
+  const open = sunWindows(35.72, 140.65, [], d);
+  assert.ok(open.hours > 13.5 && open.hours < 15, `夏至 ${open.hours}`);
+  assert.equal(skyView([]), 1);
+  const wall = [{ az: 90, alt: 60 }, { az: 135, alt: 60 }, { az: 180, alt: 60 }, { az: 225, alt: 60 }, { az: 270, alt: 60 }];
+  assert.ok(skyView(wall) < 0.8);
+  assert.ok(sunWindows(35.72, 140.65, wall, new Date(2026, 11, 21)).hours === 0, '冬至は高い壁で日が当たらない');
+  // 正午の太陽時は、東経140.65°・日本時間では時計の11時30分ごろ
+  assert.ok(Math.abs(solarHour(11.5, 140.65, d, 9) - 12) < 0.2);
+  const hourly = Array.from({ length: 24 }, (_, i) => ({ time: `2026-06-21T${String(i).padStart(2, '0')}:00`, direct: i >= 6 && i <= 18 ? 500 : 0, diffuse: i >= 6 && i <= 18 ? 150 : 0, cloud: 20 }));
+  const lo = lightToday(hourly, 35.72, 140.65, [], d);
+  const lw = lightToday(hourly, 35.72, 140.65, wall, d);
+  assert.ok(lo.dli > lw.dli && lo.ratio === 100 && lw.ratio < 100);
+  assert.equal(lo.sky, '晴れ');
+  assert.ok(lo.nowLux > 50000);
+  assert.equal(typeof sunNow(35.72, 140.65, [], d).lit, 'boolean');
+  assert.equal(plantFit({ sun: ['full'] }, 'full', 8).mark, '◎');
+  assert.equal(plantFit({ sun: ['full'] }, 'part', 4).mark, '△');
+  assert.equal(plantFit({ sun: ['full'] }, 'shade', 1).mark, '×');
+  assert.equal(plantFit({ sun: ['shade'] }, 'full', 9).mark, '×');
+});

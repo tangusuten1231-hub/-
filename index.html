@@ -312,7 +312,7 @@
           </div>
         </div>
         <div class="field not-balcony form-sec" id="fCond">
-          <span class="label"><span class="fs-no">4</span>日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small> <button type="button" class="link" data-suncheck>☀ 日当たりを測る</button></span>
+          <span class="label"><span class="fs-no">4</span>日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small> <button type="button" class="link" data-suncheck="" data-from="plan">☀ 日当たりを測る</button></span>
           <div class="seg" data-plan="sun">
             <button type="button" data-v="full">日向</button>
             <button type="button" data-v="part">半日陰</button>
@@ -379,10 +379,12 @@
       <div class="seg subnav" id="gardenTabs">
         <button type="button" data-v="plants">庭の植物</button>
         <button type="button" data-v="diary">園芸ノート</button>
+        <button type="button" data-v="sun">日当たり</button>
         <button type="button" data-v="data">データ</button>
       </div>
       <div id="gardenBox"></div>
       <div id="journalBox"></div>
+      <div id="sunBox" hidden></div>
       <div id="backupBox"></div>
     </section>
 

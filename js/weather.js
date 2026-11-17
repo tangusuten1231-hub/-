@@ -58,3 +58,12 @@ export function weatherAdvice(days, month) {
 }
 
 export { md };
+
+/** 1時間ごとの日射（直達・散乱 W/㎡）と雲量。日当たりチェッカーの「今日の判定」用 */
+export async function fetchLight(lat, lon) {
+  const params = new URLSearchParams({ latitude: lat.toFixed(3), longitude: lon.toFixed(3), timezone: 'auto', forecast_days: '2', hourly: 'direct_radiation,diffuse_radiation,cloud_cover' });
+  const res = await fetch(`${URL_}?${params}`);
+  if (!res.ok) throw new Error('日射の予報を取得できませんでした');
+  const h = (await res.json()).hourly;
+  return h.time.map((t, i) => ({ time: t, direct: h.direct_radiation[i] ?? 0, diffuse: h.diffuse_radiation[i] ?? 0, cloud: h.cloud_cover?.[i] ?? null }));
+}

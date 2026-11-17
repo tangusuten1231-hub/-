@@ -1478,3 +1478,27 @@ h1, h2, h3, h4 { line-break: strict; }
 .wl-months td small { display: block; font-size: .68rem; color: var(--muted); }
 .wxlog .tiles { grid-template-columns: 1fr 1fr; }
 .sc-months th, .sc-months td { white-space: nowrap; }
+
+/* ===== 日当たり（汎用） ===== */
+.sc-spot { display: flex; align-items: center; gap: 4px; margin: 0; font-size: .86rem; }
+.sc-today { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border-radius: 14px; padding: 4px 12px 10px; font-size: .86rem; line-height: 1.7; }
+.sc-today p { margin: 4px 0; }
+.sc-hours { display: flex; align-items: flex-end; gap: 2px; height: 60px; margin-top: 6px; }
+.sc-hours span { flex: 1; background: #c9c3b2; border-radius: 2px 2px 0 0; }
+.sc-hours span.lit { background: #e9a23a; }
+.sc-hlab { display: flex; justify-content: space-between; font-size: .66rem; color: var(--muted); }
+.scx-fit, .scx-find, .scx-save { display: grid; gap: 6px; }
+.sc-mine .chip { font: inherit; font-size: .74rem; cursor: pointer; }
+.sc-fitrow { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: start; border-top: 1px dotted var(--line); padding: 6px 0; }
+.sc-fitrow .mk { font-size: 1.1rem; font-weight: 700; text-align: center; }
+.sc-fitrow.lv3 .mk { color: var(--accent); } .sc-fitrow.lv2 .mk { color: #c4831f; } .sc-fitrow.lv1 .mk { color: #b5532f; }
+.sc-fitrow b { display: block; font-size: .86rem; }
+.sc-fitrow small { font-size: .74rem; color: var(--muted); line-height: 1.6; }
+.sun-spot .ss-head { display: grid; grid-template-columns: 76px 1fr; gap: 10px; align-items: center; }
+.sun-spot h3 { margin: 0 0 2px; font-size: 1rem; }
+.sun-spot .calc { margin: 1px 0; }
+.ss-cls { display: inline-block; padding: 0 6px; border-radius: 6px; font-size: .74rem; background: #f3e2b8; }
+.ss-cls.part { background: #e6ead2; } .ss-cls.shade { background: #d9dfe3; }
+.ss-fit { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.ss-fit .chip { font-size: .72rem; }
+.ss-fit .chip.lv1 { border-color: #b5532f; } .ss-fit .chip.lv2 { border-color: #c4831f; }
