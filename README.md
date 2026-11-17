@@ -112,6 +112,7 @@ js/suncheck.js        日当たりチェッカー（障害物の高さと日照�
 js/fit.js             気候への適性（気候判定用の項目・ハードフィルター・適合度・地域らしさ）
 js/okinawa.js         沖縄など亜熱帯の地域向けの植物
 js/verified.js        出典で確かめた生育条件（NC State Extension Gardener Plant Toolbox から抜き出した事実・CC BY 4.0）
+js/gbif.js            日本での野外の採集記録（GBIF.org の植物標本の件数・オープンデータ）
 js/inat.js            iNaturalist の観察記録
 js/site.js            庭まるごとプラン（敷地の多角形・構造物の配置・花壇分け・見どころ・案内・フォトスポット・平面図）
 js/wildlife.js        生き物のデータと、植物・庭の環境との関係、生物多様性度
@@ -175,4 +176,5 @@ tests/                ロジックのテスト
 ## 出典
 
 - 植物の生育条件（耐寒ゾーン・推奨地域・暑さ／湿気／塩への強さ・土の酸度）の一部は [NC State Extension Gardener Plant Toolbox](https://plants.ces.ncsu.edu/)（North Carolina State University・N.C. A&T State University、CC BY 4.0）の掲載内容から事実を抜き出して使っています。植物ごとのページへのリンクを図鑑に表示しています。
+- 日本での野外の採集記録（北海道・九州/四国など・南西諸島ごとの植物標本の件数）は [GBIF.org](https://www.gbif.org/) のオープンデータ（各データセットの提供機関による）から数えたものです。
 - 冬の低温（春化・低温要求）の出典は js/fit.js の CHILL_SRC に、個別に訂正した値の出典は CLIMATE_FIX に記載しています。

@@ -87,6 +87,18 @@ export function ncsuTraits(n) {
   };
 }
 
+/**
+ * 日本での野外の採集記録（GBIF・植物標本館の標本）：[全国, 北海道（北緯42度以北）, 九州・四国など（北緯30〜34度）, 南西諸島（北緯30度未満）]
+ * ・南西諸島で5件以上 → 冬に低温がなく、夏が長く蒸し暑い気候で野外に生える証拠（暑さ・湿気に強い、冬の暖かさの注意は不要）
+ * ・北海道で3件以上 → 北海道の冬に野外で耐える証拠（表示のみ。積雪に守られることもあるため耐寒ゾーンは変えない）
+ * ・九州・四国などの記録は山地の標本も含むので、判定には使わず表示だけ
+ */
+export function gbifTraits(r) {
+  if (!r) return null;
+  const [all, hokkaido, south, ryukyu] = r;
+  return { all, hokkaido: hokkaido >= 3, south: south >= 3, ryukyu: ryukyu >= 5 };
+}
+
 const SUN_HOURS = { full: 6, part: 3, shade: 0 }; // 日当たりチェッカーと同じ区分（日向 6時間以上・半日陰 3〜6時間・日陰 3時間未満）
 const HUMID = { 1: 'weak', 2: 'normal', 3: 'strong' };
 
@@ -99,13 +111,15 @@ export function climateTraits(p, phOf = null) {
     hardinessZoneMin: z ? z[0] : null,
     hardinessZoneMax: z ? z[1] : null,
     zoneVerified: !!(v?.zone || p.climateSrc),
+    wildHokkaido: !!p.jp?.hokkaido,
     // 暑さ：出典で上限が分かるときはその値、ないときは図鑑の目安（推定・外す理由には使わない）
-    heatZoneMax: v?.heatMax ?? (Number.isFinite(p.heat) ? Math.max(p.heat, v?.heatMin ?? 0) : null),
+    heatZoneMax: v?.heatMax ?? (Number.isFinite(p.heat) ? Math.max(p.heat, v?.heatMin ?? 0, p.jp?.ryukyu ? HEAT_OF_REGION.C : 0) : null),
     heatVerified: v?.heatMax != null,
-    heatMinVerified: v?.heatMin ?? null,
+    heatMinVerified: v?.heatMin ?? (p.jp?.ryukyu ? HEAT_OF_REGION.C : null),
+    warmOk: !!p.jp?.ryukyu, // 南西諸島で野外に生える → 冬が暖かい地域の注意は不要
     chillRequirement: CHILL_NONE.has(p.id) ? null : CHILL_OF.get(p.id) ?? (p.group === 'digitalis' ? null : CHILL_OF.get(p.group)) ?? null,
-    heatHumidityTolerance: v?.humid ?? HUMID[p.humid] ?? null,
-    humidVerified: v?.humid != null,
+    heatHumidityTolerance: v?.humid ?? (p.jp?.ryukyu ? 'strong' : HUMID[p.humid]) ?? null,
+    humidVerified: v?.humid != null || !!p.jp?.ryukyu,
     saltTolerance: p.tags?.includes('salt') || v?.salt ? 'strong' : null,
     sunHoursMin: Array.isArray(p.sun) && p.sun.length ? Math.min(...p.sun.map((s) => SUN_HOURS[s])) : null,
     phRange: ph?.known ? ph.range : null,
@@ -149,7 +163,8 @@ export function hardFails(p, climate, site = siteOf(climate)) {
   const t = p.fit || climateTraits(p);
   const out = [];
   const annual = p.type === 'annual';
-  if (!annual && t.hardinessZoneMin != null && site.zone < t.hardinessZoneMin) {
+  // 北海道で野外に生える記録がある植物は、北海道の平地程度（ゾーン6以上）の寒さでは外さない
+  if (!annual && t.hardinessZoneMin != null && site.zone < t.hardinessZoneMin && !(t.wildHokkaido && site.zone >= 6)) {
     out.push({ key: 'cold', text: `冬の寒さ（ゾーン${site.label}）が耐寒ゾーン${t.hardinessZoneMin}より厳しく、冬越しが難しい` });
   }
   // 冬の暖かさそのものでは外さない（米国の資料の「耐寒ゾーンの上限」は、その地域の夏の暑さで決まっていることが多いため）。

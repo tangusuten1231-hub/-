@@ -25,7 +25,7 @@ test('気候判定用の項目：図鑑の値を写し、データのないも�
   for (const p of PLANTS) {
     assert.deepEqual([p.fit.hardinessZoneMin, p.fit.hardinessZoneMax], p.zone, p.id);
     // 暑さの上限：出典で弱さを確かめたものはその値、ほかは図鑑の目安（出典で強さを確かめたものは下限として反映）
-    assert.equal(p.fit.heatZoneMax, p.verified?.heatMax ?? Math.max(p.heat, p.verified?.heatMin ?? 0), p.id);
+    assert.equal(p.fit.heatZoneMax, p.verified?.heatMax ?? Math.max(p.heat, p.verified?.heatMin ?? 0, p.jp?.ryukyu ? 8 : 0), p.id);
     assert.equal(p.fit.heatVerified, p.verified?.heatMax != null, p.id);
   }
   assert.equal(P('crocus').fit.chillRequirement, 'high');
@@ -134,4 +134,12 @@ test('沖縄など亜熱帯向けの植物：那覇でよく育つ・育つ、�
     assert.ok(evaluate(p, NAHA).grade >= 3, `那覇 ${id}`);
   }
   assert.equal(evaluate(P('hibiscus'), SAPPORO).grade, 2); // 鉢で取り込めば育つ
+});
+
+test('日本での野外の採集記録（GBIF）：南西諸島に生える植物は那覇で暑さ・冬の暖かさの注意がない', () => {
+  const a = P('alpinia-zerumbet');
+  assert.ok(a.jp?.ryukyu && a.fit.warmOk && a.fit.humidVerified);
+  const r = evaluate(a, NAHA);
+  assert.ok(r.grade >= 4, r.gradeJa);
+  assert.ok(!r.reasons.some((t) => /栽培の情報が少ない|目安・出典未確認/.test(t)));
 });

@@ -61,7 +61,7 @@ export function evaluate(plant, climate) {
   } else {
     let edges = 0, hardEdge = false;
     const est = (v) => (v ? '' : '（目安・出典未確認）');
-    if (!annual && site.zone < t.hardinessZoneMin + 0.5) { hardEdge = true; reasons.push(`耐寒性がぎりぎり。冬は株元をマルチングで保護${est(t.zoneVerified)}`); }
+    if (!annual && site.zone < t.hardinessZoneMin + 0.5 && !(t.wildHokkaido && site.zone >= 6)) { hardEdge = true; reasons.push(`耐寒性がぎりぎり。冬は株元をマルチングで保護${est(t.zoneVerified)}`); }
     // 夏の暑さ：出典で確かめた値は「上限いっぱい」で注意。推定値は、上回るときに注意（外す理由にはしない）
     if (t.heatZoneMax != null) {
       if (t.heatVerified && site.heat === t.heatZoneMax) { edges++; reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心'); }
@@ -73,7 +73,7 @@ export function evaluate(plant, climate) {
     if (plant.verified?.regionCool && site.heat >= 7 && !t.heatVerified) { edges++; reasons.push(`米国ノースカロライナ州では${plant.verified.region.includes('P') ? '丘陵・山地' : '山地'}向きとされ、夏の暑い沿岸平野は推奨地域外。暑い地域では午後に日陰になる場所が安心`); }
     // 米国の資料の栽培範囲（耐寒ゾーンの上限）より2ゾーン以上暖かい地域：暖地での栽培の情報が少ないので注意として表示（外す理由にはしない）
     // 3ゾーン以上外れる（例：那覇で、ゾーン8までの植物）ときは「育ちにくい」
-    if (!annual && t.hardinessZoneMax < 11 && site.zoneInt >= Math.floor(t.hardinessZoneMax) + 2) {
+    if (!annual && !t.warmOk && t.hardinessZoneMax < 11 && site.zoneInt >= Math.floor(t.hardinessZoneMax) + 2) {
       if (site.zoneInt >= Math.floor(t.hardinessZoneMax) + 3) hardEdge = true; else edges++;
       reasons.push(`米国の資料の栽培範囲（ゾーン${Math.floor(t.hardinessZoneMax)}まで）より暖かい地域で、栽培の情報が少ない。暖地では夏の暑さや蒸れで弱ることがある`);
     }

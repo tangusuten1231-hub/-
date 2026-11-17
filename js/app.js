@@ -3563,6 +3563,7 @@ function heatJa(p) {
   const v = p.verified;
   if (v?.heatMax != null) return v.heatMax >= 8 ? '米国南部の特に暑い地域の夏には弱い（出典）' : '暑さ・蒸し暑さに弱い（出典）';
   if (v?.heatMin != null) return `暑さに強い（米国ノースカロライナ州の、夏が暑く蒸す沿岸平野でも育つ）`;
+  if (p.jp?.ryukyu) return '暑さ・蒸し暑さに強い（南西諸島で野外に生える記録がある）';
   if (v?.regionCool) return `米国ノースカロライナ州では${v.region.includes('P') ? '丘陵・山地' : '山地'}向き（夏の暑い沿岸平野は推奨地域外）`;
   if (p.type === 'annual') return p.sow === 'cool' ? '暑さが苦手（夏前に咲き終わる）' : '暑さに強い';
   return `目安：ヒートゾーン${p.heat}まで（出典未確認）`;
@@ -3572,6 +3573,7 @@ function sourceOf(p) {
   const out = [];
   if (p.verified?.src === 'ncsu') { const q = NCSU_NOTES[speciesKey(p.latin)]; out.push(`<a href="${p.verified.url}" target="_blank" rel="noopener">NC State Extension Plant Toolbox</a>（耐寒ゾーン・推奨地域・暑さ／湿気／塩への強さ、CC BY 4.0）${q ? `本文：“${esc(q)}”` : ''}`); }
   if (p.climateSrc) out.push(esc(p.climateSrc));
+  if (p.jp && (p.jp.hokkaido || p.jp.south || p.jp.ryukyu)) out.push(`日本での野外の採集記録（<a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>・植物標本）：${[p.jp.hokkaido && '北海道', p.jp.south && '九州・四国など', p.jp.ryukyu && '南西諸島'].filter(Boolean).join('・')}`);
   if (p.fit?.chillRequirement && (CHILL_SRC[p.id] || CHILL_SRC[p.group])) out.push(`冬の低温：${esc(CHILL_SRC[p.id] || CHILL_SRC[p.group])}`);
   return `<p class="grow-src">${out.length ? `出典：${out.join('／')}` : '生育条件は一般的な栽培情報にもとづく目安です（出典の確認はまだ）。'}</p>`;
 }

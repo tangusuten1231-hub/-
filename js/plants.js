@@ -21,7 +21,8 @@ import { rolesOf } from './roles.js';
 import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
 import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf, SALT_GROUPS } from './designer.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
-import { CLIMATE_FIX, climateTraits, ncsuTraits, NCSU_SKIP } from './fit.js';
+import { CLIMATE_FIX, climateTraits, ncsuTraits, NCSU_SKIP, gbifTraits } from './fit.js';
+import { GBIF_JP } from './gbif.js';
 import { NCSU } from './verified.js';
 /** 学名から「属 種小名」（小文字）を取り出す。品種名・変種・交配記号は除く */
 export function speciesKey(latin) {
@@ -240,6 +241,9 @@ function decorate(p) {
   const ncsu = NCSU_SKIP.has(key) ? null : ncsuTraits(NCSU[key]);
   // 亜熱帯の植物（okinawa.js）など、データに出典つきの値があるものは、その耐寒ゾーンを優先する
   if (ncsu) { if (!p.climateSrc) q.zone = ncsu.zone; q.verified = ncsu; }
+  // 日本での野外の採集記録（GBIF）
+  const jp = gbifTraits(GBIF_JP[key]);
+  if (jp) q.jp = jp;
   // 個別に出典を確認した訂正（こちらを優先）と、気候判定用の項目
   const fix = CLIMATE_FIX[q.id] || CLIMATE_FIX[q.group];
   if (fix) { if (fix.zone) q.zone = fix.zone; q.climateSrc = fix.src; }
