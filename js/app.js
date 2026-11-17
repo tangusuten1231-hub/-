@@ -337,7 +337,7 @@ function submitZukan(form, keepFocus) {
   if (form.q.value) p.set('q', form.q.value);
   for (const k of ['low', 'dry', 'cold', 'pet', 'cv']) if (form[k].checked) p.set(k, '1');
   const pos = form.q.selectionStart;
-  history.replaceState(null, '', `#/zukan${p.size ? `?${p}` : ''}`);
+  history.replaceState(null, '', `#/zukan${p.toString() ? `?${p}` : ''}`);
   render();
   if (keepFocus) { const q = $('#zukan-form').q; q.focus(); q.setSelectionRange(pos, pos); }
 }
