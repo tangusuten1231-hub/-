@@ -478,7 +478,7 @@ export function generateSite(o) {
     b.planArgs = {
       climate: o.climate, sun: b.sun, moist: b.moist, width: frame.W, depth: frame.D, mask, text: o.text || '',
       view: b.view, style: b.zone === 'kitchen' ? 'potager' : o.style, seed: (o.seed || 0) + k, annuals: o.annuals || b.zone === 'kitchen', wild: o.wild, roles: o.roles,
-      palette: k ? sitePalette(beds.slice(0, k)) : null, peakMargin: 2, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined,
+      palette: k ? sitePalette(beds.slice(0, k)) : null, peakMargin: 2, k: o.k ? { ...o.k, must: mustOf.get(b) } : undefined, skill: o.skill,
     };
     b.plan = generatePlan(b.planArgs);
   }

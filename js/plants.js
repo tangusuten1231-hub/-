@@ -22,6 +22,7 @@ import { HERB_BASE, WORLD_BASE, WORLD_ALIASES, WORLD_ORIGIN } from './world.js';
 import { DESIGNER_BASE, DESIGNER_CULTIVARS, DESIGNER_ORIGIN, DESIGNER_ALIASES, DESIGNER_FAMILY, socOf, SALT_GROUPS } from './designer.js';
 import { familyOf, USE_INDEX, HERB_GROUPS, NATIVE_GROUPS, MEDICINAL_GROUPS, TIPS } from './meta.js';
 import { CLIMATE_FIX, climateTraits } from './fit.js';
+import { OKINAWA_BASE } from './okinawa.js';
 
 // 品種リストを統合（既存の種には追加、新しい種はそのまま）
 const CULTIVARS = { ...CV1 };
@@ -211,7 +212,7 @@ function expand(bases) {
 }
 
 /** 全植物（品種ごとに1件） */
-export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE, ...VEG_BASE, ...BALCONY_BASE, ...HERB_BASE, ...WORLD_BASE, ...DESIGNER_BASE]).map(decorate);
+export const PLANTS = expand([...BASE, ...EXTRA_BASE, ...MORE_BASE, ...ANNUAL_BASE, ...VEG_BASE, ...BALCONY_BASE, ...HERB_BASE, ...WORLD_BASE, ...DESIGNER_BASE, ...OKINAWA_BASE]).map(decorate);
 
 /** 科・用途・ハーブ/在来種タグ・豆知識を付与 */
 function decorate(p) {
@@ -224,7 +225,7 @@ function decorate(p) {
   if (SALT_GROUPS.has(p.group)) tags.add('salt');
   let family = familyOf(p.latin);
   if (!family.latin) family = DESIGNER_FAMILY[p.latin.replace(/^×\s*/, '').split(/[\s']/)[0]] || family;
-  const q = { ...p, tags: [...tags], family, uses: [...new Set([...(USE_INDEX[p.group] || []), ...(p.use || [])])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || DESIGNER_ALIASES[p.group] || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || DESIGNER_ORIGIN[p.group] || [] };
+  const q = { ...p, tags: [...tags], family, uses: [...new Set([...(USE_INDEX[p.group] || []), ...(p.use || [])])], tips: TIPS[p.group] || [], aka: ALIASES[p.group] || WORLD_ALIASES[p.group] || DESIGNER_ALIASES[p.group] || p.aka || [], origin: ORIGIN[p.group] || WORLD_ORIGIN[p.group] || DESIGNER_ORIGIN[p.group] || p.origin || [] };
   q.roles = rolesOf(q);
   q.soc = socOf(q);
   // 気候データの訂正（出典を確認できたもの）と、気候判定用の項目

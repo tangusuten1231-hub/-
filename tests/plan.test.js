@@ -55,9 +55,10 @@ test('プラン生成: 日陰・ホワイトガーデン・狭い花壇', () => 
 
 test('低予算ほど安くなる', () => {
   const o = { climate: tokyo, width: 3, depth: 1.2, sun: 'full' };
-  const normal = generatePlan({ ...o, text: 'ナチュラル' });
-  const cheap = generatePlan({ ...o, text: 'ナチュラル 低予算' });
-  assert.ok(cheap.cost.plants < normal.cost.plants, `${cheap.cost.plants} < ${normal.cost.plants}`);
+  // 作るたびに候補群から抽選するので、何案かの平均で比べる
+  const avg = (text) => [0, 1, 2, 3, 4, 5].reduce((t, seed) => t + generatePlan({ ...o, text, seed }).cost.plants, 0) / 6;
+  const normal = avg('ナチュラル'), cheap = avg('ナチュラル 低予算');
+  assert.ok(cheap < normal, `${cheap} < ${normal}`);
 });
 
 test('イメージ図のSVGが全ての月で生成できる', () => {

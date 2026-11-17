@@ -87,3 +87,37 @@ test('育てやすさの6段階：決め方と図鑑の絞り込み', async () =
   const all = findPlants(NAHA, {});
   for (let i = 1; i < all.length; i++) assert.ok(all[i - 1].grade >= all[i].grade); // おすすめ順は育てやすい順
 });
+
+test('園芸の腕前に合わせたプラン：はじめては簡単に育つ植物だけ、挑戦したいは工夫が必要な植物を3割まで', async () => {
+  const { SKILLS } = await import('../js/plan.js');
+  assert.deepEqual(Object.keys(SKILLS), ['beginner', 'standard', 'skilled', 'challenge']);
+  const gen = (c, skill, seed = 0) => generateSite({ width: 15, depth: 8, shape: 'rect', house: 'n', text: '白、青', style: 'border', sun: 'full', moist: '', climate: c, seed, k: K, skill });
+  for (const c of [ASAHI, SAPPORO]) {
+    const b = gen(c, 'beginner');
+    for (const p of b.plants) assert.equal(evaluate(p, c).grade, 6, `はじめて ${p.ja}`);
+    const ch = gen(c, 'challenge');
+    let tough = 0;
+    for (const bed of ch.beds) {
+      const n = bed.plan.species.filter((x) => x.challenge).length;
+      assert.ok(n <= Math.floor(bed.plan.species.length * 0.3), `3割まで ${n}/${bed.plan.species.length}`);
+      for (const x of bed.plan.species) {
+        const g = evaluate(x.plant, c).grade;
+        assert.ok(g >= 2, `育てられない植物は入れない ${x.plant.ja}`);
+        if (x.challenge) { tough++; assert.equal(g, 2); assert.ok(x.why.some((w) => w.startsWith('工夫：'))); }
+        else assert.equal(hardFails(x.plant, c).length, 0);
+      }
+    }
+    assert.ok(tough > 0, '挑戦したい：工夫が必要な植物が入る');
+    for (const bed of gen(c, 'standard').beds) for (const x of bed.plan.species) assert.equal(hardFails(x.plant, c).length, 0);
+  }
+});
+
+test('沖縄など亜熱帯向けの植物：那覇でよく育つ・育つ、出典つき', () => {
+  for (const id of ['hibiscus', 'bougainvillea', 'ixora', 'alpinia-zerumbet', 'crinum-asiaticum', 'alocasia-odora', 'lilium-longiflorum', 'euphorbia-milii']) {
+    const p = P(id);
+    assert.ok(p && p.climateSrc, id);
+    assert.ok(p.family.latin, `${id} の科`);
+    assert.ok(evaluate(p, NAHA).grade >= 3, `那覇 ${id}`);
+  }
+  assert.equal(evaluate(P('hibiscus'), SAPPORO).grade, 2); // 鉢で取り込めば育つ
+});

@@ -77,6 +77,7 @@ export const CHILL_LIMIT = 10;
  * ・夏の暑さ：場所のヒートゾーンが植物の上限を超える
  * ・低温要求（high）：いちばん寒い月の平均気温が 10℃ を超える
  * ・高温多湿に弱い：熱帯夜が年10日以上（蒸れストレス2以上）
+ * 上限が11の植物には冬の暖かさの上限を設けない（USDA のゾーン12・13は2012年にハワイ・プエルトリコ向けに加わったもので、多くの資料は11までしか記さないため）。
  * 一年草は毎年種から育てるので、冬の寒さ・暖かさ・低温要求は判定しない。
  */
 export function hardFails(p, climate, site = siteOf(climate)) {
@@ -87,7 +88,7 @@ export function hardFails(p, climate, site = siteOf(climate)) {
   if (!annual && t.hardinessZoneMin != null && site.zone < t.hardinessZoneMin) {
     out.push({ key: 'cold', text: `冬の寒さ（ゾーン${site.label}）が耐寒ゾーン${t.hardinessZoneMin}より厳しく、冬越しが難しい` });
   }
-  if (!annual && t.hardinessZoneMax != null && site.zoneInt > t.hardinessZoneMax + 1) {
+  if (!annual && t.hardinessZoneMax != null && t.hardinessZoneMax < 11 && site.zoneInt > t.hardinessZoneMax + 1) {
     out.push({ key: 'warm', text: `冬が暖かすぎる（ゾーン${site.label}。耐寒ゾーン${t.hardinessZoneMin}〜${t.hardinessZoneMax}の植物）` });
   }
   if (t.heatZoneMax != null && site.heat > t.heatZoneMax) {
@@ -115,7 +116,7 @@ export function climateFit(p, climate, site = siteOf(climate)) {
   const t = p.fit || climateTraits(p);
   let zoneFit = 0.7;
   if (p.type !== 'annual' && t.hardinessZoneMin != null) {
-    const lo = t.hardinessZoneMin, hi = t.hardinessZoneMax + 1; // ゾーン上限の「b」まで
+    const lo = t.hardinessZoneMin, hi = (t.hardinessZoneMax >= 11 ? 13 : t.hardinessZoneMax) + 1; // ゾーン上限の「b」まで（11は上限なしとみなす）
     const half = Math.max(0.75, (hi - lo) / 2);
     const mid = (lo + hi) / 2;
     zoneFit = Math.max(0, 1 - Math.abs(site.zone + 0.25 - mid) / (half + 0.5));

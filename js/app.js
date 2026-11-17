@@ -8,7 +8,7 @@ import { horizonFn, sunReport, angleOf, sunPath, sunWindows, sunNow, lightToday,
 import { INAT_GROUPS, fetchNearby, matchLocal } from './inat.js';
 import { mergeLog, pastDaysNeeded, lastDays, logSummary, compareJa } from './wxlog.js';
 import { seedlings, bedSoil, potLiters, potSoil, fertilizer, liquid, mulch, toICS, firstSaturday, waterAdvice } from './tools.js';
-import { generatePlan, slotCandidates, BED_SHAPES, DENSITY, VARIETY, PRESETS, LAYER_JA } from './plan.js';
+import { generatePlan, slotCandidates, BED_SHAPES, DENSITY, VARIETY, PRESETS, LAYER_JA, SKILLS } from './plan.js';
 import { elevationSVG, planSVG, plantThumbSVG, mapColors } from './illust.js';
 import { loadImages, imageOf, placeImage } from './images.js';
 import { ROLES } from './roles.js';
@@ -105,6 +105,9 @@ const state = {
   shown: 24,
   groupResults: null,
 };
+// 旧「挑戦枠」（こだわり設定）は、園芸の腕前の「挑戦したい」へ
+if (state.planInput.k?.challenge) { state.planInput.skill = state.planInput.skill || 'challenge'; delete state.planInput.k.challenge; }
+document.addEventListener('change', (e) => { if (e.target.id === 'planSkill') $('#planSkillHint').textContent = SKILLS[e.target.value]?.text || ''; });
 
 // プラン入力の既定値（古い保存データにない項目を補う）
 {
@@ -523,6 +526,16 @@ function gradeOptions(byGrade) {
   const n = (v) => { if (!byGrade) return ''; const m = String(v).match(/^(ge)?(\d)$/); if (!m) return ''; const u = new Set(); for (const [g, set] of Object.entries(byGrade)) if (m[1] ? +g >= +m[2] : +g === +m[2]) set.forEach((x) => u.add(x)); return `（${u.size}種）`; };
   return GRADE_OPTS.map(([v, ja]) => `<option value="${v}">${ja || GRADE[v].ja}${n(v)}</option>`).join('');
 }
+/** プランの腕前と、選ばれた植物の育てやすさの内訳 */
+function skillSummary(skillId, grades) {
+  const sk = SKILLS[skillId] || SKILLS.standard;
+  const cnt = {};
+  for (const g of grades) if (g) cnt[g] = (cnt[g] || 0) + 1;
+  const rows = [6, 5, 4, 3, 2, 1].filter((g) => cnt[g]);
+  return `<div class="skill-sum"><p><b>園芸の腕前：${esc(sk.ja)}</b><small>${esc(sk.text)}</small></p>
+    <div class="gg-bar" aria-hidden="true">${rows.map((g) => `<span class="gr-${g}" style="flex:${cnt[g]}"></span>`).join('')}</div>
+    <p class="gg-legend">${rows.map((g) => `<span class="lv gr gr-${g}">${GRADE[g].ja} ${cnt[g]}種</span>`).join('')}</p></div>`;
+}
 const gradeBadge = (r, short = false) => (r.grade ? `<span class="lv gr gr-${r.grade}" title="${esc(GRADE[r.grade].note)}">${GRADE[r.grade].mark} ${short && r.grade === 2 ? '工夫が必要' : GRADE[r.grade].ja}</span>` : '');
 function saveFilters() { store.set('filters', state.filters); renderPlants(); }
 
@@ -698,6 +711,19 @@ document.addEventListener('click', (e) => {
 });
 
 // ---------- マイガーデン ----------
+/** マイ庭の植物の、この地域での育てやすさ（6段階）のまとめ */
+function gardenGradeCard(plants, c) {
+  const by = {};
+  for (const p of plants) { const r = evaluate(p, c); (by[r.grade] = by[r.grade] || []).push({ p, r }); }
+  const rows = [6, 5, 4, 3, 2, 1].filter((g) => by[g]);
+  const hard = (by[2] || []).length + (by[1] || []).length;
+  return `<div class="card grade-card">
+    <h2>${icon('leaf', 19)} この地域での育てやすさ</h2>
+    <p class="hint">${plants.length}種のうち、よく育つ以上 ${(by[6] || []).length + (by[5] || []).length}種${hard ? `・工夫が必要か育てられない ${hard}種` : ''}。植物名をタップすると、下の一覧の場所へ移動します。</p>
+    <div class="gg-bar" aria-hidden="true">${rows.map((g) => `<span class="gr-${g}" style="flex:${by[g].length}"></span>`).join('')}</div>
+    ${rows.map((g) => `<div class="gg-row"><span class="lv gr gr-${g}">${GRADE[g].mark} ${GRADE[g].ja}</span><div class="gg-list">${by[g].map(({ p }) => `<button type="button" class="chip" data-jump="gp-${p.id}">${esc(p.ja)}</button>`).join('')}</div></div>`).join('')}
+  </div>`;
+}
 function renderGarden() {
   const box = $('#gardenBox');
   const plants = state.garden.map((id) => byId.get(id));
@@ -739,7 +765,8 @@ function renderGarden() {
         const qty = qtyFor(p, plants);
         return `<div class="gplant" id="gp-${p.id}">
           <span class="dot" style="background:${COLORS[p.color[0]].hex}"></span>
-          <div class="grow"><div>${esc(p.ja)} ${r.level ? `<span class="lv lv-${r.level}" style="margin-left:4px">${LEVEL[r.level].mark}</span>` : ''}</div>
+          <div class="grow"><div>${esc(p.ja)} ${gradeBadge(r, true)}</div>
+          ${r.grade && r.grade <= 4 ? `<div class="sub g-note">${esc(r.tips?.length ? `工夫：${r.tips[0]}` : r.reasons[0] || '')}</div>` : ''}
           <div class="sub">株間 約${p.spread}cm・1㎡に${per}株・${p.h[0]}〜${p.h[1]}cm・植え時 ${monthsJa(plantingTime(p, c).plant.best)}</div>
           ${infoLine(activeGarden(), p.id)}</div>
           <span class="qty">約${qty}株</span>
@@ -774,6 +801,7 @@ function renderGarden() {
       <details class="crit-details"${state.critOpen ? ' open' : ''}><summary>来そうな生き物を見る（${creaturesForGarden(plants, activeGarden().features, c).filter((x) => x.level >= 2).length}種）</summary>${crittersHtml(creaturesForGarden(plants, activeGarden().features, c), south, 12, seenSet())}</details>
       ${webHtml(creaturesForGarden(plants, activeGarden().features, c), plants, activeGarden().features)}
     </div>
+    ${c ? gardenGradeCard(plants, c) : ''}
     <div class="card">
       <h2>配置と株数の目安</h2>
       ${activeGarden().siteArea ? `<p class="site-area">庭全体 <b>${activeGarden().siteArea}㎡</b>・うち花壇 <b>${state.area}㎡</b>（${Math.round((state.area / activeGarden().siteArea) * 1000) / 10}%）</p>` : ''}
@@ -1795,7 +1823,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ---------- こだわり設定 ----------
-const K_DEFAULT = { must: [], exclude: [], colors: [], colorMode: 'prefer', leafs: [], density: 'standard', variety: 'standard', maxH: 0, months: [], winter: false, challenge: false };
+const K_DEFAULT = { must: [], exclude: [], colors: [], colorMode: 'prefer', leafs: [], density: 'standard', variety: 'standard', maxH: 0, months: [], winter: false };
 /** こだわり設定の値（何も変えていなければ undefined＝おまかせ） */
 function kOpts(pi) {
   const k = { ...K_DEFAULT, ...(pi.k || {}) };
@@ -1813,7 +1841,6 @@ function kSummaryText(k) {
   if (k.maxH) t.push(`${k.maxH}cmまで`);
   if (k.months.length) t.push(`${monthsJa(k.months)}に咲かせる`);
   if (k.winter) t.push('冬も楽しむ');
-  if (k.challenge) t.push('挑戦枠あり');
   return t.join('・') || '入れたい植物・色・密度・種類の数など（おまかせ）';
 }
 function renderKodawari() {
@@ -1839,7 +1866,6 @@ function renderKodawari() {
     <div class="k-row"><span class="label">とくに咲かせたい月</span>
       <div class="chips k-months">${MONTHS.map((m) => `<button type="button" class="chip${k.months.includes(m) ? ' on' : ''}" data-kmonth="${m}">${m}月</button>`).join('')}</div></div>
     <label class="toggle"><input type="checkbox" id="kWinter" ${k.winter ? 'checked' : ''}> 冬も楽しむ（常緑・種の頭・枯れ姿の美しい植物を優先）</label>
-    <label class="toggle"><input type="checkbox" id="kChallenge" ${k.challenge ? 'checked' : ''}> 挑戦枠（この地域の気候では育てにくい植物を、全体の1割まで注意書きつきで入れる）</label>
     <div class="row"><button type="button" class="btn small" data-kreset>${icon('refresh', 14)}こだわりをリセット</button></div>
     <datalist id="kPlantList">${PLANTS.filter((p) => !p.custom).map((p) => `<option value="${esc(p.ja)}"></option>`).join('')}</datalist>`;
   $('#kSummary').textContent = kSummaryText(k);
@@ -1875,7 +1901,6 @@ function initKodawari() {
   box.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.matches('#kMustQ,#kExQ')) { e.preventDefault(); addBy(e.target.id === 'kMustQ' ? 'must' : 'exclude', e.target.value); } });
   box.addEventListener('change', (e) => {
     if (e.target.id === 'kWinter') { state.planInput.k.winter = e.target.checked; save(); }
-    if (e.target.id === 'kChallenge') { state.planInput.k.challenge = e.target.checked; save(); }
   });
 }
 
@@ -1886,6 +1911,7 @@ function fillPlanForm() {
   $('#planW').value = pi.width; $('#planD').value = pi.depth;
   $('#planBudget').value = pi.budget || '';
   $('#planAnnuals').checked = !!pi.annuals; $('#planGround').checked = !!pi.ground;
+  $('#planSkill').value = SKILLS[pi.skill] ? pi.skill : 'standard'; $('#planSkillHint').textContent = SKILLS[$('#planSkill').value].text;
   $('#balW').value = pi.balcony.width; $('#balD').value = pi.balcony.depth; $('#balFloor').value = pi.balcony.floor;
   $('#balRailH').value = pi.balcony.railH; $('#balCeil').value = pi.balcony.ceilH; $('#balShelf').value = String(pi.balcony.shelf);
   $('#balHang').checked = !!pi.balcony.hang; $('#balWater').checked = !!pi.balcony.water;
@@ -1903,6 +1929,7 @@ function readPlanForm() {
   pi.depth = Math.min(10, Math.max(0.4, parseFloat($('#planD').value) || 1.2));
   pi.budget = $('#planBudget').value;
   pi.annuals = $('#planAnnuals').checked;
+  pi.skill = $('#planSkill').value;
   pi.ground = $('#planGround').checked;
   const B = pi.balcony;
   B.width = Math.min(20, Math.max(1, parseFloat($('#balW').value) || 3.6));
@@ -1956,7 +1983,7 @@ function computePlan() {
     return;
   }
   if (pi.mode === 'site') {
-    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
+    state.site = generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi), skill: pi.skill });
     state.siteBed = null;
     state.plan = null;
     return;
@@ -2045,7 +2072,8 @@ function renderPlan() {
       <ol class="steps-num">${STYLES[plan.style].principles.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
     </section>
     ${plan.k ? `<div class="k-applied"><b>${icon('list', 15)}こだわり設定</b><span>${esc(kSummaryText({ ...K_DEFAULT, ...plan.k }))}</span></div>` : ''}
-    ${plan.warnings?.length ? `<div class="alert warn">${plan.warnings.map(esc).join('<br>')}指定どおり入れていますが、植える場所や鉢植えで工夫してください。</div>` : ''}
+    ${state.climate ? skillSummary(plan.skill, plan.species.map((sp) => sp.grade)) : ''}
+    ${plan.warnings?.length ? `<div class="alert warn">${plan.warnings.map(esc).join('<br>')}${plan.warnings.some((w) => /苦手です|育てにくい植物です/.test(w)) ? '指定どおり入れていますが、植える場所や鉢植えで工夫してください。' : ''}</div>` : ''}
 
     ${!bedOfSite && state.planInput.pick === 'semi' ? slotsHtml(plan) : ''}
 
@@ -2057,7 +2085,7 @@ function renderPlan() {
           <span class="role">${esc(sp.roleJa)}</span>
           <h3>${esc(sp.plant.ja)}</h3>
           <p class="latin">${esc(sp.plant.latin)}</p>
-          <p class="calc"><span class="dot" style="background:${COLORS[sp.color].hex};width:9px;height:9px"></span> ${COLORS[sp.color].ja}・${sp.plant.h[0]}〜${sp.plant.h[1]}cm${sp.level ? `・${LEVEL[sp.level].mark}` : ''}</p>
+          <p class="calc"><span class="dot" style="background:${COLORS[sp.color].hex};width:9px;height:9px"></span> ${COLORS[sp.color].ja}・${sp.plant.h[0]}〜${sp.plant.h[1]}cm ${gradeBadge(sp, true)}</p>
           ${monthBar({ ...sp.plant, color: [sp.color] }, south)}
           <p class="calc">${sp.qty}株 × ${yen(sp.plant.price)} = <b>${yen(sp.subtotal)}</b></p>
           <p class="grow-mini">植え時 ${esc(monthsJa(plantingTime(sp.plant, state.climate).plant.best))}</p>${growHtml(sp.plant, true)}
@@ -2558,7 +2586,7 @@ const SEL_VER = 2;
 function rebuildPlan(input) {
   const pi = input;
   if (pi.mode === 'balcony') return generateBalcony({ ...pi.balcony, roof: pi.balcony.roof !== 'no', text: planText(pi), style: pi.style, wild: pi.wild, climate: state.climate, lat: state.loc?.lat ?? 35.7, seed: pi.seed, annuals: pi.annuals, budget: pi.budget });
-  if (pi.mode === 'site') return generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi) });
+  if (pi.mode === 'site') return generateSite({ ...pi.site, items: pi.items, wild: pi.wild, roles: pi.ground ? ['groundcover'] : [], text: planText(pi), style: pi.style, sun: pi.sun, moist: pi.moist, climate: state.climate, seed: pi.seed, layoutSeed: pi.layoutSeed, annuals: pi.annuals, budget: pi.budget, k: kOpts(pi), skill: pi.skill });
   return generatePlan({ ...pi, text: planText(pi), k: kOpts(pi), roles: pi.ground ? ['groundcover'] : [], climate: state.climate });
 }
 /** 比較用のまとめ */
@@ -2703,7 +2731,7 @@ function renderSitePlan() {
   // 庭全体の植物の一覧（花壇をまたいで集計）
   const agg = new Map();
   for (const b of s.beds) for (const sp of b.plan.species) {
-    const x = agg.get(sp.plant.id) || { plant: sp.plant, color: sp.color, qty: 0, beds: [], roleJa: sp.roleJa, role: sp.role, why: sp.why || [], challenge: sp.challenge };
+    const x = agg.get(sp.plant.id) || { plant: sp.plant, color: sp.color, qty: 0, beds: [], roleJa: sp.roleJa, role: sp.role, why: sp.why || [], challenge: sp.challenge, grade: sp.grade };
     x.qty += sp.qty;
     if (!x.beds.includes(b.id)) x.beds.push(b.id);
     agg.set(sp.plant.id, x);
@@ -2780,18 +2808,20 @@ function renderSitePlan() {
 
     <section class="mag" id="sec-splants">
       ${secHead('Planting List', '植える植物（庭全体）', `${sitePlants.length}種・${sitePlants.reduce((t, x) => t + x.qty, 0)}株。どの花壇に植えるかは、花壇の記号をタップすると移動します。`)}
+      ${state.climate ? skillSummary(s.beds[0]?.plan.skill, sitePlants.map((x) => x.grade)) : ''}
+      ${(() => { const w = [...new Set(s.beds.flatMap((b) => b.plan.warnings || []))]; return w.length ? `<div class="alert warn">${w.map(esc).join('<br>')}</div>` : ''; })()}
       <div class="row"><button type="button" class="btn small" id="btnSiteMemo">${icon('cart', 15)}買い物メモをコピー</button></div>
       <div class="cast">${sitePlants.map((x, i) => `<article class="cast-card" id="scast-${i + 1}">
         <div class="cast-art">${photoHtml(x.plant, 'cast-photo', x.color)}<span class="no">${i + 1}</span></div>
         <div class="cbody">
-          <span class="role">${esc(x.roleJa)}</span>
+          <span class="role">${esc(x.roleJa)}</span> ${gradeBadge(x, true)}
           <h3>${esc(x.plant.ja)}</h3>
           <p class="latin">${esc(x.plant.latin)}</p>
           <p class="calc"><span class="dot" style="background:${COLORS[x.color].hex};width:9px;height:9px"></span> ${COLORS[x.color].ja}・${x.plant.h[0]}〜${x.plant.h[1]}cm・株間${x.plant.spread}cm</p>
           ${monthBar({ ...x.plant, color: [x.color] }, south)}
           <p class="calc">${x.qty}${x.plant.type === 'bulb' ? '球' : '株'} × ${yen(x.plant.price)} = <b>${yen(x.qty * x.plant.price)}</b></p>
           <div class="bed-tags">${x.beds.map((id) => `<button type="button" class="chip" data-jump="bed-${id}"><span class="bid">${id}</span>${esc(s.beds.find((b) => b.id === id)?.name.replace(/（.*?）/g, '') || '')}</button>`).join('')}</div>
-          ${x.why.length ? `<p class="sel-why${x.challenge ? ' challenge' : ''}"><b>${x.challenge ? '挑戦枠' : '選んだ理由'}</b>${x.why.filter((w) => w !== '挑戦枠').map(esc).join('／')}</p>` : ''}
+          ${x.why.length ? `<p class="sel-why${x.challenge ? ' challenge' : ''}"><b>${x.challenge ? '工夫が必要（挑戦）' : '選んだ理由'}</b>${x.why.filter((w) => !w.startsWith('工夫が必要')).map(esc).join('／')}</p>` : ''}
           <div class="why"><span>植え時 ${esc(monthsJa(plantingTime(x.plant, state.climate).plant.best))}</span>${(x.plant.roles || []).slice(0, 2).map((k) => `<span>${esc(ROLES[k].ja)}</span>`).join('')}</div>
         </div>
       </article>`).join('')}</div>

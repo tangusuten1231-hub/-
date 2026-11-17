@@ -148,6 +148,12 @@ export const FAMILY = Object.fromEntries([
   ...F('ヒユ科', 'Amaranthaceae', 'Spinacia Beta Gomphrena Celosia Amaranthus'),
   ...F('キジカクシ科', 'Asparagaceae', 'Asparagus'),
   ...F('タデ科', 'Polygonaceae', 'Rheum Rumex'),
+  // 亜熱帯の植物（okinawa.js）
+  ...F('オシロイバナ科', 'Nyctaginaceae', 'Bougainvillea'),
+  ...F('アカネ科', 'Rubiaceae', 'Ixora'),
+  ...F('ショウガ科', 'Zingiberaceae', 'Alpinia'),
+  ...F('ヒガンバナ科', 'Amaryllidaceae', 'Crinum'),
+  ...F('サトイモ科', 'Araceae', 'Alocasia'),
 ]);
 
 export function familyOf(latin) {

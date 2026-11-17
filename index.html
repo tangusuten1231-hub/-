@@ -347,6 +347,15 @@
         </details>
         <label class="toggle not-balcony" style="margin:4px 0 4px"><input type="checkbox" id="planGround"> 足元をグラウンドカバーで覆う（雑草よけ・乾燥防止）</label>
         <label class="toggle" style="margin:4px 0 10px"><input type="checkbox" id="planAnnuals"> 一年草も使う（毎年の種まきが必要）</label>
+        <label class="field not-balcony"><span class="label">園芸の腕前（育てやすさで植物を選ぶ）</span>
+          <select id="planSkill">
+            <option value="beginner">はじめて：簡単に育つ植物だけ</option>
+            <option value="standard">ふつう：よく育つ植物を中心に（おすすめ）</option>
+            <option value="skilled">慣れている：育ちにくい植物も手入れで</option>
+            <option value="challenge">挑戦したい：工夫が必要な人気の植物も</option>
+          </select>
+          <small class="hint" id="planSkillHint"></small>
+        </label>
         <label class="field"><span class="label">予算（任意・円）</span><input type="number" id="planBudget" min="0" step="1000" inputmode="numeric" placeholder="例：30000"></label>
         <div class="row">
           <button class="btn primary" id="btnPlan" type="button"><span data-ico="plan"></span><span id="btnPlanLabel">プランをつくる</span></button>

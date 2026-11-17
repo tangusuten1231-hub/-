@@ -61,7 +61,7 @@ export function evaluate(plant, climate) {
     let edges = 0, hardEdge = false;
     if (!annual && site.zone < t.hardinessZoneMin + 0.5) { hardEdge = true; reasons.push('耐寒性がぎりぎり。冬は株元をマルチングで保護'); }
     // 冬の暖かさの上限は、米国の資料では夏の暑さも含めて決められていることが多い（暑さは別に判定）ので、限界に近い条件の1つとして数える
-    if (!annual && site.zoneInt > t.hardinessZoneMax) { edges++; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
+    if (!annual && t.hardinessZoneMax < 11 && site.zoneInt > t.hardinessZoneMax) { edges++; reasons.push('冬の寒さがやや足りない地域。花つきが落ちることがある'); }
     if (t.heatZoneMax != null && site.heat === t.heatZoneMax) { edges++; reasons.push('夏の暑さは上限いっぱい。午後に日陰になる場所だと安心'); }
     if (t.heatHumidityTolerance === 'weak' && site.stress === 1) { edges++; reasons.push('蒸れに弱い。水はけをよくし梅雨前に透かす'); }
     else if (t.heatHumidityTolerance === 'normal' && site.stress === 3) { edges++; reasons.push('熱帯夜が多い地域。株間を広めにとり風通しを確保'); }

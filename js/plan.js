@@ -129,6 +129,18 @@ export const BED_SHAPES = {
 };
 /** 植え付けの間隔＝育ったときの株張り × この係数（育つと隣と触れ合い、地面が見えなくなる密度。プロの植栽設計の目安） */
 export const PLANT_GAP = 0.85;
+/**
+ * 園芸の腕前に合わせたプラン。育てやすさ（6段階：garden.js の GRADE）で候補を選ぶ。
+ * min：候補にする育てやすさの下限、tough：「工夫が必要」の植物を入れてよい割合
+ * 人気の目安：図鑑に収録している品種の数（多くの品種が流通している植物ほど人気が高いとみなす）
+ */
+export const SKILLS = {
+  beginner: { ja: 'はじめて', text: '「簡単に育つ」植物だけで作る（足りないときだけ「よく育つ」植物を加え、そのことを表示）', min: 6 },
+  standard: { ja: 'ふつう', text: '「育つ」以上を中心に。「育ちにくい」植物は点数を下げて、なるべく選ばない', min: 3 },
+  skilled: { ja: '慣れている', text: '手入れで補える「育ちにくい」植物も、ほかと同じ扱いで選ぶ。人気の植物（品種が多いもの）を少し優先', min: 3 },
+  challenge: { ja: '挑戦したい', text: '「育てるには工夫が必要」な人気の植物も、全体の3割まで工夫のしかたつきで入れる（「育てられない」植物は入れない）', min: 3, tough: 0.3 },
+};
+export const popularity = (p) => Math.min(1, Math.max(0, ((p.cvCount || 1) - 1) / 5));
 /** こだわり設定：植栽密度（間隔の係数）と種類の数 */
 export const DENSITY = { airy: { ja: 'ゆったり', k: 1.18 }, standard: { ja: '標準', k: 1 }, dense: { ja: 'しっかり', k: 0.88 }, tight: { ja: '密植', k: 0.76 } };
 export const VARIETY = { few: { ja: '少なめ', k: 0.7 }, standard: { ja: '標準', k: 1 }, many: { ja: '多め', k: 1.35 } };
@@ -301,12 +313,30 @@ export function generatePlan(o) {
   // スタイルや色の点数がいくら高くても、この場所の冬の寒さ・暖かさ・夏の暑さ・低温要求・高温多湿に合わない植物は選ばない
   const site = siteOf(o.climate);
   const failsOf = new Map(cands.map((p) => [p.id, site ? hardFails(p, o.climate, site) : []]));
-  const challengers = cands.filter((p) => failsOf.get(p.id).length === 1); // 挑戦枠の候補（理由が1つだけ）
+  // 園芸の腕前（こだわり設定の「挑戦枠」は「挑戦したい」と同じ扱い）
+  const skillId = SKILLS[o.skill] ? o.skill : k.challenge ? 'challenge' : 'standard';
+  const skill = SKILLS[skillId];
+  // 「挑戦したい」の候補：外れた理由がすべて工夫で補える植物（育てやすさ「育てるには工夫が必要」）
+  const challengers = site && skill.tough ? cands.filter((p) => failsOf.get(p.id).length && evaluate(p, o.climate).grade === 2) : [];
   cands = cands.filter((p) => !failsOf.get(p.id).length);
   // 気候判定に必要なデータ（耐寒ゾーン・ヒートゾーン・高温多湿）がない植物は「判定保留」。主役（後景・中景）には選ばない
   if (site) cands = cands.filter((p) => hasClimateData(p) || heightClass(p) === 'front');
-  const evals = new Map(cands.map((p) => [p.id, evaluate(p, o.climate)]));
+  let evals = new Map(cands.map((p) => [p.id, evaluate(p, o.climate)]));
   if (depth < 0.6 || pref.short) cands = cands.filter((p) => p.h[1] <= Math.max(60, depth * 120));
+  const warnings = [];
+  // 「はじめて」：簡単に育つ植物だけ。少なすぎるときは「よく育つ」植物まで広げて、そのことを表示する
+  if (site && skill.min > 3) {
+    const easy = cands.filter((p) => evals.get(p.id).grade >= skill.min);
+    const need = Math.max(8, Math.round((3 + area * 1.1) * 2));
+    if (easy.length >= need) cands = easy;
+    else {
+      // 足りなければ「よく育つ」、それでも足りなければ「育つ」まで広げる
+      const good = cands.filter((p) => evals.get(p.id).grade >= 5);
+      const add = good.length >= need ? 'よく育つ' : 'よく育つ・育つ';
+      cands = good.length >= need ? good : cands.filter((p) => evals.get(p.id).grade >= 4);
+      warnings.push(`この場所の条件（日当たり・土・気候・希望）では「簡単に育つ」植物が${new Set(easy.map((p) => p.group)).size}種しかないため、「${add}」植物も加えました。`);
+    }
+  }
   const monthsWanted = [...pref.season];
 
   // ---------- スコア（100点満点の目安）----------
@@ -318,7 +348,10 @@ export function generatePlan(o) {
     // 気候への適合度：ゾーンの範囲の真ん中ほど高い。その地域でこそ育つ植物は積極的に加点
     const regional = site ? regionalKind(p, o.climate, site) : null;
     const cf = site ? climateFit(p, o.climate, site) : 0.5;
-    const climateS = W8.climate * Math.min(1, cf * 0.7 + (regional ? 0.45 : 0));
+    const grade = site ? (evals.get(p.id) || evaluate(p, o.climate)).grade : null;
+    // 育てやすさ：ふつうは「育ちにくい」を下げ、慣れている・挑戦したいは下げない
+    const gradeAdj = grade == null ? 0 : skillId === 'standard' ? { 6: 3, 5: 2, 4: 0, 3: -8 }[grade] ?? 0 : skillId === 'beginner' ? { 6: 3, 5: 0 }[grade] ?? 0 : 0;
+    const climateS = Math.max(0, W8.climate * Math.min(1, cf * 0.7 + (regional ? 0.45 : 0)) + gradeAdj);
     // 希望との一致
     let wish = 0;
     const tagHits = p.tags.filter((t) => pref.tags.has(t));
@@ -341,9 +374,10 @@ export function generatePlan(o) {
     if (k.winter && (p.tags.includes('evergreen') || p.uses?.includes('winter') || p.uses?.includes('seed'))) wish += 3;
     if (o.palette?.includes(p.id)) wish += 7; // 庭まるごと：ほかの花壇と同じ植物をくり返す（リピート）
     if (style.bonus) wish += style.bonus(p) * 1.5;
+    if (skillId === 'skilled' || skillId === 'challenge') wish += popularity(p) * 5; // 人気の植物（品種が多い）を少し優先
     // 低予算の希望：1㎡あたりの苗代が安いほど高く（希望との一致として扱う）
     const perSqm0 = p.price / (p.spread / 100) ** 2;
-    if (pref.budget) wish -= Math.min(10, perSqm0 / 600);
+    if (pref.budget) wish -= Math.min(16, perSqm0 / 350);
     // 呼びたい生き物（蝶・蜂・野鳥など）の希望
     if (wild.length) wish += Math.min(8, wildScore(p, wild, o.climate) * 2.5);
     wish = Math.max(-12, Math.min(W8.wish, wish));
@@ -407,7 +441,6 @@ export function generatePlan(o) {
   };
 
   // こだわり：入れたい植物は先に入れる（条件に合わない場合は注意を出す）
-  const warnings = [];
   for (const id of k.must) {
     const p = PLANTS.find((q) => q.id === id);
     if (!p || picked.some((x) => x.plant.group === p.group && x.plant.id === p.id)) continue;
@@ -581,25 +614,28 @@ export function generatePlan(o) {
     x.chosen = true;
   }
 
-  // 挑戦枠（こだわり設定で選んだときだけ）：気候の判定で外れた植物を、全体の1割まで、警告つきで入れる
-  if (k.challenge && site) {
-    const room = Math.floor(picked.length / 10);
-    const ch = challengers.filter((p) => !picked.some((x) => x.plant.group === p.group) && (!pref.colors.size || !flowering(p) || p.color.some((c) => pref.colors.has(c))))
-      .map((p) => ({ p, ...score(p) })).sort((a2, b2) => b2.s - a2.s);
+  // 「挑戦したい」：工夫すれば育てられる人気の植物を、全体の3割まで入れる（工夫のしかたを理由と注意に表示）
+  if (skill.tough && site && !challengers.length) warnings.push('この場所の条件（日当たり・土・気候・希望）では、「育てるには工夫が必要」な植物の候補がありませんでした。気候に合う植物だけで作っています。');
+  if (skill.tough && challengers.length) {
+    const room = Math.floor(picked.length * skill.tough);
+    const ch = challengers.filter((p) => okSwap(null, p))
+      .map((p) => ({ p, ...score(p), pop: popularity(p) })).sort((a2, b2) => b2.pop - a2.pop || b2.s - a2.s);
     for (let i = 0; i < room && ch.length; i++) {
       const c = ch.shift();
+      if (picked.some((x) => x.plant.group === c.p.group)) { i--; continue; }
       const L = layerOf(c.p);
-      const outs = picked.filter((x) => !x.must && !x.chosen && !x.challenge && x.layer === L).sort((a2, b2) => a2.score - b2.score);
-      if (!outs.length) continue;
-      const fail = failsOf.get(c.p.id)[0];
-      picked.splice(picked.indexOf(outs[0]), 1, { plant: c.p, layer: L, color: palette.size ? pickColor(c.p) : chosenColor(c.p, pref), level: 1, challenge: true, why: ['挑戦枠', fail.text], score: c.s, orig: c.p.id });
-      warnings.push(`挑戦枠：${c.p.ja}は、この場所では${fail.key === 'cold' ? '冬越しが難しい' : fail.key === 'heat' || fail.key === 'humid' ? '夏越しが難しい' : '花が咲きにくい'}可能性があります（${fail.text}）。`);
+      const outs = picked.filter((x) => !x.must && !x.chosen && !x.challenge && x.layer === L && okSwap(x, c.p)).sort((a2, b2) => a2.score - b2.score);
+      if (!outs.length) { i--; continue; }
+      const ev = evaluate(c.p, o.climate);
+      picked.splice(picked.indexOf(outs[0]), 1, { plant: c.p, layer: L, color: palette.size ? pickColor(c.p) : chosenColor(c.p, pref), level: 1, grade: 2, challenge: true, why: ['工夫が必要（挑戦）', `工夫：${ev.tips[0]}`, ev.fails[0].text], score: c.s, orig: c.p.id });
+      warnings.push(`挑戦：${c.p.ja}は、この場所ではそのままでは育ちません（${ev.fails.map((f) => f.text).join('／')}）。工夫：${ev.tips.join('／')}。`);
     }
   }
   // 選定理由の仕上げ：割り当てた花色と、見ごろの月を、気候の理由のすぐ後に入れる（どちらも図鑑のデータどおり）
   const COLOR_WHY = /^(\d+月の.+花|.+の花|\d+月に咲く)$/;
   for (const x of picked) {
     if (x.challenge) continue;
+    if (site) x.grade = evaluate(x.plant, o.climate).grade;
     const base = x.why.filter((w) => !COLOR_WHY.test(w));
     const sm = tgtMonths.length ? tgtMonths.find((m) => x.plant.bloom.includes(m)) : [...pref.season].find((m) => x.plant.bloom.includes(m));
     const col = x.plant.color.includes(x.color) && x.color !== 'green' ? COLORS[x.color].ja : null;
@@ -630,7 +666,7 @@ export function generatePlan(o) {
   // 種類を減らして配置し直し、1種あたりの株数を確保する（1株で目立たせる低木・主役、指定・自分で選んだ植物は対象外）
   if (!['potager', 'composition'].includes(style.layout)) {
     for (let it = 0; it < 8; it++) {
-      const thin = main.filter((x, i) => !x.must && !x.chosen && !x.challenge && (x.plant.soc ?? 3) >= 3 && lay.positions[i].length < 3 && main.filter((y) => y.layer === x.layer).length > 1);
+      const thin = main.filter((x, i) => !x.must && !x.chosen && !x.challenge && !(style.needsGrass && x.layer === 'matrix' && x.plant.form === 'grass' && main.filter((y) => y.layer === 'matrix' && y.plant.form === 'grass').length <= 1) && (x.plant.soc ?? 3) >= 3 && lay.positions[i].length < 3 && main.filter((y) => y.layer === x.layer).length > 1);
       if (!thin.length || picked.length <= 4) break;
       const key = (x) => (tgtMonths.some((m) => x.plant.bloom.includes(m)) ? 2 : 0) + (pref.colors.has(x.color) ? 1 : 0) + x.score / 1000;
       const out = thin.sort((a2, b2) => key(a2) - key(b2))[0];
@@ -638,8 +674,8 @@ export function generatePlan(o) {
       ({ main, bulbs, lay, bulbPos } = doLayout());
     }
   }
-  // 種類を減らしたあとも、挑戦枠が全体の1割を超えないように
-  while (picked.filter((x) => x.challenge).length > Math.floor(picked.length / 10)) {
+  // 種類を減らしたあとも、「工夫が必要」な植物が決めた割合を超えないように
+  while (picked.filter((x) => x.challenge).length > Math.floor(picked.length * (skill.tough || 0))) {
     const ch = picked.filter((x) => x.challenge).pop();
     picked.splice(picked.indexOf(ch), 1);
     warnings.splice(warnings.findIndex((w) => w.includes(ch.plant.ja)), 1);
@@ -679,7 +715,8 @@ export function generatePlan(o) {
   for (const sp of species) for (const r of sp.plant.roles || []) roleCount[r] = (roleCount[r] || 0) + 1;
 
   return {
-    harvest, plots: layout.plots, roleCount, warnings, k, peakNote,
+    harvest, plots: layout.plots, roleCount, warnings, k, peakNote, skill: skillId,
+    gradeCount: species.reduce((t, x) => { if (x.grade) t[x.grade] = (t[x.grade] || 0) + 1; return t; }, {}),
     width, depth, area, shape: shapeId, outline: shapeId === 'custom' ? mask.loops : undefined, sun, moist, view: island ? 'island' : 'border', pref, style: styleId, wild,
     species, bands: layout.bands, counts, peak,
     gaps: want.filter((m) => !counts[m - 1]),
