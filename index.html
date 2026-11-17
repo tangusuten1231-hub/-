@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>庭づくりアプリ</title>
+  <meta name="description" content="位置情報からあなたの庭の気候を調べ、育つ植物・植栽プラン・作業カレンダー・季節の楽しみを提案する庭づくりアプリです。">
+  <meta name="theme-color" content="#f1ebdd">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Shippori+Mincho:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 手描き風イラスト用のフィルタ（にじみ・線の揺らぎ） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="wc" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="9"/>
+        <feGaussianBlur stdDeviation="0.6"/>
+      </filter>
+      <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="1" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.1"/>
+      </filter>
+    </defs>
+  </svg>
+  <header class="app-header">
+    <div class="brand">
+      <button type="button" id="brandBird" class="brand-bird" aria-label="ツピに聞く"></button>
+      <span class="brand-name">庭づくりアプリ</span>
+    </div>
+    <button class="loc-chip" id="locChip" type="button" data-go="site">場所を設定</button>
+  </header>
+
+  <main>
+    <!-- 場所と気候 -->
+    <section class="view" id="view-site" data-view="site">
+      <div id="homeBox"></div>
+      <details class="card loc-card" id="locCard" open>
+        <summary><h2>庭の場所</h2><span class="sum-hint" id="locSummary"></span></summary>
+        <p class="hint">現在地か地名から、過去10年の気象データを調べて庭の気候を判定します。</p>
+        <div class="row">
+          <button class="btn primary" id="btnGeo" type="button"><span data-ico="pin"></span>現在地を使う</button>
+        </div>
+        <form class="search" id="searchForm">
+          <input id="searchInput" type="search" placeholder="地名で検索（例：軽井沢、札幌市）" autocomplete="off" aria-label="地名で検索">
+          <button class="btn" type="submit">検索</button>
+        </form>
+        <ul class="results" id="searchResults"></ul>
+        <p class="status" id="siteStatus" role="status" aria-live="polite"></p>
+      </details>
+      <div id="climateBox"></div>
+    </section>
+
+    <!-- 植物を探す -->
+    <section class="view" id="view-plants" data-view="plants" hidden>
+      <div class="seg subnav" id="zukanTabs" role="tablist" aria-label="図鑑の種類">
+        <button type="button" data-v="plants">植物</button>
+        <button type="button" data-v="critters">生き物</button>
+        <button type="button" data-v="origin">原産地</button>
+      </div>
+      <div id="plantPane">
+      <div class="card filters" id="filters">
+        <h2>植物図鑑</h2>
+        <div class="field">
+          <input id="fQ" type="search" data-filter="q" placeholder="名前・学名・科で検索（例：サルビア、キク科）" aria-label="植物を検索">
+        </div>
+        <div class="field">
+          <span class="label">日当たり</span>
+          <div class="seg" data-filter="sun">
+            <button type="button" data-v="">すべて</button>
+            <button type="button" data-v="full">日向</button>
+            <button type="button" data-v="part">半日陰</button>
+            <button type="button" data-v="shade">日陰</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="label">土の湿り気</span>
+          <div class="seg" data-filter="moist">
+            <button type="button" data-v="">すべて</button>
+            <button type="button" data-v="dry">乾きぎみ</button>
+            <button type="button" data-v="mid">普通</button>
+            <button type="button" data-v="wet">湿りぎみ</button>
+          </div>
+        </div>
+        <div class="field" id="fGradeBox">
+          <label class="label" for="fGrade">この地域での育てやすさ</label>
+          <select id="fGrade" data-filter="grade"></select>
+          <details class="grade-help"><summary>6段階の決め方</summary><ul id="gradeHelp"></ul></details>
+        </div>
+        <details class="more">
+          <summary>さらに絞り込む</summary>
+          <div class="field">
+            <span class="label">草丈</span>
+            <div class="seg" data-filter="height">
+              <button type="button" data-v="">すべて</button>
+              <button type="button" data-v="front">低い</button>
+              <button type="button" data-v="middle">中くらい</button>
+              <button type="button" data-v="back">高い</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="fMonth">開花月</label>
+            <select id="fMonth" data-filter="month"></select>
+          </div>
+          <div class="field">
+            <span class="label">花色</span>
+            <div class="chips" id="fColor" data-filter="color"></div>
+          </div>
+          <div class="field">
+            <label class="label" for="fTag">雰囲気・用途</label>
+            <select id="fTag" data-filter="tag"></select>
+          </div>
+          <div class="grid2">
+            <label class="field"><span class="label">科</span><select id="fFamily"></select></label>
+            <label class="field"><span class="label">種類</span><select id="fType"></select></label>
+          </div>
+          <label class="field"><span class="label">楽しみ方・用途</span><select id="fUse"></select></label>
+          <label class="field"><span class="label">植栽での役割（グラウンドカバー・縁取りなど）</span><select id="fRole"></select></label>
+          <button type="button" class="btn small" id="fReset">条件をリセット</button>
+        </details>
+        <label class="toggle"><input type="checkbox" id="fShowHard"> 「工夫が必要」「育てられない」植物も表示</label>
+      </div>
+      <div class="listbar">
+        <select id="fSort" aria-label="並び順">
+          <option value="fit">おすすめ順</option>
+          <option value="name">名前順（あいうえお）</option>
+          <option value="bloom">花の早い順</option>
+          <option value="height">背の高い順</option>
+          <option value="price">価格の安い順</option>
+          <option value="family">科ごと</option>
+        </select>
+        <div class="seg small" id="fView">
+          <button type="button" data-v="list">一覧</button>
+          <button type="button" data-v="card">カード</button>
+        </div>
+      </div>
+      <div class="row" style="margin:0 0 8px">
+        <button class="btn small" id="btnCustom" type="button">＋ 品種を登録（お店で見つけた品種など）</button>
+      </div>
+      <div class="card" id="customForm" hidden>
+        <h2>品種を登録</h2>
+        <p class="hint">園芸店のカタログやラベルを見ながら、データベースにない品種を追加できます。登録した品種はこの端末に保存され、判定・プラン・作業暦にも使われます。空欄は種の標準的な値を使います。</p>
+        <label class="field"><span class="label">種類</span><select id="cGroup"></select></label>
+        <label class="field"><span class="label">品種名</span><input id="cName" type="text" placeholder="例：マグナススーペリア" maxlength="40"></label>
+        <div class="field"><span class="label">花色</span><div class="chips" id="cColor"></div></div>
+        <div class="grid2">
+          <label class="field"><span class="label">草丈（最小 cm）</span><input id="cHmin" type="number" min="1" max="400" inputmode="numeric"></label>
+          <label class="field"><span class="label">草丈（最大 cm）</span><input id="cHmax" type="number" min="1" max="400" inputmode="numeric"></label>
+        </div>
+        <div class="field"><span class="label">開花月</span><div class="chips months-pick" id="cBloom"></div></div>
+        <div class="grid2">
+          <label class="field"><span class="label">価格（円）</span><input id="cPrice" type="number" min="0" step="10" inputmode="numeric"></label>
+          <label class="field"><span class="label">購入店</span><input id="cShop" type="text" maxlength="40" placeholder="例：おぎはら植物園"></label>
+        </div>
+        <label class="field"><span class="label">商品ページのURL（任意）</span><input id="cUrl" type="url" placeholder="https://"></label>
+        <label class="field"><span class="label">メモ（特徴・育て方など）</span><textarea id="cMemo" rows="2" maxlength="300"></textarea></label>
+        <div class="row">
+          <button class="btn primary" id="cSave" type="button">登録する</button>
+          <button class="btn" id="cCancel" type="button">閉じる</button>
+        </div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+        <div class="grid2">
+          <label class="field"><span class="label">「お店で探す」の検索先</span><select id="shopSite">
+            <option value="rakuten">楽天市場</option><option value="yahoo">Yahoo!ショッピング</option><option value="amazon">Amazon</option><option value="google">Google（店名を指定）</option>
+          </select></label>
+          <label class="field"><span class="label">店名（Google検索時）</span><input id="shopName" type="text" maxlength="40" placeholder="例：園芸店の名前"></label>
+        </div>
+      </div>
+      <p class="count" id="plantCount"></p>
+      <div class="plant-list" id="plantList"></div>
+      </div>
+      <div id="critterPane" hidden></div>
+      <div id="originPane" hidden></div>
+    </section>
+
+    <!-- 植栽プラン -->
+    <section class="view" id="view-plan" data-view="plan" hidden>
+      <div class="card" id="planForm">
+        <div class="seg mode-seg" id="planMode" role="tablist" aria-label="プランの種類">
+          <button type="button" data-v="bed">花壇をひとつ</button>
+          <button type="button" data-v="site">庭まるごと</button>
+          <button type="button" data-v="balcony">ベランダ・鉢</button>
+        </div>
+        <h2 id="planFormTitle">植栽プランをつくる</h2>
+        <nav class="form-steps" aria-label="入力の流れ"><button type="button" data-jump="planMode"><b>1</b>種類・広さ</button><button type="button" data-jump="fStyle"><b>2</b>スタイル</button><button type="button" data-jump="fWish"><b>3</b>希望</button><button type="button" data-jump="fCond"><b>4</b>条件</button><button type="button" data-jump="btnPlan"><b>5</b>つくる</button></nav>
+        <p class="hint bed-only">どんな庭にしたいか、言葉で書いてください。地域の気候・花の色・高さ・開花リレーを考えてプランとイメージ図をつくります。</p>
+        <p class="hint balcony-only">ベランダの向き・階・手すりの高さ・上の階の有無から、場所ごとの日当たりを太陽の動きで計算し、鉢の置き場所・植物・鉢の大きさ・用土・重さ・費用まで考えます。</p>
+        <div class="balcony-only" id="balFields">
+          <div class="grid2">
+            <label class="field"><span class="label">ベランダの幅（m）</span><input type="number" id="balW" min="1" max="20" step="0.1" inputmode="decimal"></label>
+            <label class="field"><span class="label">奥行き（m）</span><input type="number" id="balD" min="0.6" max="4" step="0.1" inputmode="decimal"></label>
+          </div>
+          <div class="field">
+            <span class="label">ベランダの向き（部屋から外を見た方角）</span>
+            <div class="seg wrap8" data-bal="facing">
+              <button type="button" data-v="n">北</button><button type="button" data-v="ne">北東</button><button type="button" data-v="e">東</button><button type="button" data-v="se">南東</button>
+              <button type="button" data-v="s">南</button><button type="button" data-v="sw">南西</button><button type="button" data-v="w">西</button><button type="button" data-v="nw">北西</button>
+            </div>
+          </div>
+          <div class="grid2">
+            <label class="field"><span class="label">階</span><input type="number" id="balFloor" min="1" max="60" step="1" inputmode="numeric"></label>
+            <label class="field"><span class="label">手すり・壁の高さ（cm）</span><input type="number" id="balRailH" min="60" max="160" step="5" inputmode="numeric"></label>
+          </div>
+          <div class="field">
+            <span class="label">手すりの種類</span>
+            <div class="seg" data-bal="railType"><button type="button" data-v="solid">壁・すりガラス</button><button type="button" data-v="open">格子・透明ガラス</button></div>
+          </div>
+          <div class="field">
+            <span class="label">上の階のバルコニー（屋根）</span>
+            <div class="seg" data-bal="roof"><button type="button" data-v="yes">ある</button><button type="button" data-v="no">ない（最上階など）</button></div>
+          </div>
+          <label class="field bal-roof"><span class="label">床から上の階の床（天井）までの高さ（cm）</span><input type="number" id="balCeil" min="200" max="400" step="10" inputmode="numeric"></label>
+          <div class="field">
+            <span class="label">正面の建物や木</span>
+            <div class="seg" data-bal="obstacle"><button type="button" data-v="none">なし</button><button type="button" data-v="far">離れてある</button><button type="button" data-v="near">近くにある</button></div>
+          </div>
+          <div class="grid2">
+            <label class="field"><span class="label">棚の段数</span><select id="balShelf"><option value="0">棚なし</option><option value="1">1段</option><option value="2">2段</option><option value="3">3段</option><option value="4">4段</option><option value="5">5段</option></select></label>
+            <div class="field"><span class="label">棚の置き場所</span><div class="seg" data-bal="shelfAt"><button type="button" data-v="wall">壁ぎわ</button><button type="button" data-v="rail">手すり側</button></div></div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="balHang"> 手すりの内側にプランターを掛ける（管理規約で認められている場合）</label>
+          <label class="toggle"><input type="checkbox" id="balWater"> 小鳥や蜂のための水飲み皿を置く</label>
+        </div>
+        <p class="hint site-only">敷地の形と大きさから、小道・テラス・パーゴラ・水場などの配置と、花壇ごとの植栽をまとめて考えます。見どころ・園内の案内・フォトスポット・来そうな生き物も紹介します。</p>
+        <div class="site-only" id="siteFields">
+          <div class="field">
+            <span class="label">敷地の形</span>
+            <div class="seg" data-site="shape">
+              <button type="button" data-v="rect">長方形</button>
+              <button type="button" data-v="L">L字</button>
+              <button type="button" data-v="poly">自由な形</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="label">庭の線（花壇や小道の形）</span>
+            <div class="seg" data-site="form">
+              <button type="button" data-v="organic">曲線（自然風）</button>
+              <button type="button" data-v="formal">直線（整形式）</button>
+            </div>
+          </div>
+          <div class="grid2 shape-wd">
+            <label class="field"><span class="label">横幅（m）</span><input type="number" id="siteW" min="2" max="60" step="0.5" inputmode="decimal"></label>
+            <label class="field"><span class="label">奥行き（m）</span><input type="number" id="siteD" min="2" max="60" step="0.5" inputmode="decimal"></label>
+          </div>
+          <div class="field shape-L">
+            <span class="label">欠けている角（家から見て）</span>
+            <div class="seg" data-site="cut">
+              <button type="button" data-v="right">右奥</button>
+              <button type="button" data-v="left">左奥</button>
+            </div>
+          </div>
+          <div class="shape-poly">
+            <p class="hint">方眼をタップして、敷地の角を順番に打ってください（上が家の側）。3点以上で形になります。</p>
+            <div class="row poly-tools">
+              <label class="inline">方眼の広さ <select id="polySize"><option value="10">10m</option><option value="15">15m</option><option value="20">20m</option><option value="30">30m</option><option value="40">40m</option></select></label>
+              <button type="button" class="btn small" id="polyUndo">1つ戻す</button>
+              <button type="button" class="btn small" id="polyClear">やり直す</button>
+            </div>
+            <div id="polyEd" class="poly-ed"></div>
+            <p class="hint" id="polyInfo" role="status" aria-live="polite"></p>
+          </div>
+          <label class="field"><span class="label">敷地面積（任意・㎡）</span><input type="number" id="siteArea" min="4" max="3000" step="1" inputmode="decimal" placeholder="例：60（形はそのままで大きさを合わせます）"></label>
+          <div class="field">
+            <span class="label">家がある方角（庭から見て）</span>
+            <div class="seg" data-site="house">
+              <button type="button" data-v="n">北</button>
+              <button type="button" data-v="e">東</button>
+              <button type="button" data-v="s">南</button>
+              <button type="button" data-v="w">西</button>
+            </div>
+          </div>
+        </div>
+        <div class="field form-sec" id="fStyle">
+          <label class="label" for="planStyle"><span class="fs-no">2</span>植栽スタイル</label>
+          <div class="carousel style-cards" id="styleCards" role="list"></div>
+          <select id="planStyle" aria-label="植栽スタイルを選ぶ"></select>
+          <p class="hint" id="styleDesc" style="margin:6px 0 0"></p>
+        </div>
+        <label class="label form-sec" id="fWish" for="planText"><span class="fs-no">3</span>どんな庭にしたい？（自由に書く・下のチップでも選べます）</label>
+        <textarea id="planText" rows="2" placeholder="例：白と青のナチュラルな庭。蝶が来て、手間いらず"></textarea>
+        <div class="chips presets" id="planPresets"></div>
+        <div class="field bed-only">
+          <span class="label">植物の選び方</span>
+          <div class="seg" data-plan="pick">
+            <button type="button" data-v="auto">おまかせ</button>
+            <button type="button" data-v="semi">自分で選ぶ（セミオート）</button>
+          </div>
+          <p class="hint" style="margin:6px 0 0">セミオートでは、役割と大きさに合う「枠」をアプリが用意し、それぞれの枠に入れる植物を候補の中から選べます。</p>
+        </div>
+        <div class="field bed-only">
+          <span class="label">花壇の形</span>
+          <div class="shape-pick" data-plan="shape">
+            <button type="button" data-v="rect"><svg viewBox="0 0 40 26" aria-hidden="true"><rect x="3" y="5" width="34" height="16" rx="2"/></svg>長方形</button>
+            <button type="button" data-v="circle"><svg viewBox="0 0 40 26" aria-hidden="true"><circle cx="20" cy="13" r="11"/></svg>円形</button>
+            <button type="button" data-v="oval"><svg viewBox="0 0 40 26" aria-hidden="true"><ellipse cx="20" cy="13" rx="17" ry="9"/></svg>楕円形</button>
+            <button type="button" data-v="half"><svg viewBox="0 0 40 26" aria-hidden="true"><path d="M3 5h34A17 16 0 0 1 3 5Z"/></svg>半円形</button>
+            <button type="button" data-v="kidney"><svg viewBox="0 0 40 26" aria-hidden="true"><path d="M5 9C6 2 34 2 35 9c1 7-4 13-8 12-3-1-4-5-7-5s-4 4-7 5C9 22 4 16 5 9Z"/></svg>そら豆形</button>
+            <button type="button" data-v="wave"><svg viewBox="0 0 40 26" aria-hidden="true"><path d="M3 4h34v13c-5 3-9-3-14 0s-9 5-14 2c-2-1-4-1-6 0Z"/></svg>曲線ボーダー</button>
+          </div>
+          <p class="hint" id="shapeHint" style="margin:6px 0 0"></p>
+        </div>
+        <div class="grid2 bed-only">
+          <label class="field"><span class="label">花壇の幅（m）</span><input type="number" id="planW" min="0.5" max="30" step="0.1" inputmode="decimal"></label>
+          <label class="field" id="planDField"><span class="label">奥行き（m）</span><input type="number" id="planD" min="0.4" max="10" step="0.1" inputmode="decimal"></label>
+        </div>
+        <div class="field bed-only" id="viewField">
+          <span class="label">眺め方</span>
+          <div class="seg" data-plan="view">
+            <button type="button" data-v="border">片側から眺める</button>
+            <button type="button" data-v="island">四方から眺める</button>
+          </div>
+        </div>
+        <div class="field not-balcony form-sec" id="fCond">
+          <span class="label"><span class="fs-no">4</span>日当たり<small class="site-only">（庭全体。塀や家・木の影は自動で考えます）</small> <button type="button" class="link" data-suncheck="" data-from="plan">☀ 日当たりを測る</button></span>
+          <div class="seg" data-plan="sun">
+            <button type="button" data-v="full">日向</button>
+            <button type="button" data-v="part">半日陰</button>
+            <button type="button" data-v="shade">日陰</button>
+          </div>
+        </div>
+        <div class="field not-balcony">
+          <span class="label">土の湿り気</span>
+          <div class="seg" data-plan="moist">
+            <button type="button" data-v="">ふつう</button>
+            <button type="button" data-v="dry">乾きぎみ</button>
+            <button type="button" data-v="wet">湿りぎみ</button>
+          </div>
+        </div>
+        <div class="field not-balcony">
+          <span class="label"><span class="site-only">庭に入れたいもの</span><span class="bed-only">庭にあるもの・作りたいもの</span></span>
+          <div class="chips" id="planItems"></div>
+        </div>
+        <div class="field">
+          <span class="label">呼びたい生き物</span>
+          <div class="chips" id="planWild"></div>
+          <p class="hint" style="margin:4px 0 0">選ぶと、その生き物の食草や蜜源になる植物を優先します。</p>
+        </div>
+        <details class="kodawari not-balcony" id="kodawari">
+          <summary><span data-ico="list"></span><b>こだわり設定</b><small id="kSummary">入れたい植物・色・密度・種類の数など</small></summary>
+          <div id="kBody"></div>
+        </details>
+        <label class="toggle not-balcony" style="margin:4px 0 4px"><input type="checkbox" id="planGround"> 足元をグラウンドカバーで覆う（雑草よけ・乾燥防止）</label>
+        <label class="toggle" style="margin:4px 0 10px"><input type="checkbox" id="planAnnuals"> 一年草も使う（毎年の種まきが必要）</label>
+        <label class="field not-balcony"><span class="label">園芸の腕前（育てやすさで植物を選ぶ）</span>
+          <select id="planSkill">
+            <option value="beginner">はじめて：簡単に育つ植物だけ</option>
+            <option value="standard">ふつう：よく育つ植物を中心に（おすすめ）</option>
+            <option value="skilled">慣れている：育ちにくい植物も手入れで</option>
+            <option value="challenge">挑戦したい：工夫が必要な人気の植物も</option>
+          </select>
+          <small class="hint" id="planSkillHint"></small>
+        </label>
+        <label class="field"><span class="label">予算（任意・円）</span><input type="number" id="planBudget" min="0" step="1000" inputmode="numeric" placeholder="例：30000"></label>
+        <div class="row">
+          <button class="btn primary" id="btnPlan" type="button"><span data-ico="plan"></span><span id="btnPlanLabel">プランをつくる</span></button>
+          <button class="btn" id="btnPlanAlt" type="button" hidden><span data-ico="refresh"></span>別の案</button>
+        </div>
+      </div>
+      <details class="card imgplan bed-only" id="imgPlan">
+        <summary><h2><span data-ico="search"></span>画像から庭を読み取る</h2></summary>
+        <p class="hint">航空写真のスクリーンショット、家と庭の図面、手描きの見取り図、庭の写真などを、無料のAIチャットに読み取ってもらい、その答えからプランを作ります。このアプリからAIに接続することはなく、料金はかかりません。</p>
+        <ol class="howto steps3">
+          <li><b>依頼文をコピーする</b>
+            <label class="field"><span class="label">補足（わかる範囲で）</span><textarea id="imgNote" rows="2" maxlength="400" placeholder="例：画像の上が北。敷地は約10m×15m。南側の芝生の縁に花壇を作りたい"></textarea></label>
+            <button class="btn primary small" id="imgCopy" type="button">依頼文をコピー</button>
+          </li>
+          <li><b>AIアプリを開き、画像を添付して送る</b><p class="hint" style="margin:2px 0 6px">アプリが入っていればアプリが開きます（Claude・ChatGPTは依頼文入り。入っていなければ貼り付け）。</p>
+            <div class="row ai-apps" id="imgApps"></div>
+          </li>
+          <li><b>AIの答えを全部コピーして、ここに貼り付ける</b>
+            <textarea id="imgReply" rows="4" placeholder="AIの答えをここに貼り付け"></textarea>
+            <button class="btn primary small" id="imgGo" type="button">読み込む</button>
+          </li>
+        </ol>
+        <p class="status" id="imgStatus" role="status" aria-live="polite"></p>
+        <div id="imgResult"></div>
+      </details>
+      <details class="card saved-plans" id="savedPlans" hidden>
+        <summary><h2><span data-ico="list"></span>保存した案</h2><span class="sum-hint" id="savedCount"></span></summary>
+        <div id="savedBody"></div>
+      </details>
+      <div id="planBox"></div>
+    </section>
+
+    <!-- マイガーデン -->
+    <section class="view" id="view-garden" data-view="garden" hidden>
+      <div class="seg subnav" id="gardenTabs">
+        <button type="button" data-v="plants">庭の植物</button>
+        <button type="button" data-v="diary">園芸ノート</button>
+        <button type="button" data-v="sun">日当たり</button>
+        <button type="button" data-v="data">データ</button>
+      </div>
+      <div id="gardenBox"></div>
+      <div id="journalBox"></div>
+      <div id="sunBox" hidden></div>
+      <div id="backupBox"></div>
+    </section>
+
+    <!-- 楽しむ -->
+    <section class="view" id="view-enjoy" data-view="enjoy" hidden>
+      <div class="seg subnav" id="enjoyTabs" role="tablist" aria-label="楽しむ">
+        <button type="button" data-v="season">季節の楽しみ</button>
+        <button type="button" data-v="tea">ハーブティー</button>
+      </div>
+      <div id="enjoyBox"></div>
+      <div id="teaBox" hidden></div>
+    </section>
+
+    <!-- 作業カレンダー -->
+    <section class="view" id="view-tasks" data-view="tasks" hidden>
+      <div id="tasksBox"></div>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="メニュー">
+    <button type="button" data-go="site" class="active"><span aria-hidden="true" data-ico="home"></span>ホーム</button>
+    <button type="button" data-go="plants"><span aria-hidden="true" data-ico="book"></span>図鑑</button>
+    <button type="button" data-go="plan"><span aria-hidden="true" data-ico="plan"></span>プラン</button>
+    <button type="button" data-go="garden"><span aria-hidden="true" data-ico="pot"></span>マイ庭<b class="badge" id="gardenBadge" hidden></b></button>
+    <button type="button" data-go="tasks"><span aria-hidden="true" data-ico="calendar"></span>作業暦</button>
+    <button type="button" data-go="enjoy"><span aria-hidden="true" data-ico="cup"></span>楽しむ</button>
+  </nav>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  <button type="button" class="fab" id="fabRecord" aria-label="今日の記録を書く"><span data-ico="plus"></span>記録</button>
+  <div class="sheet-back" id="sheetBack" hidden></div>
+  <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <header class="sheet-head"><h2 id="sheetTitle"></h2><button type="button" class="icon-btn" id="sheetClose" aria-label="閉じる">✕</button></header>
+    <div class="sheet-body" id="sheetBody"></div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
