@@ -57,6 +57,7 @@ export function factsFrom(snap) {
     hardinessZones: zones,
     hardinessMinC: mins.length ? Math.min(...mins) : null,
     invasive: (a.Problems ?? []).includes('Invasive Species'),
+    maintenance: (a.Maintenance ?? [])[0] ?? null,
   };
 }
 
@@ -109,8 +110,11 @@ export function buildEntry(id, byId, sources) {
   const speciesId = r.lineage.find((x) => byId.get(x).rank !== 'cultivar' && sources.gbif[x]) ?? r.lineage[0];
   const g = sources.gbif[speciesId] ?? null;
   const n = r.refs.ncsu ? sources.ncsu[r.refs.ncsu] ?? null : null;
+  const groupOf = (x) => { for (let y = byId.get(x); y; y = y.parent ? byId.get(y.parent) : null) if (y.group) return y.group; return null; };
+  const img = r.refs.ncsu ? sources.images?.[r.refs.ncsu] ?? null : null;
   return {
-    id: r.id, rank: r.rank, parent: r.parent ?? null, lineage: r.lineage,
+    id: r.id, rank: r.rank, parent: r.parent ?? null, lineage: r.lineage, group: groupOf(r.id),
+    image: img ? { src: `img/plants/${r.refs.ncsu}.jpg`, author: img.author, license: img.license, licenseUrl: img.licenseUrl, caption: img.caption, ofParent: r.rank === 'cultivar' } : null,
     scientificName: r.scientificName, cultivar: r.cultivar ?? null,
     names: { ja: r.names.ja, aliases: r.names.aliases ?? [] },
     parentName: r.parentName ?? null,
