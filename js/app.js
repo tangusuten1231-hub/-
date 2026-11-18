@@ -3561,7 +3561,7 @@ function growHtml(p, compact = false) {
 /** 夏の暑さへの強さ（出典で確かめたものと、目安を区別して表示） */
 function heatJa(p) {
   const v = p.verified;
-  if (v?.heatMax != null) return v.heatMax >= 8 ? '米国南部の特に暑い地域の夏には弱い（出典）' : '暑さ・蒸し暑さに弱い（出典）';
+  if (v?.heatMax != null) return v.heatMax >= 7 ? '米国南部の特に暑い地域の夏には弱い（出典）' : '暑さ・蒸し暑さに弱い（出典）';
   if (v?.heatMin != null) return `暑さに強い（米国ノースカロライナ州の、夏が暑く蒸す沿岸平野でも育つ）`;
   if (p.jp?.ryukyu) return '暑さ・蒸し暑さに強い（南西諸島で野外に生える記録がある）';
   if (v?.regionCool) return `米国ノースカロライナ州では${v.region.includes('P') ? '丘陵・山地' : '山地'}向き（夏の暑い沿岸平野は推奨地域外）`;

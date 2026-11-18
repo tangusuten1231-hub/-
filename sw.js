@@ -1,5 +1,5 @@
 // オフラインでもアプリ本体を開けるようにするサービスワーカー
-const CACHE = 'garden-nav-v30';
+const CACHE = 'garden-nav-v31';
 const SHELL = [
   './', 'index.html', 'css/style.css', 'icon.svg', 'manifest.webmanifest',
   'js/app.js', 'js/plants.js', 'js/cultivars.js', 'js/more.js', 'js/annuals.js', 'js/meta.js', 'js/enjoy.js', 'js/weather.js', 'js/db.js', 'js/art.js', 'js/describe.js', 'js/diary.js', 'js/chat.js', 'js/handoff.js', 'js/mascot.js', 'js/climate.js', 'js/garden.js', 'js/sun.js',
@@ -13,7 +13,8 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      // 同じサイトの別のアプリ（heya/ のへやみどり）のキャッシュは消さない：庭づくりアプリのキャッシュ（garden-）の古い版だけ削除
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('garden-') && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
 });

@@ -357,7 +357,7 @@ export function generatePlan(o) {
     const cf = site ? climateFit(p, o.climate, site) : 0.5;
     const grade = site ? (evals.get(p.id) || evaluate(p, o.climate)).grade : null;
     // 育てやすさ：ふつうは「育ちにくい」を下げ、慣れている・挑戦したいは下げない
-    const gradeAdj = grade == null ? 0 : skillId === 'standard' ? { 6: 3, 5: 2, 4: 0, 3: -8 }[grade] ?? 0 : skillId === 'beginner' ? { 6: 3, 5: 0 }[grade] ?? 0 : 0;
+    const gradeAdj = grade == null ? 0 : skillId === 'standard' ? { 6: 3, 5: 2, 4: 0, 3: -8 }[grade] ?? 0 : skillId === 'beginner' ? { 6: 3, 5: 0 }[grade] ?? 0 : { 6: 2, 5: 1, 4: 0, 3: -3 }[grade] ?? 0; // 慣れている・挑戦したいも、同じ条件なら育てやすいほうを少し優先
     const climateS = Math.max(0, W8.climate * Math.min(1, cf * 0.7 + (regional ? 0.45 : 0)) + gradeAdj);
     // 希望との一致
     let wish = 0;

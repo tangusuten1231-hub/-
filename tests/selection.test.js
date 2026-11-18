@@ -25,7 +25,7 @@ test('気候判定用の項目：図鑑の値を写し、データのないも�
   for (const p of PLANTS) {
     assert.deepEqual([p.fit.hardinessZoneMin, p.fit.hardinessZoneMax], p.zone, p.id);
     // 暑さの上限：出典で弱さを確かめたものはその値、ほかは図鑑の目安（出典で強さを確かめたものは下限として反映）
-    assert.equal(p.fit.heatZoneMax, p.verified?.heatMax ?? Math.max(p.heat, p.verified?.heatMin ?? 0, p.jp?.ryukyu ? 8 : 0), p.id);
+    assert.equal(p.fit.heatZoneMax, p.verified?.heatMax ?? Math.max(p.heat, p.verified?.heatMin ?? 0, p.jp?.ryukyu ? 7 : 0), p.id);
     assert.equal(p.fit.heatVerified, p.verified?.heatMax != null, p.id);
   }
   assert.equal(P('crocus').fit.chillRequirement, 'high');

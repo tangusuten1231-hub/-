@@ -66,19 +66,25 @@ export const zoneRangeJa = (z) => (z ? `${zoneJa(z[0])}〜${Math.floor(z[1])}b` 
  * ・ノースカロライナ州の推奨地域：沿岸平野（夏が最も暑く蒸す）・丘陵・山地（夏が涼しい）
  *   沿岸平野でも育つ → 暑さに強い証拠（ヒートゾーン HEAT_OF_REGION.C 以上）。
  *   推奨が丘陵・山地だけ → 注意の表示だけ（自生地を反映していることもあり、暑さに弱い証拠とまでは言えない）
- * ・暑さに弱い（外す理由になる）：本文に「暑さ・蒸し暑さに弱い」とはっきり書かれているもの（weak → 丘陵のゾーンまで、deepsouth → 沿岸平野のゾーンまで）
+ * ・暑さに弱い（外す理由になる）：本文に「暑さ・蒸し暑さに弱い」とはっきり書かれているもの（weak → 平地のゾーンより1つ下まで、deepsouth → 平地のゾーンまで）
  * ・Resistance to Challenges の Heat / Humidity / Salt / Drought
  * ・本文で「暑さ・湿気に弱い」と書かれているもの（本文を読んで確かめた結果）
  */
-export const HEAT_OF_REGION = { C: 8, P: 7, M: 5 };
+// 各地域のヒートゾーン：このアプリと同じ方法（Open-Meteo の過去10年〈2016〜2025年〉の日別データの、30℃以上の日数）で計算した実測値
+// 沿岸平野：ウィルミントン6・グリーンビル7・フェイエットビル7、丘陵：ローリー7・シャーロット7、山地：アシュビル4・ブーン1
+export const HEAT_OF_REGION = { C: 7, P: 7, M: 4 };
+// 南西諸島（那覇）のヒートゾーン：同じ方法での実測値。熱帯夜は年122日
+export const HEAT_RYUKYU = 7;
 export function ncsuTraits(n) {
   if (!n) return null;
   const [zmin, zmax, reg, flags, heatWeak, humidWeak, slug, ph = ''] = n;
   // 暑さに弱いと判断するのは、本文にはっきり書かれているものだけ（推奨地域は自生地を反映していることもあるため、注意の表示にだけ使う）
   let heatMax = null;
   const regionCool = zmin <= 8 && reg && !reg.includes('C'); // 沿岸平野でも冬越しできる耐寒性なのに、推奨地域が丘陵・山地だけ
-  if (heatWeak === 'weak') heatMax = Math.min(heatMax ?? HEAT_OF_REGION.P, HEAT_OF_REGION.P); // 本文に「暑さ（蒸し暑さ）に弱い」
-  if (heatWeak === 'deepsouth') heatMax = Math.min(heatMax ?? HEAT_OF_REGION.C, HEAT_OF_REGION.C); // 本文に「米国深南部の夏には弱い」
+  // 本文に「米国南東部の暑さ・蒸し暑さに弱い」→ ノースカロライナ州の平地（ヒートゾーン7）では弱る → 上限は6
+  if (heatWeak === 'weak') heatMax = Math.min(heatMax ?? HEAT_OF_REGION.P - 1, HEAT_OF_REGION.P - 1);
+  // 本文に「米国深南部の夏には弱い」→ ノースカロライナ州の平地（7）までは育つ
+  if (heatWeak === 'deepsouth') heatMax = Math.min(heatMax ?? HEAT_OF_REGION.C, HEAT_OF_REGION.C);
   const heatMin = reg.includes('C') || flags.includes('H') ? HEAT_OF_REGION.C : null;
   return {
     src: 'ncsu', url: `https://plants.ces.ncsu.edu/plants/${slug}/`, zone: [zmin, zmax], region: reg,
@@ -113,9 +119,9 @@ export function climateTraits(p, phOf = null) {
     zoneVerified: !!(v?.zone || p.climateSrc),
     wildHokkaido: !!p.jp?.hokkaido,
     // 暑さ：出典で上限が分かるときはその値、ないときは図鑑の目安（推定・外す理由には使わない）
-    heatZoneMax: v?.heatMax ?? (Number.isFinite(p.heat) ? Math.max(p.heat, v?.heatMin ?? 0, p.jp?.ryukyu ? HEAT_OF_REGION.C : 0) : null),
+    heatZoneMax: v?.heatMax ?? (Number.isFinite(p.heat) ? Math.max(p.heat, v?.heatMin ?? 0, p.jp?.ryukyu ? HEAT_RYUKYU : 0) : null),
     heatVerified: v?.heatMax != null,
-    heatMinVerified: v?.heatMin ?? (p.jp?.ryukyu ? HEAT_OF_REGION.C : null),
+    heatMinVerified: v?.heatMin ?? (p.jp?.ryukyu ? HEAT_RYUKYU : null),
     warmOk: !!p.jp?.ryukyu, // 南西諸島で野外に生える → 冬が暖かい地域の注意は不要
     chillRequirement: CHILL_NONE.has(p.id) ? null : CHILL_OF.get(p.id) ?? (p.group === 'digitalis' ? null : CHILL_OF.get(p.group)) ?? null,
     heatHumidityTolerance: v?.humid ?? (p.jp?.ryukyu ? 'strong' : HUMID[p.humid]) ?? null,
