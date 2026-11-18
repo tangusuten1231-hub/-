@@ -171,21 +171,25 @@ views.home = () => {
     <p class="note">「土を確かめる日」は水やりの段階から出した目安です。水をやる前に、必ず指で土の乾き具合を確かめてください。</p>`;
 };
 
-views.zukan = (_, q) => {
-  const params = new URLSearchParams(q);
-  const query = params.get('q') ?? '';
+/** 図鑑の検索結果だけを作る（入力欄は作り直さない：日本語入力の変換中に消えないように） */
+function zukanResults(params) {
   const groups = params.getAll('g');
   const f = { lowLight: params.has('low'), dryAir: params.has('dry'), cold: params.has('cold'), noPetListing: params.has('pet'), rank: params.has('cv') ? undefined : 'base' };
-  let list = search(CATALOG, query, f);
+  let list = search(CATALOG, params.get('q') ?? '', f);
   if (groups.length) list = list.filter((e) => groups.includes(e.group));
   list.sort((a, b) => a.names.ja.localeCompare(b.names.ja, 'ja'));
+  return `${f.noPetListing ? '<p class="note">「記載なし」は、出典に害があると書かれていないという意味です。安全を保証するものではありません。</p>' : ''}
+    <p class="muted">${list.length}件</p>${list.length ? `<div class="grid">${list.map((e) => plantCard(e)).join('')}</div>` : '<p class="card soft">見つかりませんでした。ひらがな・カタカナ・学名でも探せます。</p>'}`;
+}
+views.zukan = (_, q) => {
+  const params = new URLSearchParams(q);
+  const groups = params.getAll('g');
   const chk = (k, label) => `<label class="chip"><input type="checkbox" name="${k}" ${params.has(k) ? 'checked' : ''}> ${label}</label>`;
   return `<h1>図鑑</h1>
-    <form id="zukan-form" class="search"><input type="search" name="q" value="${esc(query)}" placeholder="名前・学名・旧学名で検索（例：さんすべりあ）" aria-label="検索">
+    <form id="zukan-form" class="search" role="search"><input type="search" name="q" value="${esc(params.get('q') ?? '')}" placeholder="名前・学名・旧学名で検索（例：さんすべりあ）" aria-label="検索" enterkeyhint="search" autocomplete="off">
       <div class="chips scroll">${Object.entries(GROUPS).map(([k, g]) => `<label class="chip g"><input type="checkbox" name="g" value="${k}" ${groups.includes(k) ? 'checked' : ''}> ${g.icon} ${g.ja}</label>`).join('')}</div>
       <div class="chips">${chk('low', '暗めでも育つ')}${chk('dry', '乾燥に強い')}${chk('cold', '寒さに強い（5℃以下）')}${chk('pet', '猫・犬への害の記載なし')}${chk('cv', '品種も表示')}</div></form>
-    ${f.noPetListing ? '<p class="note">「記載なし」は、出典に害があると書かれていないという意味です。安全を保証するものではありません。</p>' : ''}
-    <p class="muted">${list.length}件</p><div class="grid">${list.map((e) => plantCard(e)).join('')}</div>`;
+    <div id="zukan-results">${zukanResults(params)}</div>`;
 };
 
 views.detail = (id) => {
@@ -546,17 +550,21 @@ document.addEventListener('change', async (ev) => {
 });
 document.addEventListener('input', (ev) => {
   if (ev.target.closest('#spot-form')) updateSpotPreview();
-  if (ev.target.name === 'q' && ev.target.closest('#zukan-form')) { clearTimeout(submitZukan.t); submitZukan.t = setTimeout(() => submitZukan(ev.target.form, true), 250); }
+  // 日本語入力の変換中（isComposing）は検索しない。確定したら compositionend で検索する
+  if (ev.target.name === 'q' && ev.target.closest('#zukan-form') && !ev.isComposing) { clearTimeout(submitZukan.t); submitZukan.t = setTimeout(() => submitZukan(ev.target.form), 250); }
 });
-function submitZukan(form, keepFocus) {
+document.addEventListener('compositionend', (ev) => {
+  if (ev.target.name === 'q' && ev.target.closest('#zukan-form')) { clearTimeout(submitZukan.t); submitZukan.t = setTimeout(() => submitZukan(ev.target.form), 250); }
+});
+/** 図鑑の条件を URL に残し、結果の一覧だけを入れ替える（入力欄・フォーカスはそのまま） */
+function submitZukan(form) {
   const p = new URLSearchParams();
   if (form.q.value) p.set('q', form.q.value);
   for (const g of form.querySelectorAll('input[name=g]:checked')) p.append('g', g.value);
   for (const k of ['low', 'dry', 'cold', 'pet', 'cv']) if (form[k].checked) p.set(k, '1');
-  const pos = form.q.selectionStart;
   history.replaceState(null, '', `#/zukan${p.toString() ? `?${p}` : ''}`);
-  render();
-  if (keepFocus) { const q = $('#zukan-form').q; q.focus(); q.setSelectionRange(pos, pos); }
+  const box = $('#zukan-results');
+  if (box) box.innerHTML = zukanResults(p);
 }
 function submitHelp(form) {
   const p = new URLSearchParams();
