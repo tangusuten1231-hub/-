@@ -1,0 +1,89 @@
+{
+ "id": "euphorbia-tirucalli",
+ "rank": "species",
+ "scientificName": "Euphorbia tirucalli",
+ "group": "succulent",
+ "names": {
+  "ja": "ミルクブッシュ",
+  "aliases": [
+   "アオサンゴ",
+   "ユーフォルビア・ティルカリ"
+  ]
+ },
+ "refs": {
+  "ncsu": "euphorbia-tirucalli"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    10,
+    24
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant thrives in bright indirect light or direct sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "This plant thrives in bright indirect light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "If local conditions include hot summers, it is best to site the plant where there is some afternoon shade."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン11a（屋外で4℃程度まで）とされるため、余裕をみて10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "the temperature ranges from 50 degrees in the evening and 75 degrees during the day",
+    "fahrenheit": [
+     50,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant about every 1 to 2 weeks and allow the soil to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ }
+}

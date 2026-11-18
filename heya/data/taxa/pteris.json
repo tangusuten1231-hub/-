@@ -1,0 +1,110 @@
+{
+ "id": "pteris",
+ "rank": "genus",
+ "scientificName": "Pteris",
+ "group": "fern",
+ "names": {
+  "ja": "プテリス",
+  "aliases": [
+   "イノモトソウの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "pteris",
+  "hgic": "indoor-ferns"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 12,
+   "idealC": [
+    12,
+    26
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Plants in this genus prefer bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "To prevent sun scorch, it is best to avoid bright sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "they will need to be placed indoors before the temperatures drop below 54 degrees Fahrenheit",
+    "fahrenheit": [
+     54
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures between 54 to 78 degrees Fahrenheit",
+    "fahrenheit": [
+     54,
+     78
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Moderate to high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained organic rich soil"
+   },
+   {
+    "src": "hgic",
+    "quote": "Keep the soil barely moist. Brake ferns are easy-to-grow."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで葉が黄色くなり根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause yellow fronds and root rot.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "水が足りないと葉がパリパリの黄褐色になる。",
+   "src": "ncsu",
+   "quote": "Underwatering, the fronds may become dry, crispy and yellowish-brown.",
+   "symptom": "brown"
+  }
+ ]
+}

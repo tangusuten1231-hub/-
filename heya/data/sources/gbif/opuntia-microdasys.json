@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7283961",
+ "retrieved": "2026-11-18",
+ "query": "Opuntia microdasys",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7283961,
+ "acceptedKey": 7283961,
+ "acceptedName": "Opuntia microdasys",
+ "authorship": "(Lehm.) Pfeiff.",
+ "rank": "SPECIES",
+ "family": "Cactaceae",
+ "genus": "Opuntia",
+ "synonyms": [
+  "Cactus microdasys",
+  "Opuntia macrocalyx",
+  "Opuntia pulvinata"
+ ]
+}

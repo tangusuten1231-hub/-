@@ -1,0 +1,397 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/begonia/",
+ "slug": "begonia",
+ "retrieved": "2026-11-18",
+ "scientificName": "Begonia",
+ "commonNames": [
+  "Begonia"
+ ],
+ "description": "Begonia is a member of the Begonia family (Begoniaceae) and is native to the Tropics and Subtropics of Central and South America, Africa and Asia. They are found as forest understory plants in their native habitats. They are grown as houseplants, herbaceous perennials or annual bedding plants. The name, Begonia , honors Michael Begon (1638-1710), who was the Governor of French Canada. Begonias may be upright and mounding while some are perfect for hanging baskets due to their trailing or spreading habit.The size of the mature begonia can vary from a few inches to over 12 feet tall, but most begonias will be 8 inches to 2 feet tall. There is a wide variety of flower and foliage colors. The flowers can be single or double and are found in colors of pink, red, orange, yellow and white. The leaves also have varying size, shape and texture, but are usually asymmetrical, at least at the base. They may be heart-shaped, star-shaped or round, and can be found in colors of green, brown, bronze or burgundy. Some have variegated leaves while others may have fuzzy hairy textures. With more than 2100 species, the genus Begonia is ranked 8th on the list of largest genera of flowering plants as of 2023. Growers recognize several informal types of species and hybrids, based on the growth habits of the plants. They include the following: Wax Begonias : Semperflorens hybrids or wax begonias are small, fibrous-rooted plants with an endless profusion of small flowers. These are usually grown as annual bedding plants. Includes the species Begonia cucullata var. cucullata. Tuberous Begonias : Tuberous begonias are often grown for their large, showy flowers. The popular Begonia boliviensis and its hybrids are in this category. Some tuberous begonias have showy foliage. Cane Begonias : Cane begonias have upright stems and are up to 6 feet tall, and often lose their lower leaves and resemble canes. The foliage may be showy, and they often bear clusters of flowers at the tips of the stems. The species Begonia maculata , and the popular Angel Wing begonia are in this category. Rhizomatous Begonias : Rhizomatous begonias, as the name suggests, grow from a creeping stem or rhizome. They have showy foliage and flowers borne on erect stalks above the leaves. This type includes the species Begonia masoniana and Begonia cleopatrae. Rex Begonias : Rex begonias are a subgroup of the Rhizomatous begonias. There are hundreds of hybrids in this group derived from Begonia rex . They are grown for their colorful foliage. These plants require humidity above 75% and decline if the humidity is too low. They make excellent terrarium plants. Most commonly cultivated begonias prefer partial shade and a humid environment. They do not tolerate cold temperatures below 55 degrees Fahrenheit. They will thrive in moist, well-drained soil with high organic matter and an acidic to neutral pH between 5.5 to 6.5. Tall varieties may need to be staked for support. The leaves and flowers are very fragile and should be protected from high winds. Begonias may be propagated by seeds, stem cuttings, leaf cuttings or division. Begonias may be used as houseplants, bedding plants, container plants, window boxes or hanging baskets. Their bright flower colors will brighten your home or landscape. Insects, Diseases, and Other Plant Problems: Monitor for mealybugs, whiteflies, thrips, scales, snails, slugs and spider mites. Avoid overwatering because begonias are highly susceptible to root rot. Fungal leaf diseases such as powdery mildew can develop. It is best practice to water the plant at the base and avoid the leaves. Botrytis blight and stem rot and Pythium root and stem rot can occur. VIDEO Created by Elisabeth Meyer for \" Annuals, Perennials, Vines, and Groundcovers \" a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Begonia peltata (Fuzzy Leaf Begonia)",
+   "note": "up to 2 feet tall, leaves are covered with felt-like hairs, leaves appear silver green, new leaves white, white flowers"
+  },
+  {
+   "name": "Begonia venosa",
+   "note": "16 to 24 inches tall, thick stems, round, succulent, leathery leaves covered with fine white hairs, white blooms"
+  },
+  {
+   "name": "Cotes de Castillon",
+   "note": "winter hardy, glossy, silver leaves with maroon underside, burgundy petioles, pink flowers"
+  },
+  {
+   "name": "Little Brother Montgomery",
+   "note": "hybrid, rex-like, star-shaped leaves of silver with bronze and green speckled veins, pink flowers"
+  },
+  {
+   "name": "Pewterware",
+   "note": "18 inches tall, rhizomatous, silver foliage with red undersides, light pink flowers"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Begonia"
+  ],
+  "Family": [
+   "Begoniaceae"
+  ],
+  "Life Cycle": [
+   "Annual",
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropics & Subtropics of Central and South America, Africa, Asia"
+  ],
+  "Distribution": [
+   "Native: Angola, Argentina, Bangladesh, Belize, Bolivia, Borneo, Brazil, Cambodia, Cameroon, Cape Provinces, China, Colombia, Congo, Costa Rica, Cuba, Dominican Republic, East Himalaya, Ecuador, Ethiopia, Fiji, Gabon, Ghana, Guatemala, Guinea, Haiti, Honduras, India, Ivory Coast, Jamaica, Kenya, Liberia, Madagascar, Malaya, Mexico, Mozambique, Myanmar, Nepal, Nicaragua, Nigeria, Panama, Paraguay, Peru, Philippines, Puerto Rico, Rwanda, Sri Lanka, Sudan, Swaziland, Taiwan, Tanzania, Thailand, Tibet, Uganda, Uruguay, Venezuela, Vietnam, West Himalaya, Zambia, Zaire, and Zimbabwe. Introduced: Japan, Korea, Samoa, and the United States"
+  ],
+  "Bulb Storage": [
+   "Harvest enlarged hypocotyls in fall, dry, store in dry peat at 35-41 degrees F (2-5 degrees C)"
+  ],
+  "Edibility": [
+   "Edible flowers."
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 8 in. - 2 ft. 0 in.",
+   "Width: 0 ft. 9 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Annual",
+   "Bulb",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect",
+   "Mounding"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Description": [
+   "Winged capsule, seeds numerous and small."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Orange",
+   "Pink",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme"
+  ],
+  "Flower Value To Gardener": [
+   "Edible",
+   "Long Bloom Season"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Summer"
+  ],
+  "Flower Description": [
+   "Showy blooms range in color from pink, red, yellow, white, orange, or bicolors and can be found in doubles."
+  ],
+  "Leaf Color": [
+   "Brown/Copper",
+   "Gold/Yellow",
+   "Gray/Silver",
+   "Green",
+   "Purple/Lavender",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Waxy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Orbicular",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed",
+   "Serrate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Showy leaves can be 6 inches long, asymmetrical with tapered ends and toothed edges."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Form": [
+   "Straight"
+  ],
+  "Stem Description": [
+   "Erect, with rhizomes or tubers, generally fleshy."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Border",
+   "Foundation Planting"
+  ],
+  "Resistance To Challenges": [
+   "Black Walnut",
+   "Deer",
+   "Humidity",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested, Kidney failure (in grazing animals), vomiting, and salivation in dogs/cats. The most toxic part is the underground roots. Sap can cause skin irritation."
+  ],
+  "Poison Toxic Principle": [
+   "Soluble calcium oxalates"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Roots",
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "showy leaves",
+  "not hardy",
+  "apvg",
+  "dappled shade",
+  "double flowers",
+  "division",
+  "colorful",
+  "bicolor",
+  "fall interest",
+  "showy flowers",
+  "window boxes",
+  "interiorscape",
+  "hanging baskets",
+  "summer flowers",
+  "pink flowers",
+  "apvg-a",
+  "problem for cats",
+  "problem for dogs",
+  "problem for horses",
+  "partial shade tolerant",
+  "container plant",
+  "hsc",
+  "hsc-f",
+  "white flowers",
+  "landscape plant sleuths course",
+  "annual",
+  "cpp",
+  "houseplant",
+  "wet soils intolerant",
+  "bedding plants",
+  "problem for children",
+  "hortcontest",
+  "edible flowers"
+ ],
+ "images": [
+  {
+   "id": "24323",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dragon-wing-Begonia-_BOEtRM2SjLJ2.mpo",
+   "caption": "Flower Shape (Warren County,NC)",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "24316",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Angelwing-Wa_3Xa43YtGj32W.mpo",
+   "caption": "Flower Close-up (Wake County, NC)",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "24315",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Angelwing-fo_mzxEVvhZY5vv.mpo",
+   "caption": "Form (Wake County,NC)",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "15013",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/sedum_spectabile_au_5kvwQWHmYhmh.jpe",
+   "caption": "in the fall in Moore County with Sedum spectabile 'Autumn Joy,' Callicarpa americana, and Hydrangea",
+   "author": "Susan Strine",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "7650",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia--Carolyn_Jewel--CC_BY-NC_2.0.jpg",
+   "caption": "Flowers",
+   "author": "Carolyn Jewel",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "7651",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia--conespider--CC_BY-NC-ND_2.0.jpg",
+   "caption": "Leaves",
+   "author": "Conespider",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "13653",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/DSCN7302_9gc5vQKFtem6.jpg",
+   "caption": "Flowers",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "7649",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia__Jim_the_Photographer__CC_BY_2.0.jpg",
+   "caption": "Form",
+   "author": "Jim, The photographer",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "18895",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia_flfm_050912__kzKhGZyac2C5.jpe",
+   "caption": "Flower Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "18896",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia_Whopper_Rose_NzVPjKEUgwKI.jpe",
+   "caption": "'Whopper Rose' Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "20116",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia_whfl_101412__bz7sYNHXFrYa.jpg",
+   "caption": "Drooping Leaves",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "35495",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Cotes-de-Cas_yCqbWee5A2ox.jpeg",
+   "caption": "'Cotes de Castillon' Leaves - Nowember - Wake Co., NC",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "35497",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Little-broth_da6aYt88n5WZ.jpeg",
+   "caption": "'Little Brother Montgomery' Flower - Wake Co., NC",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "35500",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Pewterware-F_XHnAkS1N11NT.jpeg",
+   "caption": "'Pewterware' Flowers - November - Wake Co., NC",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "41593",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Little-broth_5gnq3O13yHij.jpeg",
+   "caption": "Begonia Little brother Montgomery flowers and leaves Wake",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41594",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Little-broth_maSHNKpfKYR0.jpeg",
+   "caption": "Begonia Little Brother Montgomery leaves and flowers Wake",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41595",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Begonia-Little-broth_Uj4yr4lI3evY.jpeg",
+   "caption": "Begonia Little Brother Montgomery leaves Wake",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
+ ]
+}

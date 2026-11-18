@@ -1,0 +1,94 @@
+{
+ "id": "haworthia",
+ "rank": "genus",
+ "scientificName": "Haworthia",
+ "group": "succulent",
+ "names": {
+  "ja": "ハオルチア",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "haworthia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "they prefer full sun or bright indirect light, which also produces the best colors in the leaves"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "While they are somewhat tolerant of low-light conditions"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なたも可とするが、室内の窓辺では葉焼けを避けて朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "These plants are sensitive to frost."
+   },
+   {
+    "src": "estimate",
+    "reason": "霜に弱いとされ、最低温度の記載がないため、多肉植物の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The average home temperature and humidity levels are adequate for these plants."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "it is best to allow the potting medium to dry out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot may occur from excessive watering.",
+   "symptom": "rot"
+  }
+ ]
+}

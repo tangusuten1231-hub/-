@@ -1,0 +1,28 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2765221",
+ "retrieved": "2026-11-18",
+ "query": "Tradescantia pallida",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2765221,
+ "acceptedKey": 2765221,
+ "acceptedName": "Tradescantia pallida",
+ "authorship": "(Rose) D.R.Hunt",
+ "rank": "SPECIES",
+ "family": "Commelinaceae",
+ "genus": "Tradescantia",
+ "synonyms": [
+  "Setcreasea jaumavensis",
+  "Setcreasea lanceolata",
+  "Setcreasea pallida",
+  "Setcreasea purpurea",
+  "Setcreasea tampicana",
+  "Tradescantia jaumavensis",
+  "Tradescantia pallida",
+  "Tradescantia purpurea",
+  "Tradescantia striata",
+  "Tradescantia velutina"
+ ]
+}

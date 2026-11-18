@@ -1,0 +1,115 @@
+{
+ "id": "cattleya",
+ "rank": "genus",
+ "scientificName": "Cattleya",
+ "group": "orchid",
+ "names": {
+  "ja": "カトレア",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "cattleya",
+  "hgic": "orchids"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    21,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "These orchids grow best with bright light to some sun, but no direct midday sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "A dark leaf indicates insufficient sunlight."
+   },
+   {
+    "src": "estimate",
+    "reason": "光をたくさん必要とするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sun will burn the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "cattleya, 60 °F",
+    "fahrenheit": [
+     60
+    ]
+   },
+   {
+    "src": "ncsu",
+    "quote": "The temperatures must be between 70 to 85 degrees F during the day and 55 to 60 degrees F at night."
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The temperatures must be between 70 to 85 degrees F during the day",
+    "fahrenheit": [
+     70,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The humidity must be above 50%."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The medium should be allowed to dry completely between waterings."
+   },
+   {
+    "src": "estimate",
+    "reason": "水苔・バークがほぼ乾いてから与えるため「半分乾いたら」とした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉の色が濃い緑すぎるのは光不足。ちょうどよい光なら中くらいの緑。",
+   "src": "ncsu",
+   "quote": "A leaf with the right amount of sun is mid-green.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "10℃（50°F）より冷たい水や軟水器を通した水は使わない。",
+   "src": "ncsu",
+   "quote": "Do not use salt-softened water or water colder than 50 degrees F."
+  }
+ ]
+}

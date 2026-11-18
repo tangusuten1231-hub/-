@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3188506",
+ "retrieved": "2026-11-18",
+ "query": "Medinilla",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3188506,
+ "acceptedKey": 3188506,
+ "acceptedName": "Medinilla",
+ "authorship": "Gaudich.",
+ "rank": "GENUS",
+ "family": "Melastomataceae",
+ "genus": "Medinilla",
+ "synonyms": []
+}

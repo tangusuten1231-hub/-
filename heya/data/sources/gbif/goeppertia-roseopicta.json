@@ -1,0 +1,24 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/8023661",
+ "retrieved": "2026-11-18",
+ "query": "Goeppertia roseopicta",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 8023661,
+ "acceptedKey": 8023661,
+ "acceptedName": "Goeppertia roseopicta",
+ "authorship": "(Linden ex Lem.) Borchs. & S.Suárez",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Goeppertia",
+ "synonyms": [
+  "Calathea illustris",
+  "Calathea roseopicta",
+  "Maranta illustris",
+  "Maranta roseopicta",
+  "Maranta wagneri",
+  "Phyllodes roseopicta"
+ ]
+}

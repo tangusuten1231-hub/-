@@ -1,0 +1,103 @@
+{
+ "id": "goeppertia-crocata",
+ "rank": "species",
+ "scientificName": "Goeppertia crocata",
+ "group": "flowering",
+ "names": {
+  "ja": "カラテア・クロカタ",
+  "aliases": [
+   "クロカタ"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-crocata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers partial shade"
+   },
+   {
+    "src": "estimate",
+    "reason": "半日陰を好むため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "The temperature should remain constant and drafts avoided."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は65°F（18℃）以上の安定した温度を必要とし、冷たいすきま風を避けるよう勧めるため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The room temperature should range from 65 to 80 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "with humidity levels of 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained all-purpose potting mix"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉は日暮れに閉じ、日の出に開く。",
+   "src": "ncsu",
+   "quote": "The leaves fold at night fall and open again at sunrise."
+  }
+ ]
+}

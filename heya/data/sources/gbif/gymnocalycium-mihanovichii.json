@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7282762",
+ "retrieved": "2026-11-18",
+ "query": "Gymnocalycium mihanovichii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7282762,
+ "acceptedKey": 7282762,
+ "acceptedName": "Gymnocalycium mihanovichii",
+ "authorship": "(Fric & Gürke) Britton & Rose",
+ "rank": "SPECIES",
+ "family": "Cactaceae",
+ "genus": "Gymnocalycium",
+ "synonyms": [
+  "Echinocactus mihanovichii"
+ ]
+}

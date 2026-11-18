@@ -1,0 +1,108 @@
+{
+ "id": "dracaena-reflexa-var-reflexa",
+ "rank": "species",
+ "scientificName": "Dracaena reflexa var. reflexa",
+ "group": "foliage",
+ "names": {
+  "ja": "ドラセナ・リフレクサ",
+  "aliases": [
+   "ソング・オブ・インディア",
+   "ドラセナ・ソングオブインディア"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-reflexa-var-reflexa",
+  "hgic": "dracaena"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This dracaena prefers bright, indirect sunlight and moist, well-drained potting mix."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This dracaena prefers bright, indirect sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is best to avoid cold drafts and sudden temperature changes."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers a room temperature of 65 to 75 degrees Fahrenheit and high humidity.",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers a room temperature of 65 to 75 degrees Fahrenheit and high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the soil moist, but avoid overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水道水のフッ素や塩素に弱い。室温のろ過水を使う。",
+   "src": "ncsu",
+   "quote": "This plant does not tolerate fluoride and chlorine found in tap water.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "葉が黄色くなるのは、水のやりすぎか不足。",
+   "src": "ncsu",
+   "quote": "Yellow leaves result from overwatering or underwatering.",
+   "symptom": "yellow"
+  }
+ ]
+}

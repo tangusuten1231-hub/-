@@ -1,0 +1,24 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/9388529",
+ "retrieved": "2026-11-18",
+ "query": "Haworthiopsis attenuata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 9388529,
+ "acceptedKey": 9388529,
+ "acceptedName": "Haworthiopsis attenuata",
+ "authorship": "(Haw.) G.D.Rowley",
+ "rank": "SPECIES",
+ "family": "Asphodelaceae",
+ "genus": "Haworthiopsis",
+ "synonyms": [
+  "Aloe attenuata",
+  "Aloe radula",
+  "Apicra attenuata",
+  "Catevala attenuata",
+  "Haworthia attenuata",
+  "Haworthiopsis attenuata"
+ ]
+}

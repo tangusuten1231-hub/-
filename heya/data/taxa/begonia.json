@@ -1,0 +1,112 @@
+{
+ "id": "begonia",
+ "rank": "genus",
+ "scientificName": "Begonia",
+ "group": "flowering",
+ "names": {
+  "ja": "ベゴニア",
+  "aliases": [
+   "ベゴニアの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "begonia",
+  "hgic": "growing-begonias-indoors"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    19,
+    23
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Flowering houseplant begonias should be located in a bright spot and receive some direct sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Most commonly cultivated begonias prefer partial shade and a humid environment."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Early morning sun in an east window works well."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "They do not tolerate cold temperatures below 55 degrees Fahrenheit.",
+    "fahrenheit": [
+     55
+    ]
+   },
+   {
+    "src": "hgic",
+    "quote": "Temperature at night should not drop below 55 °F.",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Maintain temperature at 66 to 73 °F.",
+    "fahrenheit": [
+     66,
+     73
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "These plants require humidity above 75% and decline if the humidity is too low."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Keep soil evenly moist, allowing it to dry only slightly between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "Reduce water in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "根腐れにとても弱い。株元に水をやり、葉をぬらさない。",
+   "src": "ncsu",
+   "quote": "It is best practice to water the plant at the base and avoid the leaves.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "受け皿に水をためない。",
+   "src": "hgic",
+   "quote": "Never allow plants to sit in a saucer of water."
+  }
+ ]
+}

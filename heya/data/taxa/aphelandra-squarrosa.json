@@ -1,0 +1,108 @@
+{
+ "id": "aphelandra-squarrosa",
+ "rank": "species",
+ "scientificName": "Aphelandra squarrosa",
+ "group": "flowering",
+ "names": {
+  "ja": "アフェランドラ",
+  "aliases": [
+   "アフェランドラ・スクアロサ"
+  ]
+ },
+ "refs": {
+  "ncsu": "aphelandra-squarrosa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 18,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The zebra plant does best when it receives plenty of warm, bright, indirect light and high humidity."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "bright, indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers high humidity and temperatures that do not dip below 65",
+    "fahrenheit": [
+     65
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures that do not dip below 65",
+    "fahrenheit": [
+     65
+    ]
+   },
+   {
+    "src": "estimate",
+    "reason": "上限は一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Do not allow the soil to dry out completely."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Watering should be reduced but not stopped."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水が多すぎても乾きすぎても、下葉が茶色くなって落ちる。",
+   "src": "ncsu",
+   "quote": "Excessive amounts of water, or extremely dry conditions, will cause the bottom leaves to brown and drop.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "花が咲かないときは、明るい間接光に長く当てる。",
+   "src": "ncsu",
+   "quote": "Encourage it by providing prolonged periods of indirect light.",
+   "symptom": "noflower"
+  }
+ ]
+}

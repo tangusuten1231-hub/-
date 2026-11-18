@@ -1,0 +1,97 @@
+{
+ "id": "oncidium",
+ "rank": "genus",
+ "scientificName": "Oncidium",
+ "group": "orchid",
+ "names": {
+  "ja": "オンシジウム",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "oncidium"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    21,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These orchids prefer partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "These orchids prefer partial shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "a night time temperatures between 55 to 65 degrees",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "require day time temperatures of 70 to 85 degrees Fahrenheit",
+    "fahrenheit": [
+     70,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "A humidity level of 50% or greater is also preferred."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water them with room temperature water about every 2 to 10 days or when the orchid mix is half dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "During the winter months, only water the plant bimonthly or less."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで、ふくらんだ茎（バルブ）が根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause the fleshy pseudobulbs to develop root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

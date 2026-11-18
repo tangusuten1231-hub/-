@@ -1,0 +1,254 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/primula-obconica/",
+ "slug": "primula-obconica",
+ "retrieved": "2026-11-18",
+ "scientificName": "Primula obconica",
+ "commonNames": [
+  "German Primrose",
+  "Poison Primrose",
+  "Primrose"
+ ],
+ "description": "German primrose is a short-lived perennial in the primrose family (Primulaceae) that s native to China. The specific epithet, obconica, means \"inverted cone\", referring to the convex flowers. Plant in a peat-based potting mixture for indoor use. Outdoors, they prefer a well-drained sandy loam. They need cool conditions and indirect sunlight for optimum performance. They bloom indoors in winter into early spring. After the flowers fade, keep in a cool place to encourage future blooming. It has basal, simple, elongated, glandular-haired leaves. The flowers are in rounded terminal clusters of bluish flowers with white edges and 5 petals on a naked stem. Leaves can cause contact dermatitis, so wear gloves when handling Use German primrose as an annual outdoors in shady gardens or as a houseplant. In frost-free areas, it can be grown as a perennial. Insects, Diseases, and Other Plant Problems: The fungal disease botrytis may affect this plant. Good air circulation around the plant will help prevent this disease. Root rot, damping off and crown rot may cause the plant to wilt and die. Dispose of affected plants. More information on Primula .",
+ "cultivars": [
+  {
+   "name": "Libre Series",
+   "note": "Doesn't require cold to start blooming. Magenta, blue bicolor and pink bicolor"
+  },
+  {
+   "name": "Touch Me Series",
+   "note": "Larger flowers in dark nlue, magenta, pink and rose"
+  },
+  {
+   "name": "Twilly Series",
+   "note": "Ruffled or serrated edes and bicolor patterns"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Primula"
+  ],
+  "Species": [
+   "obconica"
+  ],
+  "Family": [
+   "Primulaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "China"
+  ],
+  "Wildlife Value": [
+   "Toxic if ingested"
+  ],
+  "Plant Type": [
+   "Annual",
+   "Herbaceous Perennial",
+   "Poisonous"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Flower Color": [
+   "Blue",
+   "Cream/Tan",
+   "Gold/Yellow",
+   "Orange",
+   "Pink",
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Umbel"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Winter"
+  ],
+  "Flower Shape": [
+   "Funnel"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Description": [
+   "2-3 stalks with umbel (umbrella) flower clusters, terminal on a naked stem, 5-parted, funnel-shaped, pale lilac or purple with a yellow eye. Bloom indoors in winter and spring."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Rough",
+   "Velvety"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Elliptical"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Description": [
+   "Heart-shaped, basal, simple, elongated, with glandular hairs"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Form": [
+   "Straight"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Naturalized Area",
+   "Small Space",
+   "Woodland"
+  ],
+  "Landscape Theme": [
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Mass Planting"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "Allergic skin irritation (redness, blisters, swelling), mainly on hands and face, following contact."
+  ],
+  "Poison Toxic Principle": [
+   "Primin, a benzoquinone; primetin, a flavone"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "tender perennial",
+  "showy flowers",
+  "poisonous",
+  "low maintenance",
+  "problem for dogs",
+  "problem for horses",
+  "contact dermatitis",
+  "problem for cats",
+  "perennial",
+  "herb garden",
+  "florist plant",
+  "houseplant",
+  "winter flowers",
+  "long bloom season"
+ ],
+ "images": [
+  {
+   "id": "27962",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primavera_Primula_o_dK6fWCny2bDd.mpo",
+   "caption": "Primula obconica - Flower and leaves",
+   "author": "Alejandro Bayer Tamayo",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "27963",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica_Bal_zL1eJ74rO1FY.jpe",
+   "caption": "Primula obconica - Form",
+   "author": "Primula obconica",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "27964",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica_Dav_nGGhAvbnCWNH.jpg",
+   "caption": "Primula obconica - Red flowers",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "27965",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica_KEN_K24B70mPOQxS.jpe",
+   "caption": "Primula obconica - Violet flowers",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "27966",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica1_KE_L2nV5t8tHDms.jpg",
+   "caption": "Primula obconica - Growth habit",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "31412",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica_Dav_9ZCESSSsRMIP.jpeg",
+   "caption": "Primula obconica - Flower",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "31413",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Primula_obconica_Lib_sCU1RZKmzO5d.jpeg",
+   "caption": "Primula obconica - Form",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

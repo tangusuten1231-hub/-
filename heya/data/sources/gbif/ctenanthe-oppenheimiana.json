@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2762437",
+ "retrieved": "2026-11-18",
+ "query": "Ctenanthe oppenheimiana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2762437,
+ "acceptedKey": 2762437,
+ "acceptedName": "Ctenanthe oppenheimiana",
+ "authorship": "(É.Morren) K.Schum.",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Ctenanthe",
+ "synonyms": [
+  "Calathea oppenheimiana",
+  "Maranta herderiana",
+  "Maranta oppenheimiana",
+  "Phyllodes oppenheimiana"
+ ]
+}

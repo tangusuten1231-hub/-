@@ -1,0 +1,208 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/chamaedorea-seifrizii/",
+ "slug": "chamaedorea-seifrizii",
+ "retrieved": "2026-11-18",
+ "scientificName": "Chamaedorea seifrizii",
+ "commonNames": [
+  "Bamboo Palm",
+  "Parlor Palm",
+  "Reed Palm"
+ ],
+ "description": "The bamboo palm is native to seasonally dry forests from southern Mexico to Honduras. It is a member of the palm family (Arecaceae) with clustering, narrow stems with prominent nodes like bamboo. The genus name is compounded from the Greek chamai -, meaning \"of the ground,\" and - dorea , meaning \"gift.\" The name references the beauty and low stature of these palms. The species epithet commemorates the collector of the original specimen, William Seifriz. Prefers medium light, slightly moist potting mix and medium relative humidity. This plant will survive in low light conditions. The potting medium must be well-drained. This plant has pest problems. The bamboo palm gets its common name from clusters of cane-like stems. New stems are produced from the base, but the clump expands slowly. It grows up to 7 feet tall and is upright, but outer stems will lean outward from the center. The whole plant can take on the shape of an inverted cone. Floral rachis turns orange with age and can be ornamental. This plant makes an excellent houseplant for low-light areas. This plant is also used in interior landscapes and as a specimen or accent plant. In tropical areas, it can be grown outside as a hedge, accent or foundation plant. Quick ID Hints : Clusters of cane-like stems Leaf evenly pinnately compound, terminal pinnae fused & sometimes larger than others Petioles have thin, membranous base Leaflets are narrowly elliptical, widest in the middle. Insects, Diseases, and Other Plant Problems: Overwatering can cause root rot and stem rot. Monitor for mealy bugs, scale, and spider mites when grown indoors.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Chamaedorea"
+  ],
+  "Species": [
+   "seifrizii"
+  ],
+  "Family": [
+   "Arecaceae"
+  ],
+  "Life Cycle": [
+   "Woody"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "Belize, Guatemala, Honduras, and Southeast Mexico"
+  ],
+  "Distribution": [
+   "Florida"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 7 ft. 6 in.",
+   "Width: 3 ft. 0 in. - 6 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Shrub"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect",
+   "Spreading"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet",
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Black",
+   "Blue"
+  ],
+  "Fruit Type": [
+   "Drupe"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Round, bluish-black fruits. The flesh is irritating if touched."
+  ],
+  "Flower Color": [
+   "Gold/Yellow"
+  ],
+  "Flower Description": [
+   "Flowers are golden yellow. Inflorescence has branched green rachis, and branch bracts are papery and overlapping. Male and female flowers grow on different plants."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Papery"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Evenly pinnately compound and have 5-15 lanceolate pinnae per side. The terminal pinnae basally fused and sometimes larger."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Slender, cane-like, clumped, erect, and less than an inch in diameter."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Contact Dermatitis"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "The fruit's flesh is irritating to the skin if handled by sensitive people."
+  ],
+  "Poison Toxic Principle": [
+   "Oxalic acid"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Fruits"
+  ]
+ },
+ "tags": [
+  "fronds",
+  "houseplant",
+  "interiorscape",
+  "lacy leaves",
+  "fantz",
+  "tropical palm",
+  "tropical feel",
+  "container plant",
+  "accent"
+ ],
+ "images": [
+  {
+   "id": "40850",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_110937_Cham_Dxs5CTFy6hjS.jpeg",
+   "caption": "Houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38726",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_seifrizi_SSCgC7LC1J8G.jpeg",
+   "caption": "Stems and foliage.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38727",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Chamaedorea_seifrizi_vCEbtU6VEO0s.jpeg",
+   "caption": "Stems and foliage.",
+   "author": "Jungle Rebel",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40851",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_111005_Cham_z7KDFMVVLoVB.jpeg",
+   "caption": "Foliage",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

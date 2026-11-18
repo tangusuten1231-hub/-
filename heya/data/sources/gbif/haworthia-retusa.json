@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2780366",
+ "retrieved": "2026-11-18",
+ "query": "Haworthia retusa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2780366,
+ "acceptedKey": 2780366,
+ "acceptedName": "Haworthia retusa",
+ "authorship": "(L.) Duval",
+ "rank": "SPECIES",
+ "family": "Asphodelaceae",
+ "genus": "Haworthia",
+ "synonyms": [
+  "Aloe retusa",
+  "Apicra retusa",
+  "Catevala retusa"
+ ]
+}

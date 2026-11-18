@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2693967",
+ "retrieved": "2026-11-18",
+ "query": "Neoregelia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2693967,
+ "acceptedKey": 2693967,
+ "acceptedName": "Neoregelia",
+ "authorship": "L.B.Sm.",
+ "rank": "GENUS",
+ "family": "Bromeliaceae",
+ "genus": "Neoregelia",
+ "synonyms": [
+  "Aregelia",
+  "Regelia"
+ ]
+}

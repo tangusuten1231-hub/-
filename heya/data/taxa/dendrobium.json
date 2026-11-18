@@ -1,0 +1,103 @@
+{
+ "id": "dendrobium",
+ "rank": "genus",
+ "scientificName": "Dendrobium",
+ "group": "orchid",
+ "names": {
+  "ja": "デンドロビウム",
+  "aliases": [
+   "デンファレの仲間",
+   "セッコクの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "dendrobium",
+  "hgic": "orchids"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 11,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Dendrobiums grow best in bright, indirect light, ideally in a west or south-facing window."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Insufficient light results in non-blooming."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "These orchids grow best with bright light to some sun, but no direct midday sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "dendrobium, 52 °F",
+    "fahrenheit": [
+     52
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典は種類（高温性・中温性・低温性）によって適温が違うとするため、一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer high humidity, around 60% or more but with good air circulation."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "should dry out partially between waterings but never be fully dry"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Overwatering when the plant is dormant, or underwatering when the plant is growing can have fatal results."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光が足りないと花が咲かない。",
+   "src": "ncsu",
+   "quote": "Insufficient light results in non-blooming.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "冬に葉を落とす種類は、晩秋〜初冬に水を控えると花芽がつく。",
+   "src": "ncsu",
+   "quote": "For these species, withhold water in the late fall and early winter to mimic natural conditions and stimulate blooming.",
+   "symptom": "noflower"
+  }
+ ]
+}

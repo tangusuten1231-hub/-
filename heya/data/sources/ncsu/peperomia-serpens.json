@@ -1,0 +1,188 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-serpens/",
+ "slug": "peperomia-serpens",
+ "retrieved": "2026-11-18",
+ "scientificName": "Peperomia serpens",
+ "commonNames": [
+  "Cupid Peperomia",
+  "Vining Peperomia"
+ ],
+ "description": "The Vining Peperomia is a semi-succulent, creeping, climbing, trailing, perennial from tropical Central and South America and is a member of the Piperaceae or pepper family. It has small, bright green, glossy, heart-shaped leaves that resemble the foliage of a Pothos. The stems are thick and light pink. The flowers of this plant are spikes of white or green. The plant will grow to 1 to 2 feet in length and up to 6 inches in height. This plant thrives in bright, indirect sunlight. It requires moist, well-drained soil and does not tolerate overwatering. It may require a trellis or pole as it continues to grow. Avoid cold drafts and maintain a moderate temperature and humidity. The beautiful foliage and ease of care make the Vining Peperomia a wonderful houseplant for beginning houseplant enthusiasts, Consider using this plant in a hanging basket or terrarium. Quick ID Hints: epiphytic, creeping, climbing, trailing, semi-succulent herbaceous perennial stem slightly pubescent small, bright green, glossy, fleshy, heart-shaped leaves resembling the foliage of a pothos flowers are white or greenish spikes Insects, Diseases, and Other Plant Problems : Monitor mealybugs, spider mites, aphids, scale, fungus gnats, and whiteflies. Root rot can occur from overwatering. Avoid wetting the leaves and provide good air circulation to prevent leaf spots. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Variegata",
+   "note": "green leaves with creamy white leaf margins"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "serpens"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Southern Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Bolivia, Brazil, Colombia, Dominican Republic, Ecuador, Guyana, Haiti, Honduras, Jamaica, Leeward Islands, Mexico, Nicaragua, Panama, Peru, Puerto Rico, Suriname, Trinidad-Tobago, Venezuelan Antilles, and Windward Islands"
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Climbing",
+   "Creeping",
+   "Spreading"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Brown/Copper"
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Description": [
+   "The flowers are small spikes of green or white. Houseplants rarely produce flowers."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Cordate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves are bright green, glossy, slightly wrinkly, and heart-shaped."
+  ],
+  "Stem Color": [
+   "Pink"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Hairy (pubescent)"
+  ],
+  "Stem Description": [
+   "The stems are thick, pink, and have tiny hairs."
+  ],
+  "Landscape Location": [
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "easy to grow",
+  "houseplant",
+  "herbaceous perennial",
+  "epiphytic",
+  "drought tolerant",
+  "tropical",
+  "humidity tolerant",
+  "hanging baskets",
+  "well-drained soil",
+  "evergreen",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "perennial",
+  "low maintenance",
+  "pet friendly"
+ ],
+ "images": [
+  {
+   "id": "24558",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpensJa_QVt2o9f0EJyY.jfif",
+   "caption": "Form",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24559",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpensJe_jZETJnewYuRB.jfif",
+   "caption": "Form",
+   "author": "Jerzy Opiola",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24560",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpensya_89Owg3eavV91.jfif",
+   "caption": "Form",
+   "author": "yakovlev.alexey",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "24561",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpens2J_GygGwAWYWwVW.jfif",
+   "caption": "Form",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30644",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpens_2__U8LUwMWz7EwV.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30645",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_serpens_Kr_L8WxFvbVI8Je.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

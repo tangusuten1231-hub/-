@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5329822",
+ "retrieved": "2026-11-18",
+ "query": "Alocasia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5329822,
+ "acceptedKey": 5329822,
+ "acceptedName": "Alocasia",
+ "authorship": "(Schott) G.Don",
+ "rank": "GENUS",
+ "family": "Araceae",
+ "genus": "Alocasia",
+ "synonyms": [
+  "Ensolenanthe",
+  "Panzhuyuia",
+  "Schizocasia",
+  "Xenophya"
+ ]
+}

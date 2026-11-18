@@ -1,0 +1,177 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/scindapsus-treubii/",
+ "slug": "scindapsus-treubii",
+ "retrieved": "2026-11-18",
+ "scientificName": "Scindapsus treubii",
+ "commonNames": [],
+ "description": "Scindapsus treubii has a trailing, vining, or climbing habit and is a member of the Aroid family. It is native to the tropical rainforests of Malaysia and Indonesia. It is a popular houseplant, but it can be difficult to find. The plant resembles Pothos, Epipremnum, and Philodendron . Scindapsus pictus is the more common species in the Araceae family. Two cultivars of S. treubii that are available commercially include 'Moonlight' and 'Dark Form,' but they are still quite rare. 'Moonlight' has thick, glossy, milky-green leaves. 'Dark Form' has glossy and very dark green leaves that are nearly black. This low-maintenance plant prefers bright indirect sunlight or filtered light with room temperatures between 65 to 75 degrees Fahrenheit. Well-drained soil that is rich in organic matter will encourage this plant to thrive. It does not tolerate overwatering, and it is best to water when the soil is half dry to almost completely dry. Consider using S. treubii in a hanging basket, climbing on a small trellis or pole, or growing horizontally across a mantle or tabletop. Insects, Diseases, and Other Plant Problems: The plant is susceptible to mealybugs. aphids, and spider mites. Root rot can occur with overwatering. Direct sunlight can scorch the leaves. If ingested, the plant is toxic; therefore, exercise caution if used in the home around children or pets.",
+ "cultivars": [
+  {
+   "name": "Dark Form",
+   "note": "young leaves are deep green, as it matures the leaves are nearly black"
+  },
+  {
+   "name": "Moonlight",
+   "note": "dark green with a silvery sheen on the top side of the leaves"
+  },
+  {
+   "name": "sp. Sumatra",
+   "note": "dark green leaves with silver markings"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Scindapsus"
+  ],
+  "Species": [
+   "treubii"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Peninsula of Malaysia, Northwest Borneo, and Jawa"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Climbing",
+   "Horizontal"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Dry"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Description": [
+   "The flower is a white spathe; however, it does not flower indoors."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Cordate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves are heart-shaped, glossy, thick, and dark green to silvery green or mottled depending on the cultivar."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Medium"
+  ],
+  "Poison Symptoms": [
+   "Toxic if ingested. Symptoms include drooling, mouth and tongue swelling, vomiting, decrease appetite, oral discomfort. Ingestion of this plant by pets may result in potential kidney damage or death."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "problem for dogs",
+  "houseplant",
+  "problem for cats",
+  "poisonous if ingested",
+  "problem for children",
+  "trailing",
+  "container plant",
+  "hanging baskets",
+  "horizontal",
+  "vine",
+  "perennial",
+  "cascading",
+  "climber"
+ ],
+ "images": [
+  {
+   "id": "38244",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Scindapsus_treubii_l_wHNgJZPCwfYm.jpeg",
+   "caption": "Leaves.",
+   "author": "KP Laer",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

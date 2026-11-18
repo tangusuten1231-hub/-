@@ -1,0 +1,99 @@
+{
+ "id": "gymnocalycium-mihanovichii",
+ "rank": "species",
+ "scientificName": "Gymnocalycium mihanovichii",
+ "group": "cactus",
+ "names": {
+  "ja": "ギムノカリキウム・ミハノビッチー",
+  "aliases": [
+   "牡丹玉",
+   "緋牡丹"
+  ]
+ },
+ "refs": {
+  "ncsu": "gymnocalycium-mihanovichii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    20,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants prefer bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "These plants prefer bright, indirect sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Outdoor plants should be brought indoors before the temperatures drop below 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "prefer temperatures between 68 to 86 degrees Fahrenheit",
+    "fahrenheit": [
+     68,
+     86
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "and low humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water these plants sparingly and allow the soil to dry out completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "In the winter during its dormant period, reduce watering even further."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "赤や黄色の「緋牡丹」は葉緑素のない突然変異で、別のサボテンに接ぎ木されている。",
+   "src": "ncsu",
+   "quote": "The globular top cactus is a mutant seedling of the Gymnocalycium mihanovichii, and it is grafted to a host cactus"
+  }
+ ]
+}

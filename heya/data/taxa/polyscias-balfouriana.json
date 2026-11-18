@@ -1,0 +1,92 @@
+{
+ "id": "polyscias-balfouriana",
+ "rank": "species",
+ "scientificName": "Polyscias balfouriana",
+ "group": "foliage",
+ "names": {
+  "ja": "ポリシャス・バルフォリアナ",
+  "aliases": [
+   "バルフォリアナ"
+  ]
+ },
+ "refs": {
+  "ncsu": "polyscias-balfouriana"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Aralia Balfour prefers full sunlight but is tolerant of partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "is tolerant of partial shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なたを好むとするが、室内の窓辺で急に強い日差しに当てると葉焼けするため、朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、同じポリシャスの仲間の値（13℃）に合わせた"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It grows best when kept slightly damp with good humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It grows best when kept slightly damp"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "根腐れしやすい。",
+   "src": "ncsu",
+   "quote": "Susceptible to root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2765230",
+ "retrieved": "2026-11-18",
+ "query": "Tradescantia spathacea",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2765230,
+ "acceptedKey": 2765230,
+ "acceptedName": "Tradescantia spathacea",
+ "authorship": "Sw.",
+ "rank": "SPECIES",
+ "family": "Commelinaceae",
+ "genus": "Tradescantia",
+ "synonyms": [
+  "Ephemerum bicolor",
+  "Ephemerum discolor",
+  "Rhoeo discolor",
+  "Rhoeo spathacea",
+  "Tradescantia discolor",
+  "Tradescantia odoratissima",
+  "Tradescantia versicolor"
+ ]
+}

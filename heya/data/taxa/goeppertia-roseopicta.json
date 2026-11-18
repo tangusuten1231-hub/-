@@ -1,0 +1,102 @@
+{
+ "id": "goeppertia-roseopicta",
+ "rank": "species",
+ "scientificName": "Goeppertia roseopicta",
+ "group": "foliage",
+ "names": {
+  "ja": "カラテア・ロゼオピクタ",
+  "aliases": [
+   "ロゼオピクタ"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-roseopicta"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The rose-painted Calathea prefers bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "prefers bright, indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は65°F（18℃）以上の安定した温度を必要とし、冷たいすきま風を避けるよう勧めるため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Maintain the room temperature between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "the humidity level should be above 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained peaty potting mix"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉や葉先が茶色くなるのは湿度不足か水道水のフッ素。",
+   "src": "ncsu",
+   "quote": "Brown leaves and tips can result from low humidity or fluoride in the tap water.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "葉が丸まるのは湿度不足か水不足。",
+   "src": "ncsu",
+   "quote": "Curling of the leaves results from low humidity or inadequate watering.",
+   "symptom": "curl"
+  }
+ ]
+}

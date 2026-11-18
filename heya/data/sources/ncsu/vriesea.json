@@ -1,0 +1,236 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/vriesea/",
+ "slug": "vriesea",
+ "retrieved": "2026-11-18",
+ "scientificName": "Vriesea",
+ "commonNames": [
+  "Flaming Sword",
+  "Urn Plant",
+  "Vriesea"
+ ],
+ "description": "Vrieseas comprise over 230 species of tropical, evergreen herbaceous perennials in the pineapple family (Bromeliaceae). Most are epiphytes or lithophytes, but some can be grown as terrestrial plants. They are native to tropical regions of the Caribbean, Central and South America. The genus name commemorates Willem Hendrik de Vriese, a 19th-century Dutch botanist and physician. Vrieseas can be small to very large in size, with correspondingly diverse needs of light, from shade to bright light, depending on the species or hybrid. They are rosette, tank-forming, water-impounding bromeliads, so the central vase or tank should be kept full of water. When topping up the tank, allow excess water to overflow and trickle down to the root zone. Plants should be grown in small, heavy pots (relative to the size of the plant). Use an airy, well-drained houseplant mix or even a bark-based orchid mix. A monthly dose of liquid fertilizer (diluted to half-strength) can be added to the tank. After the plant flowers, it will naturally die, but before doing so, it will produce offsets near the base of the plant. These can be separated when they are about one-third the size of the parent plant. Propagation is by division or, rarely, by seeds. Vrieseas have been extensively hybridized to create low-maintenance interiorscape plants with showy leaves and striking, long-lasting blooms. Often, the inflorescence bracts are showier (and longer lasting) than the flowers. They are widely used commercially in indoor spaces like offices and shopping malls, and mass-produced plants are readily available, even in grocery stores and big-box stores. They are generally easy to grow as a houseplant and add a tropical feel to the home. In warm climates they can be grown as landscape plants, but even houseplants can spend the summer outside in a shady spot. Quick ID Leaves are entire and banded or plain green. Inflorescence is scapose, flattened and 2-ranked. The showy bracts are burgundy, red, orange, or yellow. Insects, Diseases, and Other Plant Problems: Problems that occur with most houseplants like mealybug, scale, crown rot and leaf spot. The tanks of outdoor plants can become breeding grounds for mosquitoes. Regular applications of granular Bti-based larvicides are safe for plants, pets and wildlife. (Bti = Bacillus thuringiensis subspecies israelensis )",
+ "cultivars": [
+  {
+   "name": "‘Fireworks’",
+   "note": "Deep green leaves with deep red flower"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Vriesea"
+  ],
+  "Family": [
+   "Bromeliaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico to Tropical America"
+  ],
+  "Dimensions": [
+   "Height: 2 ft. 6 in. - 3 ft. 0 in.",
+   "Width: 1 ft. 6 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Houseplant"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Broad",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Orange",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Panicle",
+   "Raceme",
+   "Spike"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Petals": [
+   "2-3 rays/petals"
+  ],
+  "Flower Description": [
+   "Inflorescence is an erect, bracteate flower scape, terminal, up to 30 inches tall, with flowers in 2 rows between bracts. Flowers are white, red, yellow, or orange, small; bracts bright red, yellow, green, usually 2-ranked."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Papery",
+   "Rubbery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Linear"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Leaves are in basal rosette, forming funnel-like central vase or tank, simple, strap-shaped, entire, usually banded surfaces."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "showy leaves",
+  "showy flowers",
+  "low maintenance",
+  "interiorscape",
+  "winter interest",
+  "fantz",
+  "tropical feel",
+  "container plant",
+  "tropical herbaceous perennial",
+  "epiphytic",
+  "tropical"
+ ],
+ "images": [
+  {
+   "id": "16472",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/768px-Vriesea_carina_EmYg1yTrhV9g.jpe",
+   "caption": "Vriesea carinata plant and flower",
+   "author": "Tequila",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "16475",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/1280px-Vriesea_Hiero_pB3NcG8WDZ3p.jpe",
+   "caption": "Vriesea hieroglyphica form",
+   "author": "John Thagard",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "16477",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Flaming_sword_Vries_6snRz26yOppW.jpe",
+   "caption": "Flaming sword",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "16482",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_bleherae_f.__8FewbmIqU5RL.jpeg",
+   "caption": "Flower buds",
+   "author": "Timm Stolten",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "25168",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea-flower-HAns__vMVuTxTA24r2.jpeg",
+   "caption": "FLOWER",
+   "author": "Hans Benn",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "31895",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_bituminosa_U_BCM0Ew2BpDqs.jpeg",
+   "caption": "Flower",
+   "author": "User-BotBln",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "31896",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_bleheri_Jard_fmKomsEJ4RlP.jpeg",
+   "caption": "Flower filaments",
+   "author": "Léonce Carré",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "31898",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_carinata_Use_tMRdV3nQsrSo.jpeg",
+   "caption": "Form",
+   "author": "User-BotBln",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "31900",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_hieroglyphic_2gegStIh3dkf.jpeg",
+   "caption": "Leaves",
+   "author": "i-saint",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "31903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_pabstii_TRas_Y2HV4SuFfi44.jpeg",
+   "caption": "Form",
+   "author": "TRaso",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "31926",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Vriesea_Tiffany_2_Da_9LaPBM71akLK.jpeg",
+   "caption": "Form",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

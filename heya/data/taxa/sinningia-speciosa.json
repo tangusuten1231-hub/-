@@ -1,0 +1,110 @@
+{
+ "id": "sinningia-speciosa",
+ "rank": "species",
+ "scientificName": "Sinningia speciosa",
+ "group": "flowering",
+ "names": {
+  "ja": "グロキシニア",
+  "aliases": [
+   "シンニンギア・スペシオサ"
+  ]
+ },
+ "refs": {
+  "ncsu": "sinningia-speciosa",
+  "hgic": "gloxinias"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 18,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "They need bright indoor light with no direct sunlight and constant moisture."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "Bright, indirect light is necessary to keep gloxinias in flower."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "They need bright indoor light with no direct sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "They are \"warm loving\" plants that grow best at a nighttime temperature of 65 °F or warmer.",
+    "fahrenheit": [
+     65
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "They are \"warm loving\" plants that grow best at a nighttime temperature of 65 °F or warmer. The preferred daytime temperature is 75 °F.",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "hgic",
+    "quote": "Humidity should be high."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Gloxinias should never be allowed to dry out, even slightly."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "After the second bloom reduce watering until the foliage dies back."
+   },
+   {
+    "src": "estimate",
+    "reason": "花のあとは葉が枯れて球根で休眠するため、乾かす"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水やりで葉をぬらさない。冷たい水で葉が傷む。",
+   "src": "hgic",
+   "quote": "Leaves may be damaged by cold water, so keep water off of the foliage.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "hgic",
+   "quote": "Gloxinia may develop root rot from overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

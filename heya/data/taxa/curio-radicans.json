@@ -1,0 +1,93 @@
+{
+ "id": "curio-radicans",
+ "rank": "species",
+ "scientificName": "Curio radicans",
+ "group": "succulent",
+ "names": {
+  "ja": "セネシオ・ラディカンス",
+  "aliases": [
+   "キュリオ・ラディカンス"
+  ]
+ },
+ "refs": {
+  "ncsu": "curio-radicans"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant requires bright, indirect sunlight to all parts of the plant."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The plant is not full-sun tolerant nor frost tolerant."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "霜に耐えない。出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant only when the top half of the soil feels dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が茶色や赤っぽくなるのは、たいてい日焼け。",
+   "src": "ncsu",
+   "quote": "Browning or reddish leaves is usually caused by sunburn.",
+   "symptom": "scorch"
+  }
+ ],
+ "note": "以前の学名は Senecio radicans。"
+}

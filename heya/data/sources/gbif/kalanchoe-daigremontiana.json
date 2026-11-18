@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2985936",
+ "retrieved": "2026-11-18",
+ "query": "Kalanchoe daigremontiana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2985936,
+ "acceptedKey": 2985936,
+ "acceptedName": "Kalanchoe daigremontiana",
+ "authorship": "Raym.-Hamet & H.Perrier",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Kalanchoe",
+ "synonyms": [
+  "Bryophyllum daigremontianum"
+ ]
+}

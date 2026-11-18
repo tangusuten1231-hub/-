@@ -1,0 +1,107 @@
+{
+ "id": "ctenanthe-oppenheimiana",
+ "rank": "species",
+ "scientificName": "Ctenanthe oppenheimiana",
+ "group": "foliage",
+ "names": {
+  "ja": "クテナンテ・オッペンハイミアナ",
+  "aliases": [
+   "クテナンテ"
+  ]
+ },
+ "refs": {
+  "ncsu": "ctenanthe-oppenheimiana"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "requires bright indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Intolerant: direct sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures less than 60 degrees F.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "high to medium humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist and well-drained soil"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉のふちが茶色く丸まるのは水不足。",
+   "src": "ncsu",
+   "quote": "Brown leaf margins and curled leaves may indicate underwatering.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉が黄色くなるのは水のやりすぎ。",
+   "src": "ncsu",
+   "quote": "Yellowing leaves may result from overwatering.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "水道水の塩類で葉先が茶色くなる。蒸留水やろ過水がよい。",
+   "src": "ncsu",
+   "quote": "The plant is intolerant to mineral and salt build-up from the use of tap water which may result in brown leaf tips.",
+   "symptom": "brown"
+  }
+ ]
+}

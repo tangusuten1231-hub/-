@@ -1,0 +1,119 @@
+{
+ "id": "cyclamen-persicum",
+ "rank": "species",
+ "scientificName": "Cyclamen persicum",
+ "group": "flowering",
+ "names": {
+  "ja": "シクラメン",
+  "aliases": [
+   "カガリビバナ"
+  ]
+ },
+ "refs": {
+  "ncsu": "cyclamen-persicum",
+  "hgic": "cyclamen"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    18
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Cyclamen prefer cool temperatures and bright indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "Typically, light levels are not high enough in the home, resulting in weak plants with smaller blooms"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers rich, well-drained soils and bright indirect sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "with night temperatures around 50 °F"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は夜10℃前後の涼しさを好むとする。霜に弱いため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Ideal daytime temperatures are 60 to 65 °F",
+    "fahrenheit": [
+     60,
+     65
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "moderate humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Water when the potting medium feels dry to the touch"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "Water when the potting medium feels dry to the touch"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "21℃（70°F）を超えるとつぼみが育たない。暖房の吹き出し口の近くに置かない。",
+   "src": "hgic",
+   "quote": "If temperatures reach above 70 °F, buds will fail to develop.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "水は鉢のふちか鉢底から与え、球根（株元）に水をかけない。",
+   "src": "hgic",
+   "quote": "always water along the edge of the pot or from below to avoid causing the tuber to rot",
+   "symptom": "rot"
+  },
+  {
+   "ja": "咲き終わった花は、茎ごと株元から抜き取ると次の花が咲きやすい。",
+   "src": "hgic",
+   "quote": "Removal of spent flowers can also help to encourage more flowers to develop."
+  },
+  {
+   "ja": "花のあとは夏に休眠し、葉が黄色くなって落ちる。",
+   "src": "hgic",
+   "quote": "As the plant goes dormant, leaves turn yellow and fall off",
+   "symptom": "yellow"
+  }
+ ],
+ "note": "秋〜春の鉢花。冬の水やりも「表面が乾いたら」（冬が生育期のため）。"
+}

@@ -98,7 +98,8 @@ export function resolveTaxon(id, byId, seen = new Set()) {
   }
   return {
     ...clone(t),
-    scientificName: t.rank === 'cultivar' ? `${p.scientificName} '${t.cultivar}'` : t.scientificName,
+    // 品種群（〜 Group）は引用符を付けない（例：Begonia Rex Cultorum Group）
+    scientificName: t.rank === 'cultivar' ? (/ Group$/.test(t.cultivar) ? `${p.scientificName} ${t.cultivar}` : `${p.scientificName} '${t.cultivar}'`) : t.scientificName,
     parentName: p.names.ja,
     refs: { ...p.refs, ...t.refs },
     care, evidence, inherited,

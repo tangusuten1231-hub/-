@@ -1,0 +1,358 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/tradescantia-pallida/",
+ "slug": "tradescantia-pallida",
+ "retrieved": "2026-11-18",
+ "scientificName": "Tradescantia pallida",
+ "commonNames": [
+  "Moses in the Basket",
+  "Purple Heart",
+  "Purple Queen",
+  "Purple Spiderwort"
+ ],
+ "description": "Purple heart is a tender low-growing, trailing, perennial in the spiderwort family (Commelinaceae) that is commonly used as a houseplant or an annual. The plant species is from Mexico, where it grows as a ground cover. The specific epithet, pallida , means \"pale.\" Although generally an annual, this plant may come back in protected areas or in mild winters. To plant outdoors find a location with full sun to partial shade and moist, well-drained soil that is rich in organic matter. Full sun will result in the best color development. Plants placed in a shady location will tend to have a more greenish tint. Pinch back to encourage bushiness. It is hardy in USDA Plant Hardiness Zones 10-11. Container plants need to be brought indoors during the winter. These plants do not tolerate temperatures below 50 degrees Fahrenheit. It is tolerant of salt, drought, humidity, and dry soil. It is best propagated by stem cuttings. The purple heart features trailing purple stems with dark purple, lance-shaped leaves that are covered in pale hairs. The flowers appear in midsummer and are pink to pale purple with bright yellow stamens. Each flower lasts only one day. The purple heart is desired for its colorful and distinguishing purple foliage, stems and fast growth. Grow it outdoors as a decorative ground cover or bedding plant that will survive longer than most bedding plants. It may be used in a rock garden or cottage garden. It works well in a mass plantings on slopes, in borders, or in containers. It is commonly grown indoors in a hanging basket or in interiorscapes as a ground cover. Quick ID Hints: Leaf front and back and stems are purple. Flowers are at the ends of stems and are usually pink. Insects, Diseases and Other Plant Problems: Monitor for scale, aphids, vine weevil, and mealybugs. Outdoor plants can be eaten on by caterpillars, slugs and snails. Protect the plant from strong winds that can damage the stems. It has a tendency to become invasive in beds. Be aware that ingestion of this plant can cause mouth and stomach irritation in pets and humans. The sap from the leaves and stem can also cause skin irritation in both humans and pets. More information on Tradescantia .",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Tradescantia"
+  ],
+  "Species": [
+   "pallida"
+  ],
+  "Family": [
+   "Commelinaceae"
+  ],
+  "Life Cycle": [
+   "Annual",
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico"
+  ],
+  "Distribution": [
+   "Introduced: Argentina, Bahamas, Bangladesh, Bolivia, Chad, China Dominican Republic, Ecuador, Guinea, Honduras, Italy, Jamaica, Madeira, Myanmar, Nicaragua, Peru, Puerto Rico, Spain, Trinidad-Tobago, Tunisia, and United States--AL, FL, and LA"
+  ],
+  "Play Value": [
+   "Attractive Flowers",
+   "Colorful",
+   "Easy to Grow"
+  ],
+  "Particularly Resistant To (Insects/Diseases/Other Problems)": [
+   "This plant is somewhat resistant to damage by deer and is moderately salt and drought tolerant."
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 1 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Annual",
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Clumping",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Display/Harvest Time": [
+   "Summer"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a smooth capsule that measures 3.5 mm."
+  ],
+  "Flower Color": [
+   "Pink",
+   "Purple/Lavender"
+  ],
+  "Flower Inflorescence": [
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Saucer"
+  ],
+  "Flower Petals": [
+   "2-3 rays/petals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Flowers are pink to pale purple, about 1 inch in diameter, 3-petaled, and appears in clusters at the terminal end of the stem."
+  ],
+  "Leaf Color": [
+   "Purple/Lavender"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Slippery"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are alternate, simple, and oblong-elliptic to oblong-lanceolate, spirally arranged, and measure 4 to 6 inches long. They are acute, blade sessile with a closed sheath, margins in rolled to give trough-shape, reddish-purple above and below."
+  ],
+  "Stem Color": [
+   "Purple/Lavender"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Hairy (pubescent)"
+  ],
+  "Stem Description": [
+   "The stems are thick, fleshy, purple, but fragile. They are ascending, decumbent or trailing, and root at nodes."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Patio",
+   "Slope/Bank",
+   "Vertical Spaces"
+  ],
+  "Landscape Theme": [
+   "Children's Garden",
+   "Cottage Garden",
+   "Drought Tolerant Garden",
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Border",
+   "Mass Planting",
+   "Small groups"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Diseases",
+   "Drought",
+   "Dry Soil",
+   "Humidity",
+   "Salt"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Ingestion of the plant can cause mouth and stomach irritation for humans and pets. Contact with the sap and leaves can cause redness and skin irritation in humans and pets."
+  ],
+  "Poison Toxic Principle": [
+   "unknown"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "ncemgva2018",
+  "interiorscape",
+  "drought tolerant",
+  "salt tolerant",
+  "deer resistant",
+  "interesting leaves",
+  "easy to propagate",
+  "easy to grow",
+  "rock garden",
+  "low maintenance",
+  "groundcover",
+  "edging",
+  "hanging baskets",
+  "fantz",
+  "full sun tolerant",
+  "partial shade tolerant",
+  "herbaceous",
+  "tender perennial",
+  "herbaceous perennial",
+  "low growing",
+  "trailing",
+  "semi-evergreen",
+  "year-round interest",
+  "ornamentals",
+  "container plant",
+  "buncombe county sun and shade garden",
+  "annual",
+  "accent",
+  "problem for children",
+  "problem for dogs",
+  "poisonous if ingested",
+  "problem for cats",
+  "cpp"
+ ],
+ "images": [
+  {
+   "id": "363",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Setcreasea-pallida--VinceFL--CC-BY-NC-ND.jpg",
+   "caption": "Flower and foliage",
+   "author": "Vince FL",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "5573",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Setcreasea_pallida_photo_by_Jinjian_llang_cc-by-nc-nd-2.0.jpg",
+   "caption": "Leaf and flower",
+   "author": "Photo by JinJian Llan",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "6938",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Setcreasea-pallida--Michael-Coughlan--CC-BY-SA.jpg",
+   "caption": "Habit",
+   "author": "Michael Coughlan",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "8169",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Setcreasea-pallida--Janet-Tarbox--CC-BY-NC.jpg",
+   "caption": "Flower close up",
+   "author": "Janet Tarbox",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8195",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Setcreasea_pallida_Will_C._Fry_ccbyncnd2.0.jpg",
+   "caption": "Form",
+   "author": "Will C. Fry",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "27920",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_pallida_Mhj4K6AhbN7r.jpe",
+   "caption": "Foliage form",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29158",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Purple_Heart_Tradesc_IRiXuGH6H12T.jpeg",
+   "caption": "Form in pot",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "29159",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Purple_Heart_Tradesc_ChS2kI6CSob9.jpeg",
+   "caption": "Bloom close-up",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "29160",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_pallida_HYC0CT7CdKGT.mpo",
+   "caption": "Full form",
+   "author": "Vinayaraj",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29161",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_pallida_LwIwg3BHp2ov.mpo",
+   "caption": "Flower close-up",
+   "author": "Vinayaraj",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

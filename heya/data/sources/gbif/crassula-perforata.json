@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7642067",
+ "retrieved": "2026-11-18",
+ "query": "Crassula perforata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7642067,
+ "acceptedKey": 7642067,
+ "acceptedName": "Crassula perforata",
+ "authorship": "Thunb.",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Crassula",
+ "synonyms": [
+  "Crassula anthurus",
+  "Crassula pattersonii",
+  "Crassula perfilata"
+ ]
+}

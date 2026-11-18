@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7401775",
+ "retrieved": "2026-11-18",
+ "query": "Goeppertia crocata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7401775,
+ "acceptedKey": 7401775,
+ "acceptedName": "Goeppertia crocata",
+ "authorship": "(É.Morren & Joriss.) Borchs. & S.Suárez",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Goeppertia",
+ "synonyms": [
+  "Calathea crocata",
+  "Phyllodes crocata"
+ ]
+}

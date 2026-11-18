@@ -1,0 +1,96 @@
+{
+ "id": "kalanchoe-delagoensis",
+ "rank": "species",
+ "scientificName": "Kalanchoe delagoensis",
+ "group": "succulent",
+ "names": {
+  "ja": "錦蝶",
+  "aliases": [
+   "キンチョウ",
+   "カランコエ・デラゴエンシス"
+  ]
+ },
+ "refs": {
+  "ncsu": "kalanchoe-delagoensis"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "prefers full to partial sun, but it needs protection from the hot afternoon sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "日なた〜半日なたを好むため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "it needs protection from the hot afternoon sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is not frost-tolerant and must be brought indoors before temperatures drop to 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It is also intolerant of high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "夏の休眠期は水やりを2週間に1回に減らす。",
+   "src": "ncsu",
+   "quote": "During its dormant period in summer, reduce watering to every 2 weeks."
+  }
+ ],
+ "note": "以前の学名は Kalanchoe tubiflora。"
+}

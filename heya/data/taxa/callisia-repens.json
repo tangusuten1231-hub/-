@@ -1,0 +1,107 @@
+{
+ "id": "callisia-repens",
+ "rank": "species",
+ "scientificName": "Callisia repens",
+ "group": "foliage",
+ "names": {
+  "ja": "カリシア・レペンス",
+  "aliases": [
+   "カリシア"
+  ]
+ },
+ "refs": {
+  "ncsu": "callisia-repens"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The turtle vine prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Too much shade can cause leggy and weak stems."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Leaf discoloration or leaf scorch can result from intense, direct sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer temperatures between 60 to 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer temperatures between 60 to 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, sandy, well-drained soil"
+   },
+   {
+    "src": "ncsu",
+    "quote": "Overwatering can cause root rot or fungal diseases."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "日陰すぎると茎がひょろひょろになる。",
+   "src": "ncsu",
+   "quote": "Too much shade can cause leggy and weak stems.",
+   "symptom": "leggy"
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "anthurium-scherzerianum",
+ "rank": "species",
+ "scientificName": "Anthurium scherzerianum",
+ "group": "flowering",
+ "names": {
+  "ja": "アンスリウム・シェルツェリアナム",
+  "aliases": [
+   "ベニウチワ"
+  ]
+ },
+ "refs": {
+  "ncsu": "anthurium-scherzerianum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers medium to high indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Too little light will cause the plant to bloom less and grow slower."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers temperatures of 60 degrees Fahrenheit or above.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers temperatures of 60 degrees Fahrenheit or above.",
+    "fahrenheit": [
+     60
+    ]
+   },
+   {
+    "src": "estimate",
+    "reason": "上限は一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "warm and humid conditions"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "water when the soil is dry to the touch"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光が足りないと花が少なくなる。",
+   "src": "ncsu",
+   "quote": "Too little light will cause the plant to bloom less and grow slower.",
+   "symptom": "noflower"
+  }
+ ]
+}

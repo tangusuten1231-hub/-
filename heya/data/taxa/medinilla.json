@@ -1,0 +1,107 @@
+{
+ "id": "medinilla",
+ "rank": "genus",
+ "scientificName": "Medinilla",
+ "group": "flowering",
+ "names": {
+  "ja": "メディニラ",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "medinilla"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This genus of plants prefers partial shade or bright, indirect sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "They are tolerant of the morning sun, but the hot afternoon sun should be avoided."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "are intolerant of temperatures below 50 degrees Fahrenheit",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "warm temperatures between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer high humidity of 60% or higher"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The soil recommended should be moist, well-drained"
+   },
+   {
+    "src": "ncsu",
+    "quote": "Root rot can occur from overwatering or poor drainage."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "急な温度変化で葉が落ちる。",
+   "src": "ncsu",
+   "quote": "Sudden temperature changes can cause leaf drop.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "湿度が低いと葉先が茶色くなる。",
+   "src": "ncsu",
+   "quote": "The leaf tips can brown if the humidity is too low.",
+   "symptom": "brown"
+  }
+ ]
+}

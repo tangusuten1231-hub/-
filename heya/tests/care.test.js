@@ -72,6 +72,8 @@ test('検索：ひらがな・カタカナ・旧学名・英名・品種', () =>
   assert.ok(ids('pothos').includes('epipremnum-aureum'));
   assert.ok(ids('幸福の木').includes('dracaena-fragrans-massangeana'));
   assert.ok(ids('かぽっく').includes('heptapleurum-arboricola'));
+  assert.ok(ids('さぼてん').length >= 9, 'グループ名（サボテン）でも探せる');
+  assert.ok(ids('しくらめん').includes('cyclamen-persicum'));
   assert.ok(!ids('', { rank: 'base' }).some((id) => byRank(id) === 'cultivar'));
 });
 const byRank = (id) => CATALOG.find((e) => e.id === id).rank;

@@ -1,0 +1,105 @@
+{
+ "id": "echinocactus",
+ "rank": "genus",
+ "scientificName": "Echinocactus",
+ "group": "cactus",
+ "names": {
+  "ja": "エキノカクタス",
+  "aliases": [
+   "金鯱の仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "echinocactus",
+  "hgic": "indoor-cacti"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants grow best in full sun, but they can tolerate a little bit of shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "they can tolerate a little bit of shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "These plants grow best in full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Dormant cactus plants do best at temperatures from 45 to 55 °F in winter.",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Cacti prefer temperatures from 65 to 85 F during the growing season."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典の生育期の温度（18〜29℃）を目安とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer low humidity, dry soil"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer low humidity, dry soil"
+   },
+   {
+    "src": "hgic",
+    "quote": "Water them as any other houseplant that prefers to dry slightly between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "In winter, while the plants are dormant, they should be allowed to get very dry between waterings."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause root rot.",
+   "symptom": "rot"
+  }
+ ],
+ "note": "金鯱は現在 Kroenleinia grusonii という別の属に分類されている（以前は Echinocactus grusonii）。"
+}

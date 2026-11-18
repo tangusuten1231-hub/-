@@ -1,0 +1,100 @@
+{
+ "id": "streptocarpus",
+ "rank": "genus",
+ "scientificName": "Streptocarpus",
+ "group": "flowering",
+ "names": {
+  "ja": "ストレプトカーパス",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "streptocarpus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Grow them in bright to moderate light, avoiding direct afternoon sunshine."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "bright to moderate light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "avoiding direct afternoon sunshine"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water well, allowing them to dry out between watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Some species go dormant over the winter."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering at this time."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉のふちが茶色くなったら水やりを止め、しっかり乾かす（水のやりすぎのサイン）。",
+   "src": "ncsu",
+   "quote": "If the leaf edges turn brown, stop watering and allow the plant to dry out completely.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "根が湿りすぎると根や株元が腐る。",
+   "src": "ncsu",
+   "quote": "If the roots are too wet, the plants may get root or crown rot.",
+   "symptom": "rot"
+  }
+ ]
+}

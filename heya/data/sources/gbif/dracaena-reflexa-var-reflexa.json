@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7228077",
+ "retrieved": "2026-11-18",
+ "query": "Dracaena reflexa var. reflexa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7228077,
+ "acceptedKey": 7228077,
+ "acceptedName": "Dracaena reflexa reflexa",
+ "authorship": "",
+ "rank": "VARIETY",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Dracaena reflexa brevifolia",
+  "Dracaena reflexa cernua"
+ ]
+}

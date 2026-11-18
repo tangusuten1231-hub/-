@@ -1,0 +1,27 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7263987",
+ "retrieved": "2026-11-18",
+ "query": "Aphelandra squarrosa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7263987,
+ "acceptedKey": 7263987,
+ "acceptedName": "Aphelandra squarrosa",
+ "authorship": "Nees",
+ "rank": "SPECIES",
+ "family": "Acanthaceae",
+ "genus": "Aphelandra",
+ "synonyms": [
+  "Aphelandra chrysops",
+  "Aphelandra coccinea",
+  "Aphelandra concinna",
+  "Aphelandra illustrata",
+  "Aphelandra leopoldii",
+  "Aphelandra louisae",
+  "Aphelandra oostachya",
+  "Justicia macrophylla",
+  "Ruellia comosa"
+ ]
+}

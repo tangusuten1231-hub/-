@@ -1,0 +1,169 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/plerandra-elegantissima/",
+ "slug": "plerandra-elegantissima",
+ "retrieved": "2026-11-18",
+ "scientificName": "Plerandra elegantissima",
+ "commonNames": [
+  "False Aralia"
+ ],
+ "description": "This evergreen shrub or tree in the Araliaceae family is often grown as a houseplant in temperate regions. It requires high humidity. Keeping the potting soil moist will benefit this plant. It's showy blooms rarely flower indoors. Its a good specimen plant in tubs for home and commercial office corners, atria, or as a specimen tree in larger interior landscape sites. It is a commonly cultivated outdoor tree in Hawaii, Florida & parts of California. Outdoor plants can be brought in during the winter months. Periodic pruning will help to control its size. Easy to identify by its palmately compound leaves. Its leaflets are stalked, narrow, oblong and irregularly serrated. The leaves on a young plant are green with coppery-green on the underside. They are narrow, toothed leaflets, up to 1/2\" wide and 3\" long. As the plant matures, the leaves become much larger, up to 3\" wide and 12\" long. The larger leaves also lose some of the glossiness of its youth. Quick ID Large indoor shrub with palmately compound leaves Leaflets are stalked, narrow, oblong and irregularly serrately lobes Insects, Diseases, and Other Plant Problems: Watch for mealybugs, aphids, spider mites, thrips and scale.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Plerandra"
+  ],
+  "Species": [
+   "elegantissima"
+  ],
+  "Family": [
+   "Araliaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "SE. New Caledonia"
+  ],
+  "Plant Type": [
+   "Shrub",
+   "Tree"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Broad",
+   "Erect",
+   "Open"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Black"
+  ],
+  "Fruit Description": [
+   "Globose black fruit that rarely appears indoors."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Winter"
+  ],
+  "Flower Description": [
+   "It flowers in autumn with clusters of green flowers followed by black fruits. Rarely blooms indoors."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)"
+  ],
+  "Leaf Margin": [
+   "Sinuate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are palmately compound, to 25 x 8 cm. Leaflets are 7-11 cm in terminal rosettes. They are narrow, oblong, coarsely serrately lobed or sinuate, stalked, dark green above and dark brown-green below, with a white midrib."
+  ],
+  "Bark Color": [
+   "Dark Brown",
+   "Dark Gray"
+  ],
+  "Bark Description": [
+   "The bark is dark brown-gray."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems and petioles dark green mottled white maculate."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "evergreen",
+  "interiorscape",
+  "fantz",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "container plant"
+ ],
+ "images": [
+  {
+   "id": "8368",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Plerandra_elegantissima_Forest_and_Kim_Starr_ccby2.0_2.jpg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8369",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Plerandra_elegantissima_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8370",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Plerandra_elegantissima_Jackie_Finn-Irwin_ccby2.0.jpg",
+   "caption": "Leaves",
+   "author": "Jackie Finn-Irwin",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8371",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Plerandra_elegantissima_Jackie_Finn-Irwin_ccby2.0_2.jpg",
+   "caption": "Form",
+   "author": "Jackie Finn-Irwin",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

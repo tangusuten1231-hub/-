@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3067098",
+ "retrieved": "2026-11-18",
+ "query": "Euphorbia trigona",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3067098,
+ "acceptedKey": 3067098,
+ "acceptedName": "Euphorbia trigona",
+ "authorship": "Mill.",
+ "rank": "SPECIES",
+ "family": "Euphorbiaceae",
+ "genus": "Euphorbia",
+ "synonyms": [
+  "Euphorbia hermentiana"
+ ]
+}

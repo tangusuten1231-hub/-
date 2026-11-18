@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3069859",
+ "retrieved": "2026-11-18",
+ "query": "Euphorbia lactea",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3069859,
+ "acceptedKey": 3069859,
+ "acceptedName": "Euphorbia lactea",
+ "authorship": "Haw.",
+ "rank": "SPECIES",
+ "family": "Euphorbiaceae",
+ "genus": "Euphorbia",
+ "synonyms": [
+  "Euphorbia lactea"
+ ]
+}

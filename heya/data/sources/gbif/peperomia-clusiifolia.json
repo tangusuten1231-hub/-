@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4184364",
+ "retrieved": "2026-11-18",
+ "query": "Peperomia clusiifolia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4184364,
+ "acceptedKey": 4184364,
+ "acceptedName": "Peperomia clusiifolia",
+ "authorship": "(Jacq.) Hook.",
+ "rank": "SPECIES",
+ "family": "Piperaceae",
+ "genus": "Peperomia",
+ "synonyms": [
+  "Peperomia clusiaefolia",
+  "Peperomia cuneifolia",
+  "Piper clusiifolium"
+ ]
+}

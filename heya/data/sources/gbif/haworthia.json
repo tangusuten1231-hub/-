@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2779529",
+ "retrieved": "2026-11-18",
+ "query": "Haworthia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2779529,
+ "acceptedKey": 2779529,
+ "acceptedName": "Haworthia",
+ "authorship": "Duval",
+ "rank": "GENUS",
+ "family": "Asphodelaceae",
+ "genus": "Haworthia",
+ "synonyms": [
+  "Apicra",
+  "Apworthia",
+  "Catevala",
+  "Kumaria"
+ ]
+}

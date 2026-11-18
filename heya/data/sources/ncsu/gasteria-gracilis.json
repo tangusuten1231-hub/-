@@ -1,0 +1,204 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/gasteria-gracilis/",
+ "slug": "gasteria-gracilis",
+ "retrieved": "2026-11-18",
+ "scientificName": "Gasteria gracilis",
+ "commonNames": [
+  "Cow Tongue",
+  "Ox Tongue"
+ ],
+ "description": "This gasteria is a small slow-growing succulent from South Africa in the asparagus family (Asphodelaceae). Grow in pots with several drainage holes in a medium suitable for cacti and succulents. They can be taken outdoors during the summer but give them protection from the hot afternoon sun. Unlike many succulents, they can tolerate some shade. Inside give them bright light and allow the soil to dry between waterings. They can be fertilized during the growing season with a fertilizer for cacti. The fleshy, stemless leaves form a rosette and are deep green to gray and speckled with white dots. The flowers appear on long stems with dangling bi-colored tubular flowers in winter and spring. Grown in a pot, it generally stays 6 inches tall, but grows larger in its native habitat. Use the plant in a rock garden, drought-tolerant garden or container. Insects, Diseases, and Other Plant Problems: Fungal diseases and root rot can occur if overwatered. Watch for mealybugs and spider mites",
+ "cultivars": [
+  {
+   "name": "Variegata",
+   "note": "dark green leaves with white dots and white margins"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Gasteria"
+  ],
+  "Species": [
+   "gracilis"
+  ],
+  "Family": [
+   "Asphodelaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "South Africa"
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Succulent"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Green",
+   "Orange",
+   "Pink",
+   "Red/Burgundy"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Winter"
+  ],
+  "Flower Shape": [
+   "Bell",
+   "Tubular"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Long stems with dangling tubular bi-colored flowers generally in late winter to early spring."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Thick stemless succulent leaves in a rosette that often have speckles."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Drought Tolerant Garden",
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Small groups"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "slow growing",
+  "variegated",
+  "succulent",
+  "container plant",
+  "drought tolerant",
+  "bicolor",
+  "partial shade tolerant",
+  "rock garden",
+  "showy leaves",
+  "drought tolerant garden"
+ ],
+ "images": [
+  {
+   "id": "19039",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteriaobliqua_from_AX7nyNzUR1dS.jpe",
+   "caption": "Form",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19041",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteria_obliqua_pla_ADyrXZjHCDgk.jpg",
+   "caption": "Form in bloom",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19042",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteria_obliqua_flo_1QKmgHrnuO37.jpe",
+   "caption": "Close up of flower",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19043",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteria_obliqua_flo_qD60QLLvAuCb.jpe",
+   "caption": "Flower stem forming",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19046",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteria_obliqua_for_RWZl5mJ5qGtw.jpg",
+   "caption": "Form",
+   "author": "Daderot",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "24893",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Gasteria_obliqua_for_KcJdWLYBKGym.jpg",
+   "caption": "Form",
+   "author": "Megan Hansen",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

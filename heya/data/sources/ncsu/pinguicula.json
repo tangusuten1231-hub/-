@@ -1,0 +1,230 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/pinguicula/",
+ "slug": "pinguicula",
+ "retrieved": "2026-11-18",
+ "scientificName": "Pinguicula",
+ "commonNames": [
+  "Butterwort"
+ ],
+ "description": "This is a genus of ca. 130 species of carnivorous herbaceous perennials in the bladderwort family (Lentibulariaceae). Butterwort can be found growing in sunny, open, wet locations throughout the southeastern US. They do well in nutrient-poor soil. The genus name is derived the from the Latin word \" pinguis ,\" meaning fat or greasy, along with the suffix \"- ula ,\" meaning little. \"Little greasy one\" references the greasy feel to the leaves. Grow in full sun to partial shade in consistently moist soil. In containers, use a planting mix of whole-fiber sphagnum moss or a mix of equal parts peat moss or coir and coarse vermiculite or sharp sand. A dormancy period is necessary to regrow and bloom each spring. Cut back dead leaves in the winter or early spring to encourage new growth. Small insects are trapped and digested on the greasy surface of the leaves. The insects serve as nutrients for the plant in habitats where the soil is very poor in nutrients. The trap is a sticky-trap, like flypaper; the leaves do not move. Grow butterwort in a carnivorous plant collection, a native garden, pollinator garden or any sunny, ever-wet area. Insects, Diseases, and Other Plant Problems: none.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Pinguicula"
+  ],
+  "Family": [
+   "Lentibulariaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "worldwide (except Australia), especially temperate zones."
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 2 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 1 in. - 0 ft. 6 in."
+  ],
+  "Plant Type": [
+   "Carnivorous",
+   "Herbaceous Perennial",
+   "Native Plant",
+   "Wildflower"
+  ],
+  "Habit/Form": [
+   "Prostrate"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Moist",
+   "Occasional Flooding",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Mountains",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "8a, 8b, 9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Color": [
+   "Brown/Copper"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Flower Color": [
+   "Blue",
+   "Gold/Yellow",
+   "Pink",
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Solitary"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Shape": [
+   "Cup",
+   "Funnel",
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Solitary flowers above the leaves on a long slender stalk"
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green",
+   "Purple/Lavender"
+  ],
+  "Leaf Feel": [
+   "Slippery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate",
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "Yellow-green or purplish leaves in a basal rosette; minute glands cover the upper leaf surface; leaves curl slowly into a cup when an insect is trapped."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Children's Garden",
+   "Native Garden",
+   "Pollinator Garden",
+   "Rain Garden"
+  ],
+  "Design Feature": [
+   "Mass Planting"
+  ],
+  "Attracts": [
+   "Pollinators"
+  ],
+  "Resistance To Challenges": [
+   "Humidity",
+   "Poor Soil",
+   "Wet Soil"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "herbaceous",
+  "carnivorous",
+  "long-lasting flowers",
+  "native garden",
+  "perennial",
+  "illustration"
+ ],
+ "images": [
+  {
+   "id": "8448",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pinguicula_vulgaris--Stuart-Anthony--CC-BY-NC-ND.jpg",
+   "caption": "Pinguicula vulgaris",
+   "author": "Stuart Anthony",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "42192",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pinguicula_spp_SE_US_BJiCdOI0RaBK.jpeg",
+   "caption": "Pinguicula taxa of the SE USA.",
+   "author": "John David Tobe",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8449",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pinguicula-ionantha--Eleanor--CC-BY-NC.jpg",
+   "caption": "Pinguicula ionantha",
+   "author": "Eleanor",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8450",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pinguicula-agnata--Carnivorasland--CC-BY-ND.jpg",
+   "caption": "Pinguicula agnata",
+   "author": "Carnivorasland",
+   "license": "CC BY-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/4.0/legalcode"
+  },
+  {
+   "id": "8451",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pinguicula-esseriana--incidencematrix--CC-BY.jpg",
+   "caption": "Pinguicula esseriana",
+   "author": "incidencematrix",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7283905",
+ "retrieved": "2026-11-18",
+ "query": "Cephalocereus senilis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7283905,
+ "acceptedKey": 7283905,
+ "acceptedName": "Cephalocereus senilis",
+ "authorship": "(Haw.) Pfeiff.",
+ "rank": "SPECIES",
+ "family": "Cactaceae",
+ "genus": "Cephalocereus",
+ "synonyms": [
+  "Cactus bradypus",
+  "Cactus senilis",
+  "Cephalocereus senilis",
+  "Cephalophorus senilis",
+  "Cereus bradypus",
+  "Cereus senilis",
+  "Echinocactus senilis",
+  "Echinocactus staplesiae",
+  "Euporteria senilis",
+  "Melocactus bradypus",
+  "Pilocereus senilis",
+  "Pilocereus williamsii"
+ ]
+}

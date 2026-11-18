@@ -1,0 +1,97 @@
+{
+ "id": "peperomia-polybotrya",
+ "rank": "species",
+ "scientificName": "Peperomia polybotrya",
+ "group": "foliage",
+ "names": {
+  "ja": "ペペロミア・ポリボトリア",
+  "aliases": [
+   "ペペロミア・レインドロップ"
+  ]
+ },
+ "refs": {
+  "ncsu": "peperomia-polybotrya",
+  "hgic": "peperomia-peperomia-spp-indoor-plant-care-and-growing-guide"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "If it gets direct sun, the leaves may scorch."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Indoors, this plant does best with temperatures between 65 to 75 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It thrives in high humidity, but it will tolerate the humidity of the average household."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Peperomia prefers to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can result from overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

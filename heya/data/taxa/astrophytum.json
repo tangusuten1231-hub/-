@@ -1,0 +1,101 @@
+{
+ "id": "astrophytum",
+ "rank": "genus",
+ "scientificName": "Astrophytum",
+ "group": "cactus",
+ "names": {
+  "ja": "アストロフィツム",
+  "aliases": [
+   "兜の仲間",
+   "ランポー玉の仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "astrophytum",
+  "hgic": "indoor-cacti"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    21,
+    35
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These cacti prefer full sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "日なたを好むサボテンのため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "These cacti prefer full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "winter temperatures of 40 to 70 degrees Fahrenheit"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は冬の温度を4〜21℃（40〜70°F）とするため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They can tolerate summer temperatures of 70 to 95 degrees Fahrenheit",
+    "fahrenheit": [
+     70,
+     95
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The soil needs to dry out completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "As the weather turns cool, they should be kept dry."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬は日の当たる涼しい部屋で、乾かし気味に越冬させる。",
+   "src": "ncsu",
+   "quote": "Indoor cacti will overwinter in a cool, dry room with some sunshine."
+  }
+ ]
+}

@@ -1,0 +1,285 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/dracaena-surculosa/",
+ "slug": "dracaena-surculosa",
+ "retrieved": "2026-11-18",
+ "scientificName": "Dracaena surculosa",
+ "commonNames": [
+  "Dracena",
+  "Florida Beauty",
+  "Gold Dust",
+  "Gold Dust Dracaena",
+  "Spotted Dracaena"
+ ],
+ "description": "Gold dust dracena is a slow-growing, evergreen perennial or herbaceous perennial in the Asparagaceae (asparagus) family. It is native to western tropical Africa and is known for its stunning variegated foliage and tropical look. The species epithet, surculosa, is Latin for branching and refers to the growth habit of this species. This easy-to-grow houseplant requires bright but not direct light. The leaves will brown or drop if the light is too high, and they can lose their intense coloring if the light is too low. Keep the soil moist during the regular growing season, but overwatering and standing water will cause root rot. Protect the plant from drafts and keep the humidity high by sitting the pot on a pebble tray with water. Cut back overgrown stems in the winter to rejuvenate the plant and to keep the plant at the desired height. Do not plant in a pot that is too large, as its roots like to be snug. Thin upright branches, which occasionally hang down, produce leaves that are dark green with spots of cream or yellow. New leaves appear as tightly rolled cones. It may be propagated using a tip or stem cutting of a few leaves or by division. Gold dust dracaena can be grown outdoors in a container on a patio in the summer, but remember to bring it inside when the temperature goes below 50 degrees Fahrenheit at night. The spots of yellow add brightness and interest to any interiorscape. Insects, Diseases, and Other Plant Problems: Root mealybugs can stunt growth. More information on Dracaena .",
+ "cultivars": [
+  {
+   "name": "Florida Beauty",
+   "note": "green leaves are densely spotted leaves with creamy yellow"
+  },
+  {
+   "name": "Kellery",
+   "note": "Thicker leaves"
+  },
+  {
+   "name": "Milky Way",
+   "note": "broad green leaves with a long white center band"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Dracaena"
+  ],
+  "Species": [
+   "surculosa"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "West Tropical Africa"
+  ],
+  "Distribution": [
+   "Native to Cameroon, Central African Republic, Congo, Ghana, Guinea, Ivory Coast, Liberia, Nigeria, Sierra Leone, and Togo"
+  ],
+  "Dimensions": [
+   "Height: 2 ft. 0 in. - 3 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 4 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Shrub"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Color": [
+   "Orange",
+   "Red/Burgundy"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Round orange-red berries about 1/2\" diameter. Fruits are rare when grown as a house plant."
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Umbel"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "2.5-3-inch umble inflorescence with greenish-white tubular flowers, pleasantly fragrant during the night. Flowers have 6 petals that bend backwards, 6 showy anthers and a style that stick out like fireworks from the center of the flowers. Flowers are rare when grown as a house plant."
+  ],
+  "Leaf Color": [
+   "Cream/Tan",
+   "Green",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Opposite",
+   "Whorled"
+  ],
+  "Leaf Shape": [
+   "Elliptical"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "3-inch opposite or whorled leaves are glossy dark green with spots of creamy yellow. New leaves appear as tightly rolled cones"
+  ],
+  "Stem Color": [
+   "Brown/Copper"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Wiry upright thin brown stems"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Toxic to humans, cats, and dogs if ingested. Vomiting (occasionally with blood), depression, anorexia, hypersalivation, dilated pupils (cats)"
+  ],
+  "Poison Toxic Principle": [
+   "Saponins"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "evergreen",
+  "white flowers",
+  "poisonous",
+  "showy leaves",
+  "problem for dogs",
+  "problem for cats",
+  "tropical feel",
+  "container plant",
+  "shade garden",
+  "interiorscape",
+  "easy to grow",
+  "easy to grow houseplant",
+  "orange fruits",
+  "slow growing",
+  "fragrant flowers",
+  "glossy leaves",
+  "spotted leaves",
+  "variegated",
+  "poisonous if ingested"
+ ],
+ "images": [
+  {
+   "id": "13225",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_b_3zbiYhJo7Iw5.jfif",
+   "caption": "leaves",
+   "author": "Krzysztof Ziarnek",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8316",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_alheard_ccbyncnd2.0.jpg",
+   "caption": "Form in flower",
+   "author": "alheard",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "8317",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_in_bloom_alheard_ccbyncnd2.0.jpg",
+   "caption": "Tubular flowers",
+   "author": "alheard",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "8318",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_bllom_alheard_ccbyncnd2.0_2.jpg",
+   "caption": "Tubular flowers with showy stamens and petals that bend backward.",
+   "author": "alheard",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "8320",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_fruit_alheard_ccbyncnd2.0.jpg",
+   "caption": "Orange fruit",
+   "author": "alheard",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "13221",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_b_Sp8JuyIsHjYU.jfif",
+   "caption": "Spotted leaves.",
+   "author": "Dracaenaworldwide",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13222",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_surculosa_b_kfctMVYKfDoR.jpe",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

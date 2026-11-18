@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3696874",
+ "retrieved": "2026-11-18",
+ "query": "Gasteria gracilis",
+ "matchType": "EXACT",
+ "status": "DOUBTFUL",
+ "usageKey": 3696874,
+ "acceptedKey": 3696874,
+ "acceptedName": "Gasteria gracilis",
+ "authorship": "Baker",
+ "rank": "SPECIES",
+ "family": "Asphodelaceae",
+ "genus": "Gasteria",
+ "synonyms": []
+}

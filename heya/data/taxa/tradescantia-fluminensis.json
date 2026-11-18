@@ -1,0 +1,98 @@
+{
+ "id": "tradescantia-fluminensis",
+ "rank": "species",
+ "scientificName": "Tradescantia fluminensis",
+ "group": "foliage",
+ "names": {
+  "ja": "トキワツユクサ",
+  "aliases": [
+   "トラデスカンチア・フルミネンシス",
+   "ノハカタカラクサ"
+  ]
+ },
+ "refs": {
+  "ncsu": "tradescantia-fluminensis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This species prefers bright, indirect sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "it needs afternoon protection to prevent leaf scorch"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained soil or potting mix"
+   },
+   {
+    "src": "ncsu",
+    "quote": "Root rot can occur from overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "茎先を摘むと、こんもり育ち間延びしにくい。",
+   "src": "ncsu",
+   "quote": "Pinching the stems will make the plant denser and prevent leggy stems.",
+   "symptom": "leggy"
+  }
+ ],
+ "note": "繁殖力が強い。屋外に植えたり捨てたりしないこと（出典にも Weedy の記載）。"
+}

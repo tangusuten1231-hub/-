@@ -1,0 +1,89 @@
+{
+ "id": "graptopetalum-paraguayense",
+ "rank": "species",
+ "scientificName": "Graptopetalum paraguayense",
+ "group": "succulent",
+ "names": {
+  "ja": "朧月",
+  "aliases": [
+   "オボロヅキ",
+   "グラプトペタルム"
+  ]
+ },
+ "refs": {
+  "ncsu": "graptopetalum-paraguayense"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    10,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant will grow in full sun to partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "blueish in partial shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant will grow in full sun to partial shade."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant can tolerate temperatures down to 15 degrees F."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は−9℃（15°F）まで耐えるとするが、室内では凍らない0℃を目安とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Well-drained soil is a must and once established is drought tolerant."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ }
+}

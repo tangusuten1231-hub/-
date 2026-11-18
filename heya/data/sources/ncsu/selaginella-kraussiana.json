@@ -1,0 +1,209 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/selaginella-kraussiana/",
+ "slug": "selaginella-kraussiana",
+ "retrieved": "2026-11-18",
+ "scientificName": "Selaginella kraussiana",
+ "commonNames": [
+  "African Clubmoss",
+  "Club Moss",
+  "Cushion Moss",
+  "Irish Moss",
+  "Japanese Moss",
+  "Krauss' Spikemoss",
+  "Mat Spike Moss",
+  "Moss Fern",
+  "Spikemoss",
+  "Spreading Club Moss",
+  "Trailing Irish Moss",
+  "Tropical Moss"
+ ],
+ "description": "Native to Africa, spikemoss is a cousin of the true ferns, a low-growing, mat-forming vascular plant. Unlike other mosses, it has a more traditional root structure. It can sprout roots from its stems. In the tropics, it is planted in the shade in rich, moist to wet soils. The dense mat it forms makes it a lawn alternative or for use in a rock or woodland garden in shade. It tolerates light foot traffic and is resistant to rabbit browsing. Propagate it by division or rooting stem cuttings in damp soil. It makes a great houseplant, container plant, dish garden, or terrarium plant. High humidity and indirect lighting are a must for your plant to flourish, with tropical conditions being ideal. Interior humidity can be increased by using a humidifier, setting the plant container on a tray of wet pebbles, or placing it in your bathroom. Trimming back will control the rapid spread of this plant. Retain the cuttings, as they will root easily. Its roots are shallow, and it can be planted in shallow pots. Watering should be done with room-temperature water, as cold water can shock the plant. Insects, Diseases, and Other Plant Problems: D irect sunlight will scorch the foliage. Dry air will result in brown or shriveled foliage. Allowing the plant to remain wet can lead to root rot. Provide good drainage.",
+ "cultivars": [
+  {
+   "name": "Aurea",
+   "note": "Chartreuse with golden leaf tips"
+  },
+  {
+   "name": "Brownii",
+   "note": "Lime green foliage"
+  },
+  {
+   "name": "Variegata",
+   "note": "White tips, popular Christmas plant"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Selaginella"
+  ],
+  "Species": [
+   "kraussiana"
+  ],
+  "Family": [
+   "Selaginellaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Macronesia, Africa"
+  ],
+  "Play Value": [
+   "Textural"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 2 in. - 0 ft. 4 in.",
+   "Width: 1 ft. 0 in. - 1 ft. 6 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Creeping",
+   "Dense",
+   "Horizontal",
+   "Mounding",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Flower Description": [
+   "No flowers"
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Soft"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)",
+   "Fronds"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The lacy foliage has an oval, prehistoric, fern-like appearance."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Lawn",
+   "Pool/Hardscape",
+   "Rock Wall",
+   "Woodland"
+  ],
+  "Landscape Theme": [
+   "Rock Garden",
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Mass Planting"
+  ],
+  "Resistance To Challenges": [
+   "Foot Traffic",
+   "Heavy Shade",
+   "Humidity",
+   "Rabbits"
+  ]
+ },
+ "tags": [
+  "lawn alternative",
+  "foot traffic tolerant",
+  "chartreuse",
+  "fast growing",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "shade garden",
+  "rabbit resistant",
+  "houseplant",
+  "container plant",
+  "tropical herbaceous perennial",
+  "frost tender",
+  "tropical",
+  "humidity tolerant",
+  "dry soils intolerant",
+  "evergreen",
+  "groundcover"
+ ],
+ "images": [
+  {
+   "id": "32976",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Selaginella_kraussia_Qn2m1wQNcJ1V.jpeg",
+   "caption": "Foliage close up",
+   "author": "JMK",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "32977",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Selaginella_kraussia_3k3175r8anFp.jpeg",
+   "caption": "Habit",
+   "author": "Gary Higgins",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "32978",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Selaginella_Kraussia_YObgJlT4DObn.jpeg",
+   "caption": "Foliage",
+   "author": "Davidyeotb",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "32979",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Selaginella_kraussia_x2N5NOXYeL67.jpeg",
+   "caption": "Habitat",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

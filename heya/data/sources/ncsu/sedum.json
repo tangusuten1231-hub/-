@@ -1,0 +1,418 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/sedum/",
+ "slug": "sedum",
+ "retrieved": "2026-11-18",
+ "scientificName": "Sedum",
+ "commonNames": [
+  "Roseroot",
+  "Sedum",
+  "Stonecrop"
+ ],
+ "description": "Sedum is a genus of succulent, herbaceous perennials with fleshy, flat or rounded leaves depending on the species. In general, the plant is upright and spreads along the ground. The genus has over 300 species, though many have been moved to the genus Hylotelephium . Genus name comes from the Latin word sedeo meaning to sit in reference to the habit of many of the sedums species to sit and sprawl over rocks. It can be grown as a houseplant, ground cover, or interiorscape or landscape. When grown outdoors, most species need sun to part sun. They are easy to grow indoors with bright direct light from a window or grow light. Use a coarse, well-drained soil, preferably a cactus mix. Sedum tolerates rocky and poor soils well, establishes itself quickly, and most species are cold tolerant. The succulent leaves make them drought and dry soil tolerant. They can be damaged by deer. The taller Sedum species produce large clusters of flowers, in white, yellow, pink, or red and can be used in borders or pollinator gardens. The low-growing species are generally grown for their foliage and spread by rooting stems and work great on a slope, rock garden, ground cover, hanging baskets, and even green roofs. Sedums withstand only light foot traffic. The leaves tend to fall off easily; however, the fallen leaves can be used to propagate new plants. Diseases, Insect Pests, and Other Plant Problems: Slugs and snails. Avoid wet or poorly drained conditions. Taller sedum species with large flower heads are susceptible to flopping. Site in full sun and pinch back in spring to force thicker stems. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "African Sunset",
+   "note": "16 inches tall, glossy, smooth, purple foliage, red stems and flowers."
+  },
+  {
+   "name": "Blue Spruce",
+   "note": "Low growing, blue foliage, grows quickly."
+  },
+  {
+   "name": "Chocolate Drop",
+   "note": "Mounding, 12 inches tall, brown leaves, pink flowers."
+  },
+  {
+   "name": "Cutting Edge",
+   "note": "Short, clumping, vigorous, patent PP28926."
+  },
+  {
+   "name": "Garnet Brocade",
+   "note": "Compact, 14 inches high, bronze foliage, red flowers."
+  },
+  {
+   "name": "Hopewell",
+   "note": "16 inches tall, mounded, blue-grey leaves, pink flowers."
+  },
+  {
+   "name": "October Sunset",
+   "note": "Mauve flowers, good fall color of leaves"
+  },
+  {
+   "name": "Peace and Joy",
+   "note": "In the Pure Joy series; red margins, late summer bloom of magenta flowers on foot long stems."
+  },
+  {
+   "name": "Pillow Talk",
+   "note": "Patent pending; purple-red stems, 6 inch wide pink blossoms."
+  },
+  {
+   "name": "Plum Perfection",
+   "note": "Mounding, grey-green dense foliage, pink flowers."
+  },
+  {
+   "name": "Rock Star",
+   "note": "Patent PP29036; pointed foliage, late blooming pink flowers."
+  },
+  {
+   "name": "Rosy Glow",
+   "note": "8 inches tall, bluish green leaves, clusters of dark ruby flowers."
+  },
+  {
+   "name": "Soft Cloud",
+   "note": "Patent applied; grey-green foliage, pink flowers last until winter."
+  },
+  {
+   "name": "Thundercloud",
+   "note": "Patent 21,833; pointed foliage, star-shaped white flowers."
+  },
+  {
+   "name": "Twinkling Star",
+   "note": "Patent 21507; upright, compact, yellow-green flowers."
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Sedum"
+  ],
+  "Family": [
+   "Crassulaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Leaf Cutting",
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "East Asia"
+  ],
+  "Distribution": [
+   "Europe, Turkey, Northern Africa, North America"
+  ],
+  "Wildlife Value": [
+   "Bees enjoy the nectar. Birds enjoy the seeds."
+  ],
+  "Play Value": [
+   "Attractive Flowers",
+   "Attracts Pollinators",
+   "Easy to Grow"
+  ],
+  "Edibility": [
+   "The stems and leaves can be eaten raw when very young and tender. Later, until they flower, they may be eaten after briefly cooking. Not poisonous, but when eaten in quantity, can cause stomach upset."
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 3 in. - 2 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Succulent"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen",
+   "Deciduous"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Horizontal",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low",
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "Loam (Silt)",
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry",
+   "Very Dry"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Mountains",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Fruit follicular, membranous or leathery, often surrounded by a persistent membranous corolla, opening on the adaxial side, Seeds mostly minute, usually with fleshy endosperm."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green",
+   "Orange",
+   "Pink",
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Star"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The small flowers usually have 4-6 petals. There are typically twice as many stamens as petals. Inflorescence is cymes and star-shaped. Color varies by species."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate",
+   "Opposite",
+   "Whorled"
+  ],
+  "Leaf Shape": [
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Leaves are fleshy, flat to terete, opposite to whorled, or alternate; variable in shape, size, and teeth by species. Frequently cylindrical."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Covered with a powdery bloom (glaucous)"
+  ],
+  "Stem Description": [
+   "Stems are erect, decumbent, or tufted, usually more or less glaucous and fleshy."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Recreational Play Area",
+   "Slope/Bank",
+   "Small Space",
+   "Vertical Spaces",
+   "Walkways"
+  ],
+  "Landscape Theme": [
+   "Butterfly Garden",
+   "Children's Garden",
+   "Drought Tolerant Garden",
+   "Pollinator Garden"
+  ],
+  "Design Feature": [
+   "Border",
+   "Small groups"
+  ],
+  "Attracts": [
+   "Bees",
+   "Butterflies",
+   "Pollinators",
+   "Songbirds"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil",
+   "Foot Traffic",
+   "Heat",
+   "Poor Soil"
+  ]
+ },
+ "tags": [
+  "green roof",
+  "deciduous",
+  "low maintenance",
+  "drought tolerant",
+  "semi-evergreen",
+  "rabbit resistant",
+  "succulent",
+  "evergreen",
+  "groundcover",
+  "fantz",
+  "pollinator plant",
+  "colorful leaves",
+  "bird friendly",
+  "full sun tolerant",
+  "partial shade tolerant",
+  "hsc-s",
+  "hsc",
+  "fall interest",
+  "heat tolerant",
+  "easy to grow",
+  "houseplant",
+  "easy to grow houseplant",
+  "dry soils tolerant",
+  "container plant",
+  "shallow soil tolerant",
+  "well-drained soil",
+  "hanging baskets",
+  "playground plant",
+  "perennial",
+  "wildlife friendly",
+  "cpp",
+  "hortcontest",
+  "poor soil tolerant",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "41708",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum_spathulifolium_0LHWMAuY6Dvm.jpeg",
+   "caption": "Sedum spathulifolium flower up close March Wake",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "16022",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/sedum_virginie-l__pu_Af4CKYcXa0Zg.jpe",
+   "caption": "Leaves",
+   "author": "virginie-l",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "41710",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum_spathulifolium_FFxIhJIUlQkx.jpeg",
+   "caption": "Sedum spathulifolium flower and leaves up close Wake",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "16021",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/sedum_ground_cover_P_UY6cPP1hLwGo.jpe",
+   "caption": "Flowers",
+   "author": "Patrick Standish",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "16023",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum_burros_tail___iyIZrbhmNX9O.jpe",
+   "caption": "Form",
+   "author": "Leonora (Ellie) Enking",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "16019",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Seddum_stem_Jonathan_hZNvYadbl1c8.jpeg",
+   "caption": "Stem",
+   "author": "Jonathan Hover",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "41709",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum_spathulifolium_ufuEDR9hLxpZ.jpeg",
+   "caption": "Sedum spathulifolium leaves up close",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41707",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum_spathulifolium_N3FtVSQbhQsx.jpeg",
+   "caption": "Sedum spathuifolium rosettes of leaves March",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "23316",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum-lineare_-Carpe_74whXa0XpH9I.jpg",
+   "caption": "Form, Warren County, NC",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "23318",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum-Fine-Gold-Wake_kjts4ZZzqCiX.jpg",
+   "caption": "'Fine Gold' habit, Wake County, NC",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "23317",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum-ground-cover-i_OcFxHeb5t9z7.jpg",
+   "caption": "Form, Warren County, NC",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "33105",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sedum-bithynicum-Tur_hjjGAqckGkk1.jpeg",
+   "caption": "Form",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "23315",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/sedum-replanted-Cath_hwQr84xRhwWa.jfif",
+   "caption": "Form, Warren County, NC",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

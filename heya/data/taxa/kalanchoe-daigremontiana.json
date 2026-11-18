@@ -1,0 +1,100 @@
+{
+ "id": "kalanchoe-daigremontiana",
+ "rank": "species",
+ "scientificName": "Kalanchoe daigremontiana",
+ "group": "succulent",
+ "names": {
+  "ja": "カランコエ・ダイグレモンティアナ",
+  "aliases": [
+   "シコロベンケイ",
+   "子宝草の仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "kalanchoe-daigremontiana"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright indirect sunlight or partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "partial shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It can tolerate some direct sunlight, but it is best to avoid the hot midday sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "it is not frost-tolerant"
+   },
+   {
+    "src": "estimate",
+    "reason": "霜に耐えず最低温度の記載がないため、カランコエの仲間の出典の値（45°F＝7℃）に合わせた"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers temperatures between 65 and 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering during the plant's dormant stage"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉のふちにできる子株が落ちて、どんどんふえる。",
+   "src": "ncsu",
+   "quote": "The plantlets themselves will develop roots and leaves, and they will drop off naturally from the parent plant."
+  }
+ ]
+}

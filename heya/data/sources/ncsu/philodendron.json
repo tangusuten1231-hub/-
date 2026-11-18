@@ -1,0 +1,250 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/philodendron/",
+ "slug": "philodendron",
+ "retrieved": "2026-11-18",
+ "scientificName": "Philodendron",
+ "commonNames": [],
+ "description": "Philodendron is a genus of over 600 species of herbaceous perennials in the arum family (Araceae). In their native habitats, tropical forests of Central and South America, they tend to climb on tree trunks or grow as epiphytes, but in North Carolina, they are houseplants. The genus name, Philodendron , is derived from the Greek words phileo, meaning \"to love,\" and dendron, meaning \"tree.\" The plants of this genus prefer bright indirect sunlight, warm temperatures, and moist, well-drained soil that is high in organic matter. Avoid direct sunlight because that can scorch the leaves. Some varieties may require more light than others. The ideal temperature for philodendrons is between 65 and 85 degrees F. They are very sensitive to cold; therefore, drafts should be avoided. They prefer high humidity, but they usually can adapt to an average home's humidity level. If the climate is very dry, consider a humidifier or placing the plant on a tray of pebbles filled with water. Depending on the species, the plant size can vary from 3 to 30 feet tall and 1 to 15 feet wide. Pruning may be needed to help maintain the plant's shape. Repot your plant when it becomes root-bound or pot-bound. Spring is the best time for repotting. Propagate by layering or stem cutting. The genus is divided into two types: climbing and non-climbing. The climbing or vining types have aerial roots that attach themselves to surfaces such as a pole or trellis. They include Philodendron hederaceum and Philodendron erubescens . The non-climbing or self-heading types grow upright and include Philodendron bipinnatifidum and hybrids such as ' Birkin ' and ' Moonlight.' The latter types have very short stems and leaves held in a rosette. Their leaves are large and have a variety of shapes. Young and mature plants can have very different appearances, making species identification difficult. Both types are popular houseplants for the home or office. They are used in containers and hanging baskets. Philodendron hederaceum is the most common variety of houseplant and has solid green leaves. Philodendron bipinnatifidum (tree philodendron) is typically used in warmer climates, zone 9a or higher, as a foundation plant, growing up to 12 to 15 feet tall. Insects, Diseases and Other Plant Problems : Monitor for mealybugs, aphids, scale, banded greenhouse thrips and spider mites. Overwatering can cause root rot. Leaf spots can occur but may be prevented by increased air circulation and by keeping the leaves from getting wet.",
+ "cultivars": [
+  {
+   "name": "Philodendron mayoi",
+   "note": "climbing type, distinctive foliage, glossy, green leaves resemble palm fronds"
+  },
+  {
+   "name": "Philodendron melanochrysum (Black-Gold Philodendron or Melano Plant)",
+   "note": "rare, vining, large, deep green, velvet-like leaves with yellow veins"
+  },
+  {
+   "name": "Philodendron 'Moonlight",
+   "note": "hybrid grows upright, large, elongated, lime green leaves mature to softer green"
+  },
+  {
+   "name": "Philodendron verrucosum (Ecuador Philodendron)",
+   "note": "vining habit, large, deep green, velvet-like leaves with light green veins, burgundy on the undersides of the leaf"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Philodendron"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Layering",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Native: Argentina, Belize, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras. Jamaica, Mexico, Nicaragua, Panama, Paraguay, Peru, Puerto Rico, Suriname, Trinidad-Tobago, Venezuela and the Windward Islands. Introduced: Bangladesh, Cook Islands, Hawai, Seychelles, and Society Island."
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 3 ft. 0 in. - 30 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 15 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Climbing",
+   "Dense"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a"
+  ],
+  "Fruit Color": [
+   "Orange",
+   "White"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "The fruit may be a white or orange berry. Houseplants may not produce fruits."
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Description": [
+   "The flowers consist of a white spadix that is surrounded by purplish-red spathe. Bloom time is dependent on the species and maybe spring or summer. Houseplants usually do not flower."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Smooth",
+   "Velvety"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Pinnatifid"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed",
+   "Undulate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Depending on the species, the leaf size, shape, color, and texture vary. The leaves of some species are only 3 inches long while others may be up to 3 feet long. The shape may be heart-shaped, arrowhead-shaped, or pinnatifid. The texture can be glossy and smooth or velvety. The color ranges from green, red, purple, copper, gray, or variegated. The leaf margins can be entire, lobed, or undulate."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Border",
+   "Foundation Planting"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If any part of the plant is ingested by humans or pets, it may cause pain and swelling of the mouth, lips, tongue, and throat. Excessive drooling, vomiting, difficulty swallowing, and loss of speech may also result. The sap can cause skin irritation."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "problem for dogs",
+  "patio",
+  "container plant",
+  "problem for children",
+  "interesting leaves",
+  "contact dermatitis",
+  "showy leaves",
+  "climber",
+  "dappled sunlight",
+  "dense growth",
+  "problem for cats",
+  "humidity tolerant",
+  "houseplant",
+  "herbaceous perennial",
+  "warm climates",
+  "low maintenance",
+  "spadix",
+  "poisonous if ingested",
+  "spathe",
+  "interiorscape",
+  "easy to grow houseplant",
+  "hortcontest"
+ ],
+ "images": [
+  {
+   "id": "38450",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_Birkin__D1EhR0D0vKUs.jpeg",
+   "caption": "Philodendron 'Birkin'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38451",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_Moonli_nJtrrCWPRHNc.jpeg",
+   "caption": "Philodendron 'Moonlight'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38452",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_campii__b4ux6wcOTex7.jpeg",
+   "caption": "Philodendron campii' Lynette'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
+ ]
+}

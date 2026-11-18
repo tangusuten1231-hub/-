@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5304547",
+ "retrieved": "2026-11-18",
+ "query": "Dracaena surculosa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5304547,
+ "acceptedKey": 5304547,
+ "acceptedName": "Dracaena surculosa",
+ "authorship": "Lindl.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Dracaena interrupta",
+  "Draco surculosa",
+  "Pleomele surculosa"
+ ]
+}

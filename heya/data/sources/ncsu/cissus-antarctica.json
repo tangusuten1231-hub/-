@@ -1,0 +1,223 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/cissus-antarctica/",
+ "slug": "cissus-antarctica",
+ "retrieved": "2026-11-18",
+ "scientificName": "Cissus antarctica",
+ "commonNames": [
+  "Kangaroo Vine"
+ ],
+ "description": "Kangaroo vine is a perennial climbing vine or shrub native to Australia in the the Vitaceae family/ Popular when grown as a houseplant, it thrives in bright to low-light situations, as well as in hanging baskets. Outdoors, it can reach a length of 13 to 20 feet. When grown indoors, it can spread to 7 to 10 feet, but can easily be pruned to maintain a desired shape. If grown outdoors, it will need to be supported by a trellis. Once established, plants should be kept in the same location as they dislike change. Plant in a potting mix and site in a pot with excellent drainage. Kangaroo vine requires little to moderate watering and you should allow the soil to dry between watering. Site the plant in diffused sunshine to partial shade and provide fertilizer. You can pinch back leaves for a more bushy habit. Leaves will turn brown and die if placed in drafty areas or near heating vents. During the growing period, Kangaroo vine prefers temperatures of 61 to 75 degrees Fahrenheit. During its dormant phase, temperatures should not be higher than 59 degrees Fahrenheit during its dormant phase. Diseases, Insect Pests, and Other Plant Problems: Susceptible to leafspots, mildews, mealybugs, spider mites, and scales. The leaves may fall if the plant is too wet or too dry. Subject to root rot/pests.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Cissus"
+  ],
+  "Species": [
+   "antarctica"
+  ],
+  "Family": [
+   "Vitaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "India, Eastern Australia"
+  ],
+  "Distribution": [
+   "California"
+  ],
+  "Climbing Method": [
+   "Tendrils"
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Houseplant",
+   "Vine"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Horizontal",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Appendage": [
+   "Tendrils"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Color": [
+   "Black",
+   "Blue"
+  ],
+  "Fruit Value To Gardener": [
+   "Edible"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "Small blue-black round berries form if the plant blooms."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Flower Inflorescence": [
+   "Cyme",
+   "Insignificant"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Small, insignificant, may not bloom indoors."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Serrate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leathery, glossy, toothed, dark green leaves (up to 4 inches long) with toothed edges and short, reddish leaf stalks."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Gold/Yellow",
+   "Green",
+   "Red/Burgundy"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Smooth green stems"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "tendrils",
+  "evergreen",
+  "hanging baskets",
+  "year-round interest",
+  "spreading",
+  "groundcover",
+  "vine",
+  "climber"
+ ],
+ "images": [
+  {
+   "id": "8210",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_Jon_Sullivan_ccbync2.0.jpg",
+   "caption": "Cissus antarctica",
+   "author": "Jon Sullivan",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "8211",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_Jon_Sullivan_ccbync2.0_2.jpg",
+   "caption": "Underside of leaves",
+   "author": "Jon Sullivan",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "8474",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/cissus_antarctica-Pete_the_Poet-ccbync20_-_Copy_-_Copy.jpg",
+   "caption": "Cissus antarctica",
+   "author": "Pete the Poet",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "11914",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_by_uIqm66kB8250.jfif",
+   "caption": "leaves and berries",
+   "author": "Margaret Donald",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "11915",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_IM_MxpkjVBAp71w.jfif",
+   "caption": "leaves and vines",
+   "author": "Margaret Donald",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "11916",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_By_mIm53QqLYrVt.jfif",
+   "caption": "leaves and vines",
+   "author": "Margaret Donald",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "11917",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antarctica_BY_yCgkSC1lWCIV.jfif",
+   "caption": "leaves",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "12633",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Cissus_antartica_By__WkJJFRbnKL1G.mpo",
+   "caption": "leaves",
+   "author": "Dinkham",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  }
+ ]
+}

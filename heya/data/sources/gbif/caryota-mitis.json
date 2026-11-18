@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2738902",
+ "retrieved": "2026-11-18",
+ "query": "Caryota mitis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2738902,
+ "acceptedKey": 2738902,
+ "acceptedName": "Caryota mitis",
+ "authorship": "Lour.",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Caryota",
+ "synonyms": [
+  "Caryota furfuracea",
+  "Caryota griffithii",
+  "Caryota javanica",
+  "Caryota nana",
+  "Caryota plumosa",
+  "Caryota propinqua",
+  "Caryota purpuracea",
+  "Caryota sobolifera",
+  "Caryota speciosa",
+  "Drymophloeus zippellii",
+  "Thuessinkia speciosa"
+ ]
+}

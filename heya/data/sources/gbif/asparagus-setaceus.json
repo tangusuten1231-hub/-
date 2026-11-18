@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2768686",
+ "retrieved": "2026-11-18",
+ "query": "Asparagus setaceus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2768686,
+ "acceptedKey": 2768686,
+ "acceptedName": "Asparagus setaceus",
+ "authorship": "(Kunth) Jessop",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Asparagus",
+ "synonyms": [
+  "Asparagopsis setacea",
+  "Asparagus lujae",
+  "Asparagus plumosus",
+  "Asparagus tenuissimus",
+  "Asparagus zanzibaricus",
+  "Protasparagus plumosus",
+  "Protasparagus setaceus"
+ ]
+}

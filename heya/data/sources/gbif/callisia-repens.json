@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5303420",
+ "retrieved": "2026-11-18",
+ "query": "Callisia repens",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5303420,
+ "acceptedKey": 5303420,
+ "acceptedName": "Callisia repens",
+ "authorship": "(Jacq.) L.",
+ "rank": "SPECIES",
+ "family": "Commelinaceae",
+ "genus": "Callisia",
+ "synonyms": [
+  "Callisia hexandra",
+  "Hapalanthus repens",
+  "Tradescantia callisia",
+  "Tradescantia repens"
+ ]
+}

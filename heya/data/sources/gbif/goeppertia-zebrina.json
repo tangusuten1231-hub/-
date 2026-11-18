@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5302914",
+ "retrieved": "2026-11-18",
+ "query": "Goeppertia zebrina",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5302914,
+ "acceptedKey": 5302914,
+ "acceptedName": "Goeppertia zebrina",
+ "authorship": "(Sims) Nees",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Goeppertia",
+ "synonyms": [
+  "Calathea binotii",
+  "Calathea pulchella",
+  "Calathea zebrina",
+  "Endocodon zebrina",
+  "Maranta bicolor",
+  "Maranta binotii",
+  "Maranta pulchella",
+  "Maranta tigrina",
+  "Maranta zebrina",
+  "Phrynium bicolor",
+  "Phrynium pulchellum",
+  "Phrynium zebrinum",
+  "Phyllodes pulchella",
+  "Phyllodes zebrina"
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "id": "primula-obconica",
+ "rank": "species",
+ "scientificName": "Primula obconica",
+ "group": "flowering",
+ "names": {
+  "ja": "プリムラ・オブコニカ",
+  "aliases": [
+   "トキワザクラ",
+   "オブコニカ"
+  ]
+ },
+ "refs": {
+  "ncsu": "primula-obconica"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    10,
+    20
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "They need cool conditions and indirect sunlight for optimum performance."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "indirect sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They need cool conditions"
+   },
+   {
+    "src": "estimate",
+    "reason": "「涼しい環境」をやや低めの範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に水やりの記載がないため、表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "冬〜春が開花期のため、冬も表面が乾いたらとした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花が終わったら涼しい場所に置くと、次の花が咲きやすい。",
+   "src": "ncsu",
+   "quote": "After the flowers fade, keep in a cool place to encourage future blooming.",
+   "symptom": "noflower"
+  }
+ ],
+ "note": "冬〜春の鉢花。汁で皮ふがかぶれることがある（出典に Contact Dermatitis の記載）。"
+}

@@ -1,0 +1,112 @@
+{
+ "id": "ravenea-rivularis",
+ "rank": "species",
+ "scientificName": "Ravenea rivularis",
+ "group": "palm",
+ "names": {
+  "ja": "マジェスティパーム",
+  "aliases": [
+   "ラベネア・リブラリス"
+  ]
+ },
+ "refs": {
+  "ncsu": "ravenea-rivularis",
+  "hgic": "indoor-palms"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Majesty palm requires high humidity, bright, indirect light, and consistent moisture"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid direct sunlight that can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Most houseplant palms need temperatures above 45 °F to prevent chilling damage."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は「多くのヤシは7℃（45°F）以上が必要」とするが、本種は「冷たいすきま風を避ける」とされ、適温も18℃以上のため、余裕をみて10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It prefers temperatures between 65 to 85 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Majesty palm requires high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "consistent moisture"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "室内で育てるのは難しいことがある（高い湿度・明るい間接光・湿り気が必要）。",
+   "src": "ncsu",
+   "quote": "may be difficult to grow indoors"
+  },
+  {
+   "ja": "葉が黄色くなるのは、光不足・水不足・水のやりすぎ・湿度不足・肥料不足のいずれか。",
+   "src": "ncsu",
+   "quote": "Yellow leaves can be caused by inadequate light, insufficient water, overwatering, lack of humidity or nutritional deficiencies.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "湿度が低いと害虫がつきやすい。",
+   "src": "ncsu",
+   "quote": "Low humidity levels can bring unwanted insect pests.",
+   "symptom": "pests"
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "id": "paphiopedilum",
+ "rank": "genus",
+ "scientificName": "Paphiopedilum",
+ "group": "orchid",
+ "names": {
+  "ja": "パフィオペディラム",
+  "aliases": [
+   "パフィオ"
+  ]
+ },
+ "refs": {
+  "ncsu": "paphiopedilum"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These orchids are tolerant of low light and shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "needing only 500 to 2,500 fc"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "弱い光で育つランのため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "They enjoy temperatures of 60 to 80 degrees F",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They enjoy temperatures of 60 to 80 degrees F",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "relatively high humidity of no less than 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It should be kept moist and not allowed to dry out."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ }
+}
