@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "phlebodium-aureum"
+  "ncsu": "phlebodium-aureum",
+  "hgic": "indoor-ferns"
  },
  "care": {
   "light": {
@@ -22,8 +23,8 @@
   "temperature": {
    "minC": 5,
    "idealC": [
-    16,
-    27
+    10,
+    22
    ]
   },
   "humidity": "medium",
@@ -59,8 +60,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "( Polypodium aureum ) 2 or more feet long Bright indirect or filtered sunlight. Night temperatures of 50 to 55 °F and day temperatures of 68 to 72 °F.",
+    "fahrenheit": [
+     50,
+     72
+    ]
    }
   ],
   "humidity": [

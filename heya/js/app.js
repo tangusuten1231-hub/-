@@ -20,6 +20,8 @@ const PROPAGATION = { Division: '株分け', 'Stem Cutting': '挿し木', 'Leaf 
 const HABIT = { Climbing: 'よじ登る', Creeping: '這う', Spreading: '横に広がる', Erect: '直立', Cascading: '垂れ下がる', Clumping: '株立ち', Arching: '弓なり', Rounded: '丸くまとまる', Dense: '密に茂る', 'Multi-stemmed': '株元から複数の茎', 'Multi-trunked': '多幹', Vase: '花瓶形', Weeping: '枝垂れる', Mounding: 'こんもり', Prostrate: '地を這う', Ascending: '斜めに立ち上がる', Open: 'まばら', Irregular: '不規則', Horizontal: '水平に広がる', Upright: '直立', Columnar: '円柱形', Rosette: 'ロゼット', Pyramidal: '円錐形', Climbing: 'よじ登る', 'Upright/Erect': '直立' };
 const SEVERITY = { Low: '弱い', Medium: '中程度', High: '強い' };
 const PRINCIPLE = [[/calcium oxalate/i, 'シュウ酸カルシウムの結晶'], [/saponin/i, 'サポニン'], [/anthraquinone/i, 'アントラキノン配糖体'], [/cyanogenic/i, '青酸配糖体'], [/psoralen/i, 'ソラレン'], [/cyclopropenoid/i, 'シクロプロペン脂肪酸'], [/cycasin/i, 'サイカシン'], [/cardiac glycoside/i, '強心配糖体'], [/diterpene|phorbol/i, 'ジテルペン（ホルボールエステル）'], [/bufadienolide/i, 'ブファジエノリド'], [/GI irritant/i, '胃腸への刺激物'], [/unknown/i, '不明']];
+const SRC_LABEL = { ncsu: 'NC State', hgic: 'Clemson' };
+const quoteBlock = (x) => `<details class="ev"><summary>原文（${SRC_LABEL[x.src] ?? ''}）</summary><q lang="en">${esc(x.quote)}</q></details>`;
 const tr = (map, v) => (v == null ? '' : map[v] ?? v);
 const principleJa = (p) => { if (!p) return ''; const hit = PRINCIPLE.find(([re]) => re.test(p)); return hit ? `${hit[1]}（${p}）` : p; };
 
@@ -78,15 +80,17 @@ function quickFacts(e) {
 }
 function badge(field, entry) {
   const ev = entry.evidence[field] ?? [];
-  const src = ev.some((x) => x.src === 'ncsu'), est = ev.some((x) => x.src === 'estimate');
+  const src = ev.some((x) => x.src !== 'estimate'), est = ev.some((x) => x.src === 'estimate');
+  const two = new Set(ev.filter((x) => x.src !== 'estimate').map((x) => x.src)).size > 1;
+  if (two && !est) return '<span class="badge src">出典2つ</span>';
   return src && est ? '<span class="badge mix">出典＋目安</span>' : src ? '<span class="badge src">出典</span>' : '<span class="badge est">目安</span>';
 }
 function evidenceBlock(field, entry) {
   const ev = entry.evidence[field] ?? [];
   const from = entry.inherited[field] ? `<p class="inherit">「${esc(byId.get(entry.inherited[field])?.names.ja)}」の値を引き継いでいます</p>` : '';
-  return `<details class="ev"><summary>根拠</summary>${from}<ul>${ev.map((x) => x.src === 'ncsu'
-    ? `<li><span class="badge src">NC State</span> <q lang="en">${esc(x.quote)}</q>${x.fahrenheit ? ` <small>（${x.fahrenheit.map((f) => `${f}°F`).join('〜')} を℃に換算）</small>` : ''}</li>`
-    : `<li><span class="badge est">目安</span> ${esc(x.reason)}</li>`).join('')}</ul></details>`;
+  return `<details class="ev"><summary>根拠</summary>${from}<ul>${ev.map((x) => x.src !== 'estimate'
+    ? `<li><span class="badge src">${SRC_LABEL[x.src]}</span> <q lang="en">${esc(x.quote)}</q>${x.fahrenheit ? ` <small>（${x.fahrenheit.map((f) => `${f}°F`).join('〜')} を℃に換算）</small>` : ''}</li>`
+    : `<li><span class="badge est">目安</span> ${esc(x.reason)}</li>`).join('')}</ul>${ev.filter((x) => x.src !== 'estimate').length > 1 && field.startsWith('temperature') ? '<p class="small muted">出典によって数値が違うときは、植物にとって安全な側（寒さに弱い側）の値を使っています。</p>' : ''}</details>`;
 }
 function careRow(label, value, field, entry) {
   return `<div class="care-row"><div class="care-head"><span class="care-label">${label}</span>${badge(field, entry)}</div><div class="care-value">${value}</div>${evidenceBlock(field, entry)}</div>`;
@@ -156,7 +160,7 @@ views.home = () => {
     ${upcoming.length ? `<h3>これから</h3><ul class="upcoming">${upcoming.map((x) => `<li><a href="#/my/${x.plant.id}">${esc(nameOf(x))}</a><span>${fmtShort(x.check.due)}</span></li>`).join('')}</ul>` : ''}
     ${winterSwitch || season.length ? `<h2>${m}月のお世話</h2>
       ${winterSwitch ? `<div class="card soft"><b>${m === 11 ? '冬の水やりに切り替わります' : '生育期の水やりに戻ります'}</b><p class="small">${m === 11 ? '寒い部屋では成長がゆっくりになり、水を吸う量が減ります。暖かい部屋（よく育つ温度を保てる部屋）の植物は、冬も生育期として扱います。' : '暖かくなると成長が始まります。土の乾き方が早くなるので、こまめに土を確かめましょう。'}</p></div>` : ''}
-      ${season.length ? `<ul class="season">${season.map(({ x, t }) => `<li><b>${esc(nameOf(x))}</b>：${esc(t.ja)}<details class="ev"><summary>原文</summary><q lang="en">${esc(t.quote)}</q></details></li>`).join('')}</ul>` : ''}` : ''}`}
+      ${season.length ? `<ul class="season">${season.map(({ x, t }) => `<li><b>${esc(nameOf(x))}</b>：${esc(t.ja)}${quoteBlock(t)}</li>`).join('')}</ul>` : ''}` : ''}`}
     <h2>こんなときは</h2>
     <div class="shortcuts">
       <a href="#/choose" class="sc"><span>🔍</span>どれを買えばいい？<small>植物選び</small></a>
@@ -217,13 +221,14 @@ views.detail = (id) => {
       ${careRow('水やり（生育期）', `${WATERING[c.watering.growing].ja}<small>${WATERING[c.watering.growing].how}</small>`, 'watering.growing', e)}
       ${careRow('水やり（冬・寒い部屋）', `${WATERING[c.watering.winter].ja}<small>${WATERING[c.watering.winter].how}</small>`, 'watering.winter', e)}
     </div>
-    ${plain.length ? `<h2>育てるコツ</h2><ul class="tips">${plain.map((x) => `<li>${esc(x.ja)}<details class="ev"><summary>原文</summary><q lang="en">${esc(x.quote)}</q></details></li>`).join('')}</ul>` : ''}
-    ${Object.keys(bySym).length ? `<h2>こんな症状が出たら</h2><div class="symlist">${Object.entries(bySym).map(([k, ts]) => `<div class="card sym"><b>${esc(SYMPTOMS[k].ja)}</b><ul>${ts.map((x) => `<li>${esc(x.ja)}<details class="ev"><summary>原文</summary><q lang="en">${esc(x.quote)}</q></details></li>`).join('')}</ul></div>`).join('')}</div>` : ''}
+    ${plain.length ? `<h2>育てるコツ</h2><ul class="tips">${plain.map((x) => `<li>${esc(x.ja)}${quoteBlock(x)}</li>`).join('')}</ul>` : ''}
+    ${Object.keys(bySym).length ? `<h2>こんな症状が出たら</h2><div class="symlist">${Object.entries(bySym).map(([k, ts]) => `<div class="card sym"><b>${esc(SYMPTOMS[k].ja)}</b><ul>${ts.map((x) => `<li>${esc(x.ja)}${quoteBlock(x)}</li>`).join('')}</ul></div>`).join('')}</div>` : ''}
     <h2>人やペットへの害</h2>
     ${t ? `<ul class="tox">${toxBadge(t.cats, '猫')}${toxBadge(t.dogs, '犬')}${toxBadge(t.children, '子ども')}${toxBadge(t.humans, '人')}${t.dermatitis ? '<li class="tox-yes">⚠️ 汁で皮ふがかぶれることがある</li>' : ''}</ul>
       ${t.severity || t.principle ? `<p>${t.severity ? `毒性の強さ：${tr(SEVERITY, t.severity)}　` : ''}${t.principle ? `成分：${esc(principleJa(t.principle))}` : ''}</p>` : ''}
+      ${t.extra?.length ? `<ul class="small">${t.extra.map((x) => `<li><span class="badge src">${SRC_LABEL[x.src]}</span> <q lang="en">${esc(x.quote)}</q></li>`).join('')}</ul>` : ''}
       ${t.symptoms ? `<details><summary>症状（出典の原文）</summary><p lang="en">${esc(t.symptoms)}</p></details>` : ''}
-      <p class="note">出典（NC State Extension）の記載をそのまま表示しています。「記載なし」は安全という意味ではありません。口にした場合は医師・獣医師に相談してください。</p>` : '<p>出典の情報がありません。</p>'}
+      <p class="note">出典（NC State Extension${t.extra?.length ? '・Clemson Extension' : ''}）の記載をもとに表示しています。どちらかの出典に害があると書かれていれば「害あり」とします。「記載なし」は安全という意味ではありません。口にした場合は医師・獣医師に相談してください。</p>` : '<p>出典の情報がありません。</p>'}
     ${f ? `<h2>基本データ</h2><dl class="facts">
       ${f.origin ? `<dt>原産地</dt><dd lang="en">${esc(f.origin)}</dd>` : ''}
       ${f.growthRate ? `<dt>成長の速さ</dt><dd>${tr(GROWTH, f.growthRate)}</dd>` : ''}
@@ -236,6 +241,7 @@ views.detail = (id) => {
     ${kids.length ? `<h2>品種</h2><div class="grid">${kids.map((k) => plantCard(k)).join('')}</div>` : ''}
     <h2>出典</h2><ul class="src-list">
       ${e.ncsu ? `<li><a href="${esc(e.ncsu.url)}" target="_blank" rel="noopener">NC State Extension Gardener Plant Toolbox</a>（CC BY 4.0・${esc(e.ncsu.retrieved)} 取得）</li>` : ''}
+      ${e.hgic ? `<li><a href="${esc(e.hgic.url)}" target="_blank" rel="noopener">Clemson Extension HGIC ${esc(e.hgic.id ?? '')}「${esc(e.hgic.title)}」</a>（${esc(e.hgic.retrieved)} 取得・必要な文の引用）</li>` : ''}
       ${e.taxonomy ? `<li><a href="${esc(e.taxonomy.url)}" target="_blank" rel="noopener">GBIF Backbone Taxonomy</a>（CC BY 4.0・${esc(e.taxonomy.retrieved)} 取得）</li>` : ''}
     </ul>
     <p class="note">「目安」は出典に記載がない項目を、理由を明記したうえで補った値です。「根拠」を開くと出典の原文や理由を確認できます。</p>`;
@@ -364,10 +370,10 @@ views.help = (_, q) => {
     result = `<h2>「${esc(r.symptom.ja)}」の原因の候補</h2>
       ${r.checks.length ? `<h3>あなたの記録・置き場所から</h3><ul class="checks">${r.checks.map((c) => `<li class="${c.level}">${esc(c.text)}</li>`).join('')}</ul>` : ''}
       <h3>${esc(entry.names.ja)}について出典に書かれていること</h3>
-      ${r.tips.length ? `<ul class="tips">${r.tips.map((t) => `<li>${esc(t.ja)}<details class="ev"><summary>原文</summary><q lang="en">${esc(t.quote)}</q></details></li>`).join('')}</ul>`
+      ${r.tips.length ? `<ul class="tips">${r.tips.map((t) => `<li>${esc(t.ja)}${quoteBlock(t)}</li>`).join('')}</ul>`
         : `<p class="card soft">この植物について、この症状の記載は出典にありません。上の判定や、下の同じ仲間での記載も参考にしてください。</p>`}
       ${others.length ? `<h3>同じ仲間（${GROUPS[entry.group].ja}）での記載</h3><ul class="tips">${others.map((e) => e.tips.filter((t) => t.symptom === sym).map((t) => `<li><b>${esc(e.names.ja)}</b>：${esc(t.ja)}</li>`).join('')).join('')}</ul>` : ''}
-      <p class="note">ここに出る内容は、出典（NC State Extension）の記載と、あなたの記録からの判定です。枯れそうなときや判断に迷うときは、購入店や園芸店に相談してください。</p>`;
+      <p class="note">ここに出る内容は、出典（NC State Extension・Clemson Extension）の記載と、あなたの記録からの判定です。枯れそうなときや判断に迷うときは、購入店や園芸店に相談してください。</p>`;
   }
   return `<h1>困ったとき</h1>
     <div class="hero small-hero"><div class="guide-face">${guideSvg('worried')}</div><div class="bubble"><b>${GUIDE_NAME}</b><p>どの植物に、どんな症状が出ているか教えて。出典の記載と、記録からわかることを一緒に探すよ。</p></div></div>
@@ -423,7 +429,7 @@ views.basics = () => `<h1>このアプリの使い方</h1>
   <div class="card"><h3>💧 水やりの段階</h3><dl class="facts">${Object.values(WATERING).map((w) => `<dt>${w.ja}</dt><dd>${w.how}</dd>`).join('')}</dl>
     <p class="small muted">植物ごとに、生育期と冬（寒い部屋）の段階を図鑑に載せています。「土を確かめる日」は段階ごとの日数（3〜14日、冬は1.5倍）から出した目安で、実際は土を触って判断します。</p></div>
   <div class="card"><h3>🌡️ 冬の扱い</h3><p>11〜3月は冬として水を控えめにします。ただし置き場所の「冬の夜の最低室温」がその植物の「よく育つ温度」以上なら、冬も生育期として扱います。</p></div>
-  <div class="card"><h3>📚 データの正確さ</h3><p>育て方の値には、出典（NC State Extension）の原文か、出典がない場合は「目安」とその理由を付けています。図鑑の各項目の「根拠」から確認できます。</p></div>`;
+  <div class="card"><h3>📚 データの正確さ</h3><p>育て方の値には、出典（NC State Extension・Clemson Extension）の原文か、出典がない場合は「目安」とその理由を付けています。図鑑の各項目の「根拠」から確認できます。出典によって温度が違うときは、植物にとって安全な側の値を使います。</p></div>`;
 
 views.settings = () => `<h1>設定</h1>
   <div class="card"><h3>一緒に暮らす動物</h3><p class="muted small">選ぶと、害があると記載された植物に印をつけ、提案から外します。</p>
@@ -435,7 +441,8 @@ views.settings = () => `<h1>設定</h1>
     <p>${CATALOG.filter((e) => e.rank !== 'cultivar').length}種類・${CATALOG.filter((e) => e.rank === 'cultivar').length}品種。</p>
     <ul class="small">
       <li>育て方・毒性・原産地などは <a href="https://plants.ces.ncsu.edu/" target="_blank" rel="noopener">NC State Extension Gardener Plant Toolbox</a>（CC BY 4.0）の記載に基づきます。</li>
-      <li>写真は同サイト掲載の写真のうち、CC BY・CC BY-SA・CC0・パブリックドメインのものを縮小して使っています。撮影者とライセンスは各ページに表示しています。</li>
+      <li>温度・水やり・湿度などは <a href="https://hgic.clemson.edu/" target="_blank" rel="noopener">Clemson Cooperative Extension HGIC</a> のファクトシートとも照らし合わせています。出典によって温度が違うときは、植物にとって安全な側の値を使います。</li>
+      <li>写真は NC State Extension 掲載の写真のうち、CC BY・CC BY-SA・CC0・パブリックドメインのものを縮小して使っています。撮影者とライセンスは各ページに表示しています。</li>
       <li>学名・科・旧学名は <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF Backbone Taxonomy</a>（CC BY 4.0）に基づきます。</li>
       <li>出典に記載のない項目は「目安」と表示し、理由を添えています。</li>
       <li>日本語名・明るさの段階（lux）の定義・水やりの日数の目安・植物のグループ分けは、このアプリ独自のものです。</li></ul></div>

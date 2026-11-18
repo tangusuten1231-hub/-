@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "chlorophytum-comosum"
+  "ncsu": "chlorophytum-comosum",
+  "hgic": "spider-plant"
  },
  "care": {
   "light": {
@@ -22,14 +23,14 @@
   "temperature": {
    "minC": 7,
    "idealC": [
-    16,
-    27
+    18,
+    24
    ]
   },
   "humidity": "medium",
   "watering": {
-   "growing": "moist",
-   "winter": "topdry"
+   "growing": "topdry",
+   "winter": "halfdry"
   }
  },
  "evidence": {
@@ -62,8 +63,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Temperatures between 65 °F and 75°F during the day and 50 °F to 55 °F at night are ideal.",
+    "fahrenheit": [
+     65,
+     75
+    ]
    }
   ],
   "humidity": [
@@ -73,6 +78,10 @@
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Spider plants should be allowed to dry out briefly between waterings."
+   },
    {
     "src": "ncsu",
     "quote": "It grows best in moist soil"
@@ -101,6 +110,17 @@
    "ja": "子株は、1日の明るい時間が12時間未満の日が3週間以上続くとつく（夜に照明を当てない）。",
    "src": "ncsu",
    "quote": "less than 12 hours of light a day"
+  },
+  {
+   "ja": "葉先が茶色く枯れるのは、肥料のやりすぎ・塩類の多い水・湿度不足・乾かしすぎ。",
+   "src": "hgic",
+   "quote": "Leaf tip burn is caused by too much fertilizer or water that is high in soluble salts. Low humidity and excessively dry soil may also cause brown leaf tips.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "冬は窓から少し離して、すきま風を避ける。",
+   "src": "hgic",
+   "quote": "Move spider plants a few feet from windows to protect them from drafts during the winter."
   }
  ]
 }

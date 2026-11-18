@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "phoenix-roebelenii"
+  "ncsu": "phoenix-roebelenii",
+  "hgic": "indoor-palms"
  },
  "care": {
   "light": {
@@ -20,7 +21,7 @@
    "directSun": "morning"
   },
   "temperature": {
-   "minC": 5,
+   "minC": 7,
    "idealC": [
     18,
     29
@@ -47,18 +48,21 @@
   ],
   "light.directSun": [
    {
+    "src": "hgic",
+    "quote": "ideally from an east window with morning sun"
+   },
+   {
     "src": "ncsu",
     "quote": "give it protection from the hot afternoon sun"
    }
   ],
   "temperature.minC": [
    {
-    "src": "ncsu",
-    "quote": "Keep away from cold drafts in the winter."
-   },
-   {
-    "src": "estimate",
-    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+    "src": "hgic",
+    "quote": "Most houseplant palms need temperatures above 45 °F to prevent chilling damage.",
+    "fahrenheit": [
+     45
+    ]
    }
   ],
   "temperature.idealC": [

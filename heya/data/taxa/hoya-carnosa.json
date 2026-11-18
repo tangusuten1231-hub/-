@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "hoya-carnosa"
+  "ncsu": "hoya-carnosa",
+  "hgic": "indoor-plants-waxflowers-hoya"
  },
  "care": {
   "light": {
@@ -28,7 +29,7 @@
   },
   "humidity": "high",
   "watering": {
-   "growing": "halfdry",
+   "growing": "dry",
    "winter": "dry"
   }
  },
@@ -75,14 +76,18 @@
   ],
   "watering.growing": [
    {
+    "src": "hgic",
+    "quote": "Hoyas thrive when allowed to dry out completely between waterings."
+   },
+   {
     "src": "ncsu",
     "quote": "Allow the soil to dry out between watering."
    }
   ],
   "watering.winter": [
    {
-    "src": "estimate",
-    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+    "src": "hgic",
+    "quote": "Hoyas thrive when allowed to dry out completely between waterings."
    }
   ]
  },
@@ -102,6 +107,18 @@
    "src": "ncsu",
    "quote": "spider mites can be an issue and can appear when the air is too dry",
    "symptom": "pests"
+  },
+  {
+   "ja": "暖房で空気が乾く冬は、ハダニがつきやすい。",
+   "src": "hgic",
+   "quote": "In the winter months, when indoor air tends to be drier due to home heating, spider mites can become a problem.",
+   "symptom": "pests"
+  },
+  {
+   "ja": "いちばん多い失敗は水のやりすぎによる根腐れ。",
+   "src": "hgic",
+   "quote": "Overwatering is the most common issue, often leading to root rot, which is the biggest threat to a hoya's health.",
+   "symptom": "rot"
   }
  ]
 }

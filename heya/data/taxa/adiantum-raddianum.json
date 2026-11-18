@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "adiantum-raddianum"
+  "ncsu": "adiantum-raddianum",
+  "hgic": "indoor-ferns"
  },
  "care": {
   "light": {
@@ -93,6 +94,12 @@
    "src": "ncsu",
    "quote": "It needs moist to wet soil and the roots should not be allowed to dry out.",
    "symptom": "curl"
+  },
+  {
+   "ja": "葉の薄いアジアンタムは、湿度が低いと葉が茶色くなりやすい。",
+   "src": "hgic",
+   "quote": "This is especially common on ferns with thin, delicate fronds, such as maidenhairs.",
+   "symptom": "brown"
   }
  ]
 }

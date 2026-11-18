@@ -90,7 +90,8 @@ export function guideLines(s) {
   if (s.tipPool?.length) {
     const seed = Math.floor(s.today.getTime() / 86400000);
     const { entry, tip } = pick(s.tipPool, seed);
-    out.push({ text: `${entry.names.ja}の豆知識：${tip.ja}`, cite: entry.ncsu ? { label: 'NC State Extension', url: entry.ncsu.url } : undefined });
+    const cite = tip.src === 'hgic' && entry.hgic ? { label: 'Clemson Extension', url: entry.hgic.url } : entry.ncsu ? { label: 'NC State Extension', url: entry.ncsu.url } : undefined;
+    out.push({ text: `${entry.names.ja}の豆知識：${tip.ja}`, cite });
   }
   return out;
 }

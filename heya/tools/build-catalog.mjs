@@ -13,7 +13,7 @@ const readJsonDir = async (dir) => {
 
 export async function loadAll() {
   const taxa = await readJsonDir('data/taxa');
-  const sources = { ncsu: await readJsonDir('data/sources/ncsu'), gbif: await readJsonDir('data/sources/gbif'), images: await readJsonDir('data/sources/images') };
+  const sources = { ncsu: await readJsonDir('data/sources/ncsu'), gbif: await readJsonDir('data/sources/gbif'), images: await readJsonDir('data/sources/images'), hgic: await readJsonDir('data/sources/hgic') };
   return { taxa, byId: new Map(Object.values(taxa).map((t) => [t.id, t])), sources };
 }
 
@@ -23,12 +23,12 @@ export async function build() {
   for (const [file, t] of Object.entries(taxa)) {
     if (file !== t.id) errors.push(`${file}.json: ファイル名と id が違う`);
     errors.push(...validateTaxon(t).map((m) => `${t.id}: ${m}`));
-    errors.push(...checkEvidence(t, byId, sources.ncsu));
+    errors.push(...checkEvidence(t, byId, sources));
   }
   if (errors.length) throw new Error('データに問題があります:\n' + errors.join('\n'));
   const entries = [...byId.keys()].sort().map((id) => buildEntry(id, byId, sources));
   return '// 自動生成ファイル（編集しない）: node tools/build-catalog.mjs\n'
-    + '// 出典: NC State Extension Gardener Plant Toolbox (CC BY 4.0) / GBIF Backbone Taxonomy (CC BY 4.0)\n'
+    + '// 出典: NC State Extension Gardener Plant Toolbox (CC BY 4.0) / Clemson Extension HGIC（引用） / GBIF Backbone Taxonomy (CC BY 4.0)\n'
     + `export const CATALOG = ${JSON.stringify(entries)};\n`;
 }
 

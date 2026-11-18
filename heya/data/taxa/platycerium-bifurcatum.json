@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "platycerium-bifurcatum"
+  "ncsu": "platycerium-bifurcatum",
+  "hgic": "indoor-ferns"
  },
  "care": {
   "light": {
@@ -22,11 +23,11 @@
   "temperature": {
    "minC": 5,
    "idealC": [
-    15,
-    27
+    10,
+    22
    ]
   },
-  "humidity": "medium",
+  "humidity": "high",
   "watering": {
    "growing": "topdry",
    "winter": "halfdry"
@@ -59,18 +60,22 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "( Platycerium bifurcatum ) 3 feet or more in length and width Bright indirect or filtered sunlight. Night temperatures of 50 to 55 °F and day temperatures of 68 to 72 °F.",
+    "fahrenheit": [
+     50,
+     72
+    ]
    }
   ],
   "humidity": [
    {
-    "src": "ncsu",
-    "quote": "Black spot may occur when the humidity is too high."
+    "src": "hgic",
+    "quote": "Staghorns need very high humidity that is hard to achieve in most houses."
    },
    {
-    "src": "estimate",
-    "reason": "湿度が高すぎると黒い斑点が出るとされるため「ふつう」とした"
+    "src": "ncsu",
+    "quote": "Black spot may occur when the humidity is too high."
    }
   ],
   "watering.growing": [

@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "crassula-ovata"
+  "ncsu": "crassula-ovata",
+  "hgic": "jade-plant"
  },
  "care": {
   "light": {
@@ -23,18 +24,22 @@
   "temperature": {
    "minC": 5,
    "idealC": [
-    15,
-    25
+    10,
+    24
    ]
   },
   "humidity": "low",
   "watering": {
-   "growing": "dry",
+   "growing": "halfdry",
    "winter": "dry"
   }
  },
  "evidence": {
   "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Jade plants do best where they get four or more hours a day of direct sunlight."
+   },
    {
     "src": "ncsu",
     "quote": "place the pot in a sunny location indoors that also provides some afternoon shade"
@@ -60,12 +65,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "Bright light and average to cool indoor temperatures are also essential for good plant health."
-   },
-   {
-    "src": "estimate",
-    "reason": "「ふつう〜涼しめの室温」をやや低めの範囲に当てはめた"
+    "src": "hgic",
+    "quote": "Jade plants do best with daytime temperatures between 65 and 75 °F, and nighttime temperatures between 50 and 55 ° F.",
+    "fahrenheit": [
+     50,
+     75
+    ]
    }
   ],
   "humidity": [
@@ -76,11 +81,23 @@
   ],
   "watering.growing": [
    {
+    "src": "hgic",
+    "quote": "Soil should be kept moist but not wet while plants are actively growing in spring and summer."
+   },
+   {
+    "src": "estimate",
+    "reason": "NC State は乾いたら水をやる、Clemson は生育期は湿り気を保つとするため、その間の「半分乾いたら」とした"
+   },
+   {
     "src": "ncsu",
     "quote": "Water in moderation when the soil is dry"
    }
   ],
   "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "During the winter, let the soil dry between waterings."
+   },
    {
     "src": "ncsu",
     "quote": "reduce watering from fall to late winter"
@@ -93,6 +110,11 @@
    "src": "ncsu",
    "quote": "Leaf fall and root rot can result from over watering.",
    "symptom": "drop"
+  },
+  {
+   "ja": "冬は葉が窓ガラスに触れないようにし、すきま風を避ける。",
+   "src": "hgic",
+   "quote": "During the winter months, protect plants from drafts and do not let their foliage touch windowpanes."
   }
  ]
 }

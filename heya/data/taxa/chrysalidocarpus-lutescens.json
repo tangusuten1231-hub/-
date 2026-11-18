@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "chrysalidocarpus-lutescens"
+  "ncsu": "chrysalidocarpus-lutescens",
+  "hgic": "indoor-palms"
  },
  "care": {
   "light": {
@@ -35,6 +36,10 @@
  },
  "evidence": {
   "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Areca palms do best in bright indirect sunlight."
+   },
    {
     "src": "ncsu",
     "quote": "provide bright indirect light"
@@ -60,12 +65,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "a warm to average room"
-   },
-   {
-    "src": "estimate",
-    "reason": "「暖かい〜ふつうの部屋」を一般的な室温の範囲に当てはめた"
+    "src": "hgic",
+    "quote": "Temperatures at night of 65 to 70 °F and 75 to 85 °F during the day are ideal.",
+    "fahrenheit": [
+     65,
+     85
+    ]
    }
   ],
   "humidity": [
@@ -92,6 +97,12 @@
    "ja": "植え替えは2〜3年に1回。",
    "src": "ncsu",
    "quote": "Repot every 2 or 3 years."
+  },
+  {
+   "ja": "ハダニがとてもつきやすい。",
+   "src": "hgic",
+   "quote": "Areca palms are very susceptible to spider mites infestations.",
+   "symptom": "pests"
   }
  ],
  "note": "近年の分類の見直しで Chrysalidocarpus 属に移され、出典（NC State）もこの学名を使う。GBIF の分類表では Dypsis lutescens が正式名のまま。"

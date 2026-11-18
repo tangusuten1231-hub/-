@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "aglaonema"
+  "ncsu": "aglaonema",
+  "hgic": "chinese-evergreen-aglaonema-care-cultivation-growing-guide"
  },
  "care": {
   "light": {
@@ -26,9 +27,9 @@
     27
    ]
   },
-  "humidity": "high",
+  "humidity": "medium",
   "watering": {
-   "growing": "halfdry",
+   "growing": "topdry",
    "winter": "dry"
   }
  },
@@ -53,12 +54,15 @@
   ],
   "temperature.minC": [
    {
-    "src": "ncsu",
-    "quote": "It is intolerant of cold temperatures"
+    "src": "hgic",
+    "quote": "Chinese evergreens are sensitive to chilling temperatures below 50 °F.",
+    "fahrenheit": [
+     50
+    ]
    },
    {
-    "src": "estimate",
-    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+    "src": "ncsu",
+    "quote": "It is intolerant of cold temperatures"
    }
   ],
   "temperature.idealC": [
@@ -73,11 +77,19 @@
   ],
   "humidity": [
    {
+    "src": "hgic",
+    "quote": "Most grow well in an average house with low to moderate humidity."
+   },
+   {
     "src": "ncsu",
     "quote": "prefers high humidity but will tolerate dryer air"
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Keep soil moist; allow top 1–2 inches to dry before watering again"
+   },
    {
     "src": "ncsu",
     "quote": "allow the medium to dry between waterings"
@@ -101,6 +113,22 @@
    "src": "ncsu",
    "quote": "The leaves may turn brown in very dry air or a drafty location.",
    "symptom": "brown"
+  },
+  {
+   "ja": "水が多すぎても少なすぎても根が傷む。",
+   "src": "hgic",
+   "quote": "Too much or too little water can damage the roots and hinder growth.",
+   "symptom": "rot"
   }
- ]
+ ],
+ "toxicity": {
+  "cats": "listed",
+  "dogs": "listed",
+  "evidence": [
+   {
+    "src": "hgic",
+    "quote": "Leaves can be toxic to pets, particularly dogs and cats."
+   }
+  ]
+ }
 }

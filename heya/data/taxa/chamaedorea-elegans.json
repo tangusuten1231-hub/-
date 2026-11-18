@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "chamaedorea-elegans"
+  "ncsu": "chamaedorea-elegans",
+  "hgic": "indoor-palms"
  },
  "care": {
   "light": {
@@ -20,13 +21,13 @@
    "directSun": "morning"
   },
   "temperature": {
-   "minC": 10,
+   "minC": 16,
    "idealC": [
     18,
     27
    ]
   },
-  "humidity": "low",
+  "humidity": "medium",
   "watering": {
    "growing": "topdry",
    "winter": "halfdry"
@@ -41,6 +42,10 @@
   ],
   "light.min": [
    {
+    "src": "hgic",
+    "quote": "Parlor palms tolerate lower light levels well."
+   },
+   {
     "src": "ncsu",
     "quote": "they can tolerate low-light conditions"
    }
@@ -53,12 +58,11 @@
   ],
   "temperature.minC": [
    {
-    "src": "ncsu",
-    "quote": "Protect from cold drafts near windows, doors or vents."
-   },
-   {
-    "src": "estimate",
-    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+    "src": "hgic",
+    "quote": "They need a minimum winter temperature of 60 °F.",
+    "fahrenheit": [
+     60
+    ]
    }
   ],
   "temperature.idealC": [
@@ -68,6 +72,10 @@
    }
   ],
   "humidity": [
+   {
+    "src": "hgic",
+    "quote": "They prefer high to moderate humidity, but are adaptable."
+   },
    {
     "src": "ncsu",
     "quote": "low to medium humidity levels"

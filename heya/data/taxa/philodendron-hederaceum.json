@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "philodendron-hederaceum"
+  "ncsu": "philodendron-hederaceum",
+  "hgic": "philodendron-pothos-monstera"
  },
  "care": {
   "light": {
@@ -23,7 +24,7 @@
    "minC": 10,
    "idealC": [
     18,
-    27
+    29
    ]
   },
   "humidity": "medium",
@@ -59,12 +60,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "It prefers average indoor air temperatures"
-   },
-   {
-    "src": "estimate",
-    "reason": "「ふつうの室温」を一般的な室温の範囲に当てはめた"
+    "src": "hgic",
+    "quote": "Heartleaf philodendrons grow well in warm temperatures of 70 to 85 °F during the day and 65 to 75 °F at night.",
+    "fahrenheit": [
+     65,
+     85
+    ]
    }
   ],
   "humidity": [

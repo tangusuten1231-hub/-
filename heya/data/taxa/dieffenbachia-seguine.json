@@ -10,7 +10,8 @@
   ]
  },
  "refs": {
-  "ncsu": "dieffenbachia-seguine"
+  "ncsu": "dieffenbachia-seguine",
+  "hgic": "dieffenbachia"
  },
  "care": {
   "light": {
@@ -21,8 +22,8 @@
   "temperature": {
    "minC": 10,
    "idealC": [
-    18,
-    27
+    16,
+    24
    ]
   },
   "humidity": "high",
@@ -62,12 +63,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "moderate temperatures"
-   },
-   {
-    "src": "estimate",
-    "reason": "「ほどほどの温度」を一般的な室温の範囲に当てはめた"
+    "src": "hgic",
+    "quote": "Temperatures from 60 to 75 °F are ideal.",
+    "fahrenheit": [
+     60,
+     75
+    ]
    }
   ],
   "humidity": [
@@ -77,6 +78,10 @@
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Water thoroughly, then let soil dry to the touch to a depth of one inch."
+   },
    {
     "src": "ncsu",
     "quote": "allow the top 1-inch surface of the soil to dry completely before watering the plant again"
@@ -94,6 +99,11 @@
    "ja": "ペットや子どもには有毒。手の届かない場所に置く。",
    "src": "ncsu",
    "quote": "it can be toxic for pets and children"
+  },
+  {
+   "ja": "冬は明るい光（直射日光も）が最適。",
+   "src": "hgic",
+   "quote": "Bright light, even direct sunlight, is best during winter."
   }
  ]
 }

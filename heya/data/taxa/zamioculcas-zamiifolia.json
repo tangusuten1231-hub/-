@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "zamioculcas-zamiifolia"
+  "ncsu": "zamioculcas-zamiifolia",
+  "hgic": "zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide"
  },
  "care": {
   "light": {
@@ -20,7 +21,7 @@
    "directSun": "avoid"
   },
   "temperature": {
-   "minC": 10,
+   "minC": 16,
    "idealC": [
     18,
     30
@@ -53,8 +54,11 @@
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典は屋外の鉢を60°F（16℃）を下回ったら室内へ入れるよう勧めるが、傷む温度の記載ではないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+    "src": "hgic",
+    "quote": "ZZ plants are sensitive to cold and should be kept above 60 °F.",
+    "fahrenheit": [
+     60
+    ]
    }
   ],
   "temperature.idealC": [
@@ -65,8 +69,8 @@
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典に湿度の記載はないが、多肉質の地下茎と葉に水を蓄え乾燥に強いとされるため"
+    "src": "hgic",
+    "quote": "ZZ plants are acclimated to arid conditions and will thrive with regular indoor humidity levels."
    }
   ],
   "watering.growing": [

@@ -10,7 +10,8 @@
   ]
  },
  "refs": {
-  "ncsu": "guzmania-lingulata"
+  "ncsu": "guzmania-lingulata",
+  "hgic": "bromeliads"
  },
  "care": {
   "light": {
@@ -33,6 +34,10 @@
  },
  "evidence": {
   "light.best": [
+   {
+    "src": "hgic",
+    "quote": "They need moderate light, stable warm temperatures, and constantly moist air."
+   },
    {
     "src": "ncsu",
     "quote": "This plant grows well in part to full shade and does well under artificial lights."
@@ -63,6 +68,10 @@
    }
   ],
   "humidity": [
+   {
+    "src": "hgic",
+    "quote": "maintain high humidity, and good air movement"
+   },
    {
     "src": "ncsu",
     "quote": "To increase the humidity, consider using a humidifier"

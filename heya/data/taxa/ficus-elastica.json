@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "ficus-elastica"
+  "ncsu": "ficus-elastica",
+  "hgic": "rubber-plant"
  },
  "care": {
   "light": {
@@ -20,10 +21,10 @@
    "directSun": "morning"
   },
   "temperature": {
-   "minC": 5,
+   "minC": 13,
    "idealC": [
-    18,
-    30
+    16,
+    27
    ]
   },
   "humidity": "medium",
@@ -51,20 +52,31 @@
   ],
   "light.directSun": [
    {
+    "src": "hgic",
+    "quote": "They grow best with the morning light from an east window."
+   },
+   {
     "src": "ncsu",
     "quote": "protection from the afternoon sun"
    }
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典は55°F（13℃）以上でよく育つとするが、耐寒ゾーン9a（屋外で−6℃程度まで）とされ、国内の一般的な目安は5℃のため"
+    "src": "hgic",
+    "quote": "Avoid temperatures lower than 55° F, sudden drops in temperatures, and cold drafts.",
+    "fahrenheit": [
+     55
+    ]
    }
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "The ideal temperatures are 60 to 65 °F at night and 75 to 80 °F during the day.",
+    "fahrenheit": [
+     60,
+     80
+    ]
    }
   ],
   "humidity": [
@@ -92,6 +104,23 @@
    "src": "ncsu",
    "quote": "Rubber Plant prefers to remain in one location and do not do well with drafts or cold temperatures.",
    "symptom": "drop"
+  },
+  {
+   "ja": "土がずっと湿っていると葉が黄色くなる。",
+   "src": "hgic",
+   "quote": "Leaf yellowing may occur if the soil stays too wet.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "光不足・乾燥・冷たいすきま風で葉が落ちる。",
+   "src": "hgic",
+   "quote": "Too little light, dry air or cold drafts may cause leaf loss.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "植え替えは晩冬〜早春に。",
+   "src": "hgic",
+   "quote": "Repot in late winter or early spring if needed."
   }
  ]
 }

@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "schlumbergera-truncata"
+  "ncsu": "schlumbergera-truncata",
+  "hgic": "thanksgiving-christmas-cacti"
  },
  "care": {
   "light": {
@@ -107,6 +108,24 @@
    "ja": "植え替えは3年に1回程度。少し根詰まり気味を好む。",
    "src": "ncsu",
    "quote": "Repot the plant every three years or so, as it does well being slightly pot-bound."
+  },
+  {
+   "ja": "つぼみをつけるには、1日14時間以上の真っ暗な時間が必要（9月中旬から6週間以上）。",
+   "src": "hgic",
+   "quote": "Fourteen hours or more of continuous darkness each day is required before flower bud set will occur.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "夏の強い日差しで、茎が青白く黄色っぽくなる。",
+   "src": "hgic",
+   "quote": "bright sun during the summer months can make plants look pale and yellow",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "冬はとくに、土が水びたしにならないようにする。",
+   "src": "hgic",
+   "quote": "Do not let the soil become waterlogged, especially during the dark days of winter",
+   "symptom": "rot"
   }
  ]
 }

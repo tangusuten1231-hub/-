@@ -10,7 +10,8 @@
   ]
  },
  "refs": {
-  "ncsu": "syngonium-podophyllum"
+  "ncsu": "syngonium-podophyllum",
+  "hgic": "arrowhead-vine-syngonium-spp-indoor-care-growing-tips-plant-guide"
  },
  "care": {
   "light": {
@@ -22,7 +23,7 @@
    "minC": 10,
    "idealC": [
     18,
-    29
+    24
    ]
   },
   "humidity": "high",
@@ -58,12 +59,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "The ideal location will include a warm setting with high humidity."
-   },
-   {
-    "src": "estimate",
-    "reason": "「暖かい場所」を一般的な室温の範囲に当てはめた"
+    "src": "hgic",
+    "quote": "Temperature: 65°F to 75°F with average to high humidity",
+    "fahrenheit": [
+     65,
+     75
+    ]
    }
   ],
   "humidity": [
@@ -74,8 +75,8 @@
   ],
   "watering.growing": [
    {
-    "src": "estimate",
-    "reason": "出典に水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+    "src": "hgic",
+    "quote": "Allow the potting media to dry out slightly between waterings."
    }
   ],
   "watering.winter": [
@@ -90,6 +91,12 @@
    "ja": "数年ごとに植え替えて根を整理すると大きさを保てる。",
    "src": "ncsu",
    "quote": "Repotting every few years and trimming the root system can keep the plant manageable."
+  },
+  {
+   "ja": "北向きの窓辺でも育つが、葉の色がくすむ。",
+   "src": "hgic",
+   "quote": "North-facing windows also work well, but leaf color may become dull.",
+   "symptom": "fade"
   }
  ]
 }

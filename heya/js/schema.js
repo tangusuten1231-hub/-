@@ -72,7 +72,9 @@ export const HUMIDITY = {
 };
 
 export const RANKS = ['genus', 'species', 'cultivar'];
-export const SOURCES = { ncsu: 'NC State Extension Gardener Plant Toolbox', estimate: '目安（出典なし）' };
+export const SOURCES = { ncsu: 'NC State Extension Gardener Plant Toolbox', hgic: 'Clemson Extension HGIC', estimate: '目安（出典なし）' };
+/** 引用（quote）で根拠を示す出典 */
+export const QUOTED = ['ncsu', 'hgic'];
 
 /** 根拠が必要な育て方の項目（evidence のキー） */
 export const CARE_FIELDS = [
@@ -96,7 +98,7 @@ export const fToC = (f) => Math.round(((f - 32) * 5) / 9);
 export function validateTaxon(t, opt = {}) {
   const e = [];
   const need = (cond, msg) => { if (!cond) e.push(msg); };
-  const allowedTop = ['id', 'rank', 'parent', 'scientificName', 'cultivar', 'group', 'names', 'refs', 'care', 'evidence', 'tips', 'note'];
+  const allowedTop = ['id', 'rank', 'parent', 'scientificName', 'cultivar', 'group', 'names', 'refs', 'care', 'evidence', 'tips', 'note', 'toxicity'];
   for (const k of Object.keys(t)) need(allowedTop.includes(k), `未知の項目 "${k}"`);
 
   need(typeof t.id === 'string' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(t.id), 'id は小文字英数字とハイフン');
@@ -120,7 +122,7 @@ export function validateTaxon(t, opt = {}) {
   }
   if (t.refs != null) {
     need(isObj(t.refs), 'refs はオブジェクト');
-    if (isObj(t.refs)) for (const k of Object.keys(t.refs)) need(['ncsu'].includes(k), `refs の未知の項目 "${k}"`);
+    if (isObj(t.refs)) for (const k of Object.keys(t.refs)) need(['ncsu', 'hgic'].includes(k), `refs の未知の項目 "${k}"`);
   }
 
   const partial = opt.partial ?? t.rank === 'cultivar';
@@ -165,9 +167,9 @@ export function validateTaxon(t, opt = {}) {
       if (!Array.isArray(list)) continue;
       for (const x of list) {
         need(isObj(x) && x.src in SOURCES, `evidence["${p}"] の src は ${Object.keys(SOURCES).join('/')}`);
-        if (x?.src === 'ncsu') {
+        if (QUOTED.includes(x?.src)) {
           need(typeof x.quote === 'string' && x.quote.length >= 8, `evidence["${p}"] に原文（quote）が必要`);
-          need(t.refs?.ncsu || t.parent, `evidence["${p}"] は ncsu を使うが refs.ncsu がない`);
+          need(t.refs?.[x.src] || t.parent, `evidence["${p}"] は ${x.src} を使うが refs.${x.src} がない`);
         }
         if (x?.src === 'estimate') need(typeof x.reason === 'string' && x.reason.length >= 6, `evidence["${p}"] の目安には理由（reason）が必要`);
         if (x?.fahrenheit !== undefined) need(Array.isArray(x.fahrenheit) && x.fahrenheit.every(Number.isFinite), `evidence["${p}"].fahrenheit は数値の配列`);
@@ -180,11 +182,18 @@ export function validateTaxon(t, opt = {}) {
     need(Array.isArray(t.tips), 'tips は配列');
     for (const tip of t.tips ?? []) {
       need(isObj(tip) && typeof tip.ja === 'string' && tip.ja.length > 0, 'tip には ja が必要');
-      need(tip?.src === 'ncsu' && typeof tip.quote === 'string', 'tip には出典の原文（src: ncsu, quote）が必要');
+      need(QUOTED.includes(tip?.src) && typeof tip.quote === 'string', 'tip には出典の原文（src: ncsu / hgic, quote）が必要');
       if (tip?.symptom !== undefined) need(tip.symptom in SYMPTOMS, `tip の symptom は ${Object.keys(SYMPTOMS).join('/')}`);
       if (tip) for (const k of Object.keys(tip)) need(['ja', 'src', 'quote', 'symptom'].includes(k), `tip の未知の項目 "${k}"`);
     }
   }
   if (t.note != null) need(typeof t.note === 'string', 'note は文字列');
+  // 毒性の追加の記載（NC State 以外の出典で害があると書かれている場合）
+  if (t.toxicity != null) {
+    need(isObj(t.toxicity), 'toxicity はオブジェクト');
+    for (const k of Object.keys(t.toxicity ?? {})) need(['cats', 'dogs', 'children', 'humans', 'evidence'].includes(k), `toxicity の未知の項目 "${k}"`);
+    for (const k of ['cats', 'dogs', 'children', 'humans']) if (t.toxicity?.[k] !== undefined) need(t.toxicity[k] === 'listed', `toxicity.${k} は 'listed' のみ（「安全」は書かない）`);
+    need(Array.isArray(t.toxicity?.evidence) && t.toxicity.evidence.length > 0 && t.toxicity.evidence.every((x) => QUOTED.includes(x.src) && typeof x.quote === 'string'), 'toxicity.evidence に出典の原文が必要');
+  }
   return e;
 }

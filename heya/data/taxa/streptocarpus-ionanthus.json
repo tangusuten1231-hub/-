@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "streptocarpus-ionanthus"
+  "ncsu": "streptocarpus-ionanthus",
+  "hgic": "african-violet"
  },
  "care": {
   "light": {
@@ -113,6 +114,23 @@
    "src": "ncsu",
    "quote": "It requires a highly fertile medium for continued rebloom.",
    "symptom": "noflower"
+  },
+  {
+   "ja": "午後の直射日光が当たらない、明るい場所に置く。",
+   "src": "hgic",
+   "quote": "African violets prefer a bright area in the home that does not receive direct sunlight in the afternoon."
+  },
+  {
+   "ja": "花が咲かないのは、たいてい光不足。",
+   "src": "hgic",
+   "quote": "Lack of flowering is one of the most common problems and is generally due to inadequate light.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "冷たい水が葉にかかると斑点ができる。水はぬるま湯で。",
+   "src": "hgic",
+   "quote": "Use only warm water because cold water causes spots on the leaves.",
+   "symptom": "spots"
   }
  ],
  "note": "以前の学名は Saintpaulia ionantha。"

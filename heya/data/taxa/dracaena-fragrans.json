@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "dracaena-fragrans"
+  "ncsu": "dracaena-fragrans",
+  "hgic": "dracaena"
  },
  "care": {
   "light": {
@@ -101,6 +102,18 @@
    "src": "ncsu",
    "quote": "A humidifier may help to prevent leaf tip browning, especially in the winter when the house is heated.",
    "symptom": "brown"
+  },
+  {
+   "ja": "葉先やふちが乾いて枯れるのは、たいてい湿度不足。",
+   "src": "hgic",
+   "quote": "Dry tips and edges are usually caused by too little humidity.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "急に葉がたくさん落ちるのは、温度の変化・すきま風・水のやりすぎ・水はけの悪さ・害虫。",
+   "src": "hgic",
+   "quote": "A sudden loss of many leaves can be caused by changes in temperature, drafts, too much water, poor drainage or heavy insect infestations.",
+   "symptom": "drop"
   }
  ]
 }

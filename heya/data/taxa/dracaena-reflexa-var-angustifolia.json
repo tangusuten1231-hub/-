@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "dracaena-reflexa-var-angustifolia"
+  "ncsu": "dracaena-reflexa-var-angustifolia",
+  "hgic": "dracaena"
  },
  "care": {
   "light": {
@@ -23,14 +24,14 @@
   "temperature": {
    "minC": 10,
    "idealC": [
-    18,
-    29
+    16,
+    21
    ]
   },
   "humidity": "medium",
   "watering": {
-   "growing": "halfdry",
-   "winter": "dry"
+   "growing": "topdry",
+   "winter": "halfdry"
   }
  },
  "evidence": {
@@ -60,17 +61,25 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Dracaenas are best grown in normal house temperatures of 60 to 70 °F during the day.",
+    "fahrenheit": [
+     60,
+     70
+    ]
    }
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典に湿度の記載がないため「ふつう」とした"
+    "src": "hgic",
+    "quote": "If the humidity in the house is below 30 to 40 percent (it probably is during winter), plants will benefit from an occasional misting of their foliage."
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Wait until the soil surface is dry to the touch, then water them thoroughly."
+   },
    {
     "src": "ncsu",
     "quote": "allow the plants to dry between waterings but not severely"

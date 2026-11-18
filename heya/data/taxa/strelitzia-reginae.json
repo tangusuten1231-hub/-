@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "strelitzia-reginae"
+  "ncsu": "strelitzia-reginae",
+  "hgic": "bird-of-paradise"
  },
  "care": {
   "light": {
@@ -35,6 +36,10 @@
  },
  "evidence": {
   "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Bird of Paradise prefers full sun but will tolerate lower light levels"
+   },
    {
     "src": "ncsu",
     "quote": "Grow indoors in a well-lit, sunny spot"
@@ -73,8 +78,8 @@
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典に湿度の記載がないため「ふつう」とした"
+    "src": "hgic",
+    "quote": "They prefer moderate relative humidity, around 60 percent"
    }
   ],
   "watering.growing": [
@@ -96,6 +101,17 @@
    "src": "ncsu",
    "quote": "Root rot can occur from overwatering or poorly drained soils.",
    "symptom": "rot"
+  },
+  {
+   "ja": "肥料のやりすぎは葉ばかり茂って花が咲かない原因になる。",
+   "src": "hgic",
+   "quote": "Overfertilization will lead to excessive foliage with little or no flowering.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "寒い時期は光も減るので、水やりの回数を減らす。",
+   "src": "hgic",
+   "quote": "Watering will be less frequent during the colder months when light levels are reduced."
   }
  ]
 }

@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "tillandsia-ionantha"
+  "ncsu": "tillandsia-ionantha",
+  "hgic": "air-plants"
  },
  "care": {
   "light": {
@@ -99,6 +100,17 @@
    "ja": "生育期は、半分以下に薄めた液体肥料を与える。",
    "src": "ncsu",
    "quote": "Fertilize during the growing season with a dilute (half-strength or even less) liquid fertilizer."
+  },
+  {
+   "ja": "週に1回、霧吹きでしっかり湿らせるか、20〜30分水に浸す。",
+   "src": "hgic",
+   "quote": "Water Tillandsia once a week by either misting well or submerging the plant in water for 20-30 minutes."
+  },
+  {
+   "ja": "風通しをよくすると、水やりのあと早く乾き、病気を防げる。",
+   "src": "hgic",
+   "quote": "This helps the plant dry between watering and will help prevent disease.",
+   "symptom": "rot"
   }
  ]
 }

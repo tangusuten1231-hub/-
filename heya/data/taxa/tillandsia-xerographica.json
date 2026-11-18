@@ -10,7 +10,8 @@
   ]
  },
  "refs": {
-  "ncsu": "tillandsia-xerographica"
+  "ncsu": "tillandsia-xerographica",
+  "hgic": "air-plants"
  },
  "care": {
   "light": {
@@ -99,6 +100,17 @@
    "src": "ncsu",
    "quote": "The plants bloom once in their lifetime and only when conditions are right.",
    "symptom": "noflower"
+  },
+  {
+   "ja": "週に1回、霧吹きでしっかり湿らせるか、20〜30分水に浸す。",
+   "src": "hgic",
+   "quote": "Water Tillandsia once a week by either misting well or submerging the plant in water for 20-30 minutes."
+  },
+  {
+   "ja": "風通しをよくすると、水やりのあと早く乾き、病気を防げる。",
+   "src": "hgic",
+   "quote": "This helps the plant dry between watering and will help prevent disease.",
+   "symptom": "rot"
   }
  ]
 }

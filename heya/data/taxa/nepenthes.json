@@ -10,13 +10,14 @@
   ]
  },
  "refs": {
-  "ncsu": "nepenthes"
+  "ncsu": "nepenthes",
+  "hgic": "tropical-pitcher-plants-nepenthes-spp-indoor-care-growing-tips-plant-guide"
  },
  "care": {
   "light": {
    "best": "bright",
    "min": "medium",
-   "directSun": "avoid"
+   "directSun": "morning"
   },
   "temperature": {
    "minC": 16,
@@ -46,8 +47,8 @@
   ],
   "light.directSun": [
    {
-    "src": "estimate",
-    "reason": "出典は明るい光を好むとするが、直射日光の記載がないため、葉焼けを避けてレース越しとした"
+    "src": "hgic",
+    "quote": "Most tropical pitcher plants like bright, diffused light and can tolerate a few hours of direct sun in the morning or late afternoon."
    }
   ],
   "temperature.minC": [
@@ -67,6 +68,10 @@
    }
   ],
   "humidity": [
+   {
+    "src": "hgic",
+    "quote": "Provide plants with humidity levels above 60%."
+   },
    {
     "src": "ncsu",
     "quote": "These plants require warm temperatures and high humidity."
@@ -101,6 +106,11 @@
    "src": "ncsu",
    "quote": "If the humidity is too low, the traps or pitchers will not develop properly or will die back.",
    "symptom": "brown"
+  },
+  {
+   "ja": "袋（捕虫袋）ができないのは、たいてい光不足と湿度不足。",
+   "src": "hgic",
+   "quote": "If plants are not producing pitchers, low light and low humidity levels are usually the reason."
   }
  ]
 }
