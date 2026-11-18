@@ -13,7 +13,8 @@
   ]
  },
  "refs": {
-  "ncsu": "heptapleurum-arboricola"
+  "ncsu": "heptapleurum-arboricola",
+  "hgic": "schefflera-2"
  },
  "care": {
   "light": {
@@ -22,16 +23,16 @@
    "directSun": "avoid"
   },
   "temperature": {
-   "minC": 5,
+   "minC": 10,
    "idealC": [
     18,
-    30
+    24
    ]
   },
   "humidity": "high",
   "watering": {
-   "growing": "halfdry",
-   "winter": "dry"
+   "growing": "topdry",
+   "winter": "halfdry"
   }
  },
  "evidence": {
@@ -55,14 +56,21 @@
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典は60°F（16℃）を下回らない時期なら屋外に出せるとするが、傷む温度の記載ではない。耐寒ゾーン9b（屋外で−3℃程度まで）とされ、国内の一般的な目安の5℃とした"
+    "src": "hgic",
+    "quote": "Maintain temperatures above 50 °F.",
+    "fahrenheit": [
+     50
+    ]
    }
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Scheffleras prefer day temperatures between 65 and 75 °F.",
+    "fahrenheit": [
+     65,
+     75
+    ]
    }
   ],
   "humidity": [
@@ -73,8 +81,8 @@
   ],
   "watering.growing": [
    {
-    "src": "ncsu",
-    "quote": "Allow the soil to dry out and then thoroughly soak it with water."
+    "src": "hgic",
+    "quote": "Water scheffleras thoroughly, then let the soil dry to ½ inch deep before watering again."
    }
   ],
   "watering.winter": [
@@ -89,6 +97,18 @@
    "ja": "土が湿りすぎても乾きすぎても葉を落とす。",
    "src": "ncsu",
    "quote": "If the soil is too wet or too dry the leave will drop off.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "光不足で葉が黄色くなり、茎がひょろひょろになる。",
+   "src": "hgic",
+   "quote": "Low light can cause leaf yellowing with spindly, weak stems.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "水のやりすぎ・湿度不足・寒さで葉が落ちる。",
+   "src": "hgic",
+   "quote": "Leaf drop can be caused by excessive watering, by low humidity, or by chilling.",
    "symptom": "drop"
   }
  ],

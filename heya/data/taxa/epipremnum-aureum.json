@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "epipremnum-aureum"
+  "ncsu": "epipremnum-aureum",
+  "hgic": "how-to-grow-pothos-indoors-epipremnum-spp-care-cultivars-and-common-problems"
  },
  "care": {
   "light": {
@@ -22,7 +23,7 @@
   "temperature": {
    "minC": 10,
    "idealC": [
-    18,
+    16,
     29
    ]
   },
@@ -59,17 +60,29 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Pothos prefer a warm room, between 60°F to 70°F at night and 70 °F to 85°F during the day.",
+    "fahrenheit": [
+     60,
+     85
+    ]
    }
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典は加湿をすすめるが、乾燥した室内でも育つ植物として一般に知られるため「ふつう」とした"
+    "src": "hgic",
+    "quote": "Humidity: Prefers 50% to 70%"
+   },
+   {
+    "src": "hgic",
+    "quote": "Pothos will tolerate these low humidity levels"
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Soil should be allowed to dry between each watering."
+   },
    {
     "src": "ncsu",
     "quote": "let the well-drained potting medium dry out between watering"
@@ -98,6 +111,12 @@
    "ja": "支柱に登らせて光が足りると、大きな成熟した葉を出す。",
    "src": "ncsu",
    "quote": "If given a support on which to climb and adequate light, the plant will begin to produce large, mature leaves."
+  },
+  {
+   "ja": "葉焼けや葉先の枯れは、湿度不足か強すぎる光が原因のことが多い。",
+   "src": "hgic",
+   "quote": "Leaf Scorch and tip dieback: Often caused by low humidity or intense light.",
+   "symptom": "brown"
   }
  ]
 }

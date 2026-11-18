@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "phalaenopsis"
+  "ncsu": "phalaenopsis",
+  "hgic": "orchids"
  },
  "care": {
   "light": {
@@ -34,6 +35,10 @@
  },
  "evidence": {
   "light.best": [
+   {
+    "src": "hgic",
+    "quote": "They perform best in a bright window with little or no direct sun, such as an east window."
+   },
    {
     "src": "ncsu",
     "quote": "The best placement in the house is on an east windowsill"
@@ -63,15 +68,22 @@
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "Moth orchids prefer low light, warm temperatures and high humidity."
+    "src": "hgic",
+    "quote": "The minimum night temperature recommended for phalaenopsis is 65 °F",
+    "fahrenheit": [
+     65
+    ]
    },
    {
     "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "reason": "上限は出典に記載がないため、一般的な室温の範囲とした"
    }
   ],
   "humidity": [
+   {
+    "src": "hgic",
+    "quote": "most orchids require 40 to 60 percent humidity throughout the year"
+   },
    {
     "src": "ncsu",
     "quote": "Moth orchids prefer low light, warm temperatures and high humidity."
@@ -123,6 +135,12 @@
    "ja": "植え替えは2年に1回程度、花が終わったあとか新しい葉が出始めたとき。",
    "src": "ncsu",
    "quote": "Orchids need to be repotted approximately every two years after blooms have faded or as new leaves begin to appear."
+  },
+  {
+   "ja": "胡蝶蘭は完全に乾かしてはいけない。",
+   "src": "hgic",
+   "quote": "Do not let phalaenopsis completely dry out.",
+   "symptom": "curl"
   }
  ]
 }

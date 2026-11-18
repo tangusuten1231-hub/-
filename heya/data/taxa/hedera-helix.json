@@ -12,19 +12,20 @@
   ]
  },
  "refs": {
-  "ncsu": "hedera-helix"
+  "ncsu": "hedera-helix",
+  "hgic": "growing-english-ivy-indoors"
  },
  "care": {
   "light": {
    "best": "bright",
    "min": "low",
-   "directSun": "ok"
+   "directSun": "avoid"
   },
   "temperature": {
    "minC": 0,
    "idealC": [
     10,
-    25
+    21
    ]
   },
   "humidity": "medium",
@@ -36,8 +37,8 @@
  "evidence": {
   "light.best": [
    {
-    "src": "estimate",
-    "reason": "出典の光の条件は日向から日陰まで幅広いため、室内では葉色がよく保てる明るい日陰を最適とした"
+    "src": "hgic",
+    "quote": "Most cultivars of ivy grow best in bright light, but not direct sun."
    }
   ],
   "light.min": [
@@ -48,8 +49,8 @@
   ],
   "light.directSun": [
    {
-    "src": "ncsu",
-    "quote": "Full sun (6 or more hours of direct sunlight a day)"
+    "src": "hgic",
+    "quote": "Most cultivars of ivy grow best in bright light, but not direct sun."
    }
   ],
   "temperature.minC": [
@@ -60,20 +61,24 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "寒さに強い温帯の植物のため、一般的な室温よりやや低めの範囲とした"
+    "src": "hgic",
+    "quote": "Ivies do well at cool to moderate room temperatures of 50 to 70 °F during the day",
+    "fahrenheit": [
+     50,
+     70
+    ]
    }
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典に室内の湿度の記載がないため「ふつう」とした"
+    "src": "hgic",
+    "quote": "Although ivies prefer moderate humidity, they will tolerate normal low home levels."
    }
   ],
   "watering.growing": [
    {
-    "src": "estimate",
-    "reason": "出典に室内の水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+    "src": "hgic",
+    "quote": "Water ivies thoroughly, then let the soil dry to the touch to a depth of ½ inch before watering again."
    }
   ],
   "watering.winter": [
@@ -83,5 +88,19 @@
    }
   ]
  },
- "note": "屋外では侵略的になることがある（出典では Invasive Species）。庭に植えるときは注意。"
+ "note": "屋外では侵略的になることがある（出典では Invasive Species）。庭に植えるときは注意。",
+ "tips": [
+  {
+   "ja": "光が足りないと斑入りの品種が緑一色になる。",
+   "src": "hgic",
+   "quote": "variegated forms may turn all green",
+   "symptom": "fade"
+  },
+  {
+   "ja": "涼しめの温度と高い湿度で、よくある害虫を防げる。",
+   "src": "hgic",
+   "quote": "Maintaining cooler temperatures and high humidity will help prevent some of the most common insect pests",
+   "symptom": "pests"
+  }
+ ]
 }

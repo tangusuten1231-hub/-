@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "ficus-benjamina"
+  "ncsu": "ficus-benjamina",
+  "hgic": "weeping-ficus"
  },
  "care": {
   "light": {
@@ -23,12 +24,12 @@
    "minC": 10,
    "idealC": [
     18,
-    30
+    29
    ]
   },
-  "humidity": "medium",
+  "humidity": "high",
   "watering": {
-   "growing": "halfdry",
+   "growing": "topdry",
    "winter": "halfdry"
   }
  },
@@ -51,8 +52,8 @@
   ],
   "light.directSun": [
    {
-    "src": "estimate",
-    "reason": "出典は明るい間接光を勧めるため、強い日差しは避け朝の光までとした"
+    "src": "hgic",
+    "quote": "They will handle some direct sun if the humidity is high."
    }
   ],
   "temperature.minC": [
@@ -67,17 +68,25 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Night temperatures of 65 to 70 °F and day temperatures of 75 to 85 °F are ideal.",
+    "fahrenheit": [
+     65,
+     85
+    ]
    }
   ],
   "humidity": [
    {
-    "src": "estimate",
-    "reason": "出典に湿度の記載がないため「ふつう」とした"
+    "src": "hgic",
+    "quote": "Weeping figs prefer high humidity levels."
    }
   ],
   "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "During periods of active growth, keep the soil evenly moist."
+   },
    {
     "src": "ncsu",
     "quote": "Water just often enough to keep the soil from completely drying out."
@@ -85,8 +94,8 @@
   ],
   "watering.winter": [
    {
-    "src": "estimate",
-    "reason": "出典に冬の記載がないため、生育期と同じく中まで乾き切る前に水をやるとした"
+    "src": "hgic",
+    "quote": "The soil should be allowed to dry slightly between waterings during the winter and other times of low growth."
    }
   ]
  },
@@ -95,6 +104,18 @@
    "ja": "光にとても敏感で、置き場所を変えると葉を落としてから新しい環境に合った葉を出す。",
    "src": "ncsu",
    "quote": "It is very sensitive to light, so if the plant is moved, it may drop leaves and produce new ones that are accustomed to the new light conditions.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "いちばん多いトラブルは落葉。水のやりすぎ・不足、すきま風、窒素不足、光不足のどれでも葉を落とす。",
+   "src": "hgic",
+   "quote": "Overwatering, under-watering, drafts, lack of nitrogen, and low light are all causes of leaf drop.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "植え替えや置き場所の移動のあとにも葉を落としやすい。",
+   "src": "hgic",
+   "quote": "Weeping figs often shed leaves when moved to a new location or repotted.",
    "symptom": "drop"
   }
  ]

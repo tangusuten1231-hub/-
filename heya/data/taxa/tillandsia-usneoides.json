@@ -11,13 +11,14 @@
   ]
  },
  "refs": {
-  "ncsu": "tillandsia-usneoides"
+  "ncsu": "tillandsia-usneoides",
+  "hgic": "air-plants"
  },
  "care": {
   "light": {
    "best": "bright",
    "min": "bright",
-   "directSun": "morning"
+   "directSun": "avoid"
   },
   "temperature": {
    "minC": 0,
@@ -47,12 +48,8 @@
   ],
   "light.directSun": [
    {
-    "src": "ncsu",
-    "quote": "Full sun (6 or more hours of direct sunlight a day)"
-   },
-   {
-    "src": "estimate",
-    "reason": "屋外では日なたでも育つとされるが、室内では強い日差しで乾きすぎるため朝の光までとした"
+    "src": "hgic",
+    "quote": "do not place them in direct sunlight"
    }
   ],
   "temperature.minC": [
@@ -85,5 +82,18 @@
     "reason": "出典に冬の記載がないため、生育期と同じとした（間隔は長めにする）"
    }
   ]
- }
+ },
+ "tips": [
+  {
+   "ja": "週に1回、霧吹きでしっかり湿らせるか、20〜30分水に浸す。",
+   "src": "hgic",
+   "quote": "Water Tillandsia once a week by either misting well or submerging the plant in water for 20-30 minutes."
+  },
+  {
+   "ja": "風通しをよくすると、水やりのあと早く乾き、病気を防げる。",
+   "src": "hgic",
+   "quote": "This helps the plant dry between watering and will help prevent disease.",
+   "symptom": "rot"
+  }
+ ]
 }

@@ -22,7 +22,7 @@ test('豆知識は出典つきの tips から選ぶ', () => {
   const l = guideLines({ plants: [], today: new Date(2027, 4, 1), pets: {}, tipPool });
   const t = l.find((x) => x.text.includes('豆知識'));
   assert.ok(t && e.tips.some((x) => t.text.includes(x.ja)));
-  assert.match(t.cite.url, /plants\.ces\.ncsu\.edu/);
+  assert.match(t.cite.url, /plants\.ces\.ncsu\.edu|hgic\.clemson\.edu/);
 });
 
 test('バックアップの形の確認', () => {

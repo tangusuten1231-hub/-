@@ -12,7 +12,8 @@
   ]
  },
  "refs": {
-  "ncsu": "philodendron-bipinnatifidum"
+  "ncsu": "philodendron-bipinnatifidum",
+  "hgic": "philodendron-pothos-monstera"
  },
  "care": {
   "light": {
@@ -60,8 +61,12 @@
   ],
   "temperature.idealC": [
    {
-    "src": "estimate",
-    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+    "src": "hgic",
+    "quote": "Night temperatures of 65 to 70 °F and day temperatures of 75 to 85 °F are ideal.",
+    "fahrenheit": [
+     65,
+     85
+    ]
    }
   ],
   "humidity": [

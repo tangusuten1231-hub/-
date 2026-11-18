@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "heptapleurum-actinophyllum"
+  "ncsu": "heptapleurum-actinophyllum",
+  "hgic": "schefflera-2"
  },
  "care": {
   "light": {
@@ -106,6 +107,12 @@
    "ja": "冷たいすきま風や暖房の吹き出し口を避ける。",
    "src": "ncsu",
    "quote": "Avoid cold drafts and heating vents to prevent plant stress."
+  },
+  {
+   "ja": "寒さにあたると数日後に葉に枯れた部分ができる。",
+   "src": "hgic",
+   "quote": "Dead areas form on leaves several days after exposure to excessive cold.",
+   "symptom": "brown"
   }
  ],
  "note": "以前の学名は Schefflera actinophylla。"

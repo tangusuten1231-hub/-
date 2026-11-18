@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "rhapis-excelsa"
+  "ncsu": "rhapis-excelsa",
+  "hgic": "indoor-palms"
  },
  "care": {
   "light": {
@@ -20,7 +21,7 @@
    "directSun": "avoid"
   },
   "temperature": {
-   "minC": 3,
+   "minC": 7,
    "idealC": [
     15,
     27
@@ -53,8 +54,11 @@
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典は50°F（10℃）を下回りそうなら室内へ入れるよう勧めるが、耐寒ゾーン9a（屋外で−6℃程度まで）とされ、冬のすきま風にも耐えるとするため、室内の目安を3℃とした"
+    "src": "hgic",
+    "quote": "Most houseplant palms need temperatures above 45 °F to prevent chilling damage.",
+    "fahrenheit": [
+     45
+    ]
    }
   ],
   "temperature.idealC": [
@@ -87,6 +91,11 @@
    "ja": "冬のすきま風にも耐えるので、玄関などドアの近くにも置ける。",
    "src": "ncsu",
    "quote": "It is a good specimen to use near doors because of its tolerance to periodic drafts of winter cold."
+  },
+  {
+   "ja": "ほとんどの室内環境になじみ、手入れが楽で丈夫。",
+   "src": "hgic",
+   "quote": "They easily adapt to most indoor situations and so are popular for its ease of care, durability, insect resistance and long life."
   }
  ]
 }

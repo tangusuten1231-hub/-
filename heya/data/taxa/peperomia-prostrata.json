@@ -10,7 +10,8 @@
   ]
  },
  "refs": {
-  "ncsu": "peperomia-prostrata"
+  "ncsu": "peperomia-prostrata",
+  "hgic": "peperomia-peperomia-spp-indoor-plant-care-and-growing-guide"
  },
  "care": {
   "light": {
@@ -101,6 +102,28 @@
    "src": "ncsu",
    "quote": "Overwatering can result in root rot.",
    "symptom": "rot"
+  },
+  {
+   "ja": "水をやりすぎると葉を落とす。",
+   "src": "hgic",
+   "quote": "If it is overwatered, it will drop its leaves.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "葉をぬらさないように水をやると、葉の斑点（カビ）を防げる。",
+   "src": "hgic",
+   "quote": "Fungal Leaf Spots: Can be prevented by ensuring the leaves stay dry when the plant is watered.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "冬は加湿器があるとよい。",
+   "src": "hgic",
+   "quote": "It will benefit from a humidifier in the winter."
+  },
+  {
+   "ja": "Clemson Extension は、ほとんどのペペロミアはペットに安全とされる、としている（ASPCA の一覧を参照するよう案内）。",
+   "src": "hgic",
+   "quote": "Most peperomia are considered safe for pets."
   }
  ]
 }

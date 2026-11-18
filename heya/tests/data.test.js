@@ -21,7 +21,7 @@ test('ファイル名と id が一致し、id は重複しない', async () => {
 });
 
 test('出典の原文がすべて出典スナップショットにあり、°F→℃ の換算が合う', () => {
-  const errs = list.flatMap((t) => checkEvidence(t, byId, sources.ncsu));
+  const errs = list.flatMap((t) => checkEvidence(t, byId, sources));
   assert.deepEqual(errs, []);
 });
 
@@ -110,4 +110,23 @@ test('図鑑の全件に画面で使う項目がそろっている', async () =>
     assert.ok(Array.isArray(e.names.aliases), `${e.id}: aliases`);
     assert.ok(e.toxicity && e.facts && e.ncsu && e.taxonomy && e.family, `${e.id}: 出典由来の項目`);
   }
+});
+
+test('2つの出典がある温度は、植物にとって安全な側（高い方）の値になっている', () => {
+  for (const t of list) {
+    const ev = t.evidence?.['temperature.minC'] ?? [];
+    const fs = ev.filter((x) => x.fahrenheit).map((x) => Math.round(((x.fahrenheit[0] - 32) * 5) / 9));
+    if (fs.length) assert.equal(t.care.temperature.minC, Math.max(...fs), t.id);
+  }
+});
+test('Clemson の抜粋は全文ではなく、育て方に関わる段落だけ', () => {
+  for (const [slug, s] of Object.entries(sources.hgic)) {
+    assert.ok(Array.isArray(s.paragraphs) && s.paragraphs.length > 0, slug);
+    assert.match(s.url, /^https:\/\/hgic\.clemson\.edu\/factsheet\//, slug);
+  }
+});
+test('NC State に記載がなくても、Clemson に害の記載があれば「害あり」にする', () => {
+  const e = buildEntry('aglaonema', byId, sources);
+  assert.equal(e.toxicity.cats, 'listed');
+  assert.equal(e.toxicity.extra[0].src, 'hgic');
 });

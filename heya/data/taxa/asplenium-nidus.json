@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "asplenium-nidus"
+  "ncsu": "asplenium-nidus",
+  "hgic": "indoor-ferns"
  },
  "care": {
   "light": {
@@ -40,6 +41,10 @@
    }
   ],
   "light.min": [
+   {
+    "src": "hgic",
+    "quote": "( Asplenium nidus ) Grows to 18 inches tall Prefers the light of a north window."
+   },
    {
     "src": "ncsu",
     "quote": "Bright light or light shade, such as a north-facing window, is suitable."

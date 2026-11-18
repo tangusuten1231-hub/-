@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "spathiphyllum"
+  "ncsu": "spathiphyllum",
+  "hgic": "peace-lily"
  },
  "care": {
   "light": {
@@ -20,7 +21,7 @@
    "directSun": "avoid"
   },
   "temperature": {
-   "minC": 4,
+   "minC": 16,
    "idealC": [
     20,
     29
@@ -53,21 +54,29 @@
   ],
   "temperature.minC": [
    {
-    "src": "ncsu",
-    "quote": "Extended periods below 40 degrees F can damage leaves, stems and roots.",
+    "src": "hgic",
+    "quote": "Try to avoid temperatures below 60 °F as cold damage may occur.",
     "fahrenheit": [
-     40
+     60
     ]
+   },
+   {
+    "src": "ncsu",
+    "quote": "Extended periods below 40 degrees F can damage leaves, stems and roots."
    }
   ],
   "temperature.idealC": [
    {
-    "src": "ncsu",
-    "quote": "They enjoy warm conditions between 68 and 85 degrees F during the day",
+    "src": "hgic",
+    "quote": "Peace lilies prefer warm daytime temperatures between 68 and 85 °F",
     "fahrenheit": [
      68,
      85
     ]
+   },
+   {
+    "src": "ncsu",
+    "quote": "They enjoy warm conditions between 68 and 85 degrees F during the day"
    }
   ],
   "humidity": [
@@ -104,6 +113,23 @@
    "ja": "鉢底から水を吸わせる「底面給水」がよく合う。",
    "src": "ncsu",
    "quote": "Watering from below works very well for peace lilies."
+  },
+  {
+   "ja": "花が咲かないのは、株が若い（1年未満）か光不足のことが多い。",
+   "src": "hgic",
+   "quote": "Lack of flowering usually occurs when plants are less than a year old or are growing in insufficient light.",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "土を乾かしすぎるとしおれ、葉やふちが黄色くなる。",
+   "src": "hgic",
+   "quote": "If the soil is allowed to dry out excessively, the plant will wilt, and the leaves and edges will turn yellow.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "冷暖房の風が直接当たる場所に置かない。",
+   "src": "hgic",
+   "quote": "Do not place them where heat or air-conditioning vents blow directly on the plants"
   }
  ]
 }

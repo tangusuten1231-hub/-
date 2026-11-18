@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "howea-forsteriana"
+  "ncsu": "howea-forsteriana",
+  "hgic": "indoor-palms"
  },
  "care": {
   "light": {
@@ -20,7 +21,7 @@
    "directSun": "avoid"
   },
   "temperature": {
-   "minC": 5,
+   "minC": 7,
    "idealC": [
     18,
     27
@@ -29,7 +30,7 @@
   "humidity": "low",
   "watering": {
    "growing": "moist",
-   "winter": "topdry"
+   "winter": "dry"
   }
  },
  "evidence": {
@@ -53,8 +54,11 @@
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、余裕をみて5℃とした"
+    "src": "hgic",
+    "quote": "Most houseplant palms need temperatures above 45 °F to prevent chilling damage.",
+    "fahrenheit": [
+     45
+    ]
    }
   ],
   "temperature.idealC": [
@@ -75,14 +79,18 @@
   ],
   "watering.growing": [
    {
+    "src": "hgic",
+    "quote": "Water kentia palms abundantly during the summer"
+   },
+   {
     "src": "ncsu",
     "quote": "a well-drained, humus-rich potting mix that does not dry out"
    }
   ],
   "watering.winter": [
    {
-    "src": "estimate",
-    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+    "src": "hgic",
+    "quote": "only water when their potting mix is dry during the winter"
    }
   ]
  },

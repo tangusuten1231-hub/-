@@ -1,6 +1,6 @@
 // 手で書いたデータ（data/taxa）と出典スナップショット（data/sources）から、
 // アプリが使う図鑑データを組み立てる。ブラウザ・Node の両方で動く純粋な関数だけを置く。
-import { CARE_FIELDS, getPath, fToC } from './schema.js';
+import { CARE_FIELDS, getPath, fToC, QUOTED } from './schema.js';
 
 /** 引用照合用に文字列を正規化（空白・引用符・大文字小文字の違いを無視） */
 export const normText = (s) => String(s)
@@ -14,6 +14,12 @@ export function ncsuCorpus(snap) {
   for (const [k, vs] of Object.entries(snap.attributes ?? {})) parts.push(`${k}: ${vs.join(' | ')}`);
   for (const c of snap.cultivars ?? []) parts.push(`${c.name} ${c.note}`);
   return normText(parts.join('\n'));
+}
+
+/** Clemson HGIC の抜粋（段落）の本文 */
+export function hgicCorpus(snap) {
+  if (!snap) return '';
+  return normText((snap.paragraphs ?? []).map((p) => p.text).join('\n'));
 }
 
 /** USDA 耐寒性ゾーン（例 "10a"）の最低気温（℃） */
@@ -101,6 +107,7 @@ export function resolveTaxon(id, byId, seen = new Set()) {
     lineage: [...p.lineage, id],
     note: t.note ?? null,
     parentNote: p.note ?? p.parentNote ?? null,
+    toxicity: t.toxicity ?? p.toxicity,
   };
 }
 
@@ -110,6 +117,12 @@ export function buildEntry(id, byId, sources) {
   const speciesId = r.lineage.find((x) => byId.get(x).rank !== 'cultivar' && sources.gbif[x]) ?? r.lineage[0];
   const g = sources.gbif[speciesId] ?? null;
   const n = r.refs.ncsu ? sources.ncsu[r.refs.ncsu] ?? null : null;
+  const h = r.refs.hgic ? sources.hgic?.[r.refs.hgic] ?? null : null;
+  let toxicity = toxicityFrom(n);
+  if (r.toxicity && toxicity) {
+    toxicity = { ...toxicity, extra: r.toxicity.evidence };
+    for (const k of ['cats', 'dogs', 'children', 'humans']) if (r.toxicity[k] === 'listed') toxicity[k] = 'listed';
+  }
   const groupOf = (x) => { for (let y = byId.get(x); y; y = y.parent ? byId.get(y.parent) : null) if (y.group) return y.group; return null; };
   const img = r.refs.ncsu ? sources.images?.[r.refs.ncsu] ?? null : null;
   return {
@@ -123,8 +136,9 @@ export function buildEntry(id, byId, sources) {
     care: r.care, evidence: r.evidence, inherited: r.inherited,
     tips: r.tips, parentTips: r.parentTips,
     note: r.note, parentNote: r.parentNote,
-    toxicity: toxicityFrom(n), facts: factsFrom(n),
+    toxicity, facts: factsFrom(n),
     ncsu: n ? { url: n.url, retrieved: n.retrieved, commonNames: n.commonNames } : null,
+    hgic: h ? { url: h.url, title: h.title, id: h.hgic, retrieved: h.retrieved } : null,
   };
 }
 
@@ -133,19 +147,24 @@ export function buildEntry(id, byId, sources) {
  * - src: 'ncsu' の quote は出典スナップショットに原文がなければならない
  * - fahrenheit を書いた根拠は、その数値が原文にあり、℃ の値と一致しなければならない
  */
-export function checkEvidence(t, byId, ncsuSnaps) {
+export function checkEvidence(t, byId, snaps) {
   const errs = [];
-  const ncsuSlug = (() => { for (let x = t; x; x = x.parent ? byId.get(x.parent) : null) if (x.refs?.ncsu) return x.refs.ncsu; return null; })();
-  const corpus = ncsuCorpus(ncsuSnaps[ncsuSlug]);
-  const check = (where, q) => {
-    if (!ncsuSlug || !ncsuSnaps[ncsuSlug]) errs.push(`${t.id} ${where}: 出典スナップショット ${ncsuSlug} がない`);
-    else if (!corpus.includes(normText(q))) errs.push(`${t.id} ${where}: 原文が出典に見つからない「${q}」`);
+  // 互換：第3引数に NC State のスナップショットだけを渡す呼び出し
+  const all = snaps.ncsu || snaps.hgic ? snaps : { ncsu: snaps };
+  const refOf = (src) => { for (let x = t; x; x = x.parent ? byId.get(x.parent) : null) if (x.refs?.[src]) return x.refs[src]; return null; };
+  const corpusOf = {};
+  const check = (where, src, q) => {
+    const ref = refOf(src);
+    const snap = ref ? all[src]?.[ref] : null;
+    if (!snap) { errs.push(`${t.id} ${where}: 出典スナップショット ${src}/${ref} がない`); return; }
+    corpusOf[src] ??= src === 'ncsu' ? ncsuCorpus(snap) : hgicCorpus(snap);
+    if (!corpusOf[src].includes(normText(q))) errs.push(`${t.id} ${where}: 原文が出典（${src}）に見つからない「${q}」`);
   };
   for (const [field, list] of Object.entries(t.evidence ?? {})) {
     for (const x of list) {
-      if (x.src === 'ncsu') check(field, x.quote);
+      if (QUOTED.includes(x.src)) check(field, x.src, x.quote);
       if (x.fahrenheit) {
-        for (const f of x.fahrenheit) if (!new RegExp(`\\b${f}\\b`).test(x.quote)) errs.push(`${t.id} ${field}: ${f}°F が原文にない`);
+        for (const f of x.fahrenheit) if (!new RegExp(`(^|[^0-9])${f}([^0-9]|$)`).test(x.quote)) errs.push(`${t.id} ${field}: ${f}°F が原文にない`);
         const v = getPath(t.care, field);
         const cs = x.fahrenheit.map(fToC);
         if (field === 'temperature.minC' && v !== cs[0]) errs.push(`${t.id} ${field}: ${x.fahrenheit[0]}°F = ${cs[0]}℃ だが値は ${v}`);
@@ -156,6 +175,7 @@ export function checkEvidence(t, byId, ncsuSnaps) {
       }
     }
   }
-  for (const tip of t.tips ?? []) check('tips', tip.quote);
+  for (const tip of t.tips ?? []) check('tips', tip.src, tip.quote);
+  for (const x of t.toxicity?.evidence ?? []) check('toxicity', x.src, x.quote);
   return errs;
 }

@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "nephrolepis-exaltata"
+  "ncsu": "nephrolepis-exaltata",
+  "hgic": "indoor-ferns"
  },
  "care": {
   "light": {
@@ -53,8 +54,11 @@
   ],
   "temperature.minC": [
    {
-    "src": "estimate",
-    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+    "src": "hgic",
+    "quote": "( Nephrolepis exaltata ) 10 to 12 inches up to 3 feet or more, depending on cultivar Bright indirect or filtered sunlight. Night temperatures of 50 to 55 °F",
+    "fahrenheit": [
+     50
+    ]
    }
   ],
   "temperature.idealC": [
@@ -97,6 +101,12 @@
    "src": "ncsu",
    "quote": "Scales or spider mites can be a problem if the air around the plant is too dry.",
    "symptom": "pests"
+  },
+  {
+   "ja": "湿度が低いと葉が茶色くなる。",
+   "src": "hgic",
+   "quote": "Ferns may develop brown leaves or leaflets at low humidity.",
+   "symptom": "brown"
   }
  ]
 }

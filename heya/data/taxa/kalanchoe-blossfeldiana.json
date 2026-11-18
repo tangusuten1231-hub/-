@@ -11,7 +11,8 @@
   ]
  },
  "refs": {
-  "ncsu": "kalanchoe-blossfeldiana"
+  "ncsu": "kalanchoe-blossfeldiana",
+  "hgic": "kalanchoe"
  },
  "care": {
   "light": {
@@ -112,6 +113,12 @@
    "src": "ncsu",
    "quote": "Overwatering can cause root rot or stem rot.",
    "symptom": "rot"
+  },
+  {
+   "ja": "光が足りないとひょろひょろに間延びする。",
+   "src": "hgic",
+   "quote": "plants tend to get spindly in low light conditions",
+   "symptom": "leggy"
   }
  ]
 }
