@@ -1,0 +1,102 @@
+{
+ "id": "dracaena-surculosa",
+ "rank": "species",
+ "scientificName": "Dracaena surculosa",
+ "group": "foliage",
+ "names": {
+  "ja": "ドラセナ・ゴッドセフィアナ",
+  "aliases": [
+   "ゴッドセフィアナ",
+   "ドラセナ・スルクロサ"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-surculosa",
+  "hgic": "dracaena"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    21
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This easy-to-grow houseplant requires bright but not direct light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "requires bright but not direct light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "bring it inside when the temperature goes below 50 degrees Fahrenheit at night",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Dracaenas are best grown in normal house temperatures of 60 to 70 °F during the day.",
+    "fahrenheit": [
+     60,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "keep the humidity high by sitting the pot on a pebble tray with water"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the soil moist during the regular growing season, but overwatering and standing water will cause root rot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光が強すぎると葉が茶色くなったり落ちたりし、弱すぎると斑の色があせる。",
+   "src": "ncsu",
+   "quote": "The leaves will brown or drop if the light is too high, and they can lose their intense coloring if the light is too low.",
+   "symptom": "fade"
+  }
+ ],
+ "note": "以前の学名は Dracaena godseffiana。"
+}

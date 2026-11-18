@@ -1,0 +1,131 @@
+{
+ "id": "euphorbia-pulcherrima",
+ "rank": "species",
+ "scientificName": "Euphorbia pulcherrima",
+ "group": "flowering",
+ "names": {
+  "ja": "ポインセチア",
+  "aliases": [
+   "ショウジョウボク"
+  ]
+ },
+ "refs": {
+  "ncsu": "euphorbia-pulcherrima",
+  "hgic": "poinsettia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    21
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Set your poinsettia in a bright location so that it receives at least 6 hours of bright, indirect sunlight each day."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "receives at least 6 hours of bright, indirect sunlight each day"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Putting it in direct sunlight may fade the color of the bracts."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Chilling injury is also a problem and can cause premature leaf drop if the temperature drops below 50 °F.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant grows best in part shade at temperatures of 65 to 70 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "hgic",
+    "quote": "Do not put your poinsettia near drafts, excessive heat or dry air from appliances"
+   },
+   {
+    "src": "estimate",
+    "reason": "乾いた空気を避けるよう勧めるため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the soil surface feels dry, but do not overwater."
+   },
+   {
+    "src": "hgic",
+    "quote": "Never let the potting mixture completely dry out"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "Water them thoroughly when the soil surface feels dry to the touch."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "暑すぎても葉が黄色くなって落ちる。昼も21℃（70°F）を超えないように。",
+   "src": "hgic",
+   "quote": "The daytime temperature should not exceed 70 °F.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "10℃（50°F）を下回ると冷えて葉が落ちる。",
+   "src": "hgic",
+   "quote": "Several factors can cause premature leaf drop, such as temperatures dropping below 50 °F, poor light or poor nutrition.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "次の冬に色づかせるには、9月下旬から毎日16時間の真っ暗な時間が必要。",
+   "src": "ncsu",
+   "quote": "Starting in late September, the plant will need 16 hours of uninterrupted darkness",
+   "symptom": "noflower"
+  },
+  {
+   "ja": "花（苞）が咲いている間は肥料を与えない。",
+   "src": "hgic",
+   "quote": "Do not fertilize a poinsettia when it is in bloom."
+  },
+  {
+   "ja": "Clemson Extension は「毒性は強くないが、食べると腹痛・下痢・嘔吐の可能性、樹液でかぶれることがある」としている。",
+   "src": "hgic",
+   "quote": "consumption of foliage may lead to stomachache, diarrhea or vomiting"
+  }
+ ],
+ "note": "冬の鉢花。NC State は猫・犬などに害ありとし、Clemson は「強い毒性はない」とする（どちらの記載も表示）。"
+}

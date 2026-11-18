@@ -1,0 +1,283 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/crassula-perforata/",
+ "slug": "crassula-perforata",
+ "retrieved": "2026-11-18",
+ "scientificName": "Crassula perforata",
+ "commonNames": [
+  "Necklace Vine",
+  "Pagoda Plant",
+  "Stacked Crassula",
+  "String of Buttons"
+ ],
+ "description": "The string of buttons is a sprawling, shrubby, perennial succulent native to the South Cape Province to KwaZulu-Natal. This species is found growing in rocky crevices or around boulders in its native habitat. It is a member of the stonecrop family (Crassulaceae). The specific epithet, perforata, means \"pierced or penetrated.\" This references the perforated appearance of the leaves. This plant prefers full sun to partial shade but needs protection in hot climates from the midday sun. The foliage has its best color in full sun. The soil should consist of loam and sand and needs to be well-drained. Use a cactus mix when growing in containers. Water this plant well and then do not re-water until the soil is dry. This is known as the soak-and-dry method. The leaves of this plant store water. The plant is dry soils and drought tolerant. It is winter hardy in zones 9 to 12. It is not frost-tolerant and needs to be brought indoors before temperatures drop to 32 degrees Fahrenheit. It may be propagated by division, offsets, or leaf cuttings. This fast-growing plant has stems and leaves that appear stacked upon each other. It grows 1 to 2 feet tall and 2 to 3 feet wide. Initially, the plant is erect, but eventually, the stems hang downward making the plant ideal for hanging baskets. The stems of the string of buttons are initially fleshy, erect, slender and grayish brown, but become woody and prostrate later. The leaves are thick, fleshy, triangular-shaped, grayish green with reddish edges. They appear opposite of each other and are spiraled around the stem which makes them appear stacked. The small flowers bloom in the spring and appear in rounded clusters with pale yellow petals and have a tubular corolla and brown to red sepals. The string of buttons grows well indoors and can be used for containers or hanging baskets. In warmer climates, it can be used as a border, ground cover, or in rock gardens. Keep this plant out of reach of children or pets due to toxicity if ingested. Wear protective gloves when handling this plant due to the risk of skin irritation from the sap. Insects, Diseases, and Other Plant Problems : Monitor for mealybugs, vine weevils and aphids. Overwatering is detrimental to this plant and can cause root rot and fungal diseases. Sunburn of the leaves can occur from too much direct sunlight. The leaves will shrivel if they do not have adequate water. If ingested, the string of buttons is toxic to cats, dogs, horses, and humans. The sap can cause contact dermatitis.",
+ "cultivars": [
+  {
+   "name": "Crassula perforata subsp. kougaensis",
+   "note": "the leaves have a reddish or pinkish edge"
+  },
+  {
+   "name": "Crassula perforata subsp. perforata",
+   "note": "small shrubby, sprawling, up to 18 inches tall, short, ovate, grayish-green leaves with pink edges and pink dots on the margins"
+  },
+  {
+   "name": "Giant Form",
+   "note": "multi-branched, larger, thicker leaves"
+  },
+  {
+   "name": "Ivory Towers",
+   "note": "larger leaf and margins are more colored"
+  },
+  {
+   "name": "Variegata",
+   "note": "up to 1.5 feet tall, variegated foliage, grayish-green with red or yellow margins"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Crassula"
+  ],
+  "Species": [
+   "perforata"
+  ],
+  "Family": [
+   "Crassulaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "South Cape Provinces to KwaZulu-Natal"
+  ],
+  "Wildlife Value": [
+   "Attracts butterflies and hummingbirds."
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 2 ft. 0 in.",
+   "Width: 2 ft. 0 in. - 3 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect",
+   "Prostrate",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Gold/Yellow"
+  ],
+  "Flower Inflorescence": [
+   "Panicle"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Shape": [
+   "Star",
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Description": [
+   "The flowers are small, sweet-scented, star-shaped, and pale yellow petals which appear in clusters. The clusters can measure up to 3.2 inches long. The sepals are triangular and brown to red, and the corolla is tubular. Blooming occurs in the spring."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green",
+   "Pink"
+  ],
+  "Leaf Feel": [
+   "Fleshy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Arrangement": [
+   "Opposite"
+  ],
+  "Leaf Shape": [
+   "Cordate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The leaves are short, thick, fleshy, grayish-green, triangular-shaped, opposite and grow in a spiral around the stem. The leaf margins are a rosy pink. Each leaf can measure up to 1.3 inches long and 0.8 inches wide."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Gray/Silver"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The stems are slender, wiry, unbranched, grayish-brown, and measure 4 inches to 2 feet long. The stems are erect and fleshy initially but become woody and prostrate later."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Patio"
+  ],
+  "Landscape Theme": [
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Border"
+  ],
+  "Attracts": [
+   "Butterflies",
+   "Hummingbirds"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Drought",
+   "Dry Soil"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Ingestion by pets or humans can cause gastrointestinal pain, drooling, difficulty swallowing, and difficulty speaking. The sap can cause skin irritation, rash, itching, and burning."
+  ],
+  "Poison Toxic Principle": [
+   "Pyrrolizidine alkaloids"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "succulent",
+  "problem for dogs",
+  "problem for horses",
+  "rock garden",
+  "dry soils tolerant",
+  "drought tolerant",
+  "problem for cats",
+  "patio",
+  "container plant",
+  "poisonous if ingested",
+  "problem for children",
+  "border",
+  "deer resistant",
+  "hanging baskets",
+  "contact dermatitis",
+  "clumping",
+  "houseplant",
+  "herbaceous perennial",
+  "yellow flowers",
+  "erect",
+  "prostrate",
+  "th-touch"
+ ],
+ "images": [
+  {
+   "id": "39619",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_perforata_p_OJs50X5W4VZK.jpeg",
+   "caption": "Crassula peforata. Potted plant.",
+   "author": "Stephen Boisvert",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "39620",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_perforata_h_wlO9G2vXR36A.jpeg",
+   "caption": "Crassula peforata. Habit.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "39621",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_perforata_h_IVsqzsqsTxhI.jpeg",
+   "caption": "Crassula peforata. Habit.",
+   "author": "Megan Hansen",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "39622",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_perforata_f_AGqVsoraUFql.jpeg",
+   "caption": "Crassula peforata. Flowers.",
+   "author": "Megan Hansen",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "39623",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_perforata_c_FMfvnIFRqEaF.jpeg",
+   "caption": "Crassula peforata. Leaves.",
+   "author": "Darron Birgenheier",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

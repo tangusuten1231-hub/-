@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/10956312",
+ "retrieved": "2026-11-18",
+ "query": "Dracaena masoniana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 10956312,
+ "acceptedKey": 10956312,
+ "acceptedName": "Dracaena masoniana",
+ "authorship": "(Chahin.) Byng & Christenh.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Sansevieria masoniana"
+ ]
+}

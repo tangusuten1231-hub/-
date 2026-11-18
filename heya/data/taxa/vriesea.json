@@ -1,0 +1,99 @@
+{
+ "id": "vriesea",
+ "rank": "genus",
+ "scientificName": "Vriesea",
+ "group": "flowering",
+ "names": {
+  "ja": "フリーセア",
+  "aliases": [
+   "フリーセアの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "vriesea",
+  "hgic": "bromeliads"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Give them moderate light, stable warm temperatures, and constantly moist air."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "diverse needs of light, from shade to bright light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads need in-direct sunlight to grow well and produce flowers"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads prefer temperatures from 60F to 85F to survive and grow well.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads prefer temperatures from 60F to 85F to survive and grow well.",
+    "fahrenheit": [
+     60,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "hgic",
+    "quote": "constantly moist air"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "They have shallow root systems and should be kept relatively dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "株の中心の筒（タンク）に、いつも水をためておく。",
+   "src": "ncsu",
+   "quote": "the central vase or tank should be kept full of water"
+  }
+ ]
+}

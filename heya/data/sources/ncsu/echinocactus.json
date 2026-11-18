@@ -1,0 +1,244 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/echinocactus/",
+ "slug": "echinocactus",
+ "retrieved": "2026-11-18",
+ "scientificName": "Echinocactus",
+ "commonNames": [
+  "Barrel Cactus"
+ ],
+ "description": "Echinocactus or Barrel Cactus is a small genus of cacti that includes 5 accepted species that are indigenous to the Southwestern United States and Mexico. In the past, this genus included hundreds of species, but in the 1900s, noted cactus taxonomists, Nathaniel Britton and Joseph Rose, moved most species into different genera. The famous golden barrel cactus is now correctly called Kroenleinia grusonii . The genus name, Echinocactus , originates from the Greek words echinos , meaning \"hedgehog,\" and kaktos , meaning \"thistle.\" This genus is known for its rounded, ball-like shape that may elongate with age. It is a member of the cactus family (Cactaceae). These plants grow best in full sun, but they can tolerate a little bit of shade. They prefer low humidity, dry soil, and need a cactus mix with coarse sand or perlite to promote good drainage. The species in this genus have robust spines and yellow or pink funnel-shaped flowers. The fruits vary from dry and wooly to fleshy and round. Many cultivars exist with unusual knobby or fasciated growth, and all have many spines. They vary greatly in size and are much smaller when grown in a pot. The plant can be easily grown as a houseplant in a container, and it is tolerant to a wide array of conditions. Quick ID: Ball-like or barrel-like shape Clearly defined rows of vertical ribs with long, sharp spines Wool-like fuzz at the top of the stem where the flowers emerge Funnel-shaped flowers with numerous petals Insects, Diseases, and Other Plant Problems: . May be susceptible to aphids, mealybugs, scale, and whiteflies. Overwatering can cause root rot. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Echinocactus horizonthalonius (Turk's Head Cactus)",
+   "note": "small barrel cactus, unbranched, pale grayish-green to grayish-blue, pinkish-red flowers"
+  },
+  {
+   "name": "Echinocactus parryi",
+   "note": "dense, upright, multi-colored spines that may be in shades of cream, pink to red with purple hues"
+  },
+  {
+   "name": "Echinocactus platyacanthus (Visnaga)",
+   "note": "solitary, largest of the barrel cacti, stem grayish-blue, yellow flowers"
+  },
+  {
+   "name": "Echinocactus polycephalus",
+   "note": "dense, spiny cactus, forms 20 to 30 heads, 2 feet tall, 4 feet wide, spines with white hairs"
+  },
+  {
+   "name": "Echinocactus texensis (Horse Crippler Cactus)",
+   "note": "broader than long, 1 to 2 inches tall, 12 inches wide, difficult to see, many horses have been crippled by the plant"
+  },
+  {
+   "name": "Echinocactus x diabolicus (E. horizonthalonius x E. platycanthus)",
+   "note": "hybrid, bluish green stem, white and fluffy areoles, long yellowish-brown spines"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Echinocactus"
+  ],
+  "Family": [
+   "Cactaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "SW USA and Mexico"
+  ],
+  "Distribution": [
+   "Mexico, Arizona, California, Nevada, New Mexico, Oklahoma, Texas, and Utah."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Columnar",
+   "Rounded"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Appendage": [
+   "Spines"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry",
+   "Very Dry"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Description": [
+   "The fruits may be dry and wooly or fleshy and round."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Pink",
+   "Purple/Lavender"
+  ],
+  "Flower Inflorescence": [
+   "Solitary"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Funnel"
+  ],
+  "Flower Petals": [
+   "more than 20 petals/rays"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "Flowers emerge from the top of the plant, the buds forming a ring. The brightly colored flowers of yellow or pink are usually funnel-shaped with numerous petals."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Insignificant",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Prickly"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Acicular"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "This plant has spines, which are modified leaves, that are long and recurved. They can be densely packed."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Hairy (pubescent)"
+  ],
+  "Stem Description": [
+   "The apex may grow a wool-like fiber, creating a ring where the flowers emerge."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Rock Garden"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil",
+   "Heat"
+  ],
+  "Problems": [
+   "Spines/Thorns"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "cactus",
+  "hsc",
+  "hsc-c",
+  "desert plant",
+  "heat tolerant",
+  "easy to grow",
+  "succulent",
+  "rocky soils tolerant",
+  "low humidity tolerant",
+  "tough plant",
+  "dry soils tolerant",
+  "drought tolerant",
+  "rounded",
+  "spines",
+  "easy to grow houseplant",
+  "perennial",
+  "accent",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "33248",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocactus_grusoni_UrljiYUEOqNX.jpeg",
+   "caption": "Form",
+   "author": "Drew Avery",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "33249",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocactus_grusoni_NDzPRfVh2Zwa.jpeg",
+   "caption": "Form",
+   "author": "Phyzome",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33250",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocactus_grusoni_v76wkxldbF9x.jpeg",
+   "caption": "Form",
+   "author": "Quartl",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33251",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocactus_parryi__k9ftISbXtJCx.jpeg",
+   "caption": "Form",
+   "author": "Michael Wolf",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33252",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocatus_Leonora__jnmAupogekY4.jpeg",
+   "caption": "Form",
+   "author": "Leonora (Ellie) Enking",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "33253",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Echinocatus_Pamla_J._QtkHOUs71GEG.jpeg",
+   "caption": "Form",
+   "author": "Pamla J. Eisenberg",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

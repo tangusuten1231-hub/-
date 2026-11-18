@@ -1,0 +1,105 @@
+{
+ "id": "anthurium",
+ "rank": "genus",
+ "scientificName": "Anthurium",
+ "group": "foliage",
+ "names": {
+  "ja": "アンスリウムの仲間",
+  "aliases": [
+   "観葉アンスリウム"
+  ]
+ },
+ "refs": {
+  "ncsu": "anthurium"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Anthuriums prefer bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Too little light will cause fewer blooms, and the plant will grow more slowly."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "direct sunlight can scorch their leaves"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は18〜29℃でよく育つとし、最低温度の記載がないため、余裕をみて13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "They thrive at temperatures between 65 to 85 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "warm and very humid conditions"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water when the soil is dry to the touch."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "湿度が低いと葉先が茶色くなる。",
+   "src": "ncsu",
+   "quote": "Leaf tips turn brown if the humidity is too low.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "水は雨水か浄水がよい。",
+   "src": "ncsu",
+   "quote": "Rainwater or purified water is best."
+  }
+ ]
+}

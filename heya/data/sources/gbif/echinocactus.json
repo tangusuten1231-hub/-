@@ -1,0 +1,26 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/9610309",
+ "retrieved": "2026-11-18",
+ "query": "Echinocactus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 9610309,
+ "acceptedKey": 9610309,
+ "acceptedName": "Echinocactus",
+ "authorship": "Link & Otto",
+ "rank": "GENUS",
+ "family": "Cactaceae",
+ "genus": "Echinocactus",
+ "synonyms": [
+  "Astrophyton",
+  "Brittonrosea",
+  "Echinocephala",
+  "Echinofossulocactus",
+  "Efossus",
+  "Emorycactus",
+  "Homalocephala",
+  "Meyerocactus"
+ ]
+}

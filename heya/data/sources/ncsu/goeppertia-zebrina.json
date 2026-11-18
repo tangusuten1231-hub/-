@@ -1,0 +1,224 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/goeppertia-zebrina/",
+ "slug": "goeppertia-zebrina",
+ "retrieved": "2026-11-18",
+ "scientificName": "Goeppertia zebrina",
+ "commonNames": [
+  "Peacock Plant",
+  "Zebra Plant",
+  "Zebra Prayer Plant"
+ ],
+ "description": "Zebra plant is an evergreen rhizomatous perennial in the prayer plant family (Marantaceae) that is native to the tropical rainforests of Brazil. It has become popular as a houseplant in temperate areas and won the Garden of Merit Award from the Royal Horticultural Society. In its natural habitat, the plant thrives under the canopy of trees in a warm and humid environment. The plant will grow up to 3 feet tall and wide as a house plant, and it has large velvety leaves that are dark green with light green zebra-like stripes. The specific epithet, zebrina, is Latin and means \"with stripes like a zebra\" and references this plant's leaves. Zebra plant requires bright, indirect light or partial shade, and moist, well-drained peat-based potting mix or African violet potting mix. The soil needs to be moist, but avoid overwatering or soggy soils. Use distilled or rain water when watering this plant since tap water contains fluoride which can cause the edges and tips of the leaves to brown. The plant also requires a consistent air temperature between 65 to 75 degrees Fahrenheit and a humidity level above 60%. Avoid sudden temperature changes and cold drafts. If placed outdoors in the summer be sure to bring it inside before temperatures drop below 60 degrees Fahrenheit. Fertilize the plant monthly during its growing season with a balanced liquid fertilizer. Repot the plant every 2 years, and propagate by division. The zebra plant is compact and upright with a clumping habit. The long stems carry the showy leaves that are up to 18 inches long. The dark green velvety leaves have light green zebra-like stripes along the leaf veins, and the undersides are reddish-purple. In the evening the leaves fold up just like praying hands and then reopen in the morning. This phenomenon is caused by the change of air temperature and light. The flowers are inconspicuous, white or purple on upright stalks, but the plant rarely blooms as a houseplant. This plant is popular as an ornamental houseplant or office plant. The beautiful greenery and leaf design will enhance your indoor space. It also will do well in large terrariums, greenhouses or conservatories. Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, aphids, and scale insects. Overwatering can cause root rot, and leaf spot occurs from poor air circulation and by accidentally wetting the leaves when watering the plant. Low humidity and fluoride in tap water can cause browning of the leaf edges and tips. Leaf curling will result from inadequate water or low humidity. The leaf color will fade from inadequate light, and the leaves can develop leaf scorch from direct sunlight. More information on Goeppertia .",
+ "cultivars": [
+  {
+   "name": "Snow White",
+   "note": "dark green leaves with white veining"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Goeppertia"
+  ],
+  "Species": [
+   "zebrina"
+  ],
+  "Family": [
+   "Marantaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Brazil"
+  ],
+  "Distribution": [
+   "Native: Brazil Northeast, Brazil South, and Brazil Southeast. Introduced: Dominican Republic, Leeward Islands, Puerto Rico, Trinidad-Tobago, and Venezuelan Antilles."
+  ],
+  "Play Value": [
+   "Colorful",
+   "Textural"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 3 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect",
+   "Multi-stemmed",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Fruit Description": [
+   "Rarely flowers"
+  ],
+  "Flower Color": [
+   "Purple/Lavender",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Description": [
+   "The flowers are inconspicuous, white or violet with bracts of violet-brown. Rarely flowers as a houseplant"
+  ],
+  "Leaf Color": [
+   "Green",
+   "Purple/Lavender",
+   "Red/Burgundy"
+  ],
+  "Leaf Feel": [
+   "Velvety"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Velvety dark green leaves have lime green along the veins, margins and spines giving it a striped look. The undersides are purple. They grow on 10 to 12 inch long stems. They are oblong to elliptic with pointed tips and 15 to 20 inches long and 6 to 8 inches wide."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are sheathed"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "showy leaves",
+  "houseplant",
+  "herbaceous",
+  "purple",
+  "shrub",
+  "interiorscape",
+  "fantz",
+  "evergreen",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "humidity tolerant",
+  "greenhouse plant",
+  "tropical evergreen",
+  "terrarium",
+  "accent",
+  "partial shade tolerant",
+  "container plant"
+ ],
+ "images": [
+  {
+   "id": "36516",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Calathea-Zebrina-Flo_XEmVwY3qLEap.jpeg",
+   "caption": "Flowering with purple flowers",
+   "author": "Raffi Kojian",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "36518",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_zebrina_f_5NsRgF0f7lh2.jpeg",
+   "caption": "Form",
+   "author": "A13ean",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "36519",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_zebrina_p_GkgPoe41raGh.jpeg",
+   "caption": "Purple underside of leaf",
+   "author": "Marcio Santos Ferreira",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "36520",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_zebrina_l_Adjq7ubFjGnJ.jpeg",
+   "caption": "Leaf detail",
+   "author": "Conrado Müller",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41957",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Goeppertia_zebrina_f_Qxz53ZV1r6gb.jpeg",
+   "caption": "Goeppertia zebrina- form in a pot",
+   "author": "Sharfina Annisa",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

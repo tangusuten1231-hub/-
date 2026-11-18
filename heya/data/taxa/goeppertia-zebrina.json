@@ -1,0 +1,99 @@
+{
+ "id": "goeppertia-zebrina",
+ "rank": "species",
+ "scientificName": "Goeppertia zebrina",
+ "group": "foliage",
+ "names": {
+  "ja": "カラテア・ゼブリナ",
+  "aliases": [
+   "ゼブラプラント（カラテア）"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-zebrina"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Zebra plant requires bright, indirect light or partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Zebra plant requires bright, indirect light or partial shade"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "be sure to bring it inside before temperatures drop below 60 degrees Fahrenheit",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "consistent air temperature between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "a humidity level above 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The soil needs to be moist, but avoid overwatering or soggy soils."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水道水のフッ素で葉先やふちが茶色くなる。蒸留水か雨水を使う。",
+   "src": "ncsu",
+   "quote": "Use distilled or rain water when watering this plant since tap water contains fluoride which can cause the edges and tips of the leaves to brown.",
+   "symptom": "brown"
+  }
+ ]
+}

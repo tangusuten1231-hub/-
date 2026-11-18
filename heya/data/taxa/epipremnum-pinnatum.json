@@ -1,0 +1,101 @@
+{
+ "id": "epipremnum-pinnatum",
+ "rank": "species",
+ "scientificName": "Epipremnum pinnatum",
+ "group": "foliage",
+ "names": {
+  "ja": "エピプレムナム・ピンナツム",
+  "aliases": [
+   "セブブルーの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "epipremnum-pinnatum",
+  "hgic": "how-to-grow-pothos-indoors-epipremnum-spp-care-cultivars-and-common-problems"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight, warm temperatures, and moderate humidity."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid exposing the plant to drafts or cold air."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Pothos prefer a warm room, between 60°F to 70°F at night and 70 °F to 85°F during the day.",
+    "fahrenheit": [
+     60,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "moderate humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Soil should be allowed to dry between each watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで病気が出て根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering will cause fungal and bacterial diseases which can lead to root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

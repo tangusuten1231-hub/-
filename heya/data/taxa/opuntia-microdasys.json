@@ -1,0 +1,104 @@
+{
+ "id": "opuntia-microdasys",
+ "rank": "species",
+ "scientificName": "Opuntia microdasys",
+ "group": "cactus",
+ "names": {
+  "ja": "金烏帽子",
+  "aliases": [
+   "キンエボシ",
+   "バニーカクタス"
+  ]
+ },
+ "refs": {
+  "ncsu": "opuntia-microdasys",
+  "hgic": "indoor-cacti"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Full sun (6 or more hours of direct sunlight a day)"
+   },
+   {
+    "src": "hgic",
+    "quote": "Arid climate cacti need bright sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "日なたを好むサボテンのため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Windows facing south or west where they will receive direct sunlight for several hours each day are ideal."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "In the winter months, it requires cooler temperatures of 50-65 degrees Fahrenheit",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Cacti prefer temperatures from 65 to 85 F during the growing season."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典の生育期の温度（18〜29℃）を目安とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers dry and low humid conditions."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It is best to let the soil completely dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "very little water"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "トゲのように見える細い毛（グロキッド）は触るとすぐ刺さって抜けにくい。",
+   "src": "ncsu",
+   "quote": "The bristles are very thin, barbed, and will detach with the slightest touch."
+  }
+ ]
+}

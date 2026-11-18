@@ -1,0 +1,92 @@
+{
+ "id": "euphorbia-trigona",
+ "rank": "species",
+ "scientificName": "Euphorbia trigona",
+ "group": "succulent",
+ "names": {
+  "ja": "ユーフォルビア・トリゴナ",
+  "aliases": [
+   "彩雲閣",
+   "サイウンカク"
+  ]
+ },
+ "refs": {
+  "ncsu": "euphorbia-trigona"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "bright indirect light when grown indoors"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "bright indirect light when grown indoors"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Outdoor plants should be brought indoors before the temperatures drops below 45 degrees Fahrenheit.",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Most species prefer a warm environment between 65 to 85 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the soil feels dry at the surface depth of 1 to 2 inches."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ }
+}

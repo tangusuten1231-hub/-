@@ -1,0 +1,258 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/haworthiopsis-attenuata/",
+ "slug": "haworthiopsis-attenuata",
+ "retrieved": "2026-11-18",
+ "scientificName": "Haworthiopsis attenuata",
+ "commonNames": [
+  "Zebra Haworthia",
+  "Zebra Plant"
+ ],
+ "description": "The zebra plant is a popular succulent perennial that is native to the Cape Provinces of South Africa. It is slow growing and has a long life span of up to 50 years. In the wild, these plants grow in very harsh conditions and are commonly found buried in sand. It is a member of the day lily family (Asphodelaceae). The epithet attenuata means \"thinned or reduced,\" and references how the leaves gradually narrow to thread-like tips. For gardeners, the zebra plant is easy to grow, preferring a well-draining cactus or succulent potting mix. This plant can grow well indoors or outdoors and is hardy in USDA zones 9 to 11. The plant tolerates brief periods of cold, but it is not frost-tolerant. While they are somewhat tolerant of low-light conditions, they prefer bright indirect sunlight, which also produces the best colors in the leaves. Avoid over-watering and allow the soil to dry out between waterings. The plant thrives in temperatures between 60 to 80 degrees and tolerates the humidity levels typically found in homes. Avoid cold drafts and temperatures below 50 degrees Fahrenheit. The zebra plant produces pups and offsets and to propagate these plants, separate the pups or remove the offshoots from the parent plant. It may be also propagated by leaf cuttings, but rarely by seeds. This plant is small, stemless, and has a clumping habit that forms into compact star-shaped rosettes that may spread out creating a carpet. It measures up to 4 to 12 inches tall and 6 inches to 2 feet wide. The leaves are stiff, linear, pointed, dark green and have horizontal white bumpy stripes or tubercles. The flowers are tubular, pale to dark pink, and bloom in clusters on long slender stems. The zebra plant is sometimes mistaken for and sold under the much rarer species Haworthiopsis fasciata - they can be distinguished by the fact that H. attenuata has a bumpy surface all around its leaves while the upper leaf surface of H. fasciata is smooth. The zebra plant is grown as an ornamental and can be used in terrariums, or used as a container plant in small spaces such as a windowsill or desktop. In warmer climates, it may be planted outdoors in containers or placed in a rock garden. It requires very little maintenance and is non-toxic to pets and humans. The genus Haworthiopsis was formerly included within Haworthia (q.v. for a discussion of the differences between the genera). Diseases, Insect Pests, and Other Plant Problems: Monitor for scale and mealybugs. Excessive watering can cause root rot. Leaf spot and fungal diseases can occur if the soil is too wet or if water is left on the leaves. Fading of the leaf patterns can occur if the plant has inadequate light. Direct sunlight can scorch the leaves. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "f. caespitosa",
+   "note": "The white spots form bands across the leaves"
+  },
+  {
+   "name": "f. Enon",
+   "note": "miniature succulent, lime green leaves speckled with raised white dots"
+  },
+  {
+   "name": "Super Clone",
+   "note": "small succulent, green leaves with scattered white tubercles, horizontal white bands on the underside"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Haworthiopsis"
+  ],
+  "Species": [
+   "attenuata"
+  ],
+  "Family": [
+   "Asphodelaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "Cape Provinces of South Africa"
+  ],
+  "Distribution": [
+   "Introduced: Mexico Central and Mexico Southwest"
+  ],
+  "Play Value": [
+   "Colorful",
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 4 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 8 in. - 2 ft. 2 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Creeping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Description": [
+   "Capsule ovoid to oblong, 3-locular. Seeds with angles winged."
+  ],
+  "Flower Color": [
+   "Pink",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Produces small, tubular, white to pale pink blossoms that appear in clusters on a thin, straw-like stalk. Bloom in late spring to early summer."
+  ],
+  "Leaf Color": [
+   "Green",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Opaque, stiff, dark green, linear leaves with horizontal white bumpy spots on both surfaces. The leaves are entire. Bright light can cause many different colors to develop in the leaves."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stemless"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio",
+   "Rock Wall"
+  ],
+  "Landscape Theme": [
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Accent"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ]
+ },
+ "tags": [
+  "succulent",
+  "drought tolerant",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "houseplant",
+  "pet friendly",
+  "easy to grow",
+  "well-drained soil",
+  "bright light",
+  "easy to grow houseplant",
+  "container plant",
+  "perennial",
+  "rock garden",
+  "partial shade tolerant"
+ ],
+ "images": [
+  {
+   "id": "24761",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_attenuata_41gCoU9tfLF3.jpg",
+   "caption": "Form",
+   "author": "Claire H.",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "24762",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_attenuata_n3QO2T4IdIi2.jpg",
+   "caption": "Form",
+   "author": "Popperipopp",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "24763",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_attenuate__wpmewqK8w1qM.jpg",
+   "caption": "Form",
+   "author": "Abu Shawka",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24772",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthiopsis_attenu_JvG8Q2ZFmlkt.jpg",
+   "caption": "Form",
+   "author": "S Molteno",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24894",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_attenuata__6QDqwEjlXXt0.jpg",
+   "caption": "Flower",
+   "author": "H. Zell",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24895",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_attenuata__yx8bPrfTVmCQ.jpg",
+   "caption": "Form",
+   "author": "Emőke Dénes",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "42307",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthiopsis_attenu_dpO9hy2Glonp.jpeg",
+   "caption": "Haworthiopsis attenuata- Growing in a pot",
+   "author": "Guillaume Clin",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

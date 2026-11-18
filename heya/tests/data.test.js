@@ -38,7 +38,8 @@ test('出典スナップショットの学名と一致する', () => {
   for (const t of base) {
     const snap = sources.ncsu[t.refs.ncsu];
     assert.ok(snap, `${t.id}: NC State のスナップショットがない`);
-    assert.equal(snap.scientificName, t.scientificName, `${t.id}: 学名が出典と違う`);
+    // 出典が品種群のページ（例：Asparagus densiflorus Sprengeri Group）のときは前方一致でよい
+    assert.ok(snap.scientificName === t.scientificName || snap.scientificName.startsWith(`${t.scientificName} `), `${t.id}: 学名が出典と違う（${snap.scientificName}）`);
   }
 });
 

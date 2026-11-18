@@ -1,0 +1,108 @@
+{
+ "id": "alocasia",
+ "rank": "genus",
+ "scientificName": "Alocasia",
+ "group": "foliage",
+ "names": {
+  "ja": "アロカシアの仲間",
+  "aliases": [
+   "クワズイモの仲間",
+   "エレファントイヤー"
+  ]
+ },
+ "refs": {
+  "ncsu": "alocasia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    20,
+    25
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers a shaded site"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers a shaded site"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Elephant's Ear grows best where annual daytime temperatures range from 68 to 77 degrees Fahrenheit.",
+    "fahrenheit": [
+     68,
+     77
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "熱帯の湿った林の植物で、ハダニがつきやすいことから高めの湿度を好むとした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water and fertilize regularly."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Root rot and leaf spots can occur from overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が黄色くなるのは、水のやりすぎ・水不足・光不足。",
+   "src": "ncsu",
+   "quote": "Yellowing leaves can occur from overwatering, too little water, or inadequate light.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "ハダニがつきやすい。",
+   "src": "ncsu",
+   "quote": "Alocasia are prone to spider mites.",
+   "symptom": "pests"
+  }
+ ],
+ "note": "クワズイモ（Alocasia odora）など、アロカシア属の植物に共通する育て方。クワズイモ単独の大学の資料は見つからなかった。"
+}

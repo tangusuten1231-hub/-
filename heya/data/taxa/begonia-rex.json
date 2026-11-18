@@ -1,0 +1,105 @@
+{
+ "id": "begonia-rex",
+ "rank": "cultivar",
+ "parent": "begonia",
+ "cultivar": "Rex Cultorum Group",
+ "names": {
+  "ja": "レックスベゴニア",
+  "aliases": [
+   "ベゴニア・レックス"
+  ]
+ },
+ "refs": {
+  "ncsu": "begonia-rex-types",
+  "hgic": "growing-begonias-indoors"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    19,
+    23
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Rex begonias prefer bright but indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Foliage begonias should be located in a bright spot away from direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Temperature at night should not drop below 55 °F.",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Maintain temperature at 66 to 73 °F.",
+    "fahrenheit": [
+     66,
+     73
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Keep soil evenly moist, allowing it to dry only slightly between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "hgic",
+    "quote": "Reduce water in winter."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "病気を防ぐため、霧吹きや水のやりすぎは避ける（湿度は周りの空気で上げる）。",
+   "src": "ncsu",
+   "quote": "To prevent disease, avoid misting and overwatering.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "浴室やキッチンなど湿度の高い場所に向く。",
+   "src": "ncsu",
+   "quote": "The plants will do well in bathrooms or kitchens that have increased humidity."
+  }
+ ]
+}

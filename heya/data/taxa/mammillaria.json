@@ -1,0 +1,108 @@
+{
+ "id": "mammillaria",
+ "rank": "genus",
+ "scientificName": "Mammillaria",
+ "group": "cactus",
+ "names": {
+  "ja": "マミラリア",
+  "aliases": [
+   "マミラリアの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "mammillaria",
+  "hgic": "indoor-cacti"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    21,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants grow best in full sun or bright direct light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "Arid climate cacti need bright sunlight."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "appreciate some afternoon shade in hot weather"
+   },
+   {
+    "src": "hgic",
+    "quote": "Windows facing south or west where they will receive direct sunlight for several hours each day are ideal."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "During the winter, these plants go dormant and then prefer temperatures between 45 to 55 degrees Fahrenheit.",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "These plants thrive in temperatures between 70 and 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     70,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to completely dry out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "during its dormant period suspend all watering"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬は休眠するので水やりを止める。",
+   "src": "ncsu",
+   "quote": "during its dormant period suspend all watering"
+  },
+  {
+   "ja": "出典は人やペットに無毒としているが、トゲは鋭い。",
+   "src": "ncsu",
+   "quote": "Mammillarias are non-toxic to humans and pets, low maintenance, and easy to grow; however, the spines are sharp and may cause injury."
+  }
+ ]
+}

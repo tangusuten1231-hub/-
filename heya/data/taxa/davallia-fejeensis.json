@@ -1,0 +1,96 @@
+{
+ "id": "davallia-fejeensis",
+ "rank": "species",
+ "scientificName": "Davallia fejeensis",
+ "group": "fern",
+ "names": {
+  "ja": "ダバリア",
+  "aliases": [
+   "ダバリア・フェジーエンシス",
+   "ラビットフットファーン"
+  ]
+ },
+ "refs": {
+  "ncsu": "davallia-fejeensis",
+  "hgic": "indoor-ferns"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "give it good indirect lighting"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "give it good indirect lighting"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "with temperatures above 55 degrees Fahrenheit",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water enough to keep the potting mixture moist but allow the top 1/2 inch to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "毛のある根茎（ウサギの足）を土に埋めない。",
+   "src": "hgic",
+   "quote": "Do not bury the creeping rhizomes."
+  }
+ ]
+}

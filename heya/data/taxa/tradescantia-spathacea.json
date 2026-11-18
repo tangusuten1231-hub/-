@@ -1,0 +1,93 @@
+{
+ "id": "tradescantia-spathacea",
+ "rank": "species",
+ "scientificName": "Tradescantia spathacea",
+ "group": "foliage",
+ "names": {
+  "ja": "ムラサキオモト",
+  "aliases": [
+   "トラデスカンチア・スパタケア",
+   "ロエオ"
+  ]
+ },
+ "refs": {
+  "ncsu": "tradescantia-spathacea"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "give it plenty of bright indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "When the plant does not receive enough light, it may stretch out and become lanky, or its purple leaves may revert back to green."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "If kept outdoors in the summer, provide it with afternoon shade."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the top 1 to 2 inches of soil to dry out between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "cut back on water during the winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光が足りないと間延びし、紫の葉が緑に戻る。",
+   "src": "ncsu",
+   "quote": "When the plant does not receive enough light, it may stretch out and become lanky, or its purple leaves may revert back to green.",
+   "symptom": "leggy"
+  }
+ ]
+}

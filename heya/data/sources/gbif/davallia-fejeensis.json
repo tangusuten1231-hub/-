@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4204670",
+ "retrieved": "2026-11-18",
+ "query": "Davallia fejeensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4204670,
+ "acceptedKey": 4204670,
+ "acceptedName": "Davallia fejeensis",
+ "authorship": "Hook.",
+ "rank": "SPECIES",
+ "family": "Davalliaceae",
+ "genus": "Davallia",
+ "synonyms": [
+  "Davallia fejeeensis",
+  "Davallia fijiensis",
+  "Odontoloma fejeensis",
+  "Stenolobus fejeensis"
+ ]
+}

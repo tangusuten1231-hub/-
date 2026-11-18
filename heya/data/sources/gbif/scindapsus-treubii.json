@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2873707",
+ "retrieved": "2026-11-18",
+ "query": "Scindapsus treubii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2873707,
+ "acceptedKey": 2873707,
+ "acceptedName": "Scindapsus treubii",
+ "authorship": "Engl.",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Scindapsus",
+ "synonyms": [
+  "Pothos enderianus"
+ ]
+}

@@ -1,0 +1,107 @@
+{
+ "id": "peperomia-rotundifolia",
+ "rank": "species",
+ "scientificName": "Peperomia rotundifolia",
+ "group": "foliage",
+ "names": {
+  "ja": "ペペロミア・ロツンディフォリア",
+  "aliases": [
+   "グリーンコイン"
+  ]
+ },
+ "refs": {
+  "ncsu": "peperomia-rotundifolia",
+  "hgic": "peperomia-peperomia-spp-indoor-plant-care-and-growing-guide"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and direct sunlight."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant thrives in high humidity, but it is tolerant of normal household conditions."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained soil"
+   },
+   {
+    "src": "hgic",
+    "quote": "Peperomia prefers to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が丸まるのは湿度不足か土の乾きすぎ。",
+   "src": "ncsu",
+   "quote": "Curling leaves may result from low humidity or dry soil.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉が黄色くなるのは水のやりすぎ。",
+   "src": "ncsu",
+   "quote": "Yellow leaves result from overwatering.",
+   "symptom": "yellow"
+  }
+ ]
+}

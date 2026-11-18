@@ -1,0 +1,225 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-clusiifolia/",
+ "slug": "peperomia-clusiifolia",
+ "retrieved": "2026-11-18",
+ "scientificName": "Peperomia clusiifolia",
+ "commonNames": [
+  "Jelly Plant",
+  "Red Edged Peperomia",
+  "Red Edged Radiator Plant",
+  "Red Edge Peperomia",
+  "Variegated Radiator Plant"
+ ],
+ "description": "The Red Edged Peperomia is an erect, mounding, evergreen, succulent perennial that is typically grown as a houseplant in the United States. It is native to Jamaica and is a member of the Piperaceae family. It has a mounding habit and grows 6 inches to 1 foot tall. This plant has stiff, elliptical, glossy, deep green leaves with dark red or maroon margins. The flowers are in the form of long, narrow greenish-white spikes which is characteristic of Peperomia plants; however, as a houseplant, they rarely flower. This plant prefers bright, indirect sunlight and will tolerate low-light conditions. Moist, well-drained, loamy soil is recommended, but it is best to avoid overwatering and cold drafts. It is typically slow-growing and will not require repotting very often. They are winter hardy in USDA hardiness zones 10a to 12b. The Red Edged Peperomia is the perfect houseplant for the beginner. It has beautiful ornamental foliage and is low maintenance, pet-friendly, and easy to grow. Quick ID Hints: evergreen perennial with an erect, mounding habit, 6 inches to 1 foot tall simple, stiff, elliptical, glossy, dark green leaves with dark red margins flowers are long, slender, greenish-white spikes Insects, Diseases, and Other Plant Problems: Monitor for mealybugs, spider mites, aphids, scale, fungus gnats, and whiteflies. Overwatering can cause root rot. Avoid wetting the leaves which can result in leaf spots. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Ginny",
+   "note": "succulent-like, fleshy, green leaves with yellow and pink edges"
+  },
+  {
+   "name": "Jelly",
+   "note": "wide, oval, green leaves with pink and cream edging, with maturity the leaves have deep reds"
+  },
+  {
+   "name": "Red Margin",
+   "note": "deep green leaves with slightly red leaf edges"
+  },
+  {
+   "name": "Variegata",
+   "note": "grayish-green leaves with cream color on each of the leaf, the margins are red and pink"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "clusiifolia"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Jamaica"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 6 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Mounding"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Description": [
+   "The flowers are small, long, narrow, greenish-white spikes. As a houseplant, it rarely flowers."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Red/Burgundy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Elliptical"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves are stiff, succulent-like, elliptical, and deep green with red or maroon margins."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Accent"
+  ]
+ },
+ "tags": [
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "interesting leaves",
+  "partial shade tolerant",
+  "container plant",
+  "houseplant",
+  "early care",
+  "low maintenance",
+  "interiorscape"
+ ],
+ "images": [
+  {
+   "id": "30626",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_xZMA0c2li50u.jpeg",
+   "caption": "Form",
+   "author": "Yercaud-elango",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30625",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_E53Kmop5nTHG.jpeg",
+   "caption": "Stem and Leaf",
+   "author": "Marija Gajić",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30619",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_BmDXs2ifIz3F.jpeg",
+   "caption": "Leaves",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30618",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_Cyn0NxSUXCQn.jpeg",
+   "caption": "Leaves",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30620",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_vIHLO39pan9i.jpeg",
+   "caption": "Leaf",
+   "author": "Marija Gajić",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30621",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_El9OB9bFlSJI.jpeg",
+   "caption": "Leaves",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30622",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_SJ28iKirEks2.jpeg",
+   "caption": "Stem and Leaves",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30623",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_qAIWPQinlwwP.jpeg",
+   "caption": "Leaves",
+   "author": "Jerzy Opiola",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30624",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_clusiifoli_zzV66POR6CUY.jpeg",
+   "caption": "Leaves",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/8423065",
+ "retrieved": "2026-11-18",
+ "query": "Begonia masoniana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 8423065,
+ "acceptedKey": 8423065,
+ "acceptedName": "Begonia masoniana",
+ "authorship": "Irmsch.",
+ "rank": "SPECIES",
+ "family": "Begoniaceae",
+ "genus": "Begonia",
+ "synonyms": []
+}

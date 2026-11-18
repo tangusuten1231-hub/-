@@ -1,0 +1,24 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2765156",
+ "retrieved": "2026-11-18",
+ "query": "Tradescantia fluminensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2765156,
+ "acceptedKey": 2765156,
+ "acceptedName": "Tradescantia fluminensis",
+ "authorship": "Vell.",
+ "rank": "SPECIES",
+ "family": "Commelinaceae",
+ "genus": "Tradescantia",
+ "synonyms": [
+  "Tradescantia albiflora",
+  "Tradescantia albovittata",
+  "Tradescantia fluminensis",
+  "Tradescantia laekenensis",
+  "Tradescantia myrtifolia",
+  "Tradescantia striata"
+ ]
+}

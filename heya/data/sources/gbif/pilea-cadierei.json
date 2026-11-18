@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5671157",
+ "retrieved": "2026-11-18",
+ "query": "Pilea cadierei",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5671157,
+ "acceptedKey": 5671157,
+ "acceptedName": "Pilea cadierei",
+ "authorship": "Gagnep. & Guillaumin",
+ "rank": "SPECIES",
+ "family": "Urticaceae",
+ "genus": "Pilea",
+ "synonyms": []
+}

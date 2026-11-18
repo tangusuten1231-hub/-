@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3084448",
+ "retrieved": "2026-11-18",
+ "query": "Astrophytum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3084448,
+ "acceptedKey": 3084448,
+ "acceptedName": "Astrophytum",
+ "authorship": "Lem.",
+ "rank": "GENUS",
+ "family": "Cactaceae",
+ "genus": "Astrophytum",
+ "synonyms": [
+  "Astrophyton",
+  "Digitostigma",
+  "Maierocactus"
+ ]
+}

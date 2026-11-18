@@ -1,0 +1,86 @@
+{
+ "id": "plerandra-elegantissima",
+ "rank": "species",
+ "scientificName": "Plerandra elegantissima",
+ "group": "foliage",
+ "names": {
+  "ja": "ディジゴセカ",
+  "aliases": [
+   "シェフレラ・エレガンティシマ",
+   "ディジゴテカ"
+  ]
+ },
+ "refs": {
+  "ncsu": "plerandra-elegantissima"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なた〜半日陰とするが、室内では葉焼けを避けて明るい日陰を最適とした"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なた〜半日陰とするため、朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物として余裕をみて13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It requires high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典の土の条件が「湿り気（Moist）」のため、表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "note": "以前の学名は Schefflera elegantissima / Dizygotheca elegantissima。"
+}

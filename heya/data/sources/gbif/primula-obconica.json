@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7290874",
+ "retrieved": "2026-11-18",
+ "query": "Primula obconica",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7290874,
+ "acceptedKey": 7290874,
+ "acceptedName": "Primula obconica",
+ "authorship": "Hance",
+ "rank": "SPECIES",
+ "family": "Primulaceae",
+ "genus": "Primula",
+ "synonyms": []
+}

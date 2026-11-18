@@ -1,0 +1,248 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/aloe/",
+ "slug": "aloe",
+ "retrieved": "2026-11-18",
+ "scientificName": "Aloe",
+ "commonNames": [
+  "Aloe"
+ ],
+ "description": "Aloe is a genius with over 500 species of perennial succulent flowering plants in the daylily family (Asphodelaceae ) . Many are ornamental and are cultivated as houseplants. If growing indoors, place in a south or west window. Most varieties need at least 6 hours of sun and grow best in full sun or very bright, indirect light. If moving your plant outdoors in the summer, gradually acclimate it to partial sun conditions. Allow the soil to dry between watering, then water well, allowing the water to drain from the pot. Use a potting soil appropriate for succulents and cacti and plant in a pot with several drainage holes; coarse, well-draining soil is a must. Clay pots are ideal. The most widely known one is Aloe vera from which various pharmaceutical products are made. Most species have thick succulent leaves growing in a rosette and reproduce by offsets. They vary in size from small succulents up to tree forms. Tubular flowers are usually densely clustered along leafless stems in various colors. Aloes are an easy-to-grow houseplant requiring little maintenance. Quick ID: Rosette of fleshy, lanceolate leaves with white dots (maculation) Serrate margins on the leaves Soft and easily breakable with a gel-like sap inside VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti\", a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Delta Lights",
+   "note": "Small-sized hybrid with wide, grey leaves and white striping. May become pink-ish in bright light."
+  },
+  {
+   "name": "Minnie Belle",
+   "note": "dark green rosettes, spotted, lance-shaped leaves with white teeth"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Aloe"
+  ],
+  "Family": [
+   "Asphodelaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "The gel from the plant is used in various skin and hair care products. It is also used in herbal medice."
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Africa"
+  ],
+  "Edibility": [
+   "A Juice is made after the aloin has been removed."
+  ],
+  "Plant Type": [
+   "Edible",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Shrub",
+   "Tree"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Orange",
+   "Pink",
+   "Red/Burgundy"
+  ],
+  "Flower Inflorescence": [
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "Flowers are tubular, pendant and borne in dense clusters at the apex of simple or branched, leafless stems. May take several years before blooming, but they bloom multiple times in their lifetime."
+  ],
+  "Leaf Color": [
+   "Blue",
+   "Gray/Silver",
+   "Green",
+   "Variegated"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Prickly"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate",
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Serrate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Size and form varies by species, but most grow in a basal rosette of fleshy green to blue-green leaves. Some grow in a more fan-shaped alternate arrangement instead. They are thick, succulent, pointed, and may have stripes or mottling. They can be distinguished from Haworthia by the serrate margins and from Agave by the thickness and gel-like sap."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Landscape Theme": [
+   "Drought Tolerant Garden"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Drought",
+   "Dry Soil"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Poisonous through ingestion or dermatitis. Not all people have sensitive skin. If eaten symptoms may include: Abdominal cramping, diarrhea, red urine; skin irritation from latex."
+  ],
+  "Poison Toxic Principle": [
+   "Anthraquinone glycoside"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Sap/Juice"
+  ]
+ },
+ "tags": [
+  "fleshy leaves",
+  "houseplant",
+  "medicinal",
+  "interiorscape",
+  "herbaceous perennial",
+  "ornamentals",
+  "hsc-s",
+  "hsc",
+  "specimen",
+  "container plant",
+  "shrub",
+  "well-drained soil",
+  "perennial"
+ ],
+ "images": [
+  {
+   "id": "40365",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250404_165447_Aloe_Vd3VCqbW6PyX.jpeg",
+   "caption": "Aloe, 'Minnie Belle,' houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "20279",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_form_cMET1jPeXnKA.jpe",
+   "caption": "Form",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40347",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_Lime_Fizz_Sco_ZCuMEuhQxaDs.jpeg",
+   "caption": "Aloe 'Lime Fizz'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "20282",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_dorotheae_plant_p8c02PCetHZd.jpg",
+   "caption": "Close up",
+   "author": "Stan Shebs",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "20278",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_with_offsets_Bnj5dscB6DFh.jpe",
+   "caption": "Plant with offsets",
+   "author": "K. Andre",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "20277",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_gel_Raul654__cc_LNXYRBNBOUDY.jpe",
+   "caption": "Aloe gel from stem",
+   "author": "Raul654",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "20281",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_succotrina_flow_Cl329q1ORFMD.jpe",
+   "caption": "Form",
+   "author": "Abu Shawka",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "20280",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aloe_cameronii_flowe_XAEAefF4xVS8.jpe",
+   "caption": "Flowers",
+   "author": "https://www.flickr.com/photos/47108884@N07",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4186205",
+ "retrieved": "2026-11-18",
+ "query": "Peperomia polybotrya",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4186205,
+ "acceptedKey": 4186205,
+ "acceptedName": "Peperomia polybotrya",
+ "authorship": "Kunth",
+ "rank": "SPECIES",
+ "family": "Piperaceae",
+ "genus": "Peperomia",
+ "synonyms": [
+  "Piper polybotrya",
+  "Piper polybotryon"
+ ]
+}

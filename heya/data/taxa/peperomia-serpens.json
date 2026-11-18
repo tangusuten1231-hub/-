@@ -1,0 +1,97 @@
+{
+ "id": "peperomia-serpens",
+ "rank": "species",
+ "scientificName": "Peperomia serpens",
+ "group": "foliage",
+ "names": {
+  "ja": "ペペロミア・セルペンス",
+  "aliases": [
+   "ペペロミア・スキャンデンス"
+  ]
+ },
+ "refs": {
+  "ncsu": "peperomia-serpens",
+  "hgic": "peperomia-peperomia-spp-indoor-plant-care-and-growing-guide"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant thrives in bright, indirect sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "If it gets direct sun, the leaves may scorch."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and maintain a moderate temperature and humidity."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "maintain a moderate temperature and humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It requires moist, well-drained soil and does not tolerate overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can occur from overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

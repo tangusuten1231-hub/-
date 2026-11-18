@@ -1,0 +1,103 @@
+{
+ "id": "selaginella-kraussiana",
+ "rank": "species",
+ "scientificName": "Selaginella kraussiana",
+ "group": "fern",
+ "names": {
+  "ja": "セラギネラ・クラウシアナ",
+  "aliases": [
+   "セラギネラ"
+  ]
+ },
+ "refs": {
+  "ncsu": "selaginella-kraussiana"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "High humidity and indirect lighting are a must"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "irect sunlight will scorch the foliage."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "High humidity and indirect lighting are a must for your plant to flourish"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "rich, moist to wet soils"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "空気が乾くと葉が茶色く縮れる。",
+   "src": "ncsu",
+   "quote": "Dry air will result in brown or shriveled foliage.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "冷たい水はショックになる。室温の水を使う。",
+   "src": "ncsu",
+   "quote": "Watering should be done with room-temperature water, as cold water can shock the plant."
+  },
+  {
+   "ja": "ずっと湿ったままだと根腐れする。",
+   "src": "ncsu",
+   "quote": "Allowing the plant to remain wet can lead to root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

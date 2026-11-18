@@ -3,7 +3,7 @@
 // - 植物と置き場所の相性
 // - 水やりの段階（生育期／冬）と「土を確かめる日」
 // - 図鑑の検索
-import { LIGHT, WATERING, SYMPTOMS } from './schema.js';
+import { LIGHT, WATERING, SYMPTOMS, GROUPS } from './schema.js';
 
 export const WINDOWS = { S: '南', E: '東', W: '西', N: '北', none: '窓なし' };
 export const DISTANCES = {
@@ -114,7 +114,7 @@ export function normalizeKana(s) {
 export function searchText(entry) {
   return normalizeKana([
     entry.names.ja, ...entry.names.aliases, entry.scientificName, entry.cultivar ?? '', entry.parentName ?? '',
-    entry.family ?? '', ...(entry.taxonomy?.synonyms ?? []), ...(entry.ncsu?.commonNames ?? []),
+    entry.family ?? '', GROUPS[entry.group]?.ja ?? '', ...(entry.taxonomy?.synonyms ?? []), ...(entry.ncsu?.commonNames ?? []),
   ].join('|'));
 }
 

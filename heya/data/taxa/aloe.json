@@ -1,0 +1,92 @@
+{
+ "id": "aloe",
+ "rank": "genus",
+ "scientificName": "Aloe",
+ "group": "succulent",
+ "names": {
+  "ja": "アロエの仲間",
+  "aliases": [
+   "キダチアロエの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "aloe"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Most varieties need at least 6 hours of sun and grow best in full sun or very bright, indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "very bright, indirect light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "grow best in full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、多肉植物の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry between watering, then water well, allowing the water to drain from the pot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "夏に屋外へ出すときは、少しずつ日差しに慣らす。",
+   "src": "ncsu",
+   "quote": "If moving your plant outdoors in the summer, gradually acclimate it to partial sun conditions.",
+   "symptom": "scorch"
+  }
+ ]
+}

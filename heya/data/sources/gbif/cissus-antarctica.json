@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7130688",
+ "retrieved": "2026-11-18",
+ "query": "Cissus antarctica",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7130688,
+ "acceptedKey": 7130688,
+ "acceptedName": "Cissus antarctica",
+ "authorship": "Vent.",
+ "rank": "SPECIES",
+ "family": "Vitaceae",
+ "genus": "Cissus",
+ "synonyms": [
+  "Cissus baudiniana",
+  "Cissus bodiniana",
+  "Cissus glandulosa",
+  "Vitis antarctica",
+  "Vitis baudiniana",
+  "Vitis kanguruh",
+  "Vitis lucida"
+ ]
+}

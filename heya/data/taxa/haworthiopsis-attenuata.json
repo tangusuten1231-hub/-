@@ -1,0 +1,104 @@
+{
+ "id": "haworthiopsis-attenuata",
+ "rank": "species",
+ "scientificName": "Haworthiopsis attenuata",
+ "group": "succulent",
+ "names": {
+  "ja": "ハオルチア・アテヌアータ",
+  "aliases": [
+   "ゼブラハオルチア"
+  ]
+ },
+ "refs": {
+  "ncsu": "haworthiopsis-attenuata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "they prefer bright indirect sunlight, which also produces the best colors in the leaves"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "While they are somewhat tolerant of low-light conditions"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は明るい間接光を好むとするため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and temperatures below 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant thrives in temperatures between 60 to 80 degrees",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "tolerates the humidity levels typically found in homes"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid over-watering and allow the soil to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "模様が薄くなるのは光不足。",
+   "src": "ncsu",
+   "quote": "Fading of the leaf patterns can occur if the plant has inadequate light.",
+   "symptom": "fade"
+  },
+  {
+   "ja": "出典は、ペットにも人にも毒性はないとしている。",
+   "src": "ncsu",
+   "quote": "It requires very little maintenance and is non-toxic to pets and humans."
+  }
+ ]
+}

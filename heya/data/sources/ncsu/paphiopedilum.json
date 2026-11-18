@@ -1,0 +1,185 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/paphiopedilum/",
+ "slug": "paphiopedilum",
+ "retrieved": "2026-11-18",
+ "scientificName": "Paphiopedilum",
+ "commonNames": [
+  "Lady Slipper Orchid"
+ ],
+ "description": "Tropical lady slippers are herbaceous perennials in the orchid family (Orchidaceae). Lady slippers are native to a wide area from India to China, Indonesia, Malaysia, the Philippines and New Guinea. Most members of this genus are terrestrial though a few are epiphytic or lithophytic. They are the tropical cousins of our native Cypripedium . The flowers range in color, shape, and size, but all have the characteristic slipper-shaped lip. These orchids are tolerant of low light and shade, needing only 500 to 2,500 fc (full, direct sunlight is approximately 10,000 fc by comparison). They enjoy temperatures of 60 to 80 degrees F and relatively high humidity of no less than 60%. The potting medium must be a special mix for terrestrial orchids. It should be kept moist and not allowed to dry out. They are tolerant of transplanting and repotting and intolerant of broken-down potting medium, so repot at least once a year with fresh potting mix. There are 109 recognized species and thousands of hybrids. Most species bear one flower per growth, but a few species and their hybrids have several flowers per inflorescence. The flowers of lady slippers are waxy and long-lasting. Growers recognize that the warm-growing lady slippers usually have mottled foliage. Those without mottled foliage prefer cool, moist atmospheres that mimic their montane habitats. Warm-growing species and hybrids can summer out of doors in suitably shady spots. Cool-growing species and hybrids should not be placed outside in the summer unless the temperatures are always cool. Quick ID: No pseudobulb, but each new growth has a fan of leaves. \"Pouch\" on the lip of each flower Colorful flowers with spots, stripes, or contrasting venation VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Paphiopedilum"
+  ],
+  "Family": [
+   "Orchidaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropical Asia, China"
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Erect"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches",
+   "12 inches-3 feet"
+  ],
+  "Flower Color": [
+   "Brown/Copper",
+   "Gold/Yellow",
+   "Green",
+   "Pink",
+   "Purple/Lavender",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Solitary"
+  ],
+  "Flower Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Flower Shape": [
+   "Lipped"
+  ],
+  "Flower Description": [
+   "Singular flowers on stalks 3\"-24\" in height. Most stand upright though some are arching. All species' flowers have a \"pouch\" at the bottom of the flower, reminiscent of its namesake. The lateral sepals may be fused. The petal size, shape, and color varies among species, ranging anywhere from 1\"-12\" and round to thin to wavy. The flowers last from 1-2 months."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Obovate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves may be relatively short and ovate to obovate in shape or longer and closer to linear. They may be solid in color or mottled."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Heavy Shade",
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "hsc",
+  "hsc-fl",
+  "houseplant",
+  "shade garden",
+  "herbaceous perennial",
+  "epiphytic",
+  "showy flowers",
+  "dappled shade",
+  "heavy shade tolerant",
+  "specimen",
+  "humidity tolerant",
+  "orchid",
+  "container plant",
+  "high humidity",
+  "long-lasting flowers",
+  "interiorscape",
+  "colorful",
+  "perennial"
+ ],
+ "images": [
+  {
+   "id": "33296",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_cultiv_dppG1cDfqVCZ.jpeg",
+   "caption": "Form",
+   "author": "Marie-Lan Nguyen",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5/"
+  },
+  {
+   "id": "33297",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_cultiv_67eV8z1gf9eW.jpeg",
+   "caption": "Form",
+   "author": "Marie-Lan Nguyen",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5/"
+  },
+  {
+   "id": "33298",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_fairri_XY7je6w3UNcF.jpeg",
+   "caption": "Form",
+   "author": "Dalton Holland Baptista",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33299",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_sander_lh33ajxNAMSo.jpeg",
+   "caption": "Form",
+   "author": "Naoki Takebayashi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "33300",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_superb_gvxfmiKbm99l.jpeg",
+   "caption": "Form",
+   "author": "Dalton Holland Baptista",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33301",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_urbani_vqalP2dI4WTa.jpeg",
+   "caption": "Form",
+   "author": "Dalton Holland Baptista",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "33302",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Paphiopedilum_villos_x3wea2yhM5yz.jpeg",
+   "caption": "Form",
+   "author": "Naoki Takebayashi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "id": "hoya-bella",
+ "rank": "species",
+ "scientificName": "Hoya bella",
+ "group": "foliage",
+ "names": {
+  "ja": "ホヤ・ベラ",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "hoya-bella",
+  "hgic": "indoor-plants-waxflowers-hoya"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    24,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Adequate light is required to ensure that flowers are produced."
+   },
+   {
+    "src": "estimate",
+    "reason": "花を咲かせるには十分な光が必要なため、明るい日陰とした"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight in the early morning or late afternoon may encourage flowering."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts that can cause damage to the leaves."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Thrives in warm temperatures of 75 to 85 degrees Fahrenheit",
+    "fahrenheit": [
+     75,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "humidity levels of 50 to 60%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It is best to allow the soil to become almost dry before watering."
+   },
+   {
+    "src": "hgic",
+    "quote": "Hoyas thrive when allowed to dry out completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花が終わっても花茎を切らない（次の花が同じ場所から咲く）。",
+   "src": "ncsu",
+   "quote": "It is also important to avoid removing the flower stalks after blooming."
+  },
+  {
+   "ja": "水のやりすぎや水はけの悪さで根腐れし、葉が黄色くなる。",
+   "src": "ncsu",
+   "quote": "Overwatering and poor drainage can result in root rot and yellowing of the leaves.",
+   "symptom": "yellow"
+  }
+ ]
+}

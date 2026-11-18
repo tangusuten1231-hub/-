@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2688189",
+ "retrieved": "2026-11-18",
+ "query": "Selaginella kraussiana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2688189,
+ "acceptedKey": 2688189,
+ "acceptedName": "Selaginella kraussiana",
+ "authorship": "(Kunze) A.Braun",
+ "rank": "SPECIES",
+ "family": "Selaginellaceae",
+ "genus": "Selaginella",
+ "synonyms": [
+  "Didiclis kraussiana",
+  "Didiclis poulteri",
+  "Gymnogynum kraussianum",
+  "Lycopodioides azorica",
+  "Lycopodioides canescens",
+  "Lycopodioides kraussiana",
+  "Lycopodioides poulteri",
+  "Lycopodium kraussianum",
+  "Selaginella azorica",
+  "Selaginella brownii",
+  "Selaginella canescens",
+  "Selaginella hortensis",
+  "Selaginella poulteri",
+  "Selaginella poulterii"
+ ]
+}

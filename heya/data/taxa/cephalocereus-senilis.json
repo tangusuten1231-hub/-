@@ -1,0 +1,101 @@
+{
+ "id": "cephalocereus-senilis",
+ "rank": "species",
+ "scientificName": "Cephalocereus senilis",
+ "group": "cactus",
+ "names": {
+  "ja": "翁丸",
+  "aliases": [
+   "オキナマル",
+   "セファロケレウス・セニリス"
+  ]
+ },
+ "refs": {
+  "ncsu": "cephalocereus-senilis",
+  "hgic": "indoor-cacti"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 7,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "If grown indoors, provide bright light and some direct sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "provide bright light and some direct sun"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "provide bright light and some direct sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Dormant cactus plants do best at temperatures from 45 to 55 °F in winter.",
+    "fahrenheit": [
+     45
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Cacti prefer temperatures from 65 to 85 F during the growing season."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典の生育期の温度（18〜29℃）を目安とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plants well and allow them to dry out before rewatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "During the winter water and fertilizer should be withheld."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れなどの病気が出る。",
+   "src": "ncsu",
+   "quote": "It is susceptible to fungal diseases such as root rot, if overwatered.",
+   "symptom": "rot"
+  }
+ ]
+}

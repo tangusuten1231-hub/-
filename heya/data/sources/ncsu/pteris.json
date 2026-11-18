@@ -1,0 +1,373 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/pteris/",
+ "slug": "pteris",
+ "retrieved": "2026-11-18",
+ "scientificName": "Pteris",
+ "commonNames": [
+  "Brake Fern",
+  "Ribbon Fern",
+  "Table Fern"
+ ],
+ "description": "Pteris is a genus of 349 species of ferns that are native to tropical and subtropical regions of North America, South America, Europe, Africa, Southeast Asia, and Australia. They are typically fast-growing and found under tree canopies in forests, grasslands, or wetlands. They are members of the ribbon-fern family (Pteridaceae). The genus name, Pteris , is derived from the Greek word, ptero n, that means \"wing or feather.\" This references the fronds of these plants because they resemble a feathered wing or bird feathers. These ferns are commonly known as brake ferns, table ferns, or ribbon ferns. Plants in this genus are primarily grown as houseplants in North Carolina since they are not typically winter hardy below USDA Plant Hardiness Zone 9. Plants in this genus prefer bright, indirect light and moist, well-drained organic rich soil or potting mix. Moderate to high humidity and temperatures between 54 to 78 degrees Fahrenheit are also required. They can be grown outdoors in a sheltered location during the summer months in North Carolina, but they will need to be placed indoors before the temperatures drop below 54 degrees Fahrenheit in the fall. Remove yellowed, damaged, or dying fronds to keep the plants tidy. They may be propagated by spores, rhizome cuttings, or division. These plant are rhizomatous and have an erect to creeping habit. They may be either evergreen, semi-evergreen, or deciduous ferns. The size of the plants vary depending on the species. The size and shape of the fronds also vary depending on the species and can range from small and simple to large and compound. The fronds may be pinnately compound, but on the some species, they may be uni-pinnate, bi-pinnate, or 4-pinnate. In some species, the pinnae are smaller at the base, larger in the middle, and then decrease in size toward the apex. The fronds can be leathery, smooth, hairy, or scaly. Each leaflet is usually elongated and narrow with a pointed tip. Most of the species are easy to grow and are popular as a houseplants. They may also be placed in a sheltered area as a container planting on a patio during our warmer months. In warm tropical to sub-tropical climates, they may be planted in flower bed, rock gardens, or cottage gardens. Ferns serve as a habitat for small animals, and they also can help prevent erosion. Quick ID Hints: Pinnae with elongated narrow segments Sori marginal covered by inrolled margin Fronds often variegated above Diseases, Insect Pests, and Other Plant Problems: No significant diseases or pests. Monitor for aphids, mealybugs, and scale. May be susceptible to rust, sooty mold, and leaf spots. Watch for Florida Fern Caterpillar. Overwatering can cause yellow fronds and root rot. Underwatering, the fronds may become dry, crispy and yellowish-brown. To prevent sun scorch, it is best to avoid bright sunlight. VIDEO Created by NC State Extension's Homegrown series featuring Mark Weathington , Director of JC Raulston Arboretum .",
+ "cultivars": [
+  {
+   "name": "Pteris argyraea (Silver Brake Fern)",
+   "note": "large, upright, arching green to lime fronds with bands of silvery-white variegation,"
+  },
+  {
+   "name": "Pteris cretica 'Albolineata",
+   "note": "grayish-green fronds with wide center white stripe"
+  },
+  {
+   "name": "Pteris cretica (Cretan Brake Fern)",
+   "note": "slow growing, 18 to 24 inches tall, pale green, binpinnate fronds, long and arching,"
+  },
+  {
+   "name": "Pteris cretica \"Mayii",
+   "note": "18 to 24 inches tall, narrow green fronds wide white center band"
+  },
+  {
+   "name": "Pteris cretica var. cretica 'Ping Wu",
+   "note": "dense, dwarf, narrow fronds"
+  },
+  {
+   "name": "Pteris ensiformis (Sword Brake Fern)",
+   "note": "long, narrow, bipinnate fronds with sharp pointed leaflets"
+  },
+  {
+   "name": "Pteris multifida (Spider Brake Fern)",
+   "note": "bushy, dense habit with delicate and finely divided fronds"
+  },
+  {
+   "name": "Pteris tremula ( European Brake Fern)",
+   "note": "triangular shape, delicate, pale green, bipinnate fronds"
+  },
+  {
+   "name": "Pteris vittata 'Benzilan' (Benzilan Chinese Table Fern)",
+   "note": "clumping habit, dark green fronds, deer resistant, Zone 7b hardy"
+  },
+  {
+   "name": "Pteris vittata (Chinese Brake Fern)",
+   "note": "oblong-lance shaped leaflets, heart-shaped base, toothed margins, and terminal leaflet at the tip of the frond,"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Pteris"
+  ],
+  "Family": [
+   "Pteridaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Some species have been used to treat stomach or skin disorders."
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Country Or Region Of Origin": [
+   "Europe, Tropical Asia, Africa, South America, North America"
+  ],
+  "Distribution": [
+   "Native: Afghanistan, Algeria, Angola, Argentina, Bahamas, Bangladesh, Belize, Bolivia, Borneo, Botswana, Brazil, Cambodia, Cameroon, Cape Provinces, Central African Republic, Chile, China, Colombia, Costa Rica, Cuba, Dominican Republic, Congo, East Himalaya, Ecuador, El Salvador, Ethiopia, Florida, France, Gabon, Galapagos, Greece, Guatemala, Haiti, Hawaii, Honduras, India, Iran, Italy, Liberia, Libya, Madagascar, Malaya, Mexico, Morocco, Mozambique, Myanmar, Namibia, Nepal, New Caledonia, New South Wales, New Zealand, Nicaragua, Nigeria, Northern Provinces, Northern Territory, Pakistan, Palestine, Panama, Paraguay, Peru, Philippines, Portugal, Puerto Rico, Queensland, Rwanda, Samoa, Saudi Arabia, Somalia, South Australia, Spain, Sri Lanka, Sumatera, Switzerland, Taiwan, Tanzania, Tasmania, Thailand, Tibet, Togo, Trinidad-Tobago, Turkey, Uganda, Uruguay, Venezuela, Victoria, Vietnam, West Himalaya, Western Australia, Yemen, Zambia, and Zimbabwe. Introduced: AL, AR, Austria Belgium, Bermuda, CA, DC, GA, Germany, Great Britain, Hungary, IL, IN, KY, LA, MD, MS, Netherlands, NY, NC, Romania, SC, TX, Turkey-in-Europe, and VA."
+  ],
+  "Play Value": [
+   "Wildlife Cover/Habitat"
+  ],
+  "Plant Type": [
+   "Fern",
+   "Houseplant"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen",
+   "Deciduous"
+  ],
+  "Habit/Form": [
+   "Creeping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Description": [
+   "No fruits. This plants reproduces via spores."
+  ],
+  "Flower Description": [
+   "Non-flowering."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Smooth"
+  ],
+  "Leaf Type": [
+   "Compound (Pinnately , Bipinnately, Palmately)",
+   "Fronds"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Description": [
+   "The petiole may be straw-colored, green, brownish-red, or purplish-black. The leaf blade may be oblong to lanceolate and 1 to 4 pinnately compounded. The fronds may be leathery, smooth, hair, or scaly. The rachis is straight, and the leaflets may be sessile or short stalked and linear to oblong lanceolate. The fronds are dull green, but in cultivation, some varieties have variegated fronds."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The stems are erect or creeping, branched, and have pale brown to black scales."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Landscape Theme": [
+   "Cottage Garden",
+   "Shade Garden"
+  ],
+  "Resistance To Challenges": [
+   "Rabbits"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "fantz",
+  "fern",
+  "tropical feel",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "deer resistant",
+  "rabbit resistant",
+  "partial shade tolerant",
+  "creeping",
+  "spores",
+  "non-flowering",
+  "deciduous",
+  "rhizomatous",
+  "low maintenance",
+  "fronds",
+  "patio",
+  "container plant",
+  "erect",
+  "semi-evergreen",
+  "acidic soils tolerant",
+  "broadleaf evergreen"
+ ],
+ "images": [
+  {
+   "id": "24232",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_nipponica_YBBKpZNfwBOb.jpeg",
+   "caption": "Fronds",
+   "author": "Keisotyo",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24223",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris__g1jPiDI6aWsi.mpo",
+   "caption": "Fronds",
+   "author": "Vengolis",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24228",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_cretica_pKfhJWI4TInH.jpeg",
+   "caption": "Fronds",
+   "author": "Rexness",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "24231",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_quadriaurita_HNoEHt3FZJER.jpe",
+   "caption": "Fronds",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24233",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_adscensionis_sZqgHYqgOzyr.jpe",
+   "caption": "Fronds",
+   "author": "Drew Avery",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24234",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tripartita_MoUCy0oKLyIl.jpe",
+   "caption": "Form",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24235",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_multifida__fSYNO9pc3OYO.jpe",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "24238",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_cretica_ccby2_3Q3T9osJLrD8.jpe",
+   "caption": "Form",
+   "author": "harum.koh",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24239",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_ensiformis_E_0tUOEYrzsYjW.jpeg",
+   "caption": "Fronds",
+   "author": "Megan Hansen",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "24240",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_ensiformis_Kr_LCBMMnpFv9qi.jpe",
+   "caption": "Fronds",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24241",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_hillebrandii__z327psF64nOU.jpeg",
+   "caption": "Fronds",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24242",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_hillebrandii__HRsQodOvk9ra.jpe",
+   "caption": "Fronds",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24243",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_hillebrandii__pk6goiOLuyJx.jpe",
+   "caption": "Form",
+   "author": "David Eickhoff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24244",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_multifida_kei_NqHJM3wGKzp2.jpe",
+   "caption": "Form",
+   "author": "Keisotyo",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24246",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_quadriaurita_pxowYc6zlp1B.jpe",
+   "caption": "Form",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24248",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tremula_Dade_iXpxEmmvOPHU.jpeg",
+   "caption": "Form",
+   "author": "Daderot",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "24249",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tremula_Siob_T3B4934nQlFU.jpe",
+   "caption": "Fronds",
+   "author": "Siobhan Leachman",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "24250",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tripartita_2_RwG9ZQkFgfnz.jpe",
+   "caption": "Form",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24251",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tripartita_L_FZ44bFaBVSgK.jpeg",
+   "caption": "Fronds",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24252",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_tripartitaLa_FoO4XlkkZ7Sk.jpeg",
+   "caption": "Form",
+   "author": "Lauren Gutierrez",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24253",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_vittata_JMK_c_egU6QHSAEyYi.jpeg",
+   "caption": "Fronds",
+   "author": "JMK",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "24254",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pteris_vittata_Keiso_7vDLoz0AtS9H.jpeg",
+   "caption": "Fronds",
+   "author": "Keisotyo",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

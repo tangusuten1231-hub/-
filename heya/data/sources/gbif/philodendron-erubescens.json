@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2871297",
+ "retrieved": "2026-11-18",
+ "query": "Philodendron erubescens",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2871297,
+ "acceptedKey": 2871297,
+ "acceptedName": "Philodendron erubescens",
+ "authorship": "K.Koch & Augustin",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Philodendron",
+ "synonyms": []
+}

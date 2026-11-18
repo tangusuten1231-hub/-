@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3169317",
+ "retrieved": "2026-11-18",
+ "query": "Cyclamen persicum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3169317,
+ "acceptedKey": 3169317,
+ "acceptedName": "Cyclamen persicum",
+ "authorship": "Mill.",
+ "rank": "SPECIES",
+ "family": "Primulaceae",
+ "genus": "Cyclamen",
+ "synonyms": [
+  "Cyclamen albidum",
+  "Cyclamen aleppicum",
+  "Cyclamen antiochium",
+  "Cyclamen hederaceum",
+  "Cyclamen hederifolium",
+  "Cyclamen latifolium",
+  "Cyclamen punicum",
+  "Cyclamen pyrolifolium",
+  "Cyclamen tunetanum",
+  "Cyclamen utopicum",
+  "Cyclamen vernale",
+  "Cyclamen vulgare",
+  "Cyclaminus persica"
+ ]
+}

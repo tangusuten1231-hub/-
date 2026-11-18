@@ -1,0 +1,104 @@
+{
+ "id": "aechmea-fasciata",
+ "rank": "species",
+ "scientificName": "Aechmea fasciata",
+ "group": "flowering",
+ "names": {
+  "ja": "エクメア・ファシアータ",
+  "aliases": [
+   "シマサンゴアナナス"
+  ]
+ },
+ "refs": {
+  "ncsu": "aechmea-fasciata",
+  "hgic": "bromeliads"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect light to partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "partial shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads need in-direct sunlight to grow well and produce flowers"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads prefer temperatures from 60F to 85F to survive and grow well.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant thrives in temperatures between 65 to 75 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Keep their cup filled with water, but allow the potting mix to dry between watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Watering should be reduced during the winter months."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "中心の筒に約2.5cm水をため、月に1回入れ替える（ボウフラなどを防ぐ）。",
+   "src": "ncsu",
+   "quote": "The water in the central cup needs to be removed and changed once a month"
+  },
+  {
+   "ja": "花は一度咲くと株は枯れる（子株が育つ）。",
+   "src": "ncsu",
+   "quote": "It blooms only once and then dies."
+  }
+ ]
+}

@@ -1,0 +1,107 @@
+{
+ "id": "haworthia-retusa",
+ "rank": "species",
+ "scientificName": "Haworthia retusa",
+ "group": "succulent",
+ "names": {
+  "ja": "ハオルチア・レツーサ",
+  "aliases": [
+   "寿",
+   "コトブキ"
+  ]
+ },
+ "refs": {
+  "ncsu": "haworthia-retusa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This low maintenance plant prefers bright, indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It can tolerate morning or late afternoon sun, but exposure to midday sun may cause leaf scorch."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is hardy in USDA zones 10 to 11 and needs to be protected from frost."
+   },
+   {
+    "src": "estimate",
+    "reason": "霜から守る必要があるとされ、多肉植物の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Temperatures between 60 to 80 degrees Fahrenheit are ideal.",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The humidity in most homes is well-tolerated by the star cactus."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The potting medium should be allowed to dry out between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "昼の強い日差しで葉焼けする。",
+   "src": "ncsu",
+   "quote": "exposure to midday sun may cause leaf scorch",
+   "symptom": "scorch"
+  },
+  {
+   "ja": "葉がぬれたままや湿度が高すぎるとうどんこ病などが出る。",
+   "src": "ncsu",
+   "quote": "Fungal diseases like powdery mildew can result from wet leaves or overly humid conditions.",
+   "symptom": "spots"
+  }
+ ]
+}

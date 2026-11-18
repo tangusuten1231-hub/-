@@ -1,0 +1,108 @@
+{
+ "id": "hippeastrum",
+ "rank": "genus",
+ "scientificName": "Hippeastrum",
+ "group": "flowering",
+ "names": {
+  "ja": "アマリリス",
+  "aliases": [
+   "ヒッペアストルム"
+  ]
+ },
+ "refs": {
+  "ncsu": "hippeastrum",
+  "hgic": "amaryllis"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 2,
+   "idealC": [
+    21,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "The sun-loving amaryllis grows best indoors in a well-lighted area that receives at least four hours of direct sunlight daily."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "毎日4時間以上の直射日光が必要とされるため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "A southern window exposure is best"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Note that plants are injured at temperatures below 35 degrees F.",
+    "fahrenheit": [
+     35
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Amaryllis prefers warm temperatures (70 to 75 °F) for best growth",
+    "fahrenheit": [
+     70,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "After that, keep the soil slightly moist and empty any saucer underneath the pot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Amaryllis bulbs need a dormant period of recovery and rejuvenation after bloom."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Reduce watering."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花が咲いたら少し涼しく（18℃前後）すると花が長持ちする。",
+   "src": "hgic",
+   "quote": "Once the plant flowers, cooler temperatures (65 °F) will prolong the flower's life."
+  },
+  {
+   "ja": "数日ごとに鉢を回すと花茎がまっすぐ伸びる。",
+   "src": "hgic",
+   "quote": "Rotate the pot every few days so the flower stalk will remain vertical"
+  }
+ ]
+}

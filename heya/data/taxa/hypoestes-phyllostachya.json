@@ -1,0 +1,99 @@
+{
+ "id": "hypoestes-phyllostachya",
+ "rank": "species",
+ "scientificName": "Hypoestes phyllostachya",
+ "group": "foliage",
+ "names": {
+  "ja": "ヒポエステス",
+  "aliases": [
+   "ソバカスソウ",
+   "ポルカドットプランツ"
+  ]
+ },
+ "refs": {
+  "ncsu": "hypoestes-phyllostachya"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "achieving the best color can be accomplished by locating this plant in an area that receives bright, filtered lighting"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Too little lighting can result in the leaves fading as well as a plant that becomes leggy"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Polka-dot plants will tolerate some direct sunlight"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "熱帯原産の観葉植物の一般的な安全域として。出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典に水やりの記載がないため、一般的な観葉植物と同じく表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "直射日光が強すぎると葉が縮れて丸まる。",
+   "src": "ncsu",
+   "quote": "Too much direct sunlight can cause the leaves to crinkle and curl.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "光が足りないと葉の色があせて間延びする。摘心するとこんもり育つ。",
+   "src": "ncsu",
+   "quote": "Too little lighting can result in the leaves fading as well as a plant that becomes leggy as they reach for brighter lighting.",
+   "symptom": "leggy"
+  }
+ ]
+}

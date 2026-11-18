@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2698346",
+ "retrieved": "2026-11-18",
+ "query": "Aechmea fasciata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2698346,
+ "acceptedKey": 2698346,
+ "acceptedName": "Aechmea fasciata",
+ "authorship": "(Lindl.) Baker",
+ "rank": "SPECIES",
+ "family": "Bromeliaceae",
+ "genus": "Aechmea",
+ "synonyms": [
+  "Aechmea hamata",
+  "Aechmea leopoldii",
+  "Aechmea rhodocyanea",
+  "Billbergia fasciata",
+  "Billbergia glaziouviana",
+  "Billbergia glaziouvii",
+  "Billbergia glazioviana",
+  "Billbergia glaziovii",
+  "Billbergia rhodocyanea",
+  "Bromelia fasciata",
+  "Hohenbergia fasciata",
+  "Hoplophytum fasciatum",
+  "Platyaechmea fasciata",
+  "Tillandsia bracteata"
+ ]
+}

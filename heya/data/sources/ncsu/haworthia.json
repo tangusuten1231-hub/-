@@ -1,0 +1,244 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/haworthia/",
+ "slug": "haworthia",
+ "retrieved": "2026-11-18",
+ "scientificName": "Haworthia",
+ "commonNames": [
+  "Haworthia",
+  "Pearl Plant",
+  "Star Window Plant",
+  "Zebra Cactus"
+ ],
+ "description": "Haworthia is a large genus of small, perennial, succulent plants in the daylily family (Asphodelaceae) and is native to South Africa. The genus name honors Adrian Hardy Haworth, a British botanist and entomologist from the late 1700s to early 1800s. In the wild, these plants grow in harsh conditions and are commonly found buried in sand. For gardeners, they are easy to grow. These plants prefer well-drained potting medium, and it is best to allow the potting medium to dry out between waterings. While they are somewhat tolerant of low-light conditions, they prefer full sun or bright indirect light, which also produces the best colors in the leaves. The average home temperature and humidity levels are adequate for these plants. They are hardy in USDA zones 9 to 11 and are drought tolerant. Plants in this genus range in size from 2 to 12 inches tall and equally as wide. They have a clumping habit and form a small rosette with thick, fleshy leaves. The species in this genus have a variety of leaf textures, stripes, and patterns. Some plants have clear leaf tips, while others may have a totally translucent leaf. The flowers are delicate, tubular, white to pink and appear on long slender stems. They typically bloom in the late spring or summer. Haworthias are primarily used as ornamentals and are especially popular with beginner gardeners. Consider using these low-maintenance plants in a terrarium, dish garden, or desktop plant in your home or office. In warmer climates that may be used outdoors in a rock garden. In 2013 and 2014, the genus Haworthia was split when several species were moved to Haworthiopsis and Tulista . Many familiar cultivated species are now placed in these other genera. Haworthia and Haworthiopsis can usually be distinguished by characteristics of their leaves. Haworthia species have translucent epidermal windows at the tips of their leaves. Haworthiopsis species, on the other hand, have opaque, linear leaves, with white, raised calluses in spots or bands on their undersides. Tulista is similar to Haworthiopsis vegetatively, but the flower is sessile on the pedicel. In Haworthiopsis , the flower has a short stipe where it joins the pedicel. Insects, Diseases, and Other Plant Problems: Haworthias are generally free of most insect pests except for mealybugs. Root rot may occur from excessive watering. These plants are sensitive to frost. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Haworthia bayeri (Moon Shadow)",
+   "note": "flat rosettes, deep green leaves with red tips, white veining, more cold tolerant"
+  },
+  {
+   "name": "Haworthia cooperi (Cooper's Haworthia)",
+   "note": "translucent appearance, rosette of blue-green, plump, juicy leaves with deep green longitudinal veins"
+  },
+  {
+   "name": "Haworthia cymbiformis (Cathedral Window Haworthia)",
+   "note": "4-inch rosette of boat-shaped, pale green leaves with dark longitudinal stripes"
+  },
+  {
+   "name": "Haworthia truncata (Horse's Teeth)",
+   "note": "rectangular-shaped, truncated green leaves resembling a row of squared off teeth"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Haworthia"
+  ],
+  "Family": [
+   "Asphodelaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "South Africa"
+  ],
+  "Distribution": [
+   "Mexico"
+  ],
+  "Play Value": [
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 2 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 2 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Succulent"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Sand",
+   "Shallow Rocky"
+  ],
+  "Soil pH": [
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Description": [
+   "Capsule ovoid to oblong, 3-locular. Seeds with angles winged."
+  ],
+  "Flower Color": [
+   "Insignificant",
+   "Pink",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Panicle",
+   "Raceme"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Small, usually white, flowers. Peduncle erect, simple, with a few sterile bracts; bracts membranous, small, lanceolate to ovate; pedicels short, ascending."
+  ],
+  "Leaf Color": [
+   "Brown/Copper",
+   "Green",
+   "Orange",
+   "Pink"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Other/more complex",
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Serrate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "While leaf shape and arrangement varies among species, all form characteristic \"windows\" of translucent epidermis on and around the tops of the leaves. Most are rosulate or \"cross-shaped\" in growth, and some may have teeth along the margins. Depending on species, leaves can range from 1 to 12 inches in diameter. Bright light can cause many different colors to develop in the leaves."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Rock Wall"
+  ],
+  "Landscape Theme": [
+   "Rock Garden"
+  ],
+  "Design Feature": [
+   "Accent"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "hsc",
+  "hsc-s",
+  "succulent",
+  "easy to grow",
+  "container plant",
+  "easy to grow houseplant",
+  "colorful leaves",
+  "attractive leaves",
+  "drought tolerant",
+  "herbaceous perennial",
+  "th-touch"
+ ],
+ "images": [
+  {
+   "id": "33270",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_cooperi_Ab_Y651eyzvaWKd.jpeg",
+   "caption": "Form",
+   "author": "Abu Shawka",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "33273",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Haworthia_truncata_v_pibVucfcDIv4.jpeg",
+   "caption": "Form",
+   "author": "Eria Wei",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "33445",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/33813556644_e1b6825d_yaYbXiZHfDK4.jpeg",
+   "caption": "Translucent \"windows\"",
+   "author": "Skolnik Co",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "33446",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/29811122422_f6d8bece_CaW3pe69oVoh.jpeg",
+   "caption": "Translucent \"windows\" and serrated margins",
+   "author": "Skolnik Co",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "33447",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/4705089117_7e14a69eb_81IeDnc2blex.jpeg",
+   "caption": "Form",
+   "author": "Yongyus",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "33448",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/16349167898_b4ebd6e1_vAPH3LtUFbem.jpeg",
+   "caption": "Form",
+   "author": "Reggie1",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
+ ]
+}

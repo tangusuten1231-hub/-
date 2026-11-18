@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2872218",
+ "retrieved": "2026-11-18",
+ "query": "Anthurium",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2872218,
+ "acceptedKey": 2872218,
+ "acceptedName": "Anthurium",
+ "authorship": "Schott",
+ "rank": "GENUS",
+ "family": "Araceae",
+ "genus": "Anthurium",
+ "synonyms": [
+  "Podospadix",
+  "Strepsanthera"
+ ]
+}

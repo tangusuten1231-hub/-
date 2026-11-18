@@ -1,0 +1,26 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2861312",
+ "retrieved": "2026-11-18",
+ "query": "Philodendron",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2861312,
+ "acceptedKey": 2861312,
+ "acceptedName": "Philodendron",
+ "authorship": "Schott",
+ "rank": "GENUS",
+ "family": "Araceae",
+ "genus": "Philodendron",
+ "synonyms": [
+  "Arosma",
+  "Baursea",
+  "Calostigma",
+  "Elopium",
+  "Meconostigma",
+  "Philodendrum",
+  "Sphincterostigma",
+  "Telipodus"
+ ]
+}

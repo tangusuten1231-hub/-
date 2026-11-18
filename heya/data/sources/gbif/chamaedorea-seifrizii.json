@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2734708",
+ "retrieved": "2026-11-18",
+ "query": "Chamaedorea seifrizii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2734708,
+ "acceptedKey": 2734708,
+ "acceptedName": "Chamaedorea seifrizii",
+ "authorship": "Burret",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Chamaedorea",
+ "synonyms": [
+  "Chamaedorea donnell-smithii",
+  "Chamaedorea erumpens",
+  "Meiota campechana"
+ ]
+}

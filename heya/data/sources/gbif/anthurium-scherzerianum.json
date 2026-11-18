@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2873525",
+ "retrieved": "2026-11-18",
+ "query": "Anthurium scherzerianum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2873525,
+ "acceptedKey": 2873525,
+ "acceptedName": "Anthurium scherzerianum",
+ "authorship": "Schott",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Anthurium",
+ "synonyms": [
+  "Anthurium rothschildianum",
+  "Anthurium williamsii"
+ ]
+}

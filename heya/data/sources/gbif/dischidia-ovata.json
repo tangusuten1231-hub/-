@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3582092",
+ "retrieved": "2026-11-18",
+ "query": "Dischidia ovata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3582092,
+ "acceptedKey": 3582092,
+ "acceptedName": "Dischidia ovata",
+ "authorship": "Benth.",
+ "rank": "SPECIES",
+ "family": "Apocynaceae",
+ "genus": "Dischidia",
+ "synonyms": []
+}

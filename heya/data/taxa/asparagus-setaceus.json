@@ -1,0 +1,111 @@
+{
+ "id": "asparagus-setaceus",
+ "rank": "species",
+ "scientificName": "Asparagus setaceus",
+ "group": "foliage",
+ "names": {
+  "ja": "アスパラガス・プルモーサス",
+  "aliases": [
+   "アスパラガス・セタケウス",
+   "プルモーサス"
+  ]
+ },
+ "refs": {
+  "ncsu": "asparagus-setaceus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    13,
+    21
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants need bright indirect light and high humidity."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Insufficient light as well as insufficient water will result in yellow needles that drop."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of high light intensity; therefore, avoid direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "when the temperatures drop to near 55 degrees Fahrenheit that will need to be brought back indoors",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers temperatures between 55 to 70 degrees Fahrenheit.",
+    "fahrenheit": [
+     55,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "These plants need bright indirect light and high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer regular watering in spring to autumn and sparingly in winter."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "sparingly in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "光や水が足りないと、細い葉が黄色くなって落ちる。",
+   "src": "ncsu",
+   "quote": "Insufficient light as well as insufficient water will result in yellow needles that drop.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can occur from overwatering.",
+   "symptom": "rot"
+  }
+ ],
+ "note": "以前の学名は Asparagus plumosus。"
+}

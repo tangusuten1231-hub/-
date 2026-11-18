@@ -1,0 +1,101 @@
+{
+ "id": "caladium-bicolor",
+ "rank": "species",
+ "scientificName": "Caladium bicolor",
+ "group": "foliage",
+ "names": {
+  "ja": "カラジウム",
+  "aliases": [
+   "ハイモ",
+   "カラディウム"
+  ]
+ },
+ "refs": {
+  "ncsu": "caladium-bicolor",
+  "hgic": "caladium"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Plant in partial shade to full"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It tolerates deep shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は半日陰〜日陰に植えるとするため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Store tubers properly to avoid high humidity and in a dry, warm place where the temperature is above 50 ºF.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典は水をとても多く必要とするとし、熱帯の植物のため高めの湿度とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It is a water guzzler and requires abundant amounts of water when growing."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "the tubers must be dug up and stored over winter"
+   },
+   {
+    "src": "estimate",
+    "reason": "冬は葉が枯れて球根で休眠するため、水やりを止めて乾かす"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冬は葉が枯れて休眠するので、室内の観葉植物としては育てにくい。",
+   "src": "ncsu",
+   "quote": "Difficult to grow as interior landscape plants as leaves die back during winter"
+  }
+ ],
+ "note": "春〜夏に葉を楽しむ植物。冬は球根で休眠する（出典の記載）。"
+}

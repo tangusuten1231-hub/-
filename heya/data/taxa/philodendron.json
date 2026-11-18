@@ -1,0 +1,112 @@
+{
+ "id": "philodendron",
+ "rank": "genus",
+ "scientificName": "Philodendron",
+ "group": "foliage",
+ "names": {
+  "ja": "フィロデンドロンの仲間",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "philodendron",
+  "hgic": "philodendron-pothos-monstera"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Most philodendrons prefer indirect or curtain-filtered sunlight but will tolerate low light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "will tolerate low light"
+   },
+   {
+    "src": "estimate",
+    "reason": "暗さに耐えるとされるが、品種によって必要な光が違うため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid direct sunlight because that can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "They are very sensitive to cold; therefore, drafts should be avoided."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The ideal temperature for philodendrons is between 65 and 85 degrees F.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer high humidity, but they usually can adapt to an average home's humidity level."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Water frequently enough to keep the soil evenly moist, but not soggy."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は均一に湿らせるとするが、水のやりすぎで根腐れするとされるため、表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause root rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "品種によって必要な光の量が違う。",
+   "src": "ncsu",
+   "quote": "Some varieties may require more light than others."
+  }
+ ]
+}

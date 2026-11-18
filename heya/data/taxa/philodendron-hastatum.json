@@ -1,0 +1,106 @@
+{
+ "id": "philodendron-hastatum",
+ "rank": "species",
+ "scientificName": "Philodendron hastatum",
+ "group": "foliage",
+ "names": {
+  "ja": "フィロデンドロン・ハスタツム",
+  "aliases": [
+   "シルバーメタル",
+   "シルバーソード"
+  ]
+ },
+ "refs": {
+  "ncsu": "philodendron-hastatum",
+  "hgic": "philodendron-pothos-monstera"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid direct sunlight which can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts or sudden drops in the temperature."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The room temperature should average between 65 to 85 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "warm temperatures and high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Overwatering can cause root rot."
+   },
+   {
+    "src": "estimate",
+    "reason": "水のやりすぎで根腐れするため、表面が乾いたらとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "風通しをよくし、水やりで葉をぬらさないと斑点を防げる。",
+   "src": "ncsu",
+   "quote": "Provide good air circulation and do not let the leaves get wet while watering to prevent leaf spots.",
+   "symptom": "spots"
+  }
+ ]
+}

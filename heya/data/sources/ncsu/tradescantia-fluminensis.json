@@ -1,0 +1,369 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/tradescantia-fluminensis/",
+ "slug": "tradescantia-fluminensis",
+ "retrieved": "2026-11-18",
+ "scientificName": "Tradescantia fluminensis",
+ "commonNames": [
+  "Inch Plant",
+  "River Spiderwort",
+  "Small-Leaf Spiderwort",
+  "Wandering Creeper",
+  "Wandering Trad",
+  "Wandering Willie",
+  "White-Flowered Spiderwort",
+  "White Inch Plant"
+ ],
+ "description": "Small-leaf spiderwort or inch plant is an evergreen trailing herbaceous perennial groundcover in the spiderwort family (Commelinaceae). It is native to southeastern and southern Brazil to northern Argentina. The specific epithet, fluminensis , originates from the Latin word flumen, meaning \"river.\" It references the Brazilian state of Rio de Janeiro, where it was first collected. This species prefers bright, indirect sun and moist, well-drained soil or potting mix. It can be grown in full sun, but it needs afternoon protection to prevent leaf scorch. Pinching the stems will make the plant denser and prevent leggy stems. It is easily propagated by stem cuttings. When grown outdoors, it will root at each node and can become invasive. The plant usually grows 6 inches tall and about 2 feet wide. The foliage is green, oval, fleshy, and the undersides are purple. The stems will cascade downward, and they are fleshy and hairless. The flowers are tiny 3-petaled, white and only last for one day. In their native habitat the flowers bloom from spring to fall; however, as a houseplant, it rarely flowers. Variegated varieties are available. In colder climates, it makes a good houseplant and its spreading form makes it attractive in a hanging basket though it will rarely flower. In warm climates alternatives should be considered as it is quite aggressive and tends to smother other native ground covers. Quick ID Hints: Leaves are 2-ranked, stems are trailing; sheaths closed Paired bracts enclose flowers that last 1 day each Green leaves with purplish undersides Insects, Diseases, and Other Plant Problems: Monitor for mealybugs, scale, whiteflies, and spider mites. Root rot can occur from overwatering. Considered an invasive species, noxious weed, or pest plant in many locations. Seriously affected areas include Australia, New Zealand, and the southeastern United States. Consider planting one of the native spiderworts in the left hand column. Snails and caterpillars can damage young shoots. This species is mildly toxic to pets and humans if ingested. Contact with the plant can cause skin redness and irritation. Wear protective gloves when handling this plant. More information on Tradescantia .",
+ "cultivars": [
+  {
+   "name": "Albovittata",
+   "note": "White stripes on the top, purple underneath"
+  },
+  {
+   "name": "Aurea",
+   "note": "glossy chartreuse leaves with lime green stems, white flowers"
+  },
+  {
+   "name": "‘Lilac’",
+   "note": "Lilac variegated leaves"
+  },
+  {
+   "name": "Nanouk",
+   "note": "variegated foliage, green leaf has stripes of cream and pink, the undersides of the leaf are purple"
+  },
+  {
+   "name": "Quadricolor",
+   "note": "bright green leaves striped with pale green, white, and pink"
+  },
+  {
+   "name": "Speedy Henry",
+   "note": "glossy green and white striped leaves, variegated"
+  },
+  {
+   "name": "‘Tricolor’",
+   "note": "Pink, cream and green leaves"
+  },
+  {
+   "name": "Variegata",
+   "note": "Variegated green and cream leaves"
+  },
+  {
+   "name": "Viridis",
+   "note": "mid to dark green leaves, paler undersides with slight silver tint, shad tolerant"
+  },
+  {
+   "name": "White Stripe",
+   "note": "bright green foliage with white variegation"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Tradescantia"
+  ],
+  "Species": [
+   "fluminensis"
+  ],
+  "Family": [
+   "Commelinaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Southeast and Southern Brazil to Northern Argentina"
+  ],
+  "Distribution": [
+   "Native: Argentina, Brazil, Paraguay, and Uruguay. Introduced: Bolivia, Cyprus, France, Great Britain, Greece, Italy, Japan, Kenya, Morocco, New South Wales, New Zealand, Northern Provinces, Portugal, Puerto Rico, Queensland, Romania, Spain, Swaziland Taiwan, Tasmania, Transcaucasus, Tunisia, Turkey, Victoria, and the United States--AL, CA, FL, GA, KY, LA"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 0 ft. 9 in.",
+   "Width: 0 ft. 9 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Creeping",
+   "Dense",
+   "Multi-stemmed",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches",
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Brown/Copper",
+   "Gray/Silver"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is a brown to grayish-brown capsules with 3 sections and contains black seeds."
+  ],
+  "Flower Color": [
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Cyme"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Spring",
+   "Summer"
+  ],
+  "Flower Petals": [
+   "2-3 rays/petals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Inflorescence is a one-sided cyme, terminal or axillary, <2 inch peduncles, hidden by 2 leafy bracts. Flowers are white, <1 inch with 3 equal petals and 3 sepals, subtended by a pair of boat-shaped bracts, and 6 stamens. Rarely flowers as a houseplant. In its native habitat, it flowers from spring to fall."
+  ],
+  "Leaf Color": [
+   "Green",
+   "Purple/Lavender",
+   "Variegated",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Oblong",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "1-3 inches"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The leaves are 2 inches long, almost 1 inch wide, alternate, distichous, simple, ovate-oblong, and acute. The succulent leaf blade is sessile with a closed sheath. The leaves are green with purplish undersides, and the cultivars may have variegated leaves of off-white or cream."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are ascending, decumbent or trailing, rooting at nodes. Nodes are 1 inch apart, hence the common name."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses",
+   "Weedy"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested by pets or humans, it can mouth and stomach irritation, vomiting, swelling of the mouth, and difficulty breathing. It can also cause skin redness and irritation."
+  ],
+  "Poison Toxic Principle": [
+   "unknown"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "trailing",
+  "interiorscape",
+  "evergreen",
+  "hanging baskets",
+  "fantz",
+  "showy leaves",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "container plant",
+  "high maintenance",
+  "fast growing",
+  "aggressive",
+  "white flowers",
+  "cascading",
+  "spreading",
+  "creeping",
+  "weedy"
+ ],
+ "images": [
+  {
+   "id": "15717",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_X39SQkzFzIOO.jpe",
+   "caption": "Form",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "15718",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_tk3gTOqnUIQ5.jpe",
+   "caption": "Close up of flower",
+   "author": "Enrique Dans",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "15719",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_yNOwiLsagQsq.jpe",
+   "caption": "Leaves",
+   "author": "Ixitixel",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "15720",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_purYqne5awUY.jpe",
+   "caption": "Underside of leaf",
+   "author": "Harry Rose",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "15721",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia.flumine_mGlZjathlk5y.jpe",
+   "caption": "Variegated variety in a pot",
+   "author": "LucaLuca",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "15722",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradesdantia_flumine_lPmWh1Wen5uu.jpe",
+   "caption": "Invasive qualities",
+   "author": "Harry Rose",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "29152",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_UUrL29SaktLD.jpg",
+   "caption": "Leaves",
+   "author": "Harry Rose",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "29153",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_SMCYBJneHpZQ.jpg",
+   "caption": "Leaf detail",
+   "author": "Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "29154",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_DKESn1J4wQvv.jfif",
+   "caption": "Flower",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "29155",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_v3tZiaQkW87t.jpg",
+   "caption": "Flower detail",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29156",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_7JcCVwUeZyD6.jpg",
+   "caption": "Full form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "29157",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Tradescantia_flumine_iG42Raowtu1h.jpg",
+   "caption": "Flower and leaves",
+   "author": "Tigerente",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
+ ]
+}

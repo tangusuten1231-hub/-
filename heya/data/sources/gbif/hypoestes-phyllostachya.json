@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3173196",
+ "retrieved": "2026-11-18",
+ "query": "Hypoestes phyllostachya",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3173196,
+ "acceptedKey": 3173196,
+ "acceptedName": "Hypoestes phyllostachya",
+ "authorship": "Baker",
+ "rank": "SPECIES",
+ "family": "Acanthaceae",
+ "genus": "Hypoestes",
+ "synonyms": [
+  "Eranthemum sanguinolentum",
+  "Hypoestes sanguinolenta"
+ ]
+}

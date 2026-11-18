@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3107396",
+ "retrieved": "2026-11-18",
+ "query": "Curio radicans",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3107396,
+ "acceptedKey": 3107396,
+ "acceptedName": "Curio radicans",
+ "authorship": "(L.) P.V.Heath",
+ "rank": "SPECIES",
+ "family": "Asteraceae",
+ "genus": "Curio",
+ "synonyms": [
+  "Cacalia radicans",
+  "Kleinia adenocalyx",
+  "Kleinia radicans",
+  "Senecio adenocalyx",
+  "Senecio gonocladus",
+  "Senecio radicans",
+  "Senecio rhopalodenia"
+ ]
+}

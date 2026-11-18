@@ -1,0 +1,100 @@
+{
+ "id": "dischidia-ovata",
+ "rank": "species",
+ "scientificName": "Dischidia ovata",
+ "group": "foliage",
+ "names": {
+  "ja": "ディスキディア・オヴァタ",
+  "aliases": [
+   "ディスキディア"
+  ]
+ },
+ "refs": {
+  "ncsu": "dischidia-ovata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers humid and well-ventilated conditions and bright, indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight will scorch its leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures between 65 to 85 degrees Fahrenheit"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は18〜29℃を適温とし、急な温度変化を避けるよう勧めるため、余裕をみて16℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures between 65 to 85 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Humidity levels should be 60 to 80%"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "The plant is very sensitive to overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎにとても弱い。",
+   "src": "ncsu",
+   "quote": "The plant is very sensitive to overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

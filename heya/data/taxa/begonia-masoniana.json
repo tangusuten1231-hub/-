@@ -1,0 +1,100 @@
+{
+ "id": "begonia-masoniana",
+ "rank": "species",
+ "scientificName": "Begonia masoniana",
+ "group": "foliage",
+ "names": {
+  "ja": "ベゴニア・マソニアーナ",
+  "aliases": [
+   "アイアンクロス"
+  ]
+ },
+ "refs": {
+  "ncsu": "begonia-masoniana",
+  "hgic": "growing-begonias-indoors"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    19,
+    23
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "place it in bright but indirect or filtered light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "bright but indirect or filtered light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "will not survive outdoors in temperatures below 55 degrees F",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Maintain temperature at 66 to 73 °F.",
+    "fahrenheit": [
+     66,
+     73
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "this plant prefers high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "keep evenly moist during periods of growth"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "allowing the surface of the soil to nearly dry before adding water"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉をぬらさないとうどんこ病を防げる。",
+   "src": "ncsu",
+   "quote": "Keep foliage dry to help prevent the onset of powdery mildew.",
+   "symptom": "spots"
+  }
+ ]
+}

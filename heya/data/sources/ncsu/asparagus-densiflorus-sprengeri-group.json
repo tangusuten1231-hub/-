@@ -1,0 +1,328 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/asparagus-densiflorus-sprengeri-group/",
+ "slug": "asparagus-densiflorus-sprengeri-group",
+ "retrieved": "2026-11-18",
+ "scientificName": "Asparagus densiflorus Sprengeri Group",
+ "commonNames": [
+  "Asparagus",
+  "Asparagus Fern",
+  "Emerald Feather",
+  "Emerald Fern",
+  "Lace Fern",
+  "Plumosa Fern",
+  "Racemose Asparagus",
+  "Shatavari",
+  "Sprengeri Fern"
+ ],
+ "description": "Asparagus Fern is an erect, perennial herb but not a fern at all and is in the Asparagaceae family. It is somewhat woody, and branches gracefully with an arching and fern-like habit. Its leaves and alternate and scale-like. The terminal branchlets are very narrow, flat, and needle-like, and form in clusters of 3. Its yellow-green flowers are axillary, drooping, 6-parted, and bell-shaped. The fruit is a bright red berry. Asparagus fern is moderately salt tolerant. Indoor herbaceous 'shrub' can reach a height of up to 3'. Its habit can be dense and compact to wide-spreading. Prefers medium warmth, regular watering in spring to autumn and sparingly in winter. It is intolerant of direct sunlight and wet soils. Maintenance is low. To maintain its height and form, pinch back the stem tips. This will also allow the plant to become denser. If that is not sufficient to achieve the desired form, the plant can be cut down to the soil level. The plant will then begin to regenerate. It is often grown for the graceful feathery-like, fern-like foliage that is used in floral arrangements. It is adaptable to a wide variation of light, temperature, and frequency of watering. It will also grow in full shade, with the foliage turning a lighter shade of green. Being frost tender, it will die to the ground if it is subjected to even a light frost. The roots will remain hardy to temperatures of 20-25 degrees Fahrenheit. For container-grown plants, take indoors before the first frost. Birds forage on the berries, while at the same time, spread the seeds. Used in a hanging basket and as ground cover in indoor landscapes. Quick ID Hints : Cladophylls are soft, green, needle-like, flattened** True leaves are spine-like projections on the stem** Houseplant with fern-like foliage & yellowish blooms* Insects, Diseases, and Other Plant Problems: Afternoon sun in warmer climates can cause the foliage to yellow. Some locations consider this plant invasive. Mites, slugs, aphids and mealybugs often frequent this plant. Watch out for leaf spot and root or crown rot. When used indoors, leaf drop can be messy.",
+ "cultivars": [
+  {
+   "name": "Meyersii",
+   "note": "Branches congested, \"fox-tail\" or \"bottle-brush\" appearance with lateral pins short, all of equal lengths."
+  },
+  {
+   "name": "Nana",
+   "note": "dwarf, 15 inches tall, compact, emerald green, soft, feather-like foliage"
+  },
+  {
+   "name": "Splengeri",
+   "note": "With major branch elongated, lateral pins of variable length & elongate bearing lateral pins on them."
+  },
+  {
+   "name": "Sprengeri Compacta",
+   "note": "popular in hanging baskets, dense clusters of bright green needle-like foliage"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Asparagus"
+  ],
+  "Species": [
+   "densiflorus"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Ground cover"
+  ],
+  "Life Cycle": [
+   "Annual",
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "South Africa"
+  ],
+  "Wildlife Value": [
+   "Birds are attracted to the berries."
+  ],
+  "Play Value": [
+   "Buffer",
+   "Easy to Grow",
+   "Wildlife Food Source"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 6 in. - 3 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 4 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen",
+   "Deciduous"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Medium"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Appendage": [
+   "Thorns"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Color": [
+   "Red/Burgundy"
+  ],
+  "Fruit Value To Gardener": [
+   "Showy"
+  ],
+  "Display/Harvest Time": [
+   "Fall",
+   "Spring",
+   "Summer",
+   "Winter"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "A bright red spherical berry."
+  ],
+  "Flower Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant",
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Bell"
+  ],
+  "Flower Petals": [
+   "6 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Flowers axillary, drooping, 6-parted, bell-shaped, yellow-green. Inflorescence a short axillary raceme. Rare in interior settings."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Soft"
+  ],
+  "Leaf Value To Gardener": [
+   "Good Cut",
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Fronds"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Acicular",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "< 1 inch"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The leaves are cladodes, portions of the stem that have the form and function of leaves. They are alternate and scale-like, terminal branchlets very narrow, flat, needle-like, in clusters of 3."
+  ],
+  "Stem Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Form": [
+   "Straight"
+  ],
+  "Stem Description": [
+   "Erect or trailing, finely ridged, spiny, green or brown. Branches spreading with lateral pins short. CLADOPHYLLS minute, flat, linear, narrowly falcate, 1-nerved, spine-like. The stems are used in floral arrangements."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Attracts": [
+   "Songbirds"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Heavy Shade",
+   "Salt"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "CAUSES ONLY LOW TOXICITY IF EATEN. SKIN IRRITATION MINOR OR LASTING ONLY FOR A FEW MINUTES. Eating of berries may cause gastrointestinal problems. Skin irritation with redness, swelling, and blisters following contact with sap"
+  ],
+  "Poison Toxic Principle": [
+   "Unknown"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "salt tolerant",
+  "poisonous",
+  "flower arrangements",
+  "indoor",
+  "yellow flowers",
+  "fantz",
+  "fern-like",
+  "hanging baskets",
+  "groundcover",
+  "problem for cats",
+  "problem for dogs",
+  "problem for horses",
+  "deer resistant",
+  "shade garden",
+  "houseplant",
+  "red fruits",
+  "frost tender",
+  "herbaceous",
+  "herbaceous perennial",
+  "drought tolerant",
+  "wet soils intolerant",
+  "window boxes",
+  "fragrant flowers",
+  "bird friendly",
+  "perennial",
+  "fpp"
+ ],
+ "images": [
+  {
+   "id": "20652",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asparagus_densifloru_NiJ7nkGEvzOL.jpg",
+   "caption": "Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "32505",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asparagus-densifloru_Axn6SF3qaT2K.jpeg",
+   "caption": "Form 'Graham Cracker'",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "34549",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asparagus_densifloru_mBRoOXjOSyjh.jpeg",
+   "caption": "Foliage",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "34550",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asparagus_densifloru_YvVL9bWd7vto.jpeg",
+   "caption": "Fruits",
+   "author": "A Yee",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "34551",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Asparagus_densifloru_5oJCJXYDehxp.jpeg",
+   "caption": "Flowers",
+   "author": "Jim Evans",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

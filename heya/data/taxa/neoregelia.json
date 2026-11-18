@@ -1,0 +1,115 @@
+{
+ "id": "neoregelia",
+ "rank": "genus",
+ "scientificName": "Neoregelia",
+ "group": "foliage",
+ "names": {
+  "ja": "ネオレゲリア",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "neoregelia",
+  "hgic": "bromeliads"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "need a sunny spot in the house for the best leaf color"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "hgic",
+    "quote": "Frequent fertilization or too little light will cause the leaves to turn green."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Neoregelia do best when underpotted and underfed, grown on the dry side in strong light."
+   },
+   {
+    "src": "estimate",
+    "reason": "強い光を好むが、室内では急な直射日光で葉焼けしないよう朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads prefer temperatures from 60F to 85F to survive and grow well.",
+    "fahrenheit": [
+     60
+    ]
+   },
+   {
+    "src": "ncsu",
+    "quote": "They generally tolerate temperatures from 50 to 90 degrees F"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Bromeliads prefer temperatures from 60F to 85F to survive and grow well.",
+    "fahrenheit": [
+     60,
+     85
+    ]
+   },
+   {
+    "src": "ncsu",
+    "quote": "They generally tolerate temperatures from 50 to 90 degrees F"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the center vase or tank filled with water (rainwater is best) and allow the potting medium to dry completely between waterings."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "肥料が多すぎたり光が足りないと、葉の色が緑に戻る。",
+   "src": "hgic",
+   "quote": "Frequent fertilization or too little light will cause the leaves to turn green.",
+   "symptom": "fade"
+  },
+  {
+   "ja": "花が近づくと中心の葉が赤くなる。",
+   "src": "ncsu",
+   "quote": "The central leaves in the rosette will often turn red when the plant is getting ready to bloom."
+  }
+ ]
+}

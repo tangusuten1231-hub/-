@@ -1,0 +1,209 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-polybotrya/",
+ "slug": "peperomia-polybotrya",
+ "retrieved": "2026-11-18",
+ "scientificName": "Peperomia polybotrya",
+ "commonNames": [
+  "Raindrop",
+  "Raindrop Peperomia",
+  "Raindrop Plant"
+ ],
+ "description": "Raindrop Peperomia is a tropical perennial native to Columbia, Ecuador, and Peru and thrives in warm and humid climates. It is a member of the Piperaceae or pepper family. It is grown as a low-maintenance houseplant in the United States. It has a compact, erect growth habit, and matures to about 1 foot tall and equally as wide. The leaves are fleshy, bright green, and teardrop-shaped. The leaves are peltate, meaning that the petiole is attached to the underside of the leaf instead of the margin which causes a slight dimple on the leaf surface. The flowers are greenish-white spikes that bloom during the summer. As a houseplant, it rarely flowers. This plant prefers bright, indirect sunlight and moist, well-drained soil. It thrives in high humidity, but it will tolerate the humidity of the average household. If the plant is grown outside, the USDA hardiness zones for this plant are 10 to 12. Indoors, this plant does best with temperatures between 65 to 75 degrees Fahrenheit. The glossy, teardrop-shaped leaves are the highlight of this plant. Its unique foliage and low maintenance will be appealing in an office or home setting. Quick ID Hints: evergreen, perennial, compact, erect habit, and reaches 1 foot tall petiole attached to the underside of the leaf producing slight simple on the leaf surface fleshy, glossy, bright green, tear-drop shaped greenish-white, long slender, tail-like shaped or spike-like flowers Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, fungus gnats, and scale. Root rot can result from overwatering. Avoid wetting the leaves to prevent leaf spots. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Verdant Flame",
+   "note": "variegated leaves of creamy yellow and green"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "polybotrya"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Leaf Cutting",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Columbia to Peru"
+  ],
+  "Distribution": [
+   "Colombia, Ecuador, and Peru"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 10 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 10 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "Flower Color": [
+   "Green",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Description": [
+   "The flowers are greenish-white, long, slender, tail-like shape, or spike-like."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Peltate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Teardrop-shaped peltate (petiole attached in the center) green leaves with a dip in the middle where the petiole attaches."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Cross Section": [
+   "Round"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "easy to grow",
+  "shiny leaves",
+  "tropical feel",
+  "interesting leaves",
+  "container plant",
+  "low maintenance",
+  "accent"
+ ],
+ "images": [
+  {
+   "id": "22384",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/19304916-B91A-4B71-8_WloCoUyurBpo.jpe",
+   "caption": "Teardrop-shaped leaves with a dimple in the center.",
+   "author": "Kathleen",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38462",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Form_Kath_ccby4_7tXu4V9sSluE.jpeg",
+   "caption": "Form",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38460",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Round_Stems_Kath_ccb_RK7AvmmTpGe1.jpeg",
+   "caption": "Round green stems, alternate leaves",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38461",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Leaf_Underside_Kath__sUlcRMzLdr9Z.jpeg",
+   "caption": "Underside of leaf",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "30636",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_polybotrya_HfP2E2tpVUB6.jpeg",
+   "caption": "Form",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30637",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_polybotrya_OeIW8HBCtXV7.jpeg",
+   "caption": "Form",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30638",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_polybotrya_9v9uAFUaFdUJ.jpeg",
+   "caption": "Leaves",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30639",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_polybotrya_l2prYI7UnIm5.jpeg",
+   "caption": "Form",
+   "author": "Yercaud-elango",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30640",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_polybotrya_8HrRGyYBg7eq.jpeg",
+   "caption": "Form",
+   "author": "Yercaud-elango",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
+ ]
+}

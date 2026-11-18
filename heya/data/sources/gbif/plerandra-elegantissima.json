@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7916408",
+ "retrieved": "2026-11-18",
+ "query": "Plerandra elegantissima",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7916408,
+ "acceptedKey": 7916408,
+ "acceptedName": "Plerandra elegantissima",
+ "authorship": "(H.J.Veitch ex Mast.) Lowry, G.M.Plunkett & Frodin",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Plerandra",
+ "synonyms": [
+  "Aralia elegantissima",
+  "Dizygotheca elegantissima",
+  "Dizygotheca faguetii",
+  "Schefflera elegantissima",
+  "Schefflera faguetii"
+ ]
+}

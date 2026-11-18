@@ -1,0 +1,95 @@
+{
+ "id": "euphorbia-lactea",
+ "rank": "species",
+ "scientificName": "Euphorbia lactea",
+ "group": "succulent",
+ "names": {
+  "ja": "ユーフォルビア・ラクテア",
+  "aliases": [
+   "ラクテア"
+  ]
+ },
+ "refs": {
+  "ncsu": "euphorbia-lactea"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Mottled spurge is best grown in well-drained soils in full sun to part shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "日なた〜半日陰を好むため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なたで育つとするが、室内の窓辺で急に強い日差しに当てると焼けることがあるため、朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant is winter hardy to zones 10 and 11 and is intolerant to frost."
+   },
+   {
+    "src": "estimate",
+    "reason": "霜に耐えないため、多肉植物の一般的な目安の5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water consistently in summer to prevent soils from totally drying out"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "decrease watering in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "傷つくと有毒な白い樹液が出る。",
+   "src": "ncsu",
+   "quote": "If injured, the plant will ooze a toxic, milky latex."
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2699764",
+ "retrieved": "2026-11-18",
+ "query": "Vriesea",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2699764,
+ "acceptedKey": 2699764,
+ "acceptedName": "Vriesea",
+ "authorship": "Lindl.",
+ "rank": "GENUS",
+ "note": "同名異物のため科（Bromeliaceae）で特定",
+ "family": "Bromeliaceae",
+ "genus": "Vriesea",
+ "synonyms": [
+  "Hexalepis",
+  "Neovriesea",
+  "Neovriesia",
+  "Vrieseida"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3069353",
+ "retrieved": "2026-11-18",
+ "query": "Euphorbia tirucalli",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3069353,
+ "acceptedKey": 3069353,
+ "acceptedName": "Euphorbia tirucalli",
+ "authorship": "L.",
+ "rank": "SPECIES",
+ "family": "Euphorbiaceae",
+ "genus": "Euphorbia",
+ "synonyms": [
+  "Arthrothamnus tirucalli",
+  "Euphorbia geayi",
+  "Euphorbia laro",
+  "Euphorbia media",
+  "Euphorbia rhipsaloides",
+  "Euphorbia scoparia",
+  "Euphorbia suareziana",
+  "Euphorbia viminalis",
+  "Tirucalia indica",
+  "Tirucalia tirucalli"
+ ]
+}

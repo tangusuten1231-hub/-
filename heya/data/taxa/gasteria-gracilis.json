@@ -1,0 +1,93 @@
+{
+ "id": "gasteria-gracilis",
+ "rank": "species",
+ "scientificName": "Gasteria gracilis",
+ "group": "succulent",
+ "names": {
+  "ja": "ガステリア・グラキリス",
+  "aliases": [
+   "ガステリア"
+  ]
+ },
+ "refs": {
+  "ncsu": "gasteria-gracilis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Inside give them bright light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Unlike many succulents, they can tolerate some shade."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "give them protection from the hot afternoon sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the soil to dry between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎでカビの病気や根腐れが出る。",
+   "src": "ncsu",
+   "quote": "Fungal diseases and root rot can occur if overwatered.",
+   "symptom": "rot"
+  }
+ ],
+ "note": "GBIF の分類表では Gasteria gracilis の扱いが「疑わしい（DOUBTFUL）」とされている（ほかの種と同じとする見方がある）。"
+}

@@ -1,0 +1,313 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/anthurium/",
+ "slug": "anthurium",
+ "retrieved": "2026-11-18",
+ "scientificName": "Anthurium",
+ "commonNames": [
+  "Anthurium",
+  "Flamingo Flower",
+  "Flamingo Lily",
+  "Laceleaf",
+  "Tailflower"
+ ],
+ "description": "Anthurium is a genus of over 1300 species of tropical herbaceous perennials that are native to the Caribbean, Central America, and South America. They are members of the Arum family (Araceae). The plants are evergreen and grow 1 to 3 feet tall and 9 inches to 1 foot wide and may be terrestrial or epiphytic. They thrive outdoors in tropical climates and bloom in the spring and summer. In cooler climates, they are desired for their foliage and showy, long-lasting blooms as houseplants. Most species are erect plants with glossy, waxy, heart-shaped, deep green leaves. Their blooms may be red, pink, orange, or white inflorescence that consists of a shiny, leathery spathe and rod-like spadix. The habit, leaf size, and shape may vary depending on the species. Some species have palmately compound leaves, such as Anthurium polyschistum. Another species, Anthurium scandens , has a climbing habit. Anthurium andraeanum is the anthurium used in floral arrangements. Anthurium andraeanum has a straight spadix, and Anthurium scherzerianum has a corkscrew-like spadix and is a smaller plant. Some species have a fragrant sweet and fruity scent while others are rather unpleasant. Anthuriums prefer bright, indirect sunlight, moist well-drained soil, and warm and very humid conditions. Too little light will cause fewer blooms, and the plant will grow more slowly. South or west-facing windows are best, but direct sunlight can scorch their leaves. Leaf tips turn brown if the humidity is too low. Many growers keep their houseplants in terraria or growing-cabinets. Water when the soil is dry to the touch. Rainwater or purified water is best. They thrive at temperatures between 65 to 85 degrees Fahrenheit. In non-tropical areas, these plants will not survive outdoors during the winter. High-phosphorus fertilizer will encourage more blooms as will pruning away old spent blooms. Wipe down the leaves of indoor plants periodically to remove dust. The plants may be propagated by stem cuttings or seeds. These plants can be high-maintenance divas, but well-grown plants are very beautiful and admired by all. Several of the species are popular houseplants, and some are grown for the florist trade due to their showy, long-lasting blooms. The plant is an excellent choice for improving air quality and will also be a beautiful addition to your home or office. If small children or pets are present be aware that these plants are toxic if ingested. In that case, you may want to consider placing the plant on a high shelf or using a hanging basket, Quick ID Hints : Spadix and pink to reddish spathe are at right angles to each other Leaves are leathery, with truncate to cordate base Short stems develop as the plant ages. Aerial roots may be present. Insects, Diseases, and Other Plant Problems: Monitor for mealybugs, spider mites, whiteflies, scale, aphids, and thrips. Overwatering may cause root rot. Inadequate light will reduce growth and the number of blooms. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti\", a plant identification course offered in partnership with Longwood Gardens.",
+ "cultivars": [
+  {
+   "name": "Anthurium clarinervium",
+   "note": "large, glossy, velvety, heart-shaped, dark green leaves with white veins, orange berries"
+  },
+  {
+   "name": "Anthurium crystallinum (Crystal Anthurium)",
+   "note": "large, velvety, heart-shaped, deep green leaves with pale green or silverish-white veins, purplish berry"
+  },
+  {
+   "name": "Anthurium hookeri (Bird's Nest Anthurium)",
+   "note": "Forms a rosette or \"nest\" of purple-black to dark green leaves and dark purple flowers"
+  },
+  {
+   "name": "Anthurium luxurians",
+   "note": "glossy, raised or blister-like elevations on the leaves, initially chocolate colored leaves that mature to dark forest green."
+  },
+  {
+   "name": "Anthurium polyschistum",
+   "note": "Each palmately compound leaf has 5 to 9 green leaflets with wavy margins"
+  },
+  {
+   "name": "Anthurium scandens (Pearl Laceleaf)",
+   "note": "small, climbing vine with dark green, lance-shaped leaves, greenish spathe, and fruits look like a cluster of white pearls"
+  },
+  {
+   "name": "Anthurium veitchii (King Anthurium)",
+   "note": "large leaves up to 4 feet long and of two types, narrow form with many thin ribs and wide form with fewer ribs"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Anthurium"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Native: Argentina, Belize, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Mexico, Nicaragua, Panama, Paraguay, Peru, Puerto Rico, Suriname, Trinidad-Tobago, Venezuela, and the Windward Islands; Introduced: Florida"
+  ],
+  "Play Value": [
+   "Colorful"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 3 ft. 6 in.",
+   "Width: 0 ft. 9 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial",
+   "Poisonous"
+  ],
+  "Habit/Form": [
+   "Climbing",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Description": [
+   "A globose berry."
+  ],
+  "Flower Color": [
+   "Orange",
+   "Pink",
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Description": [
+   "The flowers are small, in a slender (white, green, or yellow) spadix with a spathe below which may be shiny red, white, or other colors. Spathes are heart-shaped and waxy. The spadix is erect, cylindric, often tapering, sometimes twisted. The spathe is persistent and at a right angle to spadix, an identifying feature for this genus. It is usually flat, sometimes hooded, erect, spreading, or reflexed, with margins not overlapping at the base, and deeply veined. The scape is long and taller than the foliage."
+  ],
+  "Leaf Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy",
+   "Leathery",
+   "Waxy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Auriculate",
+   "Cordate",
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire",
+   "Lobed"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves of this genus are alternately arranged on a basal stem, simple, crowded, cordate to ovate or even auriculate to sagittate in shape, acute with a truncate to subcordate base, entire or palmately lobed, peltate, and are glossy and moderately coriaceous (leathery) in texture. The petiole is usually long and pulvinate at the apex. They are palmately veined and may have lighter-colored veins than the rest of the leaf surface."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Short, erect, sometimes elongated, climbing, with adventitious aerial roots."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested, chewing and biting this plant will release toxins and cause symptoms that include drooling, oral pain, mouth, lip, and tongue swelling, difficulty swallowing, decreased appetite, and vomiting. Contact with the sap can cause Irritation of skin and eyes resulting in redness and stinging."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Seeds",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "waxy",
+  "green flowers",
+  "yellow flowers",
+  "white flowers",
+  "poisonous",
+  "spadix",
+  "spathe",
+  "shiny",
+  "red flowers",
+  "low light",
+  "leathery",
+  "fantz",
+  "shrub",
+  "tropical feel",
+  "hsc",
+  "hsc-fl",
+  "herbaceous perennial",
+  "heart-shaped leaves",
+  "perennial",
+  "problem for dogs",
+  "problem for cats",
+  "contact dermatitis",
+  "poisonous if ingested",
+  "problem for children",
+  "acidic soils tolerant",
+  "container plant"
+ ],
+ "images": [
+  {
+   "id": "40367",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_w__flower__iNUXQ8GCZcjS.jpeg",
+   "caption": "Anthurium, Flamingo Flower, houseplant view",
+   "author": "Joanne Kollar (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38870",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_veitchii_C_ouf81jLSxcSk.jpeg",
+   "caption": "Form",
+   "author": "Clivid",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "33230",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_sp._Tatter_uCTkssI9fusQ.jpeg",
+   "caption": "Form",
+   "author": "Tatters",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "33232",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_Obake_Krzy_fczdZHDaFzER.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "33233",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andraeanum_x7DsF51oS5bK.jpeg",
+   "caption": "Form",
+   "author": "KENPEI",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "27365",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_Bill_Grace_H9V46MdAW4va.jfif",
+   "caption": "Flower and leaves",
+   "author": "Bill Gracey",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "27363",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_Agnes_Monk_0K2qJpAeOdi0.jfif",
+   "caption": "Flower",
+   "author": "Agnes Monkelbaan",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "27364",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andreanum__IDJj8Q5DMIue.jpg",
+   "caption": "Flower close-up",
+   "author": "Alejandro Bayer Tamayo",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "27366",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_Its_No_Gam_Gwrp3WeA9v8u.mpo",
+   "caption": "Flower",
+   "author": "Its No Game",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
+ ]
+}

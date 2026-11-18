@@ -1,0 +1,94 @@
+{
+ "id": "cymbidium",
+ "rank": "genus",
+ "scientificName": "Cymbidium",
+ "group": "orchid",
+ "names": {
+  "ja": "シンビジウム",
+  "aliases": []
+ },
+ "refs": {
+  "ncsu": "cymbidium"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    10,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "花を咲かせるには光が必要なため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はない。大輪系は夏の夜も10〜16℃（50〜60°F）の涼しさで花芽をつけるとされ、寒さに比較的強いため5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "the large-flower group needs a daytime temperature of 75 to 85 degrees Fahrenheit and nighttime temperature of 50 to 60 degrees to insure flowering",
+    "fahrenheit": [
+     50,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The humidity level should be between 40 to 60%."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "This plant needs to be watered heavily during its growing season"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering in the fall"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花を咲かせるには、昼と夜の温度差（約14℃）が必要。",
+   "src": "ncsu",
+   "quote": "These plants need a 25 degree day/night temperature difference to encourage blooming.",
+   "symptom": "noflower"
+  }
+ ]
+}

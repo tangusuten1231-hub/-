@@ -1,0 +1,32 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3066465",
+ "retrieved": "2026-11-18",
+ "query": "Euphorbia pulcherrima",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3066465,
+ "acceptedKey": 3066465,
+ "acceptedName": "Euphorbia pulcherrima",
+ "authorship": "Willd. ex Klotzsch",
+ "rank": "SPECIES",
+ "family": "Euphorbiaceae",
+ "genus": "Euphorbia",
+ "synonyms": [
+  "Euphorbia coccinea",
+  "Euphorbia diversifolia",
+  "Euphorbia erithrophylla",
+  "Euphorbia fastuosa",
+  "Euphorbia lutea",
+  "Euphorbia poinsettiana",
+  "Euphorbia poinsettii",
+  "Euphorbia pulcherrima",
+  "Pleuradena coccinea",
+  "Pleuradenia coccinea",
+  "Poinsettia ignescens",
+  "Poinsettia mirabilis",
+  "Poinsettia pulcherrima",
+  "Poinsettia variabilis"
+ ]
+}

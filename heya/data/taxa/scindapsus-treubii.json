@@ -1,0 +1,96 @@
+{
+ "id": "scindapsus-treubii",
+ "rank": "species",
+ "scientificName": "Scindapsus treubii",
+ "group": "foliage",
+ "names": {
+  "ja": "スキンダプサス・トレウビー",
+  "aliases": [
+   "スキンダプサス・ムーンライト"
+  ]
+ },
+ "refs": {
+  "ncsu": "scindapsus-treubii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This low-maintenance plant prefers bright indirect sunlight or filtered light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は18〜24℃を適温とし、最低温度の記載がないため、余裕をみて13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "room temperatures between 65 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "it is best to water when the soil is half dry to almost completely dry"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can occur with overwatering.",
+   "symptom": "rot"
+  }
+ ]
+}

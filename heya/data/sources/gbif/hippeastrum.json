@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2854235",
+ "retrieved": "2026-11-18",
+ "query": "Hippeastrum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2854235,
+ "acceptedKey": 2854235,
+ "acceptedName": "Hippeastrum",
+ "authorship": "Herb.",
+ "rank": "GENUS",
+ "family": "Amaryllidaceae",
+ "genus": "Hippeastrum",
+ "synonyms": [
+  "Aschamia",
+  "Aulica",
+  "Callicore",
+  "Carlotea",
+  "Chonais",
+  "Eusarcops",
+  "Lais",
+  "Leopoldia",
+  "Lepidopharynx",
+  "Moldenkea",
+  "Omphalissa",
+  "Tocantinia",
+  "Trisacarpis"
+ ]
+}

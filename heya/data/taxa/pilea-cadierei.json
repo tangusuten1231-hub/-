@@ -1,0 +1,92 @@
+{
+ "id": "pilea-cadierei",
+ "rank": "species",
+ "scientificName": "Pilea cadierei",
+ "group": "foliage",
+ "names": {
+  "ja": "ピレア・カディエレイ",
+  "aliases": [
+   "アルミニウムプランツ"
+  ]
+ },
+ "refs": {
+  "ncsu": "pilea-cadierei"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "in bright indirect light, avoiding full sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "avoiding full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "This plant does best in high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water moderately in the growing season"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering in fall to late winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎや水はけの悪さで根腐れしやすい。",
+   "src": "ncsu",
+   "quote": "Overwatering or poor drainage will commonly cause root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3233500",
+ "retrieved": "2026-11-18",
+ "query": "Streptocarpus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3233500,
+ "acceptedKey": 3233500,
+ "acceptedName": "Streptocarpus",
+ "authorship": "Lindl.",
+ "rank": "GENUS",
+ "note": "同名異物のため科（Gesneriaceae）で特定",
+ "family": "Gesneriaceae",
+ "genus": "Streptocarpus",
+ "synonyms": [
+  "Acanthonema",
+  "Carolofritschia",
+  "Colpogyne",
+  "Hovanella",
+  "Linnaeopsis",
+  "Nodonema",
+  "Saintpaulia",
+  "Schizoboea",
+  "Trachystigma"
+ ]
+}

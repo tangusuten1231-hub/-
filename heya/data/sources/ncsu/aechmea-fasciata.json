@@ -1,0 +1,215 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/aechmea-fasciata/",
+ "slug": "aechmea-fasciata",
+ "retrieved": "2026-11-18",
+ "scientificName": "Aechmea fasciata",
+ "commonNames": [
+  "Silver Vase Bromeliad",
+  "Silver Vase Plant",
+  "Urn Plant"
+ ],
+ "description": "The urn plant or silver vase plant is an evergreen, herbaceous perennial epiphyte native to the wet tropical areas of southeastern Brazil. This exotic plant is a popular houseplant and has strikingly large pink blooms and silvery foliage. It is a member of the pineapple family (Bromeliaceae). The species epithet, fasciata , describes leaves marked with transverse bands. This plant prefers bright, indirect light to partial shade. For houseplants, it requires a consistently moist, well-drained potting medium such as an orchid mix. The rosette of leaves forms a central cup that can retain water. It is best to have a small amount (about 1 inch) of water in the central cup continuously. The water in the central cup needs to be removed and changed once a month to prevent water stagnation that can breed insect pests. Watering should be reduced during the winter months. The plant thrives in temperatures between 65 to 75 degrees Fahrenheit. It blooms only once and then dies. Offsets or pups form at the base of the parent plant before the parent dies. These offsets can be transplanted to grow new plants. The offsets should be 6 inches tall before transplanting. The plant grows 1 to 3 feet tall and 1 to 2 feet wide and forms a basal rosette that resembles an urn or vase. The rosette consists of stiff, broad, strap-shaped, deep green leaves with a silvery-green variegation. The margins of the leaf have black spines. When the plant matures between 3 to 5 years, a flower stalk emerges from the center of the rosette, and it will produce a large pink spike that consists of small purple flowers that are surrounded by pink bracts. The urn plant thrives indoors, and its showy blooms are long-lasting. The plant would be a beautiful addition to your home and would add a tropical flair. In warmer climates, they may be planted outdoors in mass plantings, as a groundcover, or in containers. Insects, Diseases, and Other Plant Problems: Monitor for scale and mealybugs. Overwatering can cause root rot. Leaf spot and crown rot can also occur. Brown leaf tips can occur if the plant gets inadequate water or is exposed to cold temperatures. Insects can breed in the trapped water in the central cup if not emptied and rinsed regularly. More information on Aechmea .",
+ "cultivars": [
+  {
+   "name": "Primera",
+   "note": "broad green leaves with silver gray horizontal markings, flower spike with pink bracts and small purple flowers"
+  },
+  {
+   "name": "Purpurea",
+   "note": "dark purple leaves with white banding, pink flowers"
+  },
+  {
+   "name": "Variegated",
+   "note": "bluish-green leaves with a centrally placed creme colored stripe, pink and blue flowers"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Aechmea"
+  ],
+  "Species": [
+   "fasciata"
+  ],
+  "Family": [
+   "Bromeliaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Brazil"
+  ],
+  "Distribution": [
+   "Native: Southeast Brazil. Introduced: Puerto Rico."
+  ],
+  "Play Value": [
+   "Attractive Flowers",
+   "Colorful",
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 3 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Open",
+   "Vase"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Appendage": [
+   "Spines"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b"
+  ],
+  "Flower Color": [
+   "Pink",
+   "Purple/Lavender"
+  ],
+  "Flower Inflorescence": [
+   "Head",
+   "Spike"
+  ],
+  "Flower Value To Gardener": [
+   "Long-lasting",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Description": [
+   "The flowers are small and purple and are surrounded by pink bracts. They bloom in the spring and are showy and long-lasting."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Rough"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Obovate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "1-3 inches"
+  ],
+  "Leaf Description": [
+   "The plant forms a basal rosette of stiff, broad, strap-shaped leaves. The leaves are elliptic to oval and deep green with silvery-green variegations. The leaf margins have black teeth."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stemless"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ]
+ },
+ "tags": [
+  "vase-shaped",
+  "partial shade tolerant",
+  "non-toxic for cats",
+  "colorful bracts",
+  "houseplant",
+  "herbaceous perennial",
+  "slow growing",
+  "drought tolerant",
+  "interesting flowers",
+  "groundcover",
+  "interesting leaves",
+  "container plant",
+  "spines",
+  "mass planting",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "epiphytic"
+ ],
+ "images": [
+  {
+   "id": "39027",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aechmea_fasciata_for_nrKrkLUhLnVD.jpeg",
+   "caption": "Aechmea fasciata. Foliage and inflorescence.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "39028",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aechmea_fasciata_for_D60o044cooiA.jpeg",
+   "caption": "Aechmea fasciata. Foliage and inflorescence.",
+   "author": "Kerry Woods",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "39029",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aechmea_fasciata_flo_1j8H4Z2LoJ3Q.jpeg",
+   "caption": "Aechmea fasciata. Inflorescence and flower buds.",
+   "author": "Milagros Sanchez",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
+ ]
+}

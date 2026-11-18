@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3035891",
+ "retrieved": "2026-11-18",
+ "query": "Polyscias balfouriana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3035891,
+ "acceptedKey": 3035891,
+ "acceptedName": "Polyscias balfouriana",
+ "authorship": "(Hort.Sander.) L.H.Bailey",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Polyscias",
+ "synonyms": [
+  "Aralia balfouriana",
+  "Panax balfourii"
+ ]
+}

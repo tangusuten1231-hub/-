@@ -1,0 +1,106 @@
+{
+ "id": "asparagus-densiflorus",
+ "rank": "species",
+ "scientificName": "Asparagus densiflorus",
+ "group": "foliage",
+ "names": {
+  "ja": "アスパラガス・スプレンゲリー",
+  "aliases": [
+   "アスパラガス・デンシフロルス",
+   "スプレンゲリー"
+  ]
+ },
+ "refs": {
+  "ncsu": "asparagus-densiflorus-sprengeri-group"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 2,
+   "idealC": [
+    15,
+    25
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It is adaptable to a wide variation of light, temperature, and frequency of watering."
+   },
+   {
+    "src": "estimate",
+    "reason": "光の条件に幅がある植物のため、中程度の明るさを最適とした"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It will also grow in full shade, with the foliage turning a lighter shade of green."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of direct sunlight and wet soils."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Being frost tender, it will die to the ground if it is subjected to even a light frost."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は軽い霜で地上部が枯れるとするため、凍らない2℃以上とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Prefers medium warmth"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ほどほどの暖かさ」を一般的な室温の範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "regular watering in spring to autumn and sparingly in winter"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "regular watering in spring to autumn and sparingly in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "ハダニ・アブラムシ・コナカイガラムシがつきやすい。",
+   "src": "ncsu",
+   "quote": "Mites, slugs, aphids and mealybugs often frequent this plant.",
+   "symptom": "pests"
+  }
+ ],
+ "note": "日本で「スプレンゲリー」として流通するのは Sprengeri Group の品種群。"
+}

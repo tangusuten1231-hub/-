@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2768503",
+ "retrieved": "2026-11-18",
+ "query": "Asparagus densiflorus",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2768503,
+ "acceptedKey": 2768503,
+ "acceptedName": "Asparagus densiflorus",
+ "authorship": "(Kunth) Jessop",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Asparagus",
+ "synonyms": [
+  "Asparagopsis densiflora",
+  "Asparagus myriocladus",
+  "Asparagus sprengeri",
+  "Protasparagus densiflorus"
+ ]
+}

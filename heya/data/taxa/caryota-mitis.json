@@ -1,0 +1,114 @@
+{
+ "id": "caryota-mitis",
+ "rank": "species",
+ "scientificName": "Caryota mitis",
+ "group": "palm",
+ "names": {
+  "ja": "コモチクジャクヤシ",
+  "aliases": [
+   "カリオタ・ミティス",
+   "フィッシュテールパーム"
+  ]
+ },
+ "refs": {
+  "ncsu": "caryota-mitis",
+  "hgic": "indoor-palms"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "hgic",
+    "quote": "Fishtail palms do best in bright indirect sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "hgic",
+    "quote": "Fishtail palms do best in bright indirect sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "hgic",
+    "quote": "Plants need a minimum temperature of 60 °F.",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "hgic",
+    "quote": "Night temperatures of 65 to 70 °F and day temperatures of 75 to 85 °F are ideal.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "hgic",
+    "quote": "Keep their soil moist at all times."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Water the plant only when the soil is dry."
+   },
+   {
+    "src": "estimate",
+    "reason": "Clemson は常に湿らせる、NC State は乾いたら水をやるとするため、その間の「表面が乾いたら」とした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "ハダニがつきやすいので注意。",
+   "src": "hgic",
+   "quote": "Fishtail palms are prone to spider mites, so watch carefully for them.",
+   "symptom": "pests"
+  },
+  {
+   "ja": "実は有毒で、汁で皮ふがかぶれることがある。",
+   "src": "ncsu",
+   "quote": "The fruit is toxic and causes dermatitis in sensitive individuals."
+  }
+ ]
+}

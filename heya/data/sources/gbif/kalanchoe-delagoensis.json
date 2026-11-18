@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2985940",
+ "retrieved": "2026-11-18",
+ "query": "Kalanchoe delagoensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2985940,
+ "acceptedKey": 2985940,
+ "acceptedName": "Kalanchoe delagoensis",
+ "authorship": "Eckl. & Zeyh.",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Kalanchoe",
+ "synonyms": [
+  "Bryophyllum delagoense",
+  "Bryophyllum tubiflorum",
+  "Bryophyllum verticillatum",
+  "Geaya purpurea",
+  "Kalanchoe tuberosa",
+  "Kalanchoe tubiflora",
+  "Kalanchoe verticillata"
+ ]
+}

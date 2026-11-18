@@ -1,0 +1,211 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-rotundifolia/",
+ "slug": "peperomia-rotundifolia",
+ "retrieved": "2026-11-18",
+ "scientificName": "Peperomia rotundifolia",
+ "commonNames": [
+  "Creeping Buttons",
+  "Jade Necklace",
+  "Peperomia Rotundifolia",
+  "Round Leaf Peperomia",
+  "Trailing Jade",
+  "Yorba Linda"
+ ],
+ "description": "The Round Leaf Peperomia is a creeping, semi-succulent, herbaceous perennial and an epiphyte that is native to Central and South America. Its trailing and creeping habit and peculiar round leaves make it great for hanging baskets. The leaves are bright green, small, round, and plump. This plant is ideal as a houseplant or office plant due to its easy care and compact size. The plant prefers bright, indirect sunlight and moist, well-drained soil. Avoid cold drafts and direct sunlight. The plant thrives in high humidity, but it is tolerant of normal household conditions. Consider using a humidifier or setting in the plant container on a tray of wet pebbles to increase the interior humidity. Quick ID Hints: creeping, semi-succulent, epiphyte, trailing habit, up to 12 inches long slender, fleshy, brownish stems with fine hairs thick, round, soft, bright green leaves with light green veins flowers are small yellowish spikes Insects, Diseases, and Other Plant Problems: Monitor for mealybugs. It may be susceptible to root rot, cutting rot, and ring spots. Curling leaves may result from low humidity or dry soil. Yellow leaves result from overwatering. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Hope",
+   "note": "low growing, trailing habit with miniature green round leaves, slow growing"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "rotundifolia"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Argentina, Belize, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, Guatemala, Haiti, Honduras, Jamaica, Mexico, Nicaragua, Panama, Paraguay, Puerto Rico, Suriname, Trinidad-Tobago, and Venezuela"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Creeping"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Gold/Yellow"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Description": [
+   "The flowers are short yellowish spikes. Indoor plants rarely flower."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Orbicular"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "< 1 inch"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "Bright green, thick rounded leaves, and less than 0.5 inches in diameter."
+  ],
+  "Stem Color": [
+   "Brown/Copper"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Hairy (pubescent)"
+  ],
+  "Stem Description": [
+   "Slender, fleshy, brownish stems with tiny fine hairs."
+  ],
+  "Landscape Location": [
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent"
+  ]
+ },
+ "tags": [
+  "trailing",
+  "epiphytic",
+  "houseplant",
+  "hanging baskets",
+  "creeping",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "perennial"
+ ],
+ "images": [
+  {
+   "id": "40845",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_113524_Pepe_9SSZ9keJfRBE.jpeg",
+   "caption": "Peperomia rotundifolia houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "24555",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_izQCrw1UfDCY.jfif",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24556",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_6eTvkUCDNhVt.jfif",
+   "caption": "Form",
+   "author": "Salicyna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24557",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_BygAw7grKr19.jfif",
+   "caption": "Form",
+   "author": "Salicyna",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30641",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_0FDJldXOXaZM.jpeg",
+   "caption": "Form",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30642",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_y6fmtpYQjZdE.jpeg",
+   "caption": "Form",
+   "author": "James Steakley",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "30643",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_rotundifol_IILXwsZITCkp.jpeg",
+   "caption": "Form",
+   "author": "Frank Vincentz",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/oncidium/",
+ "slug": "oncidium",
+ "retrieved": "2026-11-18",
+ "scientificName": "Oncidium",
+ "commonNames": [
+  "Butterfly Orchids",
+  "Dancing Lady Orchid",
+  "Oncidium Orchid"
+ ],
+ "description": "Oncidium is a genus of evergreen perennial orchid plants native to the Tropical and Subtropical Americas and is member of the orchid family (Orchidaceae) . This a large and diverse genus that has 334 accepted species. In their native habitat, these plants are epiphytes and can be found growing on branches or trunks of trees solely for physical support. The genus name, Onicidium , is Greek and derived from onkos that means \"tumor.\" The common name, Dancing Lady Orchid, is derived from the flowers appearance, and it is thought to resemble a small dancer with a colorful skirt. These orchids prefer partial shade and moist, well-drained orchid bark mix. Since these orchids are epiphytic, they do not grow in potting mix or traditional soil. Water them with room temperature water about every 2 to 10 days or when the orchid mix is half dry. Make sure the container has good drainage and avoid overwatering. During the winter months, only water the plant bimonthly or less. These orchids are considered intermediate to warm orchids and require day time temperatures of 70 to 85 degrees Fahrenheit and a night time temperatures between 55 to 65 degrees. A humidity level of 50% or greater is also preferred. Fertilize these plants during their growing season bimonthly with a weak orchid fertilizer. They will tolerate being outside during the summer, but they require a shady area. These orchids form large clumps of pseudobulbs and can be divided easily for propagation. Be sure that there are three pseudobulbs in each division. Some Oncidiums are miniature and grow only 6 inches tall while other can grow up to 12 feet tall. The leaves are medium green and leathery. The flowers are small, dainty, and measure about 1-inch wide and have a large, ruffled labellum or lip.. They are showy, fragrant, and are usually yellow to brown with dark brown markings. They are also available in colors of red, orange, white, pink, and purple. Many flowers are borne on an erect flower spike that is long and branching. The flowers usually bloom in the fall and originate from the leaf axil. They can last up to 3 weeks or more. Their fragrance varies depending on the species or variety and can be vanilla, lemon, or chocolate scented.. Species of this plant will thrive in a home as long as the temperature and humidity requirements are met. These orchids also do well in a greenhouse. Insects, Diseases, and Other Plants: Monitor for mealybugs, aphids, spider mites, thrips, and scale insects. Overwatering can cause the fleshy pseudobulbs to develop root rot. Dark spots on the leaves can indicate a bacterial infection. If the plant is getting to little light, the leaves will become dark green while too much light causes the leaves to have a red tint.",
+ "cultivars": [
+  {
+   "name": "Oncidium cheirophorum (Hand Carrying Oncidium)",
+   "note": "up to 12 inches tall, miniature bright yellow flowers with a lemon scent"
+  },
+  {
+   "name": "Oncidium chrysomorphum (Golden Dancing Lady Orchid)",
+   "note": "up to 16 inches tall, densely flowered, golden yellow blooms, citrus scent"
+  },
+  {
+   "name": "Oncidium Jungle Monarch gx",
+   "note": "12 to 16 inches tall, many pale greenish-yellow flowers with reddish-brown shading with a white and red lip"
+  },
+  {
+   "name": "Oncidium Sharry Baby gx",
+   "note": "up to 30 inches tall, bears over 100 reddish-brown flowers with white tips, fragrance similar to chocolate or vanilla"
+  },
+  {
+   "name": "Oncidium Twinkle gx (Oncidium cheirophorum x Oncidium sotaoanum)",
+   "note": "up to 12 inches tall, sprays of miniature creamy white flowers with a small orangish-yellow center, vanilla scent"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Oncidium"
+  ],
+  "Family": [
+   "Orchidaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "Tropical and Subtropical America"
+  ],
+  "Distribution": [
+   "Native: Argentina, Bahamas, Belize, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Ecuador, El Salvador, French Guiana, Guatemala, Guyana, Honduras, Leeward Islands, Mexico, Nicaragua, Panama, Paraguay, Peru, Puerto Rico, Suriname, Trinidad-Tobago, United States--Florida, Venezuela, and Windward Islands."
+  ],
+  "Play Value": [
+   "Attractive Flowers"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 10 ft. 0 in.",
+   "Width: 0 ft. 3 in. - 4 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Brown/Copper",
+   "Gold/Yellow"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant",
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Fall"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The flowers are small, dainty, showy, and have abundant blooms on long stems ( a minimum of 25 flowers per stem). Most are fragrant and depending on the species or variety it may vanilla, chocolate, or lemon scented. They usually have two colors and a large ruffled labellum. The frilly labellum resembles a skirt; thus, the common name, Dancing Lady. Depending on the species, their colors range from yellow, brown, red, orange, white, pink, or purple."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Elliptical",
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "The leaves are medium green, leathery, and elliptical or lanceolate."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "partial shade tolerant",
+  "houseplant",
+  "orchid",
+  "container plant",
+  "greenhouse plant",
+  "erect",
+  "humidity tolerant",
+  "colorful flowers",
+  "green leaves",
+  "fragrant flowers"
+ ],
+ "images": [
+  {
+   "id": "41533",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Form_Oct_Oaxaca_Mexi_7AZy3VAYC9jE.jpeg",
+   "caption": "Oncidium Form - October - Oaxaca - Mexico",
+   "author": "Eugenio Padilla",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41534",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Stem_Oct_Loja_Ecuado_a0hnQTLLDjWg.jpeg",
+   "caption": "Oncidium Stem/Leaves/Flowers - October - Loja - Equador",
+   "author": "Gaialivies",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "41535",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Flowers_Oct_Antioqui_E84B836Hl26H.jpeg",
+   "caption": "Oncidium Flowers - October - Antioquia - Colombia",
+   "author": "Johnnier Arango",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
+ ]
+}

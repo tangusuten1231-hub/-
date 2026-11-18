@@ -1,0 +1,88 @@
+{
+ "id": "crassula-perforata",
+ "rank": "species",
+ "scientificName": "Crassula perforata",
+ "group": "succulent",
+ "names": {
+  "ja": "クラッスラ・ペルフォラタ",
+  "aliases": [
+   "星の王子"
+  ]
+ },
+ "refs": {
+  "ncsu": "crassula-perforata"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 2,
+   "idealC": [
+    15,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers full sun to partial shade but needs protection in hot climates from the midday sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "日なた〜半日陰を好むため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "needs protection in hot climates from the midday sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "needs to be brought indoors before temperatures drop to 32 degrees Fahrenheit"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は0℃（32°F）になる前に室内へ入れるとするため、余裕をみて2℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant is dry soils and drought tolerant."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water this plant well and then do not re-water until the soil is dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ }
+}
