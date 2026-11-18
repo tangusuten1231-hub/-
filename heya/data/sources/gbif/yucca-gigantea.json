@@ -1,0 +1,29 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2775716",
+ "retrieved": "2026-11-17",
+ "query": "Yucca gigantea",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2775716,
+ "acceptedKey": 2775716,
+ "acceptedName": "Yucca gigantea",
+ "authorship": "Lem.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Yucca",
+ "synonyms": [
+  "Dracaena lennei",
+  "Dracaena yuccoides",
+  "Sarcoyucca elephantipes",
+  "Yucca eleana",
+  "Yucca elephantipes",
+  "Yucca ghiesbreghtii",
+  "Yucca guatemalensis",
+  "Yucca lenneana",
+  "Yucca mazelii",
+  "Yucca mooreana",
+  "Yucca roezlii"
+ ]
+}

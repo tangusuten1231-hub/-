@@ -1,0 +1,267 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/guzmania-lingulata/",
+ "slug": "guzmania-lingulata",
+ "retrieved": "2026-11-17",
+ "scientificName": "Guzmania lingulata",
+ "commonNames": [
+  "Orange Star",
+  "Scarlet Star",
+  "Vase Plant"
+ ],
+ "description": "Scarlet star is a tropical, epiphytic herbaceous perennial in the pineapple family (Bromeliaceae) native to rainforest habitats in tropical Americas and the West Indies. The Latin word lingulata means \"tongue-shaped\" and refers to the leaves. This plant grows well in part to full shade and does well under artificial lights. Use potting soil made for bromeliads or orchids and water sparingly at the roots. Air needs to be able to circulate the roots. Keep water in the center cup of the rosette, especially in the summer. To increase the humidity, consider using a humidifier or placing the plant container on a tray of wet pebbles. After flowering, the main plant will decline and die, but it will make offshoots that can be grown into new plants. It is popular in cultivation and has a basal rosette of green leaves with a flower consisting of red or orange bracts and many small white flowers. Several cultivars are available in other colors. The showy inflorescence can last 2 to 4 months. Insects, Diseases, and Other Plant Problems: leaf spots, scales, spider mites, and mealybugs are potential problems. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants\", a plant identification course developed in partnership with Longwood Gardens. More information on Guzmania .",
+ "cultivars": [
+  {
+   "name": "Francesca",
+   "note": "green foliage, scarlet flower head with a yellow center, white tipped arching petals"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Guzmania"
+  ],
+  "Species": [
+   "lingulata"
+  ],
+  "Family": [
+   "Bromeliaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "South East Mexico to Tropical America"
+  ],
+  "Distribution": [
+   "Belize, Bolivia, Brazil, Colombia, Costa Rica, Dominican Republic, Ecuador, Guatemala, Haiti, Honduras, Jamaica, Mexico, Nicaragua, Panama, Peru, Puerto Rico, Venezuela, and Bermuda"
+  ],
+  "Dimensions": [
+   "Height: 1 ft. 0 in. - 2 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 2 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant"
+  ],
+  "Habit/Form": [
+   "Clumping"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil Drainage": [
+   "Good Drainage"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Flower Color": [
+   "Red/Burgundy",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Funnel"
+  ],
+  "Flower Petals": [
+   "Bracts"
+  ],
+  "Flower Size": [
+   "3-6 inches"
+  ],
+  "Flower Description": [
+   "Round flower head with up to 50 white flowers nestled within the red bracts."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Rosulate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "Up to 18-inch leathery leaves are in a basal rosette, overlapping to form a funnel-like central vase or tank. Simple, stiff, strap-shaped, entire, and have a generally unmarked surface with parallel venation. Offsets may form between the base leaves. Color may change towards the center of the tank."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Houseplants"
+  ],
+  "Resistance To Challenges": [
+   "Heat",
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "epiphytic",
+  "tropical feel",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "houseplant",
+  "showy flowers",
+  "shade tolerant",
+  "showy leaves",
+  "humidity tolerant",
+  "interiorscape",
+  "tropical herbaceous perennial",
+  "tropical"
+ ],
+ "images": [
+  {
+   "id": "17745",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata_f_kZQNNmwHcBSp.jpg",
+   "caption": "Flowers",
+   "author": "Timm Stolten",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "17746",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata_p_RlxwTa3zuPzq.jpg",
+   "caption": "Form",
+   "author": "Maulaff",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "17747",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata_c_W9CifQXxoh7i.jpg",
+   "caption": "Attached to wood",
+   "author": "BotBin",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24972",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata__puuVZyrzYYGy.jfif",
+   "caption": "Form",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24973",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata__cgVpVoEpDB3U.jpeg",
+   "caption": "Form",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "24974",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_LingulataC_kRvWXI0Pm5FN.jpeg",
+   "caption": "Form",
+   "author": "Cliff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24975",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulataD_ZIFTIZzv5jCh.jfif",
+   "caption": "Form",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24976",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulataD_xIgwqZ3cS3DX.jpeg",
+   "caption": "Form",
+   "author": "Dick Culbert",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "24977",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_Lingulatae_t51KZg65e8qJ.jpeg",
+   "caption": "Form",
+   "author": "elnudomolesto",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "24978",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulataM_6dqHtU6bv5Mn.jfif",
+   "caption": "Form",
+   "author": "Maarten Sepp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "24979",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_Lingulatam_fS8nZsbpAyMP.mpo",
+   "caption": "Form",
+   "author": "marimbajlamesa",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "24980",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulataP_fIlCZ5i1gh80.jfif",
+   "caption": "Form",
+   "author": "Prenn",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "42306",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Guzmania_lingulata_i_H90yw7ywdbm4.jpeg",
+   "caption": "guzmania lingulata- growing in a pot",
+   "author": "Spedona",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
+ ]
+}

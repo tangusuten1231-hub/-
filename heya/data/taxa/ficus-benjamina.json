@@ -2,6 +2,7 @@
  "id": "ficus-benjamina",
  "rank": "species",
  "scientificName": "Ficus benjamina",
+ "group": "foliage",
  "names": {
   "ja": "フィカス・ベンジャミナ",
   "aliases": [
@@ -93,7 +94,8 @@
   {
    "ja": "光にとても敏感で、置き場所を変えると葉を落としてから新しい環境に合った葉を出す。",
    "src": "ncsu",
-   "quote": "It is very sensitive to light, so if the plant is moved, it may drop leaves and produce new ones that are accustomed to the new light conditions."
+   "quote": "It is very sensitive to light, so if the plant is moved, it may drop leaves and produce new ones that are accustomed to the new light conditions.",
+   "symptom": "drop"
   }
  ]
 }

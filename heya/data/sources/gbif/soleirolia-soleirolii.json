@@ -1,0 +1,24 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2984366",
+ "retrieved": "2026-11-17",
+ "query": "Soleirolia soleirolii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2984366,
+ "acceptedKey": 2984366,
+ "acceptedName": "Soleirolia soleirolii",
+ "authorship": "(Req.) Dandy",
+ "rank": "SPECIES",
+ "family": "Urticaceae",
+ "genus": "Soleirolia",
+ "synonyms": [
+  "Helxine soleirolii",
+  "Parietaria cretica",
+  "Parietaria repens",
+  "Parietaria soleirolii",
+  "Soleirolia corsica",
+  "Soleirolia repens"
+ ]
+}

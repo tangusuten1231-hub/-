@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7760485",
+ "retrieved": "2026-11-17",
+ "query": "Cissus alata",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7760485,
+ "acceptedKey": 7760485,
+ "acceptedName": "Cissus alata",
+ "authorship": "Jacq.",
+ "rank": "SPECIES",
+ "family": "Vitaceae",
+ "genus": "Cissus",
+ "synonyms": [
+  "Cissus pubescens",
+  "Cissus rhombifolia",
+  "Gonoloma alata",
+  "Vitis alata",
+  "Vitis rhombifolia"
+ ]
+}

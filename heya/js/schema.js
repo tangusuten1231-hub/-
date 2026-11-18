@@ -33,6 +33,35 @@ export const WATERING = {
   topdry:  { order: 1, ja: '表面が乾いたら', how: '土の表面から2〜3cmが乾いたら、鉢底から流れ出るまでたっぷり水をやる' },
   halfdry: { order: 2, ja: '半分乾いたら',   how: '鉢の土が半分くらいの深さまで乾いてから水をやる' },
   dry:     { order: 3, ja: 'しっかり乾かす', how: '鉢の土が中まで完全に乾いてから水をやる' },
+  soak:    { order: 2, ja: '浸して乾かす', how: '株ごと水に浸すか、たっぷり水をかけたあと、逆さにして水を切り、よく乾かす（エアプランツ）' },
+};
+
+/** 植物のグループ（図鑑の絞り込み・植物選びに使う。アプリ独自の分類） */
+export const GROUPS = {
+  foliage:     { ja: '観葉植物', icon: '🌿' },
+  flowering:   { ja: '花を楽しむ', icon: '🌸' },
+  succulent:   { ja: '多肉植物', icon: '🪴' },
+  cactus:      { ja: 'サボテン', icon: '🌵' },
+  fern:        { ja: 'シダ', icon: '🌱' },
+  palm:        { ja: 'ヤシ', icon: '🌴' },
+  orchid:      { ja: 'ラン', icon: '🌺' },
+  carnivorous: { ja: '食虫植物', icon: '🪰' },
+  airplant:    { ja: 'エアプランツ', icon: '🎐' },
+};
+
+/** 困ったときの症状（育てるコツの tips に symptom として付ける） */
+export const SYMPTOMS = {
+  yellow:   { ja: '葉が黄色くなる' },
+  brown:    { ja: '葉先・葉のふちが茶色くなる' },
+  drop:     { ja: '葉が落ちる' },
+  curl:     { ja: '葉がしおれる・丸まる・しわが寄る' },
+  scorch:   { ja: '葉が焼けたように白・茶色になる' },
+  fade:     { ja: '葉の色や模様があせる' },
+  leggy:    { ja: '間延びする・葉が小さくなる' },
+  spots:    { ja: '葉に斑点が出る' },
+  rot:      { ja: '根や茎が腐る・ぶよぶよする' },
+  pests:    { ja: '虫がつく' },
+  noflower: { ja: '花が咲かない・つぼみが落ちる' },
 };
 
 /** 好む湿度 */
@@ -67,14 +96,16 @@ export const fToC = (f) => Math.round(((f - 32) * 5) / 9);
 export function validateTaxon(t, opt = {}) {
   const e = [];
   const need = (cond, msg) => { if (!cond) e.push(msg); };
-  const allowedTop = ['id', 'rank', 'parent', 'scientificName', 'cultivar', 'names', 'refs', 'care', 'evidence', 'tips', 'note'];
+  const allowedTop = ['id', 'rank', 'parent', 'scientificName', 'cultivar', 'group', 'names', 'refs', 'care', 'evidence', 'tips', 'note'];
   for (const k of Object.keys(t)) need(allowedTop.includes(k), `未知の項目 "${k}"`);
 
   need(typeof t.id === 'string' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(t.id), 'id は小文字英数字とハイフン');
   need(RANKS.includes(t.rank), `rank は ${RANKS.join('/')}`);
   if (t.rank === 'cultivar') need(t.scientificName === undefined, '品種の学名は親から決まるので scientificName は書かない');
   else need(typeof t.scientificName === 'string' && t.scientificName.length > 2, 'scientificName が必要');
-  if (t.rank === 'species') need(/^[A-Z][a-z]+ [a-z-]+$/.test(t.scientificName), `種の学名は「属名 種小名」: ${t.scientificName}`);
+  if (t.rank === 'species') need(/^[A-Z][a-z]+ (x )?[a-z-]+( var\. [a-z-]+)?$/.test(t.scientificName), `種の学名は「属名 種小名」（交雑種は x、変種は var.）: ${t.scientificName}`);
+  if (t.rank !== 'cultivar') need(t.group in GROUPS, `group は ${Object.keys(GROUPS).join('/')}`);
+  else need(t.group === undefined, '品種の group は親から引き継ぐので書かない');
   if (t.rank === 'genus') need(/^[A-Z][a-z]+$/.test(t.scientificName), `属の学名は1語: ${t.scientificName}`);
   if (t.rank === 'cultivar') {
     need(typeof t.parent === 'string', '品種には親（parent）の種が必要');
@@ -150,6 +181,8 @@ export function validateTaxon(t, opt = {}) {
     for (const tip of t.tips ?? []) {
       need(isObj(tip) && typeof tip.ja === 'string' && tip.ja.length > 0, 'tip には ja が必要');
       need(tip?.src === 'ncsu' && typeof tip.quote === 'string', 'tip には出典の原文（src: ncsu, quote）が必要');
+      if (tip?.symptom !== undefined) need(tip.symptom in SYMPTOMS, `tip の symptom は ${Object.keys(SYMPTOMS).join('/')}`);
+      if (tip) for (const k of Object.keys(tip)) need(['ja', 'src', 'quote', 'symptom'].includes(k), `tip の未知の項目 "${k}"`);
     }
   }
   if (t.note != null) need(typeof t.note === 'string', 'note は文字列');

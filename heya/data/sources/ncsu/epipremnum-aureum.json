@@ -14,7 +14,7 @@
   "Pothos",
   "Taro Vine"
  ],
- "description": "Pothos is a low-maintenance, herbaceous perennial, broadleaf evergreen houseplant in the arum family (Araceae) grown for its glossy, green or variegated leaves on cascading stems. It is native to the Society Islands. It grows only 6 to 8 feet as a horizontal groundcover, but the trailing and climbing vines can grow as long as 40 feet. This feature makes it well-suited for hanging baskets. As a container plant, it generally retains its juvenile leaf shape. The species epithet is Latin for \"golden.\" Pothos is very easy to grow. It prefers bright, indirect light and survives for long periods in low light. Use a humidifier or place the plant container on a tray of wet pebbles to increase humidity, and let the well-drained potting medium dry out between watering. Fertilize every other month except when the plant is dormant in the winter. Wipe down the leaves occasionally with a soft rag to remove any collected dust. Over time, leaves will yellow and fall off, concentrating most of the leaves at the end of the stems. Prune stems back to maintain a bushy habit. Vines easily root in water. They climb by brown aerial roots. If given a support on which to climb and adequate light, the plant will begin to produce large, mature leaves. In the recent past, Epipremnum aureum was treated as a cultivar of Epipremnum pinnatum and given the name E. pinnatum &lsquo;Aureum&rsquo;. After further study, botanists determined that the two have distinctively different vegetative features and should be recognized as separate species. Plants formerly called E. pinnatum 'Aureum' are now correctly called E. aureum . It is distinguished from Philodendron hederaceum by the absence of conspicuous free stipules on new growth and by the grooved petioles. Quick ID Hints: Indoor vine with glossy, heart-shaped leaves variegated with yellow No free stipules on new growth Petioles are grooved Insects, Diseases, and Other Plant Problems: Root rot and blackening of the leaf margins can occur with overwatering. Low light can cause loss of variegation. Monitor for mealybugs and scales. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "description": "Pothos is a low-maintenance, herbaceous perennial, broadleaf evergreen houseplant in the arum family (Araceae) grown for its glossy, green or variegated leaves on cascading stems. It is native to the Society Islands. It grows only 6 to 8 feet as a horizontal groundcover, but the trailing and climbing vines can grow as long as 40 feet. This feature makes it well-suited for hanging baskets. As a container plant, it generally retains its juvenile leaf shape. The species epithet is Latin for \"golden.\" Pothos is very easy to grow. It prefers bright, indirect light and survives for long periods in low light. Use a humidifier or place the plant container on a tray of wet pebbles to increase humidity, and let the well-drained potting medium dry out between watering. Fertilize every other month except when the plant is dormant in the winter. Wipe down the leaves occasionally with a soft rag to remove any collected dust. Over time, leaves will yellow and fall off, concentrating most of the leaves at the end of the stems. Prune stems back to maintain a bushy habit. Vines easily root in water. They climb by brown aerial roots. If given a support on which to climb and adequate light, the plant will begin to produce large, mature leaves. In the recent past, Epipremnum aureum was treated as a cultivar of Epipremnum pinnatum and given the name E. pinnatum 'Aureum'. After further study, botanists determined that the two have distinctively different vegetative features and should be recognized as separate species. Plants formerly called E. pinnatum 'Aureum' are now correctly called E. aureum . It is distinguished from Philodendron hederaceum by the absence of conspicuous free stipules on new growth and by the grooved petioles. Quick ID Hints: Indoor vine with glossy, heart-shaped leaves variegated with yellow No free stipules on new growth Petioles are grooved Insects, Diseases, and Other Plant Problems: Root rot and blackening of the leaf margins can occur with overwatering. Low light can cause loss of variegation. Monitor for mealybugs and scales. VIDEO Created by Elisabeth Meyer for \"Houseplants, Succulents, and Cacti,\" a plant identification course developed in partnership with Longwood Gardens.",
  "cultivars": [
   {
    "name": "Beautifall® 'Njoy' Pothos",
@@ -274,5 +274,111 @@
   "perennial",
   "variegated",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40695",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pothos_Dell_Enecks_m7ECuAQTwlEH.jpeg",
+   "caption": "Epipremnum aureum (Pothos) houseplant view",
+   "author": "Dell Enecks (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40476",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250522_140400_Epip_QULzb9gfugsU.jpeg",
+   "caption": "Epipremnum aureum (Pothos) houseplant view",
+   "author": "Matt Stevens (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8196",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_madaise_ccbyncnd2.0.jpg",
+   "caption": "Epipremnum aureum",
+   "author": "madaise",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "40609",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250620_131347_Epip_JyiiilZBgf2Q.jpeg",
+   "caption": "Epipremnum aureum Beautifall® 'Njoy' Pothos",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "36967",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_ma_WWaPej3PDJf9.jpeg",
+   "caption": "Epipremnum aureum. In warm climates (like southern Florida) the vine attains its full size.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "14003",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_by_LdYaK9zPaku5.jfif",
+   "caption": "Epipremnum aureum. Groundcover",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "8197",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_Jukka_Heinonen_ccbyncnd2.0.jpg",
+   "caption": "Epipremnum aureum. Leaves",
+   "author": "Elvis Ripley",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "14002",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_by_7dE5UAqcLjGC.jpeg",
+   "caption": "Epipremnum aureum. leaves",
+   "author": "Joydeep",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "14005",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_by_co8CQaw97XYa.jpeg",
+   "caption": "Epipremnum aureum. leaves",
+   "author": "Sergei",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "14006",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_by_TH6XurpzKsje.jpeg",
+   "caption": "Epipremnum aureum. leaves",
+   "author": "ZooFari",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "36008",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremmum-aureum-po_AHgiCGKGC2mG.jpeg",
+   "caption": "Epipremnum aureum. Cuttings rooting in water after 2 weeks",
+   "author": "Cathy DeWitt",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "36966",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Epipremnum_aureum_ho_Ls4s511lj3iU.jpeg",
+   "caption": "Epipremnum aureum. Holdfast roots allow the plant to climb.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "23703",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/epipremnum_aureum-ma_49RGrLIuDclr.jpg",
+   "caption": "Epipremnum aureum 'Marble Queen'. Leaves Close-Up (Mecklenburg County, NC)-Spring",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

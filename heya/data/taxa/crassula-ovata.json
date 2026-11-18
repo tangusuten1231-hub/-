@@ -2,6 +2,7 @@
  "id": "crassula-ovata",
  "rank": "species",
  "scientificName": "Crassula ovata",
+ "group": "succulent",
  "names": {
   "ja": "金のなる木",
   "aliases": [
@@ -90,7 +91,8 @@
   {
    "ja": "水のやりすぎで葉が落ちたり根が腐ったりする。",
    "src": "ncsu",
-   "quote": "Leaf fall and root rot can result from over watering."
+   "quote": "Leaf fall and root rot can result from over watering.",
+   "symptom": "drop"
   }
  ]
 }

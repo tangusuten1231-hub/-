@@ -1,0 +1,89 @@
+{
+ "id": "dracaena-angolensis",
+ "rank": "species",
+ "scientificName": "Dracaena angolensis",
+ "group": "succulent",
+ "names": {
+  "ja": "サンスベリア・キリンドリカ",
+  "aliases": [
+   "サンセベリア・キリンドリカ",
+   "スティックサンスベリア"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-angolensis"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "dry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Place it in a brightly lit window."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "only give it morning sun to avoid sunburn"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Bring it indoors when the temperature falls below 55 degrees Fahrenheit.",
+    "fahrenheit": [
+     55
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "water only about every 2 weeks in summer and monthly in winter"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "water only about every 2 weeks in summer and monthly in winter"
+   }
+  ]
+ },
+ "note": "以前の学名は Sansevieria cylindrica。"
+}

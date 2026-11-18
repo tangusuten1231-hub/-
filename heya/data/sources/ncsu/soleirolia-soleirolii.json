@@ -1,0 +1,306 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/soleirolia-soleirolii/",
+ "slug": "soleirolia-soleirolii",
+ "retrieved": "2026-11-17",
+ "scientificName": "Soleirolia soleirolii",
+ "commonNames": [
+  "Angel's Tears",
+  "Baby's Tears",
+  "Corsican Carpet",
+  "Irish Moss",
+  "Japanese Moss",
+  "Mind-Your-Own-Business",
+  "Paddys Wig",
+  "Peace-in-the-Home",
+  "Pollyanna Vine"
+ ],
+ "description": "Angel tears or baby tears is a low-growing ground cover resembling moss that honors Joseph Francois Soleirol, who acquired a large collection of specimens of Corsican plants. The common name Baby's Tears is derived from the tiny, rounded leaves. It is in the nettle family. This creeping perennial ground cover is evergreen in zones 10 above and will die back but rejuvenate in zone 9. While it can spread up to 6' wide in the garden, as a houseplant, it won't go far. Not having contact with the soil will limit its spread and it can be pruned as needed. In warm winter areas, it can be somewhat weedy and difficult to eradicate as any stem pieces left can regrow, It may be used as a terrarium plant, but over time will crowd out the other terrarium plants. Ideal conditions include moderate temperatures, high humidity and bright, indirect lighting. Direct sunlight can scorch the leaves. It prefers well-drained fertile moist soils. A wide, shallow pot creates an ideal location for this plant. Insects, Diseases, and Other Plant Problems: No serious insect or disease issues. Aphids, whiteflies, and scale are possible problems. Once established outdoors, the plant may prove to be difficult to remove. Even after removing the plant, many small stems are missed and the plant can regenerate.",
+ "cultivars": [
+  {
+   "name": "Aurea",
+   "note": "Golden leaves."
+  },
+  {
+   "name": "Golden Queen",
+   "note": "Yellowish leaf margins."
+  },
+  {
+   "name": "Silver Queen",
+   "note": "Silvery-gray foliage."
+  },
+  {
+   "name": "Variegata",
+   "note": "Silvery green variegated foliage."
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Soleirolia"
+  ],
+  "Species": [
+   "soleirolii"
+  ],
+  "Family": [
+   "Urticaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "Ground cover"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division"
+  ],
+  "Country Or Region Of Origin": [
+   "W. Mediterranean, Italy, Sardinia and Corsica."
+  ],
+  "Play Value": [
+   "Easy to Grow",
+   "Shade",
+   "Textural"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 3 in. - 0 ft. 6 in.",
+   "Width: 3 ft. 0 in. - 6 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Cascading",
+   "Climbing",
+   "Creeping",
+   "Dense",
+   "Horizontal",
+   "Prostrate",
+   "Spreading"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Clay",
+   "High Organic Matter",
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "3 feet-6 feet"
+  ],
+  "NC Region": [
+   "Coastal"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Fruit Type": [
+   "Achene"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Ovoid and shiny fruits are enclosed by calyx."
+  ],
+  "Flower Color": [
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Insignificant"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "The tiny, creamy white flowers in the leaf axils that lack petals and are insignificant."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Oblong"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "< 1 inch"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "The shiny, lime green leaves are tiny, only 1/4\" diameter. They form a dense ground cover as they spread."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Surface": [
+   "Hairy (pubescent)"
+  ],
+  "Stem Description": [
+   "The many branched, fleshy stems root into the ground as the plant spreads. Spreading in a prostrate form, they have stinging hairs."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Patio",
+   "Rock Wall",
+   "Vertical Spaces"
+  ],
+  "Landscape Theme": [
+   "Rock Garden",
+   "Shade Garden"
+  ],
+  "Design Feature": [
+   "Border",
+   "Mass Planting"
+  ],
+  "Resistance To Challenges": [
+   "Foot Traffic",
+   "Heavy Shade",
+   "Humidity"
+  ],
+  "Problems": [
+   "Weedy"
+  ]
+ },
+ "tags": [
+  "ornamentals",
+  "houseplant",
+  "groundcover",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "foot traffic tolerant",
+  "wet soils intolerant",
+  "evergreen",
+  "hardy",
+  "herbaceous",
+  "low growing",
+  "tropical evergreen",
+  "terrarium",
+  "drought intolerant",
+  "humidity tolerant",
+  "frost tender",
+  "herbaceous perennial",
+  "mat forming",
+  "tropical",
+  "evergreen groundcover",
+  "dry soils intolerant",
+  "perennial",
+  "accent"
+ ],
+ "images": [
+  {
+   "id": "35273",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_zHWja2NpfItd.jpeg",
+   "caption": "Foliage",
+   "author": "GFDL",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "35274",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_peUrSm1Gct0l.jpeg",
+   "caption": "Creeping habit",
+   "author": "Lenora Enking",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "35275",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_XHUSHzGNIwMT.jpeg",
+   "caption": "Climbing",
+   "author": "Tico",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "35276",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_6hTCyq8E5rSp.jpeg",
+   "caption": "Hanging basket",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "35277",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_hgUPJrYopFnm.jpeg",
+   "caption": "Rock garden",
+   "author": "Krzysztof Ziarnek",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "35278",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_0zBfTr6laIfc.jpeg",
+   "caption": "Groundcover",
+   "author": "Line1",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "36145",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_6Xw1tVaJdp3K.jpeg",
+   "caption": "Tiny flowers",
+   "author": "Nick Helme",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "36146",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Soleirolia_soleiroli_Gfimgo5wDqsl.jpeg",
+   "caption": "Growing in cracks of a wall",
+   "author": "elsah01",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  }
+ ]
+}

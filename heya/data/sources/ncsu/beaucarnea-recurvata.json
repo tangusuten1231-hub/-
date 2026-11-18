@@ -127,5 +127,71 @@
   "non-toxic for dogs",
   "patio",
   "container plant"
+ ],
+ "images": [
+  {
+   "id": "8106",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea-recurvata--Maja-Dumat--CC-BY.jpg",
+   "caption": "",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8107",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea-recurvata--Tatters--CC-BY.jpg",
+   "caption": "",
+   "author": "Tatters",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8108",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea-recurvata--Dinesh-Valke--CC-BY-SA.jpg",
+   "caption": "",
+   "author": "Dinesh Valke",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8109",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea-recurvata--Forest-and-Kim-Star--CC-BY.jpg",
+   "caption": "",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "11581",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea_recurvata_oE5ocwvhNjx2.jpg",
+   "caption": "Beaucarnea recurvata",
+   "author": "brewbooks",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "11582",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea_recurvata_nT4UmFHv0aAo.jpg",
+   "caption": "Beaucarnea recurvata",
+   "author": "Daderot",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "11583",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea_recurvata_J0JWQapNdMtc.jpg",
+   "caption": "Beaucarnea recurvata",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41997",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Beaucarnea_recurvata_oyZn34CaHIwr.jpeg",
+   "caption": "Bark and leaves",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

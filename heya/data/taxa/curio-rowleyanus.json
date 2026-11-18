@@ -1,0 +1,118 @@
+{
+ "id": "curio-rowleyanus",
+ "rank": "species",
+ "scientificName": "Curio rowleyanus",
+ "group": "succulent",
+ "names": {
+  "ja": "グリーンネックレス",
+  "aliases": [
+   "セネシオ・ロウレイアヌス",
+   "ミドリノスズ"
+  ]
+ },
+ "refs": {
+  "ncsu": "curio-rowleyanus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    21,
+    27
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "indoor plants flourish in areas where they receive bright, indirect sunlight"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "having inadequate light"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Scorching of the leaves can occur from direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は冬は50〜60°F（10〜16℃）の涼しい温度がよいとする。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Warm temperatures of 70 to 80 degrees during the summer",
+    "fahrenheit": [
+     70,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Never allow your plant to completely dry out between watering."
+   },
+   {
+    "src": "ncsu",
+    "quote": "It tolerates infrequent watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がなく、完全に乾かし切らないよう勧めるため、生育期と同じとした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "土がじめじめすると根腐れして枯れる。",
+   "src": "ncsu",
+   "quote": "Soggy wet soil will result in root rot and the plant's demise.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "しおれるのは水の不足かやりすぎ。",
+   "src": "ncsu",
+   "quote": "Wilting leaves can occur from underwatering or overwatering.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "直射日光で葉が焼ける。",
+   "src": "ncsu",
+   "quote": "Scorching of the leaves can occur from direct sunlight.",
+   "symptom": "scorch"
+  }
+ ],
+ "note": "以前の学名は Senecio rowleyanus。"
+}

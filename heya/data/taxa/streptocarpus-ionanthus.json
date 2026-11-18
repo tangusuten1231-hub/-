@@ -1,0 +1,119 @@
+{
+ "id": "streptocarpus-ionanthus",
+ "rank": "species",
+ "scientificName": "Streptocarpus ionanthus",
+ "group": "flowering",
+ "names": {
+  "ja": "セントポーリア",
+  "aliases": [
+   "アフリカスミレ",
+   "セントポーリア・イオナンタ"
+  ]
+ },
+ "refs": {
+  "ncsu": "streptocarpus-ionanthus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "it prefers interior sites with bright, filtered light and moist soil"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典の光の条件に Deep shade も含まれるが、花を咲かせるには光が必要なため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "bright, filtered light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "If the nighttime temperature is allowed to dip below 60 degrees, the plant will become stunted",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Maintaining a temperature between 60 and 80 degrees is optimum.",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It thrives in high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the surface to dry before watering again"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水は鉢底から与え（底面給水）、葉をぬらさない。葉に水がかかると斑点や輪じみができる。",
+   "src": "ncsu",
+   "quote": "When watering, water from the bottom while keeping the leaves dry to prevent spots or rings",
+   "symptom": "spots"
+  },
+  {
+   "ja": "乾いた空気と冷たい水に弱い。",
+   "src": "ncsu",
+   "quote": "It is intolerant of dry air or very cold water.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "いちばん多い失敗は水のやりすぎ。",
+   "src": "ncsu",
+   "quote": "Overwatering is the number one issue.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "花を咲かせ続けるには肥えた用土が必要。",
+   "src": "ncsu",
+   "quote": "It requires a highly fertile medium for continued rebloom.",
+   "symptom": "noflower"
+  }
+ ],
+ "note": "以前の学名は Saintpaulia ionantha。"
+}

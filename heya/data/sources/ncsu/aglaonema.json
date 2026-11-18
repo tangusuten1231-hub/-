@@ -11,7 +11,7 @@
   "Philippine Evergreen",
   "Poison Dart Plant"
  ],
- "description": "Chinese evergreen is an herbaceous perennial in the Araceae (arum) family and is native to the tropical and subtropical areas of Southeast Asia and New Guinea. There are 26 species in the genus and many cultivars. It is commonly grown as a houseplant and is one of the easiest to grow in the home or office. This tropical shrub grows to 1.5 feet, is erect and bushy, and resembles a dumb cane ( Dieffenbachia ). The tendency to have only 5-8 main lateral veins distinguishes it from Dieffenbachi a. It has lance-shaped leaves that reach 4 to 8 inches long and 2 to 3 inches wide and that may be attractively variegated with white, silver, pink and/or red. It may produce a white spadix and greenish-white spathe, but houseplants may not flower if the light level is low. Red clusters of berries follow the blooms. The plant does well in diffuse sun or good indirect light and prefers high humidity but will tolerate dryer air. Keep the potting mix moist from spring to fall. It does not require a winter dormancy period but prefers a reduction in watering during the winter. Remove flowers and fruits to direct energy to plant growth. It is intolerant of cold temperatures and prefers a daytime temperature in the 70 to 80-degree F range. The plant tends to get leggy with age as the stem grows. It is an excellent plant for low-light, indoor locations; it can also be used outdoors as a filler plant or low hedge in warm regions. Grow it in an Asian or shade garden, in a container, beside a patio or walkway, or in a woodland setting. Quick ID Hints: Lanceolate leaves are green and variegated with yellow/cream, grey, or pink/red Leaves contain 5&ndash;8 main lateral veins Inflorescence is white spadix and greenish-white spathe Stem is present, becoming sugarcane-like with age Insects, Diseases, and Other Plant Problems: There are no serious disease or insect problems, but watch for aphids, mealybugs, spider mites, and scale. Root rots can occur with over-watering; allow the medium to dry between waterings and avoid using cold water. The leaves may turn brown in very dry air or a drafty location. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants,\" a plant identification course developed in partnership with Longwood Gardens.",
+ "description": "Chinese evergreen is an herbaceous perennial in the Araceae (arum) family and is native to the tropical and subtropical areas of Southeast Asia and New Guinea. There are 26 species in the genus and many cultivars. It is commonly grown as a houseplant and is one of the easiest to grow in the home or office. This tropical shrub grows to 1.5 feet, is erect and bushy, and resembles a dumb cane ( Dieffenbachia ). The tendency to have only 5-8 main lateral veins distinguishes it from Dieffenbachi a. It has lance-shaped leaves that reach 4 to 8 inches long and 2 to 3 inches wide and that may be attractively variegated with white, silver, pink and/or red. It may produce a white spadix and greenish-white spathe, but houseplants may not flower if the light level is low. Red clusters of berries follow the blooms. The plant does well in diffuse sun or good indirect light and prefers high humidity but will tolerate dryer air. Keep the potting mix moist from spring to fall. It does not require a winter dormancy period but prefers a reduction in watering during the winter. Remove flowers and fruits to direct energy to plant growth. It is intolerant of cold temperatures and prefers a daytime temperature in the 70 to 80-degree F range. The plant tends to get leggy with age as the stem grows. It is an excellent plant for low-light, indoor locations; it can also be used outdoors as a filler plant or low hedge in warm regions. Grow it in an Asian or shade garden, in a container, beside a patio or walkway, or in a woodland setting. Quick ID Hints: Lanceolate leaves are green and variegated with yellow/cream, grey, or pink/red Leaves contain 5-8 main lateral veins Inflorescence is white spadix and greenish-white spathe Stem is present, becoming sugarcane-like with age Insects, Diseases, and Other Plant Problems: There are no serious disease or insect problems, but watch for aphids, mealybugs, spider mites, and scale. Root rots can occur with over-watering; allow the medium to dry between waterings and avoid using cold water. The leaves may turn brown in very dry air or a drafty location. VIDEO Created by Elisabeth Meyer for \"Edibles, Bulbs, and Houseplants,\" a plant identification course developed in partnership with Longwood Gardens.",
  "cultivars": [
   {
    "name": "Aglaonema commutatum 'Crete",
@@ -410,5 +410,167 @@
   "perennial",
   "variegated",
   "patio"
+ ],
+ "images": [
+  {
+   "id": "40473",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250522_140325_Agla_Lrt2ETFWN4Dl.jpeg",
+   "caption": "Aglaonema nitidum 'Silverbay,' Chinese Evergreen, houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40474",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250522_140238_Agal_YuJhrfJOI15M.jpeg",
+   "caption": "Aglaonema 'Siam Aurora,' Red Aglaonema, houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38406",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_modestum_f_o4LanQgN9rj7.jpeg",
+   "caption": "Aglaonema modestum as a potted plant.",
+   "author": "Marissa Anderson",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "18667",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_commutatum_xZ0WrHLfEm0i.jpe",
+   "caption": "Form",
+   "author": "Jerzy Opioła",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38162",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum_Da_cxOFrgQX06uy.jpeg",
+   "caption": "A. nitidum form",
+   "author": "Daderot",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "38146",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum_1__IKAIY6gsdAZ8.jpeg",
+   "caption": "A. nitium form",
+   "author": "Biswarup Ganguly",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "38152",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum_2__ISZ9VxQbTZQ3.jpeg",
+   "caption": "A. nitidum form",
+   "author": "Bernard DUPONT",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38161",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum_Ku_2rWln0M0bpnL.jpeg",
+   "caption": "A. nitidum leave and branches",
+   "author": "Kurt Stüber",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "18666",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_commutatum_C59BvkaCtTMG.jfif",
+   "caption": "Leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38155",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum_Kr_VEYbflCKzy7T.jpeg",
+   "caption": "A, nitidum leaves close up",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "38164",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_modestum_-_dbAkdESJJlPr.jpeg",
+   "caption": "A. modestum leaf",
+   "author": "Mangostar",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38423",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_foliage_an_uivTX5uBGNxL.jpeg",
+   "caption": "Variegated leaves and an inflorescene.",
+   "author": "wintersoul1",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38165",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_modestum_-_skMQc8z74wDY.jpeg",
+   "caption": "A. modestum flower close up",
+   "author": "阿橋 HQ",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "18665",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/HQ-Aglaonema_commuta_TDWZMPRksfw8.jfif",
+   "caption": "Flower",
+   "author": "HQ",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "8346",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_commutatum_James_Gaither_ccbyncnd2.0.jpg",
+   "caption": "Fruit",
+   "author": "James Gaither",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38158",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_nitidum__S_aG6e6O2y0TCF.jpeg",
+   "caption": "'Silver Queen' in pot",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "38174",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_White_Joy_CutEbzeiuKu6.jpeg",
+   "caption": "Aglaonema 'White Joy' for sale in the UK",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38175",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_White_Lig_cyVCHaMGxQGb.jpeg",
+   "caption": "Aglaonema 'White Lightning'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38172",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Unknown_cultivar_Tha_lcvNl2dURelF.jpeg",
+   "caption": "Unknown cultivar, Thailand.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38173",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Aglaonema_commutatum_hR7sUoJ86HNC.jpeg",
+   "caption": "Aglaonema 'Wishes'",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
  ]
 }

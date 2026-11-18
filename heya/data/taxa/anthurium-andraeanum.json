@@ -2,6 +2,7 @@
  "id": "anthurium-andraeanum",
  "rank": "species",
  "scientificName": "Anthurium andraeanum",
+ "group": "flowering",
  "names": {
   "ja": "アンスリウム",
   "aliases": [
@@ -102,7 +103,8 @@
   {
    "ja": "光や肥料が足りないと花が咲きにくい。",
    "src": "ncsu",
-   "quote": "Insufficient light or nutrient deficiencies can decrease flower production."
+   "quote": "Insufficient light or nutrient deficiencies can decrease flower production.",
+   "symptom": "noflower"
   }
  ]
 }

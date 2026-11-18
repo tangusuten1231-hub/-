@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5384031",
+ "retrieved": "2026-11-17",
+ "query": "Epiphyllum oxypetalum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5384031,
+ "acceptedKey": 5384031,
+ "acceptedName": "Epiphyllum oxypetalum",
+ "authorship": "(DC.) Haw.",
+ "rank": "SPECIES",
+ "family": "Cactaceae",
+ "genus": "Epiphyllum",
+ "synonyms": [
+  "Cactus oxypetalus",
+  "Cereus latifrons",
+  "Cereus oxypetalus",
+  "Epiphyllum acuminatum",
+  "Epiphyllum grande",
+  "Epiphyllum latifrons",
+  "Epiphyllum purpusii",
+  "Phyllocactus acuminatus",
+  "Phyllocactus grandis",
+  "Phyllocactus guyanensis",
+  "Phyllocactus latifrons",
+  "Phyllocactus oxypetalus",
+  "Phyllocactus purpusii"
+ ]
+}

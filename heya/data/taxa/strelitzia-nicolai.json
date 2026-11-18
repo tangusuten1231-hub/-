@@ -1,0 +1,110 @@
+{
+ "id": "strelitzia-nicolai",
+ "rank": "species",
+ "scientificName": "Strelitzia nicolai",
+ "group": "foliage",
+ "names": {
+  "ja": "ストレリチア・ニコライ",
+  "aliases": [
+   "オーガスタ",
+   "ニコライ"
+  ]
+ },
+ "refs": {
+  "ncsu": "strelitzia-nicolai"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It will not tolerate temperatures below 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers temperatures between 65 to 85 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It also prefers high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the top layer of soil feels dry"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "春〜夏は月に1回、液体肥料を与える。",
+   "src": "ncsu",
+   "quote": "During the spring and summer, a balanced liquid fertilizer may be used once a month."
+  },
+  {
+   "ja": "汁で皮ふがかぶれることがあるので手袋をする。",
+   "src": "ncsu",
+   "quote": "Wear protective gloves when handling this plant due to the chance of skin irritation."
+  },
+  {
+   "ja": "カイガラムシ・ハダニ・アブラムシ・コナカイガラムシに注意。",
+   "src": "ncsu",
+   "quote": "Monitor for scale, spider mites, aphids, and mealybugs.",
+   "symptom": "pests"
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "id": "tillandsia-usneoides",
+ "rank": "species",
+ "scientificName": "Tillandsia usneoides",
+ "group": "airplant",
+ "names": {
+  "ja": "スパニッシュモス",
+  "aliases": [
+   "チランジア・ウスネオイデス",
+   "サルオガセモドキ"
+  ]
+ },
+ "refs": {
+  "ncsu": "tillandsia-usneoides"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    15,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "soak",
+   "winter": "soak"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It can be grown indoors with bright light and humid conditions."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "It can be grown indoors with bright light and humid conditions."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Full sun (6 or more hours of direct sunlight a day)"
+   },
+   {
+    "src": "estimate",
+    "reason": "屋外では日なたでも育つとされるが、室内では強い日差しで乾きすぎるため朝の光までとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン8a（屋外で−12℃程度まで）とされるため、室内では凍らなければ問題ない。0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It needs high humidity and pollution-free conditions to grow."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Indoor plants will need occasional watering (allowing the plant to dry between waterings)"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、生育期と同じとした（間隔は長めにする）"
+   }
+  ]
+ }
+}

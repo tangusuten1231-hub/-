@@ -1,0 +1,19 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5532250",
+ "retrieved": "2026-11-17",
+ "query": "Alocasia × mortfontanensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5532250,
+ "acceptedKey": 5532250,
+ "acceptedName": "Alocasia mortfontanensis",
+ "authorship": "André",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Alocasia",
+ "synonyms": [
+  "Alocasia amazonica"
+ ]
+}

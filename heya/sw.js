@@ -1,6 +1,6 @@
 // オフライン用のキャッシュ。ファイルを変えたら VERSION を上げる
 // 同じサイトに庭づくりアプリがあるので、消すのは自分のキャッシュ（heyamidori-）だけ
-const VERSION = 'heyamidori-v2';
+const VERSION = 'heyamidori-v3';
 const FILES = ['./', 'index.html', 'css/style.css', 'manifest.webmanifest', 'icon.svg',
   'js/app.js', 'js/catalog.data.js', 'js/schema.js', 'js/care.js', 'js/db.js', 'js/guide.js', 'js/derive.js'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES))); self.skipWaiting(); });

@@ -1,0 +1,110 @@
+{
+ "id": "cissus-alata",
+ "rank": "species",
+ "scientificName": "Cissus alata",
+ "group": "foliage",
+ "names": {
+  "ja": "シッサス・ロンビフォリア",
+  "aliases": [
+   "グレープアイビー",
+   "シッサス"
+  ]
+ },
+ "refs": {
+  "ncsu": "cissus-alata"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    15,
+    24
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It needs average to cool indoor temperatures and bright, indirect light."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Grape Ivy is tolerant of low relative humidity, heavy shade, and prefers moist soil."
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "in bright, but indirect, light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Do not allow indoor temperatures below 50 degrees F.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It needs average to cool indoor temperatures"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ふつう〜涼しめの室温」をやや低めの範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Grape Ivy is tolerant of low relative humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Apply consistent moisture from spring to fall"
+   },
+   {
+    "src": "ncsu",
+    "quote": "Allow this plant to dry out between each watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "but reduce watering in winter"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "湿りすぎても乾きすぎても葉が落ちる。",
+   "src": "ncsu",
+   "quote": "The leaves may fall if the plant is too wet or too dry.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "葉の緑が濃ければ、肥料は足りている。",
+   "src": "ncsu",
+   "quote": "Dark green leaves mean there's an adequate fertilizer level."
+  }
+ ],
+ "note": "現在の学名は Cissus alata（以前は Cissus rhombifolia）。"
+}

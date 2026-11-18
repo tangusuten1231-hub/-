@@ -1,0 +1,106 @@
+{
+ "id": "nepenthes",
+ "rank": "genus",
+ "scientificName": "Nepenthes",
+ "group": "carnivorous",
+ "names": {
+  "ja": "ウツボカズラ",
+  "aliases": [
+   "ネペンテス"
+  ]
+ },
+ "refs": {
+  "ncsu": "nepenthes"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    21,
+    35
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "They prefer bright light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は明るい光を好むとするが、直射日光の記載がないため、葉焼けを避けてレース越しとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は高地性の種でも夜は60°F台前半（16℃前後）、低地性の種は21〜35℃を好むとするため16℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Lowlands species prefer temperatures between 70 to 95 degrees Fahrenheit",
+    "fahrenheit": [
+     70,
+     95
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "These plants require warm temperatures and high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典は水苔などに植え、雨水か蒸留水を使うとする。高湿度を好むため乾かしすぎないとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水道水は使わず、雨水か蒸留水を使う。",
+   "src": "ncsu",
+   "quote": "Distilled water or rainwater should be used."
+  },
+  {
+   "ja": "肉を与えてはいけない（たんぱく質を消化できない）。",
+   "src": "ncsu",
+   "quote": "They do not digest protein and should not be feed meat."
+  },
+  {
+   "ja": "湿度が低いと袋（捕虫袋）がうまくできず、枯れることがある。",
+   "src": "ncsu",
+   "quote": "If the humidity is too low, the traps or pitchers will not develop properly or will die back.",
+   "symptom": "brown"
+  }
+ ]
+}

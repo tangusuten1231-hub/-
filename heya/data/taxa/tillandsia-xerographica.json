@@ -1,0 +1,104 @@
+{
+ "id": "tillandsia-xerographica",
+ "rank": "species",
+ "scientificName": "Tillandsia xerographica",
+ "group": "airplant",
+ "names": {
+  "ja": "チランジア・キセログラフィカ",
+  "aliases": [
+   "キセログラフィカ"
+  ]
+ },
+ "refs": {
+  "ncsu": "tillandsia-xerographica"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "soak",
+   "winter": "soak"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It requires bright light but not full sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It requires bright light but not full sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "霜には耐えない。出典に傷む温度の記載はない。耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典は乾燥した熱帯の地域が原産とし、湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Soak the plant in water for 15 minutes every 1 or 2 weeks."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "In the winter it can be soaked monthly."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "浸したあとは逆さにして乾かし、株元が腐るのを防ぐ。",
+   "src": "ncsu",
+   "quote": "Just be sure to shake out the plant and let it dry upside-down soaking to prevent crown rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "冷暖房で空気が乾く部屋では、水やりを増やす必要がある。",
+   "src": "ncsu",
+   "quote": "In a home, the heating and air conditioning can affect humidity, and the plant might need more watering.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "花は一生に一度、条件がそろったときだけ咲く。",
+   "src": "ncsu",
+   "quote": "The plants bloom once in their lifetime and only when conditions are right.",
+   "symptom": "noflower"
+  }
+ ]
+}

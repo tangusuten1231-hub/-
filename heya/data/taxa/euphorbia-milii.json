@@ -1,0 +1,100 @@
+{
+ "id": "euphorbia-milii",
+ "rank": "species",
+ "scientificName": "Euphorbia milii",
+ "group": "succulent",
+ "names": {
+  "ja": "ハナキリン",
+  "aliases": [
+   "ユーフォルビア・ミリー"
+  ]
+ },
+ "refs": {
+  "ncsu": "euphorbia-milii"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 2,
+   "idealC": [
+    15,
+    30
+   ]
+  },
+  "humidity": "low",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "It is an easy-to-grow indoor plant that prefers a sunny location in soil-based potting mix."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日当たりのよい場所を好むとするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It is an easy-to-grow indoor plant that prefers a sunny location"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It does not like wet, cold soils or temperatures below 35 degrees F.",
+    "fahrenheit": [
+     35
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、多肉植物が成長する一般的な範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載はないが、葉や茎に水を蓄える乾燥に強い植物のため"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Crown of thorns grows best in dry to medium moisture, well-drained soils in full sun."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "休眠期（ふつうは冬）の前に葉が落ちるのは自然なこと。",
+   "src": "ncsu",
+   "quote": "Cyclical leaf drop is normal, but messy, and precedes the plant's resting season (usually winter).",
+   "symptom": "drop"
+  },
+  {
+   "ja": "樹液で皮ふや目がかぶれるので、手袋をして扱う。",
+   "src": "ncsu",
+   "quote": "Wear protective gloves when handling this plant to prevent skin and eye irritation from the sap."
+  }
+ ]
+}

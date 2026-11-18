@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7857942",
+ "retrieved": "2026-11-17",
+ "query": "Howea forsteriana",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7857942,
+ "acceptedKey": 7857942,
+ "acceptedName": "Howea forsteriana",
+ "authorship": "(F.Muell.) Becc.",
+ "rank": "SPECIES",
+ "family": "Arecaceae",
+ "genus": "Howea",
+ "synonyms": [
+  "Denea forsteriana",
+  "Grisebachia forsteriana",
+  "Howeia forsteriana",
+  "Kentia australis",
+  "Kentia forsteriana"
+ ]
+}

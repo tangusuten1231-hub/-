@@ -4,7 +4,7 @@ import { validateTaxon, fToC } from '../js/schema.js';
 import { zoneMinC, normText, checkEvidence } from '../js/derive.js';
 
 const ok = () => ({
-  id: 'x-y', rank: 'species', scientificName: 'Xus yus', names: { ja: 'テスト' }, refs: { ncsu: 'x-y' },
+  id: 'x-y', rank: 'species', scientificName: 'Xus yus', group: 'foliage', names: { ja: 'テスト' }, refs: { ncsu: 'x-y' },
   care: { light: { best: 'bright', min: 'low', directSun: 'avoid' }, temperature: { minC: 10, idealC: [18, 27] }, humidity: 'medium', watering: { growing: 'topdry', winter: 'halfdry' } },
   evidence: Object.fromEntries(['light.best', 'light.min', 'light.directSun', 'temperature.minC', 'temperature.idealC', 'humidity', 'watering.growing', 'watering.winter'].map((k) => [k, [{ src: 'estimate', reason: 'テストの理由です' }]])),
 });

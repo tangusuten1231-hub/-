@@ -1,0 +1,103 @@
+{
+ "id": "phlebodium-aureum",
+ "rank": "species",
+ "scientificName": "Phlebodium aureum",
+ "group": "fern",
+ "names": {
+  "ja": "フレボディウム",
+  "aliases": [
+   "フレボディウム・アウレウム",
+   "ブルースターファーン"
+  ]
+ },
+ "refs": {
+  "ncsu": "phlebodium-aureum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Ideal growing conditions include partial sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は半日の日なたを最適とするが、シダの葉焼けを避けるため室内では直射日光を避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン8b（屋外で−9℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "medium to high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It tolerates drying out between waterings."
+   },
+   {
+    "src": "ncsu",
+    "quote": "a moist but not soggy substrate"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が茶色くなるのは、たいてい湿度不足。",
+   "src": "ncsu",
+   "quote": "Browning of fronds usually indicates that the plant needs higher humidity",
+   "symptom": "brown"
+  },
+  {
+   "ja": "葉が丸まるのは湿度不足や水不足。",
+   "src": "ncsu",
+   "quote": "curling is a common symptom of low humidity and underwatering",
+   "symptom": "curl"
+  }
+ ]
+}

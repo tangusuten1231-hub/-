@@ -1,0 +1,16 @@
+{
+ "id": "peperomia-caperata-rosso",
+ "rank": "cultivar",
+ "parent": "peperomia-caperata",
+ "cultivar": "Rosso",
+ "names": {
+  "ja": "ペペロミア‘ロッソ’"
+ },
+ "tips": [
+  {
+   "ja": "細くとがった濃緑の葉で、葉裏が赤い。",
+   "src": "ncsu",
+   "quote": "thin, pointed dark green leaves, red on underside"
+  }
+ ]
+}

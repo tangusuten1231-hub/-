@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2683217",
+ "retrieved": "2026-11-17",
+ "query": "Cycas revoluta",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2683217,
+ "acceptedKey": 2683217,
+ "acceptedName": "Cycas revoluta",
+ "authorship": "Thunb.",
+ "rank": "SPECIES",
+ "family": "Cycadaceae",
+ "genus": "Cycas",
+ "synonyms": [
+  "Cycas aurea",
+  "Cycas inermis",
+  "Cycas miquelii",
+  "Epicycas miquelii"
+ ]
+}

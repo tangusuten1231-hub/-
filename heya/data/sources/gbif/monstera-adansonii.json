@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2868136",
+ "retrieved": "2026-11-17",
+ "query": "Monstera adansonii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2868136,
+ "acceptedKey": 2868136,
+ "acceptedName": "Monstera adansonii",
+ "authorship": "Schott",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Monstera",
+ "synonyms": [
+  "Calla dracontium",
+  "Calla pertusa",
+  "Dracontium pertusum",
+  "Monstera pertusa",
+  "Monstera vellozoana"
+ ]
+}

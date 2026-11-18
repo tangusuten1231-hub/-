@@ -1,0 +1,98 @@
+{
+ "id": "adiantum-raddianum",
+ "rank": "species",
+ "scientificName": "Adiantum raddianum",
+ "group": "fern",
+ "names": {
+  "ja": "アジアンタム",
+  "aliases": [
+   "アジアンタム・ラディアナム",
+   "ホウライシダの仲間"
+  ]
+ },
+ "refs": {
+  "ncsu": "adiantum-raddianum"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This fern needs partial shade to shade but loses vitality in too much shade or full sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "loses vitality in too much shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "loses vitality in too much shade or full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "does well if kept in bathrooms, where it is more humid"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "the roots should not be allowed to dry out"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "湿度の高い浴室などでよく育つ。",
+   "src": "ncsu",
+   "quote": "The Delta maidenhair fern is often grown as a houseplant and does well if kept in bathrooms, where it is more humid."
+  },
+  {
+   "ja": "根を乾かしてはいけない。",
+   "src": "ncsu",
+   "quote": "It needs moist to wet soil and the roots should not be allowed to dry out.",
+   "symptom": "curl"
+  }
+ ]
+}

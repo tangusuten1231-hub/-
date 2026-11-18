@@ -13,7 +13,7 @@
   "Golden Feather Palm",
   "Yellow Palm"
  ],
- "description": "Areca palm is a tropical perennial native to Madagascar in the palm family (Arecaceae). It is a multi-stemmed (clustering or clumping) palm that can grow to 30 feet tall and 15 feet wide in its native habitat. The genus name spotlights the fruits (- carpus ), which are ellipsoidal and resemble a chrysalis. Specific epithet is Latin for &ldquo;turning yellow&rdquo; in reference to the yellow flowers, stems and leaflet midribs. This tropical plant is grown as a houseplant in temperate climates. In the home, they prefer a bright location in a warm to average room and high humidity. Grow in well-drained potting soil and keep moist but not soggy during the growing season. Increase humidity with a humidifier, if needed, and provide bright indirect light. Repot every 2 or 3 years. Outdoors in zones 10-11, the plant tolerates full sun but prefers partial shade and moist but well-drained soils. They have multiple stems that arise from one base and large, arching, pinnately compound green leaves. The stems can grow up to 4 inches in diameter and have prominent nodes, like bamboo. Panicles of yellow flowers appear in the summer and are followed by yellow-orange fruits. They will rarely bloom or produce fruit as a houseplant. It has been shown to reduce indoor air pollution and is one of the most popular indoor palms. The terminal bud (heart-of-palm) is toxic and contains cyanide compounds; do not eat it. Dwarf and fastigiate cultivars have been developed in Thailand, but these are very rarely available in the US. Quick ID Hints : Clustering palms with thick, bamboo-like stems. Pinnate leaves, with semi-erect pinnae forming a V-shape along the rachis Yellow-green petioles and leaf rachis Insects, Diseases, and Other Plant Problems: It is susceptible to scale, whiteflies and spider mites.",
+ "description": "Areca palm is a tropical perennial native to Madagascar in the palm family (Arecaceae). It is a multi-stemmed (clustering or clumping) palm that can grow to 30 feet tall and 15 feet wide in its native habitat. The genus name spotlights the fruits (- carpus ), which are ellipsoidal and resemble a chrysalis. Specific epithet is Latin for \"turning yellow\" in reference to the yellow flowers, stems and leaflet midribs. This tropical plant is grown as a houseplant in temperate climates. In the home, they prefer a bright location in a warm to average room and high humidity. Grow in well-drained potting soil and keep moist but not soggy during the growing season. Increase humidity with a humidifier, if needed, and provide bright indirect light. Repot every 2 or 3 years. Outdoors in zones 10-11, the plant tolerates full sun but prefers partial shade and moist but well-drained soils. They have multiple stems that arise from one base and large, arching, pinnately compound green leaves. The stems can grow up to 4 inches in diameter and have prominent nodes, like bamboo. Panicles of yellow flowers appear in the summer and are followed by yellow-orange fruits. They will rarely bloom or produce fruit as a houseplant. It has been shown to reduce indoor air pollution and is one of the most popular indoor palms. The terminal bud (heart-of-palm) is toxic and contains cyanide compounds; do not eat it. Dwarf and fastigiate cultivars have been developed in Thailand, but these are very rarely available in the US. Quick ID Hints : Clustering palms with thick, bamboo-like stems. Pinnate leaves, with semi-erect pinnae forming a V-shape along the rachis Yellow-green petioles and leaf rachis Insects, Diseases, and Other Plant Problems: It is susceptible to scale, whiteflies and spider mites.",
  "cultivars": [],
  "attributes": {
   "Genus": [
@@ -226,5 +226,71 @@
   "large leaves",
   "accent",
   "screen"
+ ],
+ "images": [
+  {
+   "id": "8125",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis-lutescens--Kathleen_Moore--CC-BY-20.jpg",
+   "caption": "leaves",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8126",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis-lutescens--Scott-Zona-1--CC-BY-NC.jpg",
+   "caption": "leaves",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "8127",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis-lutescens--Dinesh-Valke--CC-BY-SA.jpg",
+   "caption": "flowers",
+   "author": "Dinesh Valke",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13046",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis_lutescens_by__AdJu433kUnbK.jpeg",
+   "caption": "leaves and stem",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13047",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis_lutescens_by__t0SfYrDT3Rvz.jpeg",
+   "caption": "leaves and stem",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13048",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis_lutescens_by__iRO7PQbjf83m.jpg",
+   "caption": "stem",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13050",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis_lutescens_by__DM1JciapsY6N.jpeg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13051",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dypsis_lutescens_by__emEA9ECgVkKm.jpeg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
  ]
 }

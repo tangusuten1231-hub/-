@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/10961470",
+ "retrieved": "2026-11-17",
+ "query": "Dracaena angolensis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 10961470,
+ "acceptedKey": 10961470,
+ "acceptedName": "Dracaena angolensis",
+ "authorship": "(Welw. ex Carrière) Byng & Christenh.",
+ "rank": "SPECIES",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": [
+  "Acyntha cylindrica",
+  "Cordyline cylindrica",
+  "Sansevieria angolensis",
+  "Sansevieria cylindrica",
+  "Sansevieria livingstoniae"
+ ]
+}

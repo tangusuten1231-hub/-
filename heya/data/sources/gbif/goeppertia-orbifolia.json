@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7476815",
+ "retrieved": "2026-11-17",
+ "query": "Goeppertia orbifolia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7476815,
+ "acceptedKey": 7476815,
+ "acceptedName": "Goeppertia orbifolia",
+ "authorship": "(Linden) Borchs. & S.Suárez",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Goeppertia",
+ "synonyms": [
+  "Calathea orbifolia",
+  "Calathea rotundifolia",
+  "Maranta orbifolia",
+  "Maranta rotundifolia",
+  "Phrynium rotundifolium",
+  "Phyllodes rotundifolia",
+  "Thalia rotundifolia"
+ ]
+}

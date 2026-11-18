@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3573959",
+ "retrieved": "2026-11-17",
+ "query": "Hoya kerrii",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3573959,
+ "acceptedKey": 3573959,
+ "acceptedName": "Hoya kerrii",
+ "authorship": "Craib",
+ "rank": "SPECIES",
+ "family": "Apocynaceae",
+ "genus": "Hoya",
+ "synonyms": []
+}

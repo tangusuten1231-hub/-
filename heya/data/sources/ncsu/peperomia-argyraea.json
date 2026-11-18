@@ -1,0 +1,221 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/peperomia-argyraea/",
+ "slug": "peperomia-argyraea",
+ "retrieved": "2026-11-17",
+ "scientificName": "Peperomia argyraea",
+ "commonNames": [
+  "Watermelon Begonia",
+  "Watermelon Peperomia",
+  "Watermelon Plant"
+ ],
+ "description": "Watermelon Peperomia is a tropical evergreen herbaceous shrub that has an erect and bushy habit and is native to South America. It is a member of the Piperaceae or pepper family. The plant grows up to 8 inches tall and can be used as a houseplant in temperate climates. The decorative, watermelon-striped, waxy leaves and cream-colored, spiked inflorescence add interest to this plant. The leaf attachment is a rare true peltate. It is named Watermelon Peperomia because its leaves resemble the rind of a watermelon. This plant prefers bright indirect sunlight. It is intolerant of wet soil, very dry soil, and cold drafts. Over-watering will cause root rot and under-watering will cause the plant to wilt. Allow the soil to dry to the touch at the top before watering and reduce watering in the winter months. They will not need to be repotted often as they thrive being pot-bound. This houseplant is not toxic to cats or dogs. The plant tends to be small and looks better in groupings of plants with similar cultural needs. This plant is used as a specimen or as a desktop plant. Quick ID Hints: Leaves are smooth and striped like a watermelon Petioles and stems are red Inflorescences are numerous creamy spikes Leaf attachment is peltate Insects, Diseases, and Other Plant Problems: This plant has no serious pest or disease problems. They are susceptible to typical houseplant pests such as mealybugs, scale, and aphids. Root rot can quickly occur from overwatering. More information on Peperomia .",
+ "cultivars": [
+  {
+   "name": "Costa Rica",
+   "note": "has a maroon dimple at the base of the leaf"
+  },
+  {
+   "name": "Harmony's Gold Dust",
+   "note": "has a speckled gold variegation"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Peperomia"
+  ],
+  "Species": [
+   "argyraea"
+  ],
+  "Family": [
+   "Piperaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Leaf Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Brazil"
+  ],
+  "Distribution": [
+   "Native: Brazil Northeast, Brazil Southeast; Introduced: Ecuador, and Venezuela"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Plant Type": [
+   "Ground Cover",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Description": [
+   "Insignificant, green, appear on stalks in the summer"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Size": [
+   "1-3 inches"
+  ],
+  "Flower Description": [
+   "Flowers are white-cream in color and minute. Flowers have 2 stamens and no perianths. Inflorescence is an erect spike (spadix), axillary, and 2-4 inches in size."
+  ],
+  "Leaf Color": [
+   "Gray/Silver",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Waxy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Ovate"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Description": [
+   "Leaves are broadly ovate, acute, rotund, entire, concave, silver-gray above with dark stripes along main veins, waxy, peltate, green in color, and have a showy mixture of silver and white stripes. Petioles grow up to 5 inches and are red."
+  ],
+  "Stem Color": [
+   "Red/Burgundy"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Stems are non-woody, erect, unbranched, and dark red in color."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Heavy Shade"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "interiorscape",
+  "showy leaves",
+  "cream flowers",
+  "white flowers",
+  "fantz",
+  "evergreen",
+  "tropical feel",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "herbaceous perennial"
+ ],
+ "images": [
+  {
+   "id": "8152",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia-argyreia--InAweofGodsCreation--CC-BY-ND.jpg",
+   "caption": "Form",
+   "author": "InAweofGod'sCreation",
+   "license": "CC BY-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/4.0/legalcode"
+  },
+  {
+   "id": "8153",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia-argyreia--Eric-Hunt--CC-BY-NC-ND.jpg",
+   "caption": "Leaves",
+   "author": "Eric Hunt",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "30607",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_argyreia_2_3rYLwajpBxVh.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30608",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_argyreia_D_PJwZ6cBauz0h.jpeg",
+   "caption": "Leaves",
+   "author": "David J.Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30609",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_argyreia_J_MurOPoXk5V7G.jpeg",
+   "caption": "Form",
+   "author": "Jerzy Opiola",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30610",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_argyreia_K_sgp35mLfCnN8.jpeg",
+   "caption": "Stem and Leaves",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30611",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_argyreia_M_k8VRyEC42e5l.jpeg",
+   "caption": "Form",
+   "author": "Mokkie",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "30612",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Peperomia_Argyreia_T_QHpQK7Je1dSX.jpeg",
+   "caption": "Stem and Leaves",
+   "author": "TBTRSLZU2",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
+ ]
+}

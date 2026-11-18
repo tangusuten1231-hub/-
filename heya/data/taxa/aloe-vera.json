@@ -2,6 +2,7 @@
  "id": "aloe-vera",
  "rank": "species",
  "scientificName": "Aloe vera",
+ "group": "succulent",
  "names": {
   "ja": "アロエ・ベラ",
   "aliases": [
@@ -84,7 +85,8 @@
   {
    "ja": "水のやりすぎは根腐れのもと。",
    "src": "ncsu",
-   "quote": "Overwatering should be avoided, it can lead to the roots rotting."
+   "quote": "Overwatering should be avoided, it can lead to the roots rotting.",
+   "symptom": "rot"
   }
  ]
 }

@@ -31,8 +31,10 @@ const all = [];
 for (const f of await readdir('data/taxa')) if (f.endsWith('.json')) all.push(JSON.parse(await readFile(`data/taxa/${f}`, 'utf8')));
 for (const t of all) {
   if (!['species', 'genus'].includes(t.rank)) continue;
+  if (process.argv.length > 2 && !process.argv.slice(2).includes(t.id)) continue;
   try {
-    const r = await lookup(t.scientificName, t.rank);
+    const rank = / var\. /.test(t.scientificName) ? 'variety' : t.rank;
+    const r = await lookup(t.scientificName.replace(/ x /, ' × '), rank);
     await writeFile(`data/sources/gbif/${t.id}.json`, JSON.stringify({
       source: 'GBIF Backbone Taxonomy', license: 'CC BY 4.0',
       url: r.acceptedKey ? `https://www.gbif.org/species/${r.acceptedKey}` : null,

@@ -1,0 +1,98 @@
+{
+ "id": "oxalis-triangularis",
+ "rank": "species",
+ "scientificName": "Oxalis triangularis",
+ "group": "foliage",
+ "names": {
+  "ja": "オキザリス・トリアングラリス",
+  "aliases": [
+   "紫の舞",
+   "オキザリス"
+  ]
+ },
+ "refs": {
+  "ncsu": "oxalis-triangularis"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    13,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Place in full sun to partial shade."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なた〜半日陰とするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Place in full sun to partial shade."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン8a（屋外で−12℃程度まで）とされ、冬は休眠して春に芽を出すため、室内では凍らなければ問題ない。0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the surface to dry between waterings"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Cut back on watering and wait for new growth to appear."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "秋や、暑すぎ・乾きすぎで休眠することがある。水を減らして新芽を待つ。",
+   "src": "ncsu",
+   "quote": "The plant may go dormant for a while in the autumn, or if it gets too hot or too dry.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "花は夜に閉じる。",
+   "src": "ncsu",
+   "quote": "also close at night"
+  }
+ ]
+}

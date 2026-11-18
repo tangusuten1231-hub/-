@@ -1,0 +1,112 @@
+{
+ "id": "hoya-kerrii",
+ "rank": "species",
+ "scientificName": "Hoya kerrii",
+ "group": "succulent",
+ "names": {
+  "ja": "ホヤ・ケリー",
+  "aliases": [
+   "ハートホヤ",
+   "ラブハート"
+  ]
+ },
+ "refs": {
+  "ncsu": "hoya-kerrii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "estimate",
+    "reason": "出典の光の条件は木漏れ日（Dappled Sunlight）のため、明るい日陰とした"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典の光の条件は木漏れ日（Dappled Sunlight）のため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Lower temperatures can slow the plants' growth and flowering."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Temperatures between 65 and 80 Fahrenheit are ideal.",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The sweetheart hoya needs warm and humid locations."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the plant to dry somewhat between watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "冷たい水はショックになる。室温の水を使う。",
+   "src": "ncsu",
+   "quote": "Watering should be done with room-temperature water"
+  },
+  {
+   "ja": "葉が薄く茶色くしわが寄るのは、乾かしすぎ。",
+   "src": "ncsu",
+   "quote": "Thinning, brown or wrinkled leaves can mean that the plant is being allowed to dry too much between watering.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "水のやりすぎは花つきも悪くする。",
+   "src": "ncsu",
+   "quote": "Overwatering can also inhibit the plant's ability to flower.",
+   "symptom": "noflower"
+  }
+ ]
+}

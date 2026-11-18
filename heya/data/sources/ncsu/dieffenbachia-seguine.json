@@ -248,5 +248,119 @@
   "large leaves",
   "hortcontest",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "12077",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_JqoJJmjGxYWG.jpe",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "12085",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_e3qStawZ46Ya.jpg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "38180",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_amoena_m3hS6AWtovpI.jpeg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "38179",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_amoena_KMiB9MUDRr5V.jpeg",
+   "caption": "leaf",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41772",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia-Dumb-C_lJQlvxXlGKO0.jpeg",
+   "caption": "Variegated large white and green leaves with new light green leaves",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "12079",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_6LMKkUwoEG6b.jpe",
+   "caption": "leaves",
+   "author": "阿橋 HQ",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38176",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_amoena_DrHSfVPaEnTR.jpeg",
+   "caption": "leaves",
+   "author": "VanLap Hoang",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "41771",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia-Dumb-C_BRQBhziZRTZM.jpeg",
+   "caption": "Large variegated leaves Sap can cause numbing",
+   "author": "Cathy DeWitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "12082",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_hXb2kO3c0vOo.jpg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41103",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_sequin_WTjYObYRvc1u.jpeg",
+   "caption": "Growing in a container",
+   "author": "Dezidor ,",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "12088",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_LSU8ArsgNx8V.jpg",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "12089",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_macula_3L4rx2uQHXIM.jpe",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "38177",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_amoena_KhFY5TWiTLvG.jpeg",
+   "caption": "leaves",
+   "author": "Dinesh Valke",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "38178",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dieffenbachia_amoena_WwWXWJtTbNxc.jpeg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
  ]
 }

@@ -231,5 +231,63 @@
   "spring flowers",
   "fast growing",
   "partial shade tolerant"
+ ],
+ "images": [
+  {
+   "id": "39902",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pachira_aquatica_Sco_GK6KEo4WS0ZQ.jpeg",
+   "caption": "Pachira aquatica. Houseplant.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "39903",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pachira_aquatica_for_VhEc9NC24f3e.jpeg",
+   "caption": "Pachira aquatica. Houseplant.",
+   "author": "mcgarrett88",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40890",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250801_132753_x3krR9NQ0sRx.jpeg",
+   "caption": "Pachira aquatica houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "39904",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pachira_aquatica_tre_ypS8CvJfyaaA.jpeg",
+   "caption": "Pachira aquatica. Form.",
+   "author": "Mauro Halpern",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40889",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250801_132801_Wy0JUepfUTuw.jpeg",
+   "caption": "Pachira aquatica leaf view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "39905",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pachira_aquatica_flo_uCh7ypgTKif6.jpeg",
+   "caption": "Pachira aquatica. Flower.",
+   "author": "Mauro Halpern",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "40888",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250801_132742_ArgKV6XzPpxm.jpeg",
+   "caption": "Pachira aquatica houseplant with a braided trunk",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

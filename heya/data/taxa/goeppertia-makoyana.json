@@ -1,0 +1,121 @@
+{
+ "id": "goeppertia-makoyana",
+ "rank": "species",
+ "scientificName": "Goeppertia makoyana",
+ "group": "foliage",
+ "names": {
+  "ja": "カラテア・マコヤナ",
+  "aliases": [
+   "マコヤナ"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-makoyana"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sun or partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "If there is inadequate light, the foliage color will fade."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "direct sunlight can cause leaf burn"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Intolerant of low humidity, wet soil, dry soil, low or inconsistent temperatures, cold drafts"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はないが、65°F（18℃）以上の安定した温度を必要とし、冷たいすきま風を避けるよう勧めるため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Temperatures between 65 and 75 degrees",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "a humidity level of 60% need to be maintained"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained potting mix with high organic matter"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Decrease watering and stop fertilizing during the winter months."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "湿度が低いと葉が巻いたり茶色くなったりする。",
+   "src": "ncsu",
+   "quote": "low humidity causes leaves to roll or brown",
+   "symptom": "brown"
+  },
+  {
+   "ja": "水道水のフッ素で葉が茶色くなることがある。雨水や蒸留水がよい。",
+   "src": "ncsu",
+   "quote": "The fluoride in tap water can cause leaf browning",
+   "symptom": "brown"
+  },
+  {
+   "ja": "光が足りないと葉の色があせる。",
+   "src": "ncsu",
+   "quote": "If there is inadequate light, the foliage color will fade.",
+   "symptom": "fade"
+  },
+  {
+   "ja": "葉は夕方に閉じ、日の出とともに開く。",
+   "src": "ncsu",
+   "quote": "The foliage on this plant folds up in the evening and reopens at sunrise."
+  }
+ ]
+}

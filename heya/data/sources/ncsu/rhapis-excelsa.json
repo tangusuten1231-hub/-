@@ -11,7 +11,7 @@
   "Fan Tufted Palm",
   "Lady Palm"
  ],
- "description": "Lady palm is a tropical, evergreen, rhizomatous perennial in the palm family (Arecaceae). The species is native to southern China and Vietnam, where it grows in the understory of wet forests. The genus name is from the Greek for &ldquo;rod,&rdquo; presumably alluding to the stems that have been used for walking sticks. The species epithet means &ldquo;tall,&rdquo; as this is one of the taller species in the genus. As an indoor plant, it needs indirect light, withstands deep shade and has low humidity requirements. It needs well-drained potting soil and regular watering except in the winter when watering can be reduced. It is a good specimen to use near doors because of its tolerance to periodic drafts of winter cold. Use a balanced slow-release fertilizer during the growing season. Interior plants rarely produce flowers, and the inconspicuous flowers are not likely to be noticed. Plants can be propagated by division of the rhizome. Lady palms are clustering palms that produce individual stems along underground rhizomes. When planted in the ground, the stems are not produced in a tight cluster, giving the impression of a copse of small palms. The fiber-covered stems are slender and support a crown of several palmately compound leaves. This is an easy-to-grow houseplant that is also popular in commercial interiorscapes. Potted specimens will happily spend their summers outside, in a shady spot on the patio. They must be brought when the temperature threatens to drop below 50 degrees Fahrenheit, as they are tender, tropical palms. Quick ID Leaves are palmately divided; usually 5 to 7 segments. Apices of the leaflets truncate, looking shredded. Each leaf segment has several folds or plications. Insects, Diseases, and Other Plant Problems: Lady palms are relatively disease resistant, but mild leaf spot diseases can sometimes be seen on them. These palms are susceptible to several insect pests, such as mites, mealybugs, and scales, especially under interiorscape conditions.",
+ "description": "Lady palm is a tropical, evergreen, rhizomatous perennial in the palm family (Arecaceae). The species is native to southern China and Vietnam, where it grows in the understory of wet forests. The genus name is from the Greek for \"rod,\" presumably alluding to the stems that have been used for walking sticks. The species epithet means \"tall,\" as this is one of the taller species in the genus. As an indoor plant, it needs indirect light, withstands deep shade and has low humidity requirements. It needs well-drained potting soil and regular watering except in the winter when watering can be reduced. It is a good specimen to use near doors because of its tolerance to periodic drafts of winter cold. Use a balanced slow-release fertilizer during the growing season. Interior plants rarely produce flowers, and the inconspicuous flowers are not likely to be noticed. Plants can be propagated by division of the rhizome. Lady palms are clustering palms that produce individual stems along underground rhizomes. When planted in the ground, the stems are not produced in a tight cluster, giving the impression of a copse of small palms. The fiber-covered stems are slender and support a crown of several palmately compound leaves. This is an easy-to-grow houseplant that is also popular in commercial interiorscapes. Potted specimens will happily spend their summers outside, in a shady spot on the patio. They must be brought when the temperature threatens to drop below 50 degrees Fahrenheit, as they are tender, tropical palms. Quick ID Leaves are palmately divided; usually 5 to 7 segments. Apices of the leaflets truncate, looking shredded. Each leaf segment has several folds or plications. Insects, Diseases, and Other Plant Problems: Lady palms are relatively disease resistant, but mild leaf spot diseases can sometimes be seen on them. These palms are susceptible to several insect pests, such as mites, mealybugs, and scales, especially under interiorscape conditions.",
  "cultivars": [],
  "attributes": {
   "Genus": [
@@ -160,5 +160,47 @@
   "non-toxic for dogs",
   "heavy shade tolerant",
   "container plant"
+ ],
+ "images": [
+  {
+   "id": "15712",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhapis_excelsa_form__x0sGnUZa0t65.jpe",
+   "caption": "Form",
+   "author": "Eric in SF",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15711",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhapsis_excelsa_flow_ECUNPjg09qpw.jpe",
+   "caption": "Fruits and stems",
+   "author": "Mmcknight4",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "15714",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhapis_excelsa_nativ_mVQ4K29YcK0R.jpe",
+   "caption": "Native habitat",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "15715",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhapis_excelsa_stem__YUsqZUt81ZDb.jpe",
+   "caption": "stem",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15716",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhapis_excelsa_leave_1svQMDsRDSA6.jpe",
+   "caption": "Leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  }
  ]
 }

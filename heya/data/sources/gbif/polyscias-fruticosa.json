@@ -1,0 +1,31 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3035652",
+ "retrieved": "2026-11-17",
+ "query": "Polyscias fruticosa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3035652,
+ "acceptedKey": 3035652,
+ "acceptedName": "Polyscias fruticosa",
+ "authorship": "(L.) Harms",
+ "rank": "SPECIES",
+ "family": "Araliaceae",
+ "genus": "Polyscias",
+ "synonyms": [
+  "Aralia deleauana",
+  "Aralia fruticosa",
+  "Aralia massangeana",
+  "Aralia tripinnata",
+  "Nothopanax fruticosus",
+  "Panax aureus",
+  "Panax diffusus",
+  "Panax dissectus",
+  "Panax dumosus",
+  "Panax fissus",
+  "Panax fruticosus",
+  "Panax plumatus",
+  "Tieghemopanax fruticosus"
+ ]
+}

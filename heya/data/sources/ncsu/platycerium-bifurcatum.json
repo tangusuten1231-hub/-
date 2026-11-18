@@ -10,7 +10,7 @@
   "Elkhorn Fern",
   "Staghorn Fern"
  ],
- "description": "Staghorn fern is an herbaceous perennial in the polypody family (Polypodiaceae). Its origin is the Indonesian island of Java through tropical Australia to New Caledonia, which is east of Australia. It is a commonly grown houseplant. The genus name is for the Greek meaning &ldquo;flattened horn,&rdquo; and the species epithet is Latin for &ldquo;twice forked,&rdquo; referring to the shape of the fertile fronds. Staghorn fern is a commonly grown houseplant (but can be grown outside in Zone 10). When potting, use an epiphytic orchid or sphagnum moss mixture. Potted plants can be watered from the bottom. It can even be grown on a slab of wood or bark, mimicking its natural growth habit. Water its crown regularly, allowing the roots to dry slightly between waterings but never letting them dry out completely. It needs good drainage, as it does in its natural habitat. It takes dappled sunlight to partial shade. The staghorn fern is a litter-trapping epiphyte. An epiphyte is a plant that perches on other plants but does not parasitize its host. It uses its host only for support. Litter-trapping plants are those that capture falling leaves and other litter to form their own private compost pile. There are two types of leaves on the staghorn fern. Shield leaves are pressed to the growing surface, trap falling leaf litter and cover the root crown. Shield leaves are sterile and often turn brown at maturity. Fertile leaves are bifurcating, photosynthetic and grow up to 4 feet, though are usually only 2 to 3 feet in cultivated environments. They are gray-green and grow outward from the crown, covered with a grayish-white felt. They bear sporangia on parts of their undersides. Staghorn fern is rhizomatous, the rhizomes spreading to short-creeping, often branched, and are hidden by shield fronds. It will develop plantlets (&ldquo;pups&rdquo;) from these rhizomes, forming a colony of plants. Large plants can be divided. This fern is often used as a houseplant, either in a container or a hanging basket. It can also be in a shade garden with appropriate moisture. Quick ID Hints: Fronds have two forms: shield-like and antler-like Sori massed on the undersides of the antler-like fronds Insects, Diseases, and Other Plant Problems: Monitor for spider mites, aphids, and mealybugs. Black spot may occur when the humidity is too high. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens. More information on Platycerium .",
+ "description": "Staghorn fern is an herbaceous perennial in the polypody family (Polypodiaceae). Its origin is the Indonesian island of Java through tropical Australia to New Caledonia, which is east of Australia. It is a commonly grown houseplant. The genus name is for the Greek meaning \"flattened horn,\" and the species epithet is Latin for \"twice forked,\" referring to the shape of the fertile fronds. Staghorn fern is a commonly grown houseplant (but can be grown outside in Zone 10). When potting, use an epiphytic orchid or sphagnum moss mixture. Potted plants can be watered from the bottom. It can even be grown on a slab of wood or bark, mimicking its natural growth habit. Water its crown regularly, allowing the roots to dry slightly between waterings but never letting them dry out completely. It needs good drainage, as it does in its natural habitat. It takes dappled sunlight to partial shade. The staghorn fern is a litter-trapping epiphyte. An epiphyte is a plant that perches on other plants but does not parasitize its host. It uses its host only for support. Litter-trapping plants are those that capture falling leaves and other litter to form their own private compost pile. There are two types of leaves on the staghorn fern. Shield leaves are pressed to the growing surface, trap falling leaf litter and cover the root crown. Shield leaves are sterile and often turn brown at maturity. Fertile leaves are bifurcating, photosynthetic and grow up to 4 feet, though are usually only 2 to 3 feet in cultivated environments. They are gray-green and grow outward from the crown, covered with a grayish-white felt. They bear sporangia on parts of their undersides. Staghorn fern is rhizomatous, the rhizomes spreading to short-creeping, often branched, and are hidden by shield fronds. It will develop plantlets (\"pups\") from these rhizomes, forming a colony of plants. Large plants can be divided. This fern is often used as a houseplant, either in a container or a hanging basket. It can also be in a shade garden with appropriate moisture. Quick ID Hints: Fronds have two forms: shield-like and antler-like Sori massed on the undersides of the antler-like fronds Insects, Diseases, and Other Plant Problems: Monitor for spider mites, aphids, and mealybugs. Black spot may occur when the humidity is too high. VIDEO Created by Laura Barth for \"Houseplants, Succulents, and Cacti,\" a plant identification course created in partnership with Longwood Gardens. More information on Platycerium .",
  "cultivars": [
   {
    "name": "Netherlands",
@@ -173,5 +173,55 @@
   "container plant",
   "hanging baskets",
   "colonizing"
+ ],
+ "images": [
+  {
+   "id": "8269",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcatum_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Fronds",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8270",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcatum_Peter_Nijenhuis_ccbyncnd2.0.jpg",
+   "caption": "Fronds",
+   "author": "Peter Nijenhuis",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "8271",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcatum_Forest_and_Kim_Starr_ccby2.0_2.jpg",
+   "caption": "Form",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8272",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcatum_leaves_Forest_and_Kim_Starr_ccby2.0_2.jpg",
+   "caption": "Close up of Fronds",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "8274",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcatum_leaves_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "Fronds",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "25166",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Platycerium_bifurcat_iifcG6AbGb2y.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
  ]
 }

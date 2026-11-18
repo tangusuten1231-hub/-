@@ -1,0 +1,103 @@
+{
+ "id": "rhipsalis-baccifera",
+ "rank": "species",
+ "scientificName": "Rhipsalis baccifera",
+ "group": "cactus",
+ "names": {
+  "ja": "リプサリス",
+  "aliases": [
+   "リプサリス・バッキフェラ",
+   "ミスルトーカクタス"
+  ]
+ },
+ "refs": {
+  "ncsu": "rhipsalis-baccifera"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    16,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight can cause scorching of the stems."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン9b（屋外で−3℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The plant also prefers temperatures between 60 to 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     60,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "high humidity, and slightly acidic"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the soil feels dry but avoid overwatering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "When the plant is dormant during the winter, reduce watering."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "茎の先が茶色くなるのは、湿度不足か水不足。",
+   "src": "ncsu",
+   "quote": "The lack of humidity or under-watering can cause browning at the tips of the stems.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "水のやりすぎで茎がぶよぶよになり、根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause mushy stems and root rot.",
+   "symptom": "rot"
+  }
+ ]
+}

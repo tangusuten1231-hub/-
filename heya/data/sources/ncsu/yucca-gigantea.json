@@ -1,0 +1,287 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/yucca-gigantea/",
+ "slug": "yucca-gigantea",
+ "retrieved": "2026-11-17",
+ "scientificName": "Yucca gigantea",
+ "commonNames": [
+  "Giant Yucca",
+  "Soft-tip Yucca",
+  "Spineless Yucca"
+ ],
+ "description": "The giant yucca or spineless yucca is a tropical perennial grown for its stunning foliage. It is a popular, low-maintenance indoor and outdoor plant that presents as a large, upright succulent shrub or small tree. It is native to Central America and is a member of the asparagus family (Asparagaceae). Unlike other species of Yucca , this plant does not have sharp, spine-tipped leaves. It was formerly known as Yucca elephantipes, whose specific epithet referred to the plant's thick trunk that resembles an elephant's foot. Outdoors, this plant can grow up to 15 to 30 feet tall and 15 to 25 feet wide. If grown as a houseplant, it will be much more compact. The giant yucca prefers full sun, and moist, well-drained, loam and sandy soil. For houseplants, one part potting mix and 3 parts perlite or sand is recommended to provide good drainage. This plant is drought tolerant, and overwatering can be problematic. Indoor temperatures and humidity levels are adequate for this plant but keep it away from cold drafts or sudden temperature changes. When grown outdoors, it thrives in warm climates with temperatures between 70 to 90 degrees Fahrenheit. The plant is winter hardy in USDA hardiness zones 10 to 12. It will need to be brought indoors when the temperature drops below 50 degrees Fahrenheit. Cold and freezing temperatures can lead to plant damage and dieback. This plant can be propagated by seeds, cuttings, and from suckers found at the base of the tree or shrub. The giant yucca has evergreen, smooth, spineless, leathery, stiff leaves that are pale green to blue-green, linear or lanceolate with soft tips. The leaves are arranged in spiral rosettes and can measure 12 to 18 inches long. The flowers bloom in late spring or summer and are creamy-white and bell-shaped that present in clusters on tall stalks. The fruit is oval, fleshy, and brown and does not appear to attract wildlife. The trunk of the plant is thick and woody. The giant yucca can be used in the garden or indoors. It can be used as a container plant on a patio or planted in beds or borders for a coastal or tropical appearance. Indoors, this plant's striking vertical structure is a perfect accent for your home. Insects, Diseases, and Other Plant Problems: The giant yucca is generally free of insects and diseases. Monitor for mealybugs, aphids, scale, black weevil, and yucca moth borers. Overwatering can cause root rot. Avoid planting near foundations due to its massive base. As the plant matures, it will be very difficult to remove. The leaves and roots are toxic to humans, cats, dogs, and horses.",
+ "cultivars": [
+  {
+   "name": "Marginata",
+   "note": "pale green leaves with a narrow cream colored stripe on both edges of the leaf, small teeth on the margins, and soft tips"
+  },
+  {
+   "name": "Variegata",
+   "note": "soft tipped, flexible, 12 to 18-inch, pale green leaves with broad cream-colored stripes"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Yucca"
+  ],
+  "Species": [
+   "gigantea"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Seed",
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Central Mexico to Central America"
+  ],
+  "Distribution": [
+   "Native: Belize, Costa Rica, Guatemala, Honduras, Mexico Central, Mexico Gulf, Mexico Southeast, Mexico Southwest, Nicaragua, and Panama. Introduced: Ecuador, El Salvador, Leeward Islands, Portugal, Puerto Rico, and Spain."
+  ],
+  "Edibility": [
+   "The flowers are edible and can be used in salad. They are rich source of calcium and potassium."
+  ],
+  "Dimensions": [
+   "Height: 15 ft. 0 in. - 30 ft. 0 in.",
+   "Width: 15 ft. 0 in. - 25 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Poisonous",
+   "Shrub",
+   "Succulent",
+   "Tree"
+  ],
+  "Habit/Form": [
+   "Erect",
+   "Irregular",
+   "Multi-stemmed",
+   "Open"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Texture": [
+   "Coarse"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Alkaline (>8.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12-24 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Brown/Copper"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "The fruit is oval, brown, fleshy, and measures 0.5 to 1-inch in diameter. It is not showy and does not attract wildlife."
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "White"
+  ],
+  "Flower Value To Gardener": [
+   "Showy"
+  ],
+  "Flower Bloom Time": [
+   "Spring",
+   "Summer"
+  ],
+  "Flower Shape": [
+   "Bell"
+  ],
+  "Flower Description": [
+   "They have large creamy white to white bell-shaped flowers that appear in clusters and bloom on 2 to 3 feet tall stalks in late spring to summer. Houseplants rarely flower."
+  ],
+  "Leaf Color": [
+   "Blue",
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Leathery",
+   "Smooth"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Alternate"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Dentate",
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are arranged in spiral rosettes and are sword-like, linear, or lanceolate-shaped and can measure 12 to 18 inches long. They are soft tipped, flexible, pale green to bluish-green, and the margins may be entire or have small teeth. The leaves are stiff, leathery, evergreen, smooth, and spineless."
+  ],
+  "Bark Color": [
+   "Light Gray"
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Coastal",
+   "Container",
+   "Houseplants",
+   "Patio"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Border",
+   "Small Tree",
+   "Specimen"
+  ],
+  "Attracts": [
+   "Hummingbirds",
+   "Moths"
+  ],
+  "Resistance To Challenges": [
+   "Deer",
+   "Drought",
+   "Rabbits"
+  ],
+  "Problems": [
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "If ingested, toxic to humans, pets, and horses. Symptoms for humans: nausea, vomiting, diarrhea, headaches, dizziness; Symptoms for dogs and cats: vomiting; Symptoms for horses: liver disease; The highest concentration of saponins is found in the roots and leaves of the plant. The sap of the plant can cause minor rashes."
+  ],
+  "Poison Toxic Principle": [
+   "saponin"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Leaves",
+   "Roots"
+  ]
+ },
+ "tags": [
+  "rabbit resistant",
+  "easy to grow",
+  "drought tolerant",
+  "white flowers",
+  "small tree",
+  "container plant",
+  "full sun tolerant",
+  "shrub",
+  "multistemmed",
+  "deer resistant",
+  "evergreen",
+  "houseplant",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "leathery leaves",
+  "poisonous if ingested",
+  "poisonous leaves",
+  "edible flowers",
+  "problem for children",
+  "tropical feel",
+  "succulent",
+  "tropical evergreen",
+  "tropical",
+  "foliage",
+  "hortcontest"
+ ],
+ "images": [
+  {
+   "id": "38786",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Yucca_gigantea_habit_nLhVKlu02pqE.jpeg",
+   "caption": "Yucca gigantea. Habit.",
+   "author": "someone10x",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38787",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Yucca_gigantea_habit_LWszkk5qYfay.jpeg",
+   "caption": "Yucca gigantea. Habit.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38788",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Yucca_gigantea_base__UKk2c8ixwcHF.jpeg",
+   "caption": "Yucca gigantea. Stem base.",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38789",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Yucca_gigantea_potte_RIaeZmofdl4o.jpeg",
+   "caption": "Yucca gigantea. Potted plant.",
+   "author": "Mike Atkinson",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "38790",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Yucca_gigantea_potte_FJRGThhQbNAG.jpeg",
+   "caption": "Yucca gigantea. Potted plant.",
+   "author": "Mike Atkinson",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5421410",
+ "retrieved": "2026-11-17",
+ "query": "Dionaea muscipula",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5421410,
+ "acceptedKey": 5421410,
+ "acceptedName": "Dionaea muscipula",
+ "authorship": "Ellis",
+ "rank": "SPECIES",
+ "family": "Droseraceae",
+ "genus": "Dionaea",
+ "synonyms": [
+  "Dionaea corymbosa",
+  "Dionaea sensitiva",
+  "Dionaea sessiliflora",
+  "Dionaea uniflora",
+  "Drosera corymbosa",
+  "Drosera sessiliflora",
+  "Drosera uniflora"
+ ]
+}

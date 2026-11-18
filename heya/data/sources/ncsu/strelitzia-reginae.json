@@ -211,5 +211,39 @@
   "cutting garden",
   "partial shade tolerant",
   "houseplant"
+ ],
+ "images": [
+  {
+   "id": "20932",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Strelitzia_reginae_L_K2MqAFyBe1II.jpe",
+   "caption": "Form",
+   "author": "Cliff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "20933",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Strelitzia_reginae_f_JBfDlIG4mMIh.jpeg",
+   "caption": "Flowers",
+   "author": "gailhampshire",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "20935",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Strelitzia_reginae_f_V4wBkV79GhOM.jpe",
+   "caption": "Close up of flower",
+   "author": "",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "20934",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Strelitzia_reginae_l_i4jB45ULQVWC.jpe",
+   "caption": "Leaves",
+   "author": "Cliff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
  ]
 }

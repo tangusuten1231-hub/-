@@ -220,5 +220,39 @@
   "erect",
   "problem for children",
   "acidic soils tolerant"
+ ],
+ "images": [
+  {
+   "id": "41043",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andraeanum_UappEkgFFlsC.jpeg",
+   "caption": "Form in bloom in a container",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "41044",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andraeanum_kj8D120V35AW.jpeg",
+   "caption": "Large heart-shaped spathe with long center spadex",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41046",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andraeanum_8m1aOaFfESx0.jpeg",
+   "caption": "Flowers and leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "41045",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Anthurium_andraeanum_6nyz1wxzd1Jz.jpeg",
+   "caption": "Leaf detail",
+   "author": "Andrzej Konstantynowicz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  }
  ]
 }

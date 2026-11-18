@@ -1,0 +1,108 @@
+{
+ "id": "peperomia-argyraea",
+ "rank": "species",
+ "scientificName": "Peperomia argyraea",
+ "group": "foliage",
+ "names": {
+  "ja": "ペペロミア・アルギレイア",
+  "aliases": [
+   "スイカペペ",
+   "ウォーターメロンペペロミア"
+  ]
+ },
+ "refs": {
+  "ncsu": "peperomia-argyraea"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright indirect sunlight."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright indirect sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is intolerant of wet soil, very dry soil, and cold drafts."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the soil to dry to the touch at the top before watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "reduce watering in the winter months"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎですぐ根腐れする。",
+   "src": "ncsu",
+   "quote": "Root rot can quickly occur from overwatering.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "水が足りないとしおれる。",
+   "src": "ncsu",
+   "quote": "under-watering will cause the plant to wilt",
+   "symptom": "curl"
+  },
+  {
+   "ja": "根詰まり気味を好むので、植え替えは頻繁でなくてよい。",
+   "src": "ncsu",
+   "quote": "They will not need to be repotted often as they thrive being pot-bound."
+  }
+ ]
+}

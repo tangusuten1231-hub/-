@@ -1,0 +1,16 @@
+{
+ "id": "echeveria-perle-von-nurnberg",
+ "rank": "cultivar",
+ "parent": "echeveria",
+ "cultivar": "Perle von Nurnberg",
+ "names": {
+  "ja": "エケベリア‘パールフォンニュルンベルグ’"
+ },
+ "tips": [
+  {
+   "ja": "灰色がかった葉に紫ピンクの色合いのロゼット。",
+   "src": "ncsu",
+   "quote": "rosette of grayish leaves with purplish-pink tones"
+  }
+ ]
+}

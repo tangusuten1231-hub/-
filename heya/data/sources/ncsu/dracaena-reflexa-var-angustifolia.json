@@ -1,0 +1,392 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/dracaena-reflexa-var-angustifolia/",
+ "slug": "dracaena-reflexa-var-angustifolia",
+ "retrieved": "2026-11-17",
+ "scientificName": "Dracaena reflexa var. angustifolia",
+ "commonNames": [
+  "Dracaena",
+  "Dragon Tree",
+  "Madagascar Dragon Tree",
+  "Malaysian Dracaena",
+  "Red-marginated Dracaena",
+  "Straight-marginated Dracaena"
+ ],
+ "description": "Dracaena is a drought-tolerant, slow-growing perennial shrub native to Madagascar and nearby islands in the Indian Ocean. It is a member of the asparagus family (Asparagaceae). The species epithet refers to the reflexed posture of older leaves. The varietal epithet calls attention to the narrow leaves. Plant in a well-draining potting mix and allow the plants to dry between waterings but not severely. Bright, indirect light is ideal. They have a low fertilizer requirement, so fertilize in spring, summer, and fall with a controlled-release formula. This species is sensitive to fluoride (like most other Dracaenas) which causes discoloration of leaves so use distilled or non-fluorinated water. In their native habitat or as landscape plants in the tropics, they can reach 20 feet; as houseplants, they grow to 6 feet but can be pruned to a smaller size. Pruned stems will usually grow 2 or more branches. The stems can be trained into different shapes (e.g. braided or spiraled). They rarely bloom in the home. Insects, Diseases, and Other Plant Problems: Mites, thrips, and chewing insects can be a problem. Susceptible to leaf spot diseases. More information on Dracaena .",
+ "cultivars": [
+  {
+   "name": "‘Bicolor",
+   "note": "grayish-green leaves with pink or red edges"
+  },
+  {
+   "name": "Colorama",
+   "note": "variegated pink leaves with white and green stripes, 5 to 6 feet tall"
+  },
+  {
+   "name": "Magenta",
+   "note": "green leaves with magenta red margins, palm-tree like"
+  },
+  {
+   "name": "Tarzan",
+   "note": "green, spikey, tough, wide, and thick leaves"
+  },
+  {
+   "name": "Tricolor",
+   "note": "variegated green leaves with white, and pink edges"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Dracaena"
+  ],
+  "Species": [
+   "marginata"
+  ],
+  "Family": [
+   "Asparagaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Madagascar, Mauritius"
+  ],
+  "Dimensions": [
+   "Height: 6 ft. 0 in. - 20 ft. 0 in.",
+   "Width: 3 ft. 0 in. - 10 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial",
+   "Shrub",
+   "Tree"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Broadleaf Evergreen"
+  ],
+  "Habit/Form": [
+   "Arching",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Fine"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Deep shade (Less than 2 hours to no direct sunlight)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter",
+   "Loam (Silt)"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Occasionally Dry"
+  ],
+  "Available Space To Plant": [
+   "6-feet-12 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Color": [
+   "Gold/Yellow",
+   "Orange"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Round yellow-orange berries. Flowers and berries rarely appear on house plants."
+  ],
+  "Flower Color": [
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Shape": [
+   "Tubular"
+  ],
+  "Flower Description": [
+   "Small fragrant white blooms in spring. Rarely blooms as a house plant"
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green",
+   "Pink",
+   "White"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Arrangement": [
+   "Whorled"
+  ],
+  "Leaf Shape": [
+   "Linear"
+  ],
+  "Leaf Margin": [
+   "Entire"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Width": [
+   "< 1 inch"
+  ],
+  "Leaf Description": [
+   "2 ft. long and 1/2 inch wide glossy sword-shaped green leaves with reddish edges. Cultivars can add pink, white or yellow stripes to the leaves. Lower leaves fall off with age."
+  ],
+  "Bark Color": [
+   "Light Brown"
+  ],
+  "Surface/Attachment": [
+   "Fissured"
+  ],
+  "Stem Color": [
+   "Cream/Tan"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "Tan stems with distinct diamond-shaped leaf scars"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Design Feature": [
+   "Accent",
+   "Specimen"
+  ],
+  "Resistance To Challenges": [
+   "Drought"
+  ],
+  "Problems": [
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs",
+   "Problem for Horses"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Toxic to humans, cats, and dogs. In cats: dilated pupils, abdominal pain, increased heart rate and drooling. In both cats and dogs: vomiting, depression, inappetence, drooling, incoordination, weakness, and anorexia. In humans: mouth and stomach irritation, nausea, vomiting, and diarrhea. Skin irritation from the sap can occur."
+  ],
+  "Poison Toxic Principle": [
+   "Saponins"
+  ],
+  "Causes Contact Dermatitis": [
+   "No"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "houseplant",
+  "slow growing",
+  "colorful leaves",
+  "tall",
+  "shade tree",
+  "showy leaves",
+  "exotic looking",
+  "showy flowers",
+  "problem for dogs",
+  "problem for horses",
+  "problem for cats",
+  "tropical feel",
+  "container plant",
+  "problem for children",
+  "poisonous if ingested"
+ ],
+ "images": [
+  {
+   "id": "40472",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250522_140453_Drac_nyZiYu9HlJNe.jpeg",
+   "caption": "Dracaena reflexa var. angustifolia, houseplant and form view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "41247",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_reflexa_var_9QNhIglrVFGL.jpeg",
+   "caption": "Dracaena reflexa var. angustifolia 'Bicolor' form",
+   "author": "K. Andre",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "13183",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata___GzmjnRFkPLtZ.jpg",
+   "caption": "bark",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13184",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_JvXzkuVPxalA.jpg",
+   "caption": "leaves and bark",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8307",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_stems_Maja_Dumat_ccby2.0.jpg",
+   "caption": "leaves and stems",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "13190",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_t_kCJhnlA5Q86o.jpe",
+   "caption": "Tri-color leaves",
+   "author": "Yercaud-elango",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8306",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_habit_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "13187",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_pHhvSJOc7Mm7.jpg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8304",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_Forest_and_Kim_Starr_ccby2.0_2.jpg",
+   "caption": "leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "12620",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/_Dracaena_marginata__Hw1MbxAIOSOw.jfif",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "8305",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "13186",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_70h3eNuroiTY.jpg",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "13185",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_IzwRUYaulCVG.jpg",
+   "caption": "leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "13189",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Starr-110209-0640-Dr_ZwKJOBTKKnbv.jfif",
+   "caption": "leaves",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "13191",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_9fhLu1i61PHt.jfif",
+   "caption": "leaves and flowers",
+   "author": "Yercaud-elango",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "8308",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_in_bloom_Forest_and_Kim_Starr_ccby2.0.jpg",
+   "caption": "leaves and flowers",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "12621",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/_Dracaena_marginata__QAarTnWOrc2D.jpeg",
+   "caption": "leaves and flowers",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "13188",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_marginata_b_8vUXVWtMVwL5.jpg",
+   "caption": "leaves and flowers",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  }
+ ]
+}

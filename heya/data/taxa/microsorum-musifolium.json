@@ -1,0 +1,104 @@
+{
+ "id": "microsorum-musifolium",
+ "rank": "species",
+ "scientificName": "Microsorum musifolium",
+ "group": "fern",
+ "names": {
+  "ja": "ミクロソリウム・ムシフォリウム",
+  "aliases": [
+   "ミクロソラム"
+  ]
+ },
+ "refs": {
+  "ncsu": "microsorum-musifolium"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    16,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright indirect light to partial or full shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright indirect light to partial or full shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The leaves will also scorch if the plant is placed in direct sunlight."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid exposure to temperatures below 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures between 60 to 75 degrees Fahrenheit",
+    "fahrenheit": [
+     60,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It thrives in environments with high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the soil surface begins to feel dry"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉のふちが茶色いのは湿度不足か水道水が原因。",
+   "src": "ncsu",
+   "quote": "Brown leaf edges indicate low humidity or result from using tap water.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "春〜夏は月に1回、半分に薄めた液体肥料を与える。",
+   "src": "ncsu",
+   "quote": "A diluted half strength balanced liquid fertilizer should be used to feed the plant once a month during the spring and summer."
+  }
+ ]
+}

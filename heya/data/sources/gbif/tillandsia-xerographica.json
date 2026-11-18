@@ -1,0 +1,20 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/2695364",
+ "retrieved": "2026-11-17",
+ "query": "Tillandsia xerographica",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 2695364,
+ "acceptedKey": 2695364,
+ "acceptedName": "Tillandsia xerographica",
+ "authorship": "Rohweder",
+ "rank": "SPECIES",
+ "family": "Bromeliaceae",
+ "genus": "Tillandsia",
+ "synonyms": [
+  "Tillandsia kruseana",
+  "Tillandsia tomasellii"
+ ]
+}

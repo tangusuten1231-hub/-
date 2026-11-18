@@ -1,0 +1,208 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/rhaphidophora-tetrasperma/",
+ "slug": "rhaphidophora-tetrasperma",
+ "retrieved": "2026-11-17",
+ "scientificName": "Rhaphidophora tetrasperma",
+ "commonNames": [
+  "Dwarf Monstera",
+  "Mini Monstera",
+  "Monstera Ginny",
+  "Philodendron Ginny",
+  "Philodendron Piccolo"
+ ],
+ "description": "Mini Monstera is a member of the arum family (Araceae). It is a tropical, climbing, evergreen herbaceous perennial from the wet tropics of the peninsula of Thailand and the peninsula of Malaysia. The species epithet means \"four-seeded\" and describes the berries. The plant's common names, Mini Monstera and Philodendron Ginny, may be a bit confusing. Mini Monstera is not a monstera nor a philodendron; however, they all belong to the same family. The common name, Mini Monstera, was selected because the plant's appearance is much like a \"mini' version of Monstera deliciosa. The Mini Monstera also has smaller leaves, and the fenestrations appear at an earlier age than Monstera deliciosa. The Mini Monstera prefers bright, indirect light, and moist, well-drained potting mix. It may tolerate a small amount of direct sunlight, but too much bright sun will cause leaf burn. Water the plant when the top 1 inch of the potting mix is dry. It will tolerate temperatures of 65 to 80 degrees Fahrenheit, and it should be kept out of drafts. The plant will thrive in high humidity levels of 60%. For adequate support for this vining plant, consider a trellis, totem, or moss pole. It may be propagated by stem cuttings. The green stems are slender and have aerial roots that help the plant attach itself and climb. The leaves are dark green, ovate or lanceolate, up to 6 to 12 inches long, and some of the leaf blades have fenestrations (holes in the leaves) and the tips split. As a houseplant, they rarely flower. If flowering occurs, the blooms are borne on a white spadix surrounded by a cream-colored spathe. The Mini Monstera has become popular and is easy to grow as a houseplant in a container with added support or in a hanging basket with the vines trailing over the planter. It is also perfect for a shelf or tabletop. Exercise caution when pets or children are nearby since it is toxic if ingested. To avoid skin irritation, wearing gloves is recommended when handling this plant. Insects, Diseases, and Other Plant Problems: As a houseplant, it is susceptible to spider mites, fungus gnats, and scale. Potential diseases include bacterial leaf spot and fungal diseases such as root rot. Yellowing of the leaves may occur from overwatering or inadequate light. Drooping or curling of leaves result from the lack of water. Brown margins and spots are related to lack of moisture or humidity.",
+ "cultivars": [
+  {
+   "name": "Variegata",
+   "note": "tiny plant, variegated and deeply serrated leaves"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Rhaphidophora"
+  ],
+  "Species": [
+   "tetrasperma"
+  ],
+  "Family": [
+   "Araceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Peninsula of Thailand to Peninsula of Malaysia"
+  ],
+  "Distribution": [
+   "Malaya and Thailand"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Climbing Method": [
+   "Clinging"
+  ],
+  "Dimensions": [
+   "Height: 2 ft. 0 in. - 15 ft. 0 in.",
+   "Width: 1 ft. 0 in. - 4 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Epiphyte",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Poisonous",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Climbing"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "Available Space To Plant": [
+   "12 inches-3 feet",
+   "3 feet-6 feet"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b, 12a, 12b"
+  ],
+  "Fruit Type": [
+   "Berry"
+  ],
+  "Flower Color": [
+   "Cream/Tan",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spadix"
+  ],
+  "Flower Description": [
+   "The flowers are borne on white spadix surrounded by a cream-colored spathe. As a houseplant, it rarely flowers."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Lanceolate",
+   "Ovate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are dark green, ovate to lanceolate, and can reach 6 10 12 inches long. Some of the leaf blades are fenestrated or look like windows in the leaf."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The stems are slender and have aerial roots to help the plant attach itself and climb."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants"
+  ],
+  "Problems": [
+   "Contact Dermatitis",
+   "Poisonous to Humans",
+   "Problem for Cats",
+   "Problem for Children",
+   "Problem for Dogs"
+  ],
+  "Poison Severity": [
+   "Low"
+  ],
+  "Poison Symptoms": [
+   "Toxic, if ingested. Symptoms include mouth irritation, excessive drooling, difficulty swallowing, difficulty breathing, and stomach irritation. Skin irritation can result from handling this plant. Wearing gloves is suggested."
+  ],
+  "Poison Toxic Principle": [
+   "Calcium oxalate crystals"
+  ],
+  "Causes Contact Dermatitis": [
+   "Yes"
+  ],
+  "Poison Part": [
+   "Flowers",
+   "Fruits",
+   "Leaves",
+   "Roots",
+   "Sap/Juice",
+   "Stems"
+  ]
+ },
+ "tags": [
+  "problem for dogs",
+  "problem for cats",
+  "contact dermatitis",
+  "poisonous",
+  "poisonous if ingested",
+  "problem for children",
+  "vine",
+  "houseplant",
+  "epiphytic",
+  "interesting leaves",
+  "container plant",
+  "acidic soils tolerant",
+  "hanging baskets",
+  "herbaceous perennial",
+  "climber",
+  "partial shade tolerant"
+ ],
+ "images": [
+  {
+   "id": "38704",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhaphidophora_tetras_ghApwVQ7mh0k.jpeg",
+   "caption": "Rhaphidophora tetrasperma. Potted specimen.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38705",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhaphidophora_tetras_JgsMuBbCrMqT.jpeg",
+   "caption": "Rhaphidophora tetrasperma. Leaves.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38706",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Rhaphidophora_tetras_6AXxBuS3UkC0.jpeg",
+   "caption": "Rhaphidophora tetrasperma. Petioles and stem.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  }
+ ]
+}

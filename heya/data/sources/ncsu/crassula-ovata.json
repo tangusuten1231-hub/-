@@ -265,5 +265,87 @@
   "branching",
   "th-touch",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "15029",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_Aniol_zDtGMYNlNMl5.jpeg",
+   "caption": "Flowers",
+   "author": "Aniol",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15028",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_Oreng_vCZVAIpmMi0l.mpo",
+   "caption": "Form of a 40 year old plant",
+   "author": "Orange Harvey",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15030",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_white_y9JALuXct3vI.jpeg",
+   "caption": "Leaf close up",
+   "author": "Forssell",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "15031",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_I_S.G_RiJMAw4vdt31.jpg",
+   "caption": "Shape",
+   "author": "S.G.S.",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "15405",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_argentea_fl_3JzbrLCowoim.jfif",
+   "caption": "Flower",
+   "author": "Jeff Kubina",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "15033",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_trunk_wrLeuxfkOxyG.jpeg",
+   "caption": "Trunk of a 10 year old plant",
+   "author": "David Davies",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "15401",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_argentea_by_Dy96IFMJPtxF.jpg",
+   "caption": "Leaves and flowers",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "15404",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_argentea_le_5fvgQA3KfG3Z.jfif",
+   "caption": "Leaves",
+   "author": "Forest and Kim Starr",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "19137",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Crassula_ovata_fmhed_GoKuBVr2CQn7.jpe",
+   "caption": "Hedge",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "41217",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Form_in_a_pot_Form_i_bEH82U1b0apx.jpeg",
+   "caption": "Potted plant of Crassula ovata",
+   "author": "Cyril Gourdan",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  }
  ]
 }

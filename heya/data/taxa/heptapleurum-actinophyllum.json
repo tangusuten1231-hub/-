@@ -1,0 +1,112 @@
+{
+ "id": "heptapleurum-actinophyllum",
+ "rank": "species",
+ "scientificName": "Heptapleurum actinophyllum",
+ "group": "foliage",
+ "names": {
+  "ja": "ブラッサイア",
+  "aliases": [
+   "シェフレラ・アクチノフィラ",
+   "アンブレラツリー"
+  ]
+ },
+ "refs": {
+  "ncsu": "heptapleurum-actinophyllum"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 16,
+   "idealC": [
+    18,
+    32
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "it prefers a bright sunny location with high humidity"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は明るく日の当たる場所を好むとするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It does best when protected from the hot afternoon sun."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "temperatures above 60 degrees Fahrenheit",
+    "fahrenheit": [
+     60
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "The preferred temperature range is from 65 to 90 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     90
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "it prefers a bright sunny location with high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant regularly with rainwater or filtered water."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水が足りないと葉を落とす。",
+   "src": "ncsu",
+   "quote": "Underwatered plants will drop their leaves.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "土が湿りすぎると斑点病や軟腐病が出る。",
+   "src": "ncsu",
+   "quote": "Bacterial leaf spot and soft rot occur when soils are too wet.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "冷たいすきま風や暖房の吹き出し口を避ける。",
+   "src": "ncsu",
+   "quote": "Avoid cold drafts and heating vents to prevent plant stress."
+  }
+ ],
+ "note": "以前の学名は Schefflera actinophylla。"
+}

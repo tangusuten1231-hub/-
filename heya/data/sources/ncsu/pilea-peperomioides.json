@@ -1,0 +1,184 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/pilea-peperomioides/",
+ "slug": "pilea-peperomioides",
+ "retrieved": "2026-11-17",
+ "scientificName": "Pilea peperomioides",
+ "commonNames": [
+  "Chinese Money Plant",
+  "Coin Plant",
+  "Friendship Plant",
+  "Missionary Plant",
+  "Pancake Plant",
+  "UFO Plant"
+ ],
+ "description": "The Chinese Money Plant is a popular evergreen perennial houseplant that is native to the Yunnan Province of Southern China where it grows in the shady and cool mountain areas. It is a member of the nettle or Urticaceae family. The plant is compact, erect, and has a clumping habit. The fleshy, circular, dark green leaves are distinctive. The leaves are peltate and the long stems attach at the center of the leaf which makes them resemble a lily pad or as if they were floating on air. The plant can produce small, tall, white to pinkish, spike-like flowers; however, houseplants rarely flower. The plant usually grows about 8 to 12 inches tall and equally as wide. The Chinese Money Plant prefers bright, indirect sunlight, and moist, well-drained potting mix. It also thrives in moderate to high humidity, but it is tolerant of the average home's humidity levels. Cold drafts and sources of heat need to be avoided. The plant can be propagated by offsets or pups and by stem cuttings. Propagation is best done in the spring or early summer during the plant's active growth. The Chinese Money Plant is used primarily as an ornamental indoor houseplant. Its visual appeal and easy care make it the perfect plant for the home and office with the bonus of being safe for pets and children. Quick ID Hints: perennial with a compact, bushy, clumping habit, 8 to 12 inches tall stems attach at the center of the leaf glossy, circular, dark green, peltate leaves, 4 inches in diameter small, whitish-pink spike-like blooms Insects, Diseases, and Other Plant Problems: Monitor for spider mites, mealybugs, fungus gnats, and scale insects. They are susceptible to root rot if overwatered. Avoid wetting the foliage which can result in leaf spots. Leggy growth results from inadequate light.",
+ "cultivars": [],
+ "attributes": {
+  "Genus": [
+   "Pilea"
+  ],
+  "Species": [
+   "peperomioides"
+  ],
+  "Family": [
+   "Urticaceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "China South-Central"
+  ],
+  "Play Value": [
+   "Easy to Grow"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 8 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 8 in. - 1 ft. 0 in."
+  ],
+  "Plant Type": [
+   "Houseplant",
+   "Perennial"
+  ],
+  "Habit/Form": [
+   "Clumping",
+   "Erect"
+  ],
+  "Growth Rate": [
+   "Rapid"
+  ],
+  "Maintenance": [
+   "Low"
+  ],
+  "Light": [
+   "Dappled Sunlight (Shade through upper canopy all day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)",
+   "Neutral (6.0-8.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "9a, 9b, 10a, 10b, 11a, 11b"
+  ],
+  "Flower Color": [
+   "Pink",
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Spike"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Description": [
+   "The flowers are small, white to pinkish, and appear on a tall spike. Houseplants rarely flower."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Fleshy",
+   "Glossy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Leaf Shape": [
+   "Orbicular",
+   "Peltate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Width": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "The leaves are round, peltate, fleshy, dark green, and measure 4 inches in diameter."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Stem Description": [
+   "The long stems attach at the center of the leaf."
+  ],
+  "Landscape Location": [
+   "Container",
+   "Houseplants",
+   "Patio"
+  ]
+ },
+ "tags": [
+  "perennial",
+  "ornamentals",
+  "easy to grow",
+  "houseplant",
+  "low maintenance",
+  "interesting leaves",
+  "container plant",
+  "patio",
+  "pet friendly"
+ ],
+ "images": [
+  {
+   "id": "38252",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pilea_peperomioides__2aXIGqSVvTrQ.jpeg",
+   "caption": "Potted plant.",
+   "author": "Kevin Walsh",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38253",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pilea_peperomioides__QwA9YliqOR2k.jpeg",
+   "caption": "Potted plant.",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38254",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pilea_peperomioides__2XQHOV8N0Lwz.jpeg",
+   "caption": "Form, foliage and flowers.",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "38434",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pilea_peperomioides__l7EhYblml34t.jpeg",
+   "caption": "Potted houseplant.",
+   "author": "Helena",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  },
+  {
+   "id": "42005",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Pilea_peperomioides-_q4zzqYtdQMaI.jpeg",
+   "caption": "Closeup of leggy stem",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

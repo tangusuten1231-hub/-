@@ -1,0 +1,107 @@
+{
+ "id": "cordyline-fruticosa",
+ "rank": "species",
+ "scientificName": "Cordyline fruticosa",
+ "group": "foliage",
+ "names": {
+  "ja": "コルディリネ",
+  "aliases": [
+   "センネンボク",
+   "コルジリネ",
+   "コルディリネ・フルティコサ"
+  ]
+ },
+ "refs": {
+  "ncsu": "cordyline-fruticosa"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    35
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant requires bright indirect light to maintain its bright foliage colors."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "This plant requires bright indirect light"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "does not tolerate temperatures below 50 degrees Fahrenheit",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It does best at temperatures between 65 to 95 degrees Fahrenheit.",
+    "fahrenheit": [
+     65,
+     95
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "allow the plant to dry out a bit between watering"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Watering should be reduced from late fall to late winter."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "空気が乾きすぎると葉先が茶色くなる。",
+   "src": "ncsu",
+   "quote": "The leaf tips will turn brown if the air is too dry.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "鮮やかな葉色を保つには明るい間接光と、年に数回の肥料。",
+   "src": "ncsu",
+   "quote": "Fertilizing the plant several times a year will also help it to maintain its colors.",
+   "symptom": "fade"
+  }
+ ]
+}

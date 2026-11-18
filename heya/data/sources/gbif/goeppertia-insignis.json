@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/11035519",
+ "retrieved": "2026-11-17",
+ "query": "Goeppertia insignis",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 11035519,
+ "acceptedKey": 11035519,
+ "acceptedName": "Goeppertia insignis",
+ "authorship": "(W.Bull ex W.E.Marshall) J.M.A.Braga, L.J.T.Cardoso & R.Couto",
+ "rank": "SPECIES",
+ "family": "Marantaceae",
+ "genus": "Goeppertia",
+ "synonyms": [
+  "Calathea insignis",
+  "Calathea lancifolia",
+  "Goeppertia lancifolia",
+  "Maranta insignis"
+ ]
+}

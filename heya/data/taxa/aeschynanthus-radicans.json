@@ -1,0 +1,112 @@
+{
+ "id": "aeschynanthus-radicans",
+ "rank": "species",
+ "scientificName": "Aeschynanthus radicans",
+ "group": "flowering",
+ "names": {
+  "ja": "エスキナンサス",
+  "aliases": [
+   "エスキナンサス・ラディカンス",
+   "リップスティックプラント"
+  ]
+ },
+ "refs": {
+  "ncsu": "aeschynanthus-radicans"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    21
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The lipstick plant needs bright indirect light (but not full sun)."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The lipstick plant needs bright indirect light (but not full sun)."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "If the temperature falls below 50 degrees, leaf drop will occur.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "does best when the soil temperatures will stay between 65 and 70 degrees Fahrenheit during the growing season",
+    "fahrenheit": [
+     65,
+     70
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The lipstick plant enjoys high humidity but with air circulation"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water them often but be sure the potting soil has good drainage."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "During the winter, it can be kept a bit cooler and drier."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "10℃（50°F）を下回ると葉が落ちる。",
+   "src": "ncsu",
+   "quote": "If the temperature falls below 50 degrees, leaf drop will occur.",
+   "symptom": "drop"
+  },
+  {
+   "ja": "葉をぬらさず、土に触れさせないとカビの病気を防げる。",
+   "src": "ncsu",
+   "quote": "Fungal problems can be avoided by keeping leaves dry and out of contact with potting medium.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "生育期に薄い液体肥料（ラン用など）を与えると、葉が茂り花が咲きやすい。",
+   "src": "ncsu",
+   "quote": "Using a dilute liquid fertilizer, such as one made for orchids, during the growing season will encourage leaf growth and blooming.",
+   "symptom": "noflower"
+  }
+ ]
+}

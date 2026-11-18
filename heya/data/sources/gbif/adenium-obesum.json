@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/7155887",
+ "retrieved": "2026-11-17",
+ "query": "Adenium obesum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 7155887,
+ "acceptedKey": 7155887,
+ "acceptedName": "Adenium obesum",
+ "authorship": "(Forssk.) Roem. & Schult.",
+ "rank": "SPECIES",
+ "family": "Apocynaceae",
+ "genus": "Adenium",
+ "synonyms": [
+  "Adenium honghel",
+  "Adenium lugardae",
+  "Adenium lugardii"
+ ]
+}

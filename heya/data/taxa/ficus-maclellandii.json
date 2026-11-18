@@ -1,0 +1,98 @@
+{
+ "id": "ficus-maclellandii",
+ "rank": "species",
+ "scientificName": "Ficus maclellandii",
+ "group": "foliage",
+ "names": {
+  "ja": "フィカス・アリー",
+  "aliases": [
+   "フィカス・マクレランディ",
+   "アリー"
+  ]
+ },
+ "refs": {
+  "ncsu": "ficus-maclellandii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "These plants do best with bright indirect lighting."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典の光の条件に Deep shade も含まれるが、フィカスの仲間は暗いと葉を落としやすいため「やや明るい」までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "These plants do best with bright indirect lighting."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "water the plant once the top 1-2 inches of the soil has dried out as they don't like soggy soils"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "肥料は年に2回で十分。",
+   "src": "ncsu",
+   "quote": "They only need to be fertilized twice yearly."
+  },
+  {
+   "ja": "コナジラミ・カイガラムシ・コナカイガラムシに注意。",
+   "src": "ncsu",
+   "quote": "whitefly, scale, and ficus mealybug can be a problem",
+   "symptom": "pests"
+  }
+ ]
+}

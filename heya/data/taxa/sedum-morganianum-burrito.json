@@ -1,0 +1,19 @@
+{
+ "id": "sedum-morganianum-burrito",
+ "rank": "cultivar",
+ "parent": "sedum-morganianum",
+ "cultivar": "Burrito",
+ "names": {
+  "ja": "新玉つづり",
+  "aliases": [
+   "ビューリトー"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "太い茎に、ふっくらした青緑の葉が並んで垂れ下がる。",
+   "src": "ncsu",
+   "quote": "thick trailing stems with fleshy, plump, bluish green to grayish-green leaves"
+  }
+ ]
+}

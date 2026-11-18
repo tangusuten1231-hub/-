@@ -1,0 +1,104 @@
+{
+ "id": "dracaena-sanderiana",
+ "rank": "species",
+ "scientificName": "Dracaena sanderiana",
+ "group": "foliage",
+ "names": {
+  "ja": "ミリオンバンブー",
+  "aliases": [
+   "ドラセナ・サンデリアーナ",
+   "ラッキーバンブー"
+  ]
+ },
+ "refs": {
+  "ncsu": "dracaena-sanderiana"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "bright but indirect light indoors all year"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "bright but indirect light indoors all year"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Low humidity can cause browning of the leaf tips."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "It requires a moist potting mix, or it can be grown in chlorine-free water."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水に挿して育てるときは毎週水を替え、薄い液体肥料を与える。",
+   "src": "ncsu",
+   "quote": "Change the water weekly (to prevent mosquitoes) and provide a weak liquid fertilizer."
+  },
+  {
+   "ja": "水のやりすぎで葉が黄色くなり、茎が腐る。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause yellowing of the leaves and rotting of the stems.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "湿度が低いと葉先が茶色くなる。",
+   "src": "ncsu",
+   "quote": "Low humidity can cause browning of the leaf tips.",
+   "symptom": "brown"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5669632",
+ "retrieved": "2026-11-17",
+ "query": "Pilea peperomioides",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5669632,
+ "acceptedKey": 5669632,
+ "acceptedName": "Pilea peperomioides",
+ "authorship": "Diels",
+ "rank": "SPECIES",
+ "family": "Urticaceae",
+ "genus": "Pilea",
+ "synonyms": []
+}

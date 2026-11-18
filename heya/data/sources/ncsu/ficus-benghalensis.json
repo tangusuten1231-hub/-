@@ -236,5 +236,71 @@
   "multistemmed",
   "spreading",
   "erect"
+ ],
+ "images": [
+  {
+   "id": "41261",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_f_rE3oj6YOYiwi.jpeg",
+   "caption": "Ficus benghalensis- form in a pot",
+   "author": "Dieter Albrecht",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41262",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensisSt_cUBJawHEwoZ6.jpeg",
+   "caption": "Ficus benghalensis- form in a pot",
+   "author": "Stephanie Kap",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41257",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_f_bJxhJ2GU4x8M.jpeg",
+   "caption": "Ficus benghalensis -form in native setting",
+   "author": "Siddarth Machado",
+   "license": "CC BY-NC 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/2.0/"
+  },
+  {
+   "id": "41259",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_l_9493ak5rBnfL.jpeg",
+   "caption": "Ficus benghalensis- Leaves",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41258",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_f_yaj2avIME53d.jpeg",
+   "caption": "Ficus benghalensis- Fruits",
+   "author": "Rohit Naniwadekar",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41260",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_f_77K75WpHgHEY.jpeg",
+   "caption": "Ficus benghalensis- Fruits",
+   "author": "Forest & Kim Starr",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "41263",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_S_SCrfzL7CIswe.jpeg",
+   "caption": "Ficus benghalensis- stems",
+   "author": "Dieter Albrecht",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "41264",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Ficus_benghalensis_a_YEa09vgvYv9c.jpeg",
+   "caption": "Ficus benghalensis- aerial roots",
+   "author": "Chad Husby",
+   "license": "CC BY-NC-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode"
+  }
  ]
 }

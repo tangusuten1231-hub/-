@@ -2,6 +2,7 @@
  "id": "heptapleurum-arboricola",
  "rank": "species",
  "scientificName": "Heptapleurum arboricola",
+ "group": "foliage",
  "names": {
   "ja": "シェフレラ・アルボリコラ",
   "aliases": [
@@ -87,7 +88,8 @@
   {
    "ja": "土が湿りすぎても乾きすぎても葉を落とす。",
    "src": "ncsu",
-   "quote": "If the soil is too wet or too dry the leave will drop off."
+   "quote": "If the soil is too wet or too dry the leave will drop off.",
+   "symptom": "drop"
   }
  ],
  "note": "以前の学名は Schefflera arboricola。"

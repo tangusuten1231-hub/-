@@ -1,0 +1,97 @@
+{
+ "id": "guzmania-lingulata",
+ "rank": "species",
+ "scientificName": "Guzmania lingulata",
+ "group": "flowering",
+ "names": {
+  "ja": "グズマニア",
+  "aliases": [
+   "グズマニア・リングラータ"
+  ]
+ },
+ "refs": {
+  "ncsu": "guzmania-lingulata"
+ },
+ "care": {
+  "light": {
+   "best": "medium",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant grows well in part to full shade and does well under artificial lights."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "This plant grows well in part to full shade"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "estimate",
+    "reason": "出典は半日陰〜日陰を好むとするため、直射日光は避けるとした"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "To increase the humidity, consider using a humidifier"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "water sparingly at the roots"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "株の中心の筒に水をためておく（とくに夏）。",
+   "src": "ncsu",
+   "quote": "Keep water in the center cup of the rosette, especially in the summer."
+  },
+  {
+   "ja": "カイガラムシ・ハダニ・コナカイガラムシに注意。",
+   "src": "ncsu",
+   "quote": "leaf spots, scales, spider mites, and mealybugs are potential problems",
+   "symptom": "pests"
+  }
+ ]
+}

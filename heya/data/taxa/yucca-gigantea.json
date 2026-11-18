@@ -1,0 +1,100 @@
+{
+ "id": "yucca-gigantea",
+ "rank": "species",
+ "scientificName": "Yucca gigantea",
+ "group": "foliage",
+ "names": {
+  "ja": "ユッカ・エレファンティペス",
+  "aliases": [
+   "青年の木",
+   "ユッカ",
+   "ユッカ・ギガンテア"
+  ]
+ },
+ "refs": {
+  "ncsu": "yucca-gigantea"
+ },
+ "care": {
+  "light": {
+   "best": "direct",
+   "min": "bright",
+   "directSun": "ok"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    30
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "halfdry",
+   "winter": "dry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The giant yucca prefers full sun"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典は日なたを好むとするため、明るい日陰を下限とした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "The giant yucca prefers full sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "出典は50°F（10℃）を下回ったら室内へ入れるとし、寒さや凍結で傷むとする。耐寒ゾーン10a（屋外で−1℃程度まで）のため5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "Indoor temperatures and humidity levels are adequate for this plant"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "This plant is drought tolerant, and overwatering can be problematic."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can cause root rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "冷たいすきま風や急な温度変化を避ける。",
+   "src": "ncsu",
+   "quote": "keep it away from cold drafts or sudden temperature changes"
+  }
+ ],
+ "note": "以前の学名は Yucca elephantipes。"
+}

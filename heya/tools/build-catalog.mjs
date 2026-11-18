@@ -13,7 +13,7 @@ const readJsonDir = async (dir) => {
 
 export async function loadAll() {
   const taxa = await readJsonDir('data/taxa');
-  const sources = { ncsu: await readJsonDir('data/sources/ncsu'), gbif: await readJsonDir('data/sources/gbif') };
+  const sources = { ncsu: await readJsonDir('data/sources/ncsu'), gbif: await readJsonDir('data/sources/gbif'), images: await readJsonDir('data/sources/images') };
   return { taxa, byId: new Map(Object.values(taxa).map((t) => [t.id, t])), sources };
 }
 

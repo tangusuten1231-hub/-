@@ -1,0 +1,97 @@
+{
+ "id": "soleirolia-soleirolii",
+ "rank": "species",
+ "scientificName": "Soleirolia soleirolii",
+ "group": "foliage",
+ "names": {
+  "ja": "ベビーティアーズ",
+  "aliases": [
+   "ソレイロリア",
+   "アイリッシュモス"
+  ]
+ },
+ "refs": {
+  "ncsu": "soleirolia-soleirolii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "low",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 0,
+   "idealC": [
+    13,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Ideal conditions include moderate temperatures, high humidity and bright, indirect lighting."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Deep shade (Less than 2 hours to no direct sunlight)"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sunlight can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "estimate",
+    "reason": "耐寒ゾーン9a（屋外で−6℃程度まで）とされるため、室内では凍らなければ問題ない。0℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Ideal conditions include moderate temperatures"
+   },
+   {
+    "src": "estimate",
+    "reason": "「ほどほどの温度」をやや低めの範囲に当てはめた"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "high humidity and bright, indirect lighting"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "estimate",
+    "reason": "出典の土の条件が「湿り気（Moist）」のため、乾かしすぎないとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "テラリウムにも使えるが、育つとほかの植物を覆ってしまう。",
+   "src": "ncsu",
+   "quote": "It may be used as a terrarium plant, but over time will crowd out the other terrarium plants."
+  }
+ ],
+ "note": "暖かい地域の屋外では、茎の切れ端からも再生して広がり、取り除きにくい雑草になることがある（出典の記載）。"
+}

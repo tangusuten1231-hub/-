@@ -276,5 +276,95 @@
   "fiber plant",
   "th-touch",
   "fpp"
+ ],
+ "images": [
+  {
+   "id": "40693",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Snake_Plant_Dell_Ene_HqFuHEKNrZ94.mpo",
+   "caption": "Dracaena trifasciata (Snake Plant) houseplant view",
+   "author": "Dell Enecks (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40692",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Snake_Plant_Dell_Ene_XmpXrosFtyeQ.mpo",
+   "caption": "Dracaena trifasciata (Snake Plant) houseplant view",
+   "author": "Dell Enecks (Pitt County)",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "14589",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena--Lucy-Bradl_zPzySDVkFHUz.jpe",
+   "caption": "Form",
+   "author": "Lucy Bradley",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "14718",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_RZ4co2iVI7Sj.jfif",
+   "caption": "Form",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "14719",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_7qCsV8RU5cD0.jpeg",
+   "caption": "Form",
+   "author": "Krzysztof Ziarnek",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "14713",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_NFZ4a3AArEw6.jpeg",
+   "caption": "Form, leaves, flowers",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "14711",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_JggsQDEr5BQ4.jpeg",
+   "caption": "Leaves and bloom",
+   "author": "Forest and Kim Star",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "14712",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_RA5aOl6Q3HUW.jfif",
+   "caption": "Flower",
+   "author": "Mokkie",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+  },
+  {
+   "id": "37938",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_trifasciata_EnkSMXFRjfkN.mpo",
+   "caption": "Form of 'Hahnii'",
+   "author": "K. Andre",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "37937",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dracaena_trifasciata_gjcUs8KHDHoc.mpo",
+   "caption": "Form of 'Hahnii'",
+   "author": "K. Andre",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "19811",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sansevieria_trifasci_Hrj4AufNfLzU.jpg",
+   "caption": "'Silver Queen' Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  }
  ]
 }

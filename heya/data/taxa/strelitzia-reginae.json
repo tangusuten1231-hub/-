@@ -2,6 +2,7 @@
  "id": "strelitzia-reginae",
  "rank": "species",
  "scientificName": "Strelitzia reginae",
+ "group": "flowering",
  "names": {
   "ja": "ストレリチア・レギナエ",
   "aliases": [
@@ -93,7 +94,8 @@
   {
    "ja": "水のやりすぎや水はけの悪い土で根腐れする。",
    "src": "ncsu",
-   "quote": "Root rot can occur from overwatering or poorly drained soils."
+   "quote": "Root rot can occur from overwatering or poorly drained soils.",
+   "symptom": "rot"
   }
  ]
 }

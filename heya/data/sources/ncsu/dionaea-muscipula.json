@@ -1,0 +1,304 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/dionaea-muscipula/",
+ "slug": "dionaea-muscipula",
+ "retrieved": "2026-11-17",
+ "scientificName": "Dionaea muscipula",
+ "commonNames": [
+  "Meadow Clams",
+  "Venus Flytrap",
+  "Venus Fly Trap"
+ ],
+ "description": "Venus flytrap is one of the best-known carnivorous plants and is native to coastal NC and a small area of northeastern SC. It is a member of the sundew family (Droseraceae). The species epithet is Latin for \"little mousetrap\" and alludes to the trapping mechanism of the leaf. It is winter hardy in USDA zones 7 to 10, but by protecting it through the winter, it can be grown in zones 5 and 6. It needs high humidity, wet, sandy soil, and full sun to partial shade. Use a planting mix of whole-fiber sphagnum moss or a mix of equal parts peat moss and coarse vermiculite or sharp sand. Do not allow the soil to dry out. Do not fertilize the plant. Irrigate with rainwater or distilled water; treated (chlorinated) water or hard water can kill the plant. When insects or spiders disturb any two of the six tactile hairs on the upper surface of the folded leaf, the hinged halves of the leaf snap shut, trapping the prey. A chemical secreted by the prey stimulates the flow of the plant's digestive enzymes. Following the digestion of the prey, the nutrients are absorbed and the leaf is reset. This is an endangered species that cannot be legally collected from the wild. There is no need to remove this plant from the wild: It is widely available from nursery-propagated stock. Many cultivars are available that differ in trap size, color, marginal guard hairs, etc. Use the plant in containers, along bogs and ponds or any sufficiently wet area. This plant is a must for children's gardens, carnivorous plant collections, native plant gardens and bog gardens. Insects, Diseases, and Other Plant Problems: No serious insect or disease problems. Watch for aphids, spider mites, and black spot.",
+ "cultivars": [
+  {
+   "name": "Cupped Trap",
+   "note": "bright red-centered traps with a more rounded cup form"
+  },
+  {
+   "name": "Dente",
+   "note": "the guard hairs resemble sharks teeth, deep red traps, green petioles"
+  },
+  {
+   "name": "King Henry",
+   "note": "large, chartreuse to yellow traps with orange-red interiors, fast-growing"
+  },
+  {
+   "name": "Red Dragon",
+   "note": "the plant turns red when grown in full sun"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Dionaea"
+  ],
+  "Species": [
+   "muscipula"
+  ],
+  "Family": [
+   "Droseraceae"
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Division",
+   "Seed"
+  ],
+  "Country Or Region Of Origin": [
+   "North Carolina and South Carolina"
+  ],
+  "Distribution": [
+   "DE , FL , NC , NJ , SC"
+  ],
+  "Dimensions": [
+   "Height: 0 ft. 6 in. - 1 ft. 0 in.",
+   "Width: 0 ft. 6 in. - 0 ft. 8 in."
+  ],
+  "Plant Type": [
+   "Carnivorous",
+   "Herbaceous Perennial",
+   "Houseplant",
+   "Native Plant",
+   "Wildflower"
+  ],
+  "Woody Plant Leaf Characteristics": [
+   "Deciduous"
+  ],
+  "Habit/Form": [
+   "Clumping"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "High"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Full sun (6 or more hours of direct sunlight a day)",
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "Loam (Silt)",
+   "Sand"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Frequent Standing Water",
+   "Moist",
+   "Occasionally Wet"
+  ],
+  "Available Space To Plant": [
+   "Less than 12 inches"
+  ],
+  "NC Region": [
+   "Coastal",
+   "Piedmont"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
+  ],
+  "Fruit Color": [
+   "Black"
+  ],
+  "Display/Harvest Time": [
+   "Summer"
+  ],
+  "Fruit Type": [
+   "Capsule"
+  ],
+  "Fruit Length": [
+   "< 1 inch"
+  ],
+  "Fruit Width": [
+   "< 1 inch"
+  ],
+  "Fruit Description": [
+   "Displays from June to July. The capsule opens upward, and the seeds are dislodged by raindrops."
+  ],
+  "Flower Color": [
+   "White"
+  ],
+  "Flower Inflorescence": [
+   "Umbel"
+  ],
+  "Flower Bloom Time": [
+   "Spring"
+  ],
+  "Flower Shape": [
+   "Cup"
+  ],
+  "Flower Petals": [
+   "4-5 petals/rays"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "Clusters of 0.7-inch white cup-shaped flowers atop a 4- to 12-inch leafless stalk (scape) in May and June. Each bloom has 5 sepals and petals and 10 to 12 stamens."
+  ],
+  "Leaf Color": [
+   "Gold/Yellow",
+   "Green",
+   "Red/Burgundy"
+  ],
+  "Leaf Value To Gardener": [
+   "Showy"
+  ],
+  "Leaf Type": [
+   "Simple"
+  ],
+  "Hairs Present": [
+   "Yes"
+  ],
+  "Leaf Length": [
+   "3-6 inches"
+  ],
+  "Leaf Description": [
+   "Leaves are 2 to 5 inches long, borne in a low-growing basal rosette of up to 8 leaves. At the end of each leaf is the \"trap\" which is folded into 2 hinged lobes with bristly edges. The inner surface of traps may be rich, dark red or green depending on the amount of sun received."
+  ],
+  "Stem Color": [
+   "Green"
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Coastal",
+   "Container",
+   "Houseplants",
+   "Pond"
+  ],
+  "Landscape Theme": [
+   "Children's Garden",
+   "Native Garden",
+   "Rain Garden",
+   "Water Garden"
+  ],
+  "Design Feature": [
+   "Specimen"
+  ],
+  "Attracts": [
+   "Bees"
+  ],
+  "Resistance To Challenges": [
+   "Humidity",
+   "Wet Soil"
+  ]
+ },
+ "tags": [
+  "endangered",
+  "carnivorous",
+  "deciduous",
+  "native garden",
+  "humidity tolerant",
+  "food source summer",
+  "food source herbage",
+  "non-toxic for cats",
+  "non-toxic for horses",
+  "non-toxic for dogs",
+  "full sun tolerant",
+  "container plant",
+  "coastal plant",
+  "pest resistant",
+  "boggy sites",
+  "wildflower",
+  "houseplant"
+ ],
+ "images": [
+  {
+   "id": "27269",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula-ve_excjYf6kJ4LT.jpg",
+   "caption": "Dionaea muscipula (Wake County, NC)",
+   "author": "Cathy Dewitt",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "5199",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula_--_Eric_Borda_--_CC_BY-ND_2.0.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Eric Borda",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "5200",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula_--_Ben_B_--_CC_BY-SA_2.0.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Ben B",
+   "license": "CC-BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  {
+   "id": "5195",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/dionaea_muscipula_--_Arthur_Chapman_--_CC_BY-NC-SA_2.0.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Arthur Chapman",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "5196",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula_--_Louis_Shackleton_--_CC_NC-SA_2.0.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Louis Shackleton",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "5197",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula_--_Lou_FCD_--_CC_BY-NC-SA_2.0.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Lou FCD",
+   "license": "CC BY-NC-SA 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode"
+  },
+  {
+   "id": "5434",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula_--_Maurizio_--_CC_BY-ND_20_13389766404_l.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Maurizio",
+   "license": "CC BY-ND 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/2.0/"
+  },
+  {
+   "id": "7927",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/VenusFlyTrap_charlotte_glen.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Charlotte Glen",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+  },
+  {
+   "id": "7928",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/VenusFlyTrap2_charlotte_glen.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Charlotte Glen",
+   "license": "CC BY-NC-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+  },
+  {
+   "id": "12156",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula--L_XGuotHxfJ94a.jpg",
+   "caption": "Dionaea muscipula",
+   "author": "Lucy Bradley",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  },
+  {
+   "id": "12157",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Dionaea_muscipula-1-_O6IjMFzG3b6X.jpe",
+   "caption": "Dionaea muscipula",
+   "author": "Lucy Bradley",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/about/cc0/"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5329745",
+ "retrieved": "2026-11-17",
+ "query": "Rhaphidophora tetrasperma",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5329745,
+ "acceptedKey": 5329745,
+ "acceptedName": "Rhaphidophora tetrasperma",
+ "authorship": "Hook.f.",
+ "rank": "SPECIES",
+ "family": "Araceae",
+ "genus": "Rhaphidophora",
+ "synonyms": []
+}

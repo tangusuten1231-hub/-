@@ -1,0 +1,105 @@
+{
+ "id": "monstera-adansonii",
+ "rank": "species",
+ "scientificName": "Monstera adansonii",
+ "group": "foliage",
+ "names": {
+  "ja": "モンステラ・アダンソニー",
+  "aliases": [
+   "マドカズラ"
+  ]
+ },
+ "refs": {
+  "ncsu": "monstera-adansonii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant prefers bright, indirect sunlight and warm, humid conditions."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sun can cause scorched leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and temperature drops below 50 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant prefers high humidity"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Moist, well-drained soil with a slightly acidic pH is recommended."
+   },
+   {
+    "src": "ncsu",
+    "quote": "Overwatering can result in root rot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "水のやりすぎで根腐れする。",
+   "src": "ncsu",
+   "quote": "Overwatering can result in root rot.",
+   "symptom": "rot"
+  },
+  {
+   "ja": "葉に水をかけず風通しをよくすると、葉の斑点を防げる。",
+   "src": "ncsu",
+   "quote": "Avoid splashing water on the foliage and provide good air circulation to prevent leaf spots.",
+   "symptom": "spots"
+  }
+ ]
+}

@@ -242,5 +242,87 @@
   "container plant",
   "perennial",
   "trellis"
+ ],
+ "images": [
+  {
+   "id": "40886",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250801_132326_DHyeCR82NXNt.jpeg",
+   "caption": "Monstera deliciosa (Split-leaf philodendron) houseplant view of a young plant",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "16285",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_deliciosa_p_nxq1eU566aWi.jpeg",
+   "caption": "Potted form",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "16291",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_deliciosa_f_wzYZQMzQ9JUe.jpeg",
+   "caption": "Form",
+   "author": "Cliff",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "23709",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/monstera-deliciosa-l_jNLlbqthrVY5.jfif",
+   "caption": "Leaves Close-Up (Cabarrus County,NC)",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "16288",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_deliciosa_l_EFbhxsRUBZby.jpeg",
+   "caption": "Leaf closeup",
+   "author": "David J. Stang",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+  },
+  {
+   "id": "16289",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/monstera-deliciosa_b_jvM1CA515RTf.jpe",
+   "caption": "Back of leaf",
+   "author": "",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "16286",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/monstera_deliciosa_l_tQ8F3iY9P21f.jpeg",
+   "caption": "Leaf attachment",
+   "author": "",
+   "license": "Public Domain Mark 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  {
+   "id": "19555",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_deliciosa_f_6bNMIFXZqQnX.jpeg",
+   "caption": "Form",
+   "author": "Flower Close-Up",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "16287",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Monstera_deliciosa_f_zdNxSoN3txkG.jpeg",
+   "caption": "Fruit",
+   "author": "KENPEI",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+  },
+  {
+   "id": "23708",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/monstera_deliciosa-c_wqeYpFlz4Gtc.jpg",
+   "caption": "Roots (Carrabus County,NC)",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
  ]
 }

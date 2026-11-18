@@ -1,0 +1,21 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3190711",
+ "retrieved": "2026-11-17",
+ "query": "Nepenthes",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3190711,
+ "acceptedKey": 3190711,
+ "acceptedName": "Nepenthes",
+ "authorship": "L.",
+ "rank": "GENUS",
+ "family": "Nepenthaceae",
+ "genus": "Nepenthes",
+ "synonyms": [
+  "Anurosperma",
+  "Bandura",
+  "Phyllamphora"
+ ]
+}

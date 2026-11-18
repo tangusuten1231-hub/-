@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5304437",
+ "retrieved": "2026-11-17",
+ "query": "Dracaena reflexa var. angustifolia",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5304437,
+ "acceptedKey": 5304437,
+ "acceptedName": "Dracaena reflexa angustifolia",
+ "authorship": "Baker",
+ "rank": "VARIETY",
+ "family": "Asparagaceae",
+ "genus": "Dracaena",
+ "synonyms": []
+}

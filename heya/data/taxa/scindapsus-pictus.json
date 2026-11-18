@@ -1,0 +1,118 @@
+{
+ "id": "scindapsus-pictus",
+ "rank": "species",
+ "scientificName": "Scindapsus pictus",
+ "group": "foliage",
+ "names": {
+  "ja": "スキンダプサス・ピクタス",
+  "aliases": [
+   "シルバーポトス",
+   "サテンポトス",
+   "スキンダプサス"
+  ]
+ },
+ "refs": {
+  "ncsu": "scindapsus-pictus"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The satin pothos prefers bright indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Cooler air and direct sunlight are not tolerated."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Cooler air and direct sunlight are not tolerated."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典は涼しい空気に耐えないとし、適温を65°F（18℃）以上とするため、13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Room temperatures of 65 to 85 degrees Fahrenheit are best suited for this plant.",
+    "fahrenheit": [
+     65,
+     85
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "estimate",
+    "reason": "出典に湿度の記載がないため「ふつう」とした"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Yellow leaves may be a sign of overwatering"
+   },
+   {
+    "src": "estimate",
+    "reason": "水のやりすぎで葉が黄色くなるとされるため、表面が乾いてからとした"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が黄色くなるのは水のやりすぎのサイン。",
+   "src": "ncsu",
+   "quote": "Yellow leaves may be a sign of overwatering",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "葉が丸まるのは水不足のサイン。",
+   "src": "ncsu",
+   "quote": "curling leaves may be a sign of underwatering",
+   "symptom": "curl"
+  },
+  {
+   "ja": "カイガラムシ・ハダニ・コナカイガラムシ・アザミウマに注意。",
+   "src": "ncsu",
+   "quote": "Monitor for scale, mites, mealy bugs, thrips, fungal leaf spot, and botrytis.",
+   "symptom": "pests"
+  }
+ ]
+}

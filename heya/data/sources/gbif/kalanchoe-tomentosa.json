@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/4198346",
+ "retrieved": "2026-11-17",
+ "query": "Kalanchoe tomentosa",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 4198346,
+ "acceptedKey": 4198346,
+ "acceptedName": "Kalanchoe tomentosa",
+ "authorship": "Baker",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Kalanchoe",
+ "synonyms": []
+}

@@ -200,5 +200,95 @@
   "perennial",
   "problem for children",
   "poisonous if ingested"
+ ],
+ "images": [
+  {
+   "id": "40846",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_111928_Phil_VxSbjuTR0kJg.jpeg",
+   "caption": "Philodendron bipinnatifidum 'Selloum' houseplant view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "26807",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_bipinna_2iMvhW4Z4OMK.jpe",
+   "caption": "Full Form",
+   "author": "Daderot",
+   "license": "CC0 1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+   "id": "36405",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_selloum_GN0UFoMOQTaD.jpeg",
+   "caption": "Form",
+   "author": "Jim Robbins",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  },
+  {
+   "id": "40847",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250724_111952_Phil_sLWvtKSeGE16.jpeg",
+   "caption": "Philodendron bipinnatifidum 'Selloum' foliage",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "11090",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/DSCN4122.jpg",
+   "caption": "Leaf blade",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "36406",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron-selloum_pWFWPguuAogx.jpeg",
+   "caption": "Leaves",
+   "author": "Javier Alejandro",
+   "license": "CC BY-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nd/4.0/legalcode"
+  },
+  {
+   "id": "36408",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron-selloum_QgcKV5Mdou5H.jpeg",
+   "caption": "Leaf detail",
+   "author": "Kathleen Moore",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "11092",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/DSCN4124.jpg",
+   "caption": "Underside of leaf",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "36409",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron-selloum_3VvpV5QFG4bA.jpeg",
+   "caption": "Flower",
+   "author": "Scott Zona",
+   "license": "CC BY-NC 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+   "id": "38398",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron_bipiina_UhaK5f4EcA9K.jpeg",
+   "caption": "Trunk",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "36407",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Philodendron-selloum_7Cud1mtb9b5J.jpeg",
+   "caption": "Stem close-up",
+   "author": "Ian Page Echols",
+   "license": "CC BY-NC-ND 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+  }
  ]
 }

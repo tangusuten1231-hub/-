@@ -1,0 +1,123 @@
+{
+ "id": "rhaphidophora-tetrasperma",
+ "rank": "species",
+ "scientificName": "Rhaphidophora tetrasperma",
+ "group": "foliage",
+ "names": {
+  "ja": "ヒメモンステラ",
+  "aliases": [
+   "ラフィドフォラ・テトラスペルマ",
+   "ミニモンステラ"
+  ]
+ },
+ "refs": {
+  "ncsu": "rhaphidophora-tetrasperma"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    18,
+    27
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "The Mini Monstera prefers bright, indirect light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Yellowing of the leaves may occur from overwatering or inadequate light."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "It may tolerate a small amount of direct sunlight, but too much bright sun will cause leaf burn."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "it should be kept out of drafts"
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載がないため、熱帯原産の観葉植物の一般的な安全域として10℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It will tolerate temperatures of 65 to 80 degrees Fahrenheit",
+    "fahrenheit": [
+     65,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "The plant will thrive in high humidity levels of 60%."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Water the plant when the top 1 inch of the potting mix is dry."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉が黄色くなるのは、水のやりすぎか光不足。",
+   "src": "ncsu",
+   "quote": "Yellowing of the leaves may occur from overwatering or inadequate light.",
+   "symptom": "yellow"
+  },
+  {
+   "ja": "葉が垂れたり丸まったりするのは水不足。",
+   "src": "ncsu",
+   "quote": "Drooping or curling of leaves result from the lack of water.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉のふちが茶色くなるのは、水不足か湿度不足。",
+   "src": "ncsu",
+   "quote": "Brown margins and spots are related to lack of moisture or humidity.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "ハダニ・キノコバエ・カイガラムシがつきやすい。",
+   "src": "ncsu",
+   "quote": "As a houseplant, it is susceptible to spider mites, fungus gnats, and scale.",
+   "symptom": "pests"
+  }
+ ]
+}

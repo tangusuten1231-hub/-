@@ -1,0 +1,22 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/3824774",
+ "retrieved": "2026-11-17",
+ "query": "Aeschynanthus radicans",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 3824774,
+ "acceptedKey": 3824774,
+ "acceptedName": "Aeschynanthus radicans",
+ "authorship": "Jack",
+ "rank": "SPECIES",
+ "family": "Gesneriaceae",
+ "genus": "Aeschynanthus",
+ "synonyms": [
+  "Aeschynanthus teysmannianus",
+  "Trichosporum ovatum",
+  "Trichosporum radicans",
+  "Trichosporum teysmannianum"
+ ]
+}

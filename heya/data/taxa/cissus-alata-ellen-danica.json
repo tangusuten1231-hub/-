@@ -1,0 +1,19 @@
+{
+ "id": "cissus-alata-ellen-danica",
+ "rank": "cultivar",
+ "parent": "cissus-alata",
+ "cultivar": "Ellen Danica",
+ "names": {
+  "ja": "シッサス・エレンダニカ",
+  "aliases": [
+   "エレンダニカ"
+  ]
+ },
+ "tips": [
+  {
+   "ja": "小葉が深く切れ込み、こんもり茂る。",
+   "src": "ncsu",
+   "quote": "Leaflets are deeply lobed with a bushy habit."
+  }
+ ]
+}

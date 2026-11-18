@@ -1,0 +1,232 @@
+{
+ "source": "NC State Extension Gardener Plant Toolbox",
+ "license": "CC BY 4.0",
+ "url": "https://plants.ces.ncsu.edu/plants/nepenthes/",
+ "slug": "nepenthes",
+ "retrieved": "2026-11-17",
+ "scientificName": "Nepenthes",
+ "commonNames": [
+  "Monkey Cups",
+  "Pitcher Plant",
+  "Tropical Pitcher Plant"
+ ],
+ "description": "Nepenthes is a genus of tropical carnivorous plants that are members of the Nepenthaceae family and have 197 accepted species. These plants are native to Seychelles, Madagascar, Southeast China to Tropical Asia and the Western Pacific. Plants of this genus feed on insects and other small prey and are shallow rooted vines that spread across the ground or climb trees. Some species are found in warm and humid lowlands of peat swamp forests or in mountain areas that are warm during the day but have cooler temperatures at night. These plants were collected in the 17th century and were named by Carl Linnaeus. The genus name, Nepenthes, is Greek and means \"banishing pain or sorrow.\" In Homer's Odyssey , Nepenthes , was a potion given to relieve sorrow. These plants became popular in Europe and were often found in conservatories. The plants almost disappeared in the 1940s, but in the 1960s, there was some renewed interest. Currently, most plants purchased are hybrids and are propagated from tissue culture or cuttings. These plants require warm temperatures and high humidity. Lowlands species prefer temperatures between 70 to 95 degrees Fahrenheit, and the highland species prefer temperatures 75 to 85 degrees in the daytime and low 60s at night. They do best grown in a greenhouse where the temperature and humidity levels can be maintained. They prefer bright light and thrive in sphagnum moss or orchid mix with the addition of peat and perlite. The soil should be moist but well-drained with an acidic pH. Carnivorous plants are not able to tolerate garden soil as potting medium nor watering with tap water. Distilled water or rainwater should be used. If insects are not available these plants can be fed by using an organic fertilizer during the growing season. They do not digest protein and should not be feed meat. Initially, Nepenthes are slow growers, but once they are established they will start to vine and their growth is more rapid. The leaves are green and lance-shaped. The midrib extends beyond the leaf and becomes as long as the leaf and is known as a tendril. At the tip of the tendril the pitcher develops. The lowland pitcher plants tend to have larger and colorful pitchers that may be striped or speckled with red, pink, yellow or green. They also have two wings or \"ladders\" along the front of the pitcher that entices crawling insects. The pitcher plants found in mountainous or highland areas are smaller, more delicate, less colorful, and do not have the two wings or \"ladders\". They tend to collect flying insects. The lid of the pitcher plant acts as a landing site for the flying insects, and it also keeps rain water from entering the pitcher that could dilute the digestive fluid. These plants have a taproot and somewhat brittle root system. Consider one of the easy to grow hybrids in a terrarium or kitchen window to start your carnivorous plant collection. They are also attractive in a hanging basket, hanging pot, or on a plant stand. Insects, Diseases, and Other Plant Problems: Monitor for aphids, mealybugs, thrips, and scale insects. Poor air circulation can cause fungal diseases. If the humidity is too low, the traps or pitchers will not develop properly or will die back.",
+ "cultivars": [
+  {
+   "name": "Nepenthes alata (Winged Tropical Pitcher Plant)",
+   "note": "native Philippines, strap-shaped leaves, green pitcher with dark red stripes, easy to grow"
+  },
+  {
+   "name": "Nepenthes aristolochioides",
+   "note": "native Sumatera, climbing shrub, pitcher is tubular, green with burgundy speckles, similar to a smoking pipe"
+  },
+  {
+   "name": "Nepenthes gracilis (Slender Pitcher Plant)",
+   "note": "native S. Indo-China, 6 to 20 feet, trailing habit, stem reddish purple, narrow, long, green pitcher with red speckles,"
+  },
+  {
+   "name": "Nepenthes maxima",
+   "note": "native to Sulawesi to New Guinea, woody vine, striped pitcher and large, shiny leaves"
+  },
+  {
+   "name": "Nepenthes rajah",
+   "note": "native to Borneo, scrambling shrub or woody vine, pitcher measures up to 1 foot long, challenging to grow due to size"
+  },
+  {
+   "name": "Nepenthes sanguinea",
+   "note": "native Thailand and Malaysia, woody vine, burgundy red pitchers, can tolerate lower humidity"
+  },
+  {
+   "name": "Nepenthes ventricosa",
+   "note": "native Philippines, popular for beginners, woody vines, green pitchers with red stripes"
+  },
+  {
+   "name": "Nepenthes x miranda (N. maxima x N. northiana)",
+   "note": "large green pitchers with red striping, pitcher up to 1 ft. tall, easy to grow, good for beginners"
+  },
+  {
+   "name": "Nepenthes x St. Gaya (N. khasiana x (N. ventricosa x N. maxima)",
+   "note": "large upright yellow-green pitcher with red speckles, cold tolerant"
+  }
+ ],
+ "attributes": {
+  "Genus": [
+   "Nepenthes"
+  ],
+  "Family": [
+   "Nepenthaceae"
+  ],
+  "Uses (Ethnobotany)": [
+   "In Malaya, some plants are used for medicinal purposes such as gastrointestinal disorders, coughs, burn treatment, or skin disorders. The pitchers are also used for religious rites in some cultures."
+  ],
+  "Life Cycle": [
+   "Perennial"
+  ],
+  "Recommended Propagation Strategy": [
+   "Stem Cutting"
+  ],
+  "Country Or Region Of Origin": [
+   "Seychelles, Madagascar, SE China to Tropical Asia & West Pacific"
+  ],
+  "Distribution": [
+   "Native: Assam, Borneo, Cambodia, Caroline Island, China Southeast, Hainan, Laos, Madagascar, Malaya, Maluku, Myanmar, New Caledonia, New Guinea, Philippines, Queensland, Seychelles, Sri Lanka, Sulawesi, Sumatera, Thailand, and Vietnam."
+  ],
+  "Climbing Method": [
+   "Tendrils"
+  ],
+  "Plant Type": [
+   "Carnivorous",
+   "Epiphyte",
+   "Houseplant",
+   "Perennial",
+   "Vine"
+  ],
+  "Habit/Form": [
+   "Climbing",
+   "Weeping"
+  ],
+  "Growth Rate": [
+   "Slow"
+  ],
+  "Maintenance": [
+   "Medium"
+  ],
+  "Texture": [
+   "Medium"
+  ],
+  "Light": [
+   "Partial Shade (Direct sunlight only part of the day, 2-6 hours)"
+  ],
+  "Soil Texture": [
+   "High Organic Matter"
+  ],
+  "Soil pH": [
+   "Acid (<6.0)"
+  ],
+  "Soil Drainage": [
+   "Good Drainage",
+   "Moist"
+  ],
+  "USDA Plant Hardiness Zone": [
+   "10a, 10b, 11a, 11b, 12a, 12b, 13a, 13b"
+  ],
+  "Fruit Description": [
+   "When the female plant is pollinated, the ovaries swell and turn brown and in a few months it will crack open. The seeds are viable for a short time."
+  ],
+  "Flower Color": [
+   "Brown/Copper",
+   "Green"
+  ],
+  "Flower Inflorescence": [
+   "Raceme"
+  ],
+  "Flower Value To Gardener": [
+   "Fragrant"
+  ],
+  "Flower Bloom Time": [
+   "Fall",
+   "Spring",
+   "Summer",
+   "Winter"
+  ],
+  "Flower Petals": [
+   "Colored Sepals"
+  ],
+  "Flower Size": [
+   "< 1 inch"
+  ],
+  "Flower Description": [
+   "These plants are dioecious, meaning they are either male or female plants. They have tiny, apetalous, male or female flowers with green or brown sepals that appear on spike-like racemes. They have an unusual fragrance. In order for the plant to produce seeds both a male and female plants are required, and they must flower at the same time and must cross-pollinate."
+  ],
+  "Leaf Color": [
+   "Green"
+  ],
+  "Leaf Feel": [
+   "Glossy"
+  ],
+  "Leaf Shape": [
+   "Lanceolate"
+  ],
+  "Hairs Present": [
+   "No"
+  ],
+  "Leaf Length": [
+   "> 6 inches"
+  ],
+  "Leaf Description": [
+   "The leaf blade is lance-shaped, shiny, green, and measures up to 6 to 8 inches long. Once the leaf blade grows to it full size, the midrib will continue to grow. The extension of the midrib growth is usually equal to the length of the leaf and is called a tendril. At the tip of the tendril, a bulb-like swelling appears. This will grow into a 4 to 8 inch long hollow tube or pitcher and will also develop a lid that can cover the tube. The tube or pitcher size, shape, color and markings vary depending on the species. The pitchers can be yellowish green, red , purple, orange, speckled, or combinations of colors. The upper lip of the pitcher plant is similar to a flower and is colorful and has a sweet fragrance. The nectar and fragrance attract unsuspecting insects. The insect falls into the pitcher trap and can not escape because the walls of the pitcher are very slippery. The digestive fluid traps the insect, and then the insect is digested by the plant."
+  ],
+  "Stem Is Aromatic": [
+   "No"
+  ],
+  "Landscape Location": [
+   "Container",
+   "Hanging Baskets",
+   "Houseplants"
+  ],
+  "Resistance To Challenges": [
+   "Humidity"
+  ]
+ },
+ "tags": [
+  "vine",
+  "perennial",
+  "houseplant",
+  "carnivorous",
+  "weeping",
+  "warm climates",
+  "tropical",
+  "humidity tolerant",
+  "interesting leaves",
+  "container plant",
+  "tendrils",
+  "pendulous",
+  "evergreen perenial",
+  "trailing",
+  "non-toxic for cats",
+  "non-toxic for dogs",
+  "epiphytic"
+ ],
+ "images": [
+  {
+   "id": "41326",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250930_140427_Nepe_GRfTSCLJ6jfy.jpeg",
+   "caption": "Nepenthes, pitcher plant, hanging pot view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "40355",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20211223_135343_Nepe_hohkKneIaT3f.jpeg",
+   "caption": "Nepenthes, pitcher plant, houseplant view, leaf, tendril, and pitcher",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "41322",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250930_135556_Nepe_BP8nXaap6ABA.jpeg",
+   "caption": "Nepenthes, pitcher plant, form",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "41323",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250930_135855_Nepe_aGVgYOsD8lQ9.jpeg",
+   "caption": "Nepenthes, pitcher plant, leaf and tendril view",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "41324",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/20250930_135645_Nepe_b4RfbaWsw8Im.jpeg",
+   "caption": "Nepenthes, pitcher plant, tip of leaf, tendril, and pitcher",
+   "author": "Cindy Christian",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+ ]
+}

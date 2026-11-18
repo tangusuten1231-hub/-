@@ -148,5 +148,63 @@
   "indoor",
   "subshrub",
   "spreading"
+ ],
+ "images": [
+  {
+   "id": "8149",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura--Maja-Dumat--CC-BY.jpg",
+   "caption": "Whole plant",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8150",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura--Maja-Dumat-2--CC-BY.jpg",
+   "caption": "Leave close up",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8151",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura--Maja-Dumat-1--CC-BY.jpg",
+   "caption": "Small flower",
+   "author": "Maja Dumat",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "8478",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura-Maja_Dumat-ccby20.jpg",
+   "caption": "",
+   "author": "Maja Dumat",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "33497",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/maranta-spp-flower-j_eHnH93vQbXFK.jpeg",
+   "caption": "Flower",
+   "author": "Hope Duckworth",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+   "id": "38427",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura_f_N4VcGnBmEY4e.jpeg",
+   "caption": "Flowers of M. leuconeura.",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  },
+  {
+   "id": "38428",
+   "file": "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Maranta_leuconeura_b_je4ipf66ohjI.jpeg",
+   "caption": "Underside of leaf.",
+   "author": "Kathleen Moore",
+   "license": "CC BY 2.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/2.0/legalcode"
+  }
  ]
 }

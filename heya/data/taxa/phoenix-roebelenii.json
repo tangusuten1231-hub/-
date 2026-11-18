@@ -1,0 +1,96 @@
+{
+ "id": "phoenix-roebelenii",
+ "rank": "species",
+ "scientificName": "Phoenix roebelenii",
+ "group": "palm",
+ "names": {
+  "ja": "フェニックス・ロベレニー",
+  "aliases": [
+   "シンノウヤシ",
+   "ロベレニー"
+  ]
+ },
+ "refs": {
+  "ncsu": "phoenix-roebelenii"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 5,
+   "idealC": [
+    18,
+    29
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "this plant prefers medium to high light"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "this plant prefers medium to high light"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "give it protection from the hot afternoon sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Keep away from cold drafts in the winter."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に傷む温度の記載はない。耐寒ゾーン10a（屋外で−1℃程度まで）とされるため、余裕をみて5℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "estimate",
+    "reason": "出典に数値の記載がないため、熱帯原産の観葉植物が成長する一般的な室温の範囲とした"
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It also prefers medium to high humidity."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Keep the growing medium slightly moist during the growing season but do not overwater as doing so can cause root rot."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "少し根詰まり気味を好み、植え替えは頻繁でなくてよい。",
+   "src": "ncsu",
+   "quote": "This plant prefers to be slightly root-bound and does not need frequent repotting."
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "id": "goeppertia-orbifolia",
+ "rank": "species",
+ "scientificName": "Goeppertia orbifolia",
+ "group": "foliage",
+ "names": {
+  "ja": "カラテア・オルビフォリア",
+  "aliases": [
+   "オルビフォリア"
+  ]
+ },
+ "refs": {
+  "ncsu": "goeppertia-orbifolia"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "avoid"
+  },
+  "temperature": {
+   "minC": 13,
+   "idealC": [
+    18,
+    24
+   ]
+  },
+  "humidity": "high",
+  "watering": {
+   "growing": "moist",
+   "winter": "topdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "Caring for this plant requires bright, indirect light or partial shade"
+   }
+  ],
+  "light.min": [
+   {
+    "src": "ncsu",
+    "quote": "Fading of the leaf color is caused by insufficient light."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "Direct sun can scorch the leaves."
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "Avoid cold drafts and room temperature fluctuations."
+   },
+   {
+    "src": "estimate",
+    "reason": "出典に最低温度の記載はないが、65°F（18℃）以上の安定した温度を必要とし、冷たいすきま風を避けるよう勧めるため13℃とした"
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "Consistent temperatures of 65 to 75 degrees",
+    "fahrenheit": [
+     65,
+     75
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "high humidity of at least 60% is needed to make this plant thrive"
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "moist, well-drained, slightly acidic potting mix"
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "estimate",
+    "reason": "出典に冬の記載がないため、室温が下がると水を吸う量が減ることから一段乾かし気味とした"
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "葉先や葉のふちが茶色くなるのは、湿度不足か水道水のフッ素。",
+   "src": "ncsu",
+   "quote": "Brown leaf edges and tips are the result of low humidity or from using tap water containing fluoride.",
+   "symptom": "brown"
+  },
+  {
+   "ja": "葉が丸まるのは水不足か湿度不足。",
+   "src": "ncsu",
+   "quote": "The leaves can curl from lack of water or low humidity.",
+   "symptom": "curl"
+  },
+  {
+   "ja": "葉の色があせるのは光不足。",
+   "src": "ncsu",
+   "quote": "Fading of the leaf color is caused by insufficient light.",
+   "symptom": "fade"
+  },
+  {
+   "ja": "水やりで葉をぬらすと斑点が出やすい。",
+   "src": "ncsu",
+   "quote": "Wetting the foliage when watering can cause leaf spot.",
+   "symptom": "spots"
+  },
+  {
+   "ja": "生育期は月に1回肥料を与える。",
+   "src": "ncsu",
+   "quote": "Fertilize your plant monthly during the growing season."
+  }
+ ]
+}

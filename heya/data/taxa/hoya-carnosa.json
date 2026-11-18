@@ -2,6 +2,7 @@
  "id": "hoya-carnosa",
  "rank": "species",
  "scientificName": "Hoya carnosa",
+ "group": "foliage",
  "names": {
   "ja": "ホヤ・カルノーサ",
   "aliases": [
@@ -99,7 +100,8 @@
   {
    "ja": "空気が乾くとハダニがつきやすい。",
    "src": "ncsu",
-   "quote": "spider mites can be an issue and can appear when the air is too dry"
+   "quote": "spider mites can be an issue and can appear when the air is too dry",
+   "symptom": "pests"
   }
  ]
 }

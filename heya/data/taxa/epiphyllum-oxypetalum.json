@@ -1,0 +1,109 @@
+{
+ "id": "epiphyllum-oxypetalum",
+ "rank": "species",
+ "scientificName": "Epiphyllum oxypetalum",
+ "group": "cactus",
+ "names": {
+  "ja": "月下美人",
+  "aliases": [
+   "エピフィルム・オキシペタルム"
+  ]
+ },
+ "refs": {
+  "ncsu": "epiphyllum-oxypetalum"
+ },
+ "care": {
+  "light": {
+   "best": "bright",
+   "min": "medium",
+   "directSun": "morning"
+  },
+  "temperature": {
+   "minC": 10,
+   "idealC": [
+    10,
+    27
+   ]
+  },
+  "humidity": "medium",
+  "watering": {
+   "growing": "topdry",
+   "winter": "halfdry"
+  }
+ },
+ "evidence": {
+  "light.best": [
+   {
+    "src": "ncsu",
+    "quote": "This plant requires bright, indirect light and protection from the harsh afternoon sun."
+   }
+  ],
+  "light.min": [
+   {
+    "src": "estimate",
+    "reason": "出典に暗い場所（Deep shade）への耐性の記載がないため、明るい日陰の一段下までとした"
+   }
+  ],
+  "light.directSun": [
+   {
+    "src": "ncsu",
+    "quote": "protection from the harsh afternoon sun"
+   }
+  ],
+  "temperature.minC": [
+   {
+    "src": "ncsu",
+    "quote": "It is not frost-tolerant and prefers temperatures between 50 to 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     50
+    ]
+   }
+  ],
+  "temperature.idealC": [
+   {
+    "src": "ncsu",
+    "quote": "It is not frost-tolerant and prefers temperatures between 50 to 80 degrees Fahrenheit.",
+    "fahrenheit": [
+     50,
+     80
+    ]
+   }
+  ],
+  "humidity": [
+   {
+    "src": "ncsu",
+    "quote": "It thrives in high humidity, but can tolerate dry air."
+   }
+  ],
+  "watering.growing": [
+   {
+    "src": "ncsu",
+    "quote": "Allow the top of the soil to dry out between watering."
+   }
+  ],
+  "watering.winter": [
+   {
+    "src": "ncsu",
+    "quote": "Reduce the water schedule during the fall and winter when growth is slowed."
+   }
+  ]
+ },
+ "tips": [
+  {
+   "ja": "花は夜に咲き、翌朝にはしぼむ。",
+   "src": "ncsu",
+   "quote": "They are night-blooming and wither by the next morning."
+  },
+  {
+   "ja": "植え替えは2〜3年ごと。",
+   "src": "ncsu",
+   "quote": "Repotting may be required every 2 or 3 years."
+  },
+  {
+   "ja": "直射日光で日焼けする。",
+   "src": "ncsu",
+   "quote": "Exposure to direct sunlight can cause sunburn.",
+   "symptom": "scorch"
+  }
+ ]
+}

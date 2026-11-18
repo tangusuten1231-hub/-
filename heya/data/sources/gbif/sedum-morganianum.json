@@ -1,0 +1,17 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5690408",
+ "retrieved": "2026-11-17",
+ "query": "Sedum morganianum",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5690408,
+ "acceptedKey": 5690408,
+ "acceptedName": "Sedum morganianum",
+ "authorship": "Walther",
+ "rank": "SPECIES",
+ "family": "Crassulaceae",
+ "genus": "Sedum",
+ "synonyms": []
+}

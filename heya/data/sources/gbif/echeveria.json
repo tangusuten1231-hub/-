@@ -1,0 +1,23 @@
+{
+ "source": "GBIF Backbone Taxonomy",
+ "license": "CC BY 4.0",
+ "url": "https://www.gbif.org/species/5362052",
+ "retrieved": "2026-11-17",
+ "query": "Echeveria",
+ "matchType": "EXACT",
+ "status": "ACCEPTED",
+ "usageKey": 5362052,
+ "acceptedKey": 5362052,
+ "acceptedName": "Echeveria",
+ "authorship": "DC.",
+ "rank": "GENUS",
+ "family": "Crassulaceae",
+ "genus": "Echeveria",
+ "synonyms": [
+  "Courantia",
+  "Oliveranthus",
+  "Oliverella",
+  "Reidmorania",
+  "Urbinia"
+ ]
+}
